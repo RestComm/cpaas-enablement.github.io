@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS :: Restcomm Docs</title>
+    <link rel="canonical" href="index.html/Restcomm-CSP/1.0/api/sms.html">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index.html">Restcomm Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        -->
+        <a class="navbar-item" href="#">Sign iin</a>
+        <div class="navbar-item">
+          <span>
+            <a id="signup" href="#">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="main-wrapper">
+<div class="navigation-container" data-component="Restcomm-CSP" data-version="1.0" >
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="voice-category.html">Voice</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Calls</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Recordings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Conferences</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms-category.html">SMS</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms.html">Messages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#_send_sms">Send SMS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#_get_sms_list">Get SMS List</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#_get_single_sms_information">Get single SMS Information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#_sms_attributes">SMS Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="rcml-category.html">RCML</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dial.html">Dial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="gather.html">Gather</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="say.html">Say</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="play.html">Play</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">Restcomm CPaaS Enablement Docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Restcomm CPaaS Enablement Docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
+    <li class="crumb"><a href="sms-category.html">SMS</a></li>
+    <li class="crumb"><a href="sms.html">Messages</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc">
+<h1>SMS</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>An <strong>SMS</strong> represents an inbound or outbound SMS message. Using this API you can do things like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sending an SMS to a mobile number and optionally get notified of its delivery status</p>
+</li>
+<li>
+<p>Sending a text message to a VoIP Restcomm Client, representing a registered software or hardware SIP phone.</p>
+</li>
+<li>
+<p>Querying details for already exchanged SMS messages</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_send_sms"><a class="anchor" href="#_send_sms"></a>Send SMS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>POST /restcomm/2012-04-24/Accounts/{accountSid}/SMS/Messages</code></p>
+</div>
+<div class="paragraph">
+<p>Sends a new SMS and returns its representation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the recipient of the SMS is a mobile number the message is routed to the mobile network and delivered to the mobile device.</p>
+</li>
+<li>
+<p>If the recipient is a registered Restcomm Client then a SIP message is generated and routed to the VoIP client, provided that the Restcomm Client is registered. Notice that in this case the recipient client name needs to be prefixed with the string <code>client:</code> in the <code>To</code> parameter described below</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Body Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number or short code to be used as the message sender. This number needs to be SMS-enabled in the Restcomm Platform (Required).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number, short code or Restcomm client to which the message will be sent to. Needs to be in E.164 format in case of a phone number. In case of a Restcomm client, the client name needs to be prefixed with the string 'client:' (Required).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text body of the SMS message (Required).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL for Restcomm Platform to send webhook requests to notify on any SMS delivery status event. Notice that StatusCallback is not applicable to messages addressed to Restcomm Clients. For more information check below (Optional).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_status_callback"><a class="anchor" href="#_status_callback"></a>Status Callback</h3>
+<div class="paragraph">
+<p>The <strong>StatusCallback</strong> body parameter allows you to specify a URL where you can receive events in the form of HTTP POST requests (webhooks) with updates on SMS delivery status from the Restcomm Platform. Those requests can contain the following body parameters:</p>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Body Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MessageSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message Sid for the SMS that triggered this status callback request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MessageStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Updated status for the SMS. The value is one of the following:  sent, failed, delivered, undelivered. For more details please refer to the events description below.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ErrorCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error code associated with the sent SMS. The exact format of the error may depend on the provider (only present if an error occurred).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account Sid for the account that sent the SMS that triggered this status callback request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sender of the SMS that triggered this status callback request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recipient of the SMS that triggered this status callback request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The text body of the SMS that triggered this status callback request.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following two events are supported, in the provided order:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Sent status event</strong>, indicating whether Restcomm managed to successfully forward the SMS to the provider for further routing. The status is reflected on <code>MessageStatus</code> attribute described above and can be either <strong>sent</strong> on success or <strong>failed</strong> on failure. In case of failure no delivery status event is sent (see below).</p>
+</li>
+<li>
+<p><strong>Delivery status event</strong>, indicating whether the provider managed to successfully deliver the SMS to the destination, given that the sent status event previously was <strong>sent</strong>. The status is reflected on <code>MessageStatus</code> attribute described above and can be <strong>delivered</strong>, <strong>undelivered</strong> or <strong>failed</strong></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<div class="paragraph">
+<p>Send an SMS message from 19876543212 to 13216549878 and also use a status callback URL so that you are notified of the SMS delivery status in the provided callback URL. Make sure that the provided callback URL is reachable from the internet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages -d "From=19876543212" -d "To=13216549878" -d "Body=Test SMS from Restcomm" -d "StatusCallback=http://status.callback.url"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "sid": "SM5dd70f7ea54e47f1a49749debeec3f7f",
+  "date_created":"Thu, 19 Nov 2015 07:21:35 -0500",
+  "date_updated":"Thu, 19 Nov 2015 07:21:35 -0500",
+  "account_sid":"ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "from":"19876543212",
+  "to":"13216549878",
+  "body":"Test SMS from Restcomm",
+  "status":"sending",
+  "direction":"outbound-api",
+  "price":"0",
+  "price_unit":"USD",
+  "api_version":"2012-04-24",
+  "uri":"/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SM5dd70f7ea54e47f1a49749debeec3f7f.json"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Send a (SIP) message from 19876543212 to Restcomm Client <code>alice</code>. Notice the <code>client:</code> prefix in the <code>To</code> (remember that this client needs to be registered):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages -d "From=19876543212" -d "To=client:alice" -d "Body=Test SIP message from Restcomm" -d "StatusCallback=http://status.callback.url"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "sid": "SM0e164269a83c4d5ea331ed83fad5837c",
+  "date_created":"Thu, 19 Nov 2015 07:21:35 -0500",
+  "date_updated":"Thu, 19 Nov 2015 07:21:35 -0500",
+  "account_sid":"ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "from":"19876543212",
+  "to":"client:alice",
+  "body":"Test SIP message from Restcomm",
+  "status":"sending",
+  "direction":"outbound-api",
+  "price":"0",
+  "price_unit":"USD",
+  "api_version":"2012-04-24",
+  "uri":"/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages/SM0e164269a83c4d5ea331ed83fad5837c.json"
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_get_sms_list"><a class="anchor" href="#_get_sms_list"></a>Get SMS List</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>GET /restcomm/2012-04-24/Accounts/{accountSid}/SMS/Messages</code></p>
+</div>
+<div class="paragraph">
+<p>Returns a list of SMS records corresponding to SMS messages sent or received from the provided AccountSid, subject to the provided paging, filtering and sorting URL query parameters.</p>
+</div>
+<div class="sect2">
+<h3 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h3>
+<div class="paragraph">
+<p>The following paging parameters are supported</p>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of SMS records to return, starting from 0.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_filtering"><a class="anchor" href="#_filtering"></a>Filtering</h3>
+<div class="paragraph">
+<p>The following filtering parameters are supported</p>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show messages addressed to this phone number or Client identifier.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show messages sent from this phone number or Client identifier.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StartTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show messages that were sent or received on this date/time or later, given as an ISO-8601 date/time string, like <code>YYYY-MM-DDTHH:MM:SS</code> (for example <code>2018-10-05T22:45:32</code>) or, if you want to omit the time, YYYY-MM-DD (for example <code>2018-10-05</code>). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EndTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show messages that were sent or received on this date/time or earlier, given as an ISO-8601 date/time string, like <code>YYYY-MM-DDTHH:MM:SS</code> (for example <code>2018-10-06T02:10:03</code>) or, if you want to omit the time, YYYY-MM-DD (for example <code>2018-10-06</code>). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show messages that match this body text, partially or fully.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h3>
+<div class="paragraph">
+<p>Below you can find the supported sorting parameters. In order to use them you need to utilize the <strong>SortBy</strong> query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here&#8217;s the overall format: <strong>SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;</strong>. If no direction parameter is provided, then the listing of messages is sorted by the attribute in ascending order.</p>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date on which the message was sent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the party who initiated the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the party who received the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the direction of the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the status of the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the text body of the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the price of the message, if applicable.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_examples_2"><a class="anchor" href="#_examples_2"></a>Examples</h3>
+<div class="paragraph">
+<p>The command below will return the first page of SMS records corresponding to SMS messages sent from '19876543212' to '13216549878' between 2018-05-30 and 2018-06-09, sorted by the creation date in ascending order:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ curl -X GET  https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages.json?From=19876543212&amp;To=13216549878&amp;StartTime=2018-05-30&amp;EndTime=2018-06-09&amp;Page=0&amp;PageSize=10&amp;SortBy=DateCreated:asc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "page": 0,
+    "page_size": 10,
+    "total": 2,
+    ...
+    "messages": [
+        {
+            "sid": "SM350df10671b64616a3bb92981967cecb",
+            "date_created": "Thu, 31 May 2018 16:10:32 +0000",
+            "date_updated": "Thu, 31 May 2018 16:10:32 +0000",
+            "account_sid": "&lt;accountSid&gt;",
+            "from": "19876543212",
+            "to": "13216549878",
+            "body": "Hello 13216549878",
+            "status": "sent",
+            "direction": "outbound-api",
+            "price": "0.00",
+            "price_unit": "USD",
+            "api_version": "2012-04-24",
+            "uri": "/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages/SM350df10671b64616a3bb92981967cecb.json"
+        },
+        ...
+    ]
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_get_single_sms_information"><a class="anchor" href="#_get_single_sms_information"></a>Get single SMS Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>GET /restcomm/2012-04-24/Accounts/{accountSid}/SMS/Messages/{MessageSid}</code></p>
+</div>
+<div class="paragraph">
+<p>Returns detailed information for a single SMS identified by the MessageSid path parameter in the URL.</p>
+</div>
+<div class="sect2">
+<h3 id="_examples_3"><a class="anchor" href="#_examples_3"></a>Examples</h3>
+<div class="paragraph">
+<p>Retrieve the information of the SMS record with Sid SM55ce5cf07b9649c283cbacab4dae56a9:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ curl -X GET https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages/SM55ce5cf07b9649c283cbacab4dae56a9.json</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "sid":"SM55ce5cf07b9649c283cbacab4dae56a9",
+    "date_created":"Thu, 19 Nov 2015 07:21:24 -0500",
+    "date_updated":"Thu, 19 Nov 2015 07:21:24 -0500",
+    "date_sent":"2015-11-19T07:21:24.000-05:00",
+    "account_sid":"ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "from":"19876543212",
+    "to":"13216549878",
+    "body":"Another test from Restcomm",
+    "status":"sent",
+    "direction":"outbound-api",
+    "price":"0",
+    "price_unit":"USD",
+    "api_version":"2012-04-24",
+    "uri":"/restcomm/2012-04-24/Accounts/&lt;authToken&gt;/SMS/Messages/SM55ce5cf07b9649c283cbacab4dae56a9.json"
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sms_attributes"><a class="anchor" href="#_sms_attributes"></a>SMS Attributes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The attributes of the SMS resource are as follows:</p>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies the SMS Message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date on which this SMS Message was created.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date on which this SMS Message was last updated.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateSent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date on which the SMS was sent or received by Restcomm.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The AccountSid that sent or received this SMS message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number or short code that sent the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number, short code or client that received the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The text body of the SMS message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The status of this SMS message. Possible values are <code>queued</code>, <code>sending</code>, <code>sent</code>, <code>failed</code>, <code>received</code>, <code>delivered</code> and <code>undelivered</code>. For more information on the statuses please refer to 'Status Description' section</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The direction of this SMS message. Possible values are <code>incoming</code>, <code>outbound-api</code>, <code>outbound-call</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiVersion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API version RestComm used to handle the SMS message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The suffix for the HTTP resource, relative to the base organization url. For example when creating an SMS message using the endpoint <a href="https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages.json" class="bare">https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages.json</a>, the Uri will be <code>/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages/SM03dd468462814f20a28ea7be4cffac29.json</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">error_code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides more information about failure reason in case message status is <strong>failed</strong> or <strong>undelivered</strong>. If not, it will be null.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">error_message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Similar to <strong>error_code</strong>, but providing human readable text.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_status_description"><a class="anchor" href="#_status_description"></a>Status Description</h3>
+<div class="paragraph">
+<p>Here is a detailed breakdown of the Status attribute describing the current status of the SMS message:</p>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">queued</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm has queued the message pending transmission. Applies to outbound messages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sending</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm has accepted the message and is sending it to the provider. Applies to outbound messages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm has already sent the message to the provider. Applies to outbound messages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">failed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message failed processing either on the Restcomm or provider’s side. The reason could be that the message was expired, rejected or deleted by the provider.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">received</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm has received the message. Applies to inbound message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delivered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The provider has delivered the message into user&#8217;s terminal. Applies to outbound messages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undelivered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The provider couldn’t deliver the message to the user’s SMS endpoint. Applies to outbound messages.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_sms_specific_error_codes"><a class="anchor" href="#_sms_specific_error_codes"></a>SMS-specific error codes</h3>
+<div class="paragraph">
+<p>In cases where an SMS fails to be delivered due to a Provider-related error</p>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Code</th>
+<th class="tableblock halign-left valign-top">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Queue overflow</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account suspended</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unreachable destination handset</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30004</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message blocked</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30005</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unknown destination handset</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30006</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Landline or unreachable carrier</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30007</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Carrier violation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30008</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unknown error</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30009</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Missing segment</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">300010</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message price exceeds max price</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>
