@@ -151,8 +151,258 @@
 </div>
 <article class="doc">
 <h1>White Labeling</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>1. Overview</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+<p>Restcomm lets you go to market with your own brand by providing a set of white-labeling features within its console.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_whitelabeling_your_restcomm_organizations"><a class="anchor" href="#_whitelabeling_your_restcomm_organizations"></a>2. Whitelabeling your Restcomm organizations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Restcomm can be white-labeled using the white-labeling option under your account settings. The white-labeling feature lets you set your company name, logo, favicon, support and documentation URLs, terms, your custom domain, and styling.</p>
+</div>
+<div class="sect2">
+<h3 id="_general_organization_settings"><a class="anchor" href="#_general_organization_settings"></a>2.1. General Organization settings</h3>
+<div class="paragraph">
+<p>To begin the white-labeling process, log into your Restcomm account, navigate to <strong>Account &#8594; Settings &#8594; Whitelabeling</strong>.</p>
+</div>
+<div class="paragraph">
+<p>In the General Organization settings form:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter the name of your organization</p>
+</li>
+<li>
+<p>Upload your company logo (with minimum required size of 75 x 75 px).</p>
+<div class="paragraph">
+<p>Your company logo will be displayed on the top left corner of the Console, Visual Designer and WebRTC demo user interfaces.</p>
+</div>
+</li>
+<li>
+<p>Upload your favicon (with required size of 16 x 16 px or 32 x 32 px)</p>
+</li>
+<li>
+<p>Specify your support URL (optional).</p>
+<div class="paragraph">
+<p>Provide a way for your users to reach out to you in case they want to report issues or ask questions. Link your support page or provide an  email address.</p>
+</div>
+</li>
+<li>
+<p>Provide a link to your documentation (optional).</p>
+<div class="paragraph">
+<p>Make it easier for your users to get started by sharing your documentation page with them.</p>
+</div>
+</li>
+<li>
+<p>Add a link to your terms.</p>
+<div class="paragraph">
+<p>Let users know what your terms and conditions are and how they can utilize your services by linking them here.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-1.png" alt="General organization settings image">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setting_up_your_custom_domain"><a class="anchor" href="#_setting_up_your_custom_domain"></a>2.2. Setting up your custom domain</h3>
+<div class="paragraph">
+<p>You can skip this step if you do not want to use a custom domain. Otherwise, follow the steps below.</p>
+</div>
+<div class="paragraph">
+<p>In order to use your custom domain with Restcomm, you will need to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provide a valid certificate obtained by trusted third party organization (like GoDaddy)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You should provide a full chain certificate in PEM format, that obtains Root CA and intermediate CAs</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Setting up your domain with GoDaddy</div>
+<p>For simplicity let’s assume your domain is testxmpp.com and for UC-One you use sub-domain text.testxmpp.com. Next step is to make sure you set DNS SRV for your subdomain to point to your XMPP server (UC One XMPP Server). For simplicity, we assume UC One XMPP server is cloud-xmpp-server.restcomm.com. Below is a screenshot on how to setup DNS SRV on GoDaddy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-2.png" alt="General organization settings image">
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Setting up your SSL certificate with GoDaddy</div>
+<p>To start using white labeling, you must first set up an SSL Certificate for the sub-domain and upload full chain of certificate on Restcomm via Swagger UI. Make sure the order of the SSL Certificate chain is as follows; your domain certificate, your private key, authority issuing your certificate,  root certificate.</p>
+</div>
+<div class="paragraph">
+<p>For simplicity let’s assume your domain is testxmpp.com and for UC-One you are using the following sub-domain: text.testxmpp.com. In the steps below we will explain how to generate a private key and  certificate using OpenSSL.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generate an openssl key
+(GSS bought a domain on Godaddy text.textxmpp.com) openssl genrsa -out text.testxmpp.com.key 2048</p>
+</li>
+<li>
+<p>Create your CSR or certification request file</p>
+<div class="paragraph">
+<p><code>$ openssl req -new -key text.testxmpp.com.key -out text.testxmpp.com.csr</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-3.png" alt="General organization settings image">
+</div>
+</div>
+</li>
+<li>
+<p>Copy the content of the newly created <code>text.testxmpp.com.csr</code> and paste it into the Godaddy CSR enrollment form.</p>
+</li>
+<li>
+<p>When you get the confirmation, download the certificate zip file from you Godaddy Dashboard</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-4.png" alt="General organization settings image">
+</div>
+</div>
+</li>
+<li>
+<p>The content of the certificate zip file for Tomcat should look like the one below</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-5.png" alt="General organization settings image">
+</div>
+</div>
+</li>
+<li>
+<p>Combine the certificate from Godaddy with the openssl key you generated in step 1:</p>
+<div class="paragraph">
+<p><code>$ cat '/home/charles/Downloads/text.testxmpp.com/51e1fbfeeae30fdb.crt' '/home/charles/telestax/text.testxmpp.com.key' '/home/charles/Downloads/text.testxmpp.com/gd_bundle-g2-g1.crt' &gt; text.testxmpp.combined.pem</code></p>
+</div>
+</li>
+<li>
+<p>The newly created <code>text.testxmpp.combined.pem</code> will contain the certificate you need to create a new domain mapping in swagger. Copy and paste the content of the combine.pem to swagger UI.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-6.png" alt="General organization settings image">
+</div>
+</div>
+</li>
+<li>
+<p>If the mapping and the certificate is valid, you will see the following response</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-7.png" alt="General organization settings image">
+</div>
+</div>
+</li>
+<li>
+<p>Create DNS SRV record pointing to Restcomm Message Exchange.  Your DNS SRV record should look like the one below:</p>
+<div class="paragraph">
+<p><code>_xmpp-server._tcp.xmpp.mycompany.com. 1 1 5269 cloud-xmpp-server.restcomm.com.</code></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Setting up your domain with GoDaddy</div>
+<p>For simplicity let’s assume that your domain is testxmpp.com and for UC-One you are using a subdomain - text.testxmpp.com. Next step is to make sure you set DNS SRV for your subdomain that points to your XMPP server (UC One XMPP Server). In our example UC One XMPP server is cloud-xmpp-server.restcomm.com. Below is a screenshot of how you should add DNS SRV in GoDaddy.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-2.png" alt="General organization settings image">
+</div>
+</div>
+<div class="paragraph">
+<p>Once you have completed these steps, you can go back to the Custom Domain section in the Restcomm Console and populate the form below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-8.png" alt="General organization settings image">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setting_up_your_custom_domain_2"><a class="anchor" href="#_setting_up_your_custom_domain_2"></a>2.3. Setting up your custom domain</h3>
+<div class="paragraph">
+<p>The custom styling sections let you apply your styling to the Restcomm Console, Visual Designer, and WebRTC demo.</p>
+</div>
+<div class="paragraph">
+<p>Here are the styling options you may use:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Setting up a background image (preferably in PNG format with minimum size of XXXpx)</p>
+</li>
+<li>
+<p>Basic text color</p>
+</li>
+<li>
+<p>Links color</p>
+</li>
+<li>
+<p>Links color on mouse over</p>
+</li>
+<li>
+<p>Buttons background color</p>
+</li>
+<li>
+<p>Buttons background color on mouse over</p>
+</li>
+<li>
+<p>Buttons text color</p>
+</li>
+<li>
+<p>Buttons text color on mouse over</p>
+</li>
+<li>
+<p>Background color of the Console’s home page</p>
+</li>
+<li>
+<p>Text color of discrete elements</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-9.png" alt="General organization settings image">
+</div>
+</div>
+<div class="paragraph">
+<p>If you wish, you can apply the same styling to the Visual Designer and WebRTC demo by checking the box next to each one of the options.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-10.png" alt="General organization settings image">
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to set custom styling for the Visual Designer and WebRTC Demo, just leave the boxes unchecked and set the following styling options for each one of them.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/whitelabeling-11.png" alt="General organization settings image">
+</div>
+</div>
+<div class="paragraph">
+<p>Once done, click <strong>Submit</strong> to apply your changes.</p>
+</div>
+</div>
+</div>
 </div>
 </article>
   </main>
