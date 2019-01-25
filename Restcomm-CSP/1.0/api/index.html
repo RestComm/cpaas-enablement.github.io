@@ -256,5 +256,42 @@ The other docs component, Component A, can be accessed via the component selecto
 <script src="../../../_/js/site.js"></script>
 <script src="../../../_/js/vendor/highlight.js"></script>
 <script>hljs.initHighlighting()</script>
+<script>
+var Countly = Countly || {}
+Countly.q = Countly.q || []
+
+//provide countly initialization parameters
+Countly.app_key = '56bdc77c4c53e32ebd439e2586dd4ee22b3d3ad0'
+Countly.url = 'https://restcomm.count.ly'
+
+Countly.q.push(['track_sessions'])
+Countly.q.push(['track_pageview'])
+Countly.q.push(['track_clicks'])
+Countly.q.push(['track_errors'])
+Countly.q.push(['track_links'])
+Countly.q.push(['track_forms'])
+Countly.q.push(['collect_from_forms'])
+
+//send event
+Countly.q.push(['add_event', {
+key: 'Restcomm CSPs Documentation',
+segmentation: {
+},
+}]);
+
+// load countly script asynchronously
+(function () {
+var cly = document.createElement('script')
+cly.type = 'text/javascript'
+cly.async = true
+//enter url of script here
+cly.src = 'https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'
+cly.onload = function () {
+Countly.init()
+}
+var s = document.getElementsByTagName('script')[0]
+s.parentNode.insertBefore(cly, s)
+})()
+</script>
   </body>
 </html>
