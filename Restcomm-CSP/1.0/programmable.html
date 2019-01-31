@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programmable Voice and SMS Docs :: Docs</title>
+    <title>Restcomm Programmable Voice and SMS Docs :: Docs</title>
     <link rel="canonical" href="index.html/Restcomm-CSP/1.0/programmable.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -149,20 +149,387 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="programmable.html">Programmable Voice and SMS Docs</a></li>
+    <li class="crumb"><a href="programmable.html">Restcomm Programmable Voice and SMS Docs</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc">
-<h1>Programmable Voice and SMS Docs</h1>
+<h1>Restcomm Programmable Voice and SMS Docs</h1>
+<h1 id="_1_overview" class="sect0"><a class="anchor" href="#_1_overview"></a>1. Overview</h1>
 <div class="paragraph">
-<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+<p>Service providers can provide more flexibility to their enterprise customers by letting them build Voice and SMS applications using a powerful drag and drop visual designer or robust Voice and SMS APIs.</p>
 </div>
 <div class="paragraph">
-<p>Link to Enterprise Documentation</p>
+<p>You can stay on the top of the quality of the service you offer by <a href="https://cpaas-enablement-docs.restcomm.com/Restcomm-CSP/1.0/byoc.html">bringing your own carrier</a> for both Voice and SMS.</p>
+</div>
+<h1 id="_2_getting_started_with_programmable_voice" class="sect0"><a class="anchor" href="#_2_getting_started_with_programmable_voice"></a>2. Getting Started with Programmable Voice</h1>
+<div class="paragraph">
+<p>The programmable voice REST API lets your enterprise customers make outbound calls, modify calls in progress, create and manage conference calls, and query metadata about them. In addition, both inbound and outbound calls can be recorded and stored while automated speech recognition (ASR) can translate the audio to text.</p>
+</div>
+<div class="sect1">
+<h2 id="_2_1_api_reference"><a class="anchor" href="#_2_1_api_reference"></a>2.1. API Reference</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All URLs referenced in the documentation have the following base:</p>
 </div>
 <div class="paragraph">
-<p>Link to support, link to contact sales</p>
+<p>Base URL <a href="https://cloud.restcomm.com/restcomm/2012-04-24" class="bare">https://cloud.restcomm.com/restcomm/2012-04-24</a></p>
+</div>
+<div class="paragraph">
+<p>The Restcomm RESTful APIs are served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported. Below you can find a list with all available voice APIs.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/available-phone-numbers-api.html#available-phone-numbers">Restcomm API – AvailablePhoneNumbers</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/clients-api.html#clients">Restcomm API – Calls</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/clients-api.html#clients">Restcomm API – Clients</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/conferences-api.html#conferenceapi">Restcomm API - Conference Management</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/participants-api.html#participantsapi">Restcomm API - Conference Participants Management</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/incoming-phone-numbers-api.html#incoming-phone-numbers">Restcomm API – IncomingPhoneNumbers</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/recordings-api.html#recordings">Restcomm API – Recordings</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2_2_restcomm_markup_language_rcml"><a class="anchor" href="#_2_2_restcomm_markup_language_rcml"></a>2.2. Restcomm Markup Language (RCML)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>RCML is a set of instructions you can use to tell Restcomm what to do when you receive an incoming call or SMS.</p>
+</div>
+<div class="paragraph">
+<p>When someone makes a call to one of your Restcomm numbers, Restcomm will look up the URL associated with that phone number and make a request to it. Restcomm will read the RCML instructions at that URL to determine what to do: record the call, play a message to the caller,  prompt him to press a digits on their keypad, etc.</p>
+</div>
+<div class="paragraph">
+<p>RCML is similar to HTML. Only one RCML document is rendered to the caller at once, but many documents can be linked together to build complex interactive SMS applications.</p>
+</div>
+<div class="paragraph">
+<p><strong>Restcomm’s request to your application</strong></p>
+</div>
+<div class="paragraph">
+<p>Restcomm makes HTTP requests to your application just like a regular web browser, in the format <strong>application/x-www-form-urlencoded</strong>. By including parameters and values in its requests, Restcomm sends data to your application that you can act upon before responding.</p>
+</div>
+<div class="paragraph">
+<p>You can configure the URLs and HTTP Methods used by Restcomm to make its requests via your account settings or using the REST API.</p>
+</div>
+<div class="paragraph">
+<p>When Restcomm receives a message for one of your Restcomm numbers, it makes a synchronous HTTP request to the message URL configured for that number and expects to receive RCML in response.</p>
+</div>
+<div class="paragraph">
+<p>Restcomm sends the following parameters with its request as POST parameters or URL query parameters, depending on which HTTP method you’ve configured:</p>
+</div>
+<div class="paragraph">
+<p><strong>Request Parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique identifier for this call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Your account id.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number of the originator of the call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number of the call recipient.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The status of the call. The possible values are queued, ringing, in-progress, completed, busy, failed, and no-answer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiVersion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The version of the RestComm API used to handle this call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The direction of the call. The possible values are inbound and outbound-dial.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallerName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The caller ID for the caller in the case of inbound calls.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>The RCML verbs for Programmable Voice</strong></p>
+</div>
+<div class="paragraph">
+<p>You can use different combinations of the verbs below to create any kind of interactive voice and messaging applications.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/dial-rcml.html#dial">Dial - Add another party to the call</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/client-rcml.html#client">Client</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/conference-rcml.html#conference">Conference</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/number-rcml.html#number">Number</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/sip-rcml.html#sip">SIP</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/gather-rcml.html#gather">Gather - Collect digits the caller types on their keypad or do speech recognition that translates audio-to-text</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/hangup-rcml.html#hangup">Hangup - Hang up the call</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/pause-rcml.html#pause">Pause - Wait before executing more instructions</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/play-rcml.html#play">Play - Play an audio file for the caller</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/record-rcml.html#record">Record - Record the caller’s voice</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/redirect-rcml.html#redirect">Redirect - Redirect call flow to a different RCML document</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/reject-rcml.html#reject">Reject - Decline an incoming call without being billed</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/rcml/say-rcml.html#say">Say - Read text to the caller</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Restcomm Response</strong></p>
+</div>
+<div class="paragraph">
+<p>In your response to the request from Restcomm you want to provide RCML that will instruct Restcomm on how to handle the current call.</p>
+</div>
+<div class="paragraph">
+<p><strong>MIME Types</strong>: Restcomm supports the MIME types described in the table below.</p>
+</div>
+<div class="paragraph">
+<p><strong>Supported MIME Types</strong></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;Parameter*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text/xml, application/xml</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RestComm interprets the returned document as an XML instruction set.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When your application returns the RCML document the root element of the document must always be &lt;Response&gt; or the parser will throw an exception.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<h1 id="_2_getting_started_with_programmable_sms" class="sect0"><a class="anchor" href="#_2_getting_started_with_programmable_sms"></a>2. Getting Started with Programmable SMS</h1>
+<div class="paragraph">
+<p>Restcomm allows to programmatically send and receive SMS globally through simple RESTful APIs or a powerful drag and drop Visual Designer.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Programmatically send and receive high volume of SMS.</p>
+</li>
+<li>
+<p>Build apps that scale with the web technologies that you are already using.</p>
+</li>
+<li>
+<p>Restcomm enables you to stay in control of SMS delivery, speed and quality in allowing you to bring your own carrier to Restcomm.</p>
+</li>
+<li>
+<p>Restcomm can put your existing numbers to work or enhance your Unified Communications Client by SMS Enabling them on Restcomm through <a href="https://cpaas-enablement-docs.restcomm.com/Restcomm-CSP/1.0/message-exchange.html">Message Exchange</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>API Reference</strong></p>
+</div>
+<div class="paragraph">
+<p>All URLs referenced in the documentation have the following base:</p>
+</div>
+<div class="paragraph">
+<p>Base URL: <a href="https://cloud.restcomm.com/restcomm/2012-04-24" class="bare">https://cloud.restcomm.com/restcomm/2012-04-24</a></p>
+</div>
+<div class="paragraph">
+<p>The Restcomm RESTful APIs are served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported. Below you can find a list of all available SMS APIs:</p>
+</div>
+<div class="paragraph">
+<p><strong>SMS</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/available-phone-numbers-api.html#available-phone-numbers">Restcomm API – AvailablePhoneNumbers</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/incoming-phone-numbers-api.html#incoming-phone-numbers">Restcomm API – IncomingPhoneNumbers</a></p>
+</li>
+<li>
+<p><a href="https://www.restcomm.com/docs/connect/api/sms-api.html#sms">Restcomm API – SMS</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>RCML Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>RCML is a set of instructions you can use to tell Restcomm what to do when you receive an incoming call or SMS.</p>
+</div>
+<div class="paragraph">
+<p>When someone sends an SMS to one of your Restcomm numbers, Restcomm will look up the URL associated with that phone number and make a request to that URL. Restcomm will read RCML instructions at that URL to determine what to do: perhaps respond with a message or transfer control of a message response to a different URL</p>
+</div>
+<div class="paragraph">
+<p>RCML is similar to HTML. Only one RCML document is rendered to the caller at once, but many documents can be linked together to build complex interactive SMS applications.</p>
+</div>
+<div class="paragraph">
+<p><strong>Restcomm’s request to your application</strong>
+Restcomm makes HTTP requests to your application just like a regular web browser, in the format application/x-www-form-urlencoded. By including parameters and values in its requests, Restcomm sends data to your application that you can act upon before responding.</p>
+</div>
+<div class="paragraph">
+<p>You can configure the URLs and HTTP Methods Restcomm uses to make its requests via your account portal or using the REST API.</p>
+</div>
+<div class="paragraph">
+<p>When Restcomm receives a message for one of your Restcomm numbers, it makes a synchronous HTTP request to the message URL configured for that number and expects to receive RCML in response.</p>
+</div>
+<div class="paragraph">
+<p>Restcomm sends the following parameters with its request as POST parameters or URL query parameters, depending on which HTTP method you’ve configured:</p>
+</div>
+<div class="paragraph">
+<p><strong>Request Parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SmsSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique identifier for this message. May be used to later retrieve this message from the REST API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The id of the Account this message is associated with.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number that sent this message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number of the recipient.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The text body of the message.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>The RCML verbs for Programmable SMS</strong></p>
+</div>
+<div class="paragraph">
+<p>Find out more about all available SMS RCML verbs <a href="https://www.restcomm.com/docs/connect/rcml/sms-rcml.html#sms">here</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Restcomm Response</strong></p>
+</div>
+<div class="paragraph">
+<p>In your response to the request from RestComm you want to provide RCML that will instruct RestComm on how to handle the current call.</p>
+</div>
+<div class="paragraph">
+<p><strong>MIME Types</strong>: Restcomm supports the MIME types described in the table below.</p>
+</div>
+<div class="paragraph">
+<p><strong>Supported MIME Types</strong></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text/xml, application/xml</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm interprets the returned document as an XML instruction set.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When your application returns the RCML document the root element of the document must always be &lt;Response&gt; or the parser will complain.
+</td>
+</tr>
+</table>
 </div>
 </article>
   </main>
