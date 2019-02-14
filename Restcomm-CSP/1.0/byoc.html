@@ -190,20 +190,20 @@
 <h3 id="_setting_up_your_carrier_for_voice_traffic"><a class="anchor" href="#_setting_up_your_carrier_for_voice_traffic"></a>2.1. Setting up your carrier for voice traffic</h3>
 <div class="paragraph">
 <div class="title">Voice origination</div>
-<p>Restcomm’s Programmable Voice enables you to initiate SIP sessions from a PSTN Carrier (via SIP SBC) towards Restcomm Cloud and use Restcomm Visual Designer (RVD),
+<p>Restcomm’s Programmable Voice enables you to initiate SIP sessions from a PSTN Carrier (via SIP SBC) to the Restcomm Cloud and use the Restcomm Visual Designer (RVD),
  <a href="https://www.restcomm.com/docs/connect/rcml/index.html">RCML</a> or the <a href="https://www.restcomm.com/docs/connect/api/index.html">REST APIs</a> to create advanced voice applications.</p>
 </div>
 <div class="paragraph">
-<p>When you sign up for a Restcomm Service Provider account, you are assigned a virtual  <a href="https://www.restcomm.com/docs/connect/api/organization-api.html#organization">Restcomm Organization</a> which provides a custom DNS hostname, in the form of &lt;organization_name&gt;.restcomm.com, that can accept SIP traffic from your network.</p>
+<p>When you sign up for a Restcomm Service Provider account, you are assigned a virtual <a href="https://www.restcomm.com/docs/connect/api/organization-api.html#organization">Organization</a> which provides a custom DNS hostname, in the form of &lt;organization_name&gt;.restcomm.com, which terminates SIP traffic from your network.</p>
 </div>
 <div class="paragraph">
-<p>At the moment to enable your custom Domain to receive SIP Voice Traffic from your carrier, you need to make sure your equipment can resolve Restcomm DNS SRV Records for your organization to have the interconnection working properly. Your carrier will need to resolve the provided hostname as explained in <a href="https://www.ietf.org/rfc/rfc3263.txt">RFC 3263</a>.</p>
+<p>In order to enable your custom domain to receive SIP traffic from your carrier, you need to make sure your equipment can resolve Restcomm DNS SRV Records for your organization. Your SBC will need to resolve the provided hostname as explained in <a href="https://www.ietf.org/rfc/rfc3263.txt">RFC 3263</a>.</p>
 </div>
 <div class="paragraph">
-<p>To be able to receive SIP registration and voice traffic from SIP or WebRTC Endpoints, you will need to configure <a href="https://www.restcomm.com/docs/connect/api/clients-api.html#clients">Restcomm SIP Clients</a> with a username and password that should be used on the SIP Client for SIP Digest Authentication</p>
+<p>To be able to receive SIP registration and voice traffic from SIP or WebRTC Endpoints to Restcomm numbers, you will need to configure <a href="https://www.restcomm.com/docs/connect/api/clients-api.html#clients">Restcomm SIP Clients</a> with a username and password that should be used on the SIP Client for SIP Digest Authentication.</p>
 </div>
 <div class="paragraph">
-<p>No special configuration is needed to enable your custom domain to receive SIP voice  traffic from your carrier.</p>
+<p>Special configuration is not needed to enable your custom domain to receive SIP traffic from your carrier.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -212,7 +212,7 @@
 </div>
 <div class="paragraph">
 <div class="title">Voice termination</div>
-<p>Restcomm’s Programmable Voice enables your applications to initiate SIP sessions from Restcomm towards your existing PSTN Carrier or SIP/WebRTC communications infrastructure using <a href="https://www.restcomm.com/docs/connect/rcml/index.html">RCML</a> and/or the <a href="https://www.restcomm.com/docs/connect/api/index.html">REST APIs</a>.</p>
+<p>Restcomm’s Programmable Voice enables your applications to initiate SIP sessions from Restcomm to your existing PSTN Carrier or SIP/WebRTC communications infrastructure using <a href="https://www.restcomm.com/docs/connect/rcml/index.html">RCML</a> and/or the <a href="https://www.restcomm.com/docs/connect/api/index.html">REST APIs</a>.</p>
 </div>
 <div class="paragraph">
 <p>There are multiple ways in Restcomm to route termination traffic using the Dial Verb:</p>
@@ -258,10 +258,10 @@ Currently the Voice Origination and Phone Number Providers are tied together so 
 </div>
 </div>
 <div class="ulist">
-<div class="title">To setup Voice Termination with your own carrier for your Organization, please follow the steps below:</div>
+<div class="title">To set up Voice Termination with your own carrier for your Organization, please follow the steps below:</div>
 <ul>
 <li>
-<p>Log into your Restcomm cloud account and navigate to <strong>your profile &#8594; Settings &#8594; Bring Your Own Carrier</strong></p>
+<p>Log in to your Restcomm cloud account and navigate to <strong>your profile &#8594; Settings &#8594; Bring Your Own Carrier</strong></p>
 </li>
 <li>
 <p>Choose to edit the <strong>Voice Termination</strong> settings</p>
@@ -288,7 +288,7 @@ Currently the Voice Origination and Phone Number Providers are tied together so 
 <p>If you are an advanced user, you may want to set authentication parameters and additional headers, using the <strong>Advanced</strong> settings.</p>
 </li>
 <li>
-<p>Make sure to <strong>Submit</strong> your settings, once done.</p>
+<p>Make sure to <strong>Submit</strong> your settings when finished.</p>
 </li>
 </ul>
 </div>
@@ -315,7 +315,7 @@ Currently the Voice Origination and Phone Number Providers are tied together so 
 <h3 id="_setting_up_your_carrier_for_sms_traffic"><a class="anchor" href="#_setting_up_your_carrier_for_sms_traffic"></a>2.2. Setting up your carrier for SMS traffic</h3>
 <div class="paragraph">
 <div class="title">SMS Origination</div>
-<p>Restcomm’s Programmable SMS product enables you to terminate SMS traffic through SMPP from your existing PSTN Carrier infrastructure towards Restcomm Cloud and use Restcomm Visual Designer (RVD), <a href="https://www.restcomm.com/docs/connect/rcml/index.html">RCML</a> and/or the <a href="https://www.restcomm.com/docs/connect/api/index.html">REST APIs</a> to create advanced SMS applications that will digest the incoming SMS traffic.</p>
+<p>Restcomm’s Programmable SMS product enables you to terminate SMS traffic through SMPP from your existing PSTN Carrier infrastructure to Restcomm Cloud and use Restcomm Visual Designer (RVD), <a href="https://www.restcomm.com/docs/connect/rcml/index.html">RCML</a> and/or the <a href="https://www.restcomm.com/docs/connect/api/index.html">REST APIs</a> to create advanced SMS applications that will digest the incoming SMS traffic.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -363,7 +363,7 @@ Currently the Voice Origination and Phone Number Providers are tied together so 
 </div>
 <div class="paragraph">
 <div class="title">SMS termination</div>
-<p>Restcomm’s Programmable SMS product enables your advanced SMS applications to initiate SMS traffic from the Restcomm Cloud towards your existing PSTN Carrier infrastructure through SMPP using <a href="https://www.restcomm.com/docs/connect/rcml/index.html">RCML</a> and/or the <a href="https://www.restcomm.com/docs/connect/api/index.html">REST APIs</a>.</p>
+<p>Restcomm’s Programmable SMS product enables your advanced SMS applications to initiate SMS traffic from the Restcomm Cloud to your existing PSTN Carrier infrastructure through SMPP using <a href="https://www.restcomm.com/docs/connect/rcml/index.html">RCML</a> and/or the <a href="https://www.restcomm.com/docs/connect/api/index.html">REST APIs</a>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -371,7 +371,7 @@ Currently the Voice Origination and Phone Number Providers are tied together so 
 </div>
 </div>
 <div class="paragraph">
-<p>To setup SMS Termination with your own carrier for your Organization, please follow the steps below</p>
+<p>To set up SMS Termination with your own carrier for your organization, please follow the steps below:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -394,18 +394,18 @@ Currently the Voice Origination and Phone Number Providers are tied together so 
 <p>Select the <strong>SMPP</strong> version of you carrier</p>
 </li>
 <li>
-<p>Set a <strong>Systemid</strong> and <strong>password</strong>  used to bind</p>
+<p>Set a <strong>Systemid</strong> and <strong>password</strong> used to bind</p>
 </li>
 <li>
-<p>Check the box below if you want to use the same provider for both SMS origination and termination</p>
+<p>Check the box below if you want to use the same provider for both SMS origination and termination.</p>
 </li>
 <li>
-<p><strong>Submit</strong> your settings</p>
+<p><strong>Submit</strong> your settings.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>You may want to reset your SMS origination settings to default values, by clicking on the <strong>Reset</strong> link next to them on the bring your own carrier page.  You will be then prompted to confirm the reset.</p>
+<p>You may want to reset your SMS origination settings to default values by clicking on the <strong>Reset</strong> link beside them on the Bring Your Own Carrier page. You will then be prompted to confirm the reset.</p>
 </div>
 <div class="imageblock">
 <div class="content">
