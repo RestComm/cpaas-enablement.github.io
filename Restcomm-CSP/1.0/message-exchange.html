@@ -162,7 +162,7 @@
 <h2 id="_1_overview"><a class="anchor" href="#_1_overview"></a>1. Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Restcomm Message Exchange helps service providers enable their enterprise customers to send and receive SMS using their Unified Communication (UC) client. Enterprise customers can send either  two-way SMS or a message to multiple destinations.</p>
+<p>Restcomm Message Exchange helps service providers enable their enterprise customers to send and receive SMS using their Unified Communication (UC) client. Enterprise customers can send either  two-way SMS or an SMS to multiple destinations.</p>
 </div>
 <div class="paragraph">
 <p>If you want to use the Restcomm Message Exchange feature, you will need to complete the following steps:</p>
@@ -189,7 +189,7 @@
 <h2 id="_2_prerequisites"><a class="anchor" href="#_2_prerequisites"></a>2. Prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order to complete the steps required, you’ll need:</p>
+<p>In order to complete the aforementioned steps, you will need:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -200,10 +200,10 @@
 <p>An open firewall port to your XMPP server, allowing incoming traffic from xmpp.restcomm.com’s IP on port 5269</p>
 </li>
 <li>
-<p>A working knowledge of cURL and a way to make HTTP API calls (either using cURL or Postman; We recommend <a href="https://www.getpostman.com/">Postman</a> if you’re not familiar with cURL.)</p>
+<p>A working knowledge of <a href="https://curl.haxx.se/docs/manpage.html">cURL</a> and a way to make HTTP API calls (either using cURL or Postman; we recommend <a href="https://www.getpostman.com/">Postman</a> if you’re not familiar with cURL.)</p>
 </li>
 <li>
-<p>An understanding of how to add and configure phone numbers in Restcomm. Please check out the <a href="https://cpaas-enablement-docs.restcomm.com/Restcomm-CSP/1.0/organization.html">Getting start with your Restcomm organization guide</a>,  if you are not familiar with the process.</p>
+<p>An understanding of how to add and configure phone numbers in Restcomm. Please visit the <a href="https://cpaas-enablement-docs.restcomm.com/Restcomm-CSP/1.0/organization.html">Getting Started with Your Restcomm Organization Guide</a>,  if you are not familiar with the process.</p>
 </li>
 <li>
 <p>An activated <a href="https://cloud.restcomm.com/#/signup">Restcomm Cloud account</a>.</p>
@@ -230,19 +230,19 @@
 <p>Add your server’s IP addresses to our Whitelist using the <a href="https://cloud.restcomm.com/xmpp/swagger-ui.html#/whitelist-rule-controller">Whitelist API</a></p>
 </li>
 <li>
-<p>Create DNS SRV records on your DNS servers for your UC server.</p>
+<p>Create DNS SRV records on your DNS servers for our Message Exchange server (cloud-xmpp-server.restcomm.com).</p>
 </li>
 <li>
 <p>Ensure your server is on the public internet and has a firewall port open for port 5269</p>
 </li>
 <li>
-<p>Ensure your firewall is allowing incoming traffic from xmpp.restcomm.com’s IP address</p>
+<p>Ensure your firewall is allowing incoming traffic from cloud-xmpp-server.restcomm.com’s IP address</p>
 </li>
 <li>
-<p>From a contact on your server, create a new contact and, for the IM address, enter <a href="mailto:interop@xmpp.restcomm.com">interop@xmpp.restcomm.com</a></p>
+<p>From a contact on your server, create a new contact and, for the IM address, enter <a href="mailto:interop@restcomm.com">interop@restcomm.com</a></p>
 </li>
 <li>
-<p>Save the contact record and send a test message to <a href="mailto:interop@xmpp.restcomm.com">interop@xmpp.restcomm.com</a>. This will initiate the server federation process. Our technical representatives will verify that federation has been successfully completed.</p>
+<p>Save the contact record and send a test message to <a href="mailto:interop@restcomm.com">interop@restcomm.com</a>. This will initiate the server federation process. Our technical representatives will verify that federation has been successfully completed.</p>
 </li>
 </ul>
 </div>
@@ -253,44 +253,55 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>Restcomm Message Exchange has already been federated with a number of public servers. If you don’t have your own UC server to federate with, you can use <a href="https://xmpp.is/">XMPP.is</a> and register an account there.
-If you don’t have a UC client, any XMPP client should work. <a href="https://pidgin.im/download/">Pidgin</a> and <a href="https://adium.im/">Audium</a> have been successfully tested with Restcomm message exchange. You can configure either of those clients with the previously created account from <a href="https://xmpp.is/">XMPP.is</a>.</p>
+If you don’t have a UC client, you are able to utilize any XMPP client. <a href="https://pidgin.im/download/">Pidgin</a> and <a href="https://adium.im/">Audium</a> have been successfully tested with Restcomm Message Exchange. You can configure either of those clients with the previously created account from <a href="https://xmpp.is/">XMPP.is</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_5_setting_up_your_first_phone_number"><a class="anchor" href="#_5_setting_up_your_first_phone_number"></a>5. Setting up your first phone number</h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You <strong>must</strong> have a valid, working <a href="https://www.restcomm.com/sign-up/">Restcomm account</a> in order to complete this step. If you do not have one, you can <a href="https://www.restcomm.com/sign-up/">sign up for one here</a> or <a href="https://www.restcomm.com/contact/">contact us</a>.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>Note: You must have a valid, working Restcomm account in order to complete this step. If you do not have one, you can sign up for one here or Contact us.
-You can set up your phone number in two different ways, either via the Restcomm Dashboard or via the API. For the purposes of this guide, we will use the Dashboard and will be using a new number rather than an existing number.</p>
+<p>You can set up your phone number in two different ways, either via the Restcomm Dashboard or via the API. For the purposes of this guide, we will use the Dashboard and will be using a new number rather than an existing number.</p>
 </div>
 <div class="sect3">
 <h4 id="_setting_up_a_new_number"><a class="anchor" href="#_setting_up_a_new_number"></a>Setting up a new number</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Login to your Restcomm account</p>
+<p>Log in to your <strong>Restcomm account</strong></p>
 </li>
 <li>
-<p>Click on Numbers</p>
+<p>Click on <strong>Numbers</strong></p>
 </li>
 <li>
-<p>Click on Register Number</p>
+<p>Click on <strong>Register Number</strong></p>
 </li>
 <li>
-<p>Navigate to Provider Number on the left side.</p>
+<p>Navigate to <strong>Provider Number</strong> on the left side.</p>
 </li>
 <li>
-<p>Enter your Country, choose an Area Code if you prefer a specific area code, then click the Search button on the right side</p>
+<p>Enter your country, choose an area code. If you prefer a specific area code,  click the Search button on the right side</p>
 </li>
 <li>
-<p>Select a number from the list of displayed numbers and click Register Number</p>
+<p>Select a number from the list of displayed numbers and click <strong>Register Number</strong></p>
 </li>
 <li>
-<p>Once registration is completed, the number will show up in your Numbers List on the Dashboard.</p>
+<p>Once registration is completed, the number will show up in your <strong>Numbers List</strong> on the Dashboard.</p>
 </li>
 <li>
-<p>Click the number. You’ll see a screen that looks like the one below:</p>
+<p>Click on  the number. You will then see a screen that looks like the one below::</p>
 </li>
 </ul>
 </div>
@@ -302,27 +313,43 @@ You can set up your phone number in two different ways, either via the Restcomm 
 <div class="ulist">
 <ul>
 <li>
-<p>Select RCML URL from the dropdown</p>
+<p>Select <strong>RCML URL</strong> from the dropdown</p>
 </li>
 <li>
-<p>Enter the value <a href="https://cloud-xmpp-service.restcomm.com/xmpp/messages/sms" class="bare">https://cloud-xmpp-service.restcomm.com/xmpp/messages/sms</a> in the textbox and leave the right dropdown value as POST</p>
+<p>Enter the value <a href="https://cloud-xmpp-service.restcomm.com/xmpp/messages/sms" class="bare">https://cloud-xmpp-service.restcomm.com/xmpp/messages/sms</a> in the text box and leave the right drop-down value as POST</p>
 </li>
 <li>
-<p>Click Save Changes</p>
+<p>Click <strong>Save Changes</strong></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_setting_up_an_existing_number"><a class="anchor" href="#_setting_up_an_existing_number"></a>Setting up an existing number</h3>
-<div class="paragraph">
-<p>Send a CSV file of all numbers you want to enable for SMS traffic to your Telestax Restcomm Support representative
-Click on Numbers
-Click on Register Number
-In the SIP Address text box, enter your number. If in the US, do not enter a + in front of your number
-In the Friendly Name text box, enter some identifying name
-Once registration is completed, the number will show up in your Numbers List on the Dashboard.
-Click the number. You’ll see a screen that looks like this:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Send a CSV file of all numbers you want to enable for SMS traffic to your Telestax Restcomm Support representative</p>
+</li>
+<li>
+<p>Click on Numbers</p>
+</li>
+<li>
+<p>Click on Register Number</p>
+</li>
+<li>
+<p>In the SIP Address text box, enter your number. If in the US, do not enter a + in front of your number</p>
+</li>
+<li>
+<p>In the Friendly Name text box, enter some identifying name</p>
+</li>
+<li>
+<p>Once registration is completed, the number will show up in your Numbers List on the Dashboard.</p>
+</li>
+<li>
+<p>Click the number. You’ll see a screen that looks like this:</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -349,52 +376,54 @@ Click the number. You’ll see a screen that looks like this:</p>
 <h2 id="_6_creating_and_xmpp_mapping"><a class="anchor" href="#_6_creating_and_xmpp_mapping"></a>6. Creating and XMPP mapping</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Once you’ve added your phone number, you’re ready to create an XMPP Mapping. The purpose of an XMPP mapping is to associate a phone number with an existing XMPP contact on your UC server. For example, imagine you have a user with the XMPP address of <a href="mailto:joe@myserver.com">joe@myserver.com</a>, and Joe’s desk phone is +1-919-555-1212.</p>
+<p>Once you’ve added your phone number, you’re ready to create an XMPP Mapping. The purpose of an XMPP mapping is to associate a phone number with an existing XMPP contact on your UC server. For example, imagine you have a user with the XMPP address of <a href="mailto:joe@myserver.com">joe@myserver.com</a> and Joe’s desk phone is +1-919-555-1212.</p>
 </div>
 <div class="paragraph">
-<p>An XMPP mapping will tell the Restcomm message exchange service to send all inbound SMS messages sent to Joe’s number to <a href="mailto:joe@myserver.com">joe@myserver.com</a>. In addition, anytime Joe sends an outbound SMS from his XMPP account, it will be sent from his phone number.</p>
+<p>An XMPP mapping will tell the Restcomm Message Exchange service to send all inbound SMS messages sent to Joe’s number to <a href="mailto:joe@myserver.com">joe@myserver.com</a>. Additionally, any time Joe sends an outbound SMS from his XMPP account, it will be sent from his phone number.</p>
 </div>
 <div class="paragraph">
-<p>You will need your Restcomm Account SID and Token for this part of the process. Login to your Restcomm Dashboard, click on your name in the upper right corner, and select Account.
-Let’s create a mapping. For our example, we’re going to use the Restcomm message exchange API. You can use Postman or cURL if you’d prefer it.</p>
+<p>You will need your Restcomm Account SID and Token for this part of the process. Log in to your Restcomm Console, click on your name in the upper right corner, and select Account.</p>
+</div>
+<div class="paragraph">
+<p>Let’s create a mapping. For our example, we’re going to use the <a href="https://cloud.restcomm.com/xmpp/swagger-ui.html#/xmpp-mapping-controller">Restcomm Message Exchange API</a>. You can use Postman or cURL,  if you’d prefer.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Go to <a href="https://cloud.restcomm.com/xmpp/swagger-ui.html#/xmpp-mapping-controller">Restcomm message exchange API</a></p>
+<p>Go to <a href="https://cloud.restcomm.com/xmpp/swagger-ui.html#/xmpp-mapping-controller">Restcomm Message Exchange API</a></p>
 </li>
 <li>
-<p>Click on the Authorize button on the right side of the screen.</p>
+<p>Click on the <strong>Authorize</strong> button on the right side of the screen.</p>
 </li>
 <li>
-<p>Enter your Restcomm Account Sid for the username. This is found on the Account screen referenced above.</p>
+<p>Enter your <strong>Restcomm Account SID</strong> for the username. This can be found on the Account screen referenced above.</p>
 </li>
 <li>
-<p>Enter your Restcomm Auth Token for the password. This is found on the Account screen referenced above.</p>
+<p>For the password, enter your <strong>Restcomm Auth Token</strong>. This can also be found on the Account screen referenced above.</p>
 </li>
 <li>
-<p>Click Authorize. You’re now ready to create your first mapping.</p>
+<p>Click <strong>Authorize</strong>. You’re now ready to create your first mapping.</p>
 </li>
 <li>
-<p>Click on POST from the list of operations on the screen, then click Try It Out</p>
+<p>Click on <strong>POST</strong> from the list of operations on the screen, then click on <strong>Try It Out</strong></p>
 </li>
 <li>
-<p>You’ll see an example of the payload in the textbox. Modify these values to match your phone number and XMPP address.</p>
+<p>You’ll see an example of the payload in the text box. Modify these values to match your phone number and XMPP address.</p>
 </li>
 <li>
-<p>Enter the phone number for the value of externalAddress. For our example, you would enter 19195551212. Note that you do not need the +, and you should not have any spaces or dashes.</p>
+<p>In the <strong>externalAddress</strong> field, enter the phone number. As an example, you would enter 19195551212 in the field.. Note that you do not need the +, and there should not be any spaces or dashes included..</p>
 </li>
 <li>
-<p>Either completely remove the domain field or check "User your own domain" below for how to create a custom domain and use it here.</p>
+<p>Either completely remove the domain field or check <strong>"Use your own domain"</strong> below for how to  create and use a custom domain here.</p>
 </li>
 <li>
-<p>Enter your UC address for the value of jabberAddress. For our example you would enter <a href="mailto:joe@myserver.com">joe@myserver.com</a>.</p>
+<p>Enter your UC address for the value of <strong>jabberAddress</strong>. For our example, you would enter <a href="mailto:joe@myserver.com">joe@myserver.com</a>.</p>
 </li>
 <li>
-<p>Click the blue Execute button below the text box.</p>
+<p>Click the blue <strong>Execute</strong> button below the text box.</p>
 </li>
 <li>
-<p>Scroll down to the Server response area of the screen. You should see a code of 200. If this is the case, you’ve successfully created your first mapping!</p>
+<p>Scroll down to the <strong>Server response</strong> area of the screen. You should see a code of 200. If this is the case, you’ve successfully created your first mapping!</p>
 </li>
 </ul>
 </div>
@@ -404,8 +433,10 @@ Let’s create a mapping. For our example, we’re going to use the Restcomm mes
 <h2 id="_7_receiving_an_sms_message_to_your_uc_client"><a class="anchor" href="#_7_receiving_an_sms_message_to_your_uc_client"></a>7. Receiving an SMS/message to your UC client</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Once you’ve completed all of the steps above, you’re ready to test. Login to your UC client as your test user (in our case <a href="mailto:joe@myserver.com">joe@myserver.com</a>), then using your mobile phone send a text message to the number you added to Restcomm.
-You should see the message show up in your UC client.</p>
+<p>Once you’ve completed all of the steps above, you’re ready to test. Login to your UC client as your test user (in our case <a href="mailto:joe@myserver.com">joe@myserver.com</a>)., Then, using your mobile phone, send a text message to the number you added to Restcomm.</p>
+</div>
+<div class="paragraph">
+<p>You should then  see the message appear in your UC client.</p>
 </div>
 </div>
 </div>
@@ -421,7 +452,7 @@ You should see the message show up in your UC client.</p>
 <p>Add a contact to your contact list in your UC client as you would normally.</p>
 </li>
 <li>
-<p>In the IM Address field, enter the address in the format of <a href="mailto:phoneNumber@restcomm.com">phoneNumber@restcomm.com</a> or, if you have a custom domain, <a href="mailto:phoneNumber@yourdomain.com">phoneNumber@yourdomain.com</a>. For example, if your cell phone number is 19195551212, then you would <a href="mailto:enter19195551212@restcomm.com">enter19195551212@restcomm.com</a> for the IM Address of the contact.</p>
+<p>In the <strong>IM Address</strong> field, enter the address in the format of <a href="mailto:phoneNumber@restcomm.com">phoneNumber@restcomm.com</a> or, if you have a custom domain, <a href="mailto:phoneNumber@yourdomain.com">phoneNumber@yourdomain.com</a>. For example, if your cell phone number is 19195551212, then you would <a href="mailto:enter19195551212@restcomm.com">enter19195551212@restcomm.com</a> for the IM Address of the contact.</p>
 </li>
 <li>
 <p>Once the contact is added, send a message from your client to the new contact.</p>
@@ -440,16 +471,16 @@ You should see the message show up in your UC client.</p>
 <h2 id="_9_sending_a_broadcast_message"><a class="anchor" href="#_9_sending_a_broadcast_message"></a>9. Sending a broadcast message</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A broadcast message is a message intended for more than one SMS recipient. This is NOT the same as group messaging, which is currently not supported by Restcomm message exchange.</p>
+<p>A broadcast message is a message intended for more than one SMS recipient. This is NOT the same as group messaging, which is currently not supported by Restcomm Message Exchange.</p>
 </div>
 <div class="paragraph">
-<p>When you send a broadcast message, Restcomm message exchange will send an individual message to each of the specified recipients.</p>
+<p>When you send a broadcast message, Restcomm Message Exchange will send an individual message to each of the specified recipients.</p>
+</div>
+<div class="paragraph">
+<p>To send an SMS broadcast message, perform the following steps:</p>
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p>To send an SMS broadcast message, perform the following steps:</p>
-</li>
 <li>
 <p>Add a contact to your contact list in your UC client as you would normally.</p>
 </li>
@@ -493,15 +524,11 @@ You should see the message show up in your UC client.</p>
 </div>
 </li>
 <li>
-<p>Make changes in your CNAME and SRV DNS records</p>
-</li>
-<li>
 <p>You have to create a DNS SRV record pointing to Restcomm Message Exchange. For example the DNS SRV record for xmpp.mycompany.com should look like:</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
-<div class="title">JSON Account Deletion</div>
 <div class="content">
 <pre>_xmpp-server._tcp.xmpp.mycompany.com. 1 1 5269 cloud-xmpp-server.restcomm.com.</pre>
 </div>
@@ -525,7 +552,7 @@ Pay attention to _ or . characters since they are important for DNS SRV records
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-DNS Records propagation might take several time to complete.
+DNS Records propagation might take some time to complete.
 </td>
 </tr>
 </table>
@@ -534,7 +561,7 @@ DNS Records propagation might take several time to complete.
 <p><strong>Setting up your domain with GoDaddy</strong></p>
 </div>
 <div class="paragraph">
-<p>For simplicity let’s assume that your domain is testxmpp.com and for UC-One you use sub-domain text.testxmpp.com. Next step is to make sure you set DNS SRV for your subdomain to point to your XMPP server (UC One XMPP Server). For simplicity, we assume UC One XMPP server is cloud-xmpp-server.restcomm.com. Below is a screenshot on how to setup DNS SRV on GoDaddy.</p>
+<p>For simplicity, let’s assume your domain is testxmpp.com and for UC-One you use sub-domain text.testxmpp.com. The next step is to make sure you set DNS SRV for your subdomain to point to our XMPP server (<code>cloud-xmpp-server.restcomm.com</code>). Below is a screenshot on how to set up DNS SRV on GoDaddy.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -545,22 +572,31 @@ DNS Records propagation might take several time to complete.
 <p><strong>Setting up your SSL certificate with GoDaddy</strong></p>
 </div>
 <div class="paragraph">
-<p>To start using white labeling, you must first set up an SSL Certificate for the sub-domain and upload full chain of certificate on Restcomm via Swagger UI. Make sure the order of the SSL Certificate chain is as follows; your domain certificate, your private key, authority issuing your certificate, root certificate.</p>
+<p>To begin using white labeling, you must first set up an SSL Certificate for the sub-domain and upload full chain of certificate on Restcomm via Swagger UI. Make sure the order of the SSL Certificate chain is as follows: your domain certificate, your private key, authority issuing your certificate,  root certificate.</p>
 </div>
 <div class="paragraph">
-<p>For simplicity let’s assume your domain is testxmpp.com and for UC-One you are using the following sub-domain: text.testxmpp.com. In the steps below we will explain how to generate a private key and  certificate using OpenSSL.</p>
+<p>For simplicity let’s assume your domain is testxmpp.com and for UC-One you are using the following sub-domain: text.testxmpp.com. In the steps below, we will explain how to generate a private key and  certificate using OpenSSL.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>Generate an openssl key
-(GSS bought a domain on Godaddy text.textxmpp.com) openssl genrsa -out text.testxmpp.com.key 2048</p>
-</li>
-<li>
-<p>Create your CSR or certification request file
-openssl req -new -key text.testxmpp.com.key -out text.testxmpp.com.csr</p>
+(GSS bought a domain on Godaddy text.textxmpp.com)</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><code>$ openssl genrsa -out text.testxmpp.com.key 2048</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create your CSR or certification request file (notice the password below is just an example, please use your own strong password)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>$ openssl req -new -key text.testxmpp.com.key -out text.testxmpp.com.csr</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -573,7 +609,7 @@ openssl req -new -key text.testxmpp.com.key -out text.testxmpp.com.csr</p>
 <p>Copy the content of the newly created text.testxmpp.com.csr and paste it into the Godaddy CSR enrollment form.</p>
 </li>
 <li>
-<p>When you get the confirmation, download the certificate zip file from you Godaddy Dashboard</p>
+<p>When you receive the confirmation, download the certificate zip file from you Godaddy Dashboard</p>
 </li>
 </ul>
 </div>
@@ -585,7 +621,7 @@ openssl req -new -key text.testxmpp.com.key -out text.testxmpp.com.csr</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The content of the certificate zip file for Tomcat should look like the one below.</p>
+<p>The content of the certificate zip file for Tomcat should look like the one below:</p>
 </li>
 </ul>
 </div>
@@ -597,19 +633,19 @@ openssl req -new -key text.testxmpp.com.key -out text.testxmpp.com.csr</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Combine the certificate from Godaddy with the openssl key you generated in step 1</p>
+<p>Combine the certificate from Godaddy with the openssl key you generated in step one</p>
 </li>
 </ul>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>cat '/home/charles/Downloads/text.testxmpp.com/51e1fbfeeae30fdb.crt' '/home/charles/telestax/text.testxmpp.com.key' '/home/charles/Downloads/text.testxmpp.com/gd_bundle-g2-g1.crt' &gt; text.testxmpp.combined.pem</pre>
+<pre>$ cat '/home/charles/Downloads/text.testxmpp.com/51e1fbfeeae30fdb.crt' '/home/charles/telestax/text.testxmpp.com.key' '/home/charles/Downloads/text.testxmpp.com/gd_bundle-g2-g1.crt' &gt; text.testxmpp.combined.pem....</pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The newly created text.testxmpp.combined.pem will contain the certificate you need to create a new domain mapping in swagger. Copy and pate the content of the combine.pem to swagger</p>
+<p>The newly created text.testxmpp.combined.pem will contain the certificate you need to create a new domain mapping in Swagger. Copy and paste the content of the combine.pem to Swagger UI.</p>
 </li>
 </ul>
 </div>
@@ -621,7 +657,7 @@ openssl req -new -key text.testxmpp.com.key -out text.testxmpp.com.csr</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If the mapping and the certificate is valid, you will see the following response</p>
+<p>If the mapping and the certificate are valid, you will see the following response:</p>
 </li>
 </ul>
 </div>
@@ -630,48 +666,37 @@ openssl req -new -key text.testxmpp.com.key -out text.testxmpp.com.csr</p>
 <img src="_images/message-exchange/SSL_Certificate_validation.png" alt="Message Exchange - SSL certificate validation">
 </div>
 </div>
-<div class="paragraph">
-<p><strong>Setting up your domain with GoDaddy</strong></p>
-</div>
-<div class="paragraph">
-<p>For simplicity let’s assume that your domain is testxmpp.com and for UC-One you are using a subdomain - text.testxmpp.com. Next step is to make sure you set DNS SRV for your subdomain that points to your XMPP server (UC One XMPP Server). In our example UC One XMPP server is cloud-xmpp-server.restcomm.com. Below is a screenshot of how you should add DNS SRV in GoDaddy.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/message-exchange/setting_your_DNS_SRV.png" alt="Message Exchange - Setting up your DNS SRV record">
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_setting_up_the_new_domain"><a class="anchor" href="#_setting_up_the_new_domain"></a>Setting up the new domain</h3>
 <div class="paragraph">
-<p>To setup a custom domain you will need to provide the full chain certificate and the the domain name.</p>
+<p>To set up a custom domain you will need to provide the full chain certificate and the domain name.</p>
 </div>
 <div class="paragraph">
-<p>We’re going to use the <a href="https://cloud.restcomm.com/xmpp/swagger-ui.html#/domain-controller">Restcomm message exchange API</a>. You can use Postman or cURL if you’d prefer it.</p>
+<p>For this example, we will use the <a href="https://cloud.restcomm.com/xmpp/swagger-ui.html#/domain-controller">Restcomm Message Exchange API</a>. You can use Postman or cURL if you’d prefer it.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Go to <a href="https://cloud.restcomm.com/xmpp/swagger-ui.html#/domain-controller">Restcomm message exchange API</a></p>
+<p>Go to <a href="https://cloud.restcomm.com/xmpp/swagger-ui.html#/domain-controller">Restcomm Message Exchange API</a></p>
 </li>
 <li>
-<p>Click on the Authorize button on the right side of the screen.</p>
+<p>Click on the <strong>Authorize</strong> button on the right side of the screen.</p>
 </li>
 <li>
-<p>Enter your Restcomm Account Sid for the username. This is found on the Account screen referenced above.</p>
+<p>Enter your <strong>Restcomm Account SID</strong> for the username. This is found on the Account screen referenced above.</p>
 </li>
 <li>
-<p>Enter your Restcomm Auth Token for the password. This is found on the Account screen referenced above.</p>
+<p>For the password, enter your <strong>Restcomm Auth Token</strong>. This can be found on the Account screen referenced above.</p>
 </li>
 <li>
-<p>Click Authorize. You’re now ready to create your first mapping.</p>
+<p>Click <strong>Authorize</strong>. You’re now ready to create your first mapping.</p>
 </li>
 <li>
-<p>Click on POST from the list of operations on the screen, then click Try It Out</p>
+<p>Click on <strong>POST</strong> from the list of operations on the screen, then click <strong>Try It Out</strong></p>
 </li>
 <li>
-<p>You’ll see an example of the payload in the textbox. Modify these values to match your domain name and certificate.</p>
+<p>You’ll see an example of the payload in the text box. Modify these values to match your domain name and certificate.</p>
 </li>
 <li>
 <p>Enter the domain name for the value of name. For our example, you would enter mycompany.com.</p>
@@ -680,7 +705,7 @@ openssl req -new -key text.testxmpp.com.key -out text.testxmpp.com.csr</p>
 <p>Enter your full chain certificate for the value of certificate.</p>
 </li>
 <li>
-<p>Click the blue Execute button below the text box.</p>
+<p>Click the blue <strong>Execute</strong> button below the text box.</p>
 </li>
 <li>
 <p>Scroll down to the Server response area of the screen. You should see a code of 200. If this is the case, you’ve successfully created your new custom domain!</p>
@@ -703,8 +728,10 @@ Please allow few minutes for domain changes to be applied to Restcomm Message Ex
 <div class="sect2">
 <h3 id="_testing_the_xmpp_server_using_your_new_custom_domain"><a class="anchor" href="#_testing_the_xmpp_server_using_your_new_custom_domain"></a>Testing the XMPP server using your new custom domain</h3>
 <div class="paragraph">
-<p>You can use <a href="https://xmpp.net/index.php" class="bare">https://xmpp.net/index.php</a> to start an XMPP server to server  test for your new domain.
-For example:</p>
+<p>You can use <a href="https://xmpp.net/index.php" class="bare">https://xmpp.net/index.php</a> to start an XMPP server to server  test for your new domain.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
 </div>
 <div class="imageblock">
 <div class="content">
