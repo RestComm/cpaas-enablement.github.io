@@ -158,8 +158,34 @@
 </div>
 <article class="doc">
   <h1>Message Exchange</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_prerequisites">Prerequisites</a></li>
+<li><a href="#_federating_your_uc_server">Federating your UC server</a></li>
+<li><a href="#_use_an_already_federated_xmpp_server_and_xmpp_client">Use an already federated XMPP server and XMPP client</a></li>
+<li><a href="#_setting_up_your_first_phone_number">Setting up your first phone number</a>
+<ul class="sectlevel2">
+<li><a href="#_setting_up_a_new_number">Setting up a new number</a></li>
+<li><a href="#_setting_up_an_existing_number">Setting up an existing number</a></li>
+</ul>
+</li>
+<li><a href="#_creating_and_xmpp_mapping">Creating and XMPP mapping</a></li>
+<li><a href="#_receiving_an_sms_message_to_your_uc_client">Receiving an SMS/message to your UC client</a></li>
+<li><a href="#_sending_an_sms_message_from_your_uc_client">Sending an SMS/message from your UC client</a></li>
+<li><a href="#_sending_a_broadcast_message">Sending a broadcast message</a></li>
+<li><a href="#_use_your_custom_domain">Use your custom domain</a>
+<ul class="sectlevel2">
+<li><a href="#_setting_up_your_custom_domain">Setting up your custom domain</a></li>
+<li><a href="#_setting_up_the_new_domain">Setting up the new domain</a></li>
+<li><a href="#_testing_the_xmpp_server_using_your_new_custom_domain">Testing the XMPP server using your new custom domain</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="sect1">
-<h2 id="_1_overview"><a class="anchor" href="#_1_overview"></a>1. Overview</h2>
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Restcomm Message Exchange helps service providers enable their enterprise customers to send and receive SMS using their Unified Communication (UC) client. Enterprise customers can send either  two-way SMS or an SMS to multiple destinations.</p>
@@ -186,7 +212,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2_prerequisites"><a class="anchor" href="#_2_prerequisites"></a>2. Prerequisites</h2>
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In order to complete the aforementioned steps, you will need:</p>
@@ -213,7 +239,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_3_federating_your_uc_server"><a class="anchor" href="#_3_federating_your_uc_server"></a>3. Federating your UC server</h2>
+<h2 id="_federating_your_uc_server"><a class="anchor" href="#_federating_your_uc_server"></a>Federating your UC server</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Federation is the process of establishing a server-to-server connection between your messaging environment and ours. Once this connection is established, the two servers will manage staying connected on their own.</p>
@@ -249,7 +275,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_4_use_an_already_federated_xmpp_server_and_xmpp_client"><a class="anchor" href="#_4_use_an_already_federated_xmpp_server_and_xmpp_client"></a>4. Use an already federated XMPP server and XMPP client</h2>
+<h2 id="_use_an_already_federated_xmpp_server_and_xmpp_client"><a class="anchor" href="#_use_an_already_federated_xmpp_server_and_xmpp_client"></a>Use an already federated XMPP server and XMPP client</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Restcomm Message Exchange has already been federated with a number of public servers. If you don’t have your own UC server to federate with, you can use <a href="https://xmpp.is/">XMPP.is</a> and register an account there.
@@ -258,7 +284,7 @@ If you don’t have a UC client, you are able to utilize any XMPP client. <a hre
 </div>
 </div>
 <div class="sect1">
-<h2 id="_5_setting_up_your_first_phone_number"><a class="anchor" href="#_5_setting_up_your_first_phone_number"></a>5. Setting up your first phone number</h2>
+<h2 id="_setting_up_your_first_phone_number"><a class="anchor" href="#_setting_up_your_first_phone_number"></a>Setting up your first phone number</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -275,8 +301,8 @@ You <strong>must</strong> have a valid, working <a href="https://www.restcomm.co
 <div class="paragraph">
 <p>You can set up your phone number in two different ways, either via the Restcomm Dashboard or via the API. For the purposes of this guide, we will use the Dashboard and will be using a new number rather than an existing number.</p>
 </div>
-<div class="sect3">
-<h4 id="_setting_up_a_new_number"><a class="anchor" href="#_setting_up_a_new_number"></a>Setting up a new number</h4>
+<div class="sect2">
+<h3 id="_setting_up_a_new_number"><a class="anchor" href="#_setting_up_a_new_number"></a>Setting up a new number</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -373,7 +399,7 @@ You <strong>must</strong> have a valid, working <a href="https://www.restcomm.co
 </div>
 </div>
 <div class="sect1">
-<h2 id="_6_creating_and_xmpp_mapping"><a class="anchor" href="#_6_creating_and_xmpp_mapping"></a>6. Creating and XMPP mapping</h2>
+<h2 id="_creating_and_xmpp_mapping"><a class="anchor" href="#_creating_and_xmpp_mapping"></a>Creating and XMPP mapping</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Once you’ve added your phone number, you’re ready to create an XMPP Mapping. The purpose of an XMPP mapping is to associate a phone number with an existing XMPP contact on your UC server. For example, imagine you have a user with the XMPP address of joe@myserver.com and Joe’s desk phone is +1-919-555-1212.</p>
@@ -430,7 +456,7 @@ You <strong>must</strong> have a valid, working <a href="https://www.restcomm.co
 </div>
 </div>
 <div class="sect1">
-<h2 id="_7_receiving_an_sms_message_to_your_uc_client"><a class="anchor" href="#_7_receiving_an_sms_message_to_your_uc_client"></a>7. Receiving an SMS/message to your UC client</h2>
+<h2 id="_receiving_an_sms_message_to_your_uc_client"><a class="anchor" href="#_receiving_an_sms_message_to_your_uc_client"></a>Receiving an SMS/message to your UC client</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Once you’ve completed all of the steps above, you’re ready to test. Login to your UC client as your test user (in our case joe@myserver.com)., Then, using your mobile phone, send a text message to the number you added to Restcomm.</p>
@@ -441,7 +467,7 @@ You <strong>must</strong> have a valid, working <a href="https://www.restcomm.co
 </div>
 </div>
 <div class="sect1">
-<h2 id="_8_sending_an_sms_message_from_your_uc_client"><a class="anchor" href="#_8_sending_an_sms_message_from_your_uc_client"></a>8. Sending an SMS/message from your UC client</h2>
+<h2 id="_sending_an_sms_message_from_your_uc_client"><a class="anchor" href="#_sending_an_sms_message_from_your_uc_client"></a>Sending an SMS/message from your UC client</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>To send an SMS message from your UC client, perform the following steps:</p>
@@ -468,7 +494,7 @@ You <strong>must</strong> have a valid, working <a href="https://www.restcomm.co
 </div>
 </div>
 <div class="sect1">
-<h2 id="_9_sending_a_broadcast_message"><a class="anchor" href="#_9_sending_a_broadcast_message"></a>9. Sending a broadcast message</h2>
+<h2 id="_sending_a_broadcast_message"><a class="anchor" href="#_sending_a_broadcast_message"></a>Sending a broadcast message</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A broadcast message is a message intended for more than one SMS recipient. This is NOT the same as group messaging, which is currently not supported by Restcomm Message Exchange.</p>
@@ -501,7 +527,7 @@ You <strong>must</strong> have a valid, working <a href="https://www.restcomm.co
 </div>
 </div>
 <div class="sect1">
-<h2 id="_10_use_your_custom_domain"><a class="anchor" href="#_10_use_your_custom_domain"></a>10. Use your custom domain</h2>
+<h2 id="_use_your_custom_domain"><a class="anchor" href="#_use_your_custom_domain"></a>Use your custom domain</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Restcomm message exchange supports usage of custom domains. For example you can use phoneNumber@mycompany.com instead of phoneNumber@restcomm.com</p>
