@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restcomm API – Multiprovider Extension :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/extensions-multiprovider-configuration.html">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <!-- Not using it for now
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+<!--
+      <a class="navbar-item" href="https://www.restcomm.com/docs"><img width="140px" src="../../../_/img/restcomm-logo-white.svg"></a>
+-->
+      <a class="navbar-item header-logo-link" href="https://www.restcomm.com/docs"></a>
+<!--
+      <a class="navbar-item" href="https://www.restcomm.com/docs">Restcomm CPaaS Enablement Docs</a>
+-->
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        -->
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="main-wrapper">
+<div class="navigation-container" data-component="Restcomm-CSP" data-version="1.0" >
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="voice-category.html">Voice</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Calls</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Recordings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Conferences</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms-category.html">SMS</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms.html">Messages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_send_sms">Send SMS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_get_sms_list">Get SMS List</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_get_single_sms_information">Get single SMS Information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_sms_attributes">SMS Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="rcml-category.html">RCML</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dial.html">Dial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="gather.html">Gather</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="say.html">Say</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="play.html">Play</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">Restcomm CPaaS Enablement Docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Restcomm CPaaS Enablement Docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
+    <li class="crumb"><a href="extensions-multiprovider-configuration.html">Restcomm API – Multiprovider Extension</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc ">
+  <h1>Restcomm API – Multiprovider Extension</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel2">
+<li><a href="#_high_level_operation">High Level Operation</a></li>
+<li><a href="#_multiprovider_extension_resource_uri">Multiprovider Extension Resource URI</a></li>
+<li><a href="#_resource_uri_properties">Resource URI Properties</a></li>
+<li><a href="#_supported_operations">Supported Operations</a></li>
+<li><a href="#_supported_operation_parameters">Supported Operation Parameters</a></li>
+<li><a href="#_sms_enablement">SMS Enablement</a>
+<ul class="sectlevel2">
+<li><a href="#_configurationdata_parameter_outboundsms_object_properties">ConfigurationData Parameter OutboundSms Object Properties</a></li>
+<li><a href="#_example_sms_enablement">Example SMS Enablement</a></li>
+</ul>
+</li>
+<li><a href="#_voice_enablement">Voice Enablement</a>
+<ul class="sectlevel2">
+<li><a href="#_configurationdata_parameter_outboundvoice_object_properties">ConfigurationData Parameter OutboundVoice Object Properties</a></li>
+<li><a href="#_example_voice_enablement_creation">Example Voice Enablement Creation</a></li>
+<li><a href="#_example_voice_enablement_update">Example Voice Enablement Update</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_high_level_operation"><a class="anchor" href="#_high_level_operation"></a>High Level Operation</h3>
+<div class="paragraph">
+<p>The Multiprovider extension allows per account SMS and Voice routing.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The MultiProvider feature is available only to Commercial users of Restcomm Connect.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This REST API is only accessible by the super-admin.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_multiprovider_extension_resource_uri"><a class="anchor" href="#_multiprovider_extension_resource_uri"></a>Multiprovider Extension Resource URI</h3>
+<div class="paragraph">
+<p><strong>/2012-04-24/ExtensionsConfiguration.json/{MultiProviderExtensionId}</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_uri_properties"><a class="anchor" href="#_resource_uri_properties"></a>Resource URI Properties</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Valid Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MultiProviderExtensionId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique MultiProvider Extension Id. This value will be different for each installation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valid Extension Sid. eg.EX77f123cf07624366be8c0a9a2150f045</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>https GET.</strong> Returns the representation of the MultiProvider Extension resource.</p>
+</div>
+<div class="paragraph">
+<p><strong>https POST</strong>. Adds or modifies MultiProvider configuration for specific Account and returns the representation. Below you will find a list of supported parameters.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_operation_parameters"><a class="anchor" href="#_supported_operation_parameters"></a>Supported Operation Parameters</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Valid Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ExtensionName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique MultiProvider Extension name. Currently is fixed to "multi_provider"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"multi_provider"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable or disable the extension.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"true"|"true"\</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"false"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ConfigurationData</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The MultiProvider configuration string.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Json string with correct schema</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Account this MultiProvider configuration is applied to.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_configurationdata_parameter_json_example_structure"><a class="anchor" href="#_configurationdata_parameter_json_example_structure"></a>ConfigurationData Parameter Json Example Structure</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">{
+    "outbound-voice": [
+        {
+            "proxy": [
+                {
+                    "uri":"Uri",
+                    "username":"String",
+                    "password":"String",
+                    "match":"Regex String",
+                    "headers":[
+                        {
+                            "headerName":"String",
+                            "key":"String",
+                            "value":"String"
+                        },
+                        {...}
+                    ]
+                },
+                {...}
+            ]
+        }
+    ],
+    "outbound-sms": [
+        {"destination_network_id":"Integer"}
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configurationdata_parameter_top_level_properties"><a class="anchor" href="#_configurationdata_parameter_top_level_properties"></a>ConfigurationData Parameter Top Level Properties</h4>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Top Level</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>outbound-sms</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array with single OutboundSms object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>outbound-voice</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array with single OutboundVoice object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sms_enablement"><a class="anchor" href="#_sms_enablement"></a>SMS Enablement</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MultiProvider Extension enables Account specific SMS routing by sending <code>destination_network_id</code> (1550) TLV to the Telestax SMPP server that is configured.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Configuration wise it is possible to inject other TLVs for other purposes aside from SMS routing but this is currently not enabled.
+In the future, injection of other arbitrary TLVs may be enabled.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_configurationdata_parameter_outboundsms_object_properties"><a class="anchor" href="#_configurationdata_parameter_outboundsms_object_properties"></a>ConfigurationData Parameter OutboundSms Object Properties</h3>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. <code>outbound-sms</code> Properties</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>destination_network_id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The destination_network_id TLV</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_code_outbound_sms_code_json_example"><a class="anchor" href="#_code_outbound_sms_code_json_example"></a><code>outbound-sms</code> Json Example</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">{
+    "outbound-sms": [
+        {"destination_network_id":"1000"}
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_sms_enablement"><a class="anchor" href="#_example_sms_enablement"></a>Example SMS Enablement</h3>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;Admin Account Sid&gt;:&lt;Auth token&gt;@cloud.restcomm.com/restcomm/2012-04-24/ExtensionsConfiguration.json \
+-d "ExtensionName=multi_provider" -d "Enabled=true"  \
+-d "AccountSid=&lt;Account Sid to be configured&gt;" \
+-d "ConfigurationData={\"outbound-sms\": [{\"destination_network_id\": \"1000\"}]}"</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voice_enablement"><a class="anchor" href="#_voice_enablement"></a>Voice Enablement</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MultiProvider Extension voice enablement works three ways</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Mapping a specific SIP outbound proxy to a specific Account. This applies to PSTN, SIP and Client calls.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>MultiProvider Extension enables Account specific Voice routing to a specific outbound proxy by using the OutboundVoice <code>uri</code> property defined in the Account specific ConfigurationData.</p>
+</li>
+<li>
+<p>Credentials of the outbound proxy are defined in <code>username</code> and <code>password</code> properties</p>
+</li>
+<li>
+<p>URI properties have to be defined inline in the URI string itself. eg <code>"uri":"192.168.0.1;uriprop=uri_prop_value1"</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Appending SIP Message headers with custom header properties and adding custom headers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>SIP Message headers will be modified when the <code>headers</code> property is defined.</p>
+</li>
+<li>
+<p>If the header defined in <code>headerName</code> is not present in the SIP Message, it is added to the SIP Message.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Rewriting SIP Request URI when the initial Request URI matches configured regex pattern. This applies to SIP calls.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Request URI pattern matching is done when <code>match</code> property is defined.</p>
+</li>
+<li>
+<p>By default <code>match</code> property does not need to be defined. In a configuration where the <code>match</code> property is not defined it amounts to configuring the <code>match</code> as <code>"match":".*"</code></p>
+</li>
+<li>
+<p>Common regex may be used:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"match" : "uri.com"</code>. Will only match URI <code>uri.com</code>.</p>
+</li>
+<li>
+<p><code>"match" : "uri[12]\.com"</code>. Will match URIs <code>uri1.com</code>, <code>uri2.com</code>. Will not match <code>uri3.com</code></p>
+</li>
+<li>
+<p><code>"match" : "^uri.*"</code>. Will match URIs <code>uri</code>, <code>uri.com</code>. Will not match <code>1uri.com</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_configurationdata_parameter_outboundvoice_object_properties"><a class="anchor" href="#_configurationdata_parameter_outboundvoice_object_properties"></a>ConfigurationData Parameter OutboundVoice Object Properties</h3>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 3. <code>outbound-voice</code> Properties</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>proxy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array of proxies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 4. <code>proxy</code> Array Element Properties</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri of outbound proxy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>username</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username for outbound proxy login</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for outbound proxy login</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>match</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Regex string for sip uri string matching</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>headers</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array of headers to be replaced into Sip message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 5. <code>headers</code> Array Element Properties</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Optional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>headerName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header name in message to append</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>key</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key attribute to append to message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>value</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value of attribute to append to message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_code_outbound_voice_code_json_example"><a class="anchor" href="#_code_outbound_voice_code_json_example"></a><code>outbound-voice</code> Json Example</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">{
+    "outbound-voice": [
+        {
+            "proxy": [
+                {
+                    "uri":"192.168.0.1;uriprop1=uri_prop_value1;uriprop2=uri_prop_value2",
+                    "username":"someuser1",
+                    "password":"somepassword1",
+                    "match":"uri.com"
+                },
+                {
+                    "uri":"192.168.0.1",
+                    "username":"someuser1",
+                    "password":"somepassword1",
+                    "match":"uri[12]\.com",
+                    "headers":[
+                        {
+                            "headerName":"Request-URI",
+                            "key":"newkey1",
+                            "value":"newvalue1"
+                        },
+                        {
+                            "headerName":"Request-URI",
+                            "key":"newkey2",
+                            "value":"newvalue2"
+                        },
+                        {
+                            "headerName":"To",
+                            "key":"newkey3",
+                            "value":"newvalue3"
+                        },
+                        {
+                            "headerName":"X-CustomHeader",
+                            "key":"newkey4",
+                            "value":"newvalue4"
+                        }
+                    ]
+                },
+                {
+                    "uri":"192.168.0.2",
+                    "username":"someuser2",
+                    "password":"somepassword2",
+
+                    "headers":[
+                        {
+                            "headerName":"Request-URI",
+                            "key":"newkey5",
+                            "value":"newvalue5"
+                        },
+                        {
+                            "headerName":"Request-URI",
+                            "key":"newkey6",
+                            "value":"newvalue6"
+                        },
+                        {
+                            "headerName":"To",
+                            "key":"newkey7",
+                            "value":"newvalue7"
+                        },
+                        {
+                            "headerName":"X-CustomHeader",
+                            "key":"newkey8",
+                            "value":"newvalue8"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_voice_enablement_creation"><a class="anchor" href="#_example_voice_enablement_creation"></a>Example Voice Enablement Creation</h3>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;Admin Account Sid&gt;:&lt;Auth token&gt;@cloud.restcomm.com/restcomm/2012-04-24/ExtensionsConfiguration.json \
+-d "ExtensionName=multi_provider" -d "Enabled=true"  \
+-d "AccountSid=&lt;Account Sid to be configured&gt;" \
+-d "ConfigurationData={\"outbound-voice\": [  {\"proxy\": [ \
+{\"uri\":\"192.168.0.1;uriprop1=uri_prop_value1;uriprop2=uri_prop_value2"\", \"username\":\"someuser1.com\", \"password\":\"somepassword1.com\", \"match\":\"uri.com\"}, \
+{\"uri\":\"192.168.0.1\", \"username\":\"someuser1.com\", \"password\":\"somepassword1.com\", \"match\":\"uri[12]\\.com\", \"headers\": [
+   {\"headerName\":\"Request-URI\", \"key\":\"newkey1\", \"value\":\"newvalue1\"}, \
+   {\"headerName\":\"Request-URI\", \"key\":\"newkey2\", \"value\":\"newvalue2\"}, \
+   {\"headerName\":\"To\",          \"key\":\"newkey3\", \"value\":\"newvalue3\"}, \
+   {\"headerName\":\"X-CustomHeader\", \"key\":\"newkey4\", \"value\":\"newvalue4\"}  \
+]} \
+{\"uri\":\"192.168.0.2\", \"username\":\"someuser2.com\", \"password\":\"somepassword2.com\", \"headers\": [
+   {\"headerName\":\"Request-URI\", \"key\":\"newkey5\", \"value\":\"newvalue5\"}, \
+   {\"headerName\":\"Request-URI\", \"key\":\"newkey6\", \"value\":\"newvalue6\"}, \
+   {\"headerName\":\"To\", \"key\":\"newkey\", \"value7\":\"newvalue7\"}, \
+   {\"headerName\":\"X-CustomHeader\", \"key\":\"newkey8\", \"value\":\"newvalue8\"}  \
+]} \
+] } ] }"</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_voice_enablement_update"><a class="anchor" href="#_example_voice_enablement_update"></a>Example Voice Enablement Update</h3>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;Admin Account Sid&gt;:&lt;Auth token&gt;@cloud.restcomm.com/restcomm/2012-04-24/ExtensionsConfiguration.json/EXd1ff6cfa369a436b86c27ec278be196e \
+-d "ExtensionName=multi_provider" -d "Enabled=true"  \
+-d "AccountSid=&lt;Account Sid to be configured&gt;" \
+-d "ConfigurationData={\"outbound-voice\": [  {\"proxy\": [ \
+{\"uri\":\"192.168.0.1;uriprop1=uri_prop_value1;uriprop2=uri_prop_value2"\", \"username\":\"someuser1.com\", \"password\":\"somepassword1.com\", \"match\":\"uri.com\"}, \
+{\"uri\":\"192.168.0.1\", \"username\":\"someuser1.com\", \"password\":\"somepassword1.com\", \"match\":\"uri[12]\\.com\", \"headers\": [
+   {\"headerName\":\"Request-URI\", \"key\":\"newkey1\", \"value\":\"newvalue1\"}, \
+   {\"headerName\":\"Request-URI\", \"key\":\"newkey2\", \"value\":\"newvalue2\"}, \
+   {\"headerName\":\"To\",          \"key\":\"newkey3\", \"value\":\"newvalue3\"}, \
+   {\"headerName\":\"X-CustomHeader\", \"key\":\"newkey4\", \"value\":\"newvalue4\"}  \
+]} \
+{\"uri\":\"192.168.0.2\", \"username\":\"someuser2.com\", \"password\":\"somepassword2.com\", \"headers\": [
+   {\"headerName\":\"Request-URI\", \"key\":\"newkey5\", \"value\":\"newvalue5\"}, \
+   {\"headerName\":\"Request-URI\", \"key\":\"newkey6\", \"value\":\"newvalue6\"}, \
+   {\"headerName\":\"To\", \"key\":\"newkey\", \"value7\":\"newvalue7\"}, \
+   {\"headerName\":\"X-CustomHeader\", \"key\":\"newkey8\", \"value\":\"newvalue8\"}  \
+]} \
+] } ] }"</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column-container">
+      <div class="footer-column">
+        <h5 class="footer-column-title">Products</h5>
+        <p><a href="programmable.html#_getting_started_with_programmable_voice">Programmable Voice</a></p>
+        <p><a href="programmable.html#_getting_started_with_programmable_sms">Programmable SMS</a></p>
+        <p><a href="message-exchange.html">Message Exchange</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-factor authentication (2FA)</a></p>
+        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone number masking</a></p>
+        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Learn</h5>
+        <p><a href="https://www.restcomm.com/docs">Documentation</a></p>
+        <p><a href="https://www.restcomm.com/blog/">Blog</a></p>
+        <p><a href="support.html">Terms And Conditions</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Contact us</h5>
+        <p>+1 650 263 6146</p>
+        <p>
+          <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
+          <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
+          <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
+          <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
+          <span><a href="https://plus.google.com/+Restcomm"><i class="fab fa-google-plus-g"></i></a></span>
+          <span><a href="https://www.restcomm.com/blog/"><i class="fas fa-rss"></i></a></span>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom-container">
+      <div class="footer-logo">
+        <a class="footer-logo-link" href="https://telestax.com"></a>
+      </div>
+      <div class="footer-copyright">
+        <p class="footer-copyright-paragraph">COPYRIGHT © 2018, TELESTAX INC., ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+<!--
+  Tried to get this chunk into js/05-countly.js but it has some issues with the async loading so fell back to putting it here
+  where it works for some reason
+-->
+  <!-- Only enable countly if the key is set -->
+  <script type='text/javascript' src='https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'></script>
+  <script>
+    var Countly = Countly || {}
+    Countly.q = Countly.q || []
+
+    // provide countly initialization parameters
+    Countly.app_key = '56bdc77c4c53e32ebd439e2586dd4ee22b3d3ad0'
+    Countly.url = 'https://restcomm.count.ly'
+
+    Countly.q.push(['track_sessions'])
+    Countly.q.push(['track_pageview'])
+    Countly.q.push(['track_clicks'])
+    Countly.q.push(['track_errors'])
+    Countly.q.push(['track_links'])
+    Countly.q.push(['track_forms'])
+    Countly.q.push(['collect_from_forms'])
+
+    // send event
+    Countly.q.push(['add_event', {
+      key: 'Restcomm CSPs Documentation',
+      segmentation: {},
+    }]);
+
+    // load countly script asynchronously
+    (function () {
+      var cly = document.createElement('script')
+      cly.type = 'text/javascript'
+      cly.async = true
+      // enter url of script here
+      cly.src = 'https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'
+      cly.onload = function () {
+        Countly.init()
+      }
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(cly, s)
+    })()
+  </script>
+
+
+  </body>
+</html>

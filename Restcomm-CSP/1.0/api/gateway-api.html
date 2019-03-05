@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/play.html">
+    <title>Restcomm API – Gateways :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/gateway-api.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -116,7 +116,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="say.html">Say</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="play.html">Play</a>
   </li>
 </ul>
@@ -152,13 +152,140 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="rcml-category.html">RCML</a></li>
-    <li class="crumb"><a href="play.html">Play</a></li>
+    <li class="crumb"><a href="gateway-api.html">Restcomm API – Gateways</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-
+  <h1>Restcomm API – Gateways</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel2">
+<li><a href="#_gateway_list_resource_uri">Gateway List Resource URI</a></li>
+<li><a href="#_register_restcomm_instance_to_a_sip_gateway">Register Restcomm instance to a SIP Gateway.</a></li>
+<li><a href="#supported-operations">Supported Operations</a></li>
+<li><a href="#examples">Examples</a>
+<ul class="sectlevel2">
+<li><a href="#_create_a_new_gateway">Create a new Gateway</a></li>
+<li><a href="#_get_a_list_of_available_gateways">Get a list of available Gateways.</a></li>
+<li><a href="#_update_an_existing_gateway">Update an existing Gateway.</a></li>
+<li><a href="#_delete_an_existing_gateway">Delete an existing Gateway.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Gateways subresources let you create sip accounts that Restcomm will use to register itself to the Gateway and receive incoming traffic. This feature is similar to when a SIP phone registers to a Proxy Server and receives inbound calls/messages. In this cases, Restcomm will act as the SIP client initiating the register connection to the Proxy Server.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gateway_list_resource_uri"><a class="anchor" href="#_gateway_list_resource_uri"></a>Gateway List Resource URI</h3>
+<div class="paragraph">
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Management/Gateways</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_register_restcomm_instance_to_a_sip_gateway"><a class="anchor" href="#_register_restcomm_instance_to_a_sip_gateway"></a>Register Restcomm instance to a SIP Gateway.</h3>
+<div class="paragraph">
+<p>You might need to register Restcomm instance to a SIP Gateway and receive incoming traffic from that Gateway. For that you need to use Gateway REST endpoint</p>
+</div>
+<div class="paragraph">
+<p>=== Resource Properties</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FriendlyName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A friendly version of the gateway.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The username that will be used to register to this gateway</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The password that will be used to register to this gateway</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Proxy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The proxy address of the gateway</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Register</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean flag to register or not the gateway</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TTL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time to live for the Register</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="supported-operations"><a class="anchor" href="#supported-operations"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET</strong> Returns the representation of a Gateway resource, including the properties above. Resource URI: /2010-04-01/Accounts/{AccountSid}/Management/Gateways/{GatewaySid}</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP POST</strong> Creates a new Gateway resource and returns the representation of the resource, including the properties above. Resource URI: /2010-04-01/Accounts/{AccountSid}/Management/Gateways</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP POST/PUT</strong> Update a Gateway resource and returns the representation of the resource, including the properties above. Resource URI: /2010-04-01/Accounts/{AccountSid}/Management/Gateways/{GatewaySid}</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP DELETE</strong> Deletes a Gateway resource. Resource URI: /2010-04-01/Accounts/{AccountSid}/Management/Gateways/{GatewaySid}</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_create_a_new_gateway"><a class="anchor" href="#_create_a_new_gateway"></a>Create a new Gateway</h3>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Management/Gateways -d "FriendlyName=mygateway" -d "UserName=username" -d "Password=password" -d "Proxy=my.gateway.com" -d "Register=true" -d "TTL=3600"</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_a_list_of_available_gateways"><a class="anchor" href="#_get_a_list_of_available_gateways"></a>Get a list of available Gateways.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>curl -G https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Management/Gateways</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_an_existing_gateway"><a class="anchor" href="#_update_an_existing_gateway"></a>Update an existing Gateway.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Management/Gateways/GW106bc6f34bd24790a435eaeccc1aed72 -d "FriendlyName=MyGatewayNewName" -d "UserName=newUserName"</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delete_an_existing_gateway"><a class="anchor" href="#_delete_an_existing_gateway"></a>Delete an existing Gateway.</h3>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X DELETE https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Management/Gateways/GW1cffb069192a45f2b5f5af2e76489550</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </article>
   </main>
 </div>

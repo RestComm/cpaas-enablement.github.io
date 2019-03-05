@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/play.html">
+    <title>Restcomm API – Email :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/email-api.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -116,7 +116,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="say.html">Say</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="play.html">Play</a>
   </li>
 </ul>
@@ -152,13 +152,210 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="rcml-category.html">RCML</a></li>
-    <li class="crumb"><a href="play.html">Play</a></li>
+    <li class="crumb"><a href="email-api.html">Restcomm API – Email</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-
+  <h1>Restcomm API – Email</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_email">Email</a>
+<ul class="sectlevel2">
+<li><a href="#_email_resource_uri">Email resource URI</a></li>
+<li><a href="#_resource_properties">Resource Properties</a></li>
+<li><a href="#_supported_operations">Supported Operations</a></li>
+<li><a href="#_request_parameters">Request Parameters</a></li>
+</ul>
+</li>
+<li><a href="#_using_email">Using Email</a>
+<ul class="sectlevel2">
+<li><a href="#_send_email_messages">Send Email Messages</a></li>
+</ul>
+</li>
+<li><a href="#example-post-response---xml-and-json">Example POST Response - XML and JSON</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_email"><a class="anchor" href="#_email"></a>Email</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using the RestComm API, you can send Emails through a simple request.</p>
+</div>
+<div class="sect2">
+<h3 id="_email_resource_uri"><a class="anchor" href="#_email_resource_uri"></a>Email resource URI</h3>
+<div class="paragraph">
+<p><strong>/2012-04-24/Accounts/{AccountSid}<strong>/Email/Messages</strong></strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_properties"><a class="anchor" href="#_resource_properties"></a>Resource Properties</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateSent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this Email Message was send.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique id of the Account that sent this Email message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Email address that initiated the message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Email address of the recipient.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The text body of the email message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The subject of the email message.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP POST.</strong> Sends a new Email  message and returns the representation of the Email message resource, including the properties above. Below you will find a list of required and optional parameters.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From(Required)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Email address to use as sender address.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To(Required)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The destination Email address.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body(Required)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The body of the Email message.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subject(Required)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The subject of the Email message.(Max. 160 chars.)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value to be used in the Content-Type header of the email message. (eg text/html for HTML emails)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BCC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Blind Carbon Copy feature (Bcc).  (Hide addresses when sending an Email to various recipients)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Carbon Copy (Cc). (The list of CCed recipients is visible to all other recipients of the message.)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_email"><a class="anchor" href="#_using_email"></a>Using Email</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need to configure Restcomm to send Email messages. For the necessary configuration please refer to this <a href="http://docs.telestax.com/restcomm-sending-email-via-restcomm-email-verb/">post</a></p>
+</div>
+<div class="sect2">
+<h3 id="_send_email_messages"><a class="anchor" href="#_send_email_messages"></a>Send Email Messages</h3>
+<div class="paragraph">
+<p>From a bash terminal, you can run the command below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Email/Messages -d "To=email@hotmail.com" -d "From=email@gmail.com" -d "Body=This is a test from RestComm" -d "Subject=Test Email"</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-post-response---xml-and-json"><a class="anchor" href="#example-post-response---xml-and-json"></a>Example POST Response - XML and JSON</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>XML POST Response</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Email/Messages -d "To=email@hotmail.com" -d "From=email@gmail.com" -d "Body=This is a test from RestComm" -d "Subject=Test Email"</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+  &lt;EmailMessage&gt;
+    &lt;DateSent&gt;2016-02-07T23:43:03.910Z&lt;/DateSent&gt;
+    &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+    &lt;From&gt;email@gmail.com&lt;/From&gt;
+    &lt;To&gt;email@hotmail.com&lt;/To&gt;
+    &lt;Body&gt;This is a test from RestComm&lt;/Body&gt;
+    &lt;Subject&gt;Test Email&lt;/Subject&gt;
+  &lt;/EmailMessage&gt;</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JSON POST Response</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Email/Messages.json -d "To=email@hotmail.com" -d "From=email@gmail.com" -d "Body=This is a test from RestComm" -d "Subject=Test Email"</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "date_sent": "2016-02-07T23:54:41.293Z",
+  "account_sid": "ACae6e420f425248d6a26948c17a9e2acf",
+  "from": "email@gmail.com",
+  "to": "email@hotmail.com",
+  "body": "This is a test from RestComm",
+  "subject": "Test Email"
+}</pre>
+</div>
+</div>
+</div>
+</div>
 </article>
   </main>
 </div>

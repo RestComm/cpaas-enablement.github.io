@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMS :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/sms.html">
+    <title>Restcomm API – SMS :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/sms-api.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -80,21 +80,21 @@
     <button class="nav-toggle"></button>
     <a class="nav-link" href="sms-category.html">SMS</a>
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <button class="nav-toggle"></button>
     <a class="nav-link" href="sms.html">Messages</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#_send_sms">Send SMS</a>
+    <a class="nav-link" href="sms.html#_send_sms">Send SMS</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#_get_sms_list">Get SMS List</a>
+    <a class="nav-link" href="sms.html#_get_sms_list">Get SMS List</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#_get_single_sms_information">Get single SMS Information</a>
+    <a class="nav-link" href="sms.html#_get_single_sms_information">Get single SMS Information</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="#_sms_attributes">SMS Attributes</a>
+    <a class="nav-link" href="sms.html#_sms_attributes">SMS Attributes</a>
   </li>
 </ul>
   </li>
@@ -152,27 +152,27 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="sms-category.html">SMS</a></li>
-    <li class="crumb"><a href="sms.html">Messages</a></li>
+    <li class="crumb"><a href="sms-api.html">Restcomm API – SMS</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-  <h1>SMS</h1>
+  <h1>Restcomm API – SMS</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#SMS">SMS</a></li>
 <li><a href="#_send_sms">Send SMS</a>
 <ul class="sectlevel2">
 <li><a href="#_status_callback">Status Callback</a></li>
 <li><a href="#_examples">Examples</a></li>
 </ul>
 </li>
-<li><a href="#_get_sms_list">Get SMS List</a>
-<ul class="sectlevel2">
+<li><a href="#_get_sms_list">Get SMS List</a></li>
 <li><a href="#_paging">Paging</a></li>
 <li><a href="#_filtering">Filtering</a></li>
-<li><a href="#_sorting_information">Sorting Information</a></li>
+<li><a href="#_sorting_information">Sorting Information</a>
+<ul class="sectlevel2">
 <li><a href="#_examples_2">Examples</a></li>
 </ul>
 </li>
@@ -189,7 +189,8 @@
 </li>
 </ul>
 </div>
-<div id="preamble">
+<div class="sect1">
+<h2 id="SMS"><a class="anchor" href="#SMS"></a>SMS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>An <strong>SMS</strong> represents an inbound or outbound SMS message. Using this API you can do things like:</p>
@@ -324,108 +325,11 @@
 <div class="paragraph">
 <p>Send an SMS message from 19876543212 to 13216549878 and also use a status callback URL so that you are notified of the SMS delivery status in the provided callback URL. Make sure that the provided callback URL is reachable from the internet:</p>
 </div>
-<script>
-      function openLanguage(language, index) {
-        const sampleClasses = document.getElementsByClassName("sample-language-" + index);
-        for (const sampleClass of sampleClasses) {
-          sampleClass.style.display = "none";
-        }
-        document.getElementById(language + '-' + index).style.display = "block";
-      }
-      </script>
-      <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-
-      <div class="w3-bar w3-black">
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Curl', 2)">Curl</button>
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Java', 2)">Java</button>
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Python', 2)">Python</button>
-      </div>
-      <div id="Curl-2" class="sample-language-2">
-        <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">curl -X POST https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/' + account_sid + '/SMS/Messages.json \
-   -d 'From=19876543212' \
-   -d 'To=13216549878' \
-   -d 'Body=Test SMS from Restcomm' \
-   -d 'StatusCallback=http://status.callback.url' \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Java-2" class="sample-language-2" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Change 'mycompany' to the desired restcomm organization
-   public static final String restcomm_domain = "mycompany.restcomm.com";
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String account_sid = "YourAccountSid";
-   public static final String auth_token = "YourAuthToken";
-
-   public static void main(String[] args) throws Exception {
-     String userAndPass = account_sid + ':' + auth_token;
-     String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-     URL url = new URL(("https://" + restcomm_domain + "/restcomm/2012-04-24/Accounts/' + account_sid + '/SMS/Messages.json");
-     HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-     conn.setRequestProperty("Authorization", "Basic " + encoded);
-     conn.setRequestMethod("POST");
-     conn.setDoOutput(true);
-     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-
-     // Update POST parameters accordingly
-     os.writeBytes("From=19876543212&" +
-        "To=13216549878&" +
-        "Body=Test SMS from Restcomm&" +
-        "StatusCallback=http://status.callback.url");
-     os.close();
-
-     BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-     String inputLine;
-     while ((inputLine = in.readLine()) != null)
-        System.out.println(inputLine);
-     in.close();
-  }
-}
-</code></pre>
-      </div>
-      <div id="Python-2" class="sample-language-2" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-from urllib.parse import urlencode
-
-# Change 'mycompany' to the desired restcomm organization
-restcomm_domain = 'mycompany.restcomm.com'
-# Provide your Account Sid and Auth Token from your Console Account page
-account_sid = 'YourAccountSid'
-auth_token = 'YourAuthToken'
-
-userAndPass = b64encode(bytes(account_sid + ':' + auth_token, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-            'Content-type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain' }
-
-# Update POST parameters accordingly
-params = urlencode({
-   'From': '19876543212',
-   'To': '13216549878',
-   'Body': 'Test SMS from Restcomm',
-   'StatusCallback': 'http://status.callback.url'
-})
-
-conn = HTTPSConnection(restcomm_domain)
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + account_sid + '/SMS/Messages.json',
-      params, headers=headers)
-res = conn.getresponse()
-
-print(res.status, res.reason)
-
-# Response text
-data = res.read()
-
-conn.close()
-</code></pre>
-      </div>
+<div class="listingblock">
+<div class="content">
+<pre>$ curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages -d "From=19876543212" -d "To=13216549878" -d "Body=Test SMS from Restcomm" -d "StatusCallback=http://status.callback.url"</pre>
+</div>
+</div>
 <div class="paragraph">
 <p>Example response:</p>
 </div>
@@ -451,99 +355,11 @@ conn.close()
 <div class="paragraph">
 <p>Send a (SIP) message from 19876543212 to Restcomm Client <code>alice</code>. Notice the <code>client:</code> prefix in the <code>To</code> (remember that this client needs to be registered):</p>
 </div>
-      <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-
-      <div class="w3-bar w3-black">
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Curl', 3)">Curl</button>
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Java', 3)">Java</button>
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Python', 3)">Python</button>
-      </div>
-      <div id="Curl-3" class="sample-language-3">
-        <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">curl -X POST https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/YourAccountSid/SMS/Messages.json \
-   -d 'From=19876543212' \
-   -d 'To=client:alice' \
-   -d 'Body=Test SIP message from Restcomm' \
-   -d 'StatusCallback=http://status.callback.url' \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Java-3" class="sample-language-3" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Change 'mycompany' to the desired restcomm organization
-   public static final String restcomm_domain = "mycompany.restcomm.com";
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String account_sid = "YourAccountSid";
-   public static final String auth_token = "YourAuthToken";
-
-   public static void main(String[] args) throws Exception {
-     String userAndPass = account_sid + ':' + auth_token;
-     String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-     URL url = new URL(("https://" + restcomm_domain + "/restcomm/2012-04-24/Accounts/YourAccountSid/SMS/Messages.json");
-     HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-     conn.setRequestProperty("Authorization", "Basic " + encoded);
-     conn.setRequestMethod("POST");
-     conn.setDoOutput(true);
-     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-
-     // Update POST parameters accordingly
-     os.writeBytes("From=19876543212&" +
-        "To=client:alice&" +
-        "Body=Test SIP message from Restcomm&" +
-        "StatusCallback=http://status.callback.url");
-     os.close();
-
-     BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-     String inputLine;
-     while ((inputLine = in.readLine()) != null)
-        System.out.println(inputLine);
-     in.close();
-  }
-}
-</code></pre>
-      </div>
-      <div id="Python-3" class="sample-language-3" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-from urllib.parse import urlencode
-
-# Change 'mycompany' to the desired restcomm organization
-restcomm_domain = 'mycompany.restcomm.com'
-# Provide your Account Sid and Auth Token from your Console Account page
-account_sid = 'YourAccountSid'
-auth_token = 'YourAuthToken'
-
-userAndPass = b64encode(bytes(account_sid + ':' + auth_token, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-            'Content-type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain' }
-
-# Update POST parameters accordingly
-params = urlencode({
-   'From': '19876543212',
-   'To': 'client:alice',
-   'Body': 'Test SIP message from Restcomm',
-   'StatusCallback': 'http://status.callback.url'
-})
-
-conn = HTTPSConnection(restcomm_domain)
-conn.request("POST", '/restcomm/2012-04-24/Accounts/YourAccountSid/SMS/Messages.json',
-      params, headers=headers)
-res = conn.getresponse()
-
-print(res.status, res.reason)
-
-# Response text
-data = res.read()
-
-conn.close()
-</code></pre>
-      </div>
+<div class="listingblock">
+<div class="content">
+<pre>$ curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages -d "From=19876543212" -d "To=client:alice" -d "Body=Test SIP message from Restcomm" -d "StatusCallback=http://status.callback.url"</pre>
+</div>
+</div>
 <div class="paragraph">
 <p>Example response:</p>
 </div>
@@ -578,8 +394,11 @@ conn.close()
 <div class="paragraph">
 <p>Returns a list of SMS records corresponding to SMS messages sent or received from the provided AccountSid, subject to the provided paging, filtering and sorting URL query parameters.</p>
 </div>
-<div class="sect2">
-<h3 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The following paging parameters are supported</p>
 </div>
@@ -606,8 +425,10 @@ conn.close()
 </tbody>
 </table>
 </div>
-<div class="sect2">
-<h3 id="_filtering"><a class="anchor" href="#_filtering"></a>Filtering</h3>
+</div>
+<div class="sect1">
+<h2 id="_filtering"><a class="anchor" href="#_filtering"></a>Filtering</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The following filtering parameters are supported</p>
 </div>
@@ -646,8 +467,10 @@ conn.close()
 </tbody>
 </table>
 </div>
-<div class="sect2">
-<h3 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h3>
+</div>
+<div class="sect1">
+<h2 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Below you can find the supported sorting parameters. In order to use them you need to utilize the <strong>SortBy</strong> query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here&#8217;s the overall format: <strong>SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;</strong>. If no direction parameter is provided, then the listing of messages is sorted by the attribute in ascending order.</p>
 </div>
@@ -693,81 +516,16 @@ conn.close()
 </tr>
 </tbody>
 </table>
-</div>
 <div class="sect2">
 <h3 id="_examples_2"><a class="anchor" href="#_examples_2"></a>Examples</h3>
 <div class="paragraph">
 <p>The command below will return the first page of SMS records corresponding to SMS messages sent from '19876543212' to '13216549878' between 2018-05-30 and 2018-06-09, sorted by the creation date in ascending order:</p>
 </div>
-      <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-
-      <div class="w3-bar w3-black">
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Curl', 4)">Curl</button>
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Java', 4)">Java</button>
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Python', 4)">Python</button>
-      </div>
-      <div id="Curl-4" class="sample-language-4">
-        <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">curl -X GET https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/YourAccountSid/SMS/Messages.json?From=19876543212&To=13216549878&StartTime=2018-05-30&EndTime=2018-06-09&Page=0&PageSize=10&SortBy=DateCreated:asc \
-   -u "YourAccountSid:YourAuthToken"
-</code></pre>
-      </div>
-      <div id="Java-4" class="sample-language-4" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Change 'mycompany' to the desired restcomm organization
-   public static final String restcomm_domain = "mycompany.restcomm.com";
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String account_sid = "YourAccountSid";
-   public static final String auth_token = "YourAuthToken";
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = account_sid + ':' + auth_token;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL("https://" + restcomm_domain + "/restcomm/2012-04-24/Accounts/YourAccountSid/SMS/Messages.json?From=19876543212&To=13216549878&StartTime=2018-05-30&EndTime=2018-06-09&Page=0&PageSize=10&SortBy=DateCreated:asc");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("GET");
-
-      BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-      String inputLine;
-      while ((inputLine = in.readLine()) != null)
-         System.out.println(inputLine);
-      in.close();
-  }
-}
-</code></pre>
-      </div>
-      <div id="Python-4" class="sample-language-4" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-
-# Change 'mycompany' to the desired restcomm organization
-restcomm_domain = 'mycompany.restcomm.com'
-# Provide your Account Sid and Auth Token from your Console Account page
-account_sid = 'YourAccountSid'
-auth_token = 'YourAuthToken'
-
-userAndPass = b64encode(bytes(account_sid + ':' + auth_token, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass }
-
-conn = HTTPSConnection(restcomm_domain)
-conn.request("GET", '/restcomm/2012-04-24/Accounts/YourAccountSid/SMS/Messages.json?From=19876543212&To=13216549878&StartTime=2018-05-30&EndTime=2018-06-09&Page=0&PageSize=10&SortBy=DateCreated:asc',
-      headers=headers)
-res = conn.getresponse()
-
-print(res.status, res.reason)
-
-# Response text
-data = res.read()
-
-conn.close()
-</code></pre>
-      </div>
+<div class="listingblock">
+<div class="content">
+<pre>$ curl -X GET  https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages.json?From=19876543212&amp;To=13216549878&amp;StartTime=2018-05-30&amp;EndTime=2018-06-09&amp;Page=0&amp;PageSize=10&amp;SortBy=DateCreated:asc</pre>
+</div>
+</div>
 <div class="paragraph">
 <p>Example response:</p>
 </div>
@@ -816,75 +574,11 @@ conn.close()
 <div class="paragraph">
 <p>Retrieve the information of the SMS record with Sid SM55ce5cf07b9649c283cbacab4dae56a9:</p>
 </div>
-      <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-
-      <div class="w3-bar w3-black">
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Curl', 5)">Curl</button>
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Java', 5)">Java</button>
-        <button class="w3-bar-item w3-button" onclick="openLanguage('Python', 5)">Python</button>
-      </div>
-      <div id="Curl-5" class="sample-language-5">
-        <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">curl -X GET https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/YourAccountSid/SMS/Messages/SM55ce5cf07b9649c283cbacab4dae56a9.json \
-   -u "YourAccountSid:YourAuthToken"
-</code></pre>
-      </div>
-      <div id="Java-5" class="sample-language-5" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Change 'mycompany' to the desired restcomm organization
-   public static final String restcomm_domain = "mycompany.restcomm.com";
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String account_sid = "YourAccountSid";
-   public static final String auth_token = "YourAuthToken";
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = account_sid + ':' + auth_token;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL("https://" + restcomm_domain + "/restcomm/2012-04-24/Accounts/YourAccountSid/SMS/Messages/SM55ce5cf07b9649c283cbacab4dae56a9.json");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("GET");
-
-      BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-      String inputLine;
-      while ((inputLine = in.readLine()) != null)
-         System.out.println(inputLine);
-      in.close();
-  }
-}
-</code></pre>
-      </div>
-      <div id="Python-5" class="sample-language-5" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-
-# Change 'mycompany' to the desired restcomm organization
-restcomm_domain = 'mycompany.restcomm.com'
-# Provide your Account Sid and Auth Token from your Console Account page
-account_sid = 'YourAccountSid'
-auth_token = 'YourAuthToken'
-
-userAndPass = b64encode(bytes(account_sid + ':' + auth_token, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass }
-
-conn = HTTPSConnection(restcomm_domain)
-conn.request("GET", '/restcomm/2012-04-24/Accounts/YourAccountSid/SMS/Messages/SM55ce5cf07b9649c283cbacab4dae56a9.json',
-      headers=headers)
-res = conn.getresponse()
-
-print(res.status, res.reason)
-
-# Response text
-data = res.read()
-
-conn.close()
-</code></pre>
-      </div>
+<div class="listingblock">
+<div class="content">
+<pre>$ curl -X GET https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/SMS/Messages/SM55ce5cf07b9649c283cbacab4dae56a9.json</pre>
+</div>
+</div>
 <div class="paragraph">
 <p>Example response:</p>
 </div>

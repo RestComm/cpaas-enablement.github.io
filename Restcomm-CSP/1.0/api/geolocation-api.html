@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restcomm API Geolocation :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/geolocation-api.html">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <!-- Not using it for now
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+<!--
+      <a class="navbar-item" href="https://www.restcomm.com/docs"><img width="140px" src="../../../_/img/restcomm-logo-white.svg"></a>
+-->
+      <a class="navbar-item header-logo-link" href="https://www.restcomm.com/docs"></a>
+<!--
+      <a class="navbar-item" href="https://www.restcomm.com/docs">Restcomm CPaaS Enablement Docs</a>
+-->
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        -->
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="main-wrapper">
+<div class="navigation-container" data-component="Restcomm-CSP" data-version="1.0" >
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="voice-category.html">Voice</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Calls</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Recordings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Conferences</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms-category.html">SMS</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms.html">Messages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_send_sms">Send SMS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_get_sms_list">Get SMS List</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_get_single_sms_information">Get single SMS Information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_sms_attributes">SMS Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="rcml-category.html">RCML</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dial.html">Dial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="gather.html">Gather</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="say.html">Say</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="play.html">Play</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">Restcomm CPaaS Enablement Docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Restcomm CPaaS Enablement Docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
+    <li class="crumb"><a href="geolocation-api.html">Restcomm API Geolocation</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc ">
+  <h1>Restcomm API Geolocation</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_rationale">Rationale</a></li>
+<li><a href="#_geolocation">Geolocation</a>
+<ul class="sectlevel2">
+<li><a href="#_geolocation_resource_uri">Geolocation Resource URI</a></li>
+<li><a href="#_geolocation_resource_properties">Geolocation Resource properties</a></li>
+<li><a href="#_supported_operations">Supported Operations</a></li>
+</ul>
+</li>
+<li><a href="#_immediate_geolocation">Immediate Geolocation</a>
+<ul class="sectlevel3">
+<li><a href="#_immediate_geolocation_uri">Immediate Geolocation URI</a></li>
+<li><a href="#_supported_operations_2">Supported Operations</a></li>
+<li><a href="#_immediate_geolocation_list_of_required_parameters">Immediate Geolocation list of required parameters</a></li>
+<li><a href="#_immediate_geolocation_examples">Immediate Geolocation examples</a></li>
+</ul>
+</li>
+<li><a href="#_notification_geolocation">Notification Geolocation</a>
+<ul class="sectlevel3">
+<li><a href="#_notification_location_uri">Notification Location URI</a></li>
+<li><a href="#_supported_operations_3">Supported Operations</a></li>
+<li><a href="#_notification_geolocation_list_of_required_parameters">Notification Geolocation list of required parameters</a></li>
+<li><a href="#_notification_geolocation_examples">Notification Geolocation examples</a></li>
+</ul>
+</li>
+<li><a href="#_ip_geolocation_sequence_diagram">IP Geolocation Sequence Diagram</a></li>
+<li><a href="#_cellular_geolocation_sequence_diagrams">Cellular Geolocation Sequence Diagrams</a></li>
+<li><a href="#_geolocation_status_callbacks_sequence_diagram">Geolocation Status Callbacks Sequence Diagram</a></li>
+<li><a href="#_restcomm_core_ss7_and_lte_geolocation_configuration">RestComm Core SS7 and LTE Geolocation Configuration</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_rationale"><a class="anchor" href="#_rationale"></a>Rationale</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The goal of this document is describing and offer an API that Web
+Developers can understand without the need of any knowledge about the
+underlying Telecom infrastructure and jargon and thus make it as easy as
+it gets to include Geolocation as a value-added feature in their
+applications.</p>
+</div>
+<div class="paragraph">
+<p>The API aims to cater either IP Geolocation (from Restcomm SDKs) or
+cellular telephony Geolocation (from Mobile Network Operators core and
+radio access networks, either by SS7 MAP or LTE Diameter operations) in
+terms of API.</p>
+</div>
+<div class="paragraph">
+<p>The use cases this API aims covering are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Notify Restcomm the current location of client X or certain
+MSISDN/IMSI (e.g. iWatch cardio activity alarm 2015 TADHack Chicago winner-,
+E911, friend/family finder, etc.).</p>
+</li>
+<li>
+<p>Notify Restcomm if client X or certain MSISDN or IMSI enters or exits a
+geofence. Use cases like mobile advertising use cases apply to this type of Geolocation service.</p>
+</li>
+<li>
+<p>Notify Restcomm if client X is within N meters from client Y. Many use cases apply to this type of Geolocation service, namely:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Parental control: Notify a parent when their child/children are further than X metres away.</p>
+</li>
+<li>
+<p>Hanging out: Notify friends when they are within X Kms.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>* Business matching: at a conference, notify attendees of other attendees within range who also have related interest based on LinkedIn profile.</p>
+</div>
+<div class="paragraph">
+<p>* Court restraining order: when someone is legally not allowed to be writhing certain range of another individual.</p>
+</div>
+<div class="paragraph">
+<p>Other use cases will be covered in future iterations of the API based on
+community and customer feedback.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_geolocation"><a class="anchor" href="#_geolocation"></a>Geolocation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <strong>Geolocation</strong> resource represents an outbound Geolocation
+service.</p>
+</div>
+<div class="sect2">
+<h3 id="_geolocation_resource_uri"><a class="anchor" href="#_geolocation_resource_uri"></a>Geolocation Resource URI</h3>
+<div class="paragraph">
+<p>Geolocation Resource <strong>URI</strong> distinct in three modes described further
+below:</p>
+</div>
+<div class="paragraph">
+<p><strong>/ApiVersion/Accounts/{AccountSid}/Geolocation/{GeolocationSid}</strong></p>
+</div>
+<div class="paragraph">
+<p>This URI refers to requests that would only allow HTTP GET method to
+retrieve previously gathered Geolocation information, regardless of
+whether it was an Immediate or Notification Geolocation request. (See
+further below for description of those terms).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_geolocation_resource_properties"><a class="anchor" href="#_geolocation_resource_properties"></a>Geolocation Resource properties</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">PROPERTY</th>
+<th class="tableblock halign-left valign-top">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies this Geolocation service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this Geolocation service was created.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this Geolocation service was last updated.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateExecuted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this Geolocation service was sent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies the account that created
+this Geolocation service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies the Geolocation service
+client, phone number or device that initiated the Geolocation service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeviceIdentifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies the device target
+(e.g. phone number, IoT device, &#8230;&#8203;) of this Geolocation service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeolocationType:</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The type of location measurement requested, namely:</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Immediate</em></strong>: after a successful geolocation attempt has been
+delivered with its associated timestamp, the location information and
+timestamp are referred to as the current location at that point in
+time.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Notification</em></strong>: location request where the response/s is/are
+required after a specific event has occurred. Event may or may not occur
+immediately. In addition, event may occur many times. Examples of these
+events: when a device is entering or leaving or being in a pre-defined
+geographical area (geofencing); periodic location; when a device becomes
+available; when a sensor/beacon detects a threshold surpassed, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ResponseStatus</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>A string that uniquely identifies the current state of this Geolocation
+service. Possible values are:</p>
+</div>
+<div class="paragraph">
+<p><strong><em>queued</em></strong>: whenever the location request is buffered due to abnormal
+causes (e.g. congestion at the GMLC);</p>
+</div>
+<div class="paragraph">
+<p><strong><em>sent</em></strong>: when the location request has already been sent but no
+response has arrived yet;</p>
+</div>
+<div class="paragraph">
+<p><strong><em>processing</em></strong>: when the location response has been received but being
+under computational process for delivery to the requesting location
+client.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>successful</em></strong>: when the location response has been received and
+processed with complete fulfilment of quality of geolocation
+information.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>partially-successful</em></strong>: when the location response has been received
+and processed, but not fulfilled the whole set of geolocation
+information or desired accuracy, e.g.: geographic coordinates were not
+possible to retrieve, but at least other location information such as
+Cell/Service and Location/Service Area identifiers were obtained; location information
+was retrieved, but the age of location estimate denotes it may be
+outdated; location information was retrieved, but informed that
+precision is not reliable due to high error margin.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>last-known</em></strong>: when location information could not be retrieved from
+the network but there is a previous persisted location information for
+the targeted DeviceIdentifier of this Geolocation service.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>failed</em></strong>: when location information could not be retrieved from the
+network and there is no previous location information persisted for the
+targeted DeviceIdentifier of this Geolocation service, or when an
+attempt to update this Geolocation service was malformed or not API
+compliant. In the latter situation, the record persists, but previous
+geolocation information is erased (expecting a correct geolocation
+update).</p>
+</div>
+<div class="paragraph">
+<p><strong><em>unauthorized</em></strong>: when the location request is or has become
+disallowed from the network, the location client requesting this service
+is not authorized for such operation or the target device is marked for
+not authorizing this kind of location requests. A record is persisted
+for security and analytics purposes.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>rejected</em></strong>: when the location request does not meet the API&#8217;s
+requirements for mandatory parameters (or some of them are missing), or
+prohibited parameters are included for a certain type of Geolocation. No
+records are persisted in this eventuality.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeolocationData</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>An array that uniquely identifies the location information that might be
+obtained by this Geolocation service. The fields of this array are
+described next:</p>
+</div>
+<div class="paragraph">
+<p><strong><em>CellId</em></strong>: an identifier assigned to a specific radio coverage area
+known as cell or service area;</p>
+</div>
+<div class="paragraph">
+<p><strong><em>LocationAreaCode</em></strong>: an identifier assigned to a group of cells or service area;</p>
+</div>
+<div class="paragraph">
+<p><strong><em>MobileCountryCode</em></strong>: code number of the country of the mobile
+network as specified by E.212.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>MobileNetworkCode</em></strong>: code number of the mobile network in a specific
+country as specified by E.212.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>NetworkEntityAddress</em></strong>: code number of the mobile network entity
+addressed for this Geolocation service.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>LocationAge</em></strong>: indication of how long ago the network location
+identifiers were recorded (informed in minutes);</p>
+</div>
+<div class="paragraph">
+<p><strong><em>DeviceLatitude</em></strong>: an estimate of the location of the phone number,
+device/beacon or closest WiFi Access Point in the geographic
+coordinate that specifies the north-south position of a point on the
+Earth&#8217;s surface.</p>
+</div>
+<div class="paragraph">
+<p>WGS84 is used, whose formats for Latitude are described next:</p>
+</div>
+<div class="paragraph">
+<p>Latitude valid formats include:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>N43°38'19.39"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>43°38'19.39"N</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>43 38 19.39</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>43.63871944444445</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If expressed in decimal form, northern latitudes are positive, southern
+latitudes are negative. The following longitude variants are also allowed:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>N43 38 19.39</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>43 38 19.39N</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong><em>DeviceLongitude</em></strong>: an estimate of the location of the phone number,
+device/beacon or closest WiFi Access Point in the geographic
+coordinate that specifies the north-south position of a point on the
+Earth&#8217;s surface.</p>
+</div>
+<div class="paragraph">
+<p>WGS84 is used, whose formats for Longitude are described next:</p>
+</div>
+<div class="paragraph">
+<p>Longitude valid formats include:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>W116°14'28.86"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>116°14'28.86"W</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>-116 14 28.86</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>-116.2413513485235</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If expressed in decimal form, eastern longitudes are positive, western
+longitudes are negative. The following longitude variants are also allowed:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>W116 14 28.86</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>116 14 28.86W</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong><em>Accuracy</em></strong>: quality of location information or estimated precision
+for this Geolocation service in meters. This information will be present
+depending on available location procedures at the radio access network.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>PhysicalAddress</em></strong>: MAC address of the device/beacon or closest
+closest WiFi Access Point.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>InternetAddress</em></strong>: IP address of the phone number, device/beacon or
+closest closest WiFi Access Point.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>FormattedAddress</em>:</strong> refers to the civic location of the phone
+number, device/beacon or closest WiFi Access Point, expressed as civic
+data (e.g. floor, street number, city.) It shall be represented in a
+well-defined universal format, compliant with Google Geolocation API
+"formatted_address" json/xml field.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>LocationTimestamp</em></strong>: indication of when the geolocation information
+was gathered (informed as a time stamp);</p>
+</div>
+<div class="paragraph">
+<p><strong><em>EventGeofenceLatitude:</em></strong> refers to the geographic coordinates
+latitude of a specific location. Used to notify when a device is within
+a certain distance (in metres) from that specific location. Same format used as for DeviceLatitude parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>EventGeofenceLongitude:</em></strong> refers to the geographic coordinates
+longitude of a specific location. Used to notify when a device is within
+a certain distance (in metres) from that specific location. Same format used as for DeviceLongitude parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Radius:</em></strong> distance in meters from the Geofence geographic coordinates.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeolocationPositioningType</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indication of the positioning method used to determine the Geolocation
+data, either successfully or unsuccessfully. Possible values are:</p>
+</div>
+<div class="paragraph">
+<p><strong><em>last-known</em></strong>: last known device location position stored at a
+database (Location Server, HLR, etc.) from which the information is
+retrieved.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>Network</em></strong>: location information retrieved from improved measurement
+techniques executed at the radio access network, either for IP or
+cellular networks (e.g. timing advanced, multilateration, etc.).</p>
+</div>
+<div class="paragraph">
+<p><strong><em>GPS</em></strong>: location information assisted by the Global Navigation
+Satellite System (GNSS), which includes GPS (as well as GLONASS and
+Galileo).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LastGeolocationResponse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indication whether GeolocationData
+values provided are  the last to be gathered in this Geolocation
+request (true/yes) or further are expected to be sent asynchronously (false/no) to the StatusCallback URL.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cause</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reason of an unsuccessful or rejected Geolocation request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiVersion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API version RestComm used to handle the Geolocation
+service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to
+<a href="http://localhost:port/restcomm" class="bare">http://localhost:port/restcomm</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET</strong>. Returns the list representation of all the service
+resources for this account, including the properties above.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_immediate_geolocation"><a class="anchor" href="#_immediate_geolocation"></a>Immediate Geolocation</h2>
+<div class="sectionbody">
+<div class="sect3">
+<h4 id="_immediate_geolocation_uri"><a class="anchor" href="#_immediate_geolocation_uri"></a>Immediate Geolocation URI</h4>
+<div class="paragraph">
+<p><strong>/ApiVersion/Accounts/{AccountSid}/Geolocation/Immediate/{GeolocationSid}</strong></p>
+</div>
+<div class="paragraph">
+<p>This URI mode refers to requests for retrieval of current or last known
+Geolocation information (an associated timestamp will be included in the
+response). Geolocation information might include very accurate location
+data in terms of geographic coordinates, or just location identifiers
+like the radio base station transceiver identity of a cellular network
+that is currently providing service to the target device. Accuracy will
+depend on the available radio access location procedures, either within
+a Mobile Network Operator for mobile handsets location within a cellular
+Radio Access Network, or a WLAN/WiFi covered area for IP location.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET</strong>. Returns the list representation of all the service
+resources for this account, including the properties above.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP POST</strong>. Sends a new location request and returns the
+representation of the Location request resource, including the
+properties above.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP PUT</strong>. Updates an Immediate Geolocation request and returns the
+representation of the Geolocation request resource, including the
+properties above.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP DELETE</strong>. Stops an Immediate Geolocation request previously
+created or updated</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_immediate_geolocation_list_of_required_parameters"><a class="anchor" href="#_immediate_geolocation_list_of_required_parameters"></a>Immediate Geolocation list of required parameters</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">PARAMETER</th>
+<th class="tableblock halign-left valign-top">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeviceIdentifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target E.164 (MSISDN) or E.212 (IMSI) phone number or device identity of
+this Geolocation service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that RestComm will use when the Geolocation
+service reaches a state that demands notifying the requesting
+application. Note: Typically, if the Geolocation request is using Low
+Accuracy, the Geolocation information can be retrieved quickly, thus the
+result may be returned synchronously. For more precise accuracy, it will
+take longer to gather the Geolocation information, as such this URL will
+be called back (potentially multiple times) as the Geolocation
+information is gathered.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_immediate_geolocation_examples"><a class="anchor" href="#_immediate_geolocation_examples"></a>Immediate Geolocation examples</h3>
+<div class="sect4">
+<h5 id="_example_1_geolocation_of_a_specific_ip_device_associated_to_a_user_partial_and_successful_answers_whole_status_callback_cycle_example"><a class="anchor" href="#_example_1_geolocation_of_a_specific_ip_device_associated_to_a_user_partial_and_successful_answers_whole_status_callback_cycle_example"></a>Example 1.- Geolocation of a specific IP device associated to a User; Partial and Successful answers, whole Status Callback cycle example</h5>
+<div class="paragraph">
+<p>See below a curl example for a Geolocation request originated from a
+mobile (iOS or Android) location client. This Geolocation service
+assumes WiFi connection only, thus the location information is obtained
+from an Access Point (AP) management system, typically placed in indoors
+surroundings like shopping centers, theaters, domes, etc.</p>
+</div>
+<div class="paragraph">
+<p>In the first instance, the Location Server cannot determine a precise
+location information, responding back with the last known location.
+Later, best available accuracy is processed and informed back to the
+corresponding Status Callback URL.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate -d "DeviceIdentifier=client:david" -d "StatusCallback=http://192.16.1.19:8080/ACae6e420f425248d6a26948c17a9e2acf"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below for a partially-successful
+positioning procedure:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50271&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:36:12 -0500&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;client:david&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;immediate&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;partially-successful&lt;/ResponseStatus&gt;
+     &lt;GeolocationData&gt;
+             &lt;DeviceLatitude&gt;33.786442&lt;/DeviceLatitude&gt;
+             &lt;DeviceLongitude&gt;-84.38103&lt;/DeviceLongitude&gt;
+             &lt;PhysicalAddress&gt;00-41-76-C0-00-D1&lt;/PhysicalAddress&gt;
+             &lt;InternetAddress&gt;65.17.24.177&lt;/InternetAddress&gt;
+             &lt;FormattedAddress&gt;187 14th St NE Atlanta, GA 30309-2674,
+             USA&lt;/FormattedAddress&gt;
+             &lt;LocationTimestamp&gt;Mon, 25 Jan 2016 16:36:12 -0500&lt;/LocationTimestamp&gt;
+     &lt;/GeolocationData&gt;
+     &lt;GeolocationPositioningType&gt;last-known&lt;/GeolocationPositioningType&gt;
+     &lt;LastGeolocationResponse&gt;false&lt;/LastGeolocationResponse&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50271&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, see the corresponding status callback after a network measurement
+updated the previously stored last known location data (still a
+partially-successful positioning procedure though, desired accuracy is
+not accomplished yet):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50271&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:36:25 -0500&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;client:david&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;immediate&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;partially-successful&lt;/ResponseStatus&gt;
+     &lt;GeolocationData&gt;
+             &lt;DeviceLatitude&gt;33.770002&lt;/DeviceLatitude&gt;
+             &lt;DeviceLongitude&gt;-84.5200998&lt;/DeviceLongitude&gt;
+             &lt;Accuracy&gt;150&lt;/Accuracy&gt;
+             &lt;PhysicalAddress&gt;00-41-76-C0-00-D1&lt;/PhysicalAddress&gt;
+             &lt;InternetAddress&gt;65.17.21.37&lt;/InternetAddress&gt;
+             &lt;FormattedAddress&gt;37 5th St NE Atlanta, GA 30310-2179, USA&lt;/FormattedAddress&gt;
+             &lt;LocationTimestamp&gt;Mon, 25 Jan 2016 16:36:25 -0500&lt;/LocationTimestamp&gt;
+     &lt;/GeolocationData&gt;
+     &lt;GeolocationPositioningType&gt;Network&lt;/GeolocationPositioningType&gt;
+     &lt;LastGeolocationResponse&gt;false&lt;/LastGeolocationResponse&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50271&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, see the corresponding response below for the successful
+positioning procedure informed in a posterior status callback when high
+accuracy is accomplished through GPS assistance:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50271&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:38:24 -0500&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;client:david&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;immediate&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;partially-successful&lt;/ResponseStatus&gt;
+     &lt;GeolocationData&gt;
+             &lt;DeviceLatitude&gt;33.870042&lt;/DeviceLatitude&gt;
+             &lt;DeviceLongitude&gt;-84.5190103&lt;/DeviceLongitude&gt;
+             &lt;Accuracy&gt;5&lt;/Accuracy&gt;
+             &lt;PhysicalAddress&gt;00-41-76-C0-00-D1&lt;/PhysicalAddress&gt;
+             &lt;InternetAddress&gt;65.17.21.37&lt;/InternetAddress&gt;
+             &lt;FormattedAddress&gt;34 5th St NE Atlanta, GA 30310-2178, USA&lt;/FormattedAddress&gt;
+             &lt;LocationTimestamp&gt;Mon, 25 Jan 2016 16:38:24 -0500&lt;/LocationTimestamp&gt;
+     &lt;/GeolocationData&gt;
+    &lt;GeolocationPositioningType&gt;GPS&lt;/GeolocationPositioningType&gt;
+     &lt;LastGeolocationResponse&gt;true&lt;/LastGeolocationResponse&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50271&lt;/Uri&gt;
+  &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_2_geolocation_of_a_specific_mobile_device_associated_to_a_phone_number_response_including_geographic_coordinates"><a class="anchor" href="#_example_2_geolocation_of_a_specific_mobile_device_associated_to_a_phone_number_response_including_geographic_coordinates"></a>Example 2.- Geolocation of a specific Mobile device associated to a phone number; response including geographic coordinates</h4>
+<div class="paragraph">
+<p>See below a curl example for a Geolocation request originated initiated
+by E.164 phone number 59899549878 requesting location information of
+E.164 phone number 59897018375.</p>
+</div>
+<div class="paragraph">
+<p>This case assumes that the Geolocation information is retrieved
+successfully from a cellular network with capabilities for obtaining
+geographic coordinates (multilateration with at least three base
+stations) as well as core and radio access network identifiers:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate -d "DeviceIdentifier=59897018375" -d "StatusCallback=http://192.16.1.19:8080/ACae6e420f425248d6a26948c17a9e2acf"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50272&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0300&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:37:21 -0300&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0300&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;59897018375&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;immediate&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;successful&lt;/ResponseStatus&gt;
+     &lt;GeolocationData&gt;
+             &lt;CellId&gt;90183B&lt;/CellId&gt;
+             &lt;LocationAreaCode&gt;751&lt;/LocationAreaCode&gt;
+             &lt;MobileCountryCode&gt;748&lt;/MobileCountryCode&gt;
+             &lt;MobileNetworkCode&gt;01&lt;/MobileNetworkCode&gt;
+             &lt;NetworkEntityAddress&gt;59800023041&lt;/NetworkEntityAddress&gt;
+             &lt;LocationAge&gt;0&lt;/LocationAge&gt;
+             &lt;DeviceLatitude&gt;-34.541079&lt;/DeviceLatitude&gt;
+             &lt;DeviceLongitude&gt;-56.1421274&lt;/DeviceLongitude&gt;
+             &lt;Accuracy&gt;50&lt;/Accuracy&gt;
+             &lt;LocationTimestamp&gt;Mon, 25 Jan 2016 16:37:21 -0300&lt;/LocationTimestamp&gt;
+     &lt;/GeolocationData&gt;
+     &lt;GeolocationPositioningType&gt;Network&lt;/GeolocationPositioningType&gt;
+     &lt;LastGeolocationResponse&gt;true&lt;/LastGeolocationResponse&gt;
+    &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50272&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_3_geolocation_of_a_specific_mobile_device_associated_to_a_phone_number_no_geographic_coordinates_included_in_response"><a class="anchor" href="#_example_3_geolocation_of_a_specific_mobile_device_associated_to_a_phone_number_no_geographic_coordinates_included_in_response"></a>Example 3.- Geolocation of a specific Mobile Device associated to a phone number; no geographic coordinates included in response</h4>
+<div class="paragraph">
+<p>See below a curl example for a Geolocation request originated from an
+application called eTop requesting location information of E.164 phone
+number 59897018375. As you can see, the request demands a JSON response.</p>
+</div>
+<div class="paragraph">
+<p>This case assumes that the Geolocation information is retrieved from a
+cellular network, but in contrast with example 1, with no capabilities
+for obtaining geographic coordinates but at least core and radio access
+network identifiers are available (typical of 2G cellular networks):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate.json -d "DeviceIdentifier=39897018375" -d "StatusCallback=http://192.16.1.19:8080/ACae6e420f425248d6a26948c17a9e2acf"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+  "sid": "GLfa51b104354440b09213d04752f50273",
+  "date_created": "Mon, 25 Jan 2016 16:36:10 +0200",
+  "date_updated": "Mon, 25 Jan 2016 16:36:11 +0200",
+  "date_executed": "Mon, 25 Jan 2016 16:36:10 +0200",
+  "account_sid": "ACae6e420f425248d6a26948c17a9e2acf",
+  "device_identifier": "39897018375",
+  "geolocation_type": "Immediate",
+  "response_status": "partially-successful",
+  "geolocation_data": {
+    "CellId": "191",
+    "LocationAreaCode": "901",
+    "MobileCountryCode": "222",
+    "MobileNetworkCode": "48",
+    "NetworkEntityAddress": "3980000101",
+    "LocationAge": "0",
+    "location_timestamp": "Mon, 25 Jan 2016 16:36:11 +0200"
+  },
+  "geolocation_positioning_type": "Network",
+  "last_geolocation_response": "true",
+  "api_version": "2012-04-24",
+  "uri": "/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50273.json"
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_4_geolocation_of_a_specific_ip_device_associated_to_a_user_failed_execution_response"><a class="anchor" href="#_example_4_geolocation_of_a_specific_ip_device_associated_to_a_user_failed_execution_response"></a>Example 4.- Geolocation of a specific IP device associated to a user: Failed execution response</h4>
+<div class="paragraph">
+<p>See below a curl example for a Geolocation request originated from a
+mobile (iOS or Android) location client, exactly like the latest
+example, but on this occasion with a failed result (e.g. no geographic
+coordinates or civic address could be obtained from the AP management
+system):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate -d "DeviceIdentifier=sip:david@65.17.24.177" -d "StatusCallback=http://192.16.1.19:8080/ACae6e420f425248d6a26948c17a9e2acf"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50274&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:36:37 -0500&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;sip:david@65.17.24.177&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;immediate&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;failed&lt;/ResponseStatus&gt;
+     &lt;/GeolocationData&gt;
+     &lt;Cause&gt;Timeout, no response from network&lt;/Cause&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50274&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: records are persisted when ResponseStatus equals failed, thus
+they could be updated by a further operation, a POST or PUT request, or
+retrieved by a GET request.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_5_geolocation_update_of_a_previously_failed_request"><a class="anchor" href="#_example_5_geolocation_update_of_a_previously_failed_request"></a>Example 5.- Geolocation update of a previously failed request</h4>
+<div class="paragraph">
+<p>See below a curl example for updating the previous Geolocation request example. In this case, the last known location is set instead of the empty location data response obtained previously due to a network failure.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X PUT -H "application/json" http://ACae6e420f425248d6a26948c17a9e2acf:f8bc1274677b173d1a1cf3b9924eaa7e@192.168.118.134:8080/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50274 -d "DeviceLatitude=43.257134" -d "DeviceLongitude=-3.496932" -d "LocationTimestamp=2016-01-17T20:32:28.488-04:00" -d "PhysicalAddress=D8-97-BA-19-02-D8" -d "InternetAddress=2001:0:9d38:6ab8:30a5:1c9d:58c6:5898" -d "LastGeolocationResponse=false" -d "GeolocationPositioningType=last-known"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+  &lt;Geolocation&gt;
+    &lt;Sid&gt;GLfa51b104354440b09213d04752f50274&lt;/Sid&gt;
+    &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateCreated&gt;
+    &lt;DateUpdated&gt;Mon, 25 Jan 2016 20:40:10 -0500&lt;/DateUpdated&gt;
+    &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateExecuted&gt;
+    &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+    &lt;DeviceIdentifier&gt;sip:david@65.17.24.177&lt;/DeviceIdentifier&gt;
+    &lt;GeolocationType&gt;Immediate&lt;/GeolocationType&gt;
+    &lt;ResponseStatus&gt;last-known&lt;/ResponseStatus&gt;
+    &lt;GeolocationData&gt;
+      &lt;DeviceLatitude&gt;35.669860&lt;/DeviceLatitude&gt;
+      &lt;DeviceLongitude&gt;-81.22147&lt;/DeviceLongitude&gt;
+      &lt;InternetAddress&gt;2001:0:9d38:6ab8:30a5:1c9d:58c6:5898&lt;/InternetAddress&gt;
+      &lt;PhysicalAddress&gt;D8-97-BA-19-02-D8&lt;/PhysicalAddress&gt;
+      &lt;LocationTimestamp&gt;Sun, 17 Jan 2016 21:32:28 -0500&lt;/LocationTimestamp&gt;
+    &lt;/GeolocationData&gt;
+    &lt;GeolocationPositioningType&gt;last-known&lt;/GeolocationPositioningType&gt;
+    &lt;LastGeolocationResponse&gt;false&lt;/LastGeolocationResponse&gt;
+    &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+    &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50274&lt;/Uri&gt;
+  &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_6_getting_information_of_a_specific_previously_satisfactory_created_geolocation_request"><a class="anchor" href="#_example_6_getting_information_of_a_specific_previously_satisfactory_created_geolocation_request"></a>Example 6.- Getting information of a specific previously satisfactory created Geolocation Request</h4>
+<div class="paragraph">
+<p>See below a curl example of retrieving the information of the Geolocation service request from the previous example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X GET https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50274.json</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below (the XML response would be exactly as shown previously for the POST request):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+  "sid": "GLfa51b104354440b09213d04752f50274",
+  "date_created": "Mon, 25 Jan 2016 16:36:10 -0500",
+  "date_updated": "Mon, 25 Jan 2016 20:40:10 -0500",
+  "date_executed": "Mon, 25 Jan 2016 16:36:10 -0500",
+  "account_sid": "ACae6e420f425248d6a26948c17a9e2acf",
+  "device_identifier": "sip:david@65.17.24.177",
+  "geolocation_type": "Immediate",
+  "response_status": "last-known",
+  "geolocation_data": {
+    "device_latitude": "35.669860",
+    "device_longitude": "-81.22147",
+    "internet_address": "2001:0:9d38:6ab8:30a5:1c9d:58c6:5898",
+    "physical_address": "D8-97-BA-19-02-D8",
+    "location_timestamp": "Sun, 17 Jan 2016 21:32:28 -0500"
+  },
+  "geolocation_positioning_type": "last-known",
+  "last_geolocation_response": "false",
+  "api_version": "2012-04-24",
+  "uri": "/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate/GLfa51b104354440b09213d04752f50274.json"
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_7_rejected_immediate_geolocation_request"><a class="anchor" href="#_example_7_rejected_immediate_geolocation_request"></a>Example 7.- Rejected Immediate Geolocation request</h4>
+<div class="paragraph">
+<p>See below a curl example for a Geolocation request originated from a RestComm Location Client, but on this occasion with a "rejected" result as a mandatory parameter is missing:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Immediate -d "DeviceIdentifier=4498750163"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This request gets an "HTTP/1.1 400 Bad Request" response with the following text:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>StatusCallback value can not be null</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>No records are persisted for "HTTP/1.1 400 Bad Request" responses,
+thus they cannot be updated by either a further POST or PUT request, or
+retrieved through a GET request.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notification_geolocation"><a class="anchor" href="#_notification_geolocation"></a>Notification Geolocation</h2>
+<div class="sectionbody">
+<div class="sect3">
+<h4 id="_notification_location_uri"><a class="anchor" href="#_notification_location_uri"></a>Notification Location URI</h4>
+<div class="paragraph">
+<p><strong>/ApiVersion/Accounts/{AccountSid}/Geolocation/Notification/{GeolocationSid}</strong></p>
+</div>
+<div class="paragraph">
+<p>This URI mode refers to requests for retrieval of current or future
+event related GeoLocation information. The response may occur some time
+after the request was sent. Examples include geofencing, device
+availability/presence alerts, sensors/beacons, alarms, etc. Relative
+GeoLocation data (distance to a specific spot), time intervals and
+amount of occurrences and other kinds of event associated operational
+information can be included from this mode request.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations_3"><a class="anchor" href="#_supported_operations_3"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET</strong>. Returns the list representation of all the service
+resources for this account, including the properties above.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP POST</strong>. Sends a new Geolocation Notification request and returns
+the representation of the Geolocation request resource, including the
+properties above.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP PUT</strong>. Updates a GeoLocation Notification request and returns the
+representation of the Geolocation request resource, including the
+properties above.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP DELETE</strong>. Stops a Geolocation Notification request previously
+created or updated</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_notification_geolocation_list_of_required_parameters"><a class="anchor" href="#_notification_geolocation_list_of_required_parameters"></a>Notification Geolocation list of required parameters</h3>
+<div class="paragraph">
+<p>Parameters below apply for Notification type of Geolocation.
+Notification applies to a location request where the response/s and
+GeoLocation Data is/are required after a specific event has occurred.
+Event may or may not occur immediately. In addition, event may occur
+many times. Examples of these events: when a device is entering or
+leaving or being in a pre-defined geographical area (geofencing);
+periodic GeoLocation; when a device becomes available; when a
+sensor/beacon detects a threshold surpassed, etc.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">PARAMETER</th>
+<th class="tableblock halign-left valign-top">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeviceIdentifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target E.164 phone number or device identity of
+this Geolocation service.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EventGeofenceLatitude</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>This parameter refers to the geographic coordinates latitude of a
+specific location. Used to notify when a device is within a certain
+distance (in metres) from that specific location.</p>
+</div>
+<div class="paragraph">
+<p>WGS84 is used, whose formats for Latitude is described next:</p>
+</div>
+<div class="paragraph">
+<p>Latitude valid formats include:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>N43°38'19.39"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>43°38'19.39"N</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>43 38 19.39</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>43.63871944444445</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If expressed in decimal form, northern latitudes are positive, southern
+latitudes are negative. The following latitude variants are also allowed:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>N43 38 19.39</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>43 38 19.39N</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EventGeofenceLongitude</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Same as previous, but for geographic coordinates longitude.</p>
+</div>
+<div class="paragraph">
+<p>WGS84 is used, whose formats for Longitude is described next:</p>
+</div>
+<div class="paragraph">
+<p>Longitude valid formats include:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>W116°14'28.86"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>116°14'28.86"W</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>-116 14 28.86</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>-116.2413513485235</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If expressed in decimal form, eastern longitudes are positive, western
+longitudes are negative.The following longitude variants are also allowed:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>W116 14 28.86</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>116 14 28.86W</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeofenceRange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Distance in meters from the specific location denoted by
+EventGeofenceLatitude and EventGeofenceLongitude geographic
+coordinates, that would require a Geolocation procedure (e.g. as an
+alert that certain device is within a specific location area framed with
+beacons, sensors, etc.).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeofenceEvent</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indication if this Notification Geolocation service is intended to
+inform about a target device entering or leaving a certain location area
+(implicitly specified by EventGeofenceLatitude,
+EventGeofenceLongitude and GeofenceRange parameters). Allowed values
+are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>in: reports when the target device has been detected within
+the specified location area.</p>
+</li>
+<li>
+<p>out: reports when the target device has been detected leaving
+the specified location area.</p>
+</li>
+<li>
+<p>in-out: reports when the target device has been detected
+either entering or leaving the specified location area.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that RestComm will use when the Geolocation
+service reaches a state that demands notifying the requesting
+application.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_notification_geolocation_examples"><a class="anchor" href="#_notification_geolocation_examples"></a>Notification Geolocation examples</h3>
+<div class="sect3">
+<h4 id="_example_1_geolocation_of_a_specific_ip_device_when_it_enters_a_1km"><a class="anchor" href="#_example_1_geolocation_of_a_specific_ip_device_when_it_enters_a_1km"></a>Example 1: Geolocation of a specific IP device when it enters a 1km</h4>
+<div class="paragraph">
+<p>range of a specific Geolocation - Partial and Successful answers, whole
+Status Callback cycle example</p>
+</div>
+<div class="paragraph">
+<p>See below a curl example for a Geolocation request of a device under
+WiFi access whenever its distance to a specific geographic position is
+1000 metres (e.g.: the position of a beacon sensing tracking anklets of
+an offender). The example response provides location information every
+time the target device enters such location area.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification-d "DeviceIdentifier=56790122158" -d
+"EventGeofenceLatitude=-33.426280" -d
+"EventGeofenceLongitude=-70.566560" -d "GeofenceRange=1000" -d
+"GeofenceEvent=in" -d "StatusCallback=http://192.16.1.19:8080/ACae6e420f425248d6a26948c17a9e2acf"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below for a partially-successful
+positioning procedure, where only last known stored location information
+is obtained:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50275&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:36:15 -0500&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;56790122158&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;notification&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;partially-successful&lt;/ResponseStatus&gt;
+     &lt;GeolocationData&gt;
+             &lt;LocationTimestamp&gt;Mon, 25 Jan 2016 16:36:15 -0500&lt;/LocationTimestamp&gt;
+             &lt;DeviceLatitude&gt;-34.800182&lt;/DeviceLatitude&gt;
+             &lt;DeviceLongitude&gt;-71.579001&lt;/DeviceLongitude&gt;
+             &lt;Radius&gt;178956.60&lt;/Radius&gt;
+             &lt;InternetAddress&gt;200.1.122.4&lt;/InternetAddress&gt;
+             &lt;PhysicalAddress&gt;00-50-56-C0-00-08&lt;/PhysicalAddress&gt;
+     &lt;/GeolocationData&gt;
+     &lt;GeolocationPositioningType&gt;last-known&lt;/GeolocationPositioningType&gt;
+     &lt;LastGeolocationResponse&gt;false&lt;/LastGeolocationResponse&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50275&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, see the corresponding status callback after a network measurement
+updated the previously stored last known location data (still a
+partially-successful positioning procedure though, desired accuracy is
+not accomplished yet):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50275&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:36:44 -0500&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;56790122158&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;notification&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;partially-successful&lt;/ResponseStatus&gt;
+     &lt;GeolocationData&gt;
+             &lt;LocationTimestamp&gt;Mon, 25 Jan 2016 16:36:44 -0500&lt;/LocationTimestamp&gt;
+             &lt;DeviceLatitude&gt;-33.428423&lt;/DeviceLatitude&gt;
+             &lt;DeviceLongitude&gt;-70.5678026&lt;/DeviceLongitude&gt;
+             &lt;Accuracy&gt;220&lt;/Accuracy&gt;
+             &lt;Radius&gt;264.73&lt;/Radius&gt;
+             &lt;PhysicalAddress&gt;00-50-56-C0-00-08&lt;/PhysicalAddress&gt;
+             &lt;InternetAddress&gt;201.2.108.42&lt;/InternetAddress&gt;
+     &lt;/GeolocationData&gt;
+     &lt;GeolocationPositioningType&gt;Network&lt;/GeolocationPositioningType&gt;
+     &lt;LastGeolocationResponse&gt;false&lt;/LastGeolocationResponse&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50275&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, see the corresponding response below for the successful
+positioning procedure informed in a posterior status callback when high
+accuracy is accomplished through GPS assistance:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50275&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:37:04 -0500&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;56790122158&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;notification&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;partially-successful&lt;/ResponseStatus&gt;
+     &lt;GeolocationData&gt;
+             &lt;LocationTimestamp&gt;Mon, 25 Jan 2016 16:37:04 -0500&lt;/LocationTimestamp&gt;
+             &lt;DeviceLatitude&gt;-33.426391&lt;/DeviceLatitude&gt;
+             &lt;DeviceLongitude&gt;-70.566399&lt;/DeviceLongitude&gt;
+             &lt;Accuracy&gt;10&lt;/Accuracy&gt;
+             &lt;Radius&gt;19.38&lt;/Radius&gt;
+             &lt;PhysicalAddress&gt;00-50-56-C0-00-08&lt;/PhysicalAddress&gt;
+             &lt;InternetAddress&gt;201.2.108.42&lt;/InternetAddress&gt;
+     &lt;/GeolocationData&gt;
+     &lt;GeolocationPositioningType&gt;GPS&lt;/GeolocationPositioningType&gt;
+     &lt;LastGeolocationResponse&gt;true&lt;/LastGeolocationResponse&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50275&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_2_geolocation_of_a_specific_ip_device_when_it_enters_a_1km_range_of_a_specific_geolocation_unauthorized_answer"><a class="anchor" href="#_example_2_geolocation_of_a_specific_ip_device_when_it_enters_a_1km_range_of_a_specific_geolocation_unauthorized_answer"></a>Example 2.- Geolocation of a specific IP device when it enters a 1km range of a specific Geolocation: Unauthorized Answer</h4>
+<div class="paragraph">
+<p>See below a curl the exact same example of the latter Geolocation
+request but for an unauthorized device at the AP management system:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification -d "DeviceIdentifier=56790122158" -d
+"EventGeofenceLatitude=-33.426280" -d
+"EventGeofenceLongitude=-70.566560" -d "GeofenceRange=1000" -d
+"GeofenceEvent=in" -d
+"StatusCallback=http://192.16.1.19:8080/ACae6e420f425248d6a26948c17a9e2acf"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50276&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:36:12 -0500&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0500&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;56790122158&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;notification&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;unauthorized&lt;/ResponseStatus&gt;
+     &lt;/GeolocationData&gt;
+     &lt;Cause&gt;Target device not allowed by the network&lt;/Cause&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50276&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: records are persisted when ResponseStatus equals "unauthorized".</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_3_geolocation_of_a_specific_ip_device_when_it_enters_a_1km_range_of_a_specific_geolocation_rejected_answer"><a class="anchor" href="#_example_3_geolocation_of_a_specific_ip_device_when_it_enters_a_1km_range_of_a_specific_geolocation_rejected_answer"></a>Example 3.- Geolocation of a specific IP device when it enters a 1km range of a specific Geolocation: Rejected Answer</h4>
+<div class="paragraph">
+<p>See below a curl of the exact same example of the latter Geolocation
+request but inappropriately as GeofenceEvent parameter is missing:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification -d "DeviceIdentifier=56790122158" -d
+"EventGeofenceLatitude=-33.426280" -d
+"EventGeofenceLongitude=-70.566560" -d "GeofenceRange=1000" -d
+"GeofenceEvent=both" -d
+"StatusCallback=http://192.16.1.19:8080/ACae6e420f425248d6a26948c17a9e2acf"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This request gets an HTTP/1.1 400 Bad Request response with the following text:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>StatusCallback value can not be null</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>No records are persisted for HTTP/1.1 400 Bad Request responses,
+thus they cannot be updated by either a further POST or PUT request, or
+retrieved through a GET request.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_4_geolocation_of_a_specific_ip_device_when_it_enters_a_200_meters_range_of_a_specific_geolocation_success_answer"><a class="anchor" href="#_example_4_geolocation_of_a_specific_ip_device_when_it_enters_a_200_meters_range_of_a_specific_geolocation_success_answer"></a>Example 4.- Geolocation of a specific IP device when it enters a 200 meters range of a specific Geolocation: Success Answer</h4>
+<div class="paragraph">
+<p>See below a curl example for a Geolocation request of a mobile phone
+under cellular radio access is entering or leaving a location area
+specified by a 200 metres distance to the geographic location of a
+specific business shop (e.g.: for mobile advertising). The example
+response additionally provides location information in terms of the
+radio access network identifiers which triggered the positioning method.
+The accuracy of location information is gathered as Average (100m to
+300m of error margin), which could prevent further actions as only
+High accuracy could be set for them (e.g. mobile advertising
+containing a special offer):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification -d "DeviceIdentifier=SB7089A" -d
+"EventGeofenceLatitude=35.526280" -d "EventGeofenceLongitude=139.566560"
+-d "GeofenceRange=200" -d "GeofenceEvent=in-out" -d
+"StatusCallback=http://192.16.1.19:8080/ACae6e420f425248d6a26948c17a9e2acf"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50278&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:36:10 +0900&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:41:10 +0900&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 +0900&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;SB7089A&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;notification&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;successful&lt;/ResponseStatus&gt;
+     &lt;GeolocationData&gt;
+             &lt;CellId&gt;47501A&lt;/CellId&gt;
+             &lt;LocationAreaCode&gt;239&lt;/LocationAreaCode&gt;
+             &lt;MobileCountryCode&gt;441&lt;/MobileCountryCode&gt;
+             &lt;MobileNetworkCode&gt;98&lt;/MobileNetworkCode&gt;
+             &lt;NetworkEntityAddress&gt;810002304&lt;/NetworkEntityAddress&gt;
+             &lt;LocationAge&gt;0&lt;/LocationAge&gt;
+             &lt;DeviceLatitude&gt;35.526375&lt;/DeviceLatitude&gt;
+             &lt;DeviceLongitude&gt;139.566802&lt;/DeviceLongitude&gt;
+             &lt;Accuracy&gt;50&lt;/Accuracy&gt;
+             &lt;Radius&gt;24&lt;/Radius&gt;
+             &lt;LocationTimestamp&gt;Mon, 25 Jan 2016 16:41:10 +0900&lt;/LocationTimestamp&gt;
+     &lt;/GeolocationData&gt;
+     &lt;GeolocationPositioningType&gt;Network&lt;/GeolocationPositioningType&gt;
+     &lt;LastGeolocationResponse&gt;true&lt;/LastGeolocationResponse&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50278&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_5_geolocation_of_a_specific_ip_device_when_it_enters_a_300m_range_of_a_specific_geolocation_with_high_accuracy_success_answer"><a class="anchor" href="#_example_5_geolocation_of_a_specific_ip_device_when_it_enters_a_300m_range_of_a_specific_geolocation_with_high_accuracy_success_answer"></a>Example 5.- Geolocation of a specific IP device when it enters a 300m range of a specific Geolocation with High Accuracy: Success Answer</h4>
+<div class="paragraph">
+<p>See below a curl example for a Geolocation request originated from
+location client within a mobile (iOS or Android) application, that
+expects to be informed about entering a specific location area, within
+300 metres from a specific geographic spot. The service could serve
+several purposes (emergency services, friends and family finder, etc.).</p>
+</div>
+<div class="paragraph">
+<p>In this case, the location information is assumed to be retrieved in JSON format from
+an LTE-Advanced cellular network, where all location data parameters can
+be obtained, including parameters such as civic address
+("FormattedAddress" parameter):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification.json
+-d "Source=59897018375" -d "DeviceIdentifier=59897018375" -d
+"EventGeofenceLatitude=-34.541078" -d
+"EventGeofenceLongitude=-56.061600" -d "GeofenceRange=300" -d
+"GeofenceEvent=in" -d "DesiredAccuracy=High" -d
+"StatusCallback=http://192.16.1.19:8080/ACae6e420f425248d6a26948c17a9e2acf"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+  "sid": "GLfa51b104354440b09213d04752f50279",
+  "date_created": "Mon, 25 Jan 2016 16:36:10 -0300",
+  "date_updated": "Mon, 25 Jan 2016 16:37:18 -0300",
+  "date_executed": "Mon, 25 Jan 2016 16:36:10 -0300",
+  "account_sid": "ACae6e420f425248d6a26948c17a9e2acf",
+  "device_identifier": "59897018375",
+  "geolocation_type": "Notification",
+  "response_status": "successful",
+  "geolocation_data": {
+    "cell_id": "908",
+    "location_area_code": "751",
+    "mobile_country_code": 748,
+    "mobile_network_code": "1",
+    "network_entity_address": 59800023041,
+    "location_age": 0,
+    "device_latitude": "-34.542029",
+    "device_longitude": "56.058181",
+    "accuracy": 5,
+    "internet_address": "167.57.122.14",
+    "physical_address": "00-50-56-C0-00-08",
+    "formatted_address": "Avenida Italia 2552, 11500, Montevideo, Uruguay",
+    "location_timestamp": "Mon, 25 Jan 2016 16:37:17 -0300",
+    "event_geofence_latitude": "-34.551098",
+    "event_geofence_longitude": "-70.601700",
+    "radius": 115.24
+  },
+  "geolocation_positioning_type": "GPS",
+  "last_geolocation_response": "true",
+  "api_version": "2012-04-24",
+  "uri": "/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50279.json"
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_6_update_previous_geolocation_request_for_a_specific_ip_device_when_it_exits_a_300m_range_of_a_specific_geolocation_success_answer"><a class="anchor" href="#_example_6_update_previous_geolocation_request_for_a_specific_ip_device_when_it_exits_a_300m_range_of_a_specific_geolocation_success_answer"></a>Example 6.- Update previous GeoLocation request for a specific IP device when it exits a 300m range of a specific Geolocation: Success Answer</h4>
+<div class="paragraph">
+<p>See below a curl example for updating the previous Geolocation
+request example, where geographic coordinates of the geofence location are
+modified, as well as the event type (leaving the location area instead
+of entering it as set in the previous example).</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X PUT -H "application/json"
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50280 -d "EventGeofenceLatitude=-34.553098" -d "EventGeofenceLongitude=56.050811" -d "GeofenceEvent=out"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding response below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+   &lt;Geolocation&gt;
+     &lt;Sid&gt;GLfa51b104354440b09213d04752f50280&lt;/Sid&gt;
+     &lt;DateCreated&gt;Mon, 25 Jan 2016 16:38:10 -0300&lt;/DateCreated&gt;
+     &lt;DateUpdated&gt;Mon, 25 Jan 2016 16:39:18 -0300&lt;/DateUpdated&gt;
+     &lt;DateExecuted&gt;Mon, 25 Jan 2016 16:36:10 -0300&lt;/DateExecuted&gt;
+     &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+     &lt;DeviceIdentifier&gt;59897018375&lt;/DeviceIdentifier&gt;
+     &lt;GeolocationType&gt;notification&lt;/GeolocationType&gt;
+     &lt;ResponseStatus&gt;partially-successful&lt;/ResponseStatus&gt;
+     &lt;GeolocationData&gt;
+             &lt;CellId&gt;90182A&lt;/CellId&gt;
+             &lt;LocationAreaCode&gt;751&lt;/LocationAreaCode&gt;
+             &lt;MobileCountryCode&gt;748&lt;/MobileCountryCode&gt;
+             &lt;MobileNetworkCode&gt;01&lt;/MobileNetworkCode&gt;
+             &lt;NetworkEntityAddress&gt;59800023041&lt;/NetworkEntityAddress&gt;
+             &lt;LocationAge&gt;0&lt;/LocationAge&gt;
+             &lt;DeviceLatitude&gt;-34.560071&lt;/DeviceLatitude&gt;
+             &lt;DeviceLongitude&gt;56.057710&lt;/DeviceLongitude&gt;
+             &lt;Accuracy&gt;180&lt;/Accuracy&gt;
+             &lt;Radius&gt;115&lt;/Radius&gt;
+             &lt;InternetAddress&gt;167.57.122.14&lt;/InternetAddress&gt;
+             &lt;PhysicalAddress&gt;00-50-56-C0-00-08&lt;/PhysicalAddress&gt;
+             &lt;FormattedAddress&gt;Avenida Italia 2552, 11500, Montevideo, Uruguay&lt;/FormattedAddress&gt;
+             &lt;LocationTimestamp&gt;Mon, 25 Jan 2016 16:37:18 -0300&lt;/LocationTimestamp&gt;
+     &lt;/GeolocationData&gt;
+     &lt;GeolocationPositioningType&gt;Network&lt;/GeolocationPositioningType&gt;
+     &lt;LastGeolocationResponse&gt;true&lt;/LastGeolocationResponse&gt;
+     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50280&lt;/Uri&gt;
+   &lt;/Geolocation&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_7_retrieve_information_of_a_specific_previously_satisfactory_created_geolocation_request"><a class="anchor" href="#_example_7_retrieve_information_of_a_specific_previously_satisfactory_created_geolocation_request"></a>Example 7.- Retrieve information of a specific previously satisfactory created Geolocation Request</h4>
+<div class="paragraph">
+<p>See below a curl example of retrieving the information of the Geolocation service request from previous example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X GET https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50280.json</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the corresponding JSON response below (the XML response would be exactly as shown previously for the POST request):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+  "sid": "GLfa51b104354440b09213d04752f50280",
+  "date_created": "Mon, 25 Jan 2016 16:38:10 -0300",
+  "date_updated": "Mon, 25 Jan 2016 16:39:18 -0300",
+  "date_executed": "Mon, 25 Jan 2016 16:36:10 -0300",
+  "account_sid": "ACae6e420f425248d6a26948c17a9e2acf",
+  "device_identifier": "59897018375",
+  "geolocation_type": "Notification",
+  "response_status": "partially-successful",
+  "geolocation_data": {
+    "cell_id": "90182A",
+    "location_area_code": "751",
+    "mobile_country_code": 748,
+    "mobile_network_code": "01",
+    "network_entity_address": 59800023041,
+    "location_age": 0,
+    "device_latitude": "-34.560071",
+    "device_longitude": "56.057710",
+    "accuracy": 180,
+    "internet_address": "167.57.122.14",
+    "physical_address": "00-50-56-C0-00-08",
+    "formatted_address": "Avenida Italia 2552, 11500, Montevideo, Uruguay",
+    "location_timestamp": "Mon, 25 Jan 2016 16:37:18 -0300",
+    "event_geofence_latitude": "-34.551098",
+    "event_geofence_longitude": "-70.601700",
+    "radius": 115
+  },
+  "geolocation_positioning_type": "last-known",
+  "last_geolocation_response": "true",
+  "api_version": "2012-04-24",
+  "uri": "/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50280.json"
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_8_stop_notifications_of_a_specific_previously_created_geolocation_request"><a class="anchor" href="#_example_8_stop_notifications_of_a_specific_previously_created_geolocation_request"></a>Example 8.- Stop Notifications of a specific previously created Geolocation Request</h4>
+<div class="paragraph">
+<p>See below a curl example for stopping notifications of a previously
+created Geolocation request.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X DELETE
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Geolocation/Notification/GLfa51b104354440b09213d04752f50280</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ip_geolocation_sequence_diagram"><a class="anchor" href="#_ip_geolocation_sequence_diagram"></a>IP Geolocation Sequence Diagram</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>IP Immediate Geolocation Sequence Diagram of RestComm with Olympus
+Clients and RestComm Mobile/Web SDKs</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/IPGeolocationSequenceDiagram.gif" alt="image" width="633" height="230"></span></p>
+</div>
+<div class="paragraph">
+<p>For the Notification case the diagram is similar, except that the device
+can store the information and notify RestComm when it approaches a
+certain location area.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cellular_geolocation_sequence_diagrams"><a class="anchor" href="#_cellular_geolocation_sequence_diagrams"></a>Cellular Geolocation Sequence Diagrams</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Next diagram shows the interaction between RestComm and GMLC within a GSM network, from where location services are reduced to retrieving Global Cell Identity, Age of Location information and network node address at which the target mobile subscriber is
+currently currently attached.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/RestComm_GSM_Immediate_Geolocation.png" alt="image" width="633" height="230"></span></p>
+</div>
+<div class="paragraph">
+<p>Next diagram exhibits a Notification type of Geolocation signal flow in 3G cellular networks. An Immediate type of Geolocation signal flow in the same environment would be identical, except for the event detection and its derived signals. Besides, for the sake of simplicity, it only shows a single event detection.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/RestComm_UMTS_Notification_Geolocation.png" alt="image" width="750" height="400"></span></p>
+</div>
+<div class="paragraph">
+<p>Next diagram is the analogue of the latter, but for EPS networks or LTE location services (where SS7/MAP operations do not apply anymore, but their analogous Diameter procedures with EPC and E-UTRAN entities).</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/RestComm_LTE_Notification_Geolocation.png" alt="image" width="750" height="400"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_geolocation_status_callbacks_sequence_diagram"><a class="anchor" href="#_geolocation_status_callbacks_sequence_diagram"></a>Geolocation Status Callbacks Sequence Diagram</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Geolocation sequence diagram of RestComm API interacting with Location
+Servers for most accurate location information retrieved to the Status
+Callback URL when available. The sequence shown reveals the best case
+scenario, where status callbacks are performed until the most accurate
+positioning method available. As shown, last known stored location
+information is initially returned. Afterwards, a better procedure
+returns a more accurate location information based on the current access
+point. Ultimately, the best possible available method (GPS) gathers the
+location information and is delivered to the requesting application.
+Accordingly, LastGeolocationResponse parameter is set to "true" in the
+last status callback, as the desired accuracy is ultimately achieved.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/GeolocationStatusCallbacksSequenceDiagram.gif" alt="image" width="633" height="348"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_restcomm_core_ss7_and_lte_geolocation_configuration"><a class="anchor" href="#_restcomm_core_ss7_and_lte_geolocation_configuration"></a>RestComm Core SS7 and LTE Geolocation Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>RestComm needs to be configured to be able to process Geolocation
+services. The GMLC (Gateway Mobile Location Center) to which Restcomm
+must send the Location request must be configured in <em>restcomm.xml</em>
+file. IP address and port configuration are mandatory. Username and
+password are optional for GMLC.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;!-- TelScale GMLC --&gt;
+
+&lt;gmlc&gt;
+    &lt;gmlc-uri&gt;GMLC_IP:PORT_NUMBER&lt;/ gmlc -uri&gt;
+        &lt;gmlc-user&gt;&lt;/gmlc-user&gt;
+        &lt;gmlc-password&gt;&lt;/ gmlc-password&gt;
+&lt;/gmlc&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column-container">
+      <div class="footer-column">
+        <h5 class="footer-column-title">Products</h5>
+        <p><a href="programmable.html#_getting_started_with_programmable_voice">Programmable Voice</a></p>
+        <p><a href="programmable.html#_getting_started_with_programmable_sms">Programmable SMS</a></p>
+        <p><a href="message-exchange.html">Message Exchange</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-factor authentication (2FA)</a></p>
+        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone number masking</a></p>
+        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Learn</h5>
+        <p><a href="https://www.restcomm.com/docs">Documentation</a></p>
+        <p><a href="https://www.restcomm.com/blog/">Blog</a></p>
+        <p><a href="support.html">Terms And Conditions</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Contact us</h5>
+        <p>+1 650 263 6146</p>
+        <p>
+          <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
+          <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
+          <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
+          <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
+          <span><a href="https://plus.google.com/+Restcomm"><i class="fab fa-google-plus-g"></i></a></span>
+          <span><a href="https://www.restcomm.com/blog/"><i class="fas fa-rss"></i></a></span>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom-container">
+      <div class="footer-logo">
+        <a class="footer-logo-link" href="https://telestax.com"></a>
+      </div>
+      <div class="footer-copyright">
+        <p class="footer-copyright-paragraph">COPYRIGHT © 2018, TELESTAX INC., ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+<!--
+  Tried to get this chunk into js/05-countly.js but it has some issues with the async loading so fell back to putting it here
+  where it works for some reason
+-->
+  <!-- Only enable countly if the key is set -->
+  <script type='text/javascript' src='https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'></script>
+  <script>
+    var Countly = Countly || {}
+    Countly.q = Countly.q || []
+
+    // provide countly initialization parameters
+    Countly.app_key = '56bdc77c4c53e32ebd439e2586dd4ee22b3d3ad0'
+    Countly.url = 'https://restcomm.count.ly'
+
+    Countly.q.push(['track_sessions'])
+    Countly.q.push(['track_pageview'])
+    Countly.q.push(['track_clicks'])
+    Countly.q.push(['track_errors'])
+    Countly.q.push(['track_links'])
+    Countly.q.push(['track_forms'])
+    Countly.q.push(['collect_from_forms'])
+
+    // send event
+    Countly.q.push(['add_event', {
+      key: 'Restcomm CSPs Documentation',
+      segmentation: {},
+    }]);
+
+    // load countly script asynchronously
+    (function () {
+      var cly = document.createElement('script')
+      cly.type = 'text/javascript'
+      cly.async = true
+      // enter url of script here
+      cly.src = 'https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'
+      cly.onload = function () {
+        Countly.init()
+      }
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(cly, s)
+    })()
+  </script>
+
+
+  </body>
+</html>

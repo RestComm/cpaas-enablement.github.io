@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/play.html">
+    <title>Restcomm REST API :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/Restcomm - Multi-tenancy and Managing Sub-Accounts.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -116,7 +116,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="say.html">Say</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="play.html">Play</a>
   </li>
 </ul>
@@ -152,13 +152,146 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="rcml-category.html">RCML</a></li>
-    <li class="crumb"><a href="play.html">Play</a></li>
+    <li class="crumb"><a href="Restcomm - Multi-tenancy and Managing Sub-Accounts.html">Restcomm REST API</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-
+  <h1>Restcomm REST API</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#restcomm-admin-ui">Restcomm Admin UI</a></li>
+<li><a href="#security-constraints">Security constraints</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In our continuous effort to improve Restcomm functionalities, we have introduced multi-tenancy as part of <a href="http://www.telestax.com/telscale-restcomm-7-4-0-ga-released/">Restcomm 7.4.0</a>. Multi tenancy support provides a set of rules that improve user information management and control who can gain access to specific accounts. This set of rules will be also applied by the upcoming OAuth support, so they both OAuth and Multi-tenancy Support will handle this consistency together. The information below will provide an overview of how multi-tenancy is applied to Restcomm.</p>
+</div>
+<div id="restcomm-rest-api" class="paragraph">
+<p>Restcomm REST API access control is managed by two main entities, credentials and accounts. To better understand how it works, we&#8217;ll assume the following diagram as the account hierarchy, where each account and sub account has its own information.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/ElementTree-4.png" alt="ElementTree-4" width="656" height="322"></span></p>
+</div>
+<div class="paragraph">
+<p>Considering that Primary and Secondary accounts represents different Restcomm users, they will not be able to manage information from each other. So if Primary Account tries to access the REST API using its own credentials but requesting for the list of DIDs of the Secondary Account, the response will be a HTTP 401 error. The 'curl' command below represents the given situation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lang:default hljs" data-lang="lang:default">curl -X GET https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/[secondarySid]/IncomingPhoneNumbers.json</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As mentioned above, there are more possible combinations between credentials and accounts used to request information through the API. But instead list all those possibilities, we can assume the pattern used by the API to control access in a general way, grouped by the result obtained from the API:</p>
+</div>
+<div class="paragraph">
+<p><strong>Allowed:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Request information about the same account used as credential</p>
+</li>
+<li>
+<p>Request information about a sub account of the account used as credential</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Denied:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Request information about the parent account of the account used as credential</p>
+</li>
+<li>
+<p>Request information about a account of the same level of the account used as credential</p>
+</li>
+<li>
+<p>Request information about a sub account different than the ones from the account used as credential</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This access control is applied to the API&#8217;s: <a href="account-api.html#account" class="page">Account</a>, <a href="incoming-phone-numbers-api.html#incoming-phone-numbers" class="page">IncomingPhoneNumbers</a>, <a href="calls-api.html#calls" class="page">Calls</a>, <a href="sms-api.html#sms" class="page">SMS</a>, OutgoingCallerIds, <a href="recordings-api.html#recordings" class="page">Recordings</a>, <a href="transcriptions-api.html#transcriptions" class="page">Transcriptions</a> and <a href="notifications-api.html#notifications" class="page">Notifications</a>.</p>
+</div>
+<div class="paragraph">
+<p>To understand this rules based on the hierarchy presented by the diagram above, we can assume the following for each account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Primary Account</strong> can view and manage Primary Application, DID P, DID A and DID B only.</p>
+</li>
+<li>
+<p><strong>Subaccount A</strong> can view and manage Application A and DID A only.</p>
+</li>
+<li>
+<p><strong>Subaccount B</strong> can view and manage Application B and DID B only.</p>
+</li>
+<li>
+<p><strong>Secondary Account</strong> can view and manage Application S, DID S, DID C and DID D only.</p>
+</li>
+<li>
+<p><strong>Subaccount C</strong> can view and manage Application C and DID C only.</p>
+</li>
+<li>
+<p><strong>Subaccount D</strong> can view and manage Application D and DID D only.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The Applications API has a different access control, and allows the accounts to manage its own applications only. So, if a request is made to this API using a credential different than the account, the response will be a HTTP 401 error.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="restcomm-admin-ui"><a class="anchor" href="#restcomm-admin-ui"></a>Restcomm Admin UI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The user interface follows a similar behaviour to the API. Is known that the AdminUI currently shows only info related to the logged user, but now the local applications displayed under the 'Restcomm Apps' option were adjusted to follow the same behaviour. This filter is also applied to the available applications when configuring a DID, as shown by the images below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/Screen-Shot-2015-10-05-at-16.40.46.png" alt="Screen Shot 2015-10-05 at 16.40.46" width="525" height="351"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/Screen-Shot-2015-10-05-at-16.35.37.png" alt="Screen Shot 2015-10-05 at 16.35.37" width="506" height="332"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/Screen-Shot-2015-10-05-at-16.34.53.png" alt="Screen Shot 2015-10-05 at 16.34.53" width="512" height="396"></span></p>
+</div>
+<div class="paragraph">
+<p>This is the way that multi tenancy support provides access control between accounts, ensuring that only authorized accounts will be able to see and manage another accounts info.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="security-constraints"><a class="anchor" href="#security-constraints"></a>Security constraints</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If the hostname of the request doesn&#8217;t match the organization domain name of the provided account credential Restcomm-Connect will not allow access.</p>
+</div>
+<div class="paragraph">
+<p>For example, if trying to login to 'https://wonderland.restcomm.com' using account credentials that belong to organization 'https://alice.restcomm.com', Restcomm-Connect will drop the request.</p>
+</div>
+<div class="paragraph">
+<p>Same is true for accessing organization/account resources using REST API. If the hostname of the REST API request doesn&#8217;t match the domain name of the organization that the account credentials belong, Restcomm-Connect will drop the request.</p>
+</div>
+</div>
+</div>
 </article>
   </main>
 </div>

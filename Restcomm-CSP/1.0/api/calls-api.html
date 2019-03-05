@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restcomm API – Calls :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/calls-api.html">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <!-- Not using it for now
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+<!--
+      <a class="navbar-item" href="https://www.restcomm.com/docs"><img width="140px" src="../../../_/img/restcomm-logo-white.svg"></a>
+-->
+      <a class="navbar-item header-logo-link" href="https://www.restcomm.com/docs"></a>
+<!--
+      <a class="navbar-item" href="https://www.restcomm.com/docs">Restcomm CPaaS Enablement Docs</a>
+-->
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        -->
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="main-wrapper">
+<div class="navigation-container" data-component="Restcomm-CSP" data-version="1.0" >
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="voice-category.html">Voice</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Calls</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Recordings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Conferences</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms-category.html">SMS</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms.html">Messages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_send_sms">Send SMS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_get_sms_list">Get SMS List</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_get_single_sms_information">Get single SMS Information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_sms_attributes">SMS Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="rcml-category.html">RCML</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dial.html">Dial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="gather.html">Gather</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="say.html">Say</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="play.html">Play</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">Restcomm CPaaS Enablement Docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Restcomm CPaaS Enablement Docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
+    <li class="crumb"><a href="calls-api.html">Restcomm API – Calls</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc ">
+  <h1>Restcomm API – Calls</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel2">
+<li><a href="#_call_resource_uri">Call Resource URI</a></li>
+<li><a href="#_resource_properties">Resource Properties</a></li>
+<li><a href="#_supported_operations">Supported Operations</a></li>
+<li><a href="#_call_list_resource_uri">Call List Resource URI</a>
+<ul class="sectlevel2">
+<li><a href="#_supported_operations_2">Supported Operations</a></li>
+<li><a href="#_request_parameters">Request Parameters</a></li>
+</ul>
+</li>
+<li><a href="#_making_a_call_to_a_sip_account">Making a call to a SIP account</a></li>
+<li><a href="#_making_a_call_to_a_restcomm_client">Making a call to a Restcomm client</a></li>
+<li><a href="#_calling_a_did_number">Calling a DID number</a></li>
+<li><a href="#_working_on_a_production_server">Working on a production server</a></li>
+<li><a href="#_modifying_live_calls">Modifying Live Calls</a>
+<ul class="sectlevel2">
+<li><a href="#_request_parameters_2">Request Parameters</a></li>
+<li><a href="#_call_in_progress">Call in-Progress</a></li>
+<li><a href="#_description">Description</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a>
+<ul class="sectlevel2">
+<li><a href="#_redirect_call_to_a_new_rcml">Redirect Call to a new RCML</a></li>
+<li><a href="#_redirect_call_to_a_new_rcml_and_connect_both_call_legs">Redirect Call to a new RCML and connect both call legs</a></li>
+<li><a href="#_terminate_in_progress_call">Terminate In Progress call</a></li>
+<li><a href="#_terminate_ringing_call">Terminate Ringing call</a></li>
+</ul>
+</li>
+<li><a href="#_modifying_live_calls_example">Modifying Live Calls - Example</a></li>
+<li><a href="#_list_filter">List Filter</a>
+<ul class="sectlevel2">
+<li><a href="#_request_parameters_4">Request Parameters</a></li>
+<li><a href="#_filter_using_the_from_parameter">Filter using the From parameter.</a></li>
+</ul>
+</li>
+<li><a href="#_paging_information">Paging Information</a>
+<ul class="sectlevel2">
+<li><a href="#_example">Example.</a></li>
+</ul>
+</li>
+<li><a href="#_additional_paging_information">Additional Paging Information</a>
+<ul class="sectlevel2">
+<li><a href="#_request_parameters_5">Request Parameters</a></li>
+</ul>
+</li>
+<li><a href="#_sorting_information">Sorting Information</a>
+<ul class="sectlevel2">
+<li><a href="#_sortby_attributes">SortBy Attributes</a></li>
+<li><a href="#_example_2">Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <strong>Call</strong> represents a connection between a phone or user agent and RestComm. This may be inbound or outbound. The Calls list resource represents the set of phone calls originated and terminated from an account.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_call_resource_uri"><a class="anchor" href="#_call_resource_uri"></a>Call Resource URI</h3>
+<div class="paragraph">
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Calls/{CallSid}</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_properties"><a class="anchor" href="#_resource_properties"></a>Resource Properties</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies this call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ParentCallSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies the call that created this leg.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this call was created.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this call was last updated.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique id of the Account that created this call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number or identifier that will be the recipient of this call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number or identifier that originated this call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PhoneNumberSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the call was inbound, this is the Sid of the IncomingPhoneNumber that received the call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string representing the status of the call. Possible values are queued, ringing, in-progress, completed, failed, busy and no-answer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StartTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The start time of the call. Empty if the call has not yet been started.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EndTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The end time of the call. Empty if the call has not ended.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The length of the call in seconds.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The charge for this call, in the currency associated with the account. Populated after the call is completed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string describing the direction of the call. Possible values are inbound, outbound-api, and outbound-dial</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AnsweredBy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this call was initiated with answering machine detection, either human or machine. Empty otherwise.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ApiVersion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the current API version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ForwardFrom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this call was an incoming call forwarded from another number, the forwarding phone number (depends on carrier supporting forwarding). Empty otherwise.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallerName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If this call was an incoming call, the caller&#8217;s name. Empty otherwise.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to <a href="https://localhost:port/restcomm" class="bare">https://localhost:port/restcomm</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET</strong>. Returns the representation of a Call resource, including the properties above.</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_call_list_resource_uri"><a class="anchor" href="#_call_list_resource_uri"></a>Call List Resource URI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Calls</strong></p>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET</strong>. Returns the list representation of all the Call resources for this Account, including the properties above.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP POST</strong>. Makes a new Call and returns the representation of the Call resource, including the properties above. Below you will find a list of required and optional parameters.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From(Required)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number to use as the caller id.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To(Required)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number to call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Url(Required)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The fully qualified URL that should be executed when the call connects.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Method</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method RestComm should use when making its request to the above Url. Defaults to POST.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FallbackUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that RestComm will request if execution of Url fails for any reason.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FallbackMethod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that RestComm should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallbackEvent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A comma separated list of events on which we are interested to get a callback on. Possible values are <code>initiated</code>, <code>ringing</code>, <code>answered</code>, <code>completed</code>. Default none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URL to receive the callback events at. Default none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallbackMethod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code>, <code>POST</code>. Default <code>POST</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of seconds that RestComm should allow the phone to ring before assuming there is no answer. The default is 60 seconds.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_statuscallbackevent"><a class="anchor" href="#_statuscallbackevent"></a>StatusCallbackEvent</h4>
+<div class="paragraph">
+<p>When creating a Call using the Calls API, an outbound call is initiated. The call transitions from the initiated state to the ringing state when the phone starts ringing. It transitions to the answered state when the call is picked up, and finally to the completed state when the call is over. With <strong>StatusCallbackEvent</strong>, you can subscribe to receive webhooks for the different call progress events: initiated, ringing, answered, or completed for a given call.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>StatusCallbackEvent</strong> attribute allows you to specify which events Restcomm should webhook on. To specify multiple events separate them with a comma like this: <code>initiated,ringing,answered,completed</code>. If a StatusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/images/status-callback-events-dial.png" alt="Outbound Dial call events diagram">
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Event</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">initiated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when Restcomm starts dialing the call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>ringing</code> event is fired when the call starts ringing.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">answered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>answered</code> event is fired when the call is answered.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">completed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>completed</code> event is fired when the call is completed regardless of the termination status: <code>busy</code>, <code>canceled</code>, <code>completed</code>, <code>failed</code>, or <code>no-answer</code>. If no <code>StatusCallbackEvent</code> is specified, <code>completed</code> will be fired by default.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="attributes-status-callback"><a class="anchor" href="#attributes-status-callback"></a>StatusCallback</h4>
+<div class="paragraph">
+<p>The <strong>StatusCallback</strong> attribute allows you to specify a URL for Restcomm to send webhook requests to on each event specified in the StatusCallbackEvent attribute.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_statuscallbackmethod"><a class="anchor" href="#_statuscallbackmethod"></a>StatusCallbackMethod</h4>
+<div class="paragraph">
+<p>The <strong>StatusCallbackMethod</strong> attribute allows you to specify which HTTP method Restcomm should use when requesting the URL in the StatusCallback attribute. The default is POST.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
+<div class="paragraph">
+<p>The parameters Restcomm passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when Restcomm receives a call to one of your Restcomm numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
+</div>
+<div class="paragraph">
+<p>When the call progress events are fired, the Status Callback request also passes these additional parameters:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by Restcomm. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A descriptive status for the call. The value is one of <strong><code>queued</code></strong>, <strong><code>initiated</code></strong>, <strong><code>ringing</code></strong>, <strong><code>in-progress</code></strong>, <strong><code>busy</code></strong>, <strong><code>failed</code></strong>, or <strong><code>no-answer</code></strong>. See the CallStatus section for more details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallDuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The duration in seconds of the just-completed call. Only present in the <code>completed</code> event.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timestamp when the event was fired, given as UTC in <a href="http://php.net/manual/en/class.datetime.php#datetime.constants.rfc2822">RFC 2822</a> format.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallbackSource</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string that describes the source of the webhook. This is provided to help disambiguate why the webhook was made. On Status Callbacks, this value is always <strong><code>call-progress-events</code>.</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SequenceNumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The order in which the events were fired, starting from <code>0</code>. Although events are fired in order, they are made as separate HTTP requests and there is no guarantee they will arrive in the same order.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_making_a_call_to_a_sip_account"><a class="anchor" href="#_making_a_call_to_a_sip_account"></a>Making a call to a SIP account</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Restcomm will make a call to any SIP account that is reachable. It the example below, the <strong>SIP</strong> account is listening on port <strong>5060</strong>. When you make the call, the SIP phone on which Alice is registered will ring and the hello-play.xml file will be played.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls.json -d "From=+16175551212" -d "To=sip:alice@127.0.0.1:5060" -d "Url=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/demos/hello-play.xml"</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_making_a_call_to_a_restcomm_client"><a class="anchor" href="#_making_a_call_to_a_restcomm_client"></a>Making a call to a Restcomm client</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You must first create a RestComm client. In the example below, the Restcomm client created is called Alice. When you make the call, the SIP phone on which Alice is registered will ring and the <strong>hello-play.xml</strong> file will be played.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls.json -d "From=+16175551212" -d "To=client:alice" -d "Url=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/demos/hello-play.xml"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This Client URI may contain URI params to declare propietary SIP headers to be
+included in the outgoing INVITE message.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls.json -d "From=+16175551212" -d "To=client:alice?X-Custom-Header1=1234&amp;X-Custom-Header2=432" -d "Url=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/demos/hello-play.xml"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also provide a list of events you are interested in getting notified on and provide a URL to receive them at. Here&#8217;s an example for receiving <code>answered</code> and <code>completed</code> events. The callbacks will be made at <code><a href="http://status.callback.url" class="bare">http://status.callback.url</a></code></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls.json -d "From=+16175551212" -d "To=client:alice" -d "Url=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/demos/hello-play.xml" -d "StatusCallback=http://status.callback.url" -d "StatusCallbackEvent=answered,completed"</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_calling_a_did_number"><a class="anchor" href="#_calling_a_did_number"></a>Calling a DID number</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The above example shows how to make a call to a SIP number. If you want to make a call to a DID number, you must can connect Restcomm to a DID provisioning service provider. The quickest way is to use RestComm AMI on Amazon Cloud. Get a list of all available calls. This will return all the available calls linked to the account SID</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_working_on_a_production_server"><a class="anchor" href="#_working_on_a_production_server"></a>Working on a production server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using filter is a good practice on a server with thousands or millions of calls</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X GET  https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the system hasn&#8217;t received any calls, you will see the the output below</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;RestcommResponse&gt;
+  &lt;Calls page="0" numpages="0" pagesize="50" total="0" start="0" end="0" uri="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls" firstpageuri="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls?Page=0&amp;amp;PageSize=50" previouspageuri="null" nextpageuri="null" lastpageuri=="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls?Page=0&amp;amp;PageSize=50"/&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modifying_live_calls"><a class="anchor" href="#_modifying_live_calls"></a>Modifying Live Calls</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Real time call modification allows you to interrupt an in-progress call and terminate it or have it begin processing <strong>RCML</strong> from a new URL. This is useful for any application where you want to asynchronously change the behavior of a running call. For example: hold music, call queues, transferring calls, forcing hangup, etc.</p>
+</div>
+<div class="paragraph">
+<p><strong>Live Call Modification API is supported only for calls created with Dial verb using a RCML application</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP POST</strong> to a Call</p>
+</div>
+<div class="paragraph">
+<p>To redirect or terminate a live call, you make an <strong>HTTP POST</strong> request to an in­-progress Call instance resource URI:</p>
+</div>
+<div class="paragraph">
+<p><strong>/2012­04­24/Accounts/{AccountSid}/Calls/{CallSid}</strong></p>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="paragraph">
+<p><strong>/2012­04­24/Accounts/{AccountSid}/Calls.json/{CallSid}</strong></p>
+</div>
+<div class="paragraph">
+<p>The following parameters are available for you to <strong>POST</strong> request when modifying a phone call:</p>
+</div>
+<div class="sect2">
+<h3 id="_request_parameters_2"><a class="anchor" href="#_request_parameters_2"></a>Request Parameters</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A valid URL that returns RCML. Restcomm will immediately redirect the call to the new RCML.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Method</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method Restcomm should use when requesting the above URL. Defaults to POST.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Either <strong>canceled</strong> or completed. Specifying canceled will attempt to hangup calls that are queued or ringing but not affect calls already in progress. Specifying completed will attempt to hang up a call even if it&#8217;s already in progress.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Either <strong>true</strong> or <strong>flase</strong>. Setting value of this parameter to <strong>true</strong> will mute the call. Setting value of this parameter to <strong>false</strong> will unmute the call.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_call_in_progress"><a class="anchor" href="#_call_in_progress"></a>Call in-Progress</h3>
+<div class="paragraph">
+<p>Note that any call which is currently ringing within a Dial verb is in-progress from the point of view of Restcomm, and thus you must use '<strong>Status=completed</strong>' to cancel it.</p>
+</div>
+<div class="sect3">
+<h4 id="_optional_parameters"><a class="anchor" href="#_optional_parameters"></a>Optional Parameters</h4>
+<div class="paragraph">
+<p>You may <strong>POST</strong> the following parameters:</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_3"><a class="anchor" href="#_request_parameters_3"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FallbackUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that Restcomm will request if an error occurs requesting or executing the RCML at Url.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FallbackMethod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that Restcomm should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that Restcomm will request when the call ends to notify your app.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallbackMethod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method Restcomm should use when requesting the above URL. Defaults to POST.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MoveConnectedCallLeg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If True, Restcomm will move both call legs to the new URL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_description"><a class="anchor" href="#_description"></a>Description</h3>
+<div class="paragraph">
+<p>Prerequisite for the Live Call Modification API is to know the <strong>CallSid</strong> ​of the call. The <strong>CallSid</strong>​ is generated by Restcomm for every incoming or outgoing call. When we create an outgoing call using the Calls REST API, Restcomm will generate the <strong>CallSid</strong> ​and the response will contain the <strong>CallSid</strong>​. For an Incoming call, Restcomm will generate the <strong>CallSid</strong>​, and will include it in the parameters of the <strong>GET</strong> or <strong>POST</strong> request to download the RCML from the application server. So the application server, will get the <strong>CallSid</strong> ​for this incoming call and can store it for later use.</p>
+</div>
+<div class="sect3">
+<h4 id="steps-for-an-incoming-call-are-the-following"><a class="anchor" href="#steps-for-an-incoming-call-are-the-following"></a>Steps for an incoming call are the following:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>New incoming call to Restcomm</p>
+</li>
+<li>
+<p>Restcomm generates CallSid and other parameters for this call</p>
+</li>
+<li>
+<p>Restcomm prepares GET/POST request and attaches the previously prepared parameters</p>
+</li>
+<li>
+<p>Restcomm sends the GET/POST request to the URL assigned to the DID called</p>
+</li>
+<li>
+<p>Application server receives the GET/POST request</p>
+</li>
+<li>
+<p>Application server should store the CallSid along with the rest of the parameters for later use</p>
+</li>
+<li>
+<p>Application server prepares the response with the appropriate RCML for the given DID and send it back to Restcomm to process it</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given that we have the <strong>CallSid</strong> ​available, ​the next step to modify a live call is to prepare the new <strong>POST</strong> request to Restcomm with the URL of the new destination application.</p>
+</div>
+<div class="paragraph">
+<p>Lets assume that initially the Application server prepared an RCML that will connect the incoming call to Bob and that later Bob wants this call to be transferred to Alice. Application Server will have to prepare a new RCML that will dial to Alice, and using the Live Call Modification API, will ask Restcomm to process this new RCML for the incoming call and thus will connect it to Alice.</p>
+</div>
+<div class="paragraph">
+<p>Here are the steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Incoming call -­ CallSid (1234567890)</p>
+</li>
+<li>
+<p>Applcation server: - Store CallSid and other parameters - Prepare and send RCML that connects the call to Bob (using Dial verb)</p>
+</li>
+<li>
+<p>Restcomm process the given RCML and connects incoming call to Bob</p>
+</li>
+<li>
+<p>Bob wants to transfer the call to Alice and sends the request to Controller (application server)</p>
+</li>
+<li>
+<p>Application server: - Prepares new RCML with a given URL: <a href="http://app.server/CallToAlice" class="bare">http://app.server/CallToAlice</a> that using Dial will dial to Alice - Uses Live Call Modification prepares a new POST request: <a href="http://RESTCOMM_IP:8080/restcomm/2012­04­24/Accounts/\{AccountSid/Calls/YOUR_CALL_SID" class="bare">http://RESTCOMM_IP:8080/restcomm/2012­04­24/Accounts/\{AccountSid/Calls/YOUR_CALL_SID</a> - in the POST requests adds the following parameters: Url=http://app.server/CallToAlice</p>
+</li>
+<li>
+<p>Restcomm process this Live Call Modification request and redirects the incoming call to the new RCML application (to the new URL)</p>
+</li>
+<li>
+<p>Eventually the incoming call will be connected to Alice.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Similar, application server can change an incoming call to Bob to a conference call where more participants can be added later. Given that application server already knows the CallSid for the incoming call to Bob</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Will prepare a new RCML for the Dial Conference</p>
+</li>
+<li>
+<p>Will prepare new POST Live Call Modification request for the incoming call to be connected to the new url (that will dial to the conference)</p>
+</li>
+<li>
+<p>Will then prepare new outgoing call request, using the Calls Rest API that will connect Bob to the conference application URL: - <a href="http://RESTCOMM_IP:8080/restcomm/2012­04­24/Accounts/{AccountSid}/Calls" class="bare">http://RESTCOMM_IP:8080/restcomm/2012­04­24/Accounts/{AccountSid}/Calls</a> - will pass the following parameters: <strong>From</strong>=INCOMING_CALL_ID <strong>To</strong>=client:bob <strong>Url</strong>=CONFERENCE_APPLICATION_URL</p>
+</li>
+<li>
+<p>Later application server can create more outgoing call requests, similar to the one above, to invite other clients or sip URLs or PSTN numbers to this conference call</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_redirect_call_to_a_new_rcml"><a class="anchor" href="#_redirect_call_to_a_new_rcml"></a>Redirect Call to a new RCML</h3>
+<div class="paragraph">
+<p>Live Call Modification POST request URL : <strong><a href="https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAd62f17e7c7f149ac8095f7574495d988" class="bare">https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAd62f17e7c7f149ac8095f7574495d988</a></strong></p>
+</div>
+<div class="sect3">
+<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters:</h4>
+<div class="paragraph">
+<p><strong>Url</strong>=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/dial­alice.xml</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl ­X POST
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAccccfd3a0c394cc1993803af785abc60 ­-d
+"Url=http://192.168.1.151:8080/restcomm/demos/dial­alice.xml"</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_redirect_call_to_a_new_rcml_and_connect_both_call_legs"><a class="anchor" href="#_redirect_call_to_a_new_rcml_and_connect_both_call_legs"></a>Redirect Call to a new RCML and connect both call legs</h3>
+<div class="paragraph">
+<p>Live Call Modification POST request URL: <strong><a href="https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAd62f17e7c7f149ac8095f7574495d988" class="bare">https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAd62f17e7c7f149ac8095f7574495d988</a></strong></p>
+</div>
+<div class="sect3">
+<h4 id="_parameters_2"><a class="anchor" href="#_parameters_2"></a>Parameters</h4>
+<div class="paragraph">
+<p><strong>Url</strong>=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/conference.xml</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl ­X POST
+https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAccccfd3a0c394cc1993803af785abc60 ­-d
+"Url=http://192.168.1.151:8080/restcomm/demos/conference.xml" ­-d
+"MoveConnectedCallLeg=true"</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_terminate_in_progress_call"><a class="anchor" href="#_terminate_in_progress_call"></a>Terminate In Progress call</h3>
+<div class="paragraph">
+<p>Live Call Modification POST request URL: <strong><a href="https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAe29bf33b54ba43dc952f0d3eb331567c" class="bare">https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAe29bf33b54ba43dc952f0d3eb331567c</a></strong></p>
+</div>
+<div class="sect3">
+<h4 id="_parameters_3"><a class="anchor" href="#_parameters_3"></a>Parameters:</h4>
+<div class="paragraph">
+<p><strong>Status</strong>=completed</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_terminate_ringing_call"><a class="anchor" href="#_terminate_ringing_call"></a>Terminate Ringing call</h3>
+<div class="paragraph">
+<p>Live Call Modification POST request URL: <strong><a href="https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CA312824ebd262419dbd4c00b057448d57" class="bare">https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CA312824ebd262419dbd4c00b057448d57</a></strong></p>
+</div>
+<div class="sect3">
+<h4 id="_parameters_4"><a class="anchor" href="#_parameters_4"></a>Parameters:</h4>
+<div class="paragraph">
+<p><strong>Status</strong>=canceled</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modifying_live_calls_example"><a class="anchor" href="#_modifying_live_calls_example"></a>Modifying Live Calls - Example</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>In order to accomplish this, you need to create a client called alice</p>
+</li>
+<li>
+<p>Start a <strong>SIP</strong> phone and register alice</p>
+</li>
+<li>
+<p>From the terminal run the following curl command</p>
+</li>
+<li>
+<p>Make sure alice is using the port <strong>5061</strong></p>
+</li>
+<li>
+<p>The "<strong>From=</strong>" could be any number of your choice</p>
+</li>
+<li>
+<p>The <strong>Url</strong> is the default sample example provided with Restcomm</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Modifying a Live Call</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls.json -d "From=+16175551212" -d "To=sip:alice@127.0.0.1:5061" -d "Url=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/demos/hello-play.xml"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will see an output similar to the one below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "sid": "CAfa51b104354440b09213d04752f50271",
+  "date_created": "2013-11-01T03:41:14.488-06:00",
+  "date_updated": "2013-11-01T03:41:14.488-06:00",
+  "account_sid": "ACae6e420f425248d6a26948c17a9e2acf",
+  "to": "alice",
+  "from": "+16175551212",
+  "status": "queued",
+  "start_time": "2013-11-01T03:41:14.488-06:00",
+  "price": "0.0",
+  "direction": "outbound-api",
+  "api_version": "2012-04-24",
+  "uri": "/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CAfa51b104354440b09213d04752f50271.json",
+  "subresource_uris": {
+    "notifications": "/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CAfa51b104354440b09213d04752f50271/Notifications",
+    "recordings": "/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CAfa51b104354440b09213d04752f50271/Recordings"
+  }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice the "sid": "CAfa51b104354440b09213d04752f50271",
+This Call ID is what you must use to interact with the current call.
+You can now redirect the current call to another application as shown below
+Notice that the Call ID is referenced
+The call will now be redirected to the Url specified(hello-world.xml)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls/CAfa51b104354440b09213d04752f50271 -d "Url=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/demos/hello-world.xml"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output showing the same Call ID</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+  &lt;Call&gt;
+    &lt;Sid&gt;CAfa51b104354440b09213d04752f50271&lt;/Sid&gt;
+    &lt;DateCreated&gt;2013-11-01T03:41:14.488-06:00&lt;/DateCreated&gt;
+    &lt;DateUpdated&gt;2013-11-01T03:41:14.488-06:00&lt;/DateUpdated&gt;
+    &lt;ParentCallSid/&gt;
+    &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+    &lt;To&gt;alice&lt;/To&gt;
+    &lt;From&gt;+16175551212&lt;/From&gt;
+    &lt;PhoneNumberSid/&gt;
+       ..... TRUNCATED</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can still redirect the current call back to the previous application</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls/CAfa51b104354440b09213d04752f50271 -d "Url=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/demos/hello-play.xml"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output showing the same Call ID</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+  &lt;Call&gt;
+    &lt;Sid&gt;CAfa51b104354440b09213d04752f50271&lt;/Sid&gt;
+    &lt;DateCreated&gt;2013-11-01T03:41:14.488-06:00&lt;/DateCreated&gt;
+    &lt;DateUpdated&gt;2013-11-01T03:41:14.488-06:00&lt;/DateUpdated&gt;
+    &lt;ParentCallSid/&gt;
+    &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+    &lt;To&gt;alice&lt;/To&gt;
+    &lt;From&gt;+16175551212&lt;/From&gt;
+    &lt;PhoneNumberSid/&gt;
+   ..... TRUNCATED</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can end the call using the Status=completed command as shown below</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls/CAfa51b104354440b09213d04752f50271 -d "Status=completed"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output showing the same Call ID</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+  &lt;Call&gt;
+    &lt;Sid&gt;CAfa51b104354440b09213d04752f50271&lt;/Sid&gt;
+    &lt;DateCreated&gt;2013-11-01T03:41:14.488-06:00&lt;/DateCreated&gt;
+    &lt;DateUpdated&gt;2013-11-01T03:41:14.488-06:00&lt;/DateUpdated&gt;
+    &lt;ParentCallSid/&gt;
+    &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+    &lt;To&gt;alice&lt;/To&gt;
+    &lt;From&gt;+16175551212&lt;/From&gt;
+    &lt;PhoneNumberSid/&gt;
+   ..... TRUNCATED</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check LiveCallModification test scripts for Hold/Unhold calls at: <a href="https://github.com/RestComm/Restcomm-Connect/tree/master/liveCallModification" class="bare">https://github.com/RestComm/Restcomm-Connect/tree/master/liveCallModification</a></p>
+</div>
+<div class="paragraph">
+<p>You can Mute/unMute an inprogress call as shown bellow.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Mute a Participant</div>
+<div class="content">
+<div class="paragraph">
+<p>curl -X POST <a href="http://&lt;AccountSid&gt;:&lt;AutheToken&gt;@&lt;Domain&gt;/restcomm/2012-04-24/Accounts/&lt;AccountSid&gt;/Conferences/&lt;ConferenceSid&gt;/Participants/&lt;CallSid&gt" class="bare">http://&lt;AccountSid&gt;:&lt;AutheToken&gt;@&lt;Domain&gt;/restcomm/2012-04-24/Accounts/&lt;AccountSid&gt;/Conferences/&lt;ConferenceSid&gt;/Participants/&lt;CallSid&gt</a>; -d "Mute=true"</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Sample Mute Response</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+  &lt;Call&gt;
+    &lt;Sid&gt;CA02b649d3ffe24408a1e141be089f347b&lt;/Sid&gt;
+    &lt;ConferenceSid&gt;CFcc373b0637114f088eae954fa73f0f57&lt;/ConferenceSid&gt;
+    &lt;DateCreated&gt;Wed, 15 Mar 2017 10:10:57 +0000&lt;/DateCreated&gt;
+    &lt;DateUpdated&gt;Wed, 15 Mar 2017 10:15:33 +0000&lt;/DateUpdated&gt;
+    &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+    &lt;Muted&gt;true&lt;/Muted&gt;
+    &lt;Hold&gt;false&lt;/Hold&gt;
+    &lt;StartConferenceOnEnter&gt;true&lt;/StartConferenceOnEnter&gt;
+    &lt;EndConferenceOnEnter&gt;false&lt;/EndConferenceOnEnter&gt;
+    &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CA02b649d3ffe24408a1e141be089f347b&lt;/Uri&gt;
+  &lt;/Call&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. unMute a Muted Participant</div>
+<div class="content">
+<div class="paragraph">
+<p>curl -X POST <a href="http://&lt;AccountSid&gt;:&lt;AutheToken&gt;@&lt;Domain&gt;/restcomm/2012-04-24/Accounts/&lt;AccountSid&gt;/Conferences/&lt;ConferenceSid&gt;/Participants/&lt;CallSid&gt" class="bare">http://&lt;AccountSid&gt;:&lt;AutheToken&gt;@&lt;Domain&gt;/restcomm/2012-04-24/Accounts/&lt;AccountSid&gt;/Conferences/&lt;ConferenceSid&gt;/Participants/&lt;CallSid&gt</a>; -d "Mute=false"</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Sample unMute Response</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;RestcommResponse&gt;
+  &lt;Call&gt;
+    &lt;Sid&gt;CA02b649d3ffe24408a1e141be089f347b&lt;/Sid&gt;
+    &lt;ConferenceSid&gt;CFcc373b0637114f088eae954fa73f0f57&lt;/ConferenceSid&gt;
+    &lt;DateCreated&gt;Wed, 15 Mar 2017 10:10:57 +0000&lt;/DateCreated&gt;
+    &lt;DateUpdated&gt;Wed, 15 Mar 2017 10:16:44 +0000&lt;/DateUpdated&gt;
+    &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+    &lt;Muted&gt;false&lt;/Muted&gt;
+    &lt;Hold&gt;false&lt;/Hold&gt;
+    &lt;StartConferenceOnEnter&gt;true&lt;/StartConferenceOnEnter&gt;
+    &lt;EndConferenceOnEnter&gt;false&lt;/EndConferenceOnEnter&gt;
+    &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CA02b649d3ffe24408a1e141be089f347b&lt;/Uri&gt;
+  &lt;/Call&gt;
+&lt;/RestcommResponse&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_list_filter"><a class="anchor" href="#_list_filter"></a>List Filter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>HTTP GET</strong>. The following GET query string parameters allow you to limit the list returned. Note, parameters are case-sensitive:</p>
+</div>
+<div class="sect2">
+<h3 id="_request_parameters_4"><a class="anchor" href="#_request_parameters_4"></a>Request Parameters</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show calls to this phone number or Client identifier.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show calls from this phone number or Client identifier.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show calls currently in this status. May be queued, ringing, in-progress, canceled, completed, failed, busy, or no-answer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StartTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show calls that started on this date/time or later, given as an ISO-8601 date/time string, like <code>YYYY-MM-DDTHH:MM:SS</code> (for example <code>2018-10-05T22:45:32</code>) or, if you want to omit the time, YYYY-MM-DD (for example <code>2018-10-05</code>). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EndTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show calls that ended on this date/time or earlier, given as an ISO-8601 date/time string, like <code>YYYY-MM-DDTHH:MM:SS</code> (for example <code>2018-10-06T02:10:03</code>) or, if you want to omit the time, YYYY-MM-DD (for example <code>2018-10-06</code>). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ParentCallSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show calls spawned by the call with this Sid.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_filter_using_the_from_parameter"><a class="anchor" href="#_filter_using_the_from_parameter"></a>Filter using the From parameter.</h3>
+<div class="paragraph">
+<p>The example below will only return Calls made from client Alice</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> curl -X GET  http://administrator%40company.com:77f8c12cc7166@127.0.0.1:8080/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls?From=alice</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The result will be similar to the one below</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;RestcommResponse&gt;
+  &lt;Calls page="0" numpages="0" pagesize="50" total="0" start="0" end="1" uri="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls" firstpageuri="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls?Page=0&amp;amp;PageSize=50" previouspageuri="null" nextpageuri="null" lastpageuri=="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls?Page=0&amp;amp;PageSize=50"&gt;
+    &lt;Call&gt;
+      &lt;Sid&gt;CAc0fb839632cf444f9066876d5de741e0&lt;/Sid&gt;
+      &lt;DateCreated&gt;2013-10-18T04:51:47.643-06:00&lt;/DateCreated&gt;
+      &lt;DateUpdated&gt;2013-10-18T04:51:49.174-06:00&lt;/DateUpdated&gt;
+      &lt;ParentCallSid/&gt;
+      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+      &lt;To&gt;1234&lt;/To&gt;
+      &lt;From&gt;alice&lt;/From&gt;
+      &lt;PhoneNumberSid/&gt;
+      &lt;Status&gt;completed&lt;/Status&gt;
+      &lt;StartTime&gt;2013-10-18T04:51:47.671-06:00&lt;/StartTime&gt;
+      &lt;EndTime&gt;2013-10-18T04:51:49.174-06:00&lt;/EndTime&gt;
+      &lt;Duration&gt;1&lt;/Duration&gt;
+      &lt;Price&gt;0.00&lt;/Price&gt;
+      &lt;Direction&gt;inbound&lt;/Direction&gt;
+      &lt;AnsweredBy/&gt;
+      &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+      &lt;ForwardedFrom/&gt;
+      &lt;CallerName/&gt;
+      &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CAc0fb839632cf444f9066876d5de741e0&lt;/Uri&gt;
+      &lt;SubresourceUris&gt;
+        &lt;Notifications&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CAc0fb839632cf444f9066876d5de741e0/Notifications&lt;/Notifications&gt;
+        &lt;Recordings&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CAc0fb839632cf444f9066876d5de741e0/Recordings&lt;/Recordings&gt;
+      &lt;/SubresourceUris&gt;
+    &lt;/Call&gt;
+  &lt;/Calls&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_paging_information"><a class="anchor" href="#_paging_information"></a>Paging Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>HTTP GET.</strong> The following GET query string parameters allow you to limit the list returned. Note, parameters are case-sensitive:</p>
+</div>
+<div class="paragraph">
+<p>=== Request Parameters</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The current page number. Zero-indexed, so the first page is 0.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NumPages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of pages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How many items are in each page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of items in the list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The position in the overall list of the first item in this page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The position in the overall list of the last item in this page.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_example"><a class="anchor" href="#_example"></a>Example.</h3>
+<div class="paragraph">
+<p>The command below will return a single item from the list of calls using the PageSize parameter</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X GET  https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls?PageSize=1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The result of the <strong>PageSize</strong> parameter</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;RestcommResponse&gt;
+  &lt;Calls page="0" numpages="7" pagesize="1" total="7" start="0" end="0" uri="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls" firstpageuri="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls?Page=0&amp;amp;PageSize=1" previouspageuri="null" nextpageuri="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls?Page=1&amp;amp;PageSize=1&amp;amp;AfterSid=CA4049cf008d6b4277b92ab863fd4ec7c8" lastpageuri=="/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls?Page=7&amp;amp;PageSize=1"&gt;
+    &lt;Call&gt;
+      &lt;Sid&gt;CA4049cf008d6b4277b92ab863fd4ec7c8&lt;/Sid&gt;
+      &lt;DateCreated&gt;2013-10-18T04:49:45.942-06:00&lt;/DateCreated&gt;
+      &lt;DateUpdated&gt;2013-10-18T04:49:46.272-06:00&lt;/DateUpdated&gt;
+      &lt;ParentCallSid/&gt;
+      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+      &lt;To&gt;1235&lt;/To&gt;
+      &lt;From&gt;bob&lt;/From&gt;
+      &lt;PhoneNumberSid/&gt;
+      &lt;Status&gt;completed&lt;/Status&gt;
+      &lt;StartTime&gt;2013-10-18T04:49:45.994-06:00&lt;/StartTime&gt;
+      &lt;EndTime&gt;2013-10-18T04:49:46.272-06:00&lt;/EndTime&gt;
+      &lt;Duration&gt;0&lt;/Duration&gt;
+      &lt;Price&gt;0.00&lt;/Price&gt;
+      &lt;Direction&gt;inbound&lt;/Direction&gt;
+      &lt;AnsweredBy/&gt;
+      &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
+      &lt;ForwardedFrom/&gt;
+      &lt;CallerName/&gt;
+      &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CA4049cf008d6b4277b92ab863fd4ec7c8&lt;/Uri&gt;
+      &lt;SubresourceUris&gt;
+        &lt;Notifications&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CA4049cf008d6b4277b92ab863fd4ec7c8/Notifications&lt;/Notifications&gt;
+        &lt;Recordings&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls/CA4049cf008d6b4277b92ab863fd4ec7c8/Recordings&lt;/Recordings&gt;
+      &lt;/SubresourceUris&gt;
+    &lt;/Call&gt;
+  &lt;/Calls&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_paging_information"><a class="anchor" href="#_additional_paging_information"></a>Additional Paging Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The API returns URIs to the next, previous, first and last pages of the returned list as shown in the table below:</p>
+</div>
+<div class="sect2">
+<h3 id="_request_parameters_5"><a class="anchor" href="#_request_parameters_5"></a>Request Parameters</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI of the current page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Firstpageuri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for the first page of this list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nextpageuri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for the next page of this list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Previouspageuri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for the previous page of this list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lastpageuri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for the last page of this list.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>HTTP GET.</strong> You can use the <strong>SortBy</strong> GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here&#8217;s the overall format: <strong>SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;</strong>. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+</div>
+<div class="sect2">
+<h3 id="_sortby_attributes"><a class="anchor" href="#_sortby_attributes"></a>SortBy Attributes</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date at which the call was created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the party who initiated the call</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the party who received the call</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the direction of the call</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the status of the call</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the duration of the call</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the price of the call, if applicable</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_example_2"><a class="anchor" href="#_example_2"></a>Example</h3>
+<div class="paragraph">
+<p>The command below will return calls sorted by the creation date in ascending order using SortBy parameter:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X GET  https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/&lt;accountSid&gt;/Calls?SortBy=DateCreated:asc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The result of the <strong>SortBy</strong> parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;RestcommResponse&gt;
+    &lt;Calls page="0" numpages="0" pagesize="50" total="0" start="0" end="3" uri="/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls" firstpageuri="/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls?Page=0&amp;amp;PageSize=50" previouspageuri="null" nextpageuri="null" lastpageuri="/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Calls?Page=0&amp;amp;PageSize=50"&gt;
+        &lt;Call&gt;
+            &lt;Sid&gt;ID8555f97abe0441e0a07ca2da3a081871-CAaf146bdb9ea04cd7a9a6f76d955f1aed&lt;/Sid&gt;
+            &lt;InstanceId&gt;ID8555f97abe0441e0a07ca2da3a081871&lt;/InstanceId&gt;
+            &lt;DateCreated&gt;Thu, 28 Jun 2018 16:56:33 +0300&lt;/DateCreated&gt;
+            &lt;DateUpdated&gt;Thu, 28 Jun 2018 16:56:36 +0300&lt;/DateUpdated&gt;
+            &lt;To&gt;+112233&lt;/To&gt;
+            &lt;From&gt;alice&lt;/From&gt;
+            &lt;Status&gt;completed&lt;/Status&gt;
+            &lt;Duration&gt;8&lt;/Duration&gt;
+             ...
+        &lt;/Call&gt;
+        &lt;Call&gt;
+            &lt;Sid&gt;ID8555f97abe0441e0a07ca2da3a081871-CA898196ba193342769877eb218d5008d3&lt;/Sid&gt;
+            &lt;InstanceId&gt;ID8555f97abe0441e0a07ca2da3a081871&lt;/InstanceId&gt;
+            &lt;DateCreated&gt;Thu, 28 Jun 2018 16:56:39 +0300&lt;/DateCreated&gt;
+            &lt;DateUpdated&gt;Thu, 28 Jun 2018 16:56:42 +0300&lt;/DateUpdated&gt;
+            &lt;To&gt;+1234&lt;/To&gt;
+            &lt;From&gt;alice&lt;/From&gt;
+            &lt;Status&gt;completed&lt;/Status&gt;
+            &lt;Duration&gt;12&lt;/Duration&gt;
+            ...
+        &lt;/Call&gt;
+        &lt;Call&gt;
+            &lt;Sid&gt;ID8555f97abe0441e0a07ca2da3a081871-CA4458385933b4447aa3fa02389426a99d&lt;/Sid&gt;
+            &lt;InstanceId&gt;ID8555f97abe0441e0a07ca2da3a081871&lt;/InstanceId&gt;
+            &lt;DateCreated&gt;Thu, 28 Jun 2018 16:56:44 +0300&lt;/DateCreated&gt;
+            &lt;DateUpdated&gt;Thu, 28 Jun 2018 16:56:50 +0300&lt;/DateUpdated&gt;
+            &lt;To&gt;+112233&lt;/To&gt;
+            &lt;From&gt;bob&lt;/From&gt;
+            &lt;Status&gt;completed&lt;/Status&gt;
+            &lt;Duration&gt;15&lt;/Duration&gt;
+            ...
+        &lt;/Call&gt;
+    &lt;/Calls&gt;
+&lt;/RestcommResponse&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column-container">
+      <div class="footer-column">
+        <h5 class="footer-column-title">Products</h5>
+        <p><a href="programmable.html#_getting_started_with_programmable_voice">Programmable Voice</a></p>
+        <p><a href="programmable.html#_getting_started_with_programmable_sms">Programmable SMS</a></p>
+        <p><a href="message-exchange.html">Message Exchange</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-factor authentication (2FA)</a></p>
+        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone number masking</a></p>
+        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Learn</h5>
+        <p><a href="https://www.restcomm.com/docs">Documentation</a></p>
+        <p><a href="https://www.restcomm.com/blog/">Blog</a></p>
+        <p><a href="support.html">Terms And Conditions</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Contact us</h5>
+        <p>+1 650 263 6146</p>
+        <p>
+          <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
+          <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
+          <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
+          <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
+          <span><a href="https://plus.google.com/+Restcomm"><i class="fab fa-google-plus-g"></i></a></span>
+          <span><a href="https://www.restcomm.com/blog/"><i class="fas fa-rss"></i></a></span>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom-container">
+      <div class="footer-logo">
+        <a class="footer-logo-link" href="https://telestax.com"></a>
+      </div>
+      <div class="footer-copyright">
+        <p class="footer-copyright-paragraph">COPYRIGHT © 2018, TELESTAX INC., ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+<!--
+  Tried to get this chunk into js/05-countly.js but it has some issues with the async loading so fell back to putting it here
+  where it works for some reason
+-->
+  <!-- Only enable countly if the key is set -->
+  <script type='text/javascript' src='https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'></script>
+  <script>
+    var Countly = Countly || {}
+    Countly.q = Countly.q || []
+
+    // provide countly initialization parameters
+    Countly.app_key = '56bdc77c4c53e32ebd439e2586dd4ee22b3d3ad0'
+    Countly.url = 'https://restcomm.count.ly'
+
+    Countly.q.push(['track_sessions'])
+    Countly.q.push(['track_pageview'])
+    Countly.q.push(['track_clicks'])
+    Countly.q.push(['track_errors'])
+    Countly.q.push(['track_links'])
+    Countly.q.push(['track_forms'])
+    Countly.q.push(['collect_from_forms'])
+
+    // send event
+    Countly.q.push(['add_event', {
+      key: 'Restcomm CSPs Documentation',
+      segmentation: {},
+    }]);
+
+    // load countly script asynchronously
+    (function () {
+      var cly = document.createElement('script')
+      cly.type = 'text/javascript'
+      cly.async = true
+      // enter url of script here
+      cly.src = 'https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'
+      cly.onload = function () {
+        Countly.init()
+      }
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(cly, s)
+    })()
+  </script>
+
+
+  </body>
+</html>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/play.html">
+    <title>Restcomm API - Supervisor/Monitoring service :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/monitoring-service.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -116,7 +116,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="say.html">Say</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="play.html">Play</a>
   </li>
 </ul>
@@ -152,13 +152,241 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="rcml-category.html">RCML</a></li>
-    <li class="crumb"><a href="play.html">Play</a></li>
+    <li class="crumb"><a href="monitoring-service.html">Restcomm API - Supervisor/Monitoring service</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-
+  <h1>Restcomm API - Supervisor/Monitoring service</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_supervisor_api">Supervisor API</a>
+<ul class="sectlevel2">
+<li><a href="#_supervisor_resource_uri">Supervisor Resource URI</a></li>
+<li><a href="#_resource_properties">Resource Properties</a></li>
+<li><a href="#_supported_operations">Supported Operations</a></li>
+<li><a href="#_supervisor_resource_uri_2">Supervisor Resource URI</a></li>
+<li><a href="#_supported_operations_2">Supported Operations</a></li>
+<li><a href="#_get_metrics">Get metrics</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_supervisor_api"><a class="anchor" href="#_supervisor_api"></a>Supervisor API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use <strong>Supervisor API</strong> to access statistics from Restcomm and monitor the usage.</p>
+</div>
+<div class="paragraph">
+<p><strong>Supervisor API</strong> can be used to monitor traffic on a Restcomm instance.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>Supervisor API</strong> will provide the following metrics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Real Time metrics</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Live incoming calls</p>
+</li>
+<li>
+<p>Live outgoing calls</p>
+</li>
+<li>
+<p>Live calls (total)</p>
+</li>
+<li>
+<p>Live call details array. An array with call details for each of the live calls</p>
+</li>
+<li>
+<p>Registered users</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Accumulated metrics</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Total calls since uptime</p>
+</li>
+<li>
+<p>Incoming calls since uptime</p>
+</li>
+<li>
+<p>Outgoing calls since uptime</p>
+</li>
+<li>
+<p>No Answered calls</p>
+</li>
+<li>
+<p>Busy calls</p>
+</li>
+<li>
+<p>Failed calls</p>
+</li>
+<li>
+<p>Not found calls</p>
+</li>
+<li>
+<p>Canceled calls</p>
+</li>
+<li>
+<p>Inbound Text messages to RMCL applications</p>
+</li>
+<li>
+<p>Inbound Text messages to Restcomm clients</p>
+</li>
+<li>
+<p>Inbound Text messages to outbound proxy</p>
+</li>
+<li>
+<p>Inbound Text messages with Not Found error</p>
+</li>
+<li>
+<p>Outoing Text messages</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_supervisor_resource_uri"><a class="anchor" href="#_supervisor_resource_uri"></a>Supervisor Resource URI</h3>
+<div class="paragraph">
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Supervisor.json/metrics</strong></p>
+</div>
+<div class="paragraph">
+<p>Will return MonitoringService metrics.</p>
+</div>
+<div class="paragraph">
+<p>Supervisor API supports only json format.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_properties"><a class="anchor" href="#_resource_properties"></a>Resource Properties</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LiveCallDetails</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(optional) Set to <strong>true</strong> to get an array of live calls. Default value <strong>false</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET</strong>. Returns the monitoring service metrics in json format.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supervisor_resource_uri_2"><a class="anchor" href="#_supervisor_resource_uri_2"></a>Supervisor Resource URI</h3>
+<div class="paragraph">
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Supervisor.json/livecalls</strong></p>
+</div>
+<div class="paragraph">
+<p>Will return array of live calls (if any)</p>
+</div>
+<div class="paragraph">
+<p>Supervisor API supports only json format.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET</strong>. Returns the monitoring service metrics in json format.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_metrics"><a class="anchor" href="#_get_metrics"></a>Get metrics</h3>
+<div class="paragraph">
+<p>To get the monitoring service metrics you can use the curl command bellow</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_ID/Supervisor.json/metrics</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example for the curl command below:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Supervisor.json/metrics?LiveCallDetails=true</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>the monitoring service response for a Restcomm instance with 1 registered user and 2 live calls will return the following metrics:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+  {
+    "InstanceId": "ID6f1e138741034df5879be5e073b018bb",
+    "Version": "7.7.0",
+    "Revision": "rccfa3f2159ddcabdac430de17aec05f9b0a6ea2e",
+    "Metrics": {
+      "TotalCallsSinceUptime": 4,
+      "NoAnswerCalls": 0,
+      "LiveOutgoingCalls": 0,
+      "OutgoingCallsSinceUptime": 0,
+      "IncomingCallsSinceUptime": 4,
+      "RegisteredUsers": 1,
+      "CompletedCalls": 2,
+      "TextMessageOutbound": 0,
+      "NotFoundCalls": 0,
+      "CanceledCalls": 0,
+      "FailedCalls": 0,
+      "TextMessageNotFound": 0,
+      "TextMessageInboundToApp": 0,
+      "LiveCalls": 2,
+      "BusyCalls": 0,
+      "LiveIncomingCalls": 2,
+      "TextMessageInboundToProxyOut": 0,
+      "TextMessageInboundToClient": 0
+    },
+    "LiveCallDetails": [
+      {
+        "sid": "CA1c34db0d7ba1488a9c7eefaadc982358",
+        "State": "IN_PROGRESS",
+        "direction": "inbound",
+        "date_created": "Mon, 30 May 2016 13:47:52 +0300",
+        "from": "bob",
+        "to": "1310",
+        "Initial Invite": "sip:1310@127.0.0.1:5080"
+      },
+      {
+        "sid": "CAb9fecafc42cc4ad49e0dd991f1966cc7",
+        "State": "IN_PROGRESS",
+        "direction": "inbound",
+        "date_created": "Mon, 30 May 2016 13:47:48 +0300",
+        "from": "unregistereduser",
+        "to": "1310",
+        "Initial Invite": "sip:1310@127.0.0.1:5080"
+      }
+    ]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </article>
   </main>
 </div>

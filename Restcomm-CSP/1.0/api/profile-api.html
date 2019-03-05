@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restcomm API – Profile :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/profile-api.html">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <!-- Not using it for now
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+<!--
+      <a class="navbar-item" href="https://www.restcomm.com/docs"><img width="140px" src="../../../_/img/restcomm-logo-white.svg"></a>
+-->
+      <a class="navbar-item header-logo-link" href="https://www.restcomm.com/docs"></a>
+<!--
+      <a class="navbar-item" href="https://www.restcomm.com/docs">Restcomm CPaaS Enablement Docs</a>
+-->
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        -->
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="main-wrapper">
+<div class="navigation-container" data-component="Restcomm-CSP" data-version="1.0" >
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="voice-category.html">Voice</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Calls</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Recordings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="calls.html">Conferences</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms-category.html">SMS</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="sms.html">Messages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_send_sms">Send SMS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_get_sms_list">Get SMS List</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_get_single_sms_information">Get single SMS Information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="sms.html#_sms_attributes">SMS Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="numbers.html">Numbers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="rcml-category.html">RCML</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dial.html">Dial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="gather.html">Gather</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="say.html">Say</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="play.html">Play</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">Restcomm CPaaS Enablement Docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Restcomm CPaaS Enablement Docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
+    <li class="crumb"><a href="profile-api.html">Restcomm API – Profile</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc ">
+  <h1>Restcomm API – Profile</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel2">
+<li><a href="#_profile_resource_uri">Profile Resource URI</a></li>
+<li><a href="#_resource_schema">Resource Schema</a></li>
+<li><a href="#_supported_operations">Supported Operations</a></li>
+<li><a href="#Profiles_List">Profile List Resource</a>
+<ul class="sectlevel2">
+<li><a href="#_supported_operations_2">Supported Operations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Profiles allow to associate behavior configuration  to specific Accounts or Organizations. Once a Profile
+is associated with such Entity, the next session (USSD/Voice/SMS) attempt related to that
+Entity will use the Profile configuration to tweak the service logic behavior.</p>
+</div>
+<div class="paragraph">
+<p>During session creation the service logic will try to find the associated Profile
+based on this criteria, until a Profile is found:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Profile associated to current Account</p>
+</li>
+<li>
+<p>Profile associated to parent Account</p>
+</li>
+<li>
+<p>Profile associated to related Organization</p>
+</li>
+<li>
+<p>Default Profile</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The Default Profile is pre-provisioned in the system, and can&#8217;t be modified from the
+REST API. The Default Profile Sid is "PRae6e420f425248d6a26948c17a9e2acf"</p>
+</div>
+<div class="paragraph">
+<p>Since the Profile configuration is expected to grow as required, the Profile entity
+is defined by a JSON schema, rather than regular properties, representing a
+document used as generic container.</p>
+</div>
+<div class="paragraph">
+<p>The REST API will validate well-known contains
+of the document that are used by RestcommConnect during session handling logic. The
+rest of the document will not be validated, with the only constraint of a
+maximum size limitation of 10MB. This means the REST API consumer may use the Profile
+document to store/retrieve any kind of arbitrary information as long as the document is
+a valid JSON document.</p>
+</div>
+<div class="paragraph">
+<p>The Profiles API allow different types of Profile to be provisioned. The Platform profile
+contains behavior only configurable by the SuperAdmin. While Subscriber profile maybe
+managed by the Account administrator. The different kind of profiles are denoted by Content-Type
+header by setting proper schema parameter. Where "rc-profile-schema.json" is for Platform profile,
+and "rc-subscriber-schema.json" is for Subscriber profile.</p>
+</div>
+<div class="paragraph">
+<p>For the Platform profile, the Profiles REST API is only accessible by SuperAdmin credentials.
+With the exception of reading the associated Profile, where all Roles are allowed if the queried profile
+is associated with the requesting Account credentials.</p>
+</div>
+<div class="paragraph">
+<p>For Subscriber profile, The Profiles REST API is only accessible by Account administrator.
+Where the created Profiles will only be linked to the corresponding account.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_profile_resource_uri"><a class="anchor" href="#_profile_resource_uri"></a>Profile Resource URI</h3>
+<div class="paragraph">
+<p><strong>/2012-04-24/Profiles/{ProfileSid}</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_schema"><a class="anchor" href="#_resource_schema"></a>Resource Schema</h3>
+<div class="literalblock">
+<div class="content">
+<pre>{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "resource:/org/restcomm/connect/http/schemas/rc-profile-schema.json#",
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+        "featureEnablement": {
+            "$ref": "rc-feature-enablement-schema.json#/definitions/featureEnablement"
+        }
+    }
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET.</strong> Returns the representation of a Profile resource. All roles are allowed.</p>
+</div>
+<div class="sect3">
+<h4 id="_response_status"><a class="anchor" href="#_response_status"></a>Response Status</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200 OK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body contains Profile JSon document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">403 Forbidden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only Super Admin is allowed to query Profiles</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404 Not Found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Target Profile SID is missing</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_headers"><a class="anchor" href="#_response_headers"></a>Response Headers</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Header</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Link</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a link to the Profile schema with "rel" "describedBy"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modified-Since</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date of last modification of the profile.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>HTTP PUT</strong>.
+Modifies a Profile resource and returns the representation.
+The body of the request is expected to contain a JSON document compliant to the Profile
+schema.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_status_2"><a class="anchor" href="#_response_status_2"></a>Response Status</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200 OK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modification performed. Body contains Profile JSon document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">403 Forbidden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only Super Admin is allowed to modify a Profile. DefaultProfile can&#8217;t be modified</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404 Not Found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Target Profile SID is missing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400 Bad Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body contains a Profile not compliant with schema</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>HTTP DELETE</strong></p>
+</div>
+<div class="paragraph">
+<p>Removes an existing Profile, removing any existing association with Accounts/Organizations.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_status_3"><a class="anchor" href="#_response_status_3"></a>Response Status</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200 OK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Profile removed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">403 Forbidden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only Super Admin is allowed to remove. DefaultProfile can&#8217;t be deleted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404 Not Found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Target Profile SID is missing or Link is not found</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>HTTP LINK/UNLINK</strong></p>
+</div>
+<div class="paragraph">
+<p>Profile association operation maybe performed against a particular Account or Organization.
+This operation will use HTTP 1.1 LINK/UNLINK methods, and target resource should be populated
+in a Link header, using "related" as "rel" attribute. Only one Link header is supported.
+To associate a single Profile with multiple Accounts/Organizations, multiple requests will be required.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_headers"><a class="anchor" href="#_request_headers"></a>Request Headers</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Header</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Link</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains an full URL to the Account/Organization that should be associated to the Profile</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_status_4"><a class="anchor" href="#_response_status_4"></a>Response Status</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200 OK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Association established</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">403 Forbidden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only Super Admin is allowed for the association operation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404 Not Found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Target Profile SID is missing or Link is not found</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400 Bad Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None or multiple Link header provided. Link with unsupported "rel".</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Get information about the default profile.</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X GET  https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2acf</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Add a new Platform Profile.</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H 'Content-Type: application/instance+json;schema=rc-profile-schema.json' --data "@/path/to/filename" https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Profiles</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Add a new Subscriber Profile.</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X POST -H 'Content-Type: application/instance+json;schema=rc-subscriber-schema.json' --data "@/path/to/filename" https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Profiles</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Modify a Profile.</strong></p>
+</div>
+<div class="paragraph">
+<p>To update a Profile you need to provide the Profile SID</p>
+</div>
+<div class="paragraph">
+<p>For example, update platform Profile using sid:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X PUT -H 'Content-Type: application/instance+json;schema=rc-profile-schema.json' --data "@/path/to/filename" https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X GET  https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above command will print an output similar to the one below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "featureEnablement": {
+        "DIDPurchase": {
+            "allowedCountries": ["US",
+                "CA"]
+        },
+        "destinations": {
+            "allowedPrefixes": ["+1"]
+        },
+        "outboundPSTN": {
+        },
+        "inboundPSTN": {
+        },
+        "outboundSMS": {
+        },
+        "inboundSMS": {
+        }
+
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Link/Unlink a Profile to an Entity</strong></p>
+</div>
+<div class="paragraph">
+<p>To link a Profile to an Account</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X PUT -H "X-HTTP-Method-Override:LINK" -H "Link:&lt;https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf&gt;;rel=related" https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To unlink a Profile from an Account</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X PUT -H "X-HTTP-Method-Override:UNLINK" -H "Link:&lt;https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf&gt;;rel=related" https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To link a Profile to an Organization</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X PUT -H "X-HTTP-Method-Override:LINK" -H "Link:&lt;https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Organizations/ORafbe225ad37541eba518a74248f0ac4c&gt;;rel=related" https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To unlink a Profile from an Organization</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>curl -X PUT -H "X-HTTP-Method-Override:UNLINK" -H  "Link:&lt;https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Organizations/ORafbe225ad37541eba518a74248f0ac4c&gt;;rel=related" https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A Subscriber profile may look as</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "multiprovider": {
+        "outbound-voice": [
+            {
+                "proxy": [
+                    {
+                        "uri":"Uri",
+                        "username":"String",
+                        "password":"String",
+                        "match":"Regex String",
+                        "headers":[
+                            {
+                                "headerName":"String",
+                                "key":"String",
+                                "value":"String"
+                            },
+                            {...}
+                        ]
+                    },
+                    {...}
+                ]
+            }
+        ],
+        "outbound-sms": [
+            {"destination_network_id":"Integer"}
+        ]
+
+    }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Profiles_List"><a class="anchor" href="#Profiles_List"></a>Profile List Resource</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Profile List Resource URI. <strong>/2012-04-24/Profiles</strong></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h3>
+<div class="paragraph">
+<p><strong>HTTP GET</strong>. Returns the list representation of all the <strong>Profile</strong> resources.</p>
+</div>
+<div class="paragraph">
+<p>The response will include a JSON document in the response body with this
+format</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[{
+	"uri": "https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2acf",
+	"sid": "PRae6e420f425248d6a26948c17a9e2acf",
+	"dateUpdated": 1516745449949,
+	"dateCreated": 1516745449949
+}]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>HTTP POST</strong>.
+Creates a new Profile.The body of the request is expected to contain a JSON document compliant to the Profile
+schema.</p>
+</div>
+<div class="sect3">
+<h4 id="_response_status_5"><a class="anchor" href="#_response_status_5"></a>Response Status</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">201 Created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Profile created. Body contains Profile JSon document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">403 Forbidden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only Super Admin is allowed to modify/create a Profile</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400 Bad Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Body contains a Profile not compliant with schema</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_headers_2"><a class="anchor" href="#_response_headers_2"></a>Response Headers</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Header</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URL to new Profile created</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column-container">
+      <div class="footer-column">
+        <h5 class="footer-column-title">Products</h5>
+        <p><a href="programmable.html#_getting_started_with_programmable_voice">Programmable Voice</a></p>
+        <p><a href="programmable.html#_getting_started_with_programmable_sms">Programmable SMS</a></p>
+        <p><a href="message-exchange.html">Message Exchange</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-factor authentication (2FA)</a></p>
+        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone number masking</a></p>
+        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Learn</h5>
+        <p><a href="https://www.restcomm.com/docs">Documentation</a></p>
+        <p><a href="https://www.restcomm.com/blog/">Blog</a></p>
+        <p><a href="support.html">Terms And Conditions</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Contact us</h5>
+        <p>+1 650 263 6146</p>
+        <p>
+          <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
+          <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
+          <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
+          <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
+          <span><a href="https://plus.google.com/+Restcomm"><i class="fab fa-google-plus-g"></i></a></span>
+          <span><a href="https://www.restcomm.com/blog/"><i class="fas fa-rss"></i></a></span>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom-container">
+      <div class="footer-logo">
+        <a class="footer-logo-link" href="https://telestax.com"></a>
+      </div>
+      <div class="footer-copyright">
+        <p class="footer-copyright-paragraph">COPYRIGHT © 2018, TELESTAX INC., ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+<!--
+  Tried to get this chunk into js/05-countly.js but it has some issues with the async loading so fell back to putting it here
+  where it works for some reason
+-->
+  <!-- Only enable countly if the key is set -->
+  <script type='text/javascript' src='https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'></script>
+  <script>
+    var Countly = Countly || {}
+    Countly.q = Countly.q || []
+
+    // provide countly initialization parameters
+    Countly.app_key = '56bdc77c4c53e32ebd439e2586dd4ee22b3d3ad0'
+    Countly.url = 'https://restcomm.count.ly'
+
+    Countly.q.push(['track_sessions'])
+    Countly.q.push(['track_pageview'])
+    Countly.q.push(['track_clicks'])
+    Countly.q.push(['track_errors'])
+    Countly.q.push(['track_links'])
+    Countly.q.push(['track_forms'])
+    Countly.q.push(['collect_from_forms'])
+
+    // send event
+    Countly.q.push(['add_event', {
+      key: 'Restcomm CSPs Documentation',
+      segmentation: {},
+    }]);
+
+    // load countly script asynchronously
+    (function () {
+      var cly = document.createElement('script')
+      cly.type = 'text/javascript'
+      cly.async = true
+      // enter url of script here
+      cly.src = 'https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'
+      cly.onload = function () {
+        Countly.init()
+      }
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(cly, s)
+    })()
+  </script>
+
+
+  </body>
+</html>
