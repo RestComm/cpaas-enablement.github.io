@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restcomm RCML – Gather :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/gather.html">
+    <title>Restcomm RCML – Pause :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/pause-rcml.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -119,10 +119,10 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="numbers.html">Number</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="gather.html">SIP</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="gather.html">Gather</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -164,21 +164,20 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="rcml-category.html">RCML</a></li>
-    <li class="crumb"><a href="gather.html">SIP</a></li>
+    <li class="crumb"><a href="pause-rcml.html">Restcomm RCML – Pause</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-  <h1>Restcomm RCML – Gather</h1>
+  <h1>Restcomm RCML – Pause</h1>
 <div class="sect1">
-<h2 id="_gather"><a class="anchor" href="#_gather"></a>Gather</h2>
+<h2 id="_pause"><a class="anchor" href="#_pause"></a>Pause</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <strong>&lt;Gather&gt;</strong> verb supports two modes: <strong>DTMF</strong> and <strong>SPEECH</strong>. In DTMF mode it "gathers" digits that a caller enters into his or her telephone keypad. When the caller is done entering digits, RestComm submits that digits to the provided 'action' URL in an HTTP GET or POST request. In SPEECH mode it "gathers" recognized speech that a caller said. If no input is received before timeout, <strong>&lt;Gather&gt;</strong> falls through to the next verb in the RestComm document. You may optionally nest <strong>&lt;Say&gt;</strong>, <strong>&lt;Play&gt;</strong>, and <strong>&lt;Pause&gt;</strong> verbs within a <strong>&lt;Gather&gt;</strong> verb while waiting for input. This allows you to read menu options to the caller while letting her enter a menu selection at any time. After the first digit is received the audio will stop playing.</p>
+<p>The <strong>&lt;Pause&gt;</strong> verb waits silently for a specific number of seconds. If &lt;Pause&gt; is the first verb in a RCML response, RestComm will wait the specified number of seconds before picking up the call.</p>
 </div>
 <div class="sect2">
-<h3 id="_gather_attributes"><a class="anchor" href="#_gather_attributes"></a>Gather Attributes</h3>
+<h3 id="_pause_attributes"><a class="anchor" href="#_pause_attributes"></a>Pause Attributes</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -194,151 +193,16 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">action</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">relative or absolute URL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">current document URL</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GET, POST</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timeout</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">positive integer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5 seconds</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">finishOnKey</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">any digit, #, *</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">#</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">numDigits</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">integer &gt;= 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">unlimited</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">input</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dtmf, speech</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dtmf</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">partialResultCallback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">relative or absolute url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">partialResultCallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GET, POST</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">language</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">en-US, en-GB, es-ES, it-IT, fr-FR, pl-PL, pt-PT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">en-US</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hints</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"words, phrases that have many words"</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer &gt; 0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 second</p></td>
 </tr>
 </tbody>
 </table>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>action.</strong> The 'action' attribute takes an absolute or relative URL as a value. When the caller has finished entering digits RestComm will make a GET or POST request to this URL including the parameters below. If no 'action' is provided, RestComm will by default make a POST request to the current document&#8217;s URL.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Digits</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The digits the caller pressed, excluding the finishOnKey digit.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SpeechResult</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The transcribed result of the speech.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>method.</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells RestComm whether to request the 'action' URL via HTTP GET or POST.</p>
-</li>
-<li>
-<p><strong>timeout.</strong> The 'timeout' attribute sets the limit in seconds that RestComm will wait for the caller to press another digit before moving on and making a request to the 'action' URL. For example, if 'timeout' is '10', RestComm will wait ten seconds for the caller to press another key before submitting the previously entered digits to the 'action' URL. RestComm waits until completing the execution of all nested verbs before beginning the timeout period.</p>
-</li>
-<li>
-<p><strong>finishOnKey.</strong> The 'finishOnKey' attribute lets you choose one value that submits the received data when entered. For example, if you set 'finishOnKey' to '#' and the user enters '1234#', RestComm will immediately stop waiting for more input when the '#' is received and will submit "Digits=1234" to the 'action' URL. Note that the 'finishOnKey' value is not sent. The allowed values are the digits 0-9, '#', '*' and the empty string (set 'finishOnKey' to ''). If the empty string is used, &lt;Gather&gt; captures all input and no key will end the &lt;Gather&gt; when pressed. In this case RestComm will submit the entered digits to the 'action' URL only after the timeout has been reached. The value can only be a single character.</p>
-</li>
-<li>
-<p><strong>numDigits.</strong> The 'numDigits' attribute lets you set the number of digits you are expecting, and submits the data to the 'action' URL once the caller enters that number of digits.</p>
-</li>
-<li>
-<p><strong>input</strong> A list of inputs that RestComm should accept for &lt;Gather&gt;. Can be "dtmf" or "speech". Defaults to "dtmf".</p>
-</li>
-<li>
-<p><strong>partialResultCallback</strong> A relative or fully qualified URL. Is a mandatory attribute for “speech” mode. RestComm will make requests to your partialResultCallback in real-time as speech is recognized.  These webhooks will contain UnstableSpeechResult parameter with partial transcriptions that may change as the recognition progresses.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The Webhooks to partialResultCallback are async and doesn&#8217;t accept RCML back. If you want to act based on the partial result, then use the REST API to Live Modify the call.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_request_parameters_2"><a class="anchor" href="#_request_parameters_2"></a>Request Parameters</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UnstableSpeechResult</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Partially recognized speech the caller said.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>language</strong> The language RestComm should recognize. Defaults to en-US</p>
-</li>
-<li>
-<p><strong>hints</strong> A list of words or phrases that RestComm should expect during recognition. These are very useful for improving recognition of single words or phrases. Entries into hints should be separated by a comma.</p>
+<p><strong>length.</strong> The 'length' attribute specifies how many seconds RestComm will wait silently before continuing on.</p>
 </li>
 </ul>
 </div>
@@ -346,27 +210,35 @@ The Webhooks to partialResultCallback are async and doesn&#8217;t accept RCML ba
 <div class="sect2">
 <h3 id="_nesting"><a class="anchor" href="#_nesting"></a>Nesting</h3>
 <div class="paragraph">
-<p>You can nest the following verbs within &lt;Gather&gt;: &lt;Say&gt;, &lt;Play&gt;, &lt;Pause&gt;</p>
+<p>The &lt;Pause&gt; verb can not have any other verbs or nouns nested.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
 <div class="paragraph">
-<p>For an example of how to use the <strong>&lt;Gather&gt;</strong> verb see below.</p>
+<p>For an example of how to use the <strong>&lt;Pause&gt;</strong> verb see below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>&lt;Response&gt;
-                &lt;Gather action="handle-user-input.php" numDigits="1"&gt;
-                    &lt;Say&gt;Welcome to TPS.&lt;/Say&gt;
-                    &lt;Say&gt;For store hours, press 1.&lt;/Say&gt;
-                    &lt;Say&gt;To speak to an agent, press 2.&lt;/Say&gt;
-                    &lt;Say&gt;To check your package status, press 3.&lt;/Say&gt;
-                &lt;/Gather&gt;
-                &lt;!-- If customer doesn't input anything, prompt and try again. --&gt;
-                &lt;Say&gt;Sorry, I didn't get your response.&lt;/Say&gt;
-                &lt;Redirect&gt;handle-incoming-call.xml&lt;/Redirect&gt;
-            &lt;/Response&gt;</pre>
+    &lt;Pause length="5"/&gt;
+&lt;/Response&gt;</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delayed_pickup"><a class="anchor" href="#_delayed_pickup"></a>Delayed pickup</h4>
+<div class="paragraph">
+<p>This example demonstrates using <code>&lt;Pause&gt;</code> to wait between two <code>&lt;Say&gt;</code> verbs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;Response&gt;
+    &lt;Say&gt;I will pause 10 seconds starting now!&lt;/Say&gt;
+    &lt;Pause length="10"/&gt;
+    &lt;Say&gt;I just paused 10 seconds&lt;/Say&gt;
+&lt;/Response&gt;</pre>
+</div>
 </div>
 </div>
 </div>
