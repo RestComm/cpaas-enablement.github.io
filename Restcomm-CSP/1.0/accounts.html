@@ -128,7 +128,7 @@
     <a class="nav-link" href="api/gather.html">Gather</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="api/say.html">Say</a>
+    <a class="nav-link" href="#">say.adoc</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="api/play.html">Play</a>
@@ -180,6 +180,15 @@
 <li><a href="#_checking_sub_account_details">Checking Sub-account Details</a></li>
 <li><a href="#_closing_sub_account">Closing Sub-account</a></li>
 <li><a href="#_account_status_transitions">Account Status Transitions</a></li>
+<li><a href="#_audit_logs">Audit Logs</a>
+<ul class="sectlevel2">
+<li><a href="#_rationale">Rationale</a></li>
+<li><a href="#_events_monitored">Events monitored</a></li>
+<li><a href="#_how_to_request_the_audit_file_for_your_account">How to request the audit file for your Account?</a></li>
+<li><a href="#_audit_log_file_format">Audit log file format</a></li>
+<li><a href="#_examples">Examples</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="sect1">
@@ -375,6 +384,418 @@ Closed account status shows that the account is terminated and all its resource 
 <p>Click on the <strong>Save Changes</strong> button.</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_audit_logs"><a class="anchor" href="#_audit_logs"></a>Audit Logs</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_rationale"><a class="anchor" href="#_rationale"></a>Rationale</h3>
+<div class="paragraph">
+<p>The Audit log files will allow the Restcomm cloud customers to monitor their Organizations/Accounts and track all administrative operations.</p>
+</div>
+<div class="paragraph">
+<p>For example, it will allow tracking the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When a number is provisioned</p>
+</li>
+<li>
+<p>When a change in the account security settings happens</p>
+</li>
+<li>
+<p>When a recording file is deleted</p>
+</li>
+<li>
+<p>When a new SIP Client is created</p>
+</li>
+<li>
+<p>When an application is assigned to a number</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These events are generated every time an action is taken within Restcomm, regardless of whether that action was taken through the API or by a user in the Restcomm Console.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_events_monitored"><a class="anchor" href="#_events_monitored"></a>Events monitored</h3>
+<div class="paragraph">
+<p>Restcomm will monitor all Create, Update and Delete actions performed on the following resources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Accounts</p>
+</li>
+<li>
+<p>Applications</p>
+</li>
+<li>
+<p>Phone Numbers</p>
+</li>
+<li>
+<p>Recordings (Delete only)</p>
+</li>
+<li>
+<p>Restcomm Clients</p>
+</li>
+<li>
+<p>XMPP Domain</p>
+</li>
+<li>
+<p>XMPP Whitelist</p>
+</li>
+<li>
+<p>XMPP Mappings</p>
+</li>
+<li>
+<p>BYOC: Voice &amp; SMS Requests</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_to_request_the_audit_file_for_your_account"><a class="anchor" href="#_how_to_request_the_audit_file_for_your_account"></a>How to request the audit file for your Account?</h3>
+<div class="paragraph">
+<p>In this initial phase we won’t expose this audit logs via the Console or API, so you will need to contact Telestax via the normal channels to request it.</p>
+</div>
+<div class="paragraph">
+<p>We recommend you to request the Audit file by opening a Support ticket using your Zendesk account.</p>
+</div>
+<div class="paragraph">
+<p>The information you need to share is the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Account SID (or the multiple Account/Sub-Account SIDs) for which you need the Audit logs</p>
+</li>
+<li>
+<p>The period of time you need to see covered</p>
+<div class="ulist">
+<ul>
+<li>
+<p>We recommend asking this in a monthly period</p>
+</li>
+<li>
+<p>The current retention policy is to keep this Audit log file for 3 months
+INFORMATION: if you need to have it saved for longer, please request them on a monthly basis and backup them on your system</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Upon your request, our support team will collect the Audit logs and share them with on the generated ticket.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_audit_log_file_format"><a class="anchor" href="#_audit_log_file_format"></a>Audit log file format</h3>
+<div class="paragraph">
+<p>The audit file provided has a CSV format with the following information:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Restcomm Console/API</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Date</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Date and Time (in milliseconds) of the operation in UTC
+*8 AccountSid</p>
+</li>
+<li>
+<p>The Restcomm identifier of the Account where the event happened</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>AccountEmail</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The login email that made the operation</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>OrganizationSid</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Restcomm identifier of the Organization where the event happened</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>OrganizationDomain</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The domain of the Organization where the event happened</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Role</p>
+<div class="ulist">
+<ul>
+<li>
+<p>User Role/Privilege</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>IP Address</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Source IP originator of the change</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Resource</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Which Resource was affected</p>
+</li>
+<li>
+<p>Accounts, Applications, IncomingPhoneNumbers, Clients or Recordings</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Action</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What type of event was done - create, update, delete</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sid</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Internal identifier of the resource affected</p>
+</li>
+<li>
+<p>Present for the update and delete operations</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Parameters</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What change was made</p>
+</li>
+<li>
+<p>Contains the values after the change</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Restcomm Message Exchange API</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Date</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Date and Time (in milliseconds) of the operation in UTC</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>AccountEmail</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The login email that made the operation</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>AccountSid</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Restcomm identifier of the Account where the event happened</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>IP Address</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Source IP originator of the change</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Resource</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Which Resource was affected</p>
+</li>
+<li>
+<p>Domains, XMPP Mapping or White list rules</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Action</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What type of event was done - create, update, delete</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Id</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Internal identifier of the resource affected</p>
+</li>
+<li>
+<p>Present for the update and delete operations</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Parameters</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What change was made</p>
+</li>
+<li>
+<p>Contains the values after the change</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<div class="paragraph">
+<p>Check below the following examples and description of each operation.</p>
+</div>
+<div class="paragraph">
+<p><strong>Restcomm Console/API</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creation of a new Account made by user <a href="mailto:admin@mail.com">admin@mail.com</a> under the Account “ACae6e420f425248d6a26948c1xxxxxx”. The details of the new Account are “{Status=[ACTIVE], FriendlyName=[newaccount4], Password=[abc123], EmailAddress=[<a href="mailto:newaccount4@email.com">newaccount4@email.com</a>], Role=[Developer]}”</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>Date,AccountSid,AccountEmail,OrganizationSid,OrganizationDomain,Role,IP Address,Resource,Action,Sid,Parameters
+"2018-10-29T17:22:42,435+02",ACae6e420f425248d6a26948c1xxxxxx,admin@mail.com,ORafbe225ad37541eba518a742xxxxxxx,asterix,Administrator,192.168.1.1,Accounts,Create,,"{Status=[ACTIVE], FriendlyName=[newaccount4], Password=[abc123], EmailAddress=[newaccount4@email.com], Role=[Developer]}"</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Update of the configuration for the Phone number “PNfc3e9c907f9340a1b02894d82xxxxxx” to set the voice application to the application “AP86a8bc22ce374067890780bxxxxxxx”. This operation was made from the IP 192.168.1.1 by the user <a href="mailto:admin@mail.com">admin@mail.com</a>.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>Date,AccountSid,AccountEmail,OrganizationSid,OrganizationDomain,Role,IP Address,Resource,Action,Sid,Parameters
+"2018-10-29T17:28:57,704+02",ACae6e420f425248d6a26948c1xxxxxx,admin@mail.com,ORafbe225ad37541eba518a742xxxxxxx,asterix,Administrator,192.168.1.1,IncomingPhoneNumbers,Update,PNfc3e9c907f9340a1b02894d82xxxxxx,"{VoiceFallbackUrl=[], UssdFallbackMethod=[POST], FriendlyName=[412341], UssdApplicationSid=[], PhoneNumber=[412341], VoiceApplicationSid=[AP86a8bc22ce374067890780bxxxxxxx], UssdFallbackUrl=[], VoiceUrl=[], SmsUrl=[], ReferUrl=[], UssdMethod=[POST], VoiceMethod=[POST], VoiceFallbackMethod=[POST], ReferMethod=[POST], StatusCallback=[], SmsApplicationSid=[], SmsFallbackMethod=[POST], StatusCallbackMethod=[POST], ReferApplicationSid=[], SmsFallbackUrl=[], UssdUrl=[], SmsMethod=[POST]}"</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Delete of the recording “RE50675909d9c94acda36f0e119xxxxxx”</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>Date,AccountSid,AccountEmail,OrganizationSid,OrganizationDomain,Role,IP Address,Resource,Action,Sid,Parameters
+"2018-10-29T17:30:33,106+02",ACae6e420f425248d6a26948c1xxxxxx,admin@mail.com,ORafbe225ad37541eba518a742xxxxxxx,asterix,Administrator,192.168.1.1,Recordings,Delete,RE50675909d9c94acda36f0e119xxxxxx,{}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Restcomm Message Exchange API</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Update of the XMPP Mapping made by <a href="mailto:user@email.com">user@email.com</a> on the mapping “XM5c8651c6d262437188c16fa0xxxxxx” to the following “{   ""jabberAddress"": ""<a href="mailto:joe@uc3.mycompany.com">joe@uc3.mycompany.com</a>"",   ""domain"": ""mydomain.com"",   ""externalAddress"": 19111111111}”</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>Date,AccountEmail,AccountSid,IP Address,Resource,Action,Id,Parameters
+2018-11-05T17:30:43.177+02,user@email.com,ACd239d5cab74caaa43a594772xxxxxx,0:0:0:0:0:0:0:1,xmppMappings,Update,XM5c8651c6d262437188c16fa0xxxxxx,"{   ""jabberAddress"": ""joe@uc3.mycompany.com"",   ""domain"": ""mydomain.com"",   ""externalAddress"": 19111111111}"</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creation of a new Whitelist IP entry for the Account “ACd239d5cab74caaa43a594772xxxxxx” made by <a href="mailto:user@email.com">user@email.com</a>.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>Date,AccountEmail,AccountSid,IP Address,Resource,Action,Id,Parameters
+2018-11-05T17:33:25.689+02,user@email.com,ACd239d5cab74caaa43a594772xxxxxx,0:0:0:0:0:0:0:1,whitelistRules,Create,,"{   ""ipAddress"": ""10.10.10.10"" }"</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restcomm RCML – Play :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/play.html">
+    <title>Accessing HTTP resources with External Service element :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/Restcomm Vusal Designer - Making HTTP requests with External Service client.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -128,7 +128,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="#">say.adoc</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="play.html">Play</a>
   </li>
 </ul>
@@ -164,303 +164,196 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="rcml-category.html">RCML</a></li>
-    <li class="crumb"><a href="play.html">Play</a></li>
+    <li class="crumb"><a href="Restcomm Vusal Designer - Making HTTP requests with External Service client.html">Accessing HTTP resources with External Service element</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-  <h1>Restcomm RCML – Play</h1>
-<div class="sect1">
-<h2 id="_play"><a class="anchor" href="#_play"></a>Play</h2>
+  <h1>Accessing HTTP resources with External Service element</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <strong>Play</strong> verb is used to play an audio or video* file to the remote party.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-* Video files are supported only when Restcomm is configured to use Dialogic&#8217;s PowerMedia XMS media server.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_play_attributes"><a class="anchor" href="#_play_attributes"></a>Play Attributes</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Allowed Values</th>
-<th class="tableblock halign-left valign-top">Default Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">loop</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">integer &gt; 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>loop.</strong> The 'loop' attribute specifies how many times you&#8217;d like the audio file to be repeated. Specifying '0' will cause the the &lt;Play&gt; verb to loop until the call is hung up.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_supported_audio_formats"><a class="anchor" href="#_supported_audio_formats"></a>Supported Audio Formats</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">MIME type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">audio/wav</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">wav format audio</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">audio/wave</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">wav format audio</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">audio/x-wav</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">wav format audio</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_media_server_audio_file_format"><a class="anchor" href="#_media_server_audio_file_format"></a>Media Server Audio File Format</h3>
-<div class="paragraph">
-<p>Technical Specification and Capacity</p>
-</div>
-<div class="paragraph">
-<p>The Restcomm Media Server is capable of</p>
+<p>Restcomm Visual Designer’s External Service element is a tool for making HTTP requests to external services and processessing their responses. This document focuses on the former. It explains its capabilities and describes how it can be used from RVD’s UI. Currently ES client supports:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Media and Codecs:</p>
-<div class="literalblock">
-<div class="content">
-<pre>G711 (a-Law, u-Law)</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GSM</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Linear PCM(L16)</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>G729</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>DTMF(RFC 2833, INBAND)</pre>
-</div>
-</div>
+<p>GET or POST request methods</p>
 </li>
 <li>
-<p>Media Files:</p>
-<div class="literalblock">
-<div class="content">
-<pre>*Wav (Sample rate of 8000Hz, bit rate of 8, Mono)*</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GSM</pre>
-</div>
-</div>
+<p>JSON or web form content types</p>
 </li>
 <li>
-<p>Signaling and control:</p>
-<div class="literalblock">
-<div class="content">
-<pre>MGCP</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Java Media Control API(JSR-309)</pre>
-</div>
-</div>
+<p>HTTP or HTTPS schemes</p>
 </li>
 <li>
-<p>Capacity: Typical media sessions per server</p>
-<div class="literalblock">
-<div class="content">
-<pre>G.711 , L16 @20ms – 500+ per cpu core</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GSM @ 20ms – 95 GSM mixed with 380 G.711 , L16 , 475 overall per cpu core</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>G.729 @20ms – 45 GSM mixed with 180 G.711 , L16 , 225 overall per cpu core</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>All benchmark tests where done on Amazon EC2 cloud instances.</pre>
-</div>
-</div>
+<p>basic HTTP authentication</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_supported_video_formats"><a class="anchor" href="#_supported_video_formats"></a>Supported Video* Formats</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-* Video files are supported only when Restcomm is configured to use Dialogic&#8217;s PowerMedia XMS media server.
-</td>
-</tr>
-</table>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">MIME type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">video/mp4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">mp4 format audio/video</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_media_server_video_file_format"><a class="anchor" href="#_media_server_video_file_format"></a>Media Server Video File Format</h3>
-<div class="paragraph">
-<p>Technical Specification and Capacity</p>
-</div>
-<div class="paragraph">
-<p>Restcomm Connect along with Dialogic&#8217;s PowerMedia XMS is capable of</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Video Codecs:</p>
-<div class="literalblock">
-<div class="content">
-<pre>H.264</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Audio Codecs:</p>
-<div class="literalblock">
-<div class="content">
-<pre>AMR-NB</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>AMR-WB</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Multimedia File Formats:</p>
-<div class="literalblock">
-<div class="content">
-<pre>MP4 Container</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Signaling and control:</p>
-<div class="literalblock">
-<div class="content">
-<pre>Java Media Control API(JSR-309)</pre>
-</div>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Find more information about Dialogic&#8217;s PowerMedia XMS <a href="https://www.dialogic.com/en/products/media-server-software/xms.aspx">here.</a></p>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_to_convert_a_wav_file_to_the_correct_bitrate"><a class="anchor" href="#_how_to_convert_a_wav_file_to_the_correct_bitrate"></a>How to Convert a Wav File to the Correct Bitrate</h2>
+<h2 id="_a_simple_get_request"><a class="anchor" href="#_a_simple_get_request"></a>A Simple GET request</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use a software call ffmpeg as follows:</p>
+<p>Here is a simple GET request with parameters:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>ffmpeg -i source_file.wav -acodec pcm_s16le -ac 1 -ar 8000 result_file.wav</code></pre>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/Selection_069.png" alt="Selection_069" width="916" height="227"></span></p>
+</div>
+<div class="paragraph">
+<p>By default, all requests use GET method. Note that name-value parameter is user defined. Such parameters are appended in the query when the request is made. It’s a good practice to keep parameters in their own fields and avoid putting them directly in the Service Url field. Here is what the actual data on the wire:</p>
+</div>
+<div class="paragraph">
+<p><strong>Request</strong></p>
+</div>
+<div class="paragraph">
+<p>GET /services/simpleGetRequest.php?name=foo HTTP/1.1</p>
+</div>
+<div class="paragraph">
+<p>Host: localhost</p>
+</div>
+<div class="paragraph">
+<p><strong>Response</strong></p>
+</div>
+<div class="paragraph">
+<p>HTTP/1.1 200 OK</p>
+</div>
+<div class="sect2">
+<h3 id="_a_note_on_em_variable_expansion_em"><a class="anchor" href="#_a_note_on_em_variable_expansion_em"></a>A note on <em>Variable expansion</em></h3>
+<div class="paragraph">
+<p>Both Service Url and Value fields support <em>variable expansion</em>. That means that all $variables and references in them will be replaced by their actual value before the request is being made.</p>
+</div>
+<div class="paragraph">
+<p><strong>For example:</strong></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/Selection_071.png" alt="Selection_071" width="918" height="232"></span></p>
+</div>
+<div class="paragraph">
+<p>Here $firstname variable will be expanded to its actual content.</p>
+</div>
+<div class="paragraph">
+<p>$firstname → name</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_nesting"><a class="anchor" href="#_nesting"></a>Nesting</h3>
+<h3 id="_posting_web_forms"><a class="anchor" href="#_posting_web_forms"></a>POSTing web forms</h3>
 <div class="paragraph">
-<p>The &lt;Play&gt; verb can not have any other verbs or nouns nested. Only a URL.</p>
+<p>Here is a simple POST request:</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_basic_examples"><a class="anchor" href="#_basic_examples"></a>Basic examples</h3>
 <div class="paragraph">
-<p>For examples of how to use the <strong>&lt;Play&gt;</strong> verb see below.</p>
+<p><span class="image"><img src="_images/images/Selection_073.png" alt="post request" width="908" height="333"></span></p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-&lt;Play&gt;http://foobar.com/demo.wav&lt;/Play&gt;
-&lt;/Response&gt;</pre>
+<div class="paragraph">
+<p>In order to access the advances features of the ES client you will need to click on the <em>gear</em> icon. Also notice the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can switch the HTTP method used by using the Method drop down menu. Default is GET.</p>
+</li>
+<li>
+<p>Either www form or json content types are supported. For common url-encoded request use www form.</p>
+</li>
+<li>
+<p>Manually building the body of the request with ‘&amp;’ and ‘=’ can often be a daunting and error-prone task. Check Automatically populate from service parameters to let RVD build the request body from the Name/Value pairs you have defined.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Let’s see it in action:</p>
+</div>
+<div class="paragraph">
+<p><strong>Request</strong></p>
+</div>
+<div class="paragraph">
+<p>POST /services/simplePostRequest.php HTTP/1.1</p>
+</div>
+<div class="paragraph">
+<p>Content-Length: 21</p>
+</div>
+<div class="paragraph">
+<p>Content-Type: application/x-www-form-urlencoded</p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>name=foo&amp;lastname=bar</p>
+</div>
+<div class="paragraph">
+<p><strong>Response</strong></p>
+</div>
+<div class="paragraph">
+<p>HTTP/1.1 200 OK</p>
+</div>
+<div class="sect3">
+<h4 id="_provide_post_body_manually"><a class="anchor" href="#_provide_post_body_manually"></a>Provide POST body manually</h4>
+<div class="paragraph">
+<p>You can also provide the POST body manually if you want. For example:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/Selection_074.png" alt="provide POST body manually" width="910" height="287"></span></p>
+</div>
+<div class="paragraph">
+<p>Notice how we have removed the service parameters and provided the url-encoded body instead. In case the service parameters were still there, they would be ignored.</p>
 </div>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-&lt;Play&gt;http://foobar.com/demo.mp4&lt;/Play&gt;
-&lt;/Response&gt;</pre>
+<div class="sect3">
+<h4 id="_posting_json"><a class="anchor" href="#_posting_json"></a>POSTing json</h4>
+<div class="paragraph">
+<p>Using a JSON request body is not much different:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/Selection_075.png" alt="Selection_075" width="914" height="268"></span></p>
+</div>
+<div class="paragraph">
+<p>POSTing JSON can only be done by manually providing the JSON expression. You will just need to set the <em>Content type</em> to json and type the JSON expression.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example of JSON expression:</p>
+</div>
+<div class="paragraph">
+<p>{"name":<strong>"$firstname"</strong>,"lastname":"bar"}</p>
+</div>
+<div class="paragraph">
+<p>Note that double quotes are being used in the JSON expression. RVD does not know about the json syntax and its types. It will just go for a search‘n’replace. You will need to make sure that a valid json expression will result at the end.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="using-basic-http-authentication"><a class="anchor" href="#using-basic-http-authentication"></a>Using basic HTTP authentication</h4>
+<div class="paragraph">
+<p>For services that are protected with basic http authentication the user credentials need also to be provided: <strong><span class="image"><img src="_images/images/Selection_076.png" alt="Selection_076" width="915" height="262"></span></strong></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="handling-service-http-errors"><a class="anchor" href="#handling-service-http-errors"></a>Handling service HTTP errors</h4>
+<div class="paragraph">
+<p>In case the external service fails with an HTTP error code a handler can be used. In order to set up the handler you will need to:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>create a handler RVD module</p>
+</li>
+<li>
+<p>bind the ES component to this handler using ‘On Remote Error’ drop down menu</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Here is a sample handler module labeled ‘Error announcement’:</strong></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/Selection_077.png" alt="Selection_077" width="937" height="371"></span></p>
+</div>
+<div class="paragraph">
+<p>You can find the ‘On Remote Error’ drop down menu at the bottom of the ES component. Here is how it should look like after binding it to the handler module:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/images/Selection_078.png" alt="Selection_078" width="464" height="49"></span></p>
 </div>
 </div>
 </div>

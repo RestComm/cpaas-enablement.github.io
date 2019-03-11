@@ -126,7 +126,7 @@
     <a class="nav-link" href="gather.html">Gather</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="say.html">Say</a>
+    <a class="nav-link" href="#">say.adoc</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="play.html">Play</a>
@@ -170,20 +170,8 @@
 </div>
 <article class="doc ">
   <h1>Restcomm API – Usage Records</h1>
-<div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#usage-records">Usage Records</a>
-<ul class="sectlevel2">
-<li><a href="#list">UsageRecords List Resource</a></li>
-<li><a href="#instance">UsageRecords Instance Resource</a></li>
-</ul>
-</li>
-<li><a href="#example-of-getting-daily-calls-stats">Example of Getting Daily Calls Stats</a></li>
-</ul>
-</div>
 <div class="sect1">
-<h2 id="usage-records"><a class="anchor" href="#usage-records"></a>Usage Records</h2>
+<h2 id="_usage_records"><a class="anchor" href="#_usage_records"></a>Usage Records</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The UsageRecords REST resource provides a simple API to retrieve usage made by your Restcomm account during any time period and by any usage category. This makes it easy to build reporting and analytics tools for your application. UsageRecords used in combination with Subaccounts created for each of your end-users make it possible to build recurring usage-based billing systems on top of Restcomm&#8217;s API with just a few simple API calls.</p>
@@ -192,15 +180,15 @@
 <p>You can also set up usage triggers to notify your application when a particular category of usage reaches a threshold on a daily, monthly, yearly, or all-time basis. Triggers can help determine if your users have reached a cap on usage, or if your application may have runaway requests. For more on usage triggers, see the Usage Triggers documentation.</p>
 </div>
 <div class="sect2">
-<h3 id="list"><a class="anchor" href="#list"></a>UsageRecords List Resource</h3>
+<h3 id="_usagerecords_list_resource"><a class="anchor" href="#_usagerecords_list_resource"></a>UsageRecords List Resource</h3>
 <div class="sect3">
-<h4 id="list-uri"><a class="anchor" href="#list-uri"></a>Resource URI</h4>
+<h4 id="_resource_uri"><a class="anchor" href="#_resource_uri"></a>Resource URI</h4>
 <div class="paragraph">
 <p><strong>/2012-04-24/Accounts/{AccountSid}/Usage/Records</strong></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="instance-properties"><a class="anchor" href="#instance-properties"></a>Resource Properties</h4>
+<h4 id="_resource_properties"><a class="anchor" href="#_resource_properties"></a>Resource Properties</h4>
 <div class="paragraph">
 <p>This resource and its subresources always return a list of UsageRecords. Each UsageRecord is represented by the following properties:</p>
 </div>
@@ -272,13 +260,13 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="usage-count-price"><a class="anchor" href="#usage-count-price"></a>Usage, Count, and Price</h4>
+<h4 id="_usage_count_and_price"><a class="anchor" href="#_usage_count_and_price"></a>Usage, Count, and Price</h4>
 <div class="paragraph">
 <p>Each UsageRecord contains three amounts: <code>Usage</code>, <code>Count</code>, and <code>Price</code>. <code>Usage</code> is the primary way usage is measured for that category: <code>minutes</code> for calls, <code>messages</code> for SMS, etc. <code>Count</code> is the number of usage events: <code>calls</code> for calls, etc. And <code>Price</code> is the price of the usage in the currency associated with the account. Each UsageRecord also has fields that show the units in which each amount is measured: <code>Usage</code> is measured in units of <code>UsageUnit</code>, for instance. These fields make it easy to build usage dashboards. For example, you can always display human-readable strings describing usage with "`$Usagz`</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="usage-categories"><a class="anchor" href="#usage-categories"></a>Usage Categories</h4>
+<h4 id="_usage_categories"><a class="anchor" href="#_usage_categories"></a>Usage Categories</h4>
 <div class="paragraph">
 <p>A UsageRecord&#8217;s <code>Category</code> defines the type of usage it represents. The full list of all categories is <a href="#usage-all-categories">here</a>, but you&#8217;ll usually focus on just a few common categories:</p>
 </div>
@@ -322,12 +310,12 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="list-get"><a class="anchor" href="#list-get"></a>HTTP GET</h4>
+<h4 id="_http_get"><a class="anchor" href="#_http_get"></a>HTTP GET</h4>
 <div class="paragraph">
 <p>Returns <strong>UsageRecords</strong> for all usage categories. The list includes paging information.</p>
 </div>
 <div class="sect4">
-<h5 id="list-get-filters"><a class="anchor" href="#list-get-filters"></a>List Filters</h5>
+<h5 id="_list_filters"><a class="anchor" href="#_list_filters"></a>List Filters</h5>
 <div class="paragraph">
 <p>By default, the UsageRecords resource will return one UsageRecord for each <code>Category</code>, representing all usage accrued all-time for the account. You can filter the usage <code>Category</code> or change the date-range over which usage is counted using optional GET query parameters. Note that query parameters are case-sensitive:</p>
 </div>
@@ -363,7 +351,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-subresources"><a class="anchor" href="#list-subresources"></a>List Subresources</h4>
+<h4 id="_list_subresources"><a class="anchor" href="#_list_subresources"></a>List Subresources</h4>
 <div class="paragraph">
 <p>The main UsageRecords list resource supports a variety of convenience subresources. In general these take the form:</p>
 </div>
@@ -569,7 +557,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="instance"><a class="anchor" href="#instance"></a>UsageRecords Instance Resource</h3>
+<h3 id="_usagerecords_instance_resource"><a class="anchor" href="#_usagerecords_instance_resource"></a>UsageRecords Instance Resource</h3>
 <div class="paragraph">
 <p>You cannot make requests directly to a UsageRecord resource. Instead, make a request to the UsageRecords list resource or one of its</p>
 </div>
@@ -577,7 +565,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="example-of-getting-daily-calls-stats"><a class="anchor" href="#example-of-getting-daily-calls-stats"></a>Example of Getting Daily Calls Stats</h2>
+<h2 id="_example_of_getting_daily_calls_stats"><a class="anchor" href="#_example_of_getting_daily_calls_stats"></a>Example of Getting Daily Calls Stats</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">

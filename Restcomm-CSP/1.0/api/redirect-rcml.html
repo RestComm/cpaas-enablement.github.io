@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restcomm RCML – Play :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/play.html">
+    <title>Restcomm RCML – Redirect :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/redirect-rcml.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -128,7 +128,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="#">say.adoc</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="play.html">Play</a>
   </li>
 </ul>
@@ -164,33 +164,20 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="rcml-category.html">RCML</a></li>
-    <li class="crumb"><a href="play.html">Play</a></li>
+    <li class="crumb"><a href="redirect-rcml.html">Restcomm RCML – Redirect</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-  <h1>Restcomm RCML – Play</h1>
+  <h1>Restcomm RCML – Redirect</h1>
 <div class="sect1">
-<h2 id="_play"><a class="anchor" href="#_play"></a>Play</h2>
+<h2 id="_redirect"><a class="anchor" href="#_redirect"></a>Redirect</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <strong>Play</strong> verb is used to play an audio or video* file to the remote party.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-* Video files are supported only when Restcomm is configured to use Dialogic&#8217;s PowerMedia XMS media server.
-</td>
-</tr>
-</table>
+<p>The <strong>&lt;Redirect&gt;</strong> verb transfers control of a call to the RCML at a different URL. All verbs after <strong>&lt;Redirect&gt;</strong> are unreachable and ignored.</p>
 </div>
 <div class="sect2">
-<h3 id="_play_attributes"><a class="anchor" href="#_play_attributes"></a>Play Attributes</h3>
+<h3 id="_redirect_attributes"><a class="anchor" href="#_redirect_attributes"></a>Redirect Attributes</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -206,260 +193,35 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">loop</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">integer &gt; 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET, POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 </tr>
 </tbody>
 </table>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>loop.</strong> The 'loop' attribute specifies how many times you&#8217;d like the audio file to be repeated. Specifying '0' will cause the the &lt;Play&gt; verb to loop until the call is hung up.</p>
+<p><strong>method.</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells RestComm whether to request the URL via HTTP GET or POST.</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_supported_audio_formats"><a class="anchor" href="#_supported_audio_formats"></a>Supported Audio Formats</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">MIME type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">audio/wav</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">wav format audio</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">audio/wave</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">wav format audio</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">audio/x-wav</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">wav format audio</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_media_server_audio_file_format"><a class="anchor" href="#_media_server_audio_file_format"></a>Media Server Audio File Format</h3>
-<div class="paragraph">
-<p>Technical Specification and Capacity</p>
-</div>
-<div class="paragraph">
-<p>The Restcomm Media Server is capable of</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Media and Codecs:</p>
-<div class="literalblock">
-<div class="content">
-<pre>G711 (a-Law, u-Law)</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GSM</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Linear PCM(L16)</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>G729</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>DTMF(RFC 2833, INBAND)</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Media Files:</p>
-<div class="literalblock">
-<div class="content">
-<pre>*Wav (Sample rate of 8000Hz, bit rate of 8, Mono)*</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GSM</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Signaling and control:</p>
-<div class="literalblock">
-<div class="content">
-<pre>MGCP</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Java Media Control API(JSR-309)</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Capacity: Typical media sessions per server</p>
-<div class="literalblock">
-<div class="content">
-<pre>G.711 , L16 @20ms – 500+ per cpu core</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>GSM @ 20ms – 95 GSM mixed with 380 G.711 , L16 , 475 overall per cpu core</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>G.729 @20ms – 45 GSM mixed with 180 G.711 , L16 , 225 overall per cpu core</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>All benchmark tests where done on Amazon EC2 cloud instances.</pre>
-</div>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_supported_video_formats"><a class="anchor" href="#_supported_video_formats"></a>Supported Video* Formats</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-* Video files are supported only when Restcomm is configured to use Dialogic&#8217;s PowerMedia XMS media server.
-</td>
-</tr>
-</table>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">MIME type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">video/mp4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">mp4 format audio/video</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_media_server_video_file_format"><a class="anchor" href="#_media_server_video_file_format"></a>Media Server Video File Format</h3>
-<div class="paragraph">
-<p>Technical Specification and Capacity</p>
-</div>
-<div class="paragraph">
-<p>Restcomm Connect along with Dialogic&#8217;s PowerMedia XMS is capable of</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Video Codecs:</p>
-<div class="literalblock">
-<div class="content">
-<pre>H.264</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Audio Codecs:</p>
-<div class="literalblock">
-<div class="content">
-<pre>AMR-NB</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>AMR-WB</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Multimedia File Formats:</p>
-<div class="literalblock">
-<div class="content">
-<pre>MP4 Container</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Signaling and control:</p>
-<div class="literalblock">
-<div class="content">
-<pre>Java Media Control API(JSR-309)</pre>
-</div>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Find more information about Dialogic&#8217;s PowerMedia XMS <a href="https://www.dialogic.com/en/products/media-server-software/xms.aspx">here.</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_how_to_convert_a_wav_file_to_the_correct_bitrate"><a class="anchor" href="#_how_to_convert_a_wav_file_to_the_correct_bitrate"></a>How to Convert a Wav File to the Correct Bitrate</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You can use a software call ffmpeg as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>ffmpeg -i source_file.wav -acodec pcm_s16le -ac 1 -ar 8000 result_file.wav</code></pre>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_nesting"><a class="anchor" href="#_nesting"></a>Nesting</h3>
 <div class="paragraph">
-<p>The &lt;Play&gt; verb can not have any other verbs or nouns nested. Only a URL.</p>
+<p>The <strong>&lt;Redirect&gt;</strong> verb can not have any other verbs or nouns nested.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_basic_examples"><a class="anchor" href="#_basic_examples"></a>Basic examples</h3>
+<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
 <div class="paragraph">
-<p>For examples of how to use the <strong>&lt;Play&gt;</strong> verb see below.</p>
+<p>For an example of how to use the &lt;Redirect&gt; verb see below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>&lt;Response&gt;
-&lt;Play&gt;http://foobar.com/demo.wav&lt;/Play&gt;
-&lt;/Response&gt;</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-&lt;Play&gt;http://foobar.com/demo.mp4&lt;/Play&gt;
+    &lt;Redirect&gt;http://foobar.com/instructions&lt;/Redirect&gt;
 &lt;/Response&gt;</pre>
 </div>
 </div>
