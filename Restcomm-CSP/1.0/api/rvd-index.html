@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restcomm RCML – Conference :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/conference-rxml.html">
+    <title>Restcomm Visual Designer :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/rvd-index.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -233,225 +233,60 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="conference-rxml.html">Restcomm RCML – Conference</a></li>
+    <li class="crumb"><a href="rvd-index.html">Restcomm Visual Designer</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-  <h1>Restcomm RCML – Conference</h1>
+  <h1>Restcomm Visual Designer</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The &lt;Conference&gt; noun allows you to connect to a named conference room and talk with the other callers who have also connected to that room. The name of the room is up to you and is namespaced to your account.</p>
+<p>Visual Designer offers a quick and easy way to create Voice and Messaging applications with just a little or
+no programming knowledge. You can find all you need to get started here.</p>
 </div>
+<div class="paragraph">
+<p>If you&#8217;re new to Restcomm, we recommend looking at the <a href="#">Quick Start Guide.adoc</a>. For more in-depth
+overview, check out the <a href="#">Visual Designer Tutorial.adoc</a>. Below you will find a list with popular Visual Designer how-tos.</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_conference_attributes"><a class="anchor" href="#_conference_attributes"></a>Conference Attributes</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
+<div class="admonitionblock important">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Allowed Values</th>
-<th class="tableblock halign-left valign-top">Default Value</th>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+We&#8217;re reworking this section of the documentation. Stay tuned for new updates comming up soon. You can find the old list of how-to articles <a href="#">index-old.adoc</a>.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">muted</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">beep</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">startConferenceOnEnter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">endConferenceOnExit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">waitUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RCML url, empty string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default RestComm hold music</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">waitMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GET or POST</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">maxParticipants</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">positive integer &#8656; 40</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">40</p></td>
-</tr>
-</tbody>
 </table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>name.</strong> The 'name' attribute allows you to inform the conference name for a video call. This attribute should be used only when <code>&lt;Video&gt;</code> noun is nested, otherwise the conference name should be informed as value of the tag <code>&lt;Conference&gt;</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Conference name without <code>&lt;Video&gt;</code> noun nesting:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Conference&gt;1112&lt;/Conference&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Conference name with <code>&lt;Video&gt;</code> noun nesting:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Conference name="alice"&gt;&lt;Video enable=”true”&gt;&lt;/Conference&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For more information, please read <a href="#">video-rcml.adoc#video</a>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>muted.</strong> The 'muted' attribute lets you specify whether a participant can speak in the conference. If this attribute is set to 'true', the participant will only be able to listen to people in the conference.</p>
-</li>
-<li>
-<p><strong>beep.</strong> The 'beep' attribute lets you specify whether a notification beep is played to the conference when a participant joins or leaves the conference.</p>
-</li>
-<li>
-<p><strong>startConferenceOnEnter.</strong> This attribute tells a conference to start when this participant joins the conference, if it is not already started. If this is false and the participant joins a conference that has not started, they are muted and hear background music until a participant joins where startConferenceOnEnter is true. This is useful for implementing moderated conferences.</p>
-</li>
-<li>
-<p><strong>endConferenceOnExit.</strong> If a participant has this attribute set to 'true', then when that participant leaves, the conference ends and all other participants drop out. This is useful for implementing moderated conferences that bridge two calls and allow either call leg to continue executing RCML if the other hangs up.</p>
-</li>
-<li>
-<p><strong>waitUrl.</strong> The 'waitUrl' attribute lets you specify a URL for music that plays before the conference has started. The URL may be a WAV or a RCML document that uses &lt;Play&gt; or &lt;Say&gt; for content. This defaults to a selection of Creative Commons licensed background music, but you can replace it with your own music and messages. If the 'waitUrl' responds with RCML, RestComm will only process &lt;Play&gt;, &lt;Say&gt;, and &lt;Redirect&gt; verbs. If you do not wish anything to play while waiting for the conference to start, specify the empty string (set 'waitUrl' to '').</p>
-</li>
-<li>
-<p><strong>waitMethod.</strong> This attribute indicates which HTTP method to use when requesting 'waitUrl'. It defaults to 'POST'. Be sure to use 'GET' if you are directly requesting static audio files such as WAV files so that RestComm properly caches the files.</p>
-</li>
-<li>
-<p><strong>maxParticipants.</strong> This attribute indicates the maximum number of participants you want to allow within a named conference room. The default maximum number of participants is 40. The value must be a positive integer less than or equal to 100.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<h2 id="_how_to_s"><a class="anchor" href="#_how_to_s"></a>How To&#8217;s</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>or an example of how to use the &lt;Conference&gt; noun see below.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-    &lt;Dial&gt;
-    &lt;Conference&gt;1234&lt;/Conference&gt;
-    &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_music_on_hold_for_conference"><a class="anchor" href="#_music_on_hold_for_conference"></a>Music on hold for conference</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>By default Restcomm will play music on hold for the first participant to join a conference room even if you have <strong>startConference=true</strong>. This feature can be disabled, check configuration section of the docs.</p>
-</div>
-<div class="paragraph">
-<p>Check the table below description how the feature will work.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. Conference Music On Hold</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">#</th>
-<th class="tableblock halign-left valign-top">First Participant</th>
-<th class="tableblock halign-left valign-top">Music</th>
-<th class="tableblock halign-left valign-top">Second Participant</th>
-<th class="tableblock halign-left valign-top">Music</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stop music on hold</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">continue playing music on hold</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stop music on hold</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stop music on hold</p></td>
-</tr>
-</tbody>
-</table>
 <div class="ulist">
 <ul>
 <li>
-<p>Moderator participant is the call with <strong>startConferenceOnEnter=true</strong></p>
+<p><a href="Restcomm Visual Designer - Making decisions with Control element.html" class="page">Making decisions with Control element</a></p>
 </li>
 <li>
-<p>Not a moderator participant is the call with <strong>startConferenceOnEnter=false</strong></p>
+<p><a href="Restcomm Vusal Designer - Making HTTP requests with External Service client.html#http" class="page">Accessing HTTP resources with ES element</a></p>
+</li>
+<li>
+<p><a href="#Restcomm Visual Designer - Using Web Trigger.adocweb-trigger">Web Trigger</a></p>
+</li>
+<li>
+<p><a href="Restcomm Visual Designer Diagrams.html#diagrams" class="page">Diagrams</a></p>
+</li>
+<li>
+<p><a href="#">Restcomm Visual Designer - Aipplication Log.adoc#rvd-variables</a></p>
+</li>
+<li>
+<p><a href="Restcomm Visual Designer - Accessing custom SIP headers.html#custom-sip-headers" class="page">Accessing custom SIP headers from an RCML or RVD application</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_uri_noun_deprecated"><a class="anchor" href="#_uri_noun_deprecated"></a>Uri noun deprecated</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The Uri noun has been deprecated and will no longer be available in future releases. Please use the SIP noun instead.</p>
 </div>
 </div>
 </div>

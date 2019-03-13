@@ -63,22 +63,25 @@
     <a class="nav-link" href="voice-category.html">Voice</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <span class="nav-text">available-phone-numbers-api.adoc[Available Phone Numbers]</span>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="calls-api.html">Calls</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="recordings-api.html">Recordings</a>
+    <a class="nav-link" href="clients-api.html">Clients</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="clients-api.html">Client</a>
+    <a class="nav-link" href="conferences-api.html">Conference Management</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="conferences-api.html">Conference</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="participants-api.html">Participants</a>
+    <a class="nav-link" href="participants-api.html">Conference Participants Management</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="participants-api.html">Participants</a>
   </li>
 </ul>
   </li>
@@ -117,6 +120,9 @@
     <a class="nav-link" href="dial.html">Dial</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#">email.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="numbers.html">Number</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -126,10 +132,73 @@
     <a class="nav-link" href="gather.html">Gather</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#">say.adoc</a>
+    <a class="nav-link" href="say-rcml.html">Say</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="play.html">Play</a>
+    <a class="nav-link" href="play-rcml.html">Play</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="sms-rcml.html">SMS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hangup-rcml.html">Hangup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="pause-rcml.html">Pause</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="redirect-rcml.html">Redirect</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="record-rcml.html">Record</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <a class="nav-link" href="index.html">REST API Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#">accounts-api.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="applications-api.html">Applications API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="error-reference.html">Error Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions-multiprovider-configuration.html">Extensions Multiprovider Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="gateway-api.html">Gateway API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="geolocation-api.html">Geolocation API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="monitoring-service.html">Monitoring Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="notifications-api.html">Notifications API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="organization-api.html">Organization API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="outbound-proxy-api.html">Outbound proxy API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="profile-api.html">Profile API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transcriptions-api.html">Transcriptions API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="usage-records-api.html">Usage Records API</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ussd-push-api.html">USSD Push API</a>
   </li>
 </ul>
   </li>
@@ -180,15 +249,19 @@ the actions are exetuted.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_conditions"><a class="anchor" href="#_conditions"></a>Conditions</h3>
+<div class="sect1">
+<h2 id="_conditions"><a class="anchor" href="#_conditions"></a>Conditions</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>A set of <em>conditions</em> defines all the prerequisites in order for the actions to be executed. Each condition can be valid or not (true/false).
 It supports common comparison operations <strong>equals, not equal, greater, greater or equal,
 less, less or equal</strong> for both numeric and string operands. In addition, <strong>regex match</strong>, a handy regular expression matching operation is supported too.</p>
 </div>
-<div class="sect3">
-<h4 id="_operations"><a class="anchor" href="#_operations"></a>Operations</h4>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operations"><a class="anchor" href="#_operations"></a>Operations</h2>
+<div class="sectionbody">
 <div class="literalblock">
 <div class="content">
 <pre>equals, not equal, greater, greater or equal, less, less or equal</pre>
@@ -202,8 +275,8 @@ less, less or equal</strong> for both numeric and string operands. In addition, 
 numeric comparisons, the operands should be convertible to numbers (floats supported).
 For text based comparisons any operand will do.</p>
 </div>
-<div class="sect5">
-<h6 id="_comparison_type_text_numbers"><a class="anchor" href="#_comparison_type_text_numbers"></a>Comparison type - Text &amp; numbers</h6>
+<div class="sect2">
+<h3 id="_comparison_type_text_numbers"><a class="anchor" href="#_comparison_type_text_numbers"></a>Comparison type - Text &amp; numbers</h3>
 <div class="paragraph">
 <p>When comparing, treating operands as numbers or text will not always render the same result.
 For example, <strong>4</strong> is less than <strong>05</strong> but at the same time <strong>'4'</strong> is greater than <strong>'05'</strong>. Make sure
@@ -214,9 +287,8 @@ the <code>ABCE/123</code> link right after the operands:</p>
 <p><span class="image"><img src="_images/images/ControlElement_comparison_type_switch.png" alt="switch_comparison_type"></span></p>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_regex_match"><a class="anchor" href="#_regex_match"></a>regex match</h4>
+<div class="sect2">
+<h3 id="_regex_match"><a class="anchor" href="#_regex_match"></a>regex match</h3>
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/ControlElement_regex_match_operation_blank.png" alt="regex_match_operation"></span></p>
 </div>
@@ -226,8 +298,8 @@ If a match is found it evaluates to true. Note that no <em>RVD expression expans
 place for the pattern parameter.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_handling_many_conditions"><a class="anchor" href="#_handling_many_conditions"></a>Handling many conditions</h4>
+<div class="sect2">
+<h3 id="_handling_many_conditions"><a class="anchor" href="#_handling_many_conditions"></a>Handling many conditions</h3>
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/ControlElement_evaluate_conditions_with_AND.png" alt="revaluate_conditions_with_AND"></span></p>
 </div>
@@ -241,21 +313,23 @@ status of the whole complex condition. This can be done in two ways. Either <em>
 in order to have the whole control element evaluate to <em>true</em>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_no_conditions_present"><a class="anchor" href="#_no_conditions_present"></a>No conditions present</h4>
+<div class="sect2">
+<h3 id="_no_conditions_present"><a class="anchor" href="#_no_conditions_present"></a>No conditions present</h3>
 <div class="paragraph">
 <p>In case there are no conditions present, the whole Control element will evaluate to true and proceed to the
 execution of the actions.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_actions"><a class="anchor" href="#_actions"></a>Actions</h3>
+</div>
+<div class="sect1">
+<h2 id="_actions"><a class="anchor" href="#_actions"></a>Actions</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>A number of tasks to be executed sequentially if the condition(s) evaluate to <em>true</em>.</p>
 </div>
-<div class="sect3">
-<h4 id="_assign_action"><a class="anchor" href="#_assign_action"></a>Assign action</h4>
+<div class="sect2">
+<h3 id="_assign_action"><a class="anchor" href="#_assign_action"></a>Assign action</h3>
 <div class="paragraph">
 <p>Introduces a new variable and assignes it the value of the expression on the right.</p>
 </div>
@@ -267,8 +341,9 @@ execution of the actions.</p>
 no '$' character should be included here). A typical RVD expression can be typed
 in the right side.</p>
 </div>
-<div class="sect5">
-<h6 id="_variable_scope"><a class="anchor" href="#_variable_scope"></a>Variable scope</h6>
+</div>
+<div class="sect2">
+<h3 id="_variable_scope"><a class="anchor" href="#_variable_scope"></a>Variable scope</h3>
 <div class="paragraph">
 <p>The <em>scope</em> of the variable (i.e. for how long it will last) can be selected by clicking on the blue link
 inside the text box.</p>
@@ -281,9 +356,8 @@ inside the text box.</p>
 whole lifecycle of the application).</p>
 </div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_continue_to_action"><a class="anchor" href="#_continue_to_action"></a>Continue-to action</h4>
+<div class="sect2">
+<h3 id="_continue_to_action"><a class="anchor" href="#_continue_to_action"></a>Continue-to action</h3>
 <div class="paragraph">
 <p>Diverts the flow of the application to the specified module. All consequent actions
 are ignored.</p>
@@ -296,8 +370,8 @@ are ignored.</p>
 is executed.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_capture_action"><a class="anchor" href="#_capture_action"></a>Capture action</h4>
+<div class="sect2">
+<h3 id="_capture_action"><a class="anchor" href="#_capture_action"></a>Capture action</h3>
 <div class="paragraph">
 <p><span class="image"><img src="_images/images/ControlElement_capture_action_blank.png" alt="capture_action"></span></p>
 </div>
@@ -317,8 +391,8 @@ to a <code>year</code> (application-scoped) variable.</p>
 Also, only literal regex patterns are supported in this parameter. No RVD variable expansion will take place.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_ordering_actions"><a class="anchor" href="#_ordering_actions"></a>Ordering actions</h4>
+<div class="sect2">
+<h3 id="_ordering_actions"><a class="anchor" href="#_ordering_actions"></a>Ordering actions</h3>
 <div class="paragraph">
 <p>The order of actions is significant. They will be executed one-by-one until the last action is complete,
 a <em>Continue-to</em> action is executed or an error occurs. The order of actions can be altered using the re-order
@@ -330,6 +404,7 @@ buttons on the far right of the row:</p>
 <div class="paragraph">
 <p>Make sure to include only a single <em>Continue-to</em> action in a control element and
 always make it last.</p>
+</div>
 </div>
 </div>
 </div>

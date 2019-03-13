@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restcomm RCML – Conference :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/conference-rxml.html">
+    <title>Visual Designer Tutorial :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/Restcomm Visual Designer Tutorial.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -233,225 +233,253 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="conference-rxml.html">Restcomm RCML – Conference</a></li>
+    <li class="crumb"><a href="Restcomm Visual Designer Tutorial.html">Visual Designer Tutorial</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-  <h1>Restcomm RCML – Conference</h1>
+  <h1>Visual Designer Tutorial</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The &lt;Conference&gt; noun allows you to connect to a named conference room and talk with the other callers who have also connected to that room. The name of the room is up to you and is namespaced to your account.</p>
+<p>Welcome to Visual Designer tutorial.</p>
 </div>
+<div class="paragraph">
+<p>If you are using Visual Designer for first time, you may want to have a look
+at the <a href="#">Quick Start Guide.adoc</a> to create an application and get familiar with the workflow.</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_conference_attributes"><a class="anchor" href="#_conference_attributes"></a>Conference Attributes</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
+<div class="admonitionblock important">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Allowed Values</th>
-<th class="tableblock halign-left valign-top">Default Value</th>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+We&#8217;re reworking this section of the documentation. Stay tuned for new updates coming up soon. Thanks for your patience.
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">muted</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">beep</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">startConferenceOnEnter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">endConferenceOnExit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">waitUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RCML url, empty string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default RestComm hold music</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">waitMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GET or POST</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">maxParticipants</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">positive integer &#8656; 40</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">40</p></td>
-</tr>
-</tbody>
 </table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>name.</strong> The 'name' attribute allows you to inform the conference name for a video call. This attribute should be used only when <code>&lt;Video&gt;</code> noun is nested, otherwise the conference name should be informed as value of the tag <code>&lt;Conference&gt;</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Conference name without <code>&lt;Video&gt;</code> noun nesting:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Conference&gt;1112&lt;/Conference&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Conference name with <code>&lt;Video&gt;</code> noun nesting:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Conference name="alice"&gt;&lt;Video enable=”true”&gt;&lt;/Conference&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For more information, please read <a href="#">video-rcml.adoc#video</a>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>muted.</strong> The 'muted' attribute lets you specify whether a participant can speak in the conference. If this attribute is set to 'true', the participant will only be able to listen to people in the conference.</p>
-</li>
-<li>
-<p><strong>beep.</strong> The 'beep' attribute lets you specify whether a notification beep is played to the conference when a participant joins or leaves the conference.</p>
-</li>
-<li>
-<p><strong>startConferenceOnEnter.</strong> This attribute tells a conference to start when this participant joins the conference, if it is not already started. If this is false and the participant joins a conference that has not started, they are muted and hear background music until a participant joins where startConferenceOnEnter is true. This is useful for implementing moderated conferences.</p>
-</li>
-<li>
-<p><strong>endConferenceOnExit.</strong> If a participant has this attribute set to 'true', then when that participant leaves, the conference ends and all other participants drop out. This is useful for implementing moderated conferences that bridge two calls and allow either call leg to continue executing RCML if the other hangs up.</p>
-</li>
-<li>
-<p><strong>waitUrl.</strong> The 'waitUrl' attribute lets you specify a URL for music that plays before the conference has started. The URL may be a WAV or a RCML document that uses &lt;Play&gt; or &lt;Say&gt; for content. This defaults to a selection of Creative Commons licensed background music, but you can replace it with your own music and messages. If the 'waitUrl' responds with RCML, RestComm will only process &lt;Play&gt;, &lt;Say&gt;, and &lt;Redirect&gt; verbs. If you do not wish anything to play while waiting for the conference to start, specify the empty string (set 'waitUrl' to '').</p>
-</li>
-<li>
-<p><strong>waitMethod.</strong> This attribute indicates which HTTP method to use when requesting 'waitUrl'. It defaults to 'POST'. Be sure to use 'GET' if you are directly requesting static audio files such as WAV files so that RestComm properly caches the files.</p>
-</li>
-<li>
-<p><strong>maxParticipants.</strong> This attribute indicates the maximum number of participants you want to allow within a named conference room. The default maximum number of participants is 40. The value must be a positive integer less than or equal to 100.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>or an example of how to use the &lt;Conference&gt; noun see below.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-    &lt;Dial&gt;
-    &lt;Conference&gt;1234&lt;/Conference&gt;
-    &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
+<p>Executing a Visual Designer application is like navigating the web page by page. Instead
+ of viewing your pages in a web browser, you "listen" to them through your phone. Visual Designer
+ builds the markup and Restcomm reads it to you. It all works in a request-response fashion. However, instead of html responses are made of RCML. The same applies for pure RCML applications
+ but we won&#8217;t cover that in this guide.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_music_on_hold_for_conference"><a class="anchor" href="#_music_on_hold_for_conference"></a>Music on hold for conference</h2>
+<h2 id="_modules"><a class="anchor" href="#_modules"></a>Modules</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>By default Restcomm will play music on hold for the first participant to join a conference room even if you have <strong>startConference=true</strong>. This feature can be disabled, check configuration section of the docs.</p>
+<p>This step-by-step concept is implemented using <em>modules</em>. They are linked together and executed one at a time, resulting
+ in an actual application flow.</p>
 </div>
 <div class="paragraph">
-<p>Check the table below description how the feature will work.</p>
+<p>In the Visual Designer UI, modules appear as tabs under the horizontal menu. Default blank applications typicaly come with a single <em>Welcome</em> module already in place.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. Conference Music On Hold</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
+<div class="paragraph">
+<p>Here is how four module tabs look like in Visual Designer.</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="_images/images/Tutorial_module_tabs.png" alt="Tutorial module tabs">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_a_module"><a class="anchor" href="#_create_a_module"></a>Create a module</h3>
+<div class="paragraph">
+<p>Υou can easily create modules by clicking on the '+' button in your menu. Each module has a <strong>label</strong> and a <strong>name</strong>.
+The label is editable and works as user-friendly title of the module. The name is an identifier used internally
+and cannot be changed. By default new modules will be labeled 'Untitled module'. You may edit the label by clicking
+on it and typing the desired value. Pick something short and descriptive with no fancy characters.
+If you&#8217;re curious to find out what the <em>name</em> is, hover your cursor over the label and wait a couple of seconds.
+The <em>name</em> will appear as a hint.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">#</th>
-<th class="tableblock halign-left valign-top">First Participant</th>
-<th class="tableblock halign-left valign-top">Music</th>
-<th class="tableblock halign-left valign-top">Second Participant</th>
-<th class="tableblock halign-left valign-top">Music</th>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Go ahead, create a new module and label it 'sales'. Let&#8217;s see if we can implement a simple IVR. After doing it check its name. It should be <code>module1</code>. Drop a Say element inside of it and type "Welcome to sales" in it.
+</td>
 </tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stop music on hold</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">continue playing music on hold</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stop music on hold</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stop music on hold</p></td>
-</tr>
-</tbody>
 </table>
-<div class="ulist">
-<ul>
-<li>
-<p>Moderator participant is the call with <strong>startConferenceOnEnter=true</strong></p>
-</li>
-<li>
-<p>Not a moderator participant is the call with <strong>startConferenceOnEnter=false</strong></p>
-</li>
-</ul>
+</div>
+<div class="paragraph">
+<p>Your application should now look like this:</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="_images/images/Tutorial_sales_module.png" alt="Tutorial sales module">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_remove_or_hide_a_module"><a class="anchor" href="#_remove_or_hide_a_module"></a>Remove or hide a module</h3>
+<div class="paragraph">
+<p>If you want to remove a module click the trashbin icon present on the tab. This will remove it altogether from the
+project. If your list of modules grows big and your screen gets crowded you may also <em>hide</em> it to get it out
+of your way. Click on the down arrow on the module tab, next to the trashbin to hide it. Don&#8217;t worry, you may still
+bring it back from the <em>Modules</em> dropdown in the horizontal menu.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Take some time to create/remove/hide modules to get the hang of it.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When you open an application all modules will be in hidden except of the starting one. You can make them visible by choosing them from the <em>Modules</em> dropdown.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_startup_module"><a class="anchor" href="#_startup_module"></a>Startup module</h3>
+<div class="paragraph">
+<p>One of the modules will be the entry point of your application. It will be executed first and will point to other modules. By
+default this is the <em>Welcome</em> module. You may change the startup module from the <em>Startup module</em> dropdown.</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="_images/images/Tutorial_startup_module.png" alt="Tutorial startup module">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_standalone_modules"><a class="anchor" href="#_standalone_modules"></a>Standalone modules</h3>
+<div class="paragraph">
+<p>Creating a module won&#8217;t have any effect on your application unless you somehow incorporate it to your
+application flow. Typically this is done through a process called 'linking' which we will describe in a
+while. For now, your 'sales' module is not reachable. It&#8217;s like a web page to which no other pages link to.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_uri_noun_deprecated"><a class="anchor" href="#_uri_noun_deprecated"></a>Uri noun deprecated</h2>
+<h2 id="_collecting_input"><a class="anchor" href="#_collecting_input"></a>Collecting input</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Uri noun has been deprecated and will no longer be available in future releases. Please use the SIP noun instead.</p>
+<p>As with tranditional applications, voice applications have some sort of input and output. <code>Say</code> verbs are a way to
+express output that manifests as a text-to-speech message. On the other hand, the <strong>Collect</strong> element is used as an input gateway.
+You will find it in your toolbox on the left handside.</p>
+</div>
+<div class="paragraph">
+<p><em>Collect</em> element captures one or more keys pressed by the user on his mobile device
+and sends them to the application. This is known as DTMF capturing. Alternatively, speech recognition (ASR) can be used
+to convert spoken language to its written form. We will stick to DTMF
+for now and cover ASR in another documentation section.</p>
+</div>
+<div class="paragraph">
+<p>Each Collect element may have a <em>prompt</em>. This is a tightly coupled message that the user will hear
+when the <em>Collect</em> is executed or in case of validation errors. It&#8217;s a prompt for the user to do something.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In your appication, switch to the <em>Welcome</em> module  and locate the <em>Collect</em> element in the toolbox. Then, drag it onto the module under the existing <em>Say</em>. Add another <em>Say</em> element but this time drop it inside the <em>Collect</em> under 'Prompt' section. Type 'Press 1 for sales' as text in the <em>Say</em> element.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The Collect element should now look like this:</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="_images/images/Tutorial_collect_menu_prompt.png" alt="Tutorial collect menu prompt">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_menus"><a class="anchor" href="#_menus"></a>Menus</h3>
+<div class="paragraph">
+<p>A <em>Collect</em> has two modes of operation. It will either work as a <em>menu</em> or as a <em>digit collector</em>. Menus are very popular in voice applications
+ for letting users easily navigate hierarchical dialog structures. They map numeric values to different
+ modules using <em>mappings</em>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In the newlly added <em>Collect</em> element click <em>Add mapping</em> to create a new mapping. In the <em>Digit</em> field type '1'. In the target field select the 'sales' module.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Mappings are straightforward. The application will try to match the user input to the
+values provided in the mapping&#8217;s <em>Digit</em> field. When a match is made the corresponding module will be executed.
+Otherwise, the validation message (if any) will be played and another round or 'collection' will start over i.e.
+the prompt will be re-played and new user input will be captured.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Type some validation text in the 'Say if invalid' field. E.g. 'You have entered a wrong input, please try again'.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The Collect element should now look like this:</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="_images/images/Tutorial_collect_menu.png" alt="Tutorial collect menu">
+</div>
+</div>
+<div class="sect3">
+<h4 id="_no_input_at_all"><a class="anchor" href="#_no_input_at_all"></a>No input at all</h4>
+<div class="paragraph">
+<p>Any input that is not matched against one of the mappings will be considered invalid. However, having no input
+at all is a different case. Instead of getting validated, the application will skip this <em>Collect</em> and proceed
+with the next element.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Now is time to call your application again and see how it behaves. Don&#8217;t forget to save it first.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_digit_collector"><a class="anchor" href="#_digit_collector"></a>Digit collector</h3>
+<div class="paragraph">
+<p>Comming soon</p>
+</div>
+<div class="paragraph">
+<p>Back to   <a href="rvd-index.html" class="page">Visual Designer documentation home</a></p>
+</div>
 </div>
 </div>
 </div>

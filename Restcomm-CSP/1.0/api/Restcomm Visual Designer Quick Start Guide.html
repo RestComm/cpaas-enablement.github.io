@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restcomm RCML – Conference :: Restcomm CPaaS Enablement Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/conference-rxml.html">
+    <title>Visual Designer Quick Start guide :: Restcomm CPaaS Enablement Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/Restcomm-CSP/1.0/api/Restcomm Visual Designer Quick Start Guide.html">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -233,225 +233,237 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">Restcomm CPaaS Enablement Docs</a></li>
-    <li class="crumb"><a href="conference-rxml.html">Restcomm RCML – Conference</a></li>
+    <li class="crumb"><a href="Restcomm Visual Designer Quick Start Guide.html">Visual Designer Quick Start guide</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc ">
-  <h1>Restcomm RCML – Conference</h1>
+  <h1>Visual Designer Quick Start guide</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The &lt;Conference&gt; noun allows you to connect to a named conference room and talk with the other callers who have also connected to that room. The name of the room is up to you and is namespaced to your account.</p>
+<p>This guide will help you learn the basics of Visual Designer.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conference_attributes"><a class="anchor" href="#_conference_attributes"></a>Conference Attributes</h2>
+<h2 id="_the_em_greeting_em_voice_application"><a class="anchor" href="#_the_em_greeting_em_voice_application"></a>The <em>Greeting</em> Voice Application</h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Allowed Values</th>
-<th class="tableblock halign-left valign-top">Default Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">muted</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">beep</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">startConferenceOnEnter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">endConferenceOnExit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">waitUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RCML url, empty string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default RestComm hold music</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">waitMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GET or POST</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">maxParticipants</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">positive integer &#8656; 40</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">40</p></td>
-</tr>
-</tbody>
-</table>
+<div class="sect2">
+<h3 id="_create_the_application"><a class="anchor" href="#_create_the_application"></a>Create the Application</h3>
+<div class="paragraph">
+<p>New applications are easily created from within the <a href="#">../admin/console-overview.html.adoc#restcomm-applications</a>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="admin/images/console-14.png" alt="console-14"></span></p>
+</div>
+<div class="paragraph">
+<p>In order to create an <a href="#">../admin/console-overview.html.adoc#restcomm-applications</a>:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>name.</strong> The 'name' attribute allows you to inform the conference name for a video call. This attribute should be used only when <code>&lt;Video&gt;</code> noun is nested, otherwise the conference name should be informed as value of the tag <code>&lt;Conference&gt;</code>.</p>
+<p>Click on the <code>Add New App</code> button from the <code>Applications</code> Tab. This will start the application creation wizard.</p>
+</li>
+<li>
+<p>Choose <code>Create a Visual Designer Application</code> in the next view.</p>
+</li>
+<li>
+<p>In the Template Gallery pick the <code>Blank</code> template. That&#8217;s the most basic Visual Designer application.
+Template Gallery offers a range of options to kick start your application and can save you a great deal of time
+and effort. More templates are added on a continunous basis.</p>
+</li>
+<li>
+<p>Next, you need to name your application and choose a <em>type</em> for it. The <em>name</em> is not an
+identifier but more like a user friendly way to refer to your app. We&#8217;ll use <code>greeting-app</code> for the purpose of this example.</p>
+</li>
+<li>
+<p>The <em>type</em> determines whether this application will be used to handle incoming voice calls or SMS messages.
+Choose <code>voice</code>.</p>
+</li>
+<li>
+<p>When done, click <code>Create</code>. This will create your application and navigate you to the Application details page.</p>
+</li>
+<li>
+<p>Click <code>Design</code> to open the Visual Designer editor in a new tab.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://www.restcomm.com/wp-content/uploads/2018/07/Screenshot-from-2018-07-02-16-39-23.png" alt="Restcomm Visual Designer Greeting application">
+</div>
+</div>
+<div class="paragraph">
+<p>You&#8217;re almost there. Your application has been created and is ready to greet you with the default message when called.
+You do need a way to reach it though. To do that, you&#8217;ll have to attach it to a <a href="#">../admin/console-overview.html.adoc#restcomm-numbers</a> and finally make a call to it.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attach_your_application_to_a_restcomm_number"><a class="anchor" href="#_attach_your_application_to_a_restcomm_number"></a>Attach your Application to a Restcomm number</h3>
+<div class="paragraph">
+<p>You&#8217;ve just created a <em>voice</em> application. Such applications are executed when an incoming voice call is made to a <a href="#">../admin/console-overview.html.adoc#restcomm-numbers</a>.
+We will register a SIP Number which is a number that can be called via a SIP or WebRTC Client</p>
+</div>
+<div class="paragraph">
+<p>In <a href="#">../admin/console-overview.html.adoc</a>, click on the <code>Numbers</code> Tab and follow the steps below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At the top of the screen, provide a value for <code>SIP Address</code> and <code>Friendly Name</code> such as 5555 by example.
+Remember, what you define as SIP Address is the number you will call to test your application.
+Click <code>Register</code> to register this number and start the wizard for linking a <a href="#">../admin/console-overview.html.adoc#restcomm-numbers</a> to your newly created application.
+The operation will fail if the number has already been registered.</p>
+</li>
+<li>
+<p>You should now see the number details form similar to the screenshot below. Your number is registered but does not point
+to your application yet.</p>
+</li>
+<li>
+<p>In the <code>Voice</code> section expand the dropdown with the list of applications. You should
+see an entry named <code>greeting-app</code>. Select it.</p>
+</li>
+<li>
+<p>Click <code>Save changes</code> at the bottom.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://www.restcomm.com/wp-content/uploads/2018/07/Screenshot-from-2018-07-02-16-42-35.png" alt="Bind greeting application to a phone number">
+</div>
+</div>
+<div class="paragraph">
+<p>Your number is now linked to the application.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_call_the_application"><a class="anchor" href="#_call_the_application"></a>Call the Application</h3>
+<div class="paragraph">
+<p>It&#8217;s now time to test the application. Voice applications are executed when an incoming voice call is made to the <a href="#">../admin/console-overview.html.adoc#restcomm-numbers</a> you just registered.
+We will use the WebRTC Demo client that is available in your Restcomm account for testing purposes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Start WebRTC Demo client. Please use the same password that you used to create your Restcomm Account, unless you changed it in the <a href="#">../admin/console-overview.html.adoc#restcomm-client</a> Tab
+<span class="image"><img src="_images/images/WebRTCDemo.png" alt="WebRTCDemo"></span></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Conference name without <code>&lt;Video&gt;</code> noun nesting:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Conference&gt;1112&lt;/Conference&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Conference name with <code>&lt;Video&gt;</code> noun nesting:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Conference name="alice"&gt;&lt;Video enable=”true”&gt;&lt;/Conference&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For more information, please read <a href="#">video-rcml.adoc#video</a>.</p>
+<p>From WebRTC Demo client</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>muted.</strong> The 'muted' attribute lets you specify whether a participant can speak in the conference. If this attribute is set to 'true', the participant will only be able to listen to people in the conference.</p>
+<p>Create a new Contact named after the number you created. In our case this is 5555.
+<span class="image"><img src="_images/images/WebRTCDemo-add-contact.png" alt="WebRTCDemo-add-contact"></span></p>
 </li>
 <li>
-<p><strong>beep.</strong> The 'beep' attribute lets you specify whether a notification beep is played to the conference when a participant joins or leaves the conference.</p>
+<p>Place your call and make sure your sound output device is active.
+<span class="image"><img src="https://www.restcomm.com/wp-content/uploads/2018/07/Screenshot-from-2018-07-02-16-55-39.png" alt="Greeting app demo call"></span></p>
 </li>
 <li>
-<p><strong>startConferenceOnEnter.</strong> This attribute tells a conference to start when this participant joins the conference, if it is not already started. If this is false and the participant joins a conference that has not started, they are muted and hear background music until a participant joins where startConferenceOnEnter is true. This is useful for implementing moderated conferences.</p>
+<p>You should hear the greeting message of the <code>greeting-app</code> application.</p>
 </li>
 <li>
-<p><strong>endConferenceOnExit.</strong> If a participant has this attribute set to 'true', then when that participant leaves, the conference ends and all other participants drop out. This is useful for implementing moderated conferences that bridge two calls and allow either call leg to continue executing RCML if the other hangs up.</p>
-</li>
-<li>
-<p><strong>waitUrl.</strong> The 'waitUrl' attribute lets you specify a URL for music that plays before the conference has started. The URL may be a WAV or a RCML document that uses &lt;Play&gt; or &lt;Say&gt; for content. This defaults to a selection of Creative Commons licensed background music, but you can replace it with your own music and messages. If the 'waitUrl' responds with RCML, RestComm will only process &lt;Play&gt;, &lt;Say&gt;, and &lt;Redirect&gt; verbs. If you do not wish anything to play while waiting for the conference to start, specify the empty string (set 'waitUrl' to '').</p>
-</li>
-<li>
-<p><strong>waitMethod.</strong> This attribute indicates which HTTP method to use when requesting 'waitUrl'. It defaults to 'POST'. Be sure to use 'GET' if you are directly requesting static audio files such as WAV files so that RestComm properly caches the files.</p>
-</li>
-<li>
-<p><strong>maxParticipants.</strong> This attribute indicates the maximum number of participants you want to allow within a named conference room. The default maximum number of participants is 40. The value must be a positive integer less than or equal to 100.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>or an example of how to use the &lt;Conference&gt; noun see below.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-    &lt;Dial&gt;
-    &lt;Conference&gt;1234&lt;/Conference&gt;
-    &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_music_on_hold_for_conference"><a class="anchor" href="#_music_on_hold_for_conference"></a>Music on hold for conference</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>By default Restcomm will play music on hold for the first participant to join a conference room even if you have <strong>startConference=true</strong>. This feature can be disabled, check configuration section of the docs.</p>
-</div>
-<div class="paragraph">
-<p>Check the table below description how the feature will work.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. Conference Music On Hold</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">#</th>
-<th class="tableblock halign-left valign-top">First Participant</th>
-<th class="tableblock halign-left valign-top">Music</th>
-<th class="tableblock halign-left valign-top">Second Participant</th>
-<th class="tableblock halign-left valign-top">Music</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stop music on hold</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">continue playing music on hold</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stop music on hold</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">play music on hold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not a moderator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">stop music on hold</p></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p>Moderator participant is the call with <strong>startConferenceOnEnter=true</strong></p>
-</li>
-<li>
-<p>Not a moderator participant is the call with <strong>startConferenceOnEnter=false</strong></p>
+<p>Keep the tab open for later use.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_uri_noun_deprecated"><a class="anchor" href="#_uri_noun_deprecated"></a>Uri noun deprecated</h2>
+<h2 id="_visual_designer_concepts"><a class="anchor" href="#_visual_designer_concepts"></a>Visual Designer Concepts</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Uri noun has been deprecated and will no longer be available in future releases. Please use the SIP noun instead.</p>
+<p>Now that the base application has been created, linked to a <a href="#">../admin/console-overview.html.adoc#restcomm-numbers</a> and tested through the WebRTC Demo Client, you can go ahead and tweak your application with more useful and interesting features.  Let&#8217;s switch back to Visual Designer tab and introduce some basic concepts.</p>
+</div>
+<div class="sect2">
+<h3 id="_elements"><a class="anchor" href="#_elements"></a>Elements</h3>
+<div class="paragraph">
+<p>On the left, you will notice a list of buttons you can drag and drop into the modules to the right of this list. They are called <code>Elements</code>.
+Elements are the building blocks of each Visual Designer application.</p>
+</div>
+<div class="paragraph">
+<p>You will notice that your application already contains a <code>Say</code> element. It contains the greeting that
+you heard when calling the application. <code>Say</code> elements are able to convert written phrases to their
+audio representations. We call this Text-To-Speech (TTS).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modules"><a class="anchor" href="#_modules"></a>Modules</h3>
+<div class="paragraph">
+<p><code>Elements</code> are grouped together in sequences called <code>modules</code>. The whole area next to the
+element toolbox is where modules appear. They are organized in a series of tabs and will accept
+elements when dragged and dropped over them. Modules are the main execution unit in a Visual Designer application.</p>
+</div>
+<div class="paragraph">
+<p>By default new applications already contain a <em>Welcome</em> module with the <code>Say</code> element previously mentioned.
+Since this gets executed first, this is called the <code>Startup</code> module.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_making_changes"><a class="anchor" href="#_making_changes"></a>Making changes</h3>
+<div class="paragraph">
+<p>Let&#8217;s now change the greeting to something more interesting.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Edit the default text in the <code>Say</code> element and use something more personalized like <em>'Hello Alice. I am glad to hear back from you.'</em>.</p>
+</li>
+<li>
+<p>Click the <code>Save</code> button.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://www.restcomm.com/wp-content/uploads/2018/07/Screenshot-from-2018-07-02-16-49-11.png" alt="Greeting app announcement modified">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Get back to the WebRTC Demo tab and call your application once again.</p>
+</li>
+<li>
+<p>You should hear the updated greeting.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://www.restcomm.com/wp-content/uploads/2018/07/Screenshot-from-2018-07-02-16-55-39.png" alt="Greeting demo app call">
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validation_errors"><a class="anchor" href="#_validation_errors"></a>Validation errors</h4>
+<div class="paragraph">
+<p>You will need to <em>Save</em> your changes so that they are effective. In case you get a validation
+error, your changes won&#8217;t be applied to the actual running application. They will be persisted though so
+that you don&#8217;t loose your work.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_workflow"><a class="anchor" href="#_workflow"></a>Workflow</h3>
+<div class="paragraph">
+<p>Once you&#8217;re done, it&#8217;s good practice to close the editor tab. Think of Visual Designer
+as an editor like the one you edit images in. You get a new window for each new image you edit
+and you&#8217;re allowed to switch between them. When done, you just close what you don&#8217;t need any more.
+This is not required but will result in a cleaner and faster workflow.</p>
+</div>
+<div class="paragraph">
+<p>Continue to <a href="Restcomm Visual Designer Tutorial.html" class="page">Visual Designer Tutorial</a></p>
+</div>
+<div class="paragraph">
+<p>Back to   <a href="rvd-index.html" class="page">Visual Designer documentation home</a></p>
+</div>
 </div>
 </div>
 </div>
