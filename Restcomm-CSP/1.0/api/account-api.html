@@ -769,7 +769,7 @@ The above command uses the Account SID of the requestor, and the one below uses 
         <button class="w3-bar-item w3-button" onclick="openLanguage('Python', 2)">Python</button>
       </div>
       <div id="Curl-2" class="sample-language-2">
-        <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">curl -X GET https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/#(account_sid).json \
+        <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">curl -X GET https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/#(account_sid).xml \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
@@ -790,7 +790,7 @@ public class JavaSampleClass {
       String userAndPass = account_sid + ':' + auth_token;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL("https://" + restcomm_domain + "/restcomm/2012-04-24/Accounts/#(account_sid).json");
+      URL url = new URL("https://" + restcomm_domain + "/restcomm/2012-04-24/Accounts/#(account_sid).xml");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("GET");
@@ -818,7 +818,7 @@ userAndPass = b64encode(bytes(account_sid + ':' + auth_token, 'utf-8')).decode("
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 conn = HTTPSConnection(restcomm_domain)
-conn.request("GET", '/restcomm/2012-04-24/Accounts/#(account_sid).json',
+conn.request("GET", '/restcomm/2012-04-24/Accounts/#(account_sid).xml',
       headers=headers)
 res = conn.getresponse()
 
