@@ -750,9 +750,86 @@ The above command uses the Account SID of the requestor, and the one below uses 
 </div>
 </div>
 <div class="paragraph">
-<p>The above commands will print an output similar to the one below:
-samplecode::accounts[httpMethod="GET",urlSuffix="Accounts/#(account_sid).xml"]</p>
+<p>The above commands will print an output similar to the one below:</p>
 </div>
+<script>
+      function openLanguage(language, index) {
+        const sampleClasses = document.getElementsByClassName("sample-language-" + index);
+        for (const sampleClass of sampleClasses) {
+          sampleClass.style.display = "none";
+        }
+        document.getElementById(language + '-' + index).style.display = "block";
+      }
+      </script>
+      <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+      <div class="w3-bar w3-black">
+        <button class="w3-bar-item w3-button" onclick="openLanguage('Curl', 2)">Curl</button>
+        <button class="w3-bar-item w3-button" onclick="openLanguage('Java', 2)">Java</button>
+        <button class="w3-bar-item w3-button" onclick="openLanguage('Python', 2)">Python</button>
+      </div>
+      <div id="Curl-2" class="sample-language-2">
+        <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">curl -X GET https://cloud.restcomm.com/restcomm/2012-04-24/Accounts/#(account_sid).json \
+   -u "YourAccountSid:YourAuthToken"
+</code></pre>
+      </div>
+      <div id="Java-2" class="sample-language-2" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Change 'mycompany' to the desired restcomm organization
+   public static final String restcomm_domain = "mycompany.restcomm.com";
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String account_sid = "YourAccountSid";
+   public static final String auth_token = "YourAuthToken";
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = account_sid + ':' + auth_token;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://" + restcomm_domain + "/restcomm/2012-04-24/Accounts/#(account_sid).json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+      String inputLine;
+      while ((inputLine = in.readLine()) != null)
+         System.out.println(inputLine);
+      in.close();
+  }
+}
+</code></pre>
+      </div>
+      <div id="Python-2" class="sample-language-2" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Change 'mycompany' to the desired restcomm organization
+restcomm_domain = 'mycompany.restcomm.com'
+# Provide your Account Sid and Auth Token from your Console Account page
+account_sid = 'YourAccountSid'
+auth_token = 'YourAuthToken'
+
+userAndPass = b64encode(bytes(account_sid + ':' + auth_token, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection(restcomm_domain)
+conn.request("GET", '/restcomm/2012-04-24/Accounts/#(account_sid).json',
+      headers=headers)
+res = conn.getresponse()
+
+print(res.status, res.reason)
+
+# Response text
+data = res.read()
+
+conn.close()
+</code></pre>
+      </div>
 <div class="listingblock">
 <div class="content">
 <pre>&lt;RestcommResponse&gt;
@@ -794,8 +871,11 @@ samplecode::accounts[httpMethod="GET",urlSuffix="Accounts/#(account_sid).xml"]</
 </li>
 </ul>
 </div>
-<div class="sect2">
-<h3 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>HTTP GET</strong>. Returns the list representation of all the <strong>Sub-Account</strong> resources for this <strong>Account</strong>, including the properties above.</p>
 </div>
@@ -843,7 +923,6 @@ samplecode::accounts[httpMethod="GET",urlSuffix="Accounts/#(account_sid).xml"]</
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 </div>
 <div class="sect1">
