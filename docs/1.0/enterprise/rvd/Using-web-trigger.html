@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en" class="enterprise-persona">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Trigger Overview - Restcomm Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/rvd/Using-web-trigger.html">
+    <meta name="description" content="Web Trigger is an alternative way to start a voice application. It allows establishing a call between an RVD application and a destination address using a simple HTTP request. Any RVD Voice application can be configured to be started using Web Trigger.">
+    <meta name="keywords" content="web trigger, restcomm web trigger, start a voice app">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <!-- Not using it for now
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item header-logo-link" href="
+        https://www.restcomm.com/docs/1.0/enterprise
+        ">
+      </a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        -->
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle" style="visibility: hidden;">
+      </button>
+      <button class="navbar-enterprise-burger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
+
+
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="docs" data-version="1.0"  style="display: none;">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <!-- Not applicable to our Enterprise docs
+    <h3 class="title"><a href="../../index.html">docs</a></h3>
+    -->
+  <ul class="nav-list">
+      <li class="nav-item" data-depth="0">
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="1">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              nav-icon-restapi
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/overview.html">REST API</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/overview.html">Overview</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/overview.html#_api_endpoint">API Endpoint</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/overview.html#_authentication">Authentication</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/overview.html#_requests">Requests</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/overview.html#_responses">Responses</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/overview.html#_paging">Paging</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              nav-icon-voice
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/voice-category.html">Voice</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/available-phone-numbers-api.html">Available Phone Numbers</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/calls-api.html">Calls</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/calls-api.html#_call_list_resource_uri">Call List Resource URI</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/calls-api.html#_making_a_call_to_a_sip_account">Making a Call</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/calls-api.html#_modifying_live_calls">Modifying Live Calls</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/calls-api.html#examples">Examples</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/calls-api.html#_list_filter">List Filter</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/calls-api.html#_paging_information">Paging Information</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html">Clients</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html#_create_a_client">Create a Client</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html#_delete_a_client">Delete a Client</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/conferences-api.html">Conference Management</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/conferences-api.html#_supported_operations">Supported Operations</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/conferences-api.html#_conference_list_resource_uri">Conference List Resource URI</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/participants-api.html">Conference Participants Management</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/participants-api.html#_participant_list_resource_uri">Participants List Resource URI</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_incomingphonenumber_instance_resource">IncomingPhoneNumber Instance Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_incomingphonenumbers_list_resource">IncomingPhoneNumbers List Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_local_incomingphonenumber_factory_resource">Local IncomingPhoneNumber Factory Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_toll_free_incomingphonenumber_factory_resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_mobile_incomingphonenumber_factory_resource">Mobile IncomingPhoneNumber Factory Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_attach_a_phone_number_to_an_application">Attach a phone number to an application</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_delete_a_phone_number">Delete a phone number</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_list_of_phone_numbers">List of Phone Numbers</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_incoming_phone_number_regex_support">Incoming Phone Number Regex Support</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/recordings-api.html">Recordings</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              nav-icon-sms
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/sms-category.html">SMS</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/available-phone-numbers-api.html">Available Phone Numbers</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html">Clients</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html#_create_a_client">Create a Client</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html#_delete_a_client">Delete a Client</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_incomingphonenumber_instance_resource">IncomingPhoneNumber Instance Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_incomingphonenumbers_list_resource">IncomingPhoneNumbers List Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_local_incomingphonenumber_factory_resource">Local IncomingPhoneNumber Factory Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_toll_free_incomingphonenumber_factory_resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_mobile_incomingphonenumber_factory_resource">Mobile IncomingPhoneNumber Factory Resource</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_attach_a_phone_number_to_an_application">Attach a phone number to an application</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_delete_a_phone_number">Delete a phone number</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_list_of_phone_numbers">List of Phone Numbers</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/incoming-phone-numbers-api.html#_incoming_phone_number_regex_support">Incoming Phone Number Regex Support</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/sms-api.html">Messages</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/sms-api.html#_send_sms">Send SMS</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/sms-api.html#_get_sms_list">Get SMS List</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/sms-api.html#_get_single_sms_information">Get single SMS Information</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="4">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/sms-api.html#_sms_attributes">SMS Attributes</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/account-api.html">Accounts</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/applications-api.html">Applications</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../api/notifications-api.html">Notifications</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="1">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              nav-icon-rcml
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html">RCML</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html">Overview</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_the_rcml_verbs">RCML Verbs</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/dial-rcml.html">Dial</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/client-rcml.html">Client</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/conference-rcml.html">Conference</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/number-rcml.html">Number</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/sip-rcml.html">SIP</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/gather-rcml.html">Gather</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/say-rcml.html">Say</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/play-rcml.html">Play</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              nav-icon-sms
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/sms-rcml.html">SMS</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/hangup-rcml.html">Hangup</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/pause-rcml.html">Pause</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/redirect-rcml.html">Redirect</a>
+              
+            </span>
+          </div>
+              </li>
+      <li class="nav-item" data-depth="2">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/record-rcml.html">Record</a>
+              
+            </span>
+          </div>
+              </li>
+  </ul>
+      </li>
+  </ul>
+      </li>
+  </ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<!--
+
+-->
+<div class="toolbar" role="navigation" style="display: none;">
+  <button class="navigation-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../../index.html">docs</a></li>
+    <li class="crumb"><a href="Using-web-trigger.html">Web Trigger Overview</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc fix-anchor-links-position">
+  <h1>Web Trigger Overview</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Web Trigger is an alternative way to start a voice application. It allows establishing a call between an RVD application and a destination address using a simple HTTP request.
+Any RVD Voice application can be configured to be started using Web Trigger. The process of doing that is roughly the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a Voice application in RVD.</p>
+</li>
+<li>
+<p>Enable and configure Web Trigger feature for this application.</p>
+</li>
+<li>
+<p>Start your application by making a request to the WebTrigger URL.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Other features of Web Trigger include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Custom authentication using an application-specific token.</p>
+</li>
+<li>
+<p>Initialization of RVD variables by using HTTP parameters.</p>
+</li>
+<li>
+<p>Control caller identifier that will be presented to the callee.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Web Trigger relies on the Restcomm Calls REST API to do the actual work. You can find more information on how a call between an RCML application and a destination address is established at <a href="../api/calls-api.html">Restcomm API – Calls</a>.</p>
+</div>
+<div class="paragraph">
+<p>In the following example we will create a sample application that, when
+ trigrred, will establish a call between a Restcomm Client and the application and execute it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_1_create_the_voice_application"><a class="anchor" href="#_step_1_create_the_voice_application"></a>Step 1 - Create the Voice application</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Log into RVD and create a new project named TestWebTrigger.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>No need to change anything yet. If you don&#8217;t know what RVD is and how to create an application please have a look at <a href="#">RVD Basic Tasks</a> first.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_2_enable_web_trigger"><a class="anchor" href="#_step_2_enable_web_trigger"></a>Step 2 - Enable Web Trigger</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the project menu, click on <em>Web Trigger</em>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/show_web_trigger_form.png" alt="show_web_trigger_form">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, check <em>Enable Web Trigger</em>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/WebTrigger_enable.png" alt="web_trigger_enable">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_3_register_your_sip_client"><a class="anchor" href="#_step_3_register_your_sip_client"></a>Step 3 - Register your SIP client</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You will need a registered destination address to receive the triggered call.
+Fire up your favourite SIP client and register to your Restcomm instance as <strong>alice</strong>. Default password is <em>1234.</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_4_trigger_a_call"><a class="anchor" href="#_step_4_trigger_a_call"></a>Step 4 - Trigger a call</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using your favorite REST client make a call to the WebTrigger URL. You can copy it from the configuration form:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/WebTrigger_copy_URL.png" alt="copy_web_trigger_url">
+</div>
+</div>
+<div class="paragraph">
+<p>Before making the request you need to specify a destination for the call in the <code>to</code> parameter. You may use the <em>client</em>
+you just registered. The destination goes in the <code>to</code> parameter of the request:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>http://this:8080/visual-designer/services/apps/APdc8c1eea063d4a85b64a5bebda8e8c04/start?to=client:alice</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice <em>client:</em> prefix in the <code>to</code> parameter.</p>
+</div>
+<div class="paragraph">
+<p>Also, WebTrigger supports Basic HTTP authentication. Use your restcomm account credentials in order
+to authenticate. In this example we will use <strong>administrator@company.com</strong> / <strong>RestComm</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Here is the cURL command to make the request:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ curl -X GET --user 'administrator@company.com:RestComm' 'http://this:8080/visual-designer/services/apps/APdc8c1eea063d4a85b64a5bebda8e8c04/start?to=client:alice'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition to specifying the destination of the call, the caller ID may also be specified (optional) using
+the <code>from</code> parameter. Here is the how the trigger URL  will look like when the caller ID  is set to <strong>bob</strong>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>.../start?to=client:alice&amp;from=bob</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>At this point you should be able to trigger a call to your registered client and listen to
+ your application.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authenticate_with_application_specific_tokens"><a class="anchor" href="#_authenticate_with_application_specific_tokens"></a>Authenticate with application-specific tokens</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In case you don&#8217;t want to reveal your account credentials to the user of the trigger you can
+use an alternative form of authentication that relies on custom application-specific tokens. To enable it
+you will need to define an arbitrary security token in the configuration form and then use it in the request that
+will trigger the call. If the tokens match the request will be accepted.</p>
+</div>
+<div class="paragraph">
+<p>Here is the configuration form with the <em>application access token</em> set to <strong>MyTopSeCrEt</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/WebTrigger_specify_application_token.png" alt="specify_application_access_token">
+</div>
+</div>
+<div class="paragraph">
+<p>Since there are no Basic HTTP authentication headers involved you may easily trigger the call by typing the WebTrigger URL
+directly in the browser:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>http://this:8080/visual-designer/services/apps/APdc8c1eea063d4a85b64a5bebda8e8c04/start?to=client:alice&amp;token=MyTopSeCrEt</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Before giving it a try make sure that you have configured
+ <a href="#configure-restcomm-api-credentials">Restcomm API credentials</a> in RVD settings.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_call_source_and_destination_overrides"><a class="anchor" href="#_call_source_and_destination_overrides"></a>Call source and destination overrides</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There can be cases when the destination or the source of a WebTrigger call should be locked
+down to a fixed value and not be controlled from the request. In order to do that <em>overrides</em> can
+be provided in the configuration form as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/WebTrigger_overrides.png" alt="source_dest_overrides">
+</div>
+</div>
+<div class="paragraph">
+<p>Now, the <code>to</code> and <code>form</code> parameters in the HTTP request will be ignored and values in the form
+will be used instead.</p>
+</div>
+<div class="sect2">
+<h3 id="_configure_restcomm_api_access_credentials"><a class="anchor" href="#_configure_restcomm_api_access_credentials"></a>Configure Restcomm API access credentials</h3>
+<div class="paragraph">
+<p>In order to use application-specific tokens Restcomm API credentials should be configured in RVD
+ settings. RVD relies on Restcomm Calls REST API to create the actual call between the
+ application and the destination address. For that, it needs to know the credentials of
+ the Restcomm Account that will make the call.</p>
+</div>
+<div class="paragraph">
+<p>To supply these credentials:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click on the top right gear icon as illustrated bellow:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/show_ide_settings_profile_form.png" alt="show_ide_settings_profile_form">
+</div>
+</div>
+<div class="paragraph">
+<p>This will bring up the IDE Settings form for the logged user:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/ide_settings_profile_form_complete.png" alt="ide_settings_profile_form_complete">
+</div>
+</div>
+<div class="paragraph">
+<p>Supply the credentials of the Restcomm account that will be used to create the call.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set <strong>Username</strong> to the restcomm username on whose behalf the calls will be made. In this tutorial we used <em>administrator@company.com</em></p>
+</li>
+<li>
+<p>Set <strong>Password</strong> to the <em>AuthToken</em> of your account displayed in Dashboard.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_variables"><a class="anchor" href="#_adding_variables"></a>Adding variables</h3>
+<div class="paragraph">
+<p>Application behaviour can be further enhanced by adding parameters to your trigger URL.
+All additional parameters will be converted to RVD variables and can be used in your application.</p>
+</div>
+<div class="paragraph">
+<p>Bellow is a personalized greeting of the application using <code>firstname</code> and <code>lastname</code> variables.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/add_variables_to_the_mix.png" alt="add_variables_to_the_mix">
+</div>
+</div>
+<div class="paragraph">
+<p>This application will use the <em>firstname</em> and <em>lastname</em> parameters from a trigger URL like the
+following:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>http://this:8080/visual-designer/services/apps/APdc8c1eea063d4a85b64a5bebda8e8c04/start?to=client:alice&amp;firstname=nick&amp;lastname=the+greek</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_variable_scope"><a class="anchor" href="#_variable_scope"></a>Variable scope</h4>
+<div class="paragraph">
+<p>In the example above <code>firstname</code> and <code>lastname</code> parameters defined in the url will result in creating module-scoped
+RVD variables. This means that the variables will be available only in the first module
+execution. To make them last for the whole application lifecycle the 'User parameter scope'
+option in <em>Advanced configuration</em> options should be set to <em>Application</em> as illustrated below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/WebTrigger_application_scoped_vars.png" alt="application_scoped_variables">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_destination_address_syntax"><a class="anchor" href="#_destination_address_syntax"></a>Destination address syntax</h4>
+<div class="paragraph">
+<p>Throughout this tutorial we have only used <em>client</em> destinations for the call. Restcomm
+Calls REST API and consequently RVD WebTrigger support four different types of destination
+address. Any of these types can be used as a destination address. Here are some example
+values you can use as destinations either directly in the URL <code>to</code> parameter or as overrides
+ in the configuration form.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>client</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>client:alice</p>
+</li>
+<li>
+<p>client:bob</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>sip</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>sip:bob@192.168.1.39:5060</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>conference</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>conference:2233</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>number</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>+1234598323</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Make sure you url-encode these values if you specify the <strong>to</strong> destination in the trigger URL!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column-container">
+      <div class="footer-column">
+        <h5 class="footer-column-title">Products</h5>
+          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
+          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-factor authentication (2FA)</a></p>
+        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone number masking</a></p>
+        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Learn</h5>
+        <p><a href="https://www.restcomm.com/blog/">Blog</a></p>
+
+          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Contact us</h5>
+        <p>+1 650 263 6146</p>
+        <p>
+          <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
+          <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
+          <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
+          <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../../../../_/js/site.js"></script>
+<script src="../../../../_/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+<!--
+  Tried to get this chunk into js/05-countly.js but it has some issues with the async loading so fell back to putting it here
+  where it works for some reason
+-->
+  <!-- Only enable countly if the key is set -->
+  <script type='text/javascript' src='https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'></script>
+  <script>
+    var Countly = Countly || {}
+    Countly.q = Countly.q || []
+
+    // provide countly initialization parameters
+    Countly.app_key = '56bdc77c4c53e32ebd439e2586dd4ee22b3d3ad0'
+    Countly.url = 'https://restcomm.count.ly'
+
+    Countly.q.push(['track_sessions'])
+    Countly.q.push(['track_pageview'])
+    Countly.q.push(['track_clicks'])
+    Countly.q.push(['track_errors'])
+    Countly.q.push(['track_links'])
+    Countly.q.push(['track_forms'])
+    Countly.q.push(['collect_from_forms'])
+
+    // send event
+    Countly.q.push(['add_event', {
+      key: 'Restcomm CSPs Documentation',
+      segmentation: {},
+    }]);
+
+    // load countly script asynchronously
+    (function () {
+      var cly = document.createElement('script')
+      cly.type = 'text/javascript'
+      cly.async = true
+      // enter url of script here
+      cly.src = 'https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'
+      cly.onload = function () {
+        Countly.init()
+      }
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(cly, s)
+    })()
+  </script>
+<!-- UserBack Tool -->
+<script>
+    Userback = window.Userback || {};
+    Userback.access_token = '5061|10149|r9Ure7pw7zJFVyflkflhPEQJvrsbdWcpYS5Vz3safDjZZg7ukX';
+    (function(id) {
+        var s = document.createElement('script');
+        s.async = 1;s.src = 'https://static.userback.io/widget/v1.js';
+        var parent_node = document.head || document.body;parent_node.appendChild(s);
+    })('userback-sdk');
+</script>
+
+  </body>
+</html>
