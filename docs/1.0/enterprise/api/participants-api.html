@@ -1426,16 +1426,14 @@ Not supported</p>
         <button class="sample-code-button scsIndex-54" onclick="openLanguage('Java', 54)">Java</button>
       </div>
       <div id="Curl-54" class="sample-language-54">
-        <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Conferences/CONFERENCE_SID/Participants/CALL_SID.xml \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Conferences/CONFERENCE_SID/Participants/CALL_SID.xml \
    -d 'Mute=true' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
       <div id="Nodejs-54" class="sample-language-54" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const request = require('request');
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
-// Change 'mycompany' to the desired restcomm organization
-const RESTCOMM_DOMAIN = 'mycompany.restcomm.com';
 // Provide your Account Sid and Auth Token from your Console Account page
 const ACCOUNT_SID = 'my_ACCOUNT_SID';
 const AUTH_TOKEN = 'my_AUTH_TOKEN';
@@ -1445,7 +1443,7 @@ const CALL_SID = 'my_CALL_SID'
 
 request.({
       method: 'POST',
-      url: 'https://' + RESTCOMM_DOMAIN + '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Conferences/' + CONFERENCE_SID + '/Participants/' + CALL_SID + '.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Conferences/' + CONFERENCE_SID + '/Participants/' + CALL_SID + '.xml',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'Mute': 'true'
@@ -1458,12 +1456,10 @@ request.({
 </code></pre>
       </div>
       <div id="Python-54" class="sample-language-54" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from http.client import HTTPSConnection
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
 
-# Change 'mycompany' to the desired restcomm organization
-RESTCOMM_DOMAIN = 'mycompany.restcomm.com'
 # Provide your Account Sid and Auth Token from your Console Account page
 ACCOUNT_SID = 'my_ACCOUNT_SID'
 AUTH_TOKEN = 'my_AUTH_TOKEN'
@@ -1481,7 +1477,7 @@ params = urlencode({
    'Mute': 'true'
 })
 
-conn = HTTPSConnection(RESTCOMM_DOMAIN)
+conn = HTTPSConnection('mycompany.restcomm.com')
 conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Conferences/' + CONFERENCE_SID + '/Participants/' + CALL_SID + '.xml',
       params, headers=headers)
 res = conn.getresponse()
@@ -1491,14 +1487,12 @@ res = conn.getresponse()
 </code></pre>
       </div>
       <div id="Java-54" class="sample-language-54" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.net.URL;
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.util.Base64;
 
 public class JavaSampleClass {
-   // Change 'mycompany' to the desired restcomm organization
-   public static final String RESTCOMM_DOMAIN = "mycompany.restcomm.com";
    // Provide your Account Sid and Auth Token from your Console Account page
    public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
    public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
@@ -1510,7 +1504,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://" + RESTCOMM_DOMAIN + "/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Conferences/" + CONFERENCE_SID + "/Participants/" + CALL_SID + ".xml");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Conferences/" + CONFERENCE_SID + "/Participants/" + CALL_SID + ".xml");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -1555,16 +1549,14 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-55" onclick="openLanguage('Java', 55)">Java</button>
       </div>
       <div id="Curl-55" class="sample-language-55">
-        <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Conferences/CONFERENCE_SID/Participants/CALL_SID.xml \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Conferences/CONFERENCE_SID/Participants/CALL_SID.xml \
    -d 'Mute=false' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
       <div id="Nodejs-55" class="sample-language-55" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const request = require('request');
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
-// Change 'mycompany' to the desired restcomm organization
-const RESTCOMM_DOMAIN = 'mycompany.restcomm.com';
 // Provide your Account Sid and Auth Token from your Console Account page
 const ACCOUNT_SID = 'my_ACCOUNT_SID';
 const AUTH_TOKEN = 'my_AUTH_TOKEN';
@@ -1574,7 +1566,7 @@ const CALL_SID = 'my_CALL_SID'
 
 request.({
       method: 'POST',
-      url: 'https://' + RESTCOMM_DOMAIN + '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Conferences/' + CONFERENCE_SID + '/Participants/' + CALL_SID + '.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Conferences/' + CONFERENCE_SID + '/Participants/' + CALL_SID + '.xml',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'Mute': 'false'
@@ -1587,12 +1579,10 @@ request.({
 </code></pre>
       </div>
       <div id="Python-55" class="sample-language-55" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from http.client import HTTPSConnection
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
 
-# Change 'mycompany' to the desired restcomm organization
-RESTCOMM_DOMAIN = 'mycompany.restcomm.com'
 # Provide your Account Sid and Auth Token from your Console Account page
 ACCOUNT_SID = 'my_ACCOUNT_SID'
 AUTH_TOKEN = 'my_AUTH_TOKEN'
@@ -1610,7 +1600,7 @@ params = urlencode({
    'Mute': 'false'
 })
 
-conn = HTTPSConnection(RESTCOMM_DOMAIN)
+conn = HTTPSConnection('mycompany.restcomm.com')
 conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Conferences/' + CONFERENCE_SID + '/Participants/' + CALL_SID + '.xml',
       params, headers=headers)
 res = conn.getresponse()
@@ -1620,14 +1610,12 @@ res = conn.getresponse()
 </code></pre>
       </div>
       <div id="Java-55" class="sample-language-55" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.net.URL;
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.util.Base64;
 
 public class JavaSampleClass {
-   // Change 'mycompany' to the desired restcomm organization
-   public static final String RESTCOMM_DOMAIN = "mycompany.restcomm.com";
    // Provide your Account Sid and Auth Token from your Console Account page
    public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
    public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
@@ -1639,7 +1627,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://" + RESTCOMM_DOMAIN + "/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Conferences/" + CONFERENCE_SID + "/Participants/" + CALL_SID + ".xml");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Conferences/" + CONFERENCE_SID + "/Participants/" + CALL_SID + ".xml");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -1719,7 +1707,9 @@ public class JavaSampleClass {
 </footer>
 <script src="../../../../_/js/site.js"></script>
 <script src="../../../../_/js/vendor/highlight.js"></script>
+<!--
 <script>hljs.initHighlighting()</script>
+-->
 <!--
   Tried to get this chunk into js/05-countly.js but it has some issues with the async loading so fell back to putting it here
   where it works for some reason
