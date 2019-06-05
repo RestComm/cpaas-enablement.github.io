@@ -1302,34 +1302,31 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Restcomm on running on your local server.</p>
+<p>An active Restcomm Cloud account. If you do not have one, you can sign up <a href="https://cloud.restcomm.com/#/signup">here</a>.</p>
 </li>
 <li>
-<p>Jitsi SIP phone installed on your local server. (Latest version of Jitsi)</p>
+<p>Jitsi SIP phone running on your local machine. (Latest version of Jitsi)</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_step_1"><a class="anchor" href="#_step_1"></a>Step 1</h2>
+<h2 id="_creating_an_sms_application_with_restcomm_visual_designer"><a class="anchor" href="#_creating_an_sms_application_with_restcomm_visual_designer"></a>Creating an SMS application with Restcomm Visual Designer</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Create an SMS application using Restcomm Visual Designer (RVD)</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Go to <a href="https://cloud.restcomm.com/#/applications" class="bare">https://cloud.restcomm.com/#/applications</a> on your web browser and click on the <code>Add New App</code> button on the top right of your screen</p>
+<p>Log into your Restcomm Cloud account and navigate to <strong>Applications</strong></p>
 </li>
 <li>
-<p>Choose <code>Create a Visual Designer Application</code></p>
+<p>Choose to ”<strong>Create a Visual Designer Application</strong>”</p>
 </li>
 <li>
-<p>From the Template Gallery, select the <code>Blank</code> application template</p>
+<p>Select the ”<strong>Blank</strong>” template from the list available in the Template Gallery</p>
 </li>
 <li>
-<p>Name your application and set its <code>Type</code> to SMS and then hit <code>Create</code>. In this tutorial we will set as project name SMSTest.</p>
+<p>Name your application, set its <code>Type</code> to SMS and click “<strong>Create</strong>”</p>
 </li>
 </ul>
 </div>
@@ -1356,7 +1353,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest2.png" alt="visual Designer SMS test"></span></p>
+<p><span class="image"><img src="../_images/Send_SMS_to_SIP_welcome_module.png" alt="Send SMS to SIP Welcome module"></span></p>
 </div>
 <div class="paragraph">
 <p>Next, you need to create the <strong>Send SMS</strong> module</p>
@@ -1387,64 +1384,39 @@
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest3.png" alt="visual designer sms project save"></span></p>
+<p><span class="image"><img src="../_images/Send_SMS_to_SIP_Send_SMS_module.png" alt="Send SMS to SUP send module"></span></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_step_2"><a class="anchor" href="#_step_2"></a>Step 2</h2>
+<h2 id="_binding_your_application_to_a_phone_number"><a class="anchor" href="#_binding_your_application_to_a_phone_number"></a>Binding your application to a phone number</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>You must now link the newly created SMSTest to a Restcomm phone number.</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Go to http://127.0.0.1:8080/ in order to open the Restcomm Admin Management page</p>
+<p>Head back to the Restcomm Console and navigate to “<strong>Numbers</strong>”</p>
 </li>
 <li>
-<p>You will see the login, screen below. Log in using your credentials.</p>
+<p>Search for available phone number in the region you are interested in</p>
+</li>
+<li>
+<p>Click on “<strong>Register number</strong>”</p>
+</li>
+<li>
+<p>Select your application from the Voice URI drop down</p>
+</li>
+<li>
+<p>Click “<strong>Save</strong>”</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest4.png" alt="restcomm-rvd-smstest4"></span></p>
-</div>
-<div class="paragraph">
-<p>In the main dashboard, click on the menu <strong>Numbers</strong> to reveal a list of already configured phone numbers and the application to which they are linked.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Next, click on the <strong>+Register Number</strong> button</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest5.png" alt="restcomm-rvd-smstest5"></span></p>
-</div>
-<div class="paragraph">
-<p>In the <strong>Register Number</strong> window, enter a new phone number you will like to attach to your SMSTest application. In this tutorial <strong>7777</strong> is the number chosen.</p>
-</div>
-<div class="paragraph">
-<p>Click on the Optional Parameters to reveal more configuration options</p>
-</div>
-<div class="paragraph">
-<p>In the Voice section under <strong>Voice Request URL</strong>, click the option button at the end to reveal available RVD projects.</p>
-</div>
-<div class="paragraph">
-<p>Select SMSTest and at the end of the window, press the <strong>Register</strong> button to confirm your configuration.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest6.png" alt="restcomm-rvd-smstest6"></span></p>
-</div>
-<div class="paragraph">
-<p>The number <strong>7777</strong> will now appear in the list of registered numbers.</p>
+<p><span class="image"><img src="../_images/Bind_SMS_to_SIP_app_to_A_number.png" alt="Bing SMS to SUP app to a number"></span></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_step_3"><a class="anchor" href="#_step_3"></a>Step 3</h2>
+<h2 id="_configuring_the_jitsi_sip_phone"><a class="anchor" href="#_configuring_the_jitsi_sip_phone"></a>Configuring the Jitsi SIP phone</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this section, you will configure Jitsi SIP phone to use the Restcomm application you have just created and receive the SMS message you configured.</p>
@@ -1452,7 +1424,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Start two instances of jitsi from the command line.</p>
+<p>Start two instances of Jitsi from the command line.</p>
 </li>
 <li>
 <p>The first instance can be started by typing <strong>jitsi</strong></p>
@@ -1468,53 +1440,47 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Click on the menu Tools &#8594;Options</p>
+<p>Click on the menu "<strong>Tools</strong>" &#8594; "<strong>Options</strong>"</p>
 </li>
 <li>
-<p>Click on the Add button at the bottom of the window</p>
+<p>Click on the "<strong>Add</strong>" button at the bottom of the window</p>
 </li>
 <li>
-<p>In the Network, select SIP</p>
+<p>In the Network, select "<strong>SIP</strong>"</p>
 </li>
 <li>
-<p>SIP id = alice</p>
+<p>Set the "<strong>SIP id</strong>" to <code>alice</code></p>
 </li>
 <li>
-<p>Password = 1234</p>
-</li>
-<li>
-<p>Click on the <strong>Advanced</strong> button</p>
+<p>Set the password to 1234</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest7.png" alt="restcomm-rvd-smstest7"></span></p>
-</div>
-<div class="paragraph">
-<p>In the Account Registration Wizard, go to the Connection tab</p>
+<p><span class="image"><img src="../_images/Registering_SIP_client_Alice.png" alt="Registering SIP client Alice"></span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Enter <strong>127.0.0.1</strong> as the Registrar IP address and leave the port as default</p>
+<p>Click on the "<strong>Advanced</strong>" button</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In the section Proxy Options, uncheck the Configure proxy automatically and enter the following:</p>
+<p>In the Account Registration Wizard, go to the <strong>Connection</strong> tab</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Proxy = <strong>127.0.0.1</strong></p>
-</li>
-<li>
-<p>Port = <strong>5080</strong></p>
+<p>Enter <strong>{yourcompany}.restcomm.com</strong> as the Registrar IP address and leave the port as default</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest8a.png" alt="Send sms with Visual Designer"></span></p>
+<p>In the section Proxy Options, check to <strong>Configure proxy automatically</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/Jitsi,Account_Advanced_Settings.png" alt="Jitsi Account Advanced Settings"></span></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1530,13 +1496,8 @@
 <p><span class="image"><img src="../_images/restcomm-rvd-smstest9.png" alt="restcomm-rvd-sms"></span></p>
 </div>
 <div class="paragraph">
-<p>Next step is to configure the second instance with user Bob. The configuration is similar to the one used for Alice.</p>
+<p>Next, you will need to configure the second instance with user Bob. The configuration is similar to the one used for Alice.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_step_4"><a class="anchor" href="#_step_4"></a>Step 4</h2>
-<div class="sectionbody">
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -1575,14 +1536,14 @@ Alice configuration SIP port must match the port configured in the restcomm.xml 
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-lang:xml hljs" data-lang="lang:xml">&lt;sms-aggregator class="SmsService"&gt;
 	&lt;outbound-prefix&gt;&lt;/outbound-prefix&gt;
-	&lt;outbound-endpoint&gt;127.0.0.1:**5070**&lt;/outbound-endpoint&gt;
+	&lt;outbound-endpoint&gt;\{yourcompany}.restcomm.com:**5070**&lt;/outbound-endpoint&gt;
 &lt;/sms-aggregator&gt;</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_step_5"><a class="anchor" href="#_step_5"></a>Step 5</h2>
+<h2 id="_testing_your_sms_to_a_sip_phone_application"><a class="anchor" href="#_testing_your_sms_to_a_sip_phone_application"></a>Testing your SMS to a SIP phone application</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can now make a call from Bob to Alice. From the Jitsi SIP phone on which Bob is registered. make a call to <strong>7777</strong>, the number attached to the SMSTest application.</p>
@@ -1597,10 +1558,10 @@ Alice configuration SIP port must match the port configured in the restcomm.xml 
 <p>The Jitsi phone to which Alice is connected will ring.</p>
 </div>
 <div class="paragraph">
-<p>Answer the call and then hang up. The SMS message you entered in the <strong>Send SMS</strong> module of the RVD will appear in a pop-up window similar to the one below. Note that the number 55555 appears as the source of the SMS message.</p>
+<p>Answer the call and then hang up. The SMS message you entered in the <strong>Send SMS</strong> module of the RVD will appear in a pop-up window similar to the one below. Note that the number +5555 appears as the source of the SMS message.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest12.png" alt="restcomm-rvd-smstest12"></span></p>
+<p><span class="image"><img src="../_images/Send_SMS_to_SIP_SMS_reply.png" alt="Send SMS to SIP reply"></span></p>
 </div>
 </div>
 </div>
