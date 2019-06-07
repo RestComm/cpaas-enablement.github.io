@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessing custom SIP headers from an RCML or RVD application - Restcomm Docs</title>
+    <title>Accessing custom SIP headers from an RCML or Visual Designer application - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/rvd/Accessing-custom-SIP-headers.html">
-    <meta name="description" content="Restcomm provides an additional interface to communicate with an RCML/RVD application by means of custom SIP headers. The idea is that all custom SIP headers in a SIP message are detected and converted to HTTP parameters in the request to the RCML application using a convention. The RCML application can consume this parameters. Furthermore, RVD converts these parameters to RVD variables and makes them available to its modules.">
-    <meta name="keywords" content="sip headers, rcsml, rvd, restcomm custom sip headers, custom sip headers, rcml custom sip headers">
+    <meta name="description" content="Restcomm provides an additional interface to communicate with an RCML/Visual Designer application by means of custom SIP headers. The idea is that all custom SIP headers in a SIP message are detected and converted to HTTP parameters in the request to the RCML application using a convention. The RCML application can consume this parameters. Furthermore, RVD converts these parameters to RVD variables and makes them available to its modules.">
+    <meta name="keywords" content="sip headers, rcsml, visual designer, restcomm custom sip headers, custom sip headers, rcml custom sip headers">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
@@ -999,7 +999,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../api/usage-records-api.html">Usage Records API</a>
+              <a class="nav-link nav-flex-item-text" href="../api/usage-records-api.html">Usage Records</a>
               
             </span>
           </div>
@@ -1145,7 +1145,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="#">rcml/email.adoc</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/email-rcml.html">Email</a>
               
             </span>
           </div>
@@ -1298,16 +1298,16 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../../index.html">docs</a></li>
-    <li class="crumb"><a href="Accessing-custom-SIP-headers.html">Accessing custom SIP headers from an RCML or RVD application</a></li>
+    <li class="crumb"><a href="Accessing-custom-SIP-headers.html">Accessing custom SIP headers from an RCML or Visual Designer application</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>Accessing custom SIP headers from an RCML or RVD application</h1>
+  <h1>Accessing custom SIP headers from an RCML or Visual Designer application</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Restcomm provides an additional interface to communicate with an RCML/RVD application by means of custom SIP headers. The idea is that all custom SIP headers in a SIP message are detected and converted to HTTP parameters in the request to the RCML application using a convention. The RCML application can consume this parameters. Furthermore, RVD converts these parameters to RVD variables and makes them available to its modules.</p>
+<p>Restcomm provides an additional interface to communicate with an RCML/Visual Designer application by means of custom SIP headers. The idea is that all custom SIP headers in a SIP message are detected and converted to HTTP parameters in the request to the RCML application using a convention. The RCML application can consume this parameters. Furthermore, RVD converts these parameters to RVD variables and makes them available to its modules.</p>
 </div>
 </div>
 </div>
@@ -1341,10 +1341,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_restcomm_visual_designer_rvd_applications"><a class="anchor" href="#_restcomm_visual_designer_rvd_applications"></a>Restcomm Visual Designer (RVD) applications</h2>
+<h2 id="_visual_designer_applications"><a class="anchor" href="#_visual_designer_applications"></a>Visual Designer applications</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>RVD will take the previous convention one step further and create an RVD variable out of the parameter. Thus, the mapping from a custom SIP header to an RVD variable will be the following:</p>
+<p>Visual Designer will take the previous convention one step further and create an Visual Designer variable out of the parameter. Thus, the mapping from a custom SIP header to an RVD variable will be the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1352,15 +1352,15 @@
 </div>
 </div>
 <div class="paragraph">
-<p>So, if <strong>X-My-Header</strong> SIP header arrives at Restcomm, RVD will have a variable named <strong>$core_x_my_header</strong> available in its modules. Note the following:</p>
+<p>So, if <strong>X-My-Header</strong> SIP header arrives at Restcomm, Visual Designer will have a variable named <strong>$core_x_my_header</strong> available in its modules. Note the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>All characters are converted to lower case. This happens because although SIP headers are  not case insesitive while RVD variables are.</p>
+<p>All characters are converted to lower case. This happens because although SIP headers are  not case insesitive while Visual Designer variables are.</p>
 </li>
 <li>
-<p>All non alpha numeric characters i.e.<strong> [^A-Za-z0-9_]</strong>,  are converted to `_'  (underscore). That happens because RVD has some additional restrictions for naming variables. Here is the regular expression that is used for invalid characters to underscore:</p>
+<p>All non alpha numeric characters i.e.<strong> [^A-Za-z0-9_]</strong>,  are converted to `_'  (underscore). That happens because Visual Designer has some additional restrictions for naming variables. Here is the regular expression that is used for invalid characters to underscore:</p>
 </li>
 </ul>
 </div>

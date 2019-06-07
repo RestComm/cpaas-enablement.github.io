@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Trigger Overview - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/rvd/Using-web-trigger.html">
-    <meta name="description" content="Web Trigger is an alternative way to start a voice application. It allows establishing a call between an RVD application and a destination address using a simple HTTP request. Any RVD Voice application can be configured to be started using Web Trigger.">
+    <meta name="description" content="Web Trigger is an alternative way to start a voice application. It allows establishing a call between an Visual Designer application and a destination address using a simple HTTP request. Any RVD Voice application can be configured to be started using Web Trigger.">
     <meta name="keywords" content="web trigger, restcomm web trigger, start a voice app">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
@@ -999,7 +999,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../api/usage-records-api.html">Usage Records API</a>
+              <a class="nav-link nav-flex-item-text" href="../api/usage-records-api.html">Usage Records</a>
               
             </span>
           </div>
@@ -1145,7 +1145,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="#">rcml/email.adoc</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/email-rcml.html">Email</a>
               
             </span>
           </div>
@@ -1307,13 +1307,13 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Web Trigger is an alternative way to start a voice application. It allows establishing a call between an RVD application and a destination address using a simple HTTP request.
-Any RVD Voice application can be configured to be started using Web Trigger. The process of doing that is roughly the following:</p>
+<p>Web Trigger is an alternative way to start a voice application. It allows establishing a call between an Visual Designer application and a destination address using a simple HTTP request.
+Any Visual Designer voice application can be configured to be started using Web Trigger. The process of doing that is roughly the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Create a Voice application in RVD.</p>
+<p>Create a Voice application in Visual Designer.</p>
 </li>
 <li>
 <p>Enable and configure Web Trigger feature for this application.</p>
@@ -1332,7 +1332,7 @@ Any RVD Voice application can be configured to be started using Web Trigger. The
 <p>Custom authentication using an application-specific token.</p>
 </li>
 <li>
-<p>Initialization of RVD variables by using HTTP parameters.</p>
+<p>Initialization of Visual Designer variables by using HTTP parameters.</p>
 </li>
 <li>
 <p>Control caller identifier that will be presented to the callee.</p>
@@ -1354,12 +1354,12 @@ Any RVD Voice application can be configured to be started using Web Trigger. The
 <div class="ulist">
 <ul>
 <li>
-<p>Log into RVD and create a new project named TestWebTrigger.</p>
+<p>Log into Visual Designer and create a new project named TestWebTrigger.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>No need to change anything yet. If you don&#8217;t know what RVD is and how to create an application please have a look at <a href="#">RVD Basic Tasks</a> first.</p>
+<p>No need to change anything yet. If you don&#8217;t know what Visual Designer is and how to create an application please have a look at <a href="#">RVD Basic Tasks</a> first.</p>
 </div>
 </div>
 </div>
@@ -1477,7 +1477,7 @@ directly in the browser:</p>
 </td>
 <td class="content">
 Before giving it a try make sure that you have configured
- <a href="#configure-restcomm-api-credentials">Restcomm API credentials</a> in RVD settings.
+ <a href="#configure-restcomm-api-credentials">Restcomm API credentials</a> in Visual Designer settings.
 </td>
 </tr>
 </table>
@@ -1504,8 +1504,8 @@ will be used instead.</p>
 <div class="sect2">
 <h3 id="_configure_restcomm_api_access_credentials"><a class="anchor" href="#_configure_restcomm_api_access_credentials"></a>Configure Restcomm API access credentials</h3>
 <div class="paragraph">
-<p>In order to use application-specific tokens Restcomm API credentials should be configured in RVD
- settings. RVD relies on Restcomm Calls REST API to create the actual call between the
+<p>In order to use application-specific tokens Restcomm API credentials should be configured in Visual Designer
+ settings. Visual Designer relies on Restcomm Calls REST API to create the actual call between the
  application and the destination address. For that, it needs to know the credentials of
  the Restcomm Account that will make the call.</p>
 </div>
@@ -1550,7 +1550,7 @@ will be used instead.</p>
 <h3 id="_adding_variables"><a class="anchor" href="#_adding_variables"></a>Adding variables</h3>
 <div class="paragraph">
 <p>Application behaviour can be further enhanced by adding parameters to your trigger URL.
-All additional parameters will be converted to RVD variables and can be used in your application.</p>
+All additional parameters will be converted to Visual Designer variables and can be used in your application.</p>
 </div>
 <div class="paragraph">
 <p>Bellow is a personalized greeting of the application using <code>firstname</code> and <code>lastname</code> variables.</p>
@@ -1573,7 +1573,7 @@ following:</p>
 <h4 id="_variable_scope"><a class="anchor" href="#_variable_scope"></a>Variable scope</h4>
 <div class="paragraph">
 <p>In the example above <code>firstname</code> and <code>lastname</code> parameters defined in the url will result in creating module-scoped
-RVD variables. This means that the variables will be available only in the first module
+Visual Designer variables. This means that the variables will be available only in the first module
 execution. To make them last for the whole application lifecycle the 'User parameter scope'
 option in <em>Advanced configuration</em> options should be set to <em>Application</em> as illustrated below.</p>
 </div>
@@ -1587,7 +1587,7 @@ option in <em>Advanced configuration</em> options should be set to <em>Applicati
 <h4 id="_destination_address_syntax"><a class="anchor" href="#_destination_address_syntax"></a>Destination address syntax</h4>
 <div class="paragraph">
 <p>Throughout this tutorial we have only used <em>client</em> destinations for the call. Restcomm
-Calls REST API and consequently RVD WebTrigger support four different types of destination
+Calls REST API and consequently Visual Designer WebTrigger support four different types of destination
 address. Any of these types can be used as a destination address. Here are some example
 values you can use as destinations either directly in the URL <code>to</code> parameter or as overrides
  in the configuration form.</p>

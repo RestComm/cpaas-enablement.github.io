@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="csp-persona">
+<html lang="en" class="enterprise-persona">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organizations - Restcomm Docs</title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/1.0/api/organization-api.html">
+    <title>Usage Records - Restcomm Docs</title>
+    <link rel="canonical" href="https://www.restcomm.com/docs/1.0/api/usage-records-api.html">
+    <meta name="description" content="The UsageRecords REST resource provides a simple API to retrieve usage made by your Restcomm account during any time period and by any usage category.">
+    <meta name="keywords" content="usage records">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
@@ -15,12 +17,12 @@
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
       </head>
-  <body class="article" >
+  <body class="article" style="display: none">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item header-logo-link" href="
-        /docs/1.0/
+        /docs/
         ">
       </a>
     </div>
@@ -39,9 +41,27 @@
     </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle">
+      </button>
+      <button class="navbar-enterprise-burger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+      <a class="navbar-enterprise-item" href="/docs/1.0/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/1.0/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/1.0/rvd/index.html">Visual Designer</a>
+
+
+
+    </div>
+  </nav>
 </header>
 <div class="main-wrapper">
-<div class="navigation-container" data-component="docs" data-version="1.0"  style="display: none;">
+<div class="navigation-container" data-component="docs" data-version="1.0" >
   <aside class="navigation">
     <div class="panels">
 <div class="navigation-menu is-active" data-panel="menu">
@@ -1278,177 +1298,34 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">docs</a></li>
-    <li class="crumb"><a href="organization-api.html">Organizations</a></li>
+    <li class="crumb"><a href="usage-records-api.html">Usage Records</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>Organizations</h1>
+  <h1>Usage Records</h1>
 <div class="sect1">
-<h2 id="_organizations"><a class="anchor" href="#_organizations"></a>Organizations</h2>
+<h2 id="_usage_records"><a class="anchor" href="#_usage_records"></a>Usage Records</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Organization are useful for segmenting accounts and providing restcomm functionalities on custom domain name.</p>
+<p>The UsageRecords REST resource provides a simple API to retrieve usage made by your Restcomm account during any time period and by any usage category. This makes it easy to build reporting and analytics tools for your application. UsageRecords used in combination with Subaccounts created for each of your end-users make it possible to build recurring usage-based billing systems on top of Restcomm&#8217;s API with just a few simple API calls.</p>
+</div>
+<div class="paragraph">
+<p>You can also set up usage triggers to notify your application when a particular category of usage reaches a threshold on a daily, monthly, yearly, or all-time basis. Triggers can help determine if your users have reached a cap on usage, or if your application may have runaway requests. For more on usage triggers, see the Usage Triggers documentation.</p>
 </div>
 <div class="sect2">
-<h3 id="_organization_api"><a class="anchor" href="#_organization_api"></a>Organization Api</h3>
-<div class="paragraph">
-<p>Organization api will provide functionality to perform CRUD (create, read, update and delete) operations for organizations. Api is mainly responsible for communicating with configureable DNS hosting service provider (for example Route-53 or others) for making changes in record sets.</p>
-</div>
+<h3 id="_usagerecords_list_resource"><a class="anchor" href="#_usagerecords_list_resource"></a>UsageRecords List Resource</h3>
 <div class="sect3">
-<h4 id="_organization_entity"><a class="anchor" href="#_organization_entity"></a>Organization Entity</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Property</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies this organization.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">domain_name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A custom DNS hostname that you create on Restcomm Cloud. It can accept traffic for an account. If anyone makes a SIP/HTTP request using that domain, say the SIP URI sip:alice@cloud.restcomm.com, it will route to Restcomm.</p>
-<p class="tableblock">Total Length of domain_name can be upto 255 Characters. It can contain only letters, number and “-” aka hyphen sign.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">date_created</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this organization was created.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">date_updated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this organization was last updated.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active or Closed.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_create_new_organization"><a class="anchor" href="#_create_new_organization"></a>Create new organization</h4>
-<div class="sect4">
-<h5 id="_rationale"><a class="anchor" href="#_rationale"></a>Rationale</h5>
+<h4 id="_resource_uri"><a class="anchor" href="#_resource_uri"></a>Resource URI</h4>
 <div class="paragraph">
-<p>Rational to create a new organization pretty simple and described already, we want to onboard a new customer and provide them with their own domain and account on the platform.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>/{Version}/Organizations/{domainName}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>HTTP PUT to above Uri will create a new organization and returns the representation of the organization resource, including the properties above.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_uri_parameters"><a class="anchor" href="#_uri_parameters"></a>Uri Parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Property</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">domainName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A custom DNS hostname that you create on Restcomm Cloud. It can accept traffic for an account. If anyone makes a SIP/HTTP request using that domain, say the SIP URI sip:alice@cloud.restcomm.com, it will route to Restcomm.</p>
-<p class="tableblock">Total Length of domain_name can be upto 255 Characters. It can contain only letters, number and “-” aka hyphen sign.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="literalblock">
-<div class="title">Add new organization with domain name "test" - Example</div>
-<div class="content">
-<pre>curl -X PUT "https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Organizations/test"</pre>
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>&lt;Organization&gt;
-  &lt;Sid&gt;OR905d1b4e9d3045acb268f8d0fdf259ac&lt;/Sid&gt;
-  &lt;DomainName&gt;test.restcomm.com.&lt;/DomainName&gt;
-  &lt;Status&gt;active&lt;/Status&gt;
-  &lt;DateCreated&gt;Thu, 28 Sep 2017 16:11:39 +0000&lt;/DateCreated&gt;
-  &lt;DateUpdated&gt;Thu, 28 Sep 2017 16:11:39 +0000&lt;/DateUpdated&gt;
-&lt;/Organization&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_optional_request_parameters"><a class="anchor" href="#_optional_request_parameters"></a>Optional Request Parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Property</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HostedZoneId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of hosted zone on your DNS server, under which you want to create above domainName, if not provided system will use default configured one.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="literalblock">
-<div class="title">Add new organization with domain name "test" under a specific hosted zone - Example</div>
-<div class="content">
-<pre>curl -X PUT "https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012-04-24/Organizations/test" -d "HostedZoneId=&lt;myHostedZoneId&gt;"</pre>
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>&lt;Organization&gt;
-  &lt;Sid&gt;OR905d1b4e9d3045acb268f8d0fdf259ac&lt;/Sid&gt;
-  &lt;DomainName&gt;test.restcomm.com.&lt;/DomainName&gt;
-  &lt;Status&gt;active&lt;/Status&gt;
-  &lt;DateCreated&gt;Thu, 28 Sep 2017 16:11:39 +0000&lt;/DateCreated&gt;
-  &lt;DateUpdated&gt;Thu, 28 Sep 2017 16:11:39 +0000&lt;/DateUpdated&gt;
-&lt;/Organization&gt;</pre>
-</div>
-</div>
-</div>
-</div>
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Usage/Records</strong></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_read_organization"><a class="anchor" href="#_read_organization"></a>Read organization</h4>
+<h4 id="_resource_properties"><a class="anchor" href="#_resource_properties"></a>Resource Properties</h4>
 <div class="paragraph">
-<p>An account can read organization details if it belongs to that particular organization. Super admins can read all organizations.</p>
+<p>This resource and its subresources always return a list of UsageRecords. Each UsageRecord is represented by the following properties:</p>
 </div>
-<div class="paragraph">
-<p>Read organization resource will return organization entity provided above.</p>
-</div>
-<div class="sect4">
-<h5 id="_single_resource_uri"><a class="anchor" href="#_single_resource_uri"></a>Single Resource URI</h5>
-<div class="paragraph">
-<p>Will return single organization resource</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>/{Version}/Organizations(.json)/\{OrganizationSid}</code></pre>
-</div>
-</div>
-<div class="sect5">
-<h6 id="_response_headers"><a class="anchor" href="#_response_headers"></a>Response Headers</h6>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1456,146 +1333,502 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Header</th>
+<th class="tableblock halign-left valign-top">Property</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Link</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">a link to the effective Profile document with attribute "rel" set to "related"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The category of usage. See Usage Categories below.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A human-readable description of the usage category.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Account that accrued the usage.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StartDate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first date for which usage is included in this UsageRecord, formatted as YYYY-MM-DD. All dates are in GMT.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EndDate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The last date for which usage is included in this UsageRecord, formatted as YYYY-MM-DD. All dates are in GMT.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The amount of usage (e.g. the number of call minutes). This is frequently the same as <code>Count</code>, but may be different for certain usage categories like calls, where <code>Count</code> represents the number of calls and <code>Usage</code> represents the number of minutes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UsageUnit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The units in which <code>Usage</code> is measured. For example <code>minutes</code> for calls, <code>messages</code> for SMS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Count</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of usage events (e.g. the number of calls).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CountUnit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The units in which <code>Count</code> is measured. For example <code>calls</code> for calls, <code>messages</code> for SMS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Price</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total price of the usage, in the currency associated with the account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PriceUnit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The currency in which <code>Price</code> is measured, in ISO 4127 format (e.g. <code>usd</code>, <code>eur</code>, <code>jpy</code>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI that returns only this UsageRecord, relative to <code><a href="https://Restcomm_IP_ADDRESS" class="bare">https://Restcomm_IP_ADDRESS</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SubresourceUris</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subresource Uris for this UsageRecord. See List Subresources.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="literalblock">
-<div class="title">Read Organization Example</div>
-<div class="content">
-<pre>curl -X GET "https://{accountSid}:{authToken}@cloud.restcomm.com/restcomm/2012-04-24/Organizations/{OrganizationSid}"</pre>
 </div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="literalblock">
-<div class="content">
-<pre>&lt;Organization&gt;
-  &lt;Sid&gt;OR905d1b4e9d3045acb268f8d0fdf259ac&lt;/Sid&gt;
-  &lt;DomainName&gt;test.restcomm.com.&lt;/DomainName&gt;
-  &lt;Status&gt;active&lt;/Status&gt;
-  &lt;DateCreated&gt;Thu, 28 Sep 2017 16:11:39 +0000&lt;/DateCreated&gt;
-  &lt;DateUpdated&gt;Thu, 28 Sep 2017 16:11:39 +0000&lt;/DateUpdated&gt;
-&lt;/Organization&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="literalblock">
-<div class="title">Read Organization Json Example</div>
-<div class="content">
-<pre>curl -X GET "https://{accountSid}:{authToken}@cloud.restcomm.com/restcomm/2012-04-24/Organizations.json/{OrganizationSid}"</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_list_resource_uri"><a class="anchor" href="#_list_resource_uri"></a>List Resource URI</h5>
+<div class="sect3">
+<h4 id="_usage_count_and_price"><a class="anchor" href="#_usage_count_and_price"></a>Usage, Count, and Price</h4>
 <div class="paragraph">
-<p>Will return list of organizations</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>/{Version}/Organizations(.json)</code></pre>
+<p>Each UsageRecord contains three amounts: <code>Usage</code>, <code>Count</code>, and <code>Price</code>. <code>Usage</code> is the primary way usage is measured for that category: <code>minutes</code> for calls, <code>messages</code> for SMS, etc. <code>Count</code> is the number of usage events: <code>calls</code> for calls, etc. And <code>Price</code> is the price of the usage in the currency associated with the account. Each UsageRecord also has fields that show the units in which each amount is measured: <code>Usage</code> is measured in units of <code>UsageUnit</code>, for instance. These fields make it easy to build usage dashboards. For example, you can always display human-readable strings describing usage with "`$Usagz`</p>
 </div>
 </div>
-</div>
-<div class="sect4">
-<h5 id="_list_filter"><a class="anchor" href="#_list_filter"></a>List Filter</h5>
+<div class="sect3">
+<h4 id="_usage_categories"><a class="anchor" href="#_usage_categories"></a>Usage Categories</h4>
 <div class="paragraph">
-<p>You can filter an organization list resource by providing following parameters.</p>
+<p>A UsageRecord&#8217;s <code>Category</code> defines the type of usage it represents. The full list of all categories is <a href="#usage-all-categories">here</a>, but you&#8217;ll usually focus on just a few common categories:</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Category</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Property</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calls</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All voice calls. <code>Count</code> is the number of calls and <code>Usage</code> is the number of minutes.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active or Closed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All SMS messages. <code>Count</code> and <code>Usage</code> are both the number of messages sent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phonenumbers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All phone numbers owned by the account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recordings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings of voice calls. <code>Count</code> is the number of recordings and <code>Usage</code> is the number of recorded minutes. Note that Restcomm doesn&#8217;t charge for making recordings (only storing them long term) so <code>Price</code> will always be 0.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transcriptions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transcriptions of voice calls. <code>Count</code> is the number of transcriptions and <code>Usage</code> is the number of transcribed minutes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">totalprice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total price of all usage. <code>Usage</code> will be the same as <code>Price</code>, and <code>Count</code> will be empty. Note that because some Restcomm costs may not be included in any usage category, the sum of the <code>Price</code> of all UsageRecords may not be equal to the <code>Price</code> of <code>TotalPrice</code>.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="literalblock">
-<div class="title">Read Organization List with filter Example</div>
-<div class="content">
-<pre>curl -X GET "https://{accountSid}:{authToken}@cloud.restcomm.com/restcomm/2012-04-24/Organizations/{OrganizationSid}.json" -d "Status=active"</pre>
-</div>
-</div>
-</div>
 </div>
 <div class="sect3">
-<h4 id="_delete_organization"><a class="anchor" href="#_delete_organization"></a>Delete Organization</h4>
+<h4 id="_http_get"><a class="anchor" href="#_http_get"></a>HTTP GET</h4>
 <div class="paragraph">
-<p>An existing Organization can be deleted using the REST API.
-Actually the Delete request will set the Organization to state <code>Closed</code></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>/{Version}/Organizations/\{organizationSid}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>HTTP DELETE to above Uri will delete an existing organization and will return the representation of the organization resource.</p>
+<p>Returns <strong>UsageRecords</strong> for all usage categories. The list includes paging information.</p>
 </div>
 <div class="sect4">
-<h5 id="_uri_parameters_2"><a class="anchor" href="#_uri_parameters_2"></a>Uri Parameters</h5>
+<h5 id="_list_filters"><a class="anchor" href="#_list_filters"></a>List Filters</h5>
+<div class="paragraph">
+<p>By default, the UsageRecords resource will return one UsageRecord for each <code>Category</code>, representing all usage accrued all-time for the account. You can filter the usage <code>Category</code> or change the date-range over which usage is counted using optional GET query parameters. Note that query parameters are case-sensitive:</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Property</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage of this usage category.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">organizationSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies this organization.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StartDate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage that has occurred on or after this date. Format is YYYY-MM-DD. All dates are in GMT. As a convenience, you can also specify offsets to today. For example, <code>StartDate=-30days</code> will make <code>StartDate</code> be 30 days before today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EndDate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage that has occurred on or before this date. Format is YYYY-MM-DD. All dates are in GMT. As a convenience, you can also specify offsets to today. For example, <code>EndDate=+30days</code> will make <code>EndDate</code> be 30 days from today.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For example, you might request all usage records for the month of April, 2012. In this case, the query string would be <strong><code>StartDate=2012-04-01&amp;EndDate=2012-04-30</code>.</strong> This would return one <strong>UsageRecord</strong> for each <strong>usage-type</strong> summarizing the usage during April. The list includes paging information. It&#8217;s also possible to group usage by day, by month, or by year using the subresources described below.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_list_subresources"><a class="anchor" href="#_list_subresources"></a>List Subresources</h4>
+<div class="paragraph">
+<p>The main UsageRecords list resource supports a variety of convenience subresources. In general these take the form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/2012-04-24/Accounts/\{AccountSid}/Usage/Records/{Subresource}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Supported subresources are:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Subresource</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Daily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return multiple UsageRecords for each usage category, each representing usage over a daily time-interval.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monthly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return multiple UsageRecords for each usage category, each representing usage over a monthly time-interval.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yearly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return multple UsageRecords for each usage category, each representing usage over a yearly time-interval.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AllTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return a single UsageRecord for each usage category, each representing usage over the date-range specified. This is the same as the root /Usage/Records.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Today</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return a single UsageRecord per usage category, for today&#8217;s usage only.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yesterday</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return a single UsageRecord per usage category, for yesterday&#8217;s usage only.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ThisMonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return a single UsageRecord per usage category, for this month&#8217;s usage only.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LastMonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return a single UsageRecord per usage category, for last month&#8217;s usage only.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>These convenience subresources can be used to draw a graph of daily calls, display dashboards of monthly usage across all usage categories, or build a simple usage-based billing system based on last month&#8217;s usage totals. All subresources support the same list filters as the root UsageCounters resource.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP POST</strong></p>
+</div>
+<div class="paragraph">
+<p>Not supported.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP PUT</strong></p>
+</div>
+<div class="paragraph">
+<p>Not supported.</p>
+</div>
+<div class="paragraph">
+<p><strong>HTTP DELETE</strong></p>
+</div>
+<div class="paragraph">
+<p>Not supported.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_full_list_of_all_usage_categories"><a class="anchor" href="#_full_list_of_all_usage_categories"></a>Full List of All Usage Categories</h4>
+<div class="paragraph">
+<p>The full list of supported usage categories are:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Category</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calls</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All voice calls, inbound &amp; outbound. <code>Count</code> is the number of calls and <code>Usage</code> is the number of minutes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calls-inbound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All inbound voice calls, to both toll-free and local numbers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calls-inbound-local</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All inbound voice calls to local numbers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calls-inbound-tollfree</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All inbound voice calls to toll-free numbers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calls-outbound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All outbound voice calls.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calls-client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All Restcomm Client voice calls.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calls-sip</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All SIP calls.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All SMS messages, both inbound and outbound. <code>Count</code> and <code>Usage</code> are both the number of messages sent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sms-inbound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All inbound SMS messages, to both short-codes and long-codes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sms-inbound-shortcode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All inbound SMS messages to short-codes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sms-inbound-longcode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All inbound SMS messages to long-codes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sms-outbound</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All outbound SMS messages, from both short-codes and long-codes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sms-outbound-shortcode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All outbound SMS messages from short-codes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sms-outbound-longcode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All outbound SMS messages from long-codes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phonenumbers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All phone numbers owned by the account, toll-free and local.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phonenumbers-tollfree</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All toll-free phone numbers owned by the account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phonenumbers-local</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All local phone numbers owned by the account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shortcodes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All ShortCodes owned by the account, of all types.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shortcodes-vanity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All vanity ShortCodes owned by the account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shortcodes-random</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All randomly-assigned ShortCodes owned by the account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shortcodes-customerowned</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All ShortCodes owned by the account that are leased from another provider.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">calleridlookups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CallerID (CallerName) lookups.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recordings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings of voice calls. <code>Count</code> is the number of recordings and <code>Usage</code> is the number of recorded minutes. Note that Restcomm doesn&#8217;t charge for making recordings (only storing them long term) so <code>Price</code> will always be 0.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transcriptions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transcriptions of voice calls. <code>Count</code> is the number of transcriptions and <code>Usage</code> is the number of transcribed minutes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recordingstorage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of storage used by call recordings stored for the account. <code>Count</code> is the number of stored recordings, <code>Usage</code> is the number of stored recorded minutes, and <code>Price</code> is the price of storing the recordings.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">totalprice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total price of all usage. <code>Usage</code> will be the same as <code>Price</code>, and <code>Count</code> will be empty. Note that because some Restcomm costs may not be included in any usage category, the sum of the <code>Price</code> in all UsageRecords may or may not be equal to the <code>Price</code> of <code>TotalPrice</code>.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_migrate_client_passwords"><a class="anchor" href="#_migrate_client_passwords"></a>Migrate Client Passwords</h4>
-<div class="sect4">
-<h5 id="_rationale_2"><a class="anchor" href="#_rationale_2"></a>Rationale</h5>
+<div class="sect2">
+<h3 id="_usagerecords_instance_resource"><a class="anchor" href="#_usagerecords_instance_resource"></a>UsageRecords Instance Resource</h3>
 <div class="paragraph">
-<p>This will encrypt all associated Clients passwords to a given encryption algorithm.
-At this moment, the target algorithm is hardcoded to MD5.</p>
+<p>You cannot make requests directly to a UsageRecord resource. Instead, make a request to the UsageRecords list resource or one of its</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_of_getting_daily_calls_stats"><a class="anchor" href="#_example_of_getting_daily_calls_stats"></a>Example of Getting Daily Calls Stats</h2>
+<div class="sectionbody">
+<script>
+      function openLanguage(language, index) {
+        const sampleClasses = document.getElementsByClassName("sample-language-" + index);
+        for (const sampleClass of sampleClasses) {
+          sampleClass.style.display = "none";
+        }
+        document.getElementById(language + '-' + index).style.display = "block";
+
+        // first, disable the previously selected tab title
+        const previouslyActive = document.getElementsByClassName('scsIndex-' + index + ' is-active')
+        if (previouslyActive.length > 0) {
+          previouslyActive[0].classList.toggle('is-active')
+        }
+
+        // then, enable the newly selected title
+        event.target.classList.toggle('is-active')
+      }
+      </script>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-11 is-active" onclick="openLanguage('Curl', 11)">Curl</button>
+        <button class="sample-code-button scsIndex-11" onclick="openLanguage('Nodejs', 11)">Nodejs</button>
+        <button class="sample-code-button scsIndex-11" onclick="openLanguage('Python', 11)">Python</button>
+        <button class="sample-code-button scsIndex-11" onclick="openLanguage('Java', 11)">Java</button>
+      </div>
+      <div id="Curl-11" class="sample-language-11">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/ACCOUNT_SID/Usage/Records/Daily.xml \
+   -u "YourAccountSid:YourAuthToken"
+</code></pre>
+      </div>
+      <div id="Nodejs-11" class="sample-language-11" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.xml',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-11" class="sample-language-11" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("GET", '/restcomm/2012-04-24/"Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.xml',
+      headers=headers)
+res = conn.getresponse()
+
+// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-11" class="sample-language-11" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/" + ACCOUNT_SID + "/Usage/Records/Daily.xml");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>/\{Version}/Organizations/\{OrganizationSid}/Migrate</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>HTTP PUT to above Uri will encrypt all Client passwords and returns a list of Clients migrated.</p>
-</div>
-<div class="literalblock">
-<div class="title">Migrate Organization Example</div>
-<div class="content">
-<pre>curl -X PUT "https://{accountSid}:{authToken}@cloud.restcomm.com/restcomm/2012-04-24/Organizations/{OrganizationSid}.json/Migrate"</pre>
-</div>
-</div>
-</div>
+<pre>&lt;RestcommResponse&gt;
+  &lt;UsageRecords&gt;
+    &lt;UsageRecord&gt;
+      &lt;Category&gt;calls&lt;/Category&gt;
+      &lt;Description&gt;Total Calls&lt;/Description&gt;
+      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+      &lt;StartDate&gt;2016-01-01&lt;/StartDate&gt;
+      &lt;EndDate&gt;2016-01-01&lt;/EndDate&gt;
+      &lt;Usage&gt;4&lt;/Usage&gt;
+      &lt;UsageUnit&gt;minutes&lt;/UsageUnit&gt;
+      &lt;Count&gt;2&lt;/Count&gt;
+      &lt;CountUnit&gt;calls&lt;/CountUnit&gt;
+      &lt;Price&gt;0.0&lt;/Price&gt;
+      &lt;PriceUnit&gt;USD&lt;/PriceUnit&gt;
+      &lt;Uri&gt;/todo&lt;/Uri&gt;
+    &lt;/UsageRecord&gt;
+    &lt;UsageRecord&gt;
+      &lt;Category&gt;calls&lt;/Category&gt;
+      &lt;Description&gt;Total Calls&lt;/Description&gt;
+      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
+      &lt;StartDate&gt;2016-01-04&lt;/StartDate&gt;
+      &lt;EndDate&gt;2016-01-04&lt;/EndDate&gt;
+      &lt;Usage&gt;0&lt;/Usage&gt;
+      &lt;UsageUnit&gt;minutes&lt;/UsageUnit&gt;
+      &lt;Count&gt;1&lt;/Count&gt;
+      &lt;CountUnit&gt;calls&lt;/CountUnit&gt;
+      &lt;Price&gt;0.0&lt;/Price&gt;
+      &lt;PriceUnit&gt;USD&lt;/PriceUnit&gt;
+      &lt;Uri&gt;/todo&lt;/Uri&gt;
+    &lt;/UsageRecord&gt;
+  &lt;/UsageRecords&gt;</pre>
 </div>
 </div>
 </div>
@@ -1608,9 +1841,8 @@ At this moment, the target algorithm is hardcoded to MD5.</p>
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/programmable.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/programmable.html">Programmable SMS</a></p>
-          <p><a href="/docs/1.0/message-exchange.html">Message Exchange</a></p>
+          <p><a href="/docs/1.0/api/voice-category.html">Programmable Voice</a></p>
+          <p><a href="/docs/1.0/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Use cases</h5>
@@ -1620,27 +1852,12 @@ At this moment, the target algorithm is hardcoded to MD5.</p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
-        <p><a href="https://www.restcomm.com/blog/">Blog</a></p>
 
-          <p><a id="terms-link" href="/docs/1.0/support.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" href="/docs/1.0/terms.html">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
         <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
-        <p>
-          <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
-          <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
-          <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
-          <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
-        </p>
-      </div>
-    </div>
-    <div class="footer-bottom-container">
-      <div class="footer-logo">
-        <a class="footer-logo-link" href="https://telestax.com"></a>
-      </div>
-      <div class="footer-copyright">
-        <p class="footer-copyright-paragraph">COPYRIGHT © 2018, TELESTAX INC., ALL RIGHTS RESERVED.</p>
       </div>
     </div>
   </div>
