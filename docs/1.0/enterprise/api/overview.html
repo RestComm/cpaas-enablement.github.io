@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REST API Overview - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/api/overview.html">
-    <meta name="description" content="#{&quot;spsParm&quot;:&quot;application_name&quot;,&quot;rcText&quot;:&quot;Restcomm&quot;,&quot;defaultText&quot;:&quot;$INFER_FROM_DOMAIN&quot;} REST APIs power the #{&quot;spsParm&quot;:&quot;application_name&quot;,&quot;rcText&quot;:&quot;Restcomm&quot;,&quot;defaultText&quot;:&quot;$INFER_FROM_DOMAIN&quot;} Communications Platform as a Service (CPaaS) and represent wide range of operations that enable you to create programmable Voice and SMS applications. You can use the REST APIs to create enterprise application that focus on your users needs. The REST APIs are implemented on the HTTP protocol, so you can use them with your preferred programming language and tools.">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -25,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1042,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1306,7 +1294,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="replacement-parm" data-parm-key="application_name">Restcomm</span> REST APIs power the <span class="replacement-parm" data-parm-key="application_name">Restcomm</span> Communications Platform as a Service (CPaaS) and represent wide range of operations that enable you to create programmable Voice and SMS applications. You can use the REST APIs to create enterprise application that focus on your users needs. The REST APIs are implemented on the HTTP protocol, so you can use them with your preferred programming language and tools.</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> REST APIs power the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Communications Platform as a Service (CPaaS) and represent wide range of operations that enable you to create programmable Voice and SMS applications. You can use the REST APIs to create enterprise application that focus on your users needs. The REST APIs are implemented on the HTTP protocol, so you can use them with your preferred programming language and tools.</p>
 </div>
 </div>
 </div>
@@ -1338,7 +1326,7 @@
 <h2 id="_api_endpoint"><a class="anchor" href="#_api_endpoint"></a>API Endpoint</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The base for all the API urls is: <strong><code><span class="local-link">https://$DOMAIN/restcomm/2012-04-24</span></code></strong></p>
+<p>The base for all the API urls is: <strong><code><span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm/2012-04-24</span></code></strong></p>
 </div>
 </div>
 </div>
@@ -1346,13 +1334,13 @@
 <h2 id="_supported_http_methods"><a class="anchor" href="#_supported_http_methods"></a>Supported HTTP Methods</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>GET</strong>: Lists or reads objects and includes the information needed to perform any Read operations on the object. Sample use: list all of the applications under your Restcomm account.</p>
+<p><strong>GET</strong>: Lists or reads objects and includes the information needed to perform any Read operations on the object. Sample use: list all of the applications under your <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> account.</p>
 </div>
 <div class="paragraph">
-<p><strong>POST/PUT</strong>: Creates or updates objects. Most requests using the POST/PUT method require JSON/XML in the request body. Sample use: modify a Client under your Restcomm account.</p>
+<p><strong>POST/PUT</strong>: Creates or updates objects. Most requests using the POST/PUT method require JSON/XML in the request body. Sample use: modify a Client under your <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> account.</p>
 </div>
 <div class="paragraph">
-<p><strong>DELETE</strong>: Removes objects. Sample use: delete an application or client under your Restcomm account.</p>
+<p><strong>DELETE</strong>: Removes objects. Sample use: delete an application or client under your <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> account.</p>
 </div>
 </div>
 </div>
@@ -1360,13 +1348,13 @@
 <h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="replacement-parm" data-parm-key="application_name">Restcomm</span> APIs use basic HTTP authentication to restrict access to API endpoints to authenticated users only. After you sign up with Restcomm, you can find your Account SID and Auth Token by navigating to <code>your profile</code> &#8594; <code>Account</code> in the <span class="replacement-parm" data-parm-key="application_name">Restcomm</span> Console.</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> APIs use basic HTTP authentication to restrict access to API endpoints to authenticated users only. After you sign up with <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>, you can find your Account SID and Auth Token by navigating to <code>your profile</code> &#8594; <code>Account</code> in the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Console.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/Restcomm_AccountSID_and_Token.png" alt="Restcomm Account SID and Token"></span></p>
+<p><span class="image"><img src="../_images/Restcomm_AccountSID_and_Token.png" alt="<span class=&quot;sps-text non-sps-link&quot; data-parm-text=&quot;application_name&quot; data-default-text=&quot;$INFER_FROM_DOMAIN&quot;>Restcomm</span> Account SID and Token"></span></p>
 </div>
 <div class="paragraph">
-<p>You then need to use these credentials in your request&#8217;s Authorization header using <code>Basic</code> authentication type (i.e. <code>Authorization: Basic &lt;base64-encoded AccountSID:AuthToken&gt;</code>). Here&#8217;s how you would use an HTTP client to authenticate with <span class="replacement-parm" data-parm-key="application_name">Restcomm</span>:</p>
+<p>You then need to use these credentials in your request&#8217;s Authorization header using <code>Basic</code> authentication type (i.e. <code>Authorization: Basic &lt;base64-encoded AccountSID:AuthToken&gt;</code>). Here&#8217;s how you would use an HTTP client to authenticate with <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>:</p>
 </div>
 <script>
       function openLanguage(language, index) {
@@ -1387,17 +1375,17 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-53 is-active" onclick="openLanguage('Curl', 53)">Curl</button>
-        <button class="sample-code-button scsIndex-53" onclick="openLanguage('Nodejs', 53)">Nodejs</button>
-        <button class="sample-code-button scsIndex-53" onclick="openLanguage('Python', 53)">Python</button>
-        <button class="sample-code-button scsIndex-53" onclick="openLanguage('Java', 53)">Java</button>
+        <button class="sample-code-button scsIndex-55 is-active" onclick="openLanguage('Curl', 55)">Curl</button>
+        <button class="sample-code-button scsIndex-55" onclick="openLanguage('Nodejs', 55)">Nodejs</button>
+        <button class="sample-code-button scsIndex-55" onclick="openLanguage('Python', 55)">Python</button>
+        <button class="sample-code-button scsIndex-55" onclick="openLanguage('Java', 55)">Java</button>
       </div>
-      <div id="Curl-53" class="sample-language-53">
+      <div id="Curl-55" class="sample-language-55">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-53" class="sample-language-53" style="display:none">
+      <div id="Nodejs-55" class="sample-language-55" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1416,7 +1404,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-53" class="sample-language-53" style="display:none">
+      <div id="Python-55" class="sample-language-55" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -1436,7 +1424,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-53" class="sample-language-53" style="display:none">
+      <div id="Java-55" class="sample-language-55" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1477,7 +1465,7 @@ public class JavaSampleClass {
 <h2 id="_responses"><a class="anchor" href="#_responses"></a>Responses</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="replacement-parm" data-parm-key="application_name">Restcomm</span> can return its API responses either in <code>.json</code> or <code>.xml</code> format depending on the suffix of the url the request was made on. For example a request sent to <code>https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json</code> will yield a <code>.json</code> response, while a request sent to <code>https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.xml</code> will yield an <code>.xml</code> response.</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> can return its API responses either in <code>.json</code> or <code>.xml</code> format depending on the suffix of the url the request was made on. For example a request sent to <code><span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json</span></code> will yield a <code>.json</code> response, while a request sent to <code><span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.xml</span></code> will yield an <code>.xml</code> response.</p>
 </div>
 </div>
 </div>
@@ -1485,7 +1473,7 @@ public class JavaSampleClass {
 <h2 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Some <span class="replacement-parm" data-parm-key="application_name">Restcomm</span> APIs support pagination by accepting as query parameters the page number we interested in as well as the page size. The following query parameters are supported:</p>
+<p>Some <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> APIs support pagination by accepting as query parameters the page number we interested in as well as the page size. The following query parameters are supported:</p>
 </div>
 <table class="tableblock frame-top grid-rows spread">
 <colgroup>
@@ -1513,17 +1501,17 @@ public class JavaSampleClass {
 <p>For example, the following request will return the first page of results with a size of 10 items:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-54 is-active" onclick="openLanguage('Curl', 54)">Curl</button>
-        <button class="sample-code-button scsIndex-54" onclick="openLanguage('Nodejs', 54)">Nodejs</button>
-        <button class="sample-code-button scsIndex-54" onclick="openLanguage('Python', 54)">Python</button>
-        <button class="sample-code-button scsIndex-54" onclick="openLanguage('Java', 54)">Java</button>
+        <button class="sample-code-button scsIndex-56 is-active" onclick="openLanguage('Curl', 56)">Curl</button>
+        <button class="sample-code-button scsIndex-56" onclick="openLanguage('Nodejs', 56)">Nodejs</button>
+        <button class="sample-code-button scsIndex-56" onclick="openLanguage('Python', 56)">Python</button>
+        <button class="sample-code-button scsIndex-56" onclick="openLanguage('Java', 56)">Java</button>
       </div>
-      <div id="Curl-54" class="sample-language-54">
+      <div id="Curl-56" class="sample-language-56">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json?Page=0&PageSize=10 \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-54" class="sample-language-54" style="display:none">
+      <div id="Nodejs-56" class="sample-language-56" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1542,7 +1530,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-54" class="sample-language-54" style="display:none">
+      <div id="Python-56" class="sample-language-56" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -1562,7 +1550,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-54" class="sample-language-54" style="display:none">
+      <div id="Java-56" class="sample-language-56" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1599,23 +1587,23 @@ public class JavaSampleClass {
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

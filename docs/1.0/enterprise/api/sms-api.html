@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMS - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/api/sms-api.html">
-    <meta name="description" content="An SMS represents an inbound or outbound SMS message. Using this API you can do things like:">
-    <meta name="keywords" content="send sms, sms api, restcomm sms api, sms rest api">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -26,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1043,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1317,7 +1304,7 @@
 <p>Sending an SMS to a mobile number and optionally get notified of its delivery status</p>
 </li>
 <li>
-<p>Sending a text message to a VoIP Restcomm Client, representing a registered software or hardware SIP phone.</p>
+<p>Sending a text message to a VoIP <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client, representing a registered software or hardware SIP phone.</p>
 </li>
 <li>
 <p>Querying details for already exchanged SMS messages</p>
@@ -1341,7 +1328,7 @@
 <p>If the recipient of the SMS is a mobile number the message is routed to the mobile network and delivered to the mobile device.</p>
 </li>
 <li>
-<p>If the recipient is a registered Restcomm Client then a SIP message is generated and routed to the VoIP client, provided that the Restcomm Client is registered. Notice that in this case the recipient client name needs to be prefixed with the string <code>client:</code> in the <code>To</code> parameter described below</p>
+<p>If the recipient is a registered <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client then a SIP message is generated and routed to the VoIP client, provided that the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client is registered. Notice that in this case the recipient client name needs to be prefixed with the string <code>client:</code> in the <code>To</code> parameter described below</p>
 </li>
 </ul>
 </div>
@@ -1359,11 +1346,11 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number or short code to be used as the message sender. This number needs to be SMS-enabled in the Restcomm Platform (Required).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number or short code to be used as the message sender. This number needs to be SMS-enabled in the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform (Required).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number, short code or Restcomm client to which the message will be sent to. Needs to be in E.164 format in case of a phone number. In case of a Restcomm client, the client name needs to be prefixed with the string 'client:' (Required).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number, short code or <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client to which the message will be sent to. Needs to be in E.164 format in case of a phone number. In case of a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client, the client name needs to be prefixed with the string 'client:' (Required).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
@@ -1371,14 +1358,14 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A URL for Restcomm Platform to send webhook requests to notify on any SMS delivery status event. Notice that StatusCallback is not applicable to messages addressed to Restcomm Clients. For more information check below (Optional).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL for <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform to send webhook requests to notify on any SMS delivery status event. Notice that StatusCallback is not applicable to messages addressed to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Clients. For more information check below (Optional).</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
 <h3 id="_status_callback"><a class="anchor" href="#_status_callback"></a>Status Callback</h3>
 <div class="paragraph">
-<p>The <strong>StatusCallback</strong> body parameter allows you to specify a URL where you can receive events in the form of HTTP POST requests (webhooks) with updates on SMS delivery status from the Restcomm Platform. Those requests can contain the following body parameters:</p>
+<p>The <strong>StatusCallback</strong> body parameter allows you to specify a URL where you can receive events in the form of HTTP POST requests (webhooks) with updates on SMS delivery status from the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform. Those requests can contain the following body parameters:</p>
 </div>
 <table class="tableblock frame-top grid-rows spread">
 <colgroup>
@@ -1428,7 +1415,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Sent status event</strong>, indicating whether Restcomm managed to successfully forward the SMS to the provider for further routing. The status is reflected on <code>MessageStatus</code> attribute described above and can be either <strong>sent</strong> on success or <strong>failed</strong> on failure. In case of failure no delivery status event is sent (see below).</p>
+<p><strong>Sent status event</strong>, indicating whether <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> managed to successfully forward the SMS to the provider for further routing. The status is reflected on <code>MessageStatus</code> attribute described above and can be either <strong>sent</strong> on success or <strong>failed</strong> on failure. In case of failure no delivery status event is sent (see below).</p>
 </li>
 <li>
 <p><strong>Delivery status event</strong>, indicating whether the provider managed to successfully deliver the SMS to the destination, given that the sent status event previously was <strong>sent</strong>. The status is reflected on <code>MessageStatus</code> attribute described above and can be <strong>delivered</strong>, <strong>undelivered</strong> or <strong>failed</strong></p>
@@ -1460,21 +1447,21 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-62 is-active" onclick="openLanguage('Curl', 62)">Curl</button>
-        <button class="sample-code-button scsIndex-62" onclick="openLanguage('Nodejs', 62)">Nodejs</button>
-        <button class="sample-code-button scsIndex-62" onclick="openLanguage('Python', 62)">Python</button>
-        <button class="sample-code-button scsIndex-62" onclick="openLanguage('Java', 62)">Java</button>
+        <button class="sample-code-button scsIndex-64 is-active" onclick="openLanguage('Curl', 64)">Curl</button>
+        <button class="sample-code-button scsIndex-64" onclick="openLanguage('Nodejs', 64)">Nodejs</button>
+        <button class="sample-code-button scsIndex-64" onclick="openLanguage('Python', 64)">Python</button>
+        <button class="sample-code-button scsIndex-64" onclick="openLanguage('Java', 64)">Java</button>
       </div>
-      <div id="Curl-62" class="sample-language-62">
+      <div id="Curl-64" class="sample-language-64">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json \
    -d 'From=19876543212' \
    -d 'To=13216549878' \
-   -d 'Body=Test SMS from Restcomm' \
+   -d 'Body=Test SMS' \
    -d 'StatusCallback=http://status.callback.url' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-62" class="sample-language-62" style="display:none">
+      <div id="Nodejs-64" class="sample-language-64" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1488,7 +1475,7 @@ request.({
       form: {
          'From': '19876543212',
          'To': '13216549878',
-         'Body': 'Test SMS from Restcomm',
+         'Body': 'Test SMS',
          'StatusCallback': 'http://status.callback.url'
       }
    },
@@ -1498,7 +1485,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-62" class="sample-language-62" style="display:none">
+      <div id="Python-64" class="sample-language-64" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -1516,7 +1503,7 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 params = urlencode({
    'From': '19876543212',
    'To': '13216549878',
-   'Body': 'Test SMS from Restcomm',
+   'Body': 'Test SMS',
    'StatusCallback': 'http://status.callback.url'
 })
 
@@ -1529,7 +1516,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-62" class="sample-language-62" style="display:none">
+      <div id="Java-64" class="sample-language-64" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1555,7 +1542,7 @@ public class JavaSampleClass {
       // Update POST parameters accordingly
       os.writeBytes("From=19876543212&" +
         "To=13216549878&" +
-        "Body=Test SMS from Restcomm&" +
+        "Body=Test SMS&" +
         "StatusCallback=http://status.callback.url");
       os.close();
 
@@ -1577,7 +1564,7 @@ public class JavaSampleClass {
   "account_sid":"ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "from":"19876543212",
   "to":"13216549878",
-  "body":"Test SMS from Restcomm",
+  "body":"Test SMS",
   "status":"sending",
   "direction":"outbound-api",
   "price":"0",
@@ -1588,24 +1575,24 @@ public class JavaSampleClass {
 </div>
 </div>
 <div class="paragraph">
-<p>Send a (SIP) message from 19876543212 to Restcomm Client <code>alice</code>. Notice the <code>client:</code> prefix in the <code>To</code> (remember that this client needs to be registered):</p>
+<p>Send a (SIP) message from 19876543212 to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client <code>alice</code>. Notice the <code>client:</code> prefix in the <code>To</code> (remember that this client needs to be registered):</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-63 is-active" onclick="openLanguage('Curl', 63)">Curl</button>
-        <button class="sample-code-button scsIndex-63" onclick="openLanguage('Nodejs', 63)">Nodejs</button>
-        <button class="sample-code-button scsIndex-63" onclick="openLanguage('Python', 63)">Python</button>
-        <button class="sample-code-button scsIndex-63" onclick="openLanguage('Java', 63)">Java</button>
+        <button class="sample-code-button scsIndex-65 is-active" onclick="openLanguage('Curl', 65)">Curl</button>
+        <button class="sample-code-button scsIndex-65" onclick="openLanguage('Nodejs', 65)">Nodejs</button>
+        <button class="sample-code-button scsIndex-65" onclick="openLanguage('Python', 65)">Python</button>
+        <button class="sample-code-button scsIndex-65" onclick="openLanguage('Java', 65)">Java</button>
       </div>
-      <div id="Curl-63" class="sample-language-63">
+      <div id="Curl-65" class="sample-language-65">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json \
    -d 'From=19876543212' \
    -d 'To=client:alice8' \
-   -d 'Body=Test SIP message from Restcomm' \
+   -d 'Body=Test SIP message' \
    -d 'StatusCallback=http://status.callback.url' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-63" class="sample-language-63" style="display:none">
+      <div id="Nodejs-65" class="sample-language-65" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1619,7 +1606,7 @@ request.({
       form: {
          'From': '19876543212',
          'To': 'client:alice8',
-         'Body': 'Test SIP message from Restcomm',
+         'Body': 'Test SIP message',
          'StatusCallback': 'http://status.callback.url'
       }
    },
@@ -1629,7 +1616,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-63" class="sample-language-63" style="display:none">
+      <div id="Python-65" class="sample-language-65" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -1647,7 +1634,7 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 params = urlencode({
    'From': '19876543212',
    'To': 'client:alice8',
-   'Body': 'Test SIP message from Restcomm',
+   'Body': 'Test SIP message',
    'StatusCallback': 'http://status.callback.url'
 })
 
@@ -1660,7 +1647,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-63" class="sample-language-63" style="display:none">
+      <div id="Java-65" class="sample-language-65" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1686,7 +1673,7 @@ public class JavaSampleClass {
       // Update POST parameters accordingly
       os.writeBytes("From=19876543212&" +
         "To=client:alice8&" +
-        "Body=Test SIP message from Restcomm&" +
+        "Body=Test SIP message&" +
         "StatusCallback=http://status.callback.url");
       os.close();
 
@@ -1708,7 +1695,7 @@ public class JavaSampleClass {
   "account_sid":"ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "from":"19876543212",
   "to":"client:alice",
-  "body":"Test SIP message from Restcomm",
+  "body":"Test SIP message",
   "status":"sending",
   "direction":"outbound-api",
   "price":"0",
@@ -1858,17 +1845,17 @@ public class JavaSampleClass {
 <p>The command below will return the first page of SMS records corresponding to SMS messages sent from '19876543212' to '13216549878' between 2018-05-30 and 2018-06-09, sorted by the creation date in ascending order:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-64 is-active" onclick="openLanguage('Curl', 64)">Curl</button>
-        <button class="sample-code-button scsIndex-64" onclick="openLanguage('Nodejs', 64)">Nodejs</button>
-        <button class="sample-code-button scsIndex-64" onclick="openLanguage('Python', 64)">Python</button>
-        <button class="sample-code-button scsIndex-64" onclick="openLanguage('Java', 64)">Java</button>
+        <button class="sample-code-button scsIndex-66 is-active" onclick="openLanguage('Curl', 66)">Curl</button>
+        <button class="sample-code-button scsIndex-66" onclick="openLanguage('Nodejs', 66)">Nodejs</button>
+        <button class="sample-code-button scsIndex-66" onclick="openLanguage('Python', 66)">Python</button>
+        <button class="sample-code-button scsIndex-66" onclick="openLanguage('Java', 66)">Java</button>
       </div>
-      <div id="Curl-64" class="sample-language-64">
+      <div id="Curl-66" class="sample-language-66">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json?From=19876543212&To=13216549878&StartTime=2018-05-30&EndTime=2018-06-09&Page=0&PageSize=10&SortBy=DateCreated:asc \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-64" class="sample-language-64" style="display:none">
+      <div id="Nodejs-66" class="sample-language-66" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1887,7 +1874,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-64" class="sample-language-64" style="display:none">
+      <div id="Python-66" class="sample-language-66" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -1907,7 +1894,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-64" class="sample-language-64" style="display:none">
+      <div id="Java-66" class="sample-language-66" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1983,17 +1970,17 @@ public class JavaSampleClass {
 <p>Retrieve the information of the SMS record with Sid SM55ce5cf07b9649c283cbacab4dae56a9:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-65 is-active" onclick="openLanguage('Curl', 65)">Curl</button>
-        <button class="sample-code-button scsIndex-65" onclick="openLanguage('Nodejs', 65)">Nodejs</button>
-        <button class="sample-code-button scsIndex-65" onclick="openLanguage('Python', 65)">Python</button>
-        <button class="sample-code-button scsIndex-65" onclick="openLanguage('Java', 65)">Java</button>
+        <button class="sample-code-button scsIndex-67 is-active" onclick="openLanguage('Curl', 67)">Curl</button>
+        <button class="sample-code-button scsIndex-67" onclick="openLanguage('Nodejs', 67)">Nodejs</button>
+        <button class="sample-code-button scsIndex-67" onclick="openLanguage('Python', 67)">Python</button>
+        <button class="sample-code-button scsIndex-67" onclick="openLanguage('Java', 67)">Java</button>
       </div>
-      <div id="Curl-65" class="sample-language-65">
+      <div id="Curl-67" class="sample-language-67">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages/MESSAGE_SID.json \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-65" class="sample-language-65" style="display:none">
+      <div id="Nodejs-67" class="sample-language-67" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2014,7 +2001,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-65" class="sample-language-65" style="display:none">
+      <div id="Python-67" class="sample-language-67" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -2036,7 +2023,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-65" class="sample-language-65" style="display:none">
+      <div id="Java-67" class="sample-language-67" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2077,7 +2064,7 @@ public class JavaSampleClass {
     "account_sid":"ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "from":"19876543212",
     "to":"13216549878",
-    "body":"Another test from Restcomm",
+    "body":"Another test from <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
     "status":"sent",
     "direction":"outbound-api",
     "price":"0",
@@ -2123,7 +2110,7 @@ public class JavaSampleClass {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DateSent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The date on which the SMS was sent or received by Restcomm.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date on which the SMS was sent or received by <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
@@ -2151,7 +2138,7 @@ public class JavaSampleClass {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ApiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The API version RestComm used to handle the SMS message.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API version <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> used to handle the SMS message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
@@ -2190,23 +2177,23 @@ public class JavaSampleClass {
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">queued</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm has queued the message pending transmission. Applies to outbound messages.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> has queued the message pending transmission. Applies to outbound messages.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sending</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm has accepted the message and is sending it to the provider. Applies to outbound messages.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> has accepted the message and is sending it to the provider. Applies to outbound messages.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm has already sent the message to the provider. Applies to outbound messages.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> has already sent the message to the provider. Applies to outbound messages.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">failed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message failed processing either on the Restcomm or provider’s side. The reason could be that the message was expired, rejected or deleted by the provider.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message failed processing either on the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> or provider’s side. The reason could be that the message was expired, rejected or deleted by the provider.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">received</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm has received the message. Applies to inbound message.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> has received the message. Applies to inbound message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">delivered</p></td>
@@ -2289,23 +2276,23 @@ public class JavaSampleClass {
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

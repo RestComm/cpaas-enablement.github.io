@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calls - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/api/calls-api.html">
-    <meta name="description" content="A Call represents a connection between a phone or user agent and Restcomm. This may be inbound or outbound. The Calls list resource represents the set of phone calls originated and terminated from an account.">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -25,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1042,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1309,7 +1297,7 @@
 <h2 id="_calls"><a class="anchor" href="#_calls"></a>Calls</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A <strong>Call</strong> represents a connection between a phone or user agent and Restcomm. This may be inbound or outbound. The Calls list resource represents the set of phone calls originated and terminated from an account.</p>
+<p>A <strong>Call</strong> represents a connection between a phone or user agent and <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. This may be inbound or outbound. The Calls list resource represents the set of phone calls originated and terminated from an account.</p>
 </div>
 <div class="sect2">
 <h3 id="_call_resource_uri"><a class="anchor" href="#_call_resource_uri"></a>Call Resource URI</h3>
@@ -1405,7 +1393,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to https://localhost:port/restcomm.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to <span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm</span>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1461,15 +1449,15 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Method</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method RestComm should use when making its request to the above Url. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when making its request to the above Url. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that RestComm will request if execution of Url fails for any reason.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request if execution of Url fails for any reason.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that RestComm should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallbackEvent</p></td>
@@ -1485,7 +1473,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of seconds that RestComm should allow the phone to ring before assuming there is no answer. The default is 60 seconds.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of seconds that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should allow the phone to ring before assuming there is no answer. The default is 60 seconds.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1495,7 +1483,7 @@
 <p>When creating a Call using the Calls API, an outbound call is initiated. The call transitions from the initiated state to the ringing state when the phone starts ringing. It transitions to the answered state when the call is picked up, and finally to the completed state when the call is over. With <strong>StatusCallbackEvent</strong>, you can subscribe to receive webhooks for the different call progress events: initiated, ringing, answered, or completed for a given call.</p>
 </div>
 <div class="paragraph">
-<p>The <strong>StatusCallbackEvent</strong> attribute allows you to specify which events Restcomm should webhook on. To specify multiple events separate them with a comma like this: <code>initiated,ringing,answered,completed</code>. If a StatusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
+<p>The <strong>StatusCallbackEvent</strong> attribute allows you to specify which events <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should webhook on. To specify multiple events separate them with a comma like this: <code>initiated,ringing,answered,completed</code>. If a StatusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1516,7 +1504,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initiated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when Restcomm starts dialing the call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
@@ -1536,19 +1524,19 @@
 <div class="sect3">
 <h4 id="_statuscallback"><a class="anchor" href="#_statuscallback"></a>StatusCallback</h4>
 <div class="paragraph">
-<p>The <strong>StatusCallback</strong> attribute allows you to specify a URL for Restcomm to send webhook requests to on each event specified in the StatusCallbackEvent attribute.</p>
+<p>The <strong>StatusCallback</strong> attribute allows you to specify a URL for <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to send webhook requests to on each event specified in the StatusCallbackEvent attribute.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_statuscallbackmethod"><a class="anchor" href="#_statuscallbackmethod"></a>StatusCallbackMethod</h4>
 <div class="paragraph">
-<p>The <strong>StatusCallbackMethod</strong> attribute allows you to specify which HTTP method Restcomm should use when requesting the URL in the StatusCallback attribute. The default is POST.</p>
+<p>The <strong>StatusCallbackMethod</strong> attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the URL in the StatusCallback attribute. The default is POST.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
 <div class="paragraph">
-<p>The parameters Restcomm passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when Restcomm receives a call to one of your Restcomm numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
+<p>The parameters <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
 </div>
 <div class="paragraph">
 <p>When the call progress events are fired, the Status Callback request also passes these additional parameters:</p>
@@ -1567,7 +1555,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CallSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by Restcomm. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CallStatus</p></td>
@@ -1599,7 +1587,7 @@
 <h2 id="_making_a_call_to_a_sip_account"><a class="anchor" href="#_making_a_call_to_a_sip_account"></a>Making a call to a SIP account</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Restcomm will make a call to any SIP account that is reachable. It the example below, the <strong>SIP</strong> account is listening on port <strong>5060</strong>. When you make the call, the SIP phone on which Alice is registered will ring and the hello-play.xml file will be played.</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a call to any SIP account that is reachable. It the example below, the <strong>SIP</strong> account is listening on port <strong>5060</strong>. When you make the call, the SIP phone on which Alice is registered will ring and the hello-play.xml file will be played.</p>
 </div>
 <script>
       function openLanguage(language, index) {
@@ -1628,8 +1616,8 @@
       <div id="Curl-18" class="sample-language-18">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json \
    -d 'From=16175551212' \
-   -d 'To=sip:alice@127.0.0.1:5060' \
-   -d 'Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml' \
+   -d 'To=sip:alice@mycompany.restcomm.com' \
+   -d 'Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -1646,8 +1634,8 @@ request.({
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'From': '16175551212',
-         'To': 'sip:alice@127.0.0.1:5060',
-         'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+         'To': 'sip:alice@mycompany.restcomm.com',
+         'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
       }
    },
    function (error, response, body) {
@@ -1673,8 +1661,8 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 # Update POST parameters accordingly
 params = urlencode({
    'From': '16175551212',
-   'To': 'sip:alice@127.0.0.1:5060',
-   'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+   'To': 'sip:alice@mycompany.restcomm.com',
+   'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
@@ -1711,8 +1699,8 @@ public class JavaSampleClass {
 
       // Update POST parameters accordingly
       os.writeBytes("From=16175551212&" +
-        "To=sip:alice@127.0.0.1:5060&" +
-        "Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml");
+        "To=sip:alice@mycompany.restcomm.com&" +
+        "Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml");
       os.close();
 
       // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
@@ -1724,10 +1712,10 @@ public class JavaSampleClass {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_making_a_call_to_a_restcomm_client"><a class="anchor" href="#_making_a_call_to_a_restcomm_client"></a>Making a call to a Restcomm client</h2>
+<h2 id="_making_a_call_to_a_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_client"><a class="anchor" href="#_making_a_call_to_a_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_client"></a>Making a call to a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must first create a RestComm client. In the example below, the Restcomm client created is called Alice. When you make the call, the SIP phone on which Alice is registered will ring and the <strong>hello-play.xml</strong> file will be played.</p>
+<p>You must first create a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client. In the example below, the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client created is called Alice. When you make the call, the SIP phone on which Alice is registered will ring and the <strong>hello-play.xml</strong> file will be played.</p>
 </div>
       <div class="sample-code-bar">
         <button class="sample-code-button scsIndex-19 is-active" onclick="openLanguage('Curl', 19)">Curl</button>
@@ -1739,7 +1727,7 @@ public class JavaSampleClass {
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json \
    -d 'From=16175551212' \
    -d 'To=client:alice' \
-   -d 'Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml' \
+   -d 'Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -1757,7 +1745,7 @@ request.({
       form: {
          'From': '16175551212',
          'To': 'client:alice',
-         'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+         'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
       }
    },
    function (error, response, body) {
@@ -1784,7 +1772,7 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 params = urlencode({
    'From': '16175551212',
    'To': 'client:alice',
-   'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+   'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
@@ -1822,7 +1810,7 @@ public class JavaSampleClass {
       // Update POST parameters accordingly
       os.writeBytes("From=16175551212&" +
         "To=client:alice&" +
-        "Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml");
+        "Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml");
       os.close();
 
       // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
@@ -1846,7 +1834,7 @@ included in the outgoing INVITE message.</p>
    -d 'From=16175551212' \
    -d 'To=client:alice?X-Custom-Header1=1234' \
    -d 'X-Custom-Header2=432' \
-   -d 'Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml' \
+   -d 'Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -1865,7 +1853,7 @@ request.({
          'From': '16175551212',
          'To': 'client:alice?X-Custom-Header1',
          'X-Custom-Header2': '432',
-         'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+         'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
       }
    },
    function (error, response, body) {
@@ -1893,7 +1881,7 @@ params = urlencode({
    'From': '16175551212',
    'To': 'client:alice?X-Custom-Header1',
    'X-Custom-Header2': '432',
-   'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+   'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
@@ -1932,7 +1920,7 @@ public class JavaSampleClass {
       os.writeBytes("From=16175551212&" +
         "To=client:alice?X-Custom-Header1=1234&" +
         "X-Custom-Header2=432&" +
-        "Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml");
+        "Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml");
       os.close();
 
       // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
@@ -1954,7 +1942,7 @@ public class JavaSampleClass {
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json \
    -d 'From=16175551212' \
    -d 'To=client:alice' \
-   -d 'Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml' \
+   -d 'Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml' \
    -d 'StatusCallbackEvent=answered,completed' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
@@ -1973,7 +1961,7 @@ request.({
       form: {
          'From': '16175551212',
          'To': 'client:alice',
-         'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml',
+         'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml',
          'StatusCallbackEvent': 'answered,completed'
       }
    },
@@ -2001,7 +1989,7 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 params = urlencode({
    'From': '16175551212',
    'To': 'client:alice',
-   'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml',
+   'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml',
    'StatusCallbackEvent': 'answered,completed'
 })
 
@@ -2040,7 +2028,7 @@ public class JavaSampleClass {
       // Update POST parameters accordingly
       os.writeBytes("From=16175551212&" +
         "To=client:alice&" +
-        "Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml&" +
+        "Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml&" +
         "StatusCallbackEvent=answered,completed");
       os.close();
 
@@ -2056,7 +2044,7 @@ public class JavaSampleClass {
 <h2 id="_calling_a_did_number"><a class="anchor" href="#_calling_a_did_number"></a>Calling a DID number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The above example shows how to make a call to a SIP number. If you want to make a call to a DID number, you must can connect Restcomm to a DID provisioning service provider. The quickest way is to use RestComm AMI on Amazon Cloud. Get a list of all available calls. This will return all the available calls linked to the account SID</p>
+<p>The above example shows how to make a call to a SIP number. If you want to make a call to a DID number, you must can connect <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to a DID provisioning service provider. The quickest way is to use <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> AMI on Amazon Cloud. Get a list of all available calls. This will return all the available calls linked to the account SID</p>
 </div>
 </div>
 </div>
@@ -2197,11 +2185,11 @@ public class JavaSampleClass {
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A valid URL that returns RCML. Restcomm will immediately redirect the call to the new RCML.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A valid URL that returns RCML. <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will immediately redirect the call to the new RCML.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Method</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method Restcomm should use when requesting the above URL. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the above URL. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
@@ -2217,7 +2205,7 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_call_in_progress"><a class="anchor" href="#_call_in_progress"></a>Call in-Progress</h3>
 <div class="paragraph">
-<p>Note that any call which is currently ringing within a Dial verb is in-progress from the point of view of Restcomm, and thus you must use '<strong>Status=completed</strong>' to cancel it.</p>
+<p>Note that any call which is currently ringing within a Dial verb is in-progress from the point of view of <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>, and thus you must use '<strong>Status=completed</strong>' to cancel it.</p>
 </div>
 <div class="sect3">
 <h4 id="_optional_parameters"><a class="anchor" href="#_optional_parameters"></a>Optional Parameters</h4>
@@ -2241,23 +2229,23 @@ public class JavaSampleClass {
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that Restcomm will request if an error occurs requesting or executing the RCML at Url.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request if an error occurs requesting or executing the RCML at Url.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that Restcomm should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that Restcomm will request when the call ends to notify your app.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request when the call ends to notify your app.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method Restcomm should use when requesting the above URL. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the above URL. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MoveConnectedCallLeg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If True, Restcomm will move both call legs to the new URL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If True, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will move both call legs to the new URL</p></td>
 </tr>
 </tbody>
 </table>
@@ -2266,23 +2254,23 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_description"><a class="anchor" href="#_description"></a>Description</h3>
 <div class="paragraph">
-<p>Prerequisite for the Live Call Modification API is to know the <strong>CallSid</strong> ​of the call. The <strong>CallSid</strong>​ is generated by Restcomm for every incoming or outgoing call. When we create an outgoing call using the Calls REST API, Restcomm will generate the <strong>CallSid</strong> ​and the response will contain the <strong>CallSid</strong>​. For an Incoming call, Restcomm will generate the <strong>CallSid</strong>​, and will include it in the parameters of the <strong>GET</strong> or <strong>POST</strong> request to download the RCML from the application server. So the application server, will get the <strong>CallSid</strong> ​for this incoming call and can store it for later use.</p>
+<p>Prerequisite for the Live Call Modification API is to know the <strong>CallSid</strong> ​of the call. The <strong>CallSid</strong>​ is generated by <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> for every incoming or outgoing call. When we create an outgoing call using the Calls REST API, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will generate the <strong>CallSid</strong> ​and the response will contain the <strong>CallSid</strong>​. For an Incoming call, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will generate the <strong>CallSid</strong>​, and will include it in the parameters of the <strong>GET</strong> or <strong>POST</strong> request to download the RCML from the application server. So the application server, will get the <strong>CallSid</strong> ​for this incoming call and can store it for later use.</p>
 </div>
 <div class="sect3">
 <h4 id="_steps_for_an_incoming_call_are_the_following"><a class="anchor" href="#_steps_for_an_incoming_call_are_the_following"></a>Steps for an incoming call are the following:</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>New incoming call to Restcomm</p>
+<p>New incoming call to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span></p>
 </li>
 <li>
-<p>Restcomm generates CallSid and other parameters for this call</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> generates CallSid and other parameters for this call</p>
 </li>
 <li>
-<p>Restcomm prepares GET/POST request and attaches the previously prepared parameters</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> prepares GET/POST request and attaches the previously prepared parameters</p>
 </li>
 <li>
-<p>Restcomm sends the GET/POST request to the URL assigned to the DID called</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> sends the GET/POST request to the URL assigned to the DID called</p>
 </li>
 <li>
 <p>Application server receives the GET/POST request</p>
@@ -2291,15 +2279,15 @@ public class JavaSampleClass {
 <p>Application server should store the CallSid along with the rest of the parameters for later use</p>
 </li>
 <li>
-<p>Application server prepares the response with the appropriate RCML for the given DID and send it back to Restcomm to process it</p>
+<p>Application server prepares the response with the appropriate RCML for the given DID and send it back to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to process it</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Given that we have the <strong>CallSid</strong> ​available, ​the next step to modify a live call is to prepare the new <strong>POST</strong> request to Restcomm with the URL of the new destination application.</p>
+<p>Given that we have the <strong>CallSid</strong> ​available, ​the next step to modify a live call is to prepare the new <strong>POST</strong> request to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> with the URL of the new destination application.</p>
 </div>
 <div class="paragraph">
-<p>Lets assume that initially the Application server prepared an RCML that will connect the incoming call to Bob and that later Bob wants this call to be transferred to Alice. Application Server will have to prepare a new RCML that will dial to Alice, and using the Live Call Modification API, will ask Restcomm to process this new RCML for the incoming call and thus will connect it to Alice.</p>
+<p>Lets assume that initially the Application server prepared an RCML that will connect the incoming call to Bob and that later Bob wants this call to be transferred to Alice. Application Server will have to prepare a new RCML that will dial to Alice, and using the Live Call Modification API, will ask <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to process this new RCML for the incoming call and thus will connect it to Alice.</p>
 </div>
 <div class="paragraph">
 <p>Here are the steps:</p>
@@ -2313,16 +2301,16 @@ public class JavaSampleClass {
 <p>Applcation server: - Store CallSid and other parameters - Prepare and send RCML that connects the call to Bob (using Dial verb)</p>
 </li>
 <li>
-<p>Restcomm process the given RCML and connects incoming call to Bob</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> process the given RCML and connects incoming call to Bob</p>
 </li>
 <li>
 <p>Bob wants to transfer the call to Alice and sends the request to Controller (application server)</p>
 </li>
 <li>
-<p>Application server: - Prepares new RCML with a given URL: http://app.server/CallToAlice that using Dial will dial to Alice - Uses Live Call Modification prepares a new POST request: http://RESTCOMM_IP:8080/restcomm/2012­04­24/Accounts/\{AccountSid/Calls/YOUR_CALL_SID - in the POST requests adds the following parameters: Url=http://app.server/CallToAlice</p>
+<p>Application server: - Prepares new RCML with a given URL: http://app.server/CallToAlice that using Dial will dial to Alice - Uses Live Call Modification prepares a new POST request: <code><span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls/YOUR_CALL_SID</span></code> - in the POST requests adds the following parameters: Url=http://app.server/CallToAlice</p>
 </li>
 <li>
-<p>Restcomm process this Live Call Modification request and redirects the incoming call to the new RCML application (to the new URL)</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> process this Live Call Modification request and redirects the incoming call to the new RCML application (to the new URL)</p>
 </li>
 <li>
 <p>Eventually the incoming call will be connected to Alice.</p>
@@ -2341,7 +2329,7 @@ public class JavaSampleClass {
 <p>Will prepare new POST Live Call Modification request for the incoming call to be connected to the new url (that will dial to the conference)</p>
 </li>
 <li>
-<p>Will then prepare new outgoing call request, using the Calls Rest API that will connect Bob to the conference application URL: - <code>http://RESTCOMM_IP:8080/restcomm/2012­04­24/Accounts/{AccountSid}/Calls</code> - will pass the following parameters: <strong>From</strong>=INCOMING_CALL_ID <strong>To</strong>=client:bob <strong>Url</strong>=CONFERENCE_APPLICATION_URL</p>
+<p>Will then prepare new outgoing call request, using the Calls Rest API that will connect Bob to the conference application URL: - <span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls</span>` - will pass the following parameters: <strong>From</strong>=INCOMING_CALL_ID <strong>To</strong>=client:bob <strong>Url</strong>=CONFERENCE_APPLICATION_URL</p>
 </li>
 <li>
 <p>Later application server can create more outgoing call requests, similar to the one above, to invite other clients or sip URLs or PSTN numbers to this conference call</p>
@@ -2358,12 +2346,7 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_redirect_call_to_a_new_rcml"><a class="anchor" href="#_redirect_call_to_a_new_rcml"></a>Redirect Call to a new RCML</h3>
 <div class="paragraph">
-<p>Live Call Modification POST request URL : <strong>https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAd62f17e7c7f149ac8095f7574495d988</strong></p>
-</div>
-<div class="sect3">
-<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters:</h4>
-<div class="paragraph">
-<p><strong>Url</strong>=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/dial­alice.xml</p>
+<p>Live Call Modification POST request example:</p>
 </div>
       <div class="sample-code-bar">
         <button class="sample-code-button scsIndex-23 is-active" onclick="openLanguage('Curl', 23)">Curl</button>
@@ -2372,8 +2355,8 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-23" onclick="openLanguage('Java', 23)">Java</button>
       </div>
       <div id="Curl-23" class="sample-language-23">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CAccccfd3a0c394cc1993803af785abc60.json \
-   -d 'Url=http://192.168.1.151:8080/restcomm/demos/dial­alice.xml' \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CALL_SID.json \
+   -d 'Url=http://mycompany.restcomm.com/restcomm/demos/dial­alice.xml' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -2383,13 +2366,15 @@ public class JavaSampleClass {
 // Provide your Account Sid and Auth Token from your Console Account page
 const ACCOUNT_SID = 'my_ACCOUNT_SID';
 const AUTH_TOKEN = 'my_AUTH_TOKEN';
+// Provide additional path parameters if applicable
+const CALL_SID = 'my_CALL_SID'
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAccccfd3a0c394cc1993803af785abc60.json',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
-         'Url': 'http://192.168.1.151:8080/restcomm/demos/dial­alice.xml'
+         'Url': 'http://mycompany.restcomm.com/restcomm/demos/dial­alice.xml'
       }
    },
    function (error, response, body) {
@@ -2406,6 +2391,8 @@ from urllib.parse import urlencode
 # Provide your Account Sid and Auth Token from your Console Account page
 ACCOUNT_SID = 'my_ACCOUNT_SID'
 AUTH_TOKEN = 'my_AUTH_TOKEN'
+// Provide additional path parameters if applicable
+CALL_SID = 'my_CALL_SID'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass,
@@ -2414,11 +2401,11 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 
 # Update POST parameters accordingly
 params = urlencode({
-   'Url': 'http://192.168.1.151:8080/restcomm/demos/dial­alice.xml'
+   'Url': 'http://mycompany.restcomm.com/restcomm/demos/dial­alice.xml'
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAccccfd3a0c394cc1993803af785abc60.json',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -2436,13 +2423,14 @@ public class JavaSampleClass {
    // Provide your Account Sid and Auth Token from your Console Account page
    public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
    public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
+   // Provide additional path parameters if applicable
+   public static final String CALL_SID = "my_CALL_SID"
 
    public static void main(String[] args) throws Exception {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/CAccccfd3a0c394cc1993803af785abc60.json");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/" + CALL_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -2450,7 +2438,7 @@ public class JavaSampleClass {
       DataOutputStream os = new DataOutputStream(conn.getOutputStream());
 
       // Update POST parameters accordingly
-      os.writeBytes("Url=http://192.168.1.151:8080/restcomm/demos/dial­alice.xml");
+      os.writeBytes("Url=http://mycompany.restcomm.com/restcomm/demos/dial­alice.xml");
       os.close();
 
       // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
@@ -2460,17 +2448,8 @@ public class JavaSampleClass {
 </code></pre>
       </div>
 </div>
-</div>
 <div class="sect2">
 <h3 id="_redirect_call_to_a_new_rcml_and_connect_both_call_legs"><a class="anchor" href="#_redirect_call_to_a_new_rcml_and_connect_both_call_legs"></a>Redirect Call to a new RCML and connect both call legs</h3>
-<div class="paragraph">
-<p>Live Call Modification POST request URL: <strong>https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAd62f17e7c7f149ac8095f7574495d988</strong></p>
-</div>
-<div class="sect3">
-<h4 id="_parameters_2"><a class="anchor" href="#_parameters_2"></a>Parameters</h4>
-<div class="paragraph">
-<p><strong>Url</strong>=https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/conference.xml</p>
-</div>
       <div class="sample-code-bar">
         <button class="sample-code-button scsIndex-24 is-active" onclick="openLanguage('Curl', 24)">Curl</button>
         <button class="sample-code-button scsIndex-24" onclick="openLanguage('Nodejs', 24)">Nodejs</button>
@@ -2478,8 +2457,8 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-24" onclick="openLanguage('Java', 24)">Java</button>
       </div>
       <div id="Curl-24" class="sample-language-24">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CAccccfd3a0c394cc1993803af785abc60.json \
-   -d 'Url=http://192.168.1.151:8080/restcomm/demos/conference.xml' \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CALL_SID.json \
+   -d 'Url=http://mycompany.restcomm.com/restcomm/demos/conference.xml' \
    -d 'MoveConnectedCallLeg=true' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
@@ -2490,13 +2469,15 @@ public class JavaSampleClass {
 // Provide your Account Sid and Auth Token from your Console Account page
 const ACCOUNT_SID = 'my_ACCOUNT_SID';
 const AUTH_TOKEN = 'my_AUTH_TOKEN';
+// Provide additional path parameters if applicable
+const CALL_SID = 'my_CALL_SID'
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAccccfd3a0c394cc1993803af785abc60.json',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
-         'Url': 'http://192.168.1.151:8080/restcomm/demos/conference.xml',
+         'Url': 'http://mycompany.restcomm.com/restcomm/demos/conference.xml',
          'MoveConnectedCallLeg': 'true'
       }
    },
@@ -2514,6 +2495,8 @@ from urllib.parse import urlencode
 # Provide your Account Sid and Auth Token from your Console Account page
 ACCOUNT_SID = 'my_ACCOUNT_SID'
 AUTH_TOKEN = 'my_AUTH_TOKEN'
+// Provide additional path parameters if applicable
+CALL_SID = 'my_CALL_SID'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass,
@@ -2522,12 +2505,12 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 
 # Update POST parameters accordingly
 params = urlencode({
-   'Url': 'http://192.168.1.151:8080/restcomm/demos/conference.xml',
+   'Url': 'http://mycompany.restcomm.com/restcomm/demos/conference.xml',
    'MoveConnectedCallLeg': 'true'
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAccccfd3a0c394cc1993803af785abc60.json',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -2545,13 +2528,14 @@ public class JavaSampleClass {
    // Provide your Account Sid and Auth Token from your Console Account page
    public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
    public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
+   // Provide additional path parameters if applicable
+   public static final String CALL_SID = "my_CALL_SID"
 
    public static void main(String[] args) throws Exception {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/CAccccfd3a0c394cc1993803af785abc60.json");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/" + CALL_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -2559,7 +2543,7 @@ public class JavaSampleClass {
       DataOutputStream os = new DataOutputStream(conn.getOutputStream());
 
       // Update POST parameters accordingly
-      os.writeBytes("Url=http://192.168.1.151:8080/restcomm/demos/conference.xml&" +
+      os.writeBytes("Url=http://mycompany.restcomm.com/restcomm/demos/conference.xml&" +
         "MoveConnectedCallLeg=true");
       os.close();
 
@@ -2570,30 +2554,209 @@ public class JavaSampleClass {
 </code></pre>
       </div>
 </div>
-</div>
 <div class="sect2">
 <h3 id="_terminate_in_progress_call"><a class="anchor" href="#_terminate_in_progress_call"></a>Terminate In Progress call</h3>
-<div class="paragraph">
-<p>Live Call Modification POST request URL: <strong>https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CAe29bf33b54ba43dc952f0d3eb331567c</strong></p>
-</div>
-<div class="sect3">
-<h4 id="_parameters_3"><a class="anchor" href="#_parameters_3"></a>Parameters:</h4>
-<div class="paragraph">
-<p><strong>Status</strong>=completed</p>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-25 is-active" onclick="openLanguage('Curl', 25)">Curl</button>
+        <button class="sample-code-button scsIndex-25" onclick="openLanguage('Nodejs', 25)">Nodejs</button>
+        <button class="sample-code-button scsIndex-25" onclick="openLanguage('Python', 25)">Python</button>
+        <button class="sample-code-button scsIndex-25" onclick="openLanguage('Java', 25)">Java</button>
+      </div>
+      <div id="Curl-25" class="sample-language-25">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CALL_SID.json \
+   -d 'Status=completed' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-25" class="sample-language-25" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+// Provide additional path parameters if applicable
+const CALL_SID = 'my_CALL_SID'
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      form: {
+         'Status': 'completed'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-25" class="sample-language-25" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+// Provide additional path parameters if applicable
+CALL_SID = 'my_CALL_SID'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+            'Content-type': 'application/x-www-form-urlencoded',
+            'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'Status': 'completed'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
+      params, headers=headers)
+res = conn.getresponse()
+
+// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-25" class="sample-language-25" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+   // Provide additional path parameters if applicable
+   public static final String CALL_SID = "my_CALL_SID"
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/" + CALL_SID + ".json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("Status=completed");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 </div>
 <div class="sect2">
 <h3 id="_terminate_ringing_call"><a class="anchor" href="#_terminate_ringing_call"></a>Terminate Ringing call</h3>
-<div class="paragraph">
-<p>Live Call Modification POST request URL: <strong>https://&lt;accountSid&gt;:&lt;authToken&gt;@cloud.restcomm.com/restcomm/2012­04­24/Accounts/&lt;accountSid&gt;/Calls.json/CA312824ebd262419dbd4c00b057448d57</strong></p>
-</div>
-<div class="sect3">
-<h4 id="_parameters_4"><a class="anchor" href="#_parameters_4"></a>Parameters:</h4>
-<div class="paragraph">
-<p><strong>Status</strong>=canceled</p>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-26 is-active" onclick="openLanguage('Curl', 26)">Curl</button>
+        <button class="sample-code-button scsIndex-26" onclick="openLanguage('Nodejs', 26)">Nodejs</button>
+        <button class="sample-code-button scsIndex-26" onclick="openLanguage('Python', 26)">Python</button>
+        <button class="sample-code-button scsIndex-26" onclick="openLanguage('Java', 26)">Java</button>
+      </div>
+      <div id="Curl-26" class="sample-language-26">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CALL_SID.json \
+   -d 'Status=canceled' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-26" class="sample-language-26" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+// Provide additional path parameters if applicable
+const CALL_SID = 'my_CALL_SID'
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      form: {
+         'Status': 'canceled'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-26" class="sample-language-26" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+// Provide additional path parameters if applicable
+CALL_SID = 'my_CALL_SID'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+            'Content-type': 'application/x-www-form-urlencoded',
+            'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'Status': 'canceled'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
+      params, headers=headers)
+res = conn.getresponse()
+
+// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-26" class="sample-language-26" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+   // Provide additional path parameters if applicable
+   public static final String CALL_SID = "my_CALL_SID"
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/" + CALL_SID + ".json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("Status=canceled");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 </div>
 </div>
 </div>
@@ -2618,7 +2781,7 @@ public class JavaSampleClass {
 <p>The "<strong>From=</strong>" could be any number of your choice</p>
 </li>
 <li>
-<p>The <strong>Url</strong> is the default sample example provided with Restcomm</p>
+<p>The <strong>Url</strong> is the default sample example provided with <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span></p>
 </li>
 </ul>
 </div>
@@ -2626,20 +2789,20 @@ public class JavaSampleClass {
 <p>Modifying a Live Call</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-25 is-active" onclick="openLanguage('Curl', 25)">Curl</button>
-        <button class="sample-code-button scsIndex-25" onclick="openLanguage('Nodejs', 25)">Nodejs</button>
-        <button class="sample-code-button scsIndex-25" onclick="openLanguage('Python', 25)">Python</button>
-        <button class="sample-code-button scsIndex-25" onclick="openLanguage('Java', 25)">Java</button>
+        <button class="sample-code-button scsIndex-27 is-active" onclick="openLanguage('Curl', 27)">Curl</button>
+        <button class="sample-code-button scsIndex-27" onclick="openLanguage('Nodejs', 27)">Nodejs</button>
+        <button class="sample-code-button scsIndex-27" onclick="openLanguage('Python', 27)">Python</button>
+        <button class="sample-code-button scsIndex-27" onclick="openLanguage('Java', 27)">Java</button>
       </div>
-      <div id="Curl-25" class="sample-language-25">
+      <div id="Curl-27" class="sample-language-27">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json \
    -d 'From=+16175551212' \
-   -d 'To=sip:alice@127.0.0.1:5061' \
-   -d 'Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml' \
+   -d 'To=sip:alice@mycompany.restcomm.com' \
+   -d 'Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-25" class="sample-language-25" style="display:none">
+      <div id="Nodejs-27" class="sample-language-27" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2652,8 +2815,8 @@ request.({
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'From': '+16175551212',
-         'To': 'sip:alice@127.0.0.1:5061',
-         'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+         'To': 'sip:alice@mycompany.restcomm.com',
+         'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
       }
    },
    function (error, response, body) {
@@ -2662,7 +2825,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-25" class="sample-language-25" style="display:none">
+      <div id="Python-27" class="sample-language-27" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -2679,8 +2842,8 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 # Update POST parameters accordingly
 params = urlencode({
    'From': '+16175551212',
-   'To': 'sip:alice@127.0.0.1:5061',
-   'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+   'To': 'sip:alice@mycompany.restcomm.com',
+   'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
@@ -2692,7 +2855,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-25" class="sample-language-25" style="display:none">
+      <div id="Java-27" class="sample-language-27" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2717,8 +2880,8 @@ public class JavaSampleClass {
 
       // Update POST parameters accordingly
       os.writeBytes("From=+16175551212&" +
-        "To=sip:alice@127.0.0.1:5061&" +
-        "Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml");
+        "To=sip:alice@mycompany.restcomm.com&" +
+        "Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml");
       os.close();
 
       // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
@@ -2759,34 +2922,36 @@ Notice that the Call ID is referenced
 The call will now be redirected to the Url specified(hello-world.xml)</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-26 is-active" onclick="openLanguage('Curl', 26)">Curl</button>
-        <button class="sample-code-button scsIndex-26" onclick="openLanguage('Nodejs', 26)">Nodejs</button>
-        <button class="sample-code-button scsIndex-26" onclick="openLanguage('Python', 26)">Python</button>
-        <button class="sample-code-button scsIndex-26" onclick="openLanguage('Java', 26)">Java</button>
+        <button class="sample-code-button scsIndex-28 is-active" onclick="openLanguage('Curl', 28)">Curl</button>
+        <button class="sample-code-button scsIndex-28" onclick="openLanguage('Nodejs', 28)">Nodejs</button>
+        <button class="sample-code-button scsIndex-28" onclick="openLanguage('Python', 28)">Python</button>
+        <button class="sample-code-button scsIndex-28" onclick="openLanguage('Java', 28)">Java</button>
       </div>
-      <div id="Curl-26" class="sample-language-26">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CAfa51b104354440b09213d04752f50271.json \
+      <div id="Curl-28" class="sample-language-28">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CALL_SID.json \
    -d 'From=+16175551212' \
-   -d 'To=sip:alice@127.0.0.1:5061' \
-   -d 'Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml' \
+   -d 'To=sip:alice@mycompany.restcomm.com' \
+   -d 'Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-26" class="sample-language-26" style="display:none">
+      <div id="Nodejs-28" class="sample-language-28" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
 const ACCOUNT_SID = 'my_ACCOUNT_SID';
 const AUTH_TOKEN = 'my_AUTH_TOKEN';
+// Provide additional path parameters if applicable
+const CALL_SID = 'my_CALL_SID'
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAfa51b104354440b09213d04752f50271.json',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'From': '+16175551212',
-         'To': 'sip:alice@127.0.0.1:5061',
-         'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+         'To': 'sip:alice@mycompany.restcomm.com',
+         'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
       }
    },
    function (error, response, body) {
@@ -2795,7 +2960,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-26" class="sample-language-26" style="display:none">
+      <div id="Python-28" class="sample-language-28" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -2803,6 +2968,8 @@ from urllib.parse import urlencode
 # Provide your Account Sid and Auth Token from your Console Account page
 ACCOUNT_SID = 'my_ACCOUNT_SID'
 AUTH_TOKEN = 'my_AUTH_TOKEN'
+// Provide additional path parameters if applicable
+CALL_SID = 'my_CALL_SID'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass,
@@ -2812,12 +2979,12 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 # Update POST parameters accordingly
 params = urlencode({
    'From': '+16175551212',
-   'To': 'sip:alice@127.0.0.1:5061',
-   'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+   'To': 'sip:alice@mycompany.restcomm.com',
+   'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAfa51b104354440b09213d04752f50271.json',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -2825,7 +2992,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-26" class="sample-language-26" style="display:none">
+      <div id="Java-28" class="sample-language-28" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2835,13 +3002,14 @@ public class JavaSampleClass {
    // Provide your Account Sid and Auth Token from your Console Account page
    public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
    public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
+   // Provide additional path parameters if applicable
+   public static final String CALL_SID = "my_CALL_SID"
 
    public static void main(String[] args) throws Exception {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/CAfa51b104354440b09213d04752f50271.json");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/" + CALL_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -2850,8 +3018,8 @@ public class JavaSampleClass {
 
       // Update POST parameters accordingly
       os.writeBytes("From=+16175551212&" +
-        "To=sip:alice@127.0.0.1:5061&" +
-        "Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml");
+        "To=sip:alice@mycompany.restcomm.com&" +
+        "Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml");
       os.close();
 
       // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
@@ -2882,30 +3050,32 @@ public class JavaSampleClass {
 <p>You can still redirect the current call back to the previous application</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-27 is-active" onclick="openLanguage('Curl', 27)">Curl</button>
-        <button class="sample-code-button scsIndex-27" onclick="openLanguage('Nodejs', 27)">Nodejs</button>
-        <button class="sample-code-button scsIndex-27" onclick="openLanguage('Python', 27)">Python</button>
-        <button class="sample-code-button scsIndex-27" onclick="openLanguage('Java', 27)">Java</button>
+        <button class="sample-code-button scsIndex-29 is-active" onclick="openLanguage('Curl', 29)">Curl</button>
+        <button class="sample-code-button scsIndex-29" onclick="openLanguage('Nodejs', 29)">Nodejs</button>
+        <button class="sample-code-button scsIndex-29" onclick="openLanguage('Python', 29)">Python</button>
+        <button class="sample-code-button scsIndex-29" onclick="openLanguage('Java', 29)">Java</button>
       </div>
-      <div id="Curl-27" class="sample-language-27">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CAfa51b104354440b09213d04752f50271.json \
-   -d 'Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml' \
+      <div id="Curl-29" class="sample-language-29">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CALL_SID.json \
+   -d 'Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-27" class="sample-language-27" style="display:none">
+      <div id="Nodejs-29" class="sample-language-29" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
 const ACCOUNT_SID = 'my_ACCOUNT_SID';
 const AUTH_TOKEN = 'my_AUTH_TOKEN';
+// Provide additional path parameters if applicable
+const CALL_SID = 'my_CALL_SID'
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAfa51b104354440b09213d04752f50271.json',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
-         'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+         'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
       }
    },
    function (error, response, body) {
@@ -2914,7 +3084,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-27" class="sample-language-27" style="display:none">
+      <div id="Python-29" class="sample-language-29" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -2922,6 +3092,8 @@ from urllib.parse import urlencode
 # Provide your Account Sid and Auth Token from your Console Account page
 ACCOUNT_SID = 'my_ACCOUNT_SID'
 AUTH_TOKEN = 'my_AUTH_TOKEN'
+// Provide additional path parameters if applicable
+CALL_SID = 'my_CALL_SID'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass,
@@ -2930,11 +3102,11 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 
 # Update POST parameters accordingly
 params = urlencode({
-   'Url': 'https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml'
+   'Url': 'https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml'
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAfa51b104354440b09213d04752f50271.json',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -2942,7 +3114,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-27" class="sample-language-27" style="display:none">
+      <div id="Java-29" class="sample-language-29" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2952,13 +3124,14 @@ public class JavaSampleClass {
    // Provide your Account Sid and Auth Token from your Console Account page
    public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
    public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
+   // Provide additional path parameters if applicable
+   public static final String CALL_SID = "my_CALL_SID"
 
    public static void main(String[] args) throws Exception {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/CAfa51b104354440b09213d04752f50271.json");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/" + CALL_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -2966,7 +3139,7 @@ public class JavaSampleClass {
       DataOutputStream os = new DataOutputStream(conn.getOutputStream());
 
       // Update POST parameters accordingly
-      os.writeBytes("Url=https://<accountSid>:<authToken>@cloud.restcomm.com/restcomm/demos/hello-play.xml");
+      os.writeBytes("Url=https://ACCOUNT_SID:AUTH_TOKEN@mycompany.restcomm.com/restcomm/demos/hello-play.xml");
       os.close();
 
       // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
@@ -2997,27 +3170,29 @@ public class JavaSampleClass {
 <p>You can end the call using the Status=completed command as shown below</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-28 is-active" onclick="openLanguage('Curl', 28)">Curl</button>
-        <button class="sample-code-button scsIndex-28" onclick="openLanguage('Nodejs', 28)">Nodejs</button>
-        <button class="sample-code-button scsIndex-28" onclick="openLanguage('Python', 28)">Python</button>
-        <button class="sample-code-button scsIndex-28" onclick="openLanguage('Java', 28)">Java</button>
+        <button class="sample-code-button scsIndex-30 is-active" onclick="openLanguage('Curl', 30)">Curl</button>
+        <button class="sample-code-button scsIndex-30" onclick="openLanguage('Nodejs', 30)">Nodejs</button>
+        <button class="sample-code-button scsIndex-30" onclick="openLanguage('Python', 30)">Python</button>
+        <button class="sample-code-button scsIndex-30" onclick="openLanguage('Java', 30)">Java</button>
       </div>
-      <div id="Curl-28" class="sample-language-28">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CAfa51b104354440b09213d04752f50271.json \
+      <div id="Curl-30" class="sample-language-30">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CALL_SID.json \
    -d 'Status=completed' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-28" class="sample-language-28" style="display:none">
+      <div id="Nodejs-30" class="sample-language-30" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
 const ACCOUNT_SID = 'my_ACCOUNT_SID';
 const AUTH_TOKEN = 'my_AUTH_TOKEN';
+// Provide additional path parameters if applicable
+const CALL_SID = 'my_CALL_SID'
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAfa51b104354440b09213d04752f50271.json',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'Status': 'completed'
@@ -3029,7 +3204,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-28" class="sample-language-28" style="display:none">
+      <div id="Python-30" class="sample-language-30" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -3037,6 +3212,8 @@ from urllib.parse import urlencode
 # Provide your Account Sid and Auth Token from your Console Account page
 ACCOUNT_SID = 'my_ACCOUNT_SID'
 AUTH_TOKEN = 'my_AUTH_TOKEN'
+// Provide additional path parameters if applicable
+CALL_SID = 'my_CALL_SID'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass,
@@ -3049,7 +3226,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/CAfa51b104354440b09213d04752f50271.json',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -3057,7 +3234,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-28" class="sample-language-28" style="display:none">
+      <div id="Java-30" class="sample-language-30" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3067,13 +3244,14 @@ public class JavaSampleClass {
    // Provide your Account Sid and Auth Token from your Console Account page
    public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
    public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
+   // Provide additional path parameters if applicable
+   public static final String CALL_SID = "my_CALL_SID"
 
    public static void main(String[] args) throws Exception {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/CAfa51b104354440b09213d04752f50271.json");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Calls/" + CALL_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -3109,24 +3287,21 @@ public class JavaSampleClass {
 </div>
 </div>
 <div class="paragraph">
-<p>Check LiveCallModification test scripts for Hold/Unhold calls at: <a href="https://github.com/RestComm/Restcomm-Connect/tree/master/liveCallModification" class="bare">https://github.com/RestComm/Restcomm-Connect/tree/master/liveCallModification</a></p>
-</div>
-<div class="paragraph">
 <p>You can Mute/unMute an inprogress call as shown bellow.</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-29 is-active" onclick="openLanguage('Curl', 29)">Curl</button>
-        <button class="sample-code-button scsIndex-29" onclick="openLanguage('Nodejs', 29)">Nodejs</button>
-        <button class="sample-code-button scsIndex-29" onclick="openLanguage('Python', 29)">Python</button>
-        <button class="sample-code-button scsIndex-29" onclick="openLanguage('Java', 29)">Java</button>
+        <button class="sample-code-button scsIndex-31 is-active" onclick="openLanguage('Curl', 31)">Curl</button>
+        <button class="sample-code-button scsIndex-31" onclick="openLanguage('Nodejs', 31)">Nodejs</button>
+        <button class="sample-code-button scsIndex-31" onclick="openLanguage('Python', 31)">Python</button>
+        <button class="sample-code-button scsIndex-31" onclick="openLanguage('Java', 31)">Java</button>
       </div>
-      <div id="Curl-29" class="sample-language-29">
+      <div id="Curl-31" class="sample-language-31">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Conferences/CONFERENCE_SID/Participants/CALL_SID.json \
    -d 'Mute=true' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-29" class="sample-language-29" style="display:none">
+      <div id="Nodejs-31" class="sample-language-31" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3150,7 +3325,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-29" class="sample-language-29" style="display:none">
+      <div id="Python-31" class="sample-language-31" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -3181,7 +3356,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-29" class="sample-language-29" style="display:none">
+      <div id="Java-31" class="sample-language-31" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3238,18 +3413,18 @@ public class JavaSampleClass {
 </div>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-30 is-active" onclick="openLanguage('Curl', 30)">Curl</button>
-        <button class="sample-code-button scsIndex-30" onclick="openLanguage('Nodejs', 30)">Nodejs</button>
-        <button class="sample-code-button scsIndex-30" onclick="openLanguage('Python', 30)">Python</button>
-        <button class="sample-code-button scsIndex-30" onclick="openLanguage('Java', 30)">Java</button>
+        <button class="sample-code-button scsIndex-32 is-active" onclick="openLanguage('Curl', 32)">Curl</button>
+        <button class="sample-code-button scsIndex-32" onclick="openLanguage('Nodejs', 32)">Nodejs</button>
+        <button class="sample-code-button scsIndex-32" onclick="openLanguage('Python', 32)">Python</button>
+        <button class="sample-code-button scsIndex-32" onclick="openLanguage('Java', 32)">Java</button>
       </div>
-      <div id="Curl-30" class="sample-language-30">
+      <div id="Curl-32" class="sample-language-32">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Conferences/CONFERENCE_SID/Participants/CALL_SID.json \
    -d 'Mute=false' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-30" class="sample-language-30" style="display:none">
+      <div id="Nodejs-32" class="sample-language-32" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3273,7 +3448,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-30" class="sample-language-30" style="display:none">
+      <div id="Python-32" class="sample-language-32" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -3304,7 +3479,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-30" class="sample-language-30" style="display:none">
+      <div id="Java-32" class="sample-language-32" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3415,17 +3590,17 @@ public class JavaSampleClass {
 <p>The example below will only return Calls made from client Alice</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-31 is-active" onclick="openLanguage('Curl', 31)">Curl</button>
-        <button class="sample-code-button scsIndex-31" onclick="openLanguage('Nodejs', 31)">Nodejs</button>
-        <button class="sample-code-button scsIndex-31" onclick="openLanguage('Python', 31)">Python</button>
-        <button class="sample-code-button scsIndex-31" onclick="openLanguage('Java', 31)">Java</button>
+        <button class="sample-code-button scsIndex-33 is-active" onclick="openLanguage('Curl', 33)">Curl</button>
+        <button class="sample-code-button scsIndex-33" onclick="openLanguage('Nodejs', 33)">Nodejs</button>
+        <button class="sample-code-button scsIndex-33" onclick="openLanguage('Python', 33)">Python</button>
+        <button class="sample-code-button scsIndex-33" onclick="openLanguage('Java', 33)">Java</button>
       </div>
-      <div id="Curl-31" class="sample-language-31">
+      <div id="Curl-33" class="sample-language-33">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json?From=alice \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-31" class="sample-language-31" style="display:none">
+      <div id="Nodejs-33" class="sample-language-33" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3444,7 +3619,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-31" class="sample-language-31" style="display:none">
+      <div id="Python-33" class="sample-language-33" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3464,7 +3639,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-31" class="sample-language-31" style="display:none">
+      <div id="Java-33" class="sample-language-33" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3582,17 +3757,17 @@ public class JavaSampleClass {
 <p>The command below will return a single item from the list of calls using the PageSize parameter</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-32 is-active" onclick="openLanguage('Curl', 32)">Curl</button>
-        <button class="sample-code-button scsIndex-32" onclick="openLanguage('Nodejs', 32)">Nodejs</button>
-        <button class="sample-code-button scsIndex-32" onclick="openLanguage('Python', 32)">Python</button>
-        <button class="sample-code-button scsIndex-32" onclick="openLanguage('Java', 32)">Java</button>
+        <button class="sample-code-button scsIndex-34 is-active" onclick="openLanguage('Curl', 34)">Curl</button>
+        <button class="sample-code-button scsIndex-34" onclick="openLanguage('Nodejs', 34)">Nodejs</button>
+        <button class="sample-code-button scsIndex-34" onclick="openLanguage('Python', 34)">Python</button>
+        <button class="sample-code-button scsIndex-34" onclick="openLanguage('Java', 34)">Java</button>
       </div>
-      <div id="Curl-32" class="sample-language-32">
+      <div id="Curl-34" class="sample-language-34">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json?PageSize=1 \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-32" class="sample-language-32" style="display:none">
+      <div id="Nodejs-34" class="sample-language-34" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3611,7 +3786,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-32" class="sample-language-32" style="display:none">
+      <div id="Python-34" class="sample-language-34" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3631,7 +3806,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-32" class="sample-language-32" style="display:none">
+      <div id="Java-34" class="sample-language-34" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3798,17 +3973,17 @@ public class JavaSampleClass {
 <p>The command below will return calls sorted by the creation date in ascending order using SortBy parameter:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-33 is-active" onclick="openLanguage('Curl', 33)">Curl</button>
-        <button class="sample-code-button scsIndex-33" onclick="openLanguage('Nodejs', 33)">Nodejs</button>
-        <button class="sample-code-button scsIndex-33" onclick="openLanguage('Python', 33)">Python</button>
-        <button class="sample-code-button scsIndex-33" onclick="openLanguage('Java', 33)">Java</button>
+        <button class="sample-code-button scsIndex-35 is-active" onclick="openLanguage('Curl', 35)">Curl</button>
+        <button class="sample-code-button scsIndex-35" onclick="openLanguage('Nodejs', 35)">Nodejs</button>
+        <button class="sample-code-button scsIndex-35" onclick="openLanguage('Python', 35)">Python</button>
+        <button class="sample-code-button scsIndex-35" onclick="openLanguage('Java', 35)">Java</button>
       </div>
-      <div id="Curl-33" class="sample-language-33">
+      <div id="Curl-35" class="sample-language-35">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json?SortBy=DateCreated:asc \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-33" class="sample-language-33" style="display:none">
+      <div id="Nodejs-35" class="sample-language-35" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3827,7 +4002,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-33" class="sample-language-33" style="display:none">
+      <div id="Python-35" class="sample-language-35" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3847,7 +4022,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-33" class="sample-language-33" style="display:none">
+      <div id="Java-35" class="sample-language-35" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3929,23 +4104,23 @@ public class JavaSampleClass {
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

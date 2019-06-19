@@ -1023,7 +1023,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../enterprise/rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../enterprise/rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -2163,7 +2163,7 @@ public class JavaSampleClass {
 <h2 id="_sub_accounts"><a class="anchor" href="#_sub_accounts"></a>Sub-Accounts</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can read more about Sub-Accounts and Multi-tenancy <a href="http://docs.telestax.com/restcomm-multi-tenancy-and-managing-sub-accounts/">HERE</a></p>
+<p>You can read more about Sub-Accounts and Multi-tenancy <a href="Multi-tenancy-and-Managing-Sub-Accounts.adoc">HERE</a></p>
 </div>
       <div class="sample-code-bar">
         <button class="sample-code-button scsIndex-6 is-active" onclick="openLanguage('Curl', 6)">Curl</button>
@@ -2337,7 +2337,7 @@ public class JavaSampleClass {
       <div id="Curl-8" class="sample-language-8">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml \
    -d 'FriendlyName=MySubAccount' \
-   -d 'EmailAddress=test@telestax.com' \
+   -d 'EmailAddress=test@company.com' \
    -d 'Password=restcomm' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
@@ -2355,7 +2355,7 @@ request.({
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'FriendlyName': 'MySubAccount',
-         'EmailAddress': 'test@telestax.com',
+         'EmailAddress': 'test@company.com',
          'Password': 'restcomm'
       }
    },
@@ -2382,7 +2382,7 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 # Update POST parameters accordingly
 params = urlencode({
    'FriendlyName': 'MySubAccount',
-   'EmailAddress': 'test@telestax.com',
+   'EmailAddress': 'test@company.com',
    'Password': 'restcomm'
 })
 
@@ -2420,7 +2420,7 @@ public class JavaSampleClass {
 
       // Update POST parameters accordingly
       os.writeBytes("FriendlyName=MySubAccount&" +
-        "EmailAddress=test@telestax.com&" +
+        "EmailAddress=test@company.com&" +
         "Password=restcomm");
       os.close();
 
@@ -2442,7 +2442,7 @@ public class JavaSampleClass {
       <div id="Curl-9" class="sample-language-9">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml \
    -d 'FriendlyName=MySubAccount' \
-   -d 'EmailAddress=test@telestax.com' \
+   -d 'EmailAddress=test@company.com' \
    -d 'Password=restcomm' \
    -d 'OrganizationSid=OrganizationSid' \
    -u 'YourAccountSid:YourAuthToken'
@@ -2461,7 +2461,7 @@ request.({
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'FriendlyName': 'MySubAccount',
-         'EmailAddress': 'test@telestax.com',
+         'EmailAddress': 'test@company.com',
          'Password': 'restcomm',
          'OrganizationSid': 'OrganizationSid'
       }
@@ -2489,7 +2489,7 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 # Update POST parameters accordingly
 params = urlencode({
    'FriendlyName': 'MySubAccount',
-   'EmailAddress': 'test@telestax.com',
+   'EmailAddress': 'test@company.com',
    'Password': 'restcomm',
    'OrganizationSid': 'OrganizationSid'
 })
@@ -2528,7 +2528,7 @@ public class JavaSampleClass {
 
       // Update POST parameters accordingly
       os.writeBytes("FriendlyName=MySubAccount&" +
-        "EmailAddress=test@telestax.com&" +
+        "EmailAddress=test@company.com&" +
         "Password=restcomm&" +
         "OrganizationSid=OrganizationSid");
       os.close();
@@ -2703,9 +2703,9 @@ public class JavaSampleClass {
           <p><a href="/docs/1.0/message-exchange.html">Message Exchange</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-factor authentication (2FA)</a></p>
+        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone number masking</a></p>
         <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
@@ -2716,7 +2716,7 @@ public class JavaSampleClass {
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
         <p>
           <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
           <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>

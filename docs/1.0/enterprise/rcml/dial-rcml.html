@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dial - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/rcml/dial-rcml.html">
-    <meta name="description" content="The &amp;lt;Dial&amp;gt; verb connects the current caller to another phone. If the called party picks up, the two parties are connected and can communicate until one hangs up. If the called party does not pick up, if a busy signal is received, or if the number doesn&#x27;t exist, the dial verb will finish.">
-    <meta name="keywords" content="dial a phone, rcml dial, restcomm dial, dial a restcomm number">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -26,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1043,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1367,7 +1354,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>action.</strong> The 'action' attribute takes a URL as an argument. When the dialed call ends, RestComm will make a GET or POST request to this URL including the parameters below. If you provide an 'action' URL, RestComm will continue the current call after the dialed party has hung up, using the RCML received in your response to the 'action' URL request. Any RCML verbs occuring after a &lt;Dial&gt; which specifies an 'action' attribute are unreachable. If no 'action' is provided, &lt;Dial&gt; will finish and RestComm will move on to the next RCML verb in the document. If there is no next verb, RestComm will end the phone call.</p>
+<p><strong>action.</strong> The 'action' attribute takes a URL as an argument. When the dialed call ends, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a GET or POST request to this URL including the parameters below. If you provide an 'action' URL, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will continue the current call after the dialed party has hung up, using the RCML received in your response to the 'action' URL request. Any RCML verbs occuring after a &lt;Dial&gt; which specifies an 'action' attribute are unreachable. If no 'action' is provided, &lt;Dial&gt; will finish and <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will move on to the next RCML verb in the document. If there is no next verb, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will end the phone call.</p>
 </li>
 </ul>
 </div>
@@ -1425,7 +1412,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">busy</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RestComm received a busy signal when trying to connect to the called party.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> received a busy signal when trying to connect to the called party.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">no-answer</p></td>
@@ -1433,7 +1420,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">failed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RestComm was unable to route to the given phone number. This is frequently caused by dialing a properly formated but non-existent phone number.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> was unable to route to the given phone number. This is frequently caused by dialing a properly formated but non-existent phone number.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">canceled</p></td>
@@ -1444,7 +1431,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>method.</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells RestComm whether to request the 'action' URL via HTTP GET or POST. This attribute is modeled after the HTML form 'method' attribute.</p>
+<p><strong>method.</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> whether to request the 'action' URL via HTTP GET or POST. This attribute is modeled after the HTML form 'method' attribute.</p>
 </li>
 <li>
 <p><strong>timeout.</strong> The 'timeout' attribute sets the limit in seconds that &lt;Dial&gt; waits for the called party to answer the call.</p>
@@ -1453,10 +1440,10 @@
 <p><strong>timelimit.</strong> The 'timeLimit' attribute sets the maximum duration of the &lt;Dial&gt; in seconds.</p>
 </li>
 <li>
-<p><strong>callerId.</strong> The 'callerId' attribute lets you specify the caller ID that will appear to the called party when RestComm calls. By default, when you put a &lt;Dial&gt; in your RCML response to RestComm&#8217;s inbound call request, the caller ID that the dialed party sees is the inbound caller&#8217;s caller ID. If you are dialing to a &lt;Client&gt;, you can set a client identifier as the callerId attribute. For instance, if you&#8217;ve set up a client for incoming calls and you are dialing to it, you could set the callerId attribute to client:thomas.</p>
+<p><strong>callerId.</strong> The 'callerId' attribute lets you specify the caller ID that will appear to the called party when <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> calls. By default, when you put a &lt;Dial&gt; in your RCML response to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>'s inbound call request, the caller ID that the dialed party sees is the inbound caller&#8217;s caller ID. If you are dialing to a &lt;Client&gt;, you can set a client identifier as the callerId attribute. For instance, if you&#8217;ve set up a client for incoming calls and you are dialing to it, you could set the callerId attribute to client:thomas.</p>
 </li>
 <li>
-<p><strong>record.</strong> The 'record' attribute lets you specify whether the call will be recorded or not. By default, the call is not recorded. If you set the attribute to 'true' Restcomm will start recording when the two calls are bridged</p>
+<p><strong>record.</strong> The 'record' attribute lets you specify whether the call will be recorded or not. By default, the call is not recorded. If you set the attribute to 'true' <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will start recording when the two calls are bridged</p>
 </li>
 <li>
 <p><strong>dialMusic.</strong> The 'dialMusic' attribute lets you specify a custom RingBack tone to be played. The attribute value is a valid URL pointing to WAV file</p>
@@ -1470,7 +1457,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The current release of Restcomm doesn&#8217;t support recording for Dial Conference. This feature will be available in the next release
+The current release of <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> doesn&#8217;t support recording for Dial Conference. This feature will be available in the next release
 </td>
 </tr>
 </table>
@@ -1518,7 +1505,7 @@ The current release of Restcomm doesn&#8217;t support recording for Dial Confere
 <h2 id="_answer_delay_with_dial_verb"><a class="anchor" href="#_answer_delay_with_dial_verb"></a>Answer Delay with Dial verb</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For certain scenarios the 200 OK on the initial call should be delayed when the first verb is Dial, until Restcomm receives the final response from the Dial branch (or branches).</p>
+<p>For certain scenarios the 200 OK on the initial call should be delayed when the first verb is Dial, until <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives the final response from the Dial branch (or branches).</p>
 </div>
 <div class="paragraph">
 <p>Before this feature, when processing an incoming call for a hosted application, the application immediately created media session and sent SIP 200 OK response to the client no matter if there was a Dial verb in the hosted application or not. The incoming call was established with the application and the 'ringing' sound was transmitted through media channel. At the same time, if the RCML hosted application had Dial verb, the application sent SIP INVITE request to the destination. Depending on the destination response, the incoming call was either updated with the new media session (when the response was 200 OK), or it was disconnected (in case of failure response).</p>
@@ -1527,17 +1514,12 @@ The current release of Restcomm doesn&#8217;t support recording for Dial Confere
 <p>With this new feature, in the above scenario, the application sends SIP 180 Ringing response instead of SIP 200 OK. The SIP 200 OK response is sent to the client only when the outgoing call is established with the destination. When outgoing call is failed, then the failure response is passed to the client.</p>
 </div>
 <div class="paragraph">
-<p>The feature was implemented as a feature flag. In order to configure this functionality, the following definition must be present in restcomm.xml file:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;enable-200-ok-delay&gt;true&lt;/enable-200-ok-delay&gt;</code></pre>
-</div>
+<p>The feature was implemented as a feature flag, so 'enable-200-ok-delay' needs to be set.</p>
 </div>
 <div class="sect2">
 <h3 id="_call_flows"><a class="anchor" href="#_call_flows"></a>Call flows</h3>
 <div class="paragraph">
-<p>The following sequence flow diagrams illustrate the new way of Restcomm-Connect functionality for RCML &lt;Dial&gt; verb.</p>
+<p>The following sequence flow diagrams illustrate the new way of <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> functionality for RCML &lt;Dial&gt; verb.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1574,23 +1556,23 @@ The current release of Restcomm doesn&#8217;t support recording for Dial Confere
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

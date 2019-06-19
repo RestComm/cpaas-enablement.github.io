@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notifications - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/api/notifications-api.html">
-    <meta name="description" content="A Notification resource represents a single log entry made by Restcomm while handling your calls or your use of the restful APIs. It is very useful for debugging purposes.">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -25,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1042,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1308,7 +1296,7 @@
 <h2 id="_notifications"><a class="anchor" href="#_notifications"></a>Notifications</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A <strong>Notification</strong> resource represents a single log entry made by Restcomm while handling your calls or your use of the restful APIs. It is very useful for debugging purposes. The Notifications list resource represents the set of notifications generated for an account.</p>
+<p>A <strong>Notification</strong> resource represents a single log entry made by <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> while handling your calls or your use of the restful APIs. It is very useful for debugging purposes. The Notifications list resource represents the set of notifications generated for an account.</p>
 </div>
 <div class="sect2">
 <h3 id="_notification_resource_uri"><a class="anchor" href="#_notification_resource_uri"></a>Notification Resource URI</h3>
@@ -1351,7 +1339,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ApiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The RestComm API version in use when this notification was generated. May be empty for events that don&#8217;t have a specific API version.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> API version in use when this notification was generated. May be empty for events that don&#8217;t have a specific API version.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Log</p></td>
@@ -1383,7 +1371,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RequestVariables</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP GET or POST variables that RestComm generated and sent to your server. Also, if the notification was generated by the Restful APIs, this field will include any HTTP POST or PUT variables you sent.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP GET or POST variables that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> generated and sent to your server. Also, if the notification was generated by the Restful APIs, this field will include any HTTP POST or PUT variables you sent.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ResponseHeaders</p></td>
@@ -1395,7 +1383,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to https://localhost/restcomm.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to <code><span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1446,17 +1434,17 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-48 is-active" onclick="openLanguage('Curl', 48)">Curl</button>
-        <button class="sample-code-button scsIndex-48" onclick="openLanguage('Nodejs', 48)">Nodejs</button>
-        <button class="sample-code-button scsIndex-48" onclick="openLanguage('Python', 48)">Python</button>
-        <button class="sample-code-button scsIndex-48" onclick="openLanguage('Java', 48)">Java</button>
+        <button class="sample-code-button scsIndex-50 is-active" onclick="openLanguage('Curl', 50)">Curl</button>
+        <button class="sample-code-button scsIndex-50" onclick="openLanguage('Nodejs', 50)">Nodejs</button>
+        <button class="sample-code-button scsIndex-50" onclick="openLanguage('Python', 50)">Python</button>
+        <button class="sample-code-button scsIndex-50" onclick="openLanguage('Java', 50)">Java</button>
       </div>
-      <div id="Curl-48" class="sample-language-48">
+      <div id="Curl-50" class="sample-language-50">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Notifications.xml \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-48" class="sample-language-48" style="display:none">
+      <div id="Nodejs-50" class="sample-language-50" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1475,7 +1463,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-48" class="sample-language-48" style="display:none">
+      <div id="Python-50" class="sample-language-50" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -1495,7 +1483,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-48" class="sample-language-48" style="display:none">
+      <div id="Java-50" class="sample-language-50" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1530,17 +1518,17 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_json_get_response"><a class="anchor" href="#_json_get_response"></a>JSON GET Response</h3>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-49 is-active" onclick="openLanguage('Curl', 49)">Curl</button>
-        <button class="sample-code-button scsIndex-49" onclick="openLanguage('Nodejs', 49)">Nodejs</button>
-        <button class="sample-code-button scsIndex-49" onclick="openLanguage('Python', 49)">Python</button>
-        <button class="sample-code-button scsIndex-49" onclick="openLanguage('Java', 49)">Java</button>
+        <button class="sample-code-button scsIndex-51 is-active" onclick="openLanguage('Curl', 51)">Curl</button>
+        <button class="sample-code-button scsIndex-51" onclick="openLanguage('Nodejs', 51)">Nodejs</button>
+        <button class="sample-code-button scsIndex-51" onclick="openLanguage('Python', 51)">Python</button>
+        <button class="sample-code-button scsIndex-51" onclick="openLanguage('Java', 51)">Java</button>
       </div>
-      <div id="Curl-49" class="sample-language-49">
+      <div id="Curl-51" class="sample-language-51">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Notifications.json \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-49" class="sample-language-49" style="display:none">
+      <div id="Nodejs-51" class="sample-language-51" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1559,7 +1547,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-49" class="sample-language-49" style="display:none">
+      <div id="Python-51" class="sample-language-51" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -1579,7 +1567,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-49" class="sample-language-49" style="display:none">
+      <div id="Java-51" class="sample-language-51" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1622,7 +1610,7 @@ public class JavaSampleClass {
         "more_info":"http://restcomm.com/docs/rvd-workspace-upgrade",
         "message_text":"Workspace migration skipped in 2016-12-28 21:12:25.758",
         "message_date":"2013-08-30T16:28:33.403+09:00",
-        "request_url":"https://cloud.restcomm.com/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav",
+        "request_url":"/recordings/RE50675909d9c94acda36f0e119b6cb431.wav",
         "request_method":"request method",
         "request_variables":"request variable",
         "uri":"/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Notifications/NOb88ccff6c9e04f989de9415a555ad84d.json.json"}
@@ -1684,17 +1672,17 @@ public class JavaSampleClass {
 <p>The example below will only return Messages sent from client Alice</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-50 is-active" onclick="openLanguage('Curl', 50)">Curl</button>
-        <button class="sample-code-button scsIndex-50" onclick="openLanguage('Nodejs', 50)">Nodejs</button>
-        <button class="sample-code-button scsIndex-50" onclick="openLanguage('Python', 50)">Python</button>
-        <button class="sample-code-button scsIndex-50" onclick="openLanguage('Java', 50)">Java</button>
+        <button class="sample-code-button scsIndex-52 is-active" onclick="openLanguage('Curl', 52)">Curl</button>
+        <button class="sample-code-button scsIndex-52" onclick="openLanguage('Nodejs', 52)">Nodejs</button>
+        <button class="sample-code-button scsIndex-52" onclick="openLanguage('Python', 52)">Python</button>
+        <button class="sample-code-button scsIndex-52" onclick="openLanguage('Java', 52)">Java</button>
       </div>
-      <div id="Curl-50" class="sample-language-50">
+      <div id="Curl-52" class="sample-language-52">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Notifications.json?ErrorCode=1 \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-50" class="sample-language-50" style="display:none">
+      <div id="Nodejs-52" class="sample-language-52" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1713,7 +1701,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-50" class="sample-language-50" style="display:none">
+      <div id="Python-52" class="sample-language-52" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -1733,7 +1721,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-50" class="sample-language-50" style="display:none">
+      <div id="Java-52" class="sample-language-52" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1776,10 +1764,9 @@ public class JavaSampleClass {
         "api_version":"2012-04-24",
         "log":1,
         "error_code":1,
-        "more_info":"http://restcomm.com/docs/rvd-workspace-upgrade",
         "message_text":"Workspace migration skipped in 2016-12-28 21:12:25.758",
         "message_date":"2013-08-30T16:28:33.403+09:00",
-        "request_url":"https://cloud.restcomm.com/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav",
+        "request_url":"/recordings/RE50675909d9c94acda36f0e119b6cb431.wav",
         "request_method":"request method",
         "request_variables":"request variable",
         "uri":"/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Notifications/NOb88ccff6c9e04f989de9415a555ad84d.json.json"}
@@ -1845,17 +1832,17 @@ public class JavaSampleClass {
 <p>The command below will return a single item from the list of notifications using the PageSize parameter</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-51 is-active" onclick="openLanguage('Curl', 51)">Curl</button>
-        <button class="sample-code-button scsIndex-51" onclick="openLanguage('Nodejs', 51)">Nodejs</button>
-        <button class="sample-code-button scsIndex-51" onclick="openLanguage('Python', 51)">Python</button>
-        <button class="sample-code-button scsIndex-51" onclick="openLanguage('Java', 51)">Java</button>
+        <button class="sample-code-button scsIndex-53 is-active" onclick="openLanguage('Curl', 53)">Curl</button>
+        <button class="sample-code-button scsIndex-53" onclick="openLanguage('Nodejs', 53)">Nodejs</button>
+        <button class="sample-code-button scsIndex-53" onclick="openLanguage('Python', 53)">Python</button>
+        <button class="sample-code-button scsIndex-53" onclick="openLanguage('Java', 53)">Java</button>
       </div>
-      <div id="Curl-51" class="sample-language-51">
+      <div id="Curl-53" class="sample-language-53">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Notifications.json?PageSize=1 \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-51" class="sample-language-51" style="display:none">
+      <div id="Nodejs-53" class="sample-language-53" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1874,7 +1861,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-51" class="sample-language-51" style="display:none">
+      <div id="Python-53" class="sample-language-53" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -1894,7 +1881,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-51" class="sample-language-51" style="display:none">
+      <div id="Java-53" class="sample-language-53" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1940,7 +1927,7 @@ public class JavaSampleClass {
             "more_info":"http://restcomm.com/docs/rvd-workspace-upgrade",
             "message_text":"Workspace migration skipped in 2016-12-28 21:12:25.758",
             "message_date":"2013-08-30T16:28:33.403+09:00",
-            "request_url":"https://cloud.restcomm.com/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav",
+            "request_url":"/recordings/RE50675909d9c94acda36f0e119b6cb431.wav",
             "request_method":"request method",
             "request_variables":"request variable",
             "uri":"/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Notifications/NOb88ccff6c9e04f989de9415a555ad84d.json.json"}
@@ -2046,17 +2033,17 @@ public class JavaSampleClass {
 <p>The command below will return notifications sorted by the creation date in ascending order using SortBy parameter:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-52 is-active" onclick="openLanguage('Curl', 52)">Curl</button>
-        <button class="sample-code-button scsIndex-52" onclick="openLanguage('Nodejs', 52)">Nodejs</button>
-        <button class="sample-code-button scsIndex-52" onclick="openLanguage('Python', 52)">Python</button>
-        <button class="sample-code-button scsIndex-52" onclick="openLanguage('Java', 52)">Java</button>
+        <button class="sample-code-button scsIndex-54 is-active" onclick="openLanguage('Curl', 54)">Curl</button>
+        <button class="sample-code-button scsIndex-54" onclick="openLanguage('Nodejs', 54)">Nodejs</button>
+        <button class="sample-code-button scsIndex-54" onclick="openLanguage('Python', 54)">Python</button>
+        <button class="sample-code-button scsIndex-54" onclick="openLanguage('Java', 54)">Java</button>
       </div>
-      <div id="Curl-52" class="sample-language-52">
+      <div id="Curl-54" class="sample-language-54">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/ACCOUNT_SID/Notifications.json?SortBy=DateCreated:asc \
    -u "YourAccountSid:YourAuthToken"
 </code></pre>
       </div>
-      <div id="Nodejs-52" class="sample-language-52" style="display:none">
+      <div id="Nodejs-54" class="sample-language-54" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2075,7 +2062,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-52" class="sample-language-52" style="display:none">
+      <div id="Python-54" class="sample-language-54" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -2095,7 +2082,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-52" class="sample-language-52" style="display:none">
+      <div id="Java-54" class="sample-language-54" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2135,7 +2122,7 @@ public class JavaSampleClass {
             &lt;DateUpdated&gt;Thu, 5 Jul 2018 10:46:45 +0300&lt;/DateUpdated&gt;
             &lt;Log&gt;1&lt;/Log&gt;
             &lt;ErrorCode&gt;12003&lt;/ErrorCode&gt;
-            &lt;MessageText&gt;There is no valid Restcomm SMS Request URL configured for this number : 1235&lt;/MessageText&gt;
+            &lt;MessageText&gt;There is no valid <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> SMS Request URL configured for this number : 1235&lt;/MessageText&gt;
             ...
         &lt;/Notification&gt;
         &lt;Notification&gt;
@@ -2144,7 +2131,7 @@ public class JavaSampleClass {
             &lt;DateUpdated&gt;Thu, 5 Jul 2018 10:46:54 +0300&lt;/DateUpdated&gt;
             &lt;Log&gt;1&lt;/Log&gt;
             &lt;ErrorCode&gt;12003&lt;/ErrorCode&gt;
-            &lt;MessageText&gt;There is no valid Restcomm SMS Request URL configured for this number : 1234&lt;/MessageText&gt;
+            &lt;MessageText&gt;There is no valid <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> SMS Request URL configured for this number : 1234&lt;/MessageText&gt;
             ...
         &lt;/Notification&gt;
         ...
@@ -2163,23 +2150,23 @@ public class JavaSampleClass {
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIP - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/rcml/sip-rcml.html">
-    <meta name="description" content="The &amp;lt;Sip&amp;gt; noun specifies a SIP URI to dial. You can use multiple &amp;lt;Sip&amp;gt; nouns within a &amp;lt;Dial&amp;gt; verb to simultaneously attempt a connection with many user agents at once. The first user agent to accept the incoming connection is connected to the call and the other connection attempts are canceled.">
-    <meta name="keywords" content="restcomm sip, sip rcml, sip dial, dial a number, dial many users, dial numbers">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -26,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1043,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1403,7 +1390,7 @@
 <div class="sect3">
 <h4 id="_method"><a class="anchor" href="#_method"></a>method</h4>
 <div class="paragraph">
-<p>The 'method' attribute allows you to specify which HTTP method Restcomm should use when requesting the URL in the 'url' attribute. The default is POST.</p>
+<p>The 'method' attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the URL in the 'url' attribute. The default is POST.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1412,7 +1399,7 @@
 <p>When dialing out to a SIP URI using &lt;Dial&gt;, an outbound call is initiated. The call transitions from the initiated state to the ringing state when the phone starts ringing. It transitions to the answered state when the call is picked up, and finally to the completed state when the call is over. With <strong>statusCallbackEvent</strong>, you can subscribe to receive webhooks for the different call progress events: initiated, ringing, answered, or completed for a given call.</p>
 </div>
 <div class="paragraph">
-<p>The <strong>statusCallbackEvent</strong> attribute allows you to specify which events Restcomm should webhook on. To specify multiple events separate them with a comma: <code>initiated,ringing,answered,completed</code>. If a statusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
+<p>The <strong>statusCallbackEvent</strong> attribute allows you to specify which events <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should webhook on. To specify multiple events separate them with a comma: <code>initiated,ringing,answered,completed</code>. If a statusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
 </div>
 <div class="paragraph">
 <p>As opposed to creating an outbound call via the API, outbound calls created using &lt;Dial&gt; are initiated right away and never queued. The following shows a timeline of possible call events that can be returned and the different call statuses that a &lt;Dial&gt; leg may experience:</p>
@@ -1439,7 +1426,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initiated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when Restcomm starts dialing the call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
@@ -1459,19 +1446,19 @@
 <div class="sect3">
 <h4 id="_statuscallback"><a class="anchor" href="#_statuscallback"></a>statusCallback</h4>
 <div class="paragraph">
-<p>The <strong>statusCallback</strong> attribute allows you to specify a URL for Restcomm to send webhook requests to on each event specified in the statusCallbackEvent attribute.</p>
+<p>The <strong>statusCallback</strong> attribute allows you to specify a URL for <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to send webhook requests to on each event specified in the statusCallbackEvent attribute.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_statuscallbackmethod"><a class="anchor" href="#_statuscallbackmethod"></a>statusCallbackMethod</h4>
 <div class="paragraph">
-<p>The <strong>statusCallbackMethod</strong> attribute allows you to specify which HTTP method Restcomm should use when requesting the URL in the statusCallback attribute. The default is POST.</p>
+<p>The <strong>statusCallbackMethod</strong> attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the URL in the statusCallback attribute. The default is POST.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
 <div class="paragraph">
-<p>The parameters Restcomm passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when Restcomm receives a call to one of your Restcomm numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
+<p>The parameters <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
 </div>
 <div class="paragraph">
 <p>When the call progress events are fired, the Status Callback request also passes these additional parameters:</p>
@@ -1490,7 +1477,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CallSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by Restcomm. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CallStatus</p></td>
@@ -1613,7 +1600,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Set a parameter on your SIP URI to specify what transport protocol you want to use. Currently, this is limited to TCP and UDP. By default, Restcomm sends your SIP INVITE over UDP. Change this by using the transport parameter:</p>
+<p>Set a parameter on your SIP URI to specify what transport protocol you want to use. Currently, this is limited to TCP and UDP. By default, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> sends your SIP INVITE over UDP. Change this by using the transport parameter:</p>
 </div>
 </div>
 <div class="sect2">
@@ -1652,13 +1639,13 @@
 <div class="sect4">
 <h5 id="_method_2"><a class="anchor" href="#_method_2"></a>method</h5>
 <div class="paragraph">
-<p>The method attribute allows you to specify which HTTP method Restcomm should use when requesting the URL specified in the url attribute. The default is POST.</p>
+<p>The method attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the URL specified in the url attribute. The default is POST.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_call_screening_http_parameters"><a class="anchor" href="#_call_screening_http_parameters"></a>Call Screening HTTP parameters</h5>
 <div class="paragraph">
-<p>When a call is answered, Restcomm passes the following parameters with its request to your screening URL (in addition to the standard RCML Voice request parameters):</p>
+<p>When a call is answered, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes the following parameters with its request to your screening URL (in addition to the standard RCML Voice request parameters):</p>
 </div>
 <div class="sect5">
 <h6 id="_request_parameters_3"><a class="anchor" href="#_request_parameters_3"></a>Request Parameters</h6>
@@ -1759,23 +1746,23 @@
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

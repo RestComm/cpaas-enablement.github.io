@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Participants - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/api/participants-api.html">
-    <meta name="description" content="A Participant represents a single participant currently connected to a running conference. It is idefiable by its CallSid.">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -25,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1042,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1315,7 +1303,7 @@
 <h3 id="_participant_resource_uri"><a class="anchor" href="#_participant_resource_uri"></a>Participant Resource URI</h3>
 <div class="literalblock">
 <div class="content">
-<pre>/2012-04-24/Accounts/\{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}</pre>
+<pre>/2012-04-24/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}</pre>
 </div>
 </div>
 </div>
@@ -1367,7 +1355,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to http://localhost:port/restcomm.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to <code><span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1382,7 +1370,7 @@
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>/2012-04-24/Accounts/\{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}</pre>
+<pre>/2012-04-24/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1390,7 +1378,7 @@
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>/2012-04-24/Accounts/\{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}.json</pre>
+<pre>/2012-04-24/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}.json</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1433,7 +1421,7 @@ Not supported</p>
 <div class="sectionbody">
 <div class="literalblock">
 <div class="content">
-<pre>/2012-04-24/Accounts/\{AccountSid}/Conferences/{ConferenceSid}/Participants</pre>
+<pre>/2012-04-24/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants</pre>
 </div>
 </div>
 <div class="sect2">
@@ -1478,18 +1466,18 @@ Not supported</p>
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-55 is-active" onclick="openLanguage('Curl', 55)">Curl</button>
-        <button class="sample-code-button scsIndex-55" onclick="openLanguage('Nodejs', 55)">Nodejs</button>
-        <button class="sample-code-button scsIndex-55" onclick="openLanguage('Python', 55)">Python</button>
-        <button class="sample-code-button scsIndex-55" onclick="openLanguage('Java', 55)">Java</button>
+        <button class="sample-code-button scsIndex-57 is-active" onclick="openLanguage('Curl', 57)">Curl</button>
+        <button class="sample-code-button scsIndex-57" onclick="openLanguage('Nodejs', 57)">Nodejs</button>
+        <button class="sample-code-button scsIndex-57" onclick="openLanguage('Python', 57)">Python</button>
+        <button class="sample-code-button scsIndex-57" onclick="openLanguage('Java', 57)">Java</button>
       </div>
-      <div id="Curl-55" class="sample-language-55">
+      <div id="Curl-57" class="sample-language-57">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Conferences/CONFERENCE_SID/Participants/CALL_SID.xml \
    -d 'Mute=true' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-55" class="sample-language-55" style="display:none">
+      <div id="Nodejs-57" class="sample-language-57" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1513,7 +1501,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-55" class="sample-language-55" style="display:none">
+      <div id="Python-57" class="sample-language-57" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -1544,7 +1532,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-55" class="sample-language-55" style="display:none">
+      <div id="Java-57" class="sample-language-57" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1601,18 +1589,18 @@ public class JavaSampleClass {
 </div>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-56 is-active" onclick="openLanguage('Curl', 56)">Curl</button>
-        <button class="sample-code-button scsIndex-56" onclick="openLanguage('Nodejs', 56)">Nodejs</button>
-        <button class="sample-code-button scsIndex-56" onclick="openLanguage('Python', 56)">Python</button>
-        <button class="sample-code-button scsIndex-56" onclick="openLanguage('Java', 56)">Java</button>
+        <button class="sample-code-button scsIndex-58 is-active" onclick="openLanguage('Curl', 58)">Curl</button>
+        <button class="sample-code-button scsIndex-58" onclick="openLanguage('Nodejs', 58)">Nodejs</button>
+        <button class="sample-code-button scsIndex-58" onclick="openLanguage('Python', 58)">Python</button>
+        <button class="sample-code-button scsIndex-58" onclick="openLanguage('Java', 58)">Java</button>
       </div>
-      <div id="Curl-56" class="sample-language-56">
+      <div id="Curl-58" class="sample-language-58">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Conferences/CONFERENCE_SID/Participants/CALL_SID.xml \
    -d 'Mute=false' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-56" class="sample-language-56" style="display:none">
+      <div id="Nodejs-58" class="sample-language-58" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1636,7 +1624,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-56" class="sample-language-56" style="display:none">
+      <div id="Python-58" class="sample-language-58" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -1667,7 +1655,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-56" class="sample-language-56" style="display:none">
+      <div id="Java-58" class="sample-language-58" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1734,23 +1722,23 @@ public class JavaSampleClass {
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

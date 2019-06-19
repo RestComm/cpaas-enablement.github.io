@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send SMS to a SIP Phone - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/tutorials/Send-an-SMS-to-a-SIP-Phone.html">
-    <meta name="description" content="Learn how to send text messages from Visual Designer to a Jitsi SIP phone.">
-    <meta name="keywords" content="send sms, sip phone, jitsi, restcomm sms, sip">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -26,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle" style="visibility: hidden;">
+      <button class="navigation-toggle icon-custom-font-right" style="visibility: hidden;">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1043,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1317,7 +1304,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>An active Restcomm Cloud account. If you do not have one, you can sign up <a href="https://cloud.restcomm.com/#/signup">here</a>.</p>
+<p>An active <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud account. If you do not have one, you can sign up.</p>
 </li>
 <li>
 <p>Jitsi SIP phone running on your local machine. (Latest version of Jitsi)</p>
@@ -1327,12 +1314,12 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_creating_an_sms_application_with_restcomm_visual_designer"><a class="anchor" href="#_creating_an_sms_application_with_restcomm_visual_designer"></a>Creating an SMS application with Restcomm Visual Designer</h2>
+<h2 id="_creating_an_sms_application_with_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_visual_designer"><a class="anchor" href="#_creating_an_sms_application_with_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_visual_designer"></a>Creating an SMS application with <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Visual Designer</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Log into your Restcomm Cloud account and navigate to <strong>Applications</strong></p>
+<p>Log into your <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud account and navigate to <strong>Applications</strong></p>
 </li>
 <li>
 <p>Choose to ”<strong>Create a Visual Designer Application</strong>”</p>
@@ -1346,7 +1333,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>Next, create two application new modules.called Welcome and Send SMS</p>
+<p>Next, create two application new modules called Welcome and Send SMS</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1409,7 +1396,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Head back to the Restcomm Console and navigate to “<strong>Numbers</strong>”</p>
+<p>Head back to the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Console and navigate to “<strong>Numbers</strong>”</p>
 </li>
 <li>
 <p>Search for available phone number in the region you are interested in</p>
@@ -1434,7 +1421,7 @@
 <h2 id="_configuring_the_jitsi_sip_phone"><a class="anchor" href="#_configuring_the_jitsi_sip_phone"></a>Configuring the Jitsi SIP phone</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this section, you will configure Jitsi SIP phone to use the Restcomm application you have just created and receive the SMS message you configured.</p>
+<p>In this section, you will configure Jitsi SIP phone to use the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> application you have just created and receive the SMS message you configured.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1487,7 +1474,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Enter <strong>{yourcompany}.restcomm.com</strong> as the Registrar IP address and leave the port as default</p>
+<p>Enter <strong><span class="non-sps-text non-sps-link">$DOMAIN</span></strong> as the Registrar IP address and leave the port as default</p>
 </li>
 </ul>
 </div>
@@ -1508,22 +1495,10 @@
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest9.png" alt="restcomm-rvd-sms"></span></p>
+<p><span class="image"><img src="../_images/restcomm-rvd-smstest9.png" alt="visual-designer-sms"></span></p>
 </div>
 <div class="paragraph">
 <p>Next, you will need to configure the second instance with user Bob. The configuration is similar to the one used for Alice.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Alice configuration SIP port must match the port configured in the restcomm.xml file to which the SMS message will be sent
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>How to check: In the Jitsi instance on which user Alice is configured,</p>
@@ -1542,18 +1517,7 @@ Alice configuration SIP port must match the port configured in the restcomm.xml 
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest10.png" alt="restcomm-rvd-smstest10"></span></p>
-</div>
-<div class="paragraph">
-<p>Make sure the <strong>SIP client port</strong> above (<strong>5070</strong>)matches the port defined in the <code>$RESTCOMM_HOME/standalone/deployments/restcomm.war/WEB-INF/conf/restcomm.xml</code></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lang:xml hljs" data-lang="lang:xml">&lt;sms-aggregator class="SmsService"&gt;
-	&lt;outbound-prefix&gt;&lt;/outbound-prefix&gt;
-	&lt;outbound-endpoint&gt;\{yourcompany}.restcomm.com:**5070**&lt;/outbound-endpoint&gt;
-&lt;/sms-aggregator&gt;</code></pre>
-</div>
+<p><span class="image"><img src="../_images/restcomm-rvd-smstest10.png" alt="visual-designer-smstest10"></span></p>
 </div>
 </div>
 </div>
@@ -1567,7 +1531,7 @@ Alice configuration SIP port must match the port configured in the restcomm.xml 
 <p>See screenshot below</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/restcomm-rvd-smstest11.png" alt="restcomm-rvd-smstest11"></span></p>
+<p><span class="image"><img src="../_images/restcomm-rvd-smstest11.png" alt="visual-designer-smstest11"></span></p>
 </div>
 <div class="paragraph">
 <p>The Jitsi phone to which Alice is connected will ring.</p>
@@ -1588,23 +1552,23 @@ Alice configuration SIP port must match the port configured in the restcomm.xml 
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

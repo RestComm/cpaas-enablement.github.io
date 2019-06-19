@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applications - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/api/applications-api.html">
-    <meta name="description" content="An Application instance resource represents a RCML set of instructions used by a Restcomm interpreter to process an on-going call or SMS.">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -25,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1042,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1308,10 +1296,10 @@
 <h2 id="_applications"><a class="anchor" href="#_applications"></a>Applications</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An Application instance resource represents a RCML set of instructions used by a Restcomm interpreter to process an on-going call or SMS.</p>
+<p>An Application instance resource represents a RCML set of instructions used by a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> interpreter to process an on-going call or SMS.</p>
 </div>
 <div class="paragraph">
-<p>Restcomm stores only part of the metadata for this Application, which contains as one of its attributes the URL with the address of the application server where the RCML can be retrieved.</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> stores only part of the metadata for this Application, which contains as one of its attributes the URL with the address of the application server where the RCML can be retrieved.</p>
 </div>
 <div class="paragraph">
 <p>Currently there are 3 types of Applications that are supported: Voice, SMS and USSD. Each type of Application will be used by its specific interpreter.</p>
@@ -1360,7 +1348,7 @@ Modifies an Application resource and returns the representation, including the p
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RcmlUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP address that Restcomm will use to get the RCML of this Application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP address that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will use to get the RCML of this Application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kind</p></td>
@@ -1372,7 +1360,7 @@ Modifies an Application resource and returns the representation, including the p
 <p><strong>HTTP DELETE</strong></p>
 </div>
 <div class="paragraph">
-<p>Remove the Application from Restcomm&#8217;s database. This Application will not be displayed anymore at the list of available applications while using AdminUI, consequently, not possible to be assigned to a Restcomm Number or Client. If successful, returns an HTTP 204 response with no body.</p>
+<p>Remove the Application from <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>'s database. This Application will not be displayed anymore at the list of available applications while using AdminUI, consequently, not possible to be assigned to a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Number or Client. If successful, returns an HTTP 204 response with no body.</p>
 </div>
 </div>
 </div>
@@ -1446,7 +1434,7 @@ Modifies an Application resource and returns the representation, including the p
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RcmlUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP address that Restcomm will use to get the RCML of this Application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP address that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will use to get the RCML of this Application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kind</p></td>
@@ -1495,7 +1483,7 @@ Modifies an Application resource and returns the representation, including the p
    -d 'FriendlyName=ApplicationFooBar' \
    -d 'ApiVersion=2012-04-24' \
    -d 'HasVoiceCallerIdLookup=false' \
-   -d 'RcmlUrl=http://127.0.0.1:8080/restcomm-rvd/services/apps/foobar/controller' \
+   -d 'RcmlUrl=http://mycompany.restcomm.com/restcomm-rvd/services/apps/foobar/controller' \
    -d 'Kind=voice' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
@@ -1515,7 +1503,7 @@ request.({
          'FriendlyName': 'ApplicationFooBar',
          'ApiVersion': '2012-04-24',
          'HasVoiceCallerIdLookup': 'false',
-         'RcmlUrl': 'http://127.0.0.1:8080/restcomm-rvd/services/apps/foobar/controller',
+         'RcmlUrl': 'http://mycompany.restcomm.com/restcomm-rvd/services/apps/foobar/controller',
          'Kind': 'voice'
       }
    },
@@ -1544,7 +1532,7 @@ params = urlencode({
    'FriendlyName': 'ApplicationFooBar',
    'ApiVersion': '2012-04-24',
    'HasVoiceCallerIdLookup': 'false',
-   'RcmlUrl': 'http://127.0.0.1:8080/restcomm-rvd/services/apps/foobar/controller',
+   'RcmlUrl': 'http://mycompany.restcomm.com/restcomm-rvd/services/apps/foobar/controller',
    'Kind': 'voice'
 })
 
@@ -1584,7 +1572,7 @@ public class JavaSampleClass {
       os.writeBytes("FriendlyName=ApplicationFooBar&" +
         "ApiVersion=2012-04-24&" +
         "HasVoiceCallerIdLookup=false&" +
-        "RcmlUrl=http://127.0.0.1:8080/restcomm-rvd/services/apps/foobar/controller&" +
+        "RcmlUrl=http://mycompany.restcomm.com/restcomm-rvd/services/apps/foobar/controller&" +
         "Kind=voice");
       os.close();
 
@@ -1609,7 +1597,7 @@ public class JavaSampleClass {
     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
     &lt;VoiceCallerIdLookup&gt;false&lt;/VoiceCallerIdLookup&gt;
     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Applications/APdc46145309d14e97b62230cd3f269ed4&lt;/Uri&gt;
-    &lt;RcmlUrl&gt;https://cloud.restcomm.com/visual-designer/services/apps/foobar/controller&lt;/RcmlUrl&gt;
+    &lt;RcmlUrl&gt;/visual-designer/services/apps/foobar/controller&lt;/RcmlUrl&gt;
     &lt;Kind&gt;voice&lt;/Kind&gt;
   &lt;/Application&gt;
 &lt;/RestcommResponse&gt;</code></pre>
@@ -1734,7 +1722,7 @@ public class JavaSampleClass {
     &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
     &lt;VoiceCallerIdLookup&gt;false&lt;/VoiceCallerIdLookup&gt;
     &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Applications/APdc46145309d14e97b62230cd3f269ed4&lt;/Uri&gt;
-    &lt;RcmlUrl&gt;https://cloud.restcomm.com/visual-designer/services/apps/foobar/controller&lt;/RcmlUrl&gt;
+    &lt;RcmlUrl&gt;/visual-designer/services/apps/foobar/controller&lt;/RcmlUrl&gt;
     &lt;Kind&gt;voice&lt;/Kind&gt;
   &lt;/Application&gt;
 &lt;/RestcommResponse&gt;</code></pre>
@@ -1920,7 +1908,7 @@ public class JavaSampleClass {
     "sid": "AP73926e7113fa4d95981aa96b76eca854",
     "date_created": "Wed, 23 Sep 2015 06:56:04 -0300",
     "date_updated": "Wed, 23 Sep 2015 06:56:04 -0300",
-    "friendly_name": "rvdCollectVerbDemo",
+    "friendly_name": "vdCollectVerbDemo",
     "account_sid": "ACae6e420f425248d6a26948c17a9e2acf",
     "api_version": "2012-04-24",
     "voice_caller_id_lookup": false,
@@ -1932,7 +1920,7 @@ public class JavaSampleClass {
     "sid": "AP81cf45088cba4abcac1261385916d582",
     "date_created": "Wed, 23 Sep 2015 06:56:17 -0300",
     "date_updated": "Wed, 23 Sep 2015 06:56:17 -0300",
-    "friendly_name": "rvdESDemo",
+    "friendly_name": "vdESDemo",
     "account_sid": "ACae6e420f425248d6a26948c17a9e2acf",
     "api_version": "2012-04-24",
     "voice_caller_id_lookup": false,
@@ -1985,11 +1973,11 @@ public class JavaSampleClass {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this Application, relative to https://localhost:port/restcomm.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this Application, relative to <code><span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm</span></code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RcmlUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP address that Restcomm will use to get the RCML of this Application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP address that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will use to get the RCML of this Application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kind</p></td>
@@ -2008,23 +1996,23 @@ public class JavaSampleClass {
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

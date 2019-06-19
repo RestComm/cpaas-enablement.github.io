@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REST Communications Markup Language Overview - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/rcml/overview.html">
-    <meta name="description" content="The REST Communications Markup Language represents a set of instructions you can use to tell Restcomm what to do when you receive an incoming call or SMS.">
-    <meta name="keywords" content="REST Communications Markup Language, RCML, rcml">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -26,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1043,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1307,10 +1294,10 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The REST Communications Markup Language represents a set of instructions you can use to tell Restcomm what to do when you receive an incoming call or SMS.</p>
+<p>The REST Communications Markup Language represents a set of instructions you can use to tell <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> what to do when you receive an incoming call or SMS.</p>
 </div>
 <div class="paragraph">
-<p>When someone makes a call or sends an SMS to one of your Restcomm numbers#, Restcomm will look up the URL associated with that phone number and make a request to that URL. Restcomm will read RCML instructions at that URL to determine what to do: record the call#, play a message for the caller#, prompt the caller to press digits on their keypad#, etc.</p>
+<p>When someone makes a call or sends an SMS to one of your <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers#, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will look up the URL associated with that phone number and make a request to that URL. <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will read RCML instructions at that URL to determine what to do: record the call#, play a message for the caller#, prompt the caller to press digits on their keypad#, etc.</p>
 </div>
 <div class="paragraph">
 <p>For example, the following will say a short message#, and then record the caller&#8217;s voice:</p>
@@ -1328,20 +1315,20 @@
 <p>RCML is similar to HTML. Only one RCML document is rendered to the caller at once#, but many documents can be linked together to build complex interactive voice applications.</p>
 </div>
 <div class="paragraph">
-<p>Calls from a Restcomm number to an outside number are controlled using RCML in the same manner as incoming calls. The initial URL for the call is provided as a parameter to the Restcomm  REST API request you make to initiate the call.</p>
+<p>Calls from a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> number to an outside number are controlled using RCML in the same manner as incoming calls. The initial URL for the call is provided as a parameter to the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> REST API request you make to initiate the call.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_restcomm_interacts_with_your_application"><a class="anchor" href="#_how_restcomm_interacts_with_your_application"></a>How Restcomm Interacts with Your Application</h2>
+<h2 id="_how_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_interacts_with_your_application"><a class="anchor" href="#_how_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_interacts_with_your_application"></a>How <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Interacts with Your Application</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_restcomm_request"><a class="anchor" href="#_restcomm_request"></a>Restcomm Request</h3>
+<h3 id="_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_request"><a class="anchor" href="#_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_request"></a><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Request</h3>
 <div class="paragraph">
-<p>The way Restcomm passes data to you application depends on the request method for the given <strong>UR</strong>I. If the request method is <strong>GET</strong> then the data is passed in the query string or the part after the question mark. If the request method is <strong>POST</strong> then the data is sent a multi-part form data just like when a browser submits a form.</p>
+<p>The way <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes data to you application depends on the request method for the given <strong>UR</strong>I. If the request method is <strong>GET</strong> then the data is passed in the query string or the part after the question mark. If the request method is <strong>POST</strong> then the data is sent a multi-part form data just like when a browser submits a form.</p>
 </div>
 <div class="paragraph">
-<p>Restcomm Voice Request. Any time Restcomm makes a request to you applications it will include the following data as request parameters.</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Voice Request. Any time <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> makes a request to you applications it will include the following data as request parameters.</p>
 </div>
 <div class="sect3">
 <h4 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h4>
@@ -1379,7 +1366,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ApiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The version of the Restcomm API used to handle this call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The version of the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> API used to handle this call.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Direction</p></td>
@@ -1394,12 +1381,12 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_restcomm_response"><a class="anchor" href="#_restcomm_response"></a>Restcomm Response</h3>
+<h3 id="_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_response"><a class="anchor" href="#_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_response"></a><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Response</h3>
 <div class="paragraph">
-<p>In your response to the request from Restcomm you want to provide RCML that will instruct Restcomm on how to handle the current call.</p>
+<p>In your response to the request from <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> you want to provide RCML that will instruct <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> on how to handle the current call.</p>
 </div>
 <div class="paragraph">
-<p><strong>MIME Types. </strong>Restcomm supports the MIME types described in the table below.</p>
+<p><strong>MIME Types. </strong><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> supports the MIME types described in the table below.</p>
 </div>
 <div class="sect3">
 <h4 id="_supported_mime_types"><a class="anchor" href="#_supported_mime_types"></a>Supported MIME Types</h4>
@@ -1417,7 +1404,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">text/xml, application/xml</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm interprets the returned document as an XML instruction set.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> interprets the returned document as an XML instruction set.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1500,23 +1487,23 @@ When your application returns the RCML document the root element of the document
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

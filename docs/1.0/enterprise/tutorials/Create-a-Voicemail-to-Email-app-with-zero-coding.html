@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a Voicemail to Email App with Zero Coding - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">
-    <meta name="description" content="Never miss a call from your users. Let them reach your business 24/7 and allow your employees to check their voice messages right within their inbox with a simple voicemail to email application.">
-    <meta name="keywords" content="voicemail to email, voicemail app, email app, voicemail to email app, restcomm voicemail, restcomm email">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -26,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle" style="visibility: hidden;">
+      <button class="navigation-toggle icon-custom-font-right" style="visibility: hidden;">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1043,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1307,7 +1294,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Visual Designer is an intuitive web interface designed by Telestax to help developers build communication applications rapidly. In this tutorial, you will learn how to create a voicemail application without writing a single line of code. The voice message can then be emailed to a desired email address.</p>
+<p>Visual Designer is an intuitive web interface that helps developers build communication applications rapidly. In this tutorial, you will learn how to create a voicemail application without writing a single line of code. The voice message can then be emailed to a desired email address.</p>
 </div>
 <div class="paragraph">
 <p>Use case scenarios:</p>
@@ -1331,7 +1318,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Basic knowledge of Restcomm</p>
+<p>Basic knowledge of <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span></p>
 </li>
 <li>
 <p>Basic knowledge of Zapier service (or alternatives web services integration tool such as IfTTT.com)</p>
@@ -1344,12 +1331,12 @@
 <h2 id="_step_1"><a class="anchor" href="#_step_1"></a>Step 1</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must create a Restomm Visual Designer project.</p>
+<p>You must create a Visual Designer project.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Log into the <a href="https://cloud.restcomm.com/#/login"><strong>Restcomm Console</strong></a> and navigate to <strong>Applications</strong>.</p>
+<p>Login to Console and navigate to <strong>Applications</strong>.</p>
 </li>
 <li>
 <p>Click on the <strong>Add New App</strong> button. Choose to <strong>Create a Visual Designer Application</strong>.</p>
@@ -1377,7 +1364,7 @@
 <p>The <strong>Welcome</strong> module is created by default. Navigate to it.</p>
 </li>
 <li>
-<p>In the <strong>Say</strong> verb text area, enter your welcome message. For example, "Welcome to Restcomm. Please leave your message and phone number after the beep.".</p>
+<p>In the <strong>Say</strong> verb text area, enter your welcome message. For example, "Welcome to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. Please leave your message and phone number after the beep.".</p>
 </li>
 <li>
 <p>Drag and drop the <strong>Record</strong> verb into the Welcome module as shown in the screenshot below.</p>
@@ -1521,7 +1508,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>recoringUrl with value set to $core_PublicRecordingUrl</p>
+<p>recordingUrl with value set to $core_PublicRecordingUrl</p>
 </li>
 <li>
 <p>destination with the value of the recipient email address</p>
@@ -1548,7 +1535,7 @@
 <h2 id="_step_4"><a class="anchor" href="#_step_4"></a> Step 4</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order to test your application you need to bind it to a Restcomm phone number. Once that is done, you can start using your application.</p>
+<p>In order to test your application you need to bind it to a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> phone number. Once that is done, you can start using your application.</p>
 </div>
 </div>
 </div>
@@ -1560,23 +1547,23 @@
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>

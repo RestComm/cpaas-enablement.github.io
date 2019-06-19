@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Record - Restcomm Docs</title>
     <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/rcml/record-rcml.html">
-    <meta name="description" content="The &amp;lt;Record&amp;gt; verb records the caller&#x27;s audio and video*, returning the URL of a file containing the audio and/or video* recording.">
-    <meta name="keywords" content="record verb, record rcms, restcomm rcml, record audio, record caller audio">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
+    <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
@@ -26,35 +24,24 @@
         ">
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
-    </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
   <nav class="navbar-enterprise">
     <div class="navbar-enterprise-button-container">
-      <button class="navigation-toggle">
+      <button class="navigation-toggle icon-custom-font-right">
       </button>
-      <button class="navbar-enterprise-burger">
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
       </button>
     </div>
     <div class="navbar-enterprise-container">
 
 
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/api/overview.html">Reference</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/1.0/enterprise/rvd/index.html">Visual Designer</a>
-
+      <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+      <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
 
 
     </div>
@@ -1043,7 +1030,7 @@
               
             "></span>
             <span>
-              <a class="nav-link nav-flex-item-text" href="overview.html#_how_restcomm_interacts_with_your_application">How Restcomm Interacts with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
               
             </span>
           </div>
@@ -1309,19 +1296,7 @@
 <h2 id="_record"><a class="anchor" href="#_record"></a>Record</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <strong>&lt;Record&gt;</strong> verb records the caller&#8217;s audio and video*, returning the URL of a file containing the audio and/or video* recording.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-* Video is supported only when Restcomm is configured to use Dialogic&#8217;s PowerMedia XMS media server.
-</td>
-</tr>
-</table>
+<p>The <strong>&lt;Record&gt;</strong> verb records the caller&#8217;s audio, returning the URL of a file containing the audio recording.</p>
 </div>
 <div class="sect2">
 <h3 id="_record_attributes"><a class="anchor" href="#_record_attributes"></a>Record Attributes</h3>
@@ -1379,17 +1354,12 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">media</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">audio_only, video_only, audio_video</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">audio_only</p></td>
-</tr>
 </tbody>
 </table>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>action.</strong> The 'action' attribute takes an absolute or relative URL as a value. When recording is finished RestComm will make a GET or POST request to this URL including the parameters below. If no 'action' is provided, &lt;Record&gt; will default to requesting the current document&#8217;s URL. After making this request, RestComm will continue the current call using the RCML received in your response. Any RCML verbs occuring after a &lt;Record&gt; are unreachable. There is one exception: if RestComm receives an empty recording, it will not make a request to the 'action' URL. The current call flow will continue with the next verb in the current RCML document.</p>
+<p><strong>action.</strong> The 'action' attribute takes an absolute or relative URL as a value. When recording is finished <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a GET or POST request to this URL including the parameters below. If no 'action' is provided, &lt;Record&gt; will default to requesting the current document&#8217;s URL. After making this request, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will continue the current call using the RCML received in your response. Any RCML verbs occuring after a &lt;Record&gt; are unreachable. There is one exception: if <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives an empty recording, it will not make a request to the 'action' URL. The current call flow will continue with the next verb in the current RCML document.</p>
 </li>
 </ul>
 </div>
@@ -1425,22 +1395,22 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>method.</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells RestComm whether to request the URL via HTTP GET or POST.</p>
+<p><strong>method.</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> whether to request the URL via HTTP GET or POST.</p>
 </li>
 <li>
-<p><strong>timeout.</strong> The 'timeout' attribute tells RestComm to end the recording after a number of seconds of silence has passed.</p>
+<p><strong>timeout.</strong> The 'timeout' attribute tells <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to end the recording after a number of seconds of silence has passed.</p>
 </li>
 <li>
-<p><strong>finishOnKey.</strong> The 'finishOnKey' attribute lets you choose a set of digits that end the recording when entered. For example, if you set 'finishOnKey' to '#' and the caller presses '#', RestComm will immediately stop recording and submit 'RecordingUrl', 'RecordingDuration', and the '#' as parameters in a request to the 'action' URL. The allowed values are the digits 0-9, '#', '*' and '-1'. The default value is '1234567890*#' which means that any key will end the recording. The value '-1' is a special value that can be used to disable finishOnKey and never stop recording on a DTMF. Unlike &lt;Gather&gt;, you may specify more than one character as a 'finishOnKey' value but '-1' must be used alone.</p>
+<p><strong>finishOnKey.</strong> The 'finishOnKey' attribute lets you choose a set of digits that end the recording when entered. For example, if you set 'finishOnKey' to '#' and the caller presses '#', <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will immediately stop recording and submit 'RecordingUrl', 'RecordingDuration', and the '#' as parameters in a request to the 'action' URL. The allowed values are the digits 0-9, '#', '*' and '-1'. The default value is '1234567890*#' which means that any key will end the recording. The value '-1' is a special value that can be used to disable finishOnKey and never stop recording on a DTMF. Unlike &lt;Gather&gt;, you may specify more than one character as a 'finishOnKey' value but '-1' must be used alone.</p>
 </li>
 <li>
 <p><strong>maxLength.</strong> The 'maxLength' attribute lets you set the maximum length for the recording in seconds.</p>
 </li>
 <li>
-<p><strong>transcribe.</strong> The 'transcribe' attribute tells RestComm that you would like a text representation of the audio of the recording.</p>
+<p><strong>transcribe.</strong> The 'transcribe' attribute tells <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> that you would like a text representation of the audio of the recording.</p>
 </li>
 <li>
-<p><strong>transcribeCallback.</strong> The 'transcribeCallback' attribute is used in conjunction with the 'transcribe' attribute. It allows you to specify a URL to which RestComm will make an asynchronous POST request when the transcription is complete. This is not a request for RCML and the response will not change call flow, but the request will contain the standard RCML request parameters as well as 'TranscriptionStatus', 'TranscriptionText', 'TranscriptionUrl' and 'RecordingUrl'. If 'transcribeCallback' is specified, then there is no need to specify 'transcribe=true'. It is implied. If you specify 'transcribe=true' without a 'transcribeCallback', the completed transcription will be stored for you to retrieve later (see the REST API Transcriptions section), but RestComm will not asynchronously notify your application.</p>
+<p><strong>transcribeCallback.</strong> The 'transcribeCallback' attribute is used in conjunction with the 'transcribe' attribute. It allows you to specify a URL to which <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make an asynchronous POST request when the transcription is complete. This is not a request for RCML and the response will not change call flow, but the request will contain the standard RCML request parameters as well as 'TranscriptionStatus', 'TranscriptionText', 'TranscriptionUrl' and 'RecordingUrl'. If 'transcribeCallback' is specified, then there is no need to specify 'transcribe=true'. It is implied. If you specify 'transcribe=true' without a 'transcribeCallback', the completed transcription will be stored for you to retrieve later (see the REST API Transcriptions section), but <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will not asynchronously notify your application.</p>
 </li>
 </ul>
 </div>
@@ -1485,22 +1455,6 @@
 <li>
 <p><strong>media.</strong> The 'media' attribute defines the which kind of information will be stored. Choose 'audio_only' so store a WAV file containing audio; 'video_only' to store a MP4 file containing vide; 'audio_video' to store a MP4 file containing audio and video*.</p>
 </li>
-</ul>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-* Video is supported only when Restcomm is configured to use Dialogic&#8217;s PowerMedia XMS media server.
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p><strong>Nesting.</strong> The &lt;Record&gt; verb can not have any other verbs or nouns nested.</p>
 </li>
@@ -1530,23 +1484,23 @@
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/1.0/enterprise/api/voice-category.html">Programmable Voice</a></p>
-          <p><a href="/docs/1.0/enterprise/api/sms-category.html">Programmable SMS</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
-        <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <h5 class="footer-column-title">Use cases</h5>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-factor authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone number masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" href="/docs/1.0/enterprise/terms.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
-        <p><a id='company_site' href="https://www.telestax.com/" data-default-text="$INFER_FROM_DOMAIN" data-default-link="#">telestax.com</a></p>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
       </div>
     </div>
   </div>
