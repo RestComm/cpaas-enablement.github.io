@@ -1306,7 +1306,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sms_attributes"><a class="anchor" href="#_sms_attributes"></a>Sms Attributes</h2>
+<h2 id="_sms_attributes"><a class="anchor" href="#_sms_attributes"></a>SMS Attributes</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1317,25 +1317,25 @@
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Allowed Values</th>
-<th class="tableblock halign-left valign-top">Default Value</th>
+<th class="tableblock halign-left valign-top">Allowed values</th>
+<th class="tableblock halign-left valign-top">Default value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">phone number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See below</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">phone number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See below</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">action</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">relative or absolute URL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A relative or absolute URL address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
@@ -1366,7 +1366,7 @@
 <h2 id="_action"><a class="anchor" href="#_action"></a>action</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The 'action' attribute takes a URL as an argument. After processing the &lt;Sms&gt; verb, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a GET or POST request to this URL with the form parameters 'SmsStatus' and 'SmsSid'. Using an 'action' URL, your application can receive synchronous notification that the message was successfully enqueued or not.</p>
+<p>The 'action' attribute takes a URL address as an argument. After processing the &lt;Sms&gt; verb, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a GET or POST request to this URL with the form parameters 'SmsStatus' and 'SmsSid'. Using an 'action' URL, your application can receive synchronous notification that the message was successfully enqueued or not.</p>
 </div>
 <div class="paragraph">
 <p>If you provide an 'action' URL, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will use the RCML received in your response to the 'action' URL request to continue the current call. Any RCML verbs occuring after an &lt;Sms&gt; which specifies an 'action' attribute are unreachable. If no 'action' is provided, &lt;Sms&gt; will finish and <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will move on to the next RCML verb in the document. If there is no next verb, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will end the phone call.</p>
@@ -1395,11 +1395,11 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SmsSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Sid for the Sms message.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Sid for the SMS message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SmsStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The current status of the Sms message. Currently the status will be <code>Queued</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The current status of the SMS message. Currently the status will be <code>Queued</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1407,13 +1407,13 @@
 <div class="sect2">
 <h3 id="_nesting"><a class="anchor" href="#_nesting"></a>Nesting</h3>
 <div class="paragraph">
-<p>The <strong>&lt;Sms&gt;</strong> verb can not have any other verbs or nouns nested.</p>
+<p>The <strong>&lt;Sms&gt;</strong> verb can&#8217;t have any other verbs or nouns nested.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
 <div class="paragraph">
-<p>For an example of how to use the &lt;Sms&gt; verb see below.</p>
+<p>Below is an example of how you can use the &lt;Sms&gt; verb.</p>
 </div>
 <div class="listingblock">
 <div class="content">
