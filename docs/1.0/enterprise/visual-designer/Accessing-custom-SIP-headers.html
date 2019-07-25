@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="Making decisions with Control element - Restcomm Docs"></title>
-    <link rel="canonical" href="https://www.restcomm.com/docs/1.0/enterprise/rvd/Making-decisions-with-control-element.html">
+    <title data-custom-title="Accessing custom SIP headers from an RCML or Visual Designer application - Restcomm Docs"></title>
+    <link rel="canonical" href="
+      https://cloud.restcomm.com/docs/visual-designer/Accessing-custom-SIP-headers.html
+    ">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
@@ -24,9 +26,7 @@
            it won't break if we change playbook configuration
       <a class="navbar-item header-logo-link" href="/docs">
       -->
-      <a class="navbar-item header-logo-link" href="
-        /docs/
-        ">
+      <a class="navbar-item header-logo-link" href="/docs/">
       </a>
     </div>
   </nav>
@@ -46,7 +46,7 @@
 
       <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
       <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
-      <a class="navbar-enterprise-item" href="/docs/rvd/index.html">Visual Designer</a>
+      <a class="navbar-enterprise-item" href="/docs/visual-designer/index.html">Visual Designer</a>
 
 
     </div>
@@ -1290,198 +1290,71 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../../index.html">docs</a></li>
-    <li class="crumb"><a href="Making-decisions-with-control-element.html">Making decisions with Control element</a></li>
+    <li class="crumb"><a href="Accessing-custom-SIP-headers.html">Accessing custom SIP headers from an RCML or Visual Designer application</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>Making decisions with Control element</h1>
+  <h1>Accessing custom SIP headers from an RCML or Visual Designer application</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>Control</em> element performs basic tasks based on a set of conditions.
-It is the equivalent of a <em>if-then</em> control structure in developer terms.
-In consists of <em>conditions</em> and <em>actions</em>. If the conditions are met
-the actions are exetuted.</p>
+<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> provides an additional interface to communicate with an RCML/Visual Designer application by means of custom SIP headers. The idea is that all custom SIP headers in a SIP message are detected and converted to HTTP parameters in the request to the RCML application using a convention. The RCML application can consume this parameters. Furthermore, Visual Designer converts these parameters to RVD variables and makes them available to its modules.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conditions"><a class="anchor" href="#_conditions"></a>Conditions</h2>
+<h2 id="_rcml_applications"><a class="anchor" href="#_rcml_applications"></a>RCML applications</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A set of <em>conditions</em> defines all the prerequisites in order for the actions to be executed. Each condition can be valid or not (true/false).
-It supports common comparison operations <strong>equals, not equal, greater, greater or equal,
-less, less or equal</strong> for both numeric and string operands. In addition, <strong>regex match</strong>, a handy regular expression matching operation is supported too.</p>
+<p>The following conventions are followed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Any SIP header starting with <strong>X-</strong> prefix is custom.</p>
+</li>
+<li>
+<p>HTTP parameters are created out of each custom SIP header by adding the <strong>SipHeader_</strong> prefix to its name.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example mappings from SIP header names to HTTP parameter names:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-lang:default hljs" data-lang="lang:default">X-My-Header -&gt; SipHeader_X-My-Header</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Thus the SipHeader_X-My-Header will be available as typical GET or POST parameter in the RCML application.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_operations"><a class="anchor" href="#_operations"></a>Operations</h2>
-<div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>equals, not equal, greater, greater or equal, less, less or equal</pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ControlElement_equal_operation.png" alt="equal_operation">
-</div>
-</div>
-<div class="paragraph">
-<p>Compares the two operands. The comparison can be <em>numeric</em> "123" or <em>text</em> based "ABCD". For
-numeric comparisons, the operands should be convertible to numbers (floats supported).
-For text based comparisons any operand will do.</p>
-</div>
-<div class="sect2">
-<h3 id="_comparison_type_text_numbers"><a class="anchor" href="#_comparison_type_text_numbers"></a>Comparison type - Text &amp; numbers</h3>
-<div class="paragraph">
-<p>When comparing, treating operands as numbers or text will not always render the same result.
-For example, <strong>4</strong> is less than <strong>05</strong> but at the same time <strong>'4'</strong> is greater than <strong>'05'</strong>. Make sure
-you are always using the right comparison type. You can switch between comparison types using
-the <code>ABCE/123</code> link right after the operands:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ControlElement_comparison_type_switch.png" alt="switch_comparison_type">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_regex_match"><a class="anchor" href="#_regex_match"></a>regex match</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ControlElement_regex_match_operation_blank.png" alt="regex_match_operation">
-</div>
-</div>
-<div class="paragraph">
-<p>Tries the to match the <em>text</em> parameter against the regular expression in the <em>pattern</em> parameter.
-If a match is found it evaluates to true. Note that no <em>Visual Designer expression expansion</em> takes
-place for the pattern parameter.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_handling_many_conditions"><a class="anchor" href="#_handling_many_conditions"></a>Handling many conditions</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ControlElement_evaluate_conditions_with_AND.png" alt="revaluate_conditions_with_AND">
-</div>
-</div>
-<div class="paragraph">
-<p>For a single control element more than one conditions can be evaluated. If many conditions are given, each one of them
-will be evaluated individually and all results will be combined to determine the
-status of the whole complex condition. This can be done in two ways. Either <em>All conditions should stand</em> (AND operation) or <em>Any condition should stand</em> (OR operation).</p>
-</div>
-<div class="paragraph">
-<p>In the screenshot above, both <em>$date</em> should equal '20160101' <strong>and</strong> $core_From should start with '555'
-in order to have the whole control element evaluate to <em>true</em>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_no_conditions_present"><a class="anchor" href="#_no_conditions_present"></a>No conditions present</h3>
-<div class="paragraph">
-<p>In case there are no conditions present, the whole Control element will evaluate to true and proceed to the
-execution of the actions.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_actions"><a class="anchor" href="#_actions"></a>Actions</h2>
+<h2 id="_visual_designer_applications"><a class="anchor" href="#_visual_designer_applications"></a>Visual Designer applications</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A number of tasks to be executed sequentially if the condition(s) evaluate to <em>true</em>.</p>
+<p>Visual Designer will take the previous convention one step further and create a Visual Designer variable out of the parameter. Thus, the mapping from a custom SIP header to an Visual Designer variable will be the following:</p>
 </div>
-<div class="sect2">
-<h3 id="_assign_action"><a class="anchor" href="#_assign_action"></a>Assign action</h3>
-<div class="paragraph">
-<p>Introduces a new variable and assignes it the value of the expression on the right.</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="../_images/ControlElement_assign_action.png" alt="assign_action">
+<pre class="highlightjs highlight"><code class="language-lang:default hljs" data-lang="lang:default">X-My-Header -&gt; $core_x_my_header</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The text box on the left with the &#8594; icon holds the name of the variable (note that
-no '$' character should be included here). A typical Visual Designer expression can be typed
-in the right side.</p>
+<p>So, if <strong>X-My-Header</strong> SIP header arrives at <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>, Visual Designer will have a variable named <strong>$core_x_my_header</strong> available in its modules. Note the following:</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_variable_scope"><a class="anchor" href="#_variable_scope"></a>Variable scope</h3>
-<div class="paragraph">
-<p>The <em>scope</em> of the variable (i.e. for how long it will last) can be selected by clicking on the blue link
-inside the text box.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ControlElement_assign_variable_scope.png" alt="assign_choose_variable_scope">
-</div>
-</div>
-<div class="paragraph">
-<p>In the screenshot above, <code>tel</code> variable is set to <em>Application</em> scope (i.e. last throughout the
-whole lifecycle of the application).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_continue_to_action"><a class="anchor" href="#_continue_to_action"></a>Continue-to action</h3>
-<div class="paragraph">
-<p>Diverts the flow of the application to the specified module. All consequent actions
-are ignored.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ControlElement_continue-to.png" alt="continue-to_action">
-</div>
-</div>
-<div class="paragraph">
-<p>In the screenshot above, the flow of the application is dieverted to the <code>Sales</code> module when the action
-is executed.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_capture_action"><a class="anchor" href="#_capture_action"></a>Capture action</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ControlElement_capture_action_blank.png" alt="capture_action">
-</div>
-</div>
-<div class="paragraph">
-<p>Captures part of the Visual Designer expression in <em>text</em> according to <em>pattern</em> and assigns the captured
-value to a <em>variable</em>. Use a pair of parenthesis to designate the captured segment.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ControlElement_capture_action_year.png" alt="capture_year">
-</div>
-</div>
-<div class="paragraph">
-<p>In the screenshot above, the 'year' part is isolated out of a date literal and assigned
-to a <code>year</code> (application-scoped) variable.</p>
-</div>
-<div class="paragraph">
-<p>The use of a <strong>single</strong> pair of parenthesis is obligatory inside the <em>pattern</em> parameter.
-Also, only literal regex patterns are supported in this parameter. No Visual Designer variable expansion will take place.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ordering_actions"><a class="anchor" href="#_ordering_actions"></a>Ordering actions</h3>
-<div class="paragraph">
-<p>The order of actions is significant. They will be executed one-by-one until the last action is complete,
-a <em>Continue-to</em> action is executed or an error occurs. The order of actions can be altered using the re-order
-buttons on the far right of the row:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/ControlElement_action_reorder.png" alt="action_reorder">
-</div>
-</div>
-<div class="paragraph">
-<p>Make sure to include only a single <em>Continue-to</em> action in a control element and
-always make it last.</p>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All characters are converted to lower case. This happens because although SIP headers are  not case insesitive while Visual Designer variables are.</p>
+</li>
+<li>
+<p>All non alpha numeric characters i.e.<strong> [^A-Za-z0-9_]</strong>,  are converted to `_'  (underscore). That happens because Visual Designer has some additional restrictions for naming variables. Here is the regular expression that is used for invalid characters to underscore:</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1505,7 +1378,7 @@ always make it last.</p>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
 
-          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="#">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="/docs/terms.html">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
