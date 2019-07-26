@@ -1302,7 +1302,7 @@
 <h2 id="_calls"><a class="anchor" href="#_calls"></a>Calls</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A <strong>Call</strong> represents a connection between a phone or user agent and <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. This may be inbound or outbound. The Calls list resource represents the set of phone calls originated and terminated from an account.</p>
+<p>A <strong>Call</strong> represents a connection between a phone or user agent and <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. This may be inbound or outbound. The Calls list resource represents the set of phone calls originated and terminated from an account.</p>
 </div>
 <div class="sect2">
 <h3 id="_call_resource_uri"><a class="anchor" href="#_call_resource_uri"></a>Call Resource URI</h3>
@@ -1398,7 +1398,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to <span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm</span>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm">https://$DOMAIN/restcomm</span>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1454,15 +1454,15 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Method</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when making its request to the above Url. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when making its request to the above Url. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request if execution of Url fails for any reason.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request if execution of Url fails for any reason.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallbackEvent</p></td>
@@ -1478,7 +1478,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of seconds that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should allow the phone to ring before assuming there is no answer. The default is 60 seconds.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of seconds that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should allow the phone to ring before assuming there is no answer. The default is 60 seconds.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1488,7 +1488,7 @@
 <p>When creating a Call using the Calls API, an outbound call is initiated. The call transitions from the initiated state to the ringing state when the phone starts ringing. It transitions to the answered state when the call is picked up, and finally to the completed state when the call is over. With <strong>StatusCallbackEvent</strong>, you can subscribe to receive webhooks for the different call progress events: initiated, ringing, answered, or completed for a given call.</p>
 </div>
 <div class="paragraph">
-<p>The <strong>StatusCallbackEvent</strong> attribute allows you to specify which events <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should webhook on. To specify multiple events separate them with a comma like this: <code>initiated,ringing,answered,completed</code>. If a StatusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
+<p>The <strong>StatusCallbackEvent</strong> attribute allows you to specify which events <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should webhook on. To specify multiple events separate them with a comma like this: <code>initiated,ringing,answered,completed</code>. If a StatusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1509,7 +1509,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initiated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
@@ -1529,19 +1529,19 @@
 <div class="sect3">
 <h4 id="_statuscallback"><a class="anchor" href="#_statuscallback"></a>StatusCallback</h4>
 <div class="paragraph">
-<p>The <strong>StatusCallback</strong> attribute allows you to specify a URL for <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to send webhook requests to on each event specified in the StatusCallbackEvent attribute.</p>
+<p>The <strong>StatusCallback</strong> attribute allows you to specify a URL for <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to send webhook requests to on each event specified in the StatusCallbackEvent attribute.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_statuscallbackmethod"><a class="anchor" href="#_statuscallbackmethod"></a>StatusCallbackMethod</h4>
 <div class="paragraph">
-<p>The <strong>StatusCallbackMethod</strong> attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the URL in the StatusCallback attribute. The default is POST.</p>
+<p>The <strong>StatusCallbackMethod</strong> attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the URL in the StatusCallback attribute. The default is POST.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
 <div class="paragraph">
-<p>The parameters <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
+<p>The parameters <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
 </div>
 <div class="paragraph">
 <p>When the call progress events are fired, the Status Callback request also passes these additional parameters:</p>
@@ -1560,7 +1560,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CallSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CallStatus</p></td>
@@ -1592,7 +1592,7 @@
 <h2 id="_making_a_call_to_a_sip_account"><a class="anchor" href="#_making_a_call_to_a_sip_account"></a>Making a call to a SIP account</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a call to any SIP account that is reachable. It the example below, the <strong>SIP</strong> account is listening on port <strong>5060</strong>. When you make the call, the SIP phone on which Alice is registered will ring and the hello-play.xml file will be played.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a call to any SIP account that is reachable. It the example below, the <strong>SIP</strong> account is listening on port <strong>5060</strong>. When you make the call, the SIP phone on which Alice is registered will ring and the hello-play.xml file will be played.</p>
 </div>
 <script>
       function openLanguage(language, index) {
@@ -1717,10 +1717,10 @@ public class JavaSampleClass {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_making_a_call_to_a_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_client"><a class="anchor" href="#_making_a_call_to_a_span_class_sps_text_non_sps_link_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_client"></a>Making a call to a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client</h2>
+<h2 id="_making_a_call_to_a_span_class_sps_text_non_sps_link_data_orig_text_restcomm_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_client"><a class="anchor" href="#_making_a_call_to_a_span_class_sps_text_non_sps_link_data_orig_text_restcomm_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_client"></a>Making a call to a <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You must first create a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client. In the example below, the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client created is called Alice. When you make the call, the SIP phone on which Alice is registered will ring and the <strong>hello-play.xml</strong> file will be played.</p>
+<p>You must first create a <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client. In the example below, the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client created is called Alice. When you make the call, the SIP phone on which Alice is registered will ring and the <strong>hello-play.xml</strong> file will be played.</p>
 </div>
       <div class="sample-code-bar">
         <button class="sample-code-button scsIndex-19 is-active" onclick="openLanguage('Curl', 19)">Curl</button>
@@ -2049,7 +2049,7 @@ public class JavaSampleClass {
 <h2 id="_calling_a_did_number"><a class="anchor" href="#_calling_a_did_number"></a>Calling a DID number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The above example shows how to make a call to a SIP number. If you want to make a call to a DID number, you must can connect <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to a DID provisioning service provider. The quickest way is to use <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> AMI on Amazon Cloud. Get a list of all available calls. This will return all the available calls linked to the account SID</p>
+<p>The above example shows how to make a call to a SIP number. If you want to make a call to a DID number, you must can connect <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to a DID provisioning service provider. The quickest way is to use <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> AMI on Amazon Cloud. Get a list of all available calls. This will return all the available calls linked to the account SID</p>
 </div>
 </div>
 </div>
@@ -2190,11 +2190,11 @@ public class JavaSampleClass {
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A valid URL that returns RCML. <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will immediately redirect the call to the new RCML.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A valid URL that returns RCML. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will immediately redirect the call to the new RCML.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Method</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the above URL. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the above URL. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
@@ -2210,7 +2210,7 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_call_in_progress"><a class="anchor" href="#_call_in_progress"></a>Call in-Progress</h3>
 <div class="paragraph">
-<p>Note that any call which is currently ringing within a Dial verb is in-progress from the point of view of <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>, and thus you must use '<strong>Status=completed</strong>' to cancel it.</p>
+<p>Note that any call which is currently ringing within a Dial verb is in-progress from the point of view of <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>, and thus you must use '<strong>Status=completed</strong>' to cancel it.</p>
 </div>
 <div class="sect3">
 <h4 id="_optional_parameters"><a class="anchor" href="#_optional_parameters"></a>Optional Parameters</h4>
@@ -2234,23 +2234,23 @@ public class JavaSampleClass {
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request if an error occurs requesting or executing the RCML at Url.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request if an error occurs requesting or executing the RCML at Url.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request when the call ends to notify your app.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request when the call ends to notify your app.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the above URL. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the above URL. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MoveConnectedCallLeg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If True, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will move both call legs to the new URL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If True, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will move both call legs to the new URL</p></td>
 </tr>
 </tbody>
 </table>
@@ -2259,23 +2259,23 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_description"><a class="anchor" href="#_description"></a>Description</h3>
 <div class="paragraph">
-<p>Prerequisite for the Live Call Modification API is to know the <strong>CallSid</strong> ​of the call. The <strong>CallSid</strong>​ is generated by <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> for every incoming or outgoing call. When we create an outgoing call using the Calls REST API, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will generate the <strong>CallSid</strong> ​and the response will contain the <strong>CallSid</strong>​. For an Incoming call, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will generate the <strong>CallSid</strong>​, and will include it in the parameters of the <strong>GET</strong> or <strong>POST</strong> request to download the RCML from the application server. So the application server, will get the <strong>CallSid</strong> ​for this incoming call and can store it for later use.</p>
+<p>Prerequisite for the Live Call Modification API is to know the <strong>CallSid</strong> ​of the call. The <strong>CallSid</strong>​ is generated by <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> for every incoming or outgoing call. When we create an outgoing call using the Calls REST API, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will generate the <strong>CallSid</strong> ​and the response will contain the <strong>CallSid</strong>​. For an Incoming call, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will generate the <strong>CallSid</strong>​, and will include it in the parameters of the <strong>GET</strong> or <strong>POST</strong> request to download the RCML from the application server. So the application server, will get the <strong>CallSid</strong> ​for this incoming call and can store it for later use.</p>
 </div>
 <div class="sect3">
 <h4 id="_steps_for_an_incoming_call_are_the_following"><a class="anchor" href="#_steps_for_an_incoming_call_are_the_following"></a>Steps for an incoming call are the following:</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>New incoming call to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span></p>
+<p>New incoming call to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span></p>
 </li>
 <li>
-<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> generates CallSid and other parameters for this call</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> generates CallSid and other parameters for this call</p>
 </li>
 <li>
-<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> prepares GET/POST request and attaches the previously prepared parameters</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> prepares GET/POST request and attaches the previously prepared parameters</p>
 </li>
 <li>
-<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> sends the GET/POST request to the URL assigned to the DID called</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> sends the GET/POST request to the URL assigned to the DID called</p>
 </li>
 <li>
 <p>Application server receives the GET/POST request</p>
@@ -2284,15 +2284,15 @@ public class JavaSampleClass {
 <p>Application server should store the CallSid along with the rest of the parameters for later use</p>
 </li>
 <li>
-<p>Application server prepares the response with the appropriate RCML for the given DID and send it back to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to process it</p>
+<p>Application server prepares the response with the appropriate RCML for the given DID and send it back to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to process it</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Given that we have the <strong>CallSid</strong> ​available, ​the next step to modify a live call is to prepare the new <strong>POST</strong> request to <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> with the URL of the new destination application.</p>
+<p>Given that we have the <strong>CallSid</strong> ​available, ​the next step to modify a live call is to prepare the new <strong>POST</strong> request to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> with the URL of the new destination application.</p>
 </div>
 <div class="paragraph">
-<p>Lets assume that initially the Application server prepared an RCML that will connect the incoming call to Bob and that later Bob wants this call to be transferred to Alice. Application Server will have to prepare a new RCML that will dial to Alice, and using the Live Call Modification API, will ask <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to process this new RCML for the incoming call and thus will connect it to Alice.</p>
+<p>Lets assume that initially the Application server prepared an RCML that will connect the incoming call to Bob and that later Bob wants this call to be transferred to Alice. Application Server will have to prepare a new RCML that will dial to Alice, and using the Live Call Modification API, will ask <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to process this new RCML for the incoming call and thus will connect it to Alice.</p>
 </div>
 <div class="paragraph">
 <p>Here are the steps:</p>
@@ -2306,16 +2306,16 @@ public class JavaSampleClass {
 <p>Applcation server: - Store CallSid and other parameters - Prepare and send RCML that connects the call to Bob (using Dial verb)</p>
 </li>
 <li>
-<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> process the given RCML and connects incoming call to Bob</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> process the given RCML and connects incoming call to Bob</p>
 </li>
 <li>
 <p>Bob wants to transfer the call to Alice and sends the request to Controller (application server)</p>
 </li>
 <li>
-<p>Application server: - Prepares new RCML with a given URL: http://app.server/CallToAlice that using Dial will dial to Alice - Uses Live Call Modification prepares a new POST request: <code><span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls/YOUR_CALL_SID</span></code> - in the POST requests adds the following parameters: Url=http://app.server/CallToAlice</p>
+<p>Application server: - Prepares new RCML with a given URL: http://app.server/CallToAlice that using Dial will dial to Alice - Uses Live Call Modification prepares a new POST request: <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls/YOUR_CALL_SID">https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls/YOUR_CALL_SID</span></code> - in the POST requests adds the following parameters: Url=http://app.server/CallToAlice</p>
 </li>
 <li>
-<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> process this Live Call Modification request and redirects the incoming call to the new RCML application (to the new URL)</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> process this Live Call Modification request and redirects the incoming call to the new RCML application (to the new URL)</p>
 </li>
 <li>
 <p>Eventually the incoming call will be connected to Alice.</p>
@@ -2334,7 +2334,7 @@ public class JavaSampleClass {
 <p>Will prepare new POST Live Call Modification request for the incoming call to be connected to the new url (that will dial to the conference)</p>
 </li>
 <li>
-<p>Will then prepare new outgoing call request, using the Calls Rest API that will connect Bob to the conference application URL: - <span class="non-sps-text non-sps-link">https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls</span>` - will pass the following parameters: <strong>From</strong>=INCOMING_CALL_ID <strong>To</strong>=client:bob <strong>Url</strong>=CONFERENCE_APPLICATION_URL</p>
+<p>Will then prepare new outgoing call request, using the Calls Rest API that will connect Bob to the conference application URL: - <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls">https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls</span>` - will pass the following parameters: <strong>From</strong>=INCOMING_CALL_ID <strong>To</strong>=client:bob <strong>Url</strong>=CONFERENCE_APPLICATION_URL</p>
 </li>
 <li>
 <p>Later application server can create more outgoing call requests, similar to the one above, to invite other clients or sip URLs or PSTN numbers to this conference call</p>
@@ -2786,7 +2786,7 @@ public class JavaSampleClass {
 <p>The "<strong>From=</strong>" could be any number of your choice</p>
 </li>
 <li>
-<p>The <strong>Url</strong> is the default sample example provided with <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span></p>
+<p>The <strong>Url</strong> is the default sample example provided with <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span></p>
 </li>
 </ul>
 </div>

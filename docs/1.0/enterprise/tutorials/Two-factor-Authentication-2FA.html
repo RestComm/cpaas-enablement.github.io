@@ -1311,13 +1311,13 @@
 <p><strong>User is prompted to enter his phone number</strong></p>
 </div>
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives the login attempt and prompts the user to enter his phone number in order to authorize the new device.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives the login attempt and prompts the user to enter his phone number in order to authorize the new device.</p>
 </div>
 <div class="paragraph">
 <p><strong>PIN code is sent to the user via SMS</strong></p>
 </div>
 <div class="paragraph">
-<p>Once the user enters a valid phone number, from your application you will need to ask <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to send a verification code to that phone number by using the HTTP REST API Call Below.</p>
+<p>Once the user enters a valid phone number, from your application you will need to ask <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to send a verification code to that phone number by using the HTTP REST API Call Below.</p>
 </div>
 <div class="paragraph">
 <p>Sending a verification code requires basic authorization that includes your account SID and auth token. Below is the format you have to use in order to send a verification code to the user&#8217;s phone number.</p>
@@ -1331,7 +1331,7 @@
 <p><strong>Base Resource URI</strong></p>
 </div>
 <div class="paragraph">
-<p><span class="non-sps-text non-sps-link">https://$DOMAIN</span></p>
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
 </div>
 <div class="paragraph">
 <p><strong>Verification Code Resource URI</strong></p>
@@ -1384,7 +1384,7 @@
 <div class="listingblock">
 <div class="content">
 <pre>{
-    "service" : "<span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>", // the name of your service
+    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>", // the name of your service
     "from" : "+XXXXXXXXX", // the SMS sender phone number
     "to" : "+XXXXXXXXXX", // the SMS recepient phone number
     "body": "Your verification code is: \{code}" // SMS body, containing the verification code
@@ -1397,12 +1397,12 @@
 <div class="listingblock">
 <div class="content">
 <pre>curl -X POST \
-  <span class="non-sps-text non-sps-link">https://$DOMAIN/2fa/send</span> \
+  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/send">https://$DOMAIN/2fa/send</span> \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{
-    "service" : "<span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
+    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
     "from" : "+13216549878",
     "to" : "+13216549879",
     "body": "Your verification code is: \{code}"
@@ -1424,7 +1424,7 @@
 <p><strong>Base Resource URI</strong></p>
 </div>
 <div class="paragraph">
-<p><span class="non-sps-text non-sps-link">https://$DOMAIN</span></p>
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
 </div>
 <div class="paragraph">
 <p><strong>Verification Code Resource URI</strong></p>
@@ -1473,7 +1473,7 @@
 <div class="listingblock">
 <div class="content">
 <pre>{
-    "service" : "<span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>", // the name of your service
+    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>", // the name of your service
     "number" : "+XXXXXXXXXX",  // the phone number of the SMS recepient
     "code": "XXXXX" // the verification code
 }</pre>
@@ -1485,12 +1485,12 @@
 <div class="listingblock">
 <div class="content">
 <pre>curl -X POST \
-  <span class="non-sps-text non-sps-link">https://$DOMAIN/2fa/verify</span> \
+  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/verify">https://$DOMAIN/2fa/verify</span> \
   --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{
-    "service" : "<span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
+    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
     "number" : "+13216549879",
     "code": "294228"
 }</pre>

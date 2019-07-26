@@ -1301,7 +1301,7 @@
 <h2 id="_gather"><a class="anchor" href="#_gather"></a>Gather</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <strong>&lt;Gather&gt;</strong> verb supports two modes: <strong>DTMF</strong> and <strong>SPEECH</strong>. In DTMF mode it "gathers" digits that a caller enters into his or her telephone keypad. When the caller is done entering digits, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> submits that digits to the provided 'action' URL in an HTTP GET or POST request. In SPEECH mode it "gathers" recognized speech that a caller said. If no input is received before timeout, <strong>&lt;Gather&gt;</strong> falls through to the next verb in the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> document. You may optionally nest <strong>&lt;Say&gt;</strong>, <strong>&lt;Play&gt;</strong>, and <strong>&lt;Pause&gt;</strong> verbs within a <strong>&lt;Gather&gt;</strong> verb while waiting for input. This allows you to read menu options to the caller while letting her enter a menu selection at any time. After the first digit is received the audio will stop playing.</p>
+<p>The <strong>&lt;Gather&gt;</strong> verb supports two modes: <strong>DTMF</strong> and <strong>SPEECH</strong>. In DTMF mode it "gathers" digits that a caller enters into his or her telephone keypad. When the caller is done entering digits, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> submits that digits to the provided 'action' URL in an HTTP GET or POST request. In SPEECH mode it "gathers" recognized speech that a caller said. If no input is received before timeout, <strong>&lt;Gather&gt;</strong> falls through to the next verb in the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> document. You may optionally nest <strong>&lt;Say&gt;</strong>, <strong>&lt;Play&gt;</strong>, and <strong>&lt;Pause&gt;</strong> verbs within a <strong>&lt;Gather&gt;</strong> verb while waiting for input. This allows you to read menu options to the caller while letting her enter a menu selection at any time. After the first digit is received the audio will stop playing.</p>
 </div>
 <div class="sect2">
 <h3 id="_gather_attributes"><a class="anchor" href="#_gather_attributes"></a>Gather Attributes</h3>
@@ -1374,7 +1374,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>action.</strong> The 'action' attribute takes an absolute or relative URL as a value. When the caller has finished entering digits <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a GET or POST request to this URL including the parameters below. If no 'action' is provided, <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will by default make a POST request to the current document&#8217;s URL.</p>
+<p><strong>action.</strong> The 'action' attribute takes an absolute or relative URL as a value. When the caller has finished entering digits <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a GET or POST request to this URL including the parameters below. If no 'action' is provided, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will by default make a POST request to the current document&#8217;s URL.</p>
 </li>
 </ul>
 </div>
@@ -1406,22 +1406,22 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>method.</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> whether to request the 'action' URL via HTTP GET or POST.</p>
+<p><strong>method.</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> whether to request the 'action' URL via HTTP GET or POST.</p>
 </li>
 <li>
-<p><strong>timeout.</strong> The 'timeout' attribute sets the limit in seconds that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will wait for the caller to press another digit before moving on and making a request to the 'action' URL. For example, if 'timeout' is '10', <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will wait ten seconds for the caller to press another key before submitting the previously entered digits to the 'action' URL. <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> waits until completing the execution of all nested verbs before beginning the timeout period.</p>
+<p><strong>timeout.</strong> The 'timeout' attribute sets the limit in seconds that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will wait for the caller to press another digit before moving on and making a request to the 'action' URL. For example, if 'timeout' is '10', <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will wait ten seconds for the caller to press another key before submitting the previously entered digits to the 'action' URL. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> waits until completing the execution of all nested verbs before beginning the timeout period.</p>
 </li>
 <li>
-<p><strong>finishOnKey.</strong> The 'finishOnKey' attribute lets you choose one value that submits the received data when entered. For example, if you set 'finishOnKey' to '#' and the user enters '1234#', <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will immediately stop waiting for more input when the '#' is received and will submit "Digits=1234" to the 'action' URL. Note that the 'finishOnKey' value is not sent. The allowed values are the digits 0-9, '#', '*' and the empty string (set 'finishOnKey' to ''). If the empty string is used, &lt;Gather&gt; captures all input and no key will end the &lt;Gather&gt; when pressed. In this case <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will submit the entered digits to the 'action' URL only after the timeout has been reached. The value can only be a single character.</p>
+<p><strong>finishOnKey.</strong> The 'finishOnKey' attribute lets you choose one value that submits the received data when entered. For example, if you set 'finishOnKey' to '#' and the user enters '1234#', <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will immediately stop waiting for more input when the '#' is received and will submit "Digits=1234" to the 'action' URL. Note that the 'finishOnKey' value is not sent. The allowed values are the digits 0-9, '#', '*' and the empty string (set 'finishOnKey' to ''). If the empty string is used, &lt;Gather&gt; captures all input and no key will end the &lt;Gather&gt; when pressed. In this case <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will submit the entered digits to the 'action' URL only after the timeout has been reached. The value can only be a single character.</p>
 </li>
 <li>
 <p><strong>numDigits.</strong> The 'numDigits' attribute lets you set the number of digits you are expecting, and submits the data to the 'action' URL once the caller enters that number of digits.</p>
 </li>
 <li>
-<p><strong>input</strong> A list of inputs that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should accept for &lt;Gather&gt;. Can be "dtmf" or "speech". Defaults to "dtmf".</p>
+<p><strong>input</strong> A list of inputs that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should accept for &lt;Gather&gt;. Can be "dtmf" or "speech". Defaults to "dtmf".</p>
 </li>
 <li>
-<p><strong>partialResultCallback</strong> A relative or fully qualified URL. Is a mandatory attribute for “speech” mode. <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make requests to your partialResultCallback in real-time as speech is recognized.  These webhooks will contain UnstableSpeechResult parameter with partial transcriptions that may change as the recognition progresses.</p>
+<p><strong>partialResultCallback</strong> A relative or fully qualified URL. Is a mandatory attribute for “speech” mode. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make requests to your partialResultCallback in real-time as speech is recognized.  These webhooks will contain UnstableSpeechResult parameter with partial transcriptions that may change as the recognition progresses.</p>
 </li>
 </ul>
 </div>
@@ -1461,10 +1461,10 @@ The Webhooks to partialResultCallback are async and doesn&#8217;t accept RCML ba
 <div class="ulist">
 <ul>
 <li>
-<p><strong>language</strong> The language <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should recognize. Defaults to en-US</p>
+<p><strong>language</strong> The language <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should recognize. Defaults to en-US</p>
 </li>
 <li>
-<p><strong>hints</strong> A list of words or phrases that <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should expect during recognition. These are very useful for improving recognition of single words or phrases. Entries into hints should be separated by a comma.</p>
+<p><strong>hints</strong> A list of words or phrases that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should expect during recognition. These are very useful for improving recognition of single words or phrases. Entries into hints should be separated by a comma.</p>
 </li>
 </ul>
 </div>
