@@ -1345,11 +1345,21 @@
 <div class="paragraph">
 <p>2FA can be broadly classified into four categories:</p>
 </div>
-<div class="paragraph">
-<p><strong>Send</strong>
-<strong>Verify</strong>
-<strong>Control</strong>
-<strong>Session Detail Record</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Send</strong><br></p>
+</li>
+<li>
+<p><strong>Verify</strong><br></p>
+</li>
+<li>
+<p><strong>Control</strong><br></p>
+</li>
+<li>
+<p><strong>Session Detail Record</strong></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1359,27 +1369,26 @@
 <div class="paragraph">
 <p>Sending a verification code requires basic authorization that includes your account SID and auth token. Below is the format you have to use in order to send a verification code to the user&#8217;s phone number.</p>
 </div>
-<div class="paragraph">
-<p><strong>Base Resource URI</strong></p>
-</div>
+<div class="sect2">
+<h3 id="_base_resource_uri"><a class="anchor" href="#_base_resource_uri"></a>Base Resource URI</h3>
 <div class="paragraph">
 <p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
 </div>
-<div class="paragraph">
-<p><strong>Verification Code Resource URI</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_verification_code_resource_uri"><a class="anchor" href="#_verification_code_resource_uri"></a>Verification Code Resource URI</h3>
 <div class="paragraph">
 <p>/2fa/send</p>
 </div>
-<div class="paragraph">
-<p><strong>Supported Operations</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h3>
 <div class="paragraph">
 <p>HTTP POST: Send a verification code through SMS, phone call or email to the specified destination.</p>
 </div>
-<div class="paragraph">
-<p><strong>Request Parameters</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1436,8 +1445,19 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">voice (Optional)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Man or woman voice for TTS call channel.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timeout (Optional)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time in seconds for which OTP is valid. Post timeout period, OTP is automatically canceled if still not successfully verified. Default is 300 seconds.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">guardTime (Optional)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If send is called again to send new OTP passing same service and to parameter while previous OTP generated is still valid, the previous OTP is Canceled and new OTP is sent. However if guardTime (in seconds) parameter is passed in send request, old OTP is valid for guardTime and then cancelled. This is to accomodate scenarios where the underlying SMS, Call or email channel may be slow to deliver the message and by the time new OTP is generated, user might have received old OTP.</p></td>
+</tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_response"><a class="anchor" href="#_response"></a>Response</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1464,15 +1484,15 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Response Parameters</strong></p>
-</div>
+<div class="sect3">
+<h4 id="_response_parameters"><a class="anchor" href="#_response_parameters"></a>Response Parameters</h4>
 <div class="paragraph">
 <p>send API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a></p>
 </div>
-<div class="paragraph">
-<p>Example:</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_example"><a class="anchor" href="#_example"></a>Example</h3>
 <div class="listingblock">
 <div class="content">
 <pre>{
@@ -1511,33 +1531,33 @@
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_verifying_one_time_passwords_api_reference"><a class="anchor" href="#_verifying_one_time_passwords_api_reference"></a>Verifying One-Time Passwords - API Reference</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>User receives the one-time PIN code via SMS, phone call or email, gets back to your application and enters it in order to complete the verification process. Verifying the code is simple and requires basic authorization that includes your account SID and auth token.</p>
 </div>
-<div class="paragraph">
-<p><strong>Base Resource URI</strong></p>
-</div>
+<div class="sect2">
+<h3 id="_base_resource_uri_2"><a class="anchor" href="#_base_resource_uri_2"></a>Base Resource URI</h3>
 <div class="paragraph">
 <p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
 </div>
-<div class="paragraph">
-<p><strong>Verification Code Resource URI</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_verification_code_resource_uri_2"><a class="anchor" href="#_verification_code_resource_uri_2"></a>Verification Code Resource URI</h3>
 <div class="paragraph">
 <p>/2fa/verify</p>
 </div>
-<div class="paragraph">
-<p><strong>Supported Operations</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h3>
 <div class="paragraph">
 <p>HTTP Method: POST: Verifies the code that was sent through SMS, phone call or email to the destination</p>
 </div>
-<div class="paragraph">
-<p><strong>Request Parameters</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_request_parameters_2"><a class="anchor" href="#_request_parameters_2"></a>Request Parameters</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1557,7 +1577,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number to which the SMS containing the verification code was sent to.
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number to which the SMS containing the verification code was sent to.<br>
 * Not needed if you are using verify via “requestId” or will be ignored even if passed.</p></td>
 </tr>
 <tr>
@@ -1575,6 +1595,9 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_response_2"><a class="anchor" href="#_response_2"></a>Response</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1601,9 +1624,8 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Response Parameters</strong></p>
-</div>
+<div class="sect3">
+<h4 id="_response_parameters_2"><a class="anchor" href="#_response_parameters_2"></a>Response Parameters</h4>
 <div class="paragraph">
 <p>verify API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a>. In addition below are the Error&#8217;s that it can return</p>
 </div>
@@ -1662,9 +1684,10 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Example (for old API):</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_example_for_old_api"><a class="anchor" href="#_example_for_old_api"></a>Example (for old API):</h3>
 <div class="listingblock">
 <div class="content">
 <pre>{
@@ -1691,9 +1714,9 @@
 }</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Example (for latest API):</p>
 </div>
+<div class="sect2">
+<h3 id="_example_for_latest_api"><a class="anchor" href="#_example_for_latest_api"></a>Example (for latest API):</h3>
 <div class="listingblock">
 <div class="content">
 <pre>{
@@ -1722,35 +1745,38 @@
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_control"><a class="anchor" href="#_control"></a>Control</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Control API allows App developers to <strong>cancel</strong> already sent API or <strong>resend</strong> the OTP (resend is in roadmap)</p>
 </div>
-<div class="sect2">
-<h3 id="_cancel_one_time_passwords_api_reference"><a class="anchor" href="#_cancel_one_time_passwords_api_reference"></a>Cancel One-Time Passwords - API Reference</h3>
-<div class="paragraph">
-<p><strong>Base Resource URI</strong></p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_cancel_one_time_passwords_api_reference"><a class="anchor" href="#_cancel_one_time_passwords_api_reference"></a>Cancel One-Time Passwords - API Reference</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_base_resource_uri_3"><a class="anchor" href="#_base_resource_uri_3"></a>Base Resource URI</h3>
 <div class="paragraph">
 <p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
 </div>
-<div class="paragraph">
-<p><strong>Verification Code Resource URI</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_verification_code_resource_uri_3"><a class="anchor" href="#_verification_code_resource_uri_3"></a>Verification Code Resource URI*</h3>
 <div class="paragraph">
 <p>/2fa/cancel</p>
 </div>
-<div class="paragraph">
-<p><strong>Supported Operations</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_supported_operations_3"><a class="anchor" href="#_supported_operations_3"></a>Supported Operations</h3>
 <div class="paragraph">
 <p>HTTP Method: POST: Cancel the code that was sent through SMS/ Call/ Email to the destination</p>
 </div>
-<div class="paragraph">
-<p><strong>Request Parameters</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_request_parameters_3"><a class="anchor" href="#_request_parameters_3"></a>Request Parameters</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1773,6 +1799,9 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_response_3"><a class="anchor" href="#_response_3"></a>Response</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1799,9 +1828,8 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Response Parameters</strong></p>
-</div>
+<div class="sect3">
+<h4 id="_response_parameters_3"><a class="anchor" href="#_response_parameters_3"></a>Response Parameters</h4>
 <div class="paragraph">
 <p>cancel API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a>. In addition below are the Error&#8217;s that it can return</p>
 </div>
@@ -1860,9 +1888,10 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Example:</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_example_2"><a class="anchor" href="#_example_2"></a>Example:</h3>
 <div class="listingblock">
 <div class="content">
 <pre>{
@@ -1907,28 +1936,31 @@
 <div class="paragraph">
 <p>Other very important functionality exposed by SDR is Usage Report that allows to retrieve the usage of 2FA for specific period. It also allows to pass specific filter criterias.</p>
 </div>
-<div class="sect2">
-<h3 id="_get_list_of_one_time_passwords_api_reference"><a class="anchor" href="#_get_list_of_one_time_passwords_api_reference"></a>Get list of One-Time Passwords - API Reference</h3>
-<div class="paragraph">
-<p><strong>Base Resource URI</strong></p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_get_list_of_one_time_passwords_api_reference"><a class="anchor" href="#_get_list_of_one_time_passwords_api_reference"></a>Get list of One-Time Passwords - API Reference</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_base_resource_uri_4"><a class="anchor" href="#_base_resource_uri_4"></a>Base Resource URI</h3>
 <div class="paragraph">
 <p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
 </div>
-<div class="paragraph">
-<p><strong>Verification Code Resource URI</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_verification_code_resource_uri_4"><a class="anchor" href="#_verification_code_resource_uri_4"></a>Verification Code Resource URI</h3>
 <div class="paragraph">
 <p>/2fa/search</p>
 </div>
-<div class="paragraph">
-<p><strong>Supported Operations</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_supported_operations_4"><a class="anchor" href="#_supported_operations_4"></a>Supported Operations</h3>
 <div class="paragraph">
-<p>HTTP Method: GET: Returns a list of OTP records from the provided AccountSid, subject to the provided paging, filtering and sorting URL query parameters.</p>
+<p>HTTP Method: GET or POST: Returns a list of OTP records from the provided AccountSid, subject to the provided paging, filtering and sorting URL query parameters.</p>
 </div>
-<div class="sect3">
-<h4 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h4>
+</div>
+<div class="sect2">
+<h3 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h3>
 <div class="paragraph">
 <p>The following paging parameters are supported</p>
 </div>
@@ -1955,12 +1987,8 @@
 </tbody>
 </table>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_filtering"><a class="anchor" href="#_filtering"></a>Filtering</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_filtering"><a class="anchor" href="#_filtering"></a>Filtering</h3>
 <div class="paragraph">
 <p>The following filtering parameters are supported</p>
 </div>
@@ -1978,45 +2006,81 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that is initiated by this accountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that is initiated by this specific accountSid. The accountSid should be of one of the sub account&#8217;s of this account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subAccounts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If set to true, include OTP list that is initiated by all the sub accounts within this account. By default false.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">service</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has this service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that match this service text, partially or fully in any position.<br>
+For example if OTP Service is “Support” and service filter parameter is “ppo”, it will match.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that is initiated via this channel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that is initiated via this channel. Possible values are<br>
+* call<br>
+* sms<br>
+* email</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that is initiated by this number/email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has from begins with this number/email text.<br></p>
+<p class="tableblock">For example if OTP from  is “15713316943” and from filter parameter is “1”, it will match. However if from filter parameter is “3”, this record will not match.<br>
+This allows to filter OTP sent from specific country code.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that is sent to this number/email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has to begins with this number/email text.<br></p>
+<p class="tableblock">For example if OTP to  is “16513333367” and to filter parameter is “1”, it will match. However if to filter parameter is “3”, this record will not match.<br>
+This allows to filter OTP sent to specific country code.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">targetSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has the target sid of SMS/ Call/ Email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that match target sid of SMS/ Call/ Email text, partially or fully in any position.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has the status. Possible values are successful, canceled, expired</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has this status. Possible values are<br>
+* success<br>
+* canceled<br>
+* expired<br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">startDate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP that has occurred on or after this date. Specify the date in GMT and format as YYYY-MM-DD.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show OTP list that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">endDate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has occurred on or before this date. Specify the date in GMT and format as YYYY-MM-DD.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show OTP list that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">channelStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that match underlying channel status, partially or fully in any position<br></p>
+<p class="tableblock">* For SMS, possible channel status value can be as explained in <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_status_description<br>
+* For Call, possible values are as explained in “status” property in below link <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/calls-api.html#_calls_attributes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">channelErrorCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that match underlying channel code, partially or fully in any position<br>
+For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_sms_specific_error_codes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">channelErrorMessage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that match channel error message text, partially or fully in any position</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checkStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has this check status. Possible values are<br>
+* valid<br>
+* invalid</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Response Parameters</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_response_parameters_4"><a class="anchor" href="#_response_parameters_4"></a>Response Parameters</h3>
 <div class="paragraph">
 <p>search API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a>.</p>
 </div>
@@ -2076,9 +2140,44 @@
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><strong>Example</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_sorting"><a class="anchor" href="#_sorting"></a>Sorting</h3>
+<div class="paragraph">
+<p>You can use the SortBy GET or POST query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: <strong>sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;</strong>. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+</div>
+<div class="paragraph">
+<p>SortBy Attributes</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Response Paremeter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date on which the OTP was created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by service</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by status</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_example_3"><a class="anchor" href="#_example_3"></a>Example</h3>
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
@@ -2087,7 +2186,7 @@
 <pre>curl -X GET \
   <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/search">https://$DOMAIN/2fa/search</span> \
   --user  ' {your_account_SID}:{your_account_token}' \
-  -d '{  "pageSize": "2", "page":"0", "status":"success"}'</pre>
+  -d '{  "pageSize": "2", "page":"0", "status":"success", "sortBy":"DateCreated:asc"}'</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2108,62 +2207,68 @@
    "next_page_uri":"/2fa/search?pageSize=2&amp;page=1&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf&amp;status=success",
    "twoFaOtpSdrs":[
       {
-         "sid":"OTP45925dfe6ec948b3a861bdb46a6a2aaa",
-         "service":"<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
+         "sid":"OTP2a73130a3c7d492c93d0b1234596f308",
+         "service":"Restcomm3",
          "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "dateCreated":"2019-07-22 09:53:51",
-         "dateUpdated":"2019-07-22 09:54:20",
+         "dateCreated":"2019-08-20 10:28:08",
+         "dateUpdated":"2019-08-20 10:28:49",
          "status":"success",
-         "uri":"/2fa/search/OTP45925dfe6ec948b3a861bdb46a6a2aaa",
+         "uri":"/2fa/search/OTP2a73130a3c7d492c93d0b1234596f308",
          "checks":[
             {
-               "sid":"OTCfd8ff5e692d0467cb461e7fb1517fc6d",
-               "dateReceived":"2019-07-22 09:54:20",
+               "sid":"OTC2c58e792946b4fc389d7711cafaa5e83",
+               "dateReceived":"2019-08-20 10:28:49",
                "status":"valid",
-               "code":"398064"
+               "code":"312209"
             }
          ],
          "events":[
             {
-               "sid":"OTE8be6467b0cef485fa094e2271c5d2bb6",
-               "dateCreated":"2019-07-22 09:53:52",
-               "channel":"sms",
-               "sender":"120120105123",
-               "recipient":"84389931141",
-               "targetSid":"SMfbf420b9ded1412e94c6fb110ebc227c",
-               "channelStatus":"failed",
+               "sid":"OTE492b1deb0a7e4a778ab95daa40e7a3f6",
+               "dateCreated":"2019-08-20 10:28:08",
+               "channel":"email",
+               "sender":"<a href="mailto:info@telestax.com">info@telestax.com</a>",
+               "recipient":"<a href="mailto:amit.bhayani@telestax.com">amit.bhayani@telestax.com</a>",
+               "targetSid":"",
+               "channelStatus":"queued",
                "channelErrorCode":null,
                "channelErrorMessage":null
             }
          ]
       },
       {
-         "sid":"OTP5854f43a9a0842ecae9e3e47bdfc754d",
-         "service":"<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
+         "sid":"OTP02a7c56a08374eedb8789a1a038e7aae",
+         "service":"Restcomm2",
          "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "dateCreated":"2019-07-23 08:33:18",
-         "dateUpdated":"2019-07-23 08:37:01",
+         "dateCreated":"2019-08-20 02:43:11",
+         "dateUpdated":"2019-08-20 02:43:52",
          "status":"success",
-         "uri":"/2fa/search/OTP5854f43a9a0842ecae9e3e47bdfc754d",
+         "uri":"/2fa/search/OTP02a7c56a08374eedb8789a1a038e7aae",
          "checks":[
             {
-               "sid":"OTCf71283a7aacc4f9d9c800d93f542828a",
-               "dateReceived":"2019-07-23 08:37:01",
+               "sid":"OTC969ccb83b3cf40328c66719039c3b337",
+               "dateReceived":"2019-08-20 02:43:31",
+               "status":"invalid",
+               "code":"847992"
+            },
+            {
+               "sid":"OTC6991f661e3354a6fa1e0393c95168069",
+               "dateReceived":"2019-08-20 02:43:52",
                "status":"valid",
-               "code":"826345"
+               "code":"347469"
             }
          ],
          "events":[
             {
-               "sid":"OTE9edeea4cb61e46ceb278ed5851b0810d",
-               "dateCreated":"2019-07-23 08:33:18",
+               "sid":"OTEb6f211a28ed0412bb2c097a428d2ad5a",
+               "dateCreated":"2019-08-20 02:43:11",
                "channel":"sms",
-               "sender":"12012010540",
+               "sender":"12012751398",
                "recipient":"919960639901",
-               "targetSid":"SM969f5e6b641a4d04a3aa2b9fc3727c70",
-               "channelStatus":"undelivered",
-               "channelErrorCode":"30008",
-               "channelErrorMessage":"Unknown error"
+               "targetSid":"SM286fa07039ab498d80bd44d4cc91ac3c",
+               "channelStatus":"failed",
+               "channelErrorCode":null,
+               "channelErrorMessage":null
             }
          ]
       }
@@ -2171,29 +2276,32 @@
 }</pre>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_get_single_one_time_passwords_api_reference"><a class="anchor" href="#_get_single_one_time_passwords_api_reference"></a>Get single One-Time Passwords - API Reference</h3>
-<div class="paragraph">
-<p><strong>Base Resource URI</strong></p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_get_single_one_time_passwords_api_reference"><a class="anchor" href="#_get_single_one_time_passwords_api_reference"></a>Get single One-Time Passwords - API Reference</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_base_resource_uri_5"><a class="anchor" href="#_base_resource_uri_5"></a>Base Resource URI</h3>
 <div class="paragraph">
 <p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
 </div>
-<div class="paragraph">
-<p><strong>Verification Code Resource URI</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_verification_code_resource_uri_5"><a class="anchor" href="#_verification_code_resource_uri_5"></a>Verification Code Resource URI</h3>
 <div class="paragraph">
 <p>/2fa/search/{OTPSid}</p>
 </div>
-<div class="paragraph">
-<p><strong>Supported Operations</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_supported_operations_5"><a class="anchor" href="#_supported_operations_5"></a>Supported Operations</h3>
 <div class="paragraph">
 <p>HTTP Method: GET: Return OTP session information which is identified by OTP Sid.</p>
 </div>
-<div class="paragraph">
-<p><strong>Response Parameters</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_response_parameters_5"><a class="anchor" href="#_response_parameters_5"></a>Response Parameters</h3>
 <div class="paragraph">
 <p>search API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a>. In addition below are the Error&#8217;s that it can return</p>
 </div>
@@ -2224,6 +2332,9 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_example_4"><a class="anchor" href="#_example_4"></a>Example</h3>
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
@@ -2267,31 +2378,232 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_usage_record_one_time_passwords_api_reference"><a class="anchor" href="#_usage_record_one_time_passwords_api_reference"></a>Usage record One-Time Passwords - API Reference</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage_record_one_time_passwords_api_reference"><a class="anchor" href="#_usage_record_one_time_passwords_api_reference"></a>Usage record One-Time Passwords - API Reference</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The Usage record REST resource provides a simple API to retrieve usage made by your 2FA account during any time period and by any usage channel. This makes it easy to build reporting and analytics tools for your application.</p>
 </div>
-<div class="paragraph">
-<p><strong>Base Resource URI</strong></p>
-</div>
+<div class="sect2">
+<h3 id="_base_resource_uri_6"><a class="anchor" href="#_base_resource_uri_6"></a>Base Resource URI</h3>
 <div class="paragraph">
 <p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
 </div>
-<div class="paragraph">
-<p><strong>Verification Code Resource URI</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_verification_code_resource_uri_6"><a class="anchor" href="#_verification_code_resource_uri_6"></a>Verification Code Resource URI</h3>
 <div class="paragraph">
-<p>/2fa/usage/record/{sub-resource}</p>
+<p>/2fa/usage/records</p>
 </div>
-<div class="paragraph">
-<p><strong>Supported Operations</strong></p>
 </div>
+<div class="sect2">
+<h3 id="_supported_operations_6"><a class="anchor" href="#_supported_operations_6"></a>Supported Operations</h3>
 <div class="paragraph">
 <p>HTTP Method: Supports both GET and POST: Return usage record.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_filtering_2"><a class="anchor" href="#_filtering_2"></a>Filtering</h3>
 <div class="paragraph">
-<p><strong>Request Sub resource</strong></p>
+<p>Usage filter will return usage records for passed filter. Following filtering parameters are supported.</p>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match this service text, partially or fully in any position.<br>
+For example if OTP Service is “Support” and service filter parameter is “ppo”, it will match.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">channel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that is initiated via this channel. Possible values are<br>
+* call<br>
+* sms<br>
+* email</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has from begins with this number/email text.<br></p>
+<p class="tableblock">For example if OTP from  is “15713316943” and from filter parameter is “1”, it will match. However if from filter parameter is “3”, this record will not match.<br>
+This allows to filter Usage records sent from specific country code.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has to begins with this number/email text.<br></p>
+<p class="tableblock">For example if OTP to  is “16513333367” and to filter parameter is “1”, it will match. However if to filter parameter is “3”, this record will not match.<br>
+This allows to filter Usage records sent to specific country code.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has this status. Possible values are<br>
+* success<br>
+* canceled<br>
+* expired<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records for OTP&#8217;s that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records for OTP&#8217;s that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">channelStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match underlying channel status, partially or fully in any position<br></p>
+<p class="tableblock">* For SMS, possible channel status value can be as explained in <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_status_description<br>
+* For Call, possible values are as explained in “status” property in below link <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/calls-api.html#_calls_attributes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">checkStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has this check status. Possible values are<br>
+* valid<br>
+* invalid<br>
+If there are multiple checks with invalid and finally valid, this records are counted for both valid and invalid filter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage record that is initiated by this specific accountSid. The accountSid should be of one of the sub account&#8217;s of this account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">subAccounts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If set to true, include Usage records that is initiated by all the sub accounts within this account. By default false.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+  wlparam:replace[text="https://$DOMAIN/2fa/usage/records?startDate=2019-08-01&amp;endDate=2019-08-31
+"] \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example Response</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+   "usageRecords":[
+      {
+         "channel":"All",
+         "description":"Total OTP sent, irrespective of channel or retry",
+         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
+         "startTime":"2019-08-01",
+         "endTime":"2019-08-30",
+         "count":"14",
+         "unit":"OTP",
+         "uri":"/2fa/usage/records?startTime=2019-08-01&amp;endTime=2019-08-30&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+      }
+   ]
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>HTTP POST example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST \
+  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records">https://$DOMAIN/2fa/usage/records</span> \
+  --user  ' {your_account_SID}:{your_account_token}'
+    -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "startTime" : "2019-08-05T06:37:00",
+    "endTime": "2019-08-30"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example Response</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+   "usageRecords":[
+      {
+         "channel":"All",
+         "description":"Total OTP sent, irrespective of channel or retry",
+         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
+         "startTime":"2019-08-05T06:37:00",
+         "endTime":"2019-08-30",
+         "count":"13",
+         "unit":"OTP",
+         "uri":"/2fa/usage/records?startTime=2019-08-05T06%3A37%3A00&amp;endTime=2019-08-30&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+      }
+   ]
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_for_sms_filter_parameter"><a class="anchor" href="#_example_for_sms_filter_parameter"></a>Example for SMS filter parameter</h3>
+<div class="paragraph">
+<p>HTTP POST example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST \
+  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records">https://$DOMAIN/2fa/usage/records</span> \
+  --user  ' {your_account_SID}:{your_account_token}'
+    -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "channel" : "sms"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example Response</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+   "usageRecords":[
+      {
+         "channel":"sms",
+         "description":"2FA sent by SMS",
+         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
+         "startTime":"null",
+         "endTime":"2019-08-24",
+         "count":"6",
+         "unit":"Messages",
+         "uri":"/2fa/usage/record?channel=sms&amp;endTime=2019-08-24&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+      }
+   ]
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_request_sub_resource"><a class="anchor" href="#_request_sub_resource"></a>Request Sub resource</h3>
+<div class="paragraph">
+<p>The main UsageRecords list resource supports a variety of convenience subresources. In general these take the form:<br></p>
+</div>
+<div class="paragraph">
+<p>/2fa/usage/records/{Subresource}<br></p>
+</div>
+<div class="paragraph">
+<p>Supported subresources are</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2300,22 +2612,22 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Sub resource</th>
+<th class="tableblock halign-left valign-top">Subresource</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Daily</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on daily basis.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on a daily basis. If no date filter is passed, last 30 days usage is retrieved.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Monthly</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on monthly basis.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on a monthly basis. If no date filter is passed, last 12 months usage is retrieved</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yearly</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on yearly basis.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on yearly basis. If no date filter is passed, only this year and previous year usage is retrieved.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Today</p></td>
@@ -2336,74 +2648,18 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Request Parameters</strong></p>
+<p>Filters mentioned in above section can also be passed.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">channel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage record that has the channel. Possible values are<br>
-* sms<br>
-* call<br>
-* email</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage record that has initiated by the accountSid</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">startDate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage record that has occurred on or after this date. Specify the date in GMT and format as YYYY-MM-DD.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">endDate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage record that has occurred on or before this date. Specify the date in GMT and format as YYYY-MM-DD.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><strong>Response Parameters</strong></p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Code</th>
-<th class="tableblock halign-left valign-top">Message</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">200 OK</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Successfully query usage records.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">401 Unauthorized</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Credential is not correct.</p>
-<p class="tableblock">From the bash terminal you can run the command below:</p></td>
-</tr>
-</tbody>
-</table>
+<div class="sect2">
+<h3 id="_examples_2"><a class="anchor" href="#_examples_2"></a>Examples</h3>
 <div class="paragraph">
 <p>HTTP GET Example</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/record/daily?channel=call">https://$DOMAIN/2fa/usage/record/daily?channel=call</span> \</pre>
+  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records/daily">https://$DOMAIN/2fa/usage/records/daily</span> \</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2411,52 +2667,39 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{"usageRecords":[{
-        "category":"call",
-        "description":"2FA sent by CALLS",
-        "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-        "startDate":"2019-07-22",
-        "endDate":"2019-07-23",
-        "count":"2",
-        "unit":"Calls",
-        "uri":"/2fa/usage/record?endDate=2019-07-23&amp;category=call&amp;startDate=2019-07-22"
-        }
-    ]
-}</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>HTTP POST example</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X POST \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/record">https://$DOMAIN/2fa/usage/record</span> \
-  --user  ' {your_account_SID}:{your_account_token}'
-    -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "channel" : "call",
-    "accountSid": "AC123461724187287abcbas791282cf"
-}</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Example Response</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{"usageRecords":[{
-        "category":"call",
-        "description":"2FA sent by CALLS",
-        "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-        "startDate":"2019-07-22",
-        "endDate":"2019-07-23",
-        "count":"2",
-        "unit":"Calls",
-        "uri":"/2fa/usage/record?endDate=2019-07-23&amp;category=call&amp;startDate=2019-07-22"
-        }
-    ]
+<pre>{
+   "usageRecords":[
+      {
+         "channel":"All",
+         "description":"Total OTP sent, irrespective of channel or retry",
+         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
+         "startTime":"2019-08-05",
+         "endTime":"2019-08-05",
+         "count":"7",
+         "unit":"OTP",
+         "uri":"/2fa/usage/records/daily?channel=All&amp;startTime=2019-07-24&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+      },
+      {
+         "channel":"All",
+         "description":"Total OTP sent, irrespective of channel or retry",
+         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
+         "startTime":"2019-08-19",
+         "endTime":"2019-08-19",
+         "count":"4",
+         "unit":"OTP",
+         "uri":"/2fa/usage/records/daily?channel=All&amp;startTime=2019-07-24&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+      },
+      {
+         "channel":"All",
+         "description":"Total OTP sent, irrespective of channel or retry",
+         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
+         "startTime":"2019-08-20",
+         "endTime":"2019-08-20",
+         "count":"3",
+         "unit":"OTP",
+         "uri":"/2fa/usage/records/daily?channel=All&amp;startTime=2019-07-24&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+      }
+   ]
 }</pre>
 </div>
 </div>
