@@ -1318,18 +1318,18 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>An <strong>SMS</strong> represents an inbound or outbound SMS message. Using this API you can do things like:</p>
+<p>An <strong>SMS</strong> represents an inbound or outbound SMS message. Using this API you can perform the following actions:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Sending an SMS to a mobile number and optionally get notified of its delivery status</p>
+<p>Send an SMS to a mobile number and optionally get notified of its delivery status</p>
 </li>
 <li>
-<p>Sending a text message to a VoIP <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client, representing a registered software or hardware SIP phone.</p>
+<p>Send a text message to a VoIP <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client, representing a registered software or hardware SIP phone</p>
 </li>
 <li>
-<p>Querying details for already exchanged SMS messages</p>
+<p>Query details for already exchanged SMS messages</p>
 </li>
 </ul>
 </div>
@@ -1350,7 +1350,7 @@
 <p>If the recipient of the SMS is a mobile number the message is routed to the mobile network and delivered to the mobile device.</p>
 </li>
 <li>
-<p>If the recipient is a registered <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client then a SIP message is generated and routed to the VoIP client, provided that the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client is registered. Notice that in this case the recipient client name needs to be prefixed with the string <code>client:</code> in the <code>To</code> parameter described below</p>
+<p>If the recipient is a registered <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client then a SIP message is generated and routed to the VoIP client. Note that in this case the recipient client name needs to be prefixed with the string <code>client:</code> in the <code>To</code> parameter described below.</p>
 </li>
 </ul>
 </div>
@@ -1380,7 +1380,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A URL for <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform to send webhook requests to notify on any SMS delivery status event. Notice that StatusCallback is not applicable to messages addressed to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Clients. For more information check below (Optional).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL for the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform to send webhook requests to notify on any SMS delivery status event. Note that StatusCallback is not applicable to messages addressed to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Clients. For more information check below (Optional).</p></td>
 </tr>
 </tbody>
 </table>
@@ -1739,11 +1739,8 @@ public class JavaSampleClass {
 <div class="paragraph">
 <p>Returns a list of SMS records corresponding to SMS messages sent or received from the provided AccountSid, subject to the provided paging, filtering and sorting URL query parameters.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h3>
 <div class="paragraph">
 <p>The following paging parameters are supported</p>
 </div>
@@ -1770,10 +1767,8 @@ public class JavaSampleClass {
 </tbody>
 </table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_filtering"><a class="anchor" href="#_filtering"></a>Filtering</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_filtering"><a class="anchor" href="#_filtering"></a>Filtering</h3>
 <div class="paragraph">
 <p>The following filtering parameters are supported</p>
 </div>
@@ -1812,12 +1807,10 @@ public class JavaSampleClass {
 </tbody>
 </table>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h3>
 <div class="paragraph">
-<p>Below you can find the supported sorting parameters. In order to use them you need to utilize the <strong>SortBy</strong> query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here&#8217;s the overall format: <strong>SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;</strong>. If no direction parameter is provided, then the listing of messages is sorted by the attribute in ascending order.</p>
+<p>Below you can find the supported sorting parameters. In order to use them you need to utilize the <strong>SortBy</strong> query parameter to determine which attribute you want to sort by and in which direction. Direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here&#8217;s the proper format: <strong>SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;</strong>. If no direction parameter is provided, then the listing of messages is sorted by the attribute in ascending order.</p>
 </div>
 <table class="tableblock frame-top grid-rows spread">
 <colgroup>
@@ -1861,6 +1854,7 @@ public class JavaSampleClass {
 </tr>
 </tbody>
 </table>
+</div>
 <div class="sect2">
 <h3 id="_examples_2"><a class="anchor" href="#_examples_2"></a>Examples</h3>
 <div class="paragraph">
