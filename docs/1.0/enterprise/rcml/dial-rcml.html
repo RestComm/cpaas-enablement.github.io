@@ -1523,53 +1523,6 @@ The current release of <span class="sps-text non-sps-link" data-orig-text="Restc
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_answer_delay_with_dial_verb"><a class="anchor" href="#_answer_delay_with_dial_verb"></a>Answer Delay with Dial verb</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>For certain scenarios the 200 OK on the initial call should be delayed when the first verb is Dial, until <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives the final response from the Dial branch (or branches).</p>
-</div>
-<div class="paragraph">
-<p>Before this feature, when processing an incoming call for a hosted application, the application immediately created media session and sent SIP 200 OK response to the client no matter if there was a Dial verb in the hosted application or not. The incoming call was established with the application and the 'ringing' sound was transmitted through media channel. At the same time, if the RCML hosted application had Dial verb, the application sent SIP INVITE request to the destination. Depending on the destination response, the incoming call was either updated with the new media session (when the response was 200 OK), or it was disconnected (in case of failure response).</p>
-</div>
-<div class="paragraph">
-<p>With this new feature, in the above scenario, the application sends SIP 180 Ringing response instead of SIP 200 OK. The SIP 200 OK response is sent to the client only when the outgoing call is established with the destination. When outgoing call is failed, then the failure response is passed to the client.</p>
-</div>
-<div class="paragraph">
-<p>The feature was implemented as a feature flag, so 'enable-200-ok-delay' needs to be set.</p>
-</div>
-<div class="sect2">
-<h3 id="_call_flows"><a class="anchor" href="#_call_flows"></a>Call flows</h3>
-<div class="paragraph">
-<p>The following sequence flow diagrams illustrate the new way of <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> functionality for RCML &lt;Dial&gt; verb.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The following sequence flow diagram illustrate the use of the feature when dialing to a single destination. Here you can see how all the possible states (answered, failed, busy etc) are handled.</p>
-</li>
-</ol>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/answer_delay_call_flow.png" alt="Answer Delay Call Flow">
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The next sequence flow diagram illustrate the feature when in Dial Forking.</p>
-</li>
-</ol>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/answer_delay_dial_forking_call_flow.png" alt="Answer Delay Dial forking Call Flow">
-</div>
-</div>
-</div>
-</div>
-</div>
 </article>
   </main>
 </div>
