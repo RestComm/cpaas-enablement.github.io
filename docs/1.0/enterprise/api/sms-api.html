@@ -1197,10 +1197,26 @@
             "></span>
             <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/say-rcml.html">Say</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/ssml-reference.html">SSML Reference</a>
               
             </span>
           </div>
               </li>
+  </ul>
+      </li>
       <li class="nav-item" data-depth="2">
           <div class="nav-flex-container">
             <span class="nav-flex-item-icon
@@ -1503,7 +1519,7 @@
         <button class="sample-code-button scsIndex-64" onclick="openLanguage('Java', 64)">Java</button>
       </div>
       <div id="Curl-64" class="sample-language-64">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json  \
    -d 'From=19876543212' \
    -d 'To=13216549878' \
    -d 'Body=Test SMS' \
@@ -1546,8 +1562,8 @@ AUTH_TOKEN = 'my_AUTH_TOKEN'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-            'Content-type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain' }
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
 
 # Update POST parameters accordingly
 params = urlencode({
@@ -1562,7 +1578,7 @@ conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Mess
       params, headers=headers)
 res = conn.getresponse()
 
-// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
 ...
 </code></pre>
       </div>
@@ -1634,7 +1650,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-65" onclick="openLanguage('Java', 65)">Java</button>
       </div>
       <div id="Curl-65" class="sample-language-65">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json  \
    -d 'From=19876543212' \
    -d 'To=client:alice8' \
    -d 'Body=Test SIP message' \
@@ -1677,8 +1693,8 @@ AUTH_TOKEN = 'my_AUTH_TOKEN'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-            'Content-type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain' }
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
 
 # Update POST parameters accordingly
 params = urlencode({
@@ -1693,7 +1709,7 @@ conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Mess
       params, headers=headers)
 res = conn.getresponse()
 
-// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
 ...
 </code></pre>
       </div>
@@ -1895,8 +1911,8 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-66" onclick="openLanguage('Java', 66)">Java</button>
       </div>
       <div id="Curl-66" class="sample-language-66">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json?From=19876543212&To=13216549878&StartTime=2018-05-30&EndTime=2018-06-09&Page=0&PageSize=10&SortBy=DateCreated:asc \
-   -u "YourAccountSid:YourAuthToken"
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json?From=19876543212&To=13216549878&StartTime=2018-05-30&EndTime=2018-06-09&Page=0&PageSize=10&SortBy=DateCreated:asc  \
+   -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
       <div id="Nodejs-66" class="sample-language-66" style="display:none">
@@ -1909,7 +1925,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 request({
       method: 'GET',
       url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Messages.json?From=19876543212&To=13216549878&StartTime=2018-05-30&EndTime=2018-06-09&Page=0&PageSize=10&SortBy=DateCreated:asc',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
       // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
@@ -1934,7 +1950,7 @@ conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Messa
       headers=headers)
 res = conn.getresponse()
 
-// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
 ...
 </code></pre>
       </div>
@@ -2020,8 +2036,8 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-67" onclick="openLanguage('Java', 67)">Java</button>
       </div>
       <div id="Curl-67" class="sample-language-67">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages/MESSAGE_SID.json \
-   -u "YourAccountSid:YourAuthToken"
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages/MESSAGE_SID.json  \
+   -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
       <div id="Nodejs-67" class="sample-language-67" style="display:none">
@@ -2036,7 +2052,7 @@ const MESSAGE_SID = 'my_MESSAGE_SID'
 request({
       method: 'GET',
       url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Messages/' + MESSAGE_SID + '.json',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
       // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
@@ -2063,7 +2079,7 @@ conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Messa
       headers=headers)
 res = conn.getresponse()
 
-// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
 ...
 </code></pre>
       </div>

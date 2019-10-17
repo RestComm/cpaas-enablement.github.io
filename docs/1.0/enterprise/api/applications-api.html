@@ -1195,10 +1195,26 @@
             "></span>
             <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/say-rcml.html">Say</a>
+              <button class="nav-toggle"></button>
+            </span>
+          </div>
+          <ul class="nav-list">
+      <li class="nav-item" data-depth="3">
+          <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+            "></span>
+            <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/ssml-reference.html">SSML Reference</a>
               
             </span>
           </div>
               </li>
+  </ul>
+      </li>
       <li class="nav-item" data-depth="2">
           <div class="nav-flex-container">
             <span class="nav-flex-item-icon
@@ -1527,7 +1543,7 @@ Modifies an Application resource and returns the representation, including the p
         <button class="sample-code-button scsIndex-13" onclick="openLanguage('Java', 13)">Java</button>
       </div>
       <div id="Curl-13" class="sample-language-13">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Applications.xml \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Applications.xml  \
    -d 'FriendlyName=ApplicationFooBar' \
    -d 'ApiVersion=2012-04-24' \
    -d 'HasVoiceCallerIdLookup=false' \
@@ -1572,8 +1588,8 @@ AUTH_TOKEN = 'my_AUTH_TOKEN'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-            'Content-type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain' }
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
 
 # Update POST parameters accordingly
 params = urlencode({
@@ -1589,7 +1605,7 @@ conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Applicat
       params, headers=headers)
 res = conn.getresponse()
 
-// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
 ...
 </code></pre>
       </div>
@@ -1663,7 +1679,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-14" onclick="openLanguage('Java', 14)">Java</button>
       </div>
       <div id="Curl-14" class="sample-language-14">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Applications/APPLICATION_SID.xml \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Applications/APPLICATION_SID.xml  \
    -d 'FriendlyName=Application X' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
@@ -1704,8 +1720,8 @@ APPLICATION_SID = 'my_APPLICATION_SID'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
 headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-            'Content-type': 'application/x-www-form-urlencoded',
-            'Accept': 'text/plain' }
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
 
 # Update POST parameters accordingly
 params = urlencode({
@@ -1717,7 +1733,7 @@ conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Applicat
       params, headers=headers)
 res = conn.getresponse()
 
-// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
 ...
 </code></pre>
       </div>
@@ -1788,8 +1804,8 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-15" onclick="openLanguage('Java', 15)">Java</button>
       </div>
       <div id="Curl-15" class="sample-language-15">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X DELETE https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Applications/APPLICATION_SID.xml \
-   -u "YourAccountSid:YourAuthToken"
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X DELETE https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Applications/APPLICATION_SID.xml  \
+   -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
       <div id="Nodejs-15" class="sample-language-15" style="display:none">
@@ -1804,7 +1820,7 @@ const APPLICATION_SID = 'my_APPLICATION_SID'
 request({
       method: 'DELETE',
       url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Applications/' + APPLICATION_SID + '.xml',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
       // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
@@ -1831,7 +1847,7 @@ conn.request("DELETE", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Applic
       headers=headers)
 res = conn.getresponse()
 
-// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
 ...
 </code></pre>
       </div>
@@ -1876,8 +1892,8 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-16" onclick="openLanguage('Java', 16)">Java</button>
       </div>
       <div id="Curl-16" class="sample-language-16">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Applications.xml \
-   -u "YourAccountSid:YourAuthToken"
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Applications.xml  \
+   -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
       <div id="Nodejs-16" class="sample-language-16" style="display:none">
@@ -1890,7 +1906,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 request({
       method: 'GET',
       url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Applications.xml',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
       // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
@@ -1915,7 +1931,7 @@ conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Applicati
       headers=headers)
 res = conn.getresponse()
 
-// Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
 ...
 </code></pre>
       </div>
