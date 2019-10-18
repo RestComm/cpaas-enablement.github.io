@@ -1452,6 +1452,93 @@ When translating text to speech, the &lt;Say&gt; verb makes an assumptions about
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_using_the_language_parameter"><a class="anchor" href="#_using_the_language_parameter"></a>Using the language parameter</h3>
+<div class="paragraph">
+<p>With the help of the <code>language</code> parameter you can specify what TTS engine you would to use for your application.</p>
+</div>
+<div class="paragraph">
+<p>Below you can find a list of all available TTS engines.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TTS Provider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RCML Name Reference</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon Polly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">awspolly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Acapela</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">acapela</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VoiceRSS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">voicerss</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nuance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nuance</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_tts_engine_language_convention"><a class="anchor" href="#_tts_engine_language_convention"></a>TTS Engine/Language Convention</h4>
+<div class="paragraph">
+<p>If you would like to set your TTS engine to Acapela English, you should use the following parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>language="acapela.en"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>for Google english US Wavenet-A, the parameter should be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>language="google.en-US-Wavenet-A"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In a similar manner you can specify any other TTS engine to be used.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tts_engine_not_specified"><a class="anchor" href="#_tts_engine_not_specified"></a>TTS Engine Not Specified</h4>
+<div class="paragraph">
+<p>If no TTS engine is specified, for example <code>&lt;Say&gt;Hello there&lt;/Say&gt;</code>, Amazon Polly will be taken as a default value.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_language_not_specified"><a class="anchor" href="#_language_not_specified"></a>Language Not Specified</h4>
+<div class="paragraph">
+<p>If no language is set, for example <code>&lt;Say&gt;Hello there&lt;/Say&gt;</code>, the value will fallback to the first TTS engine from the list and respectively the engine&#8217;s default language. Usually the TTS engine&#8217;s default language is English US. However that can vary based on the configuration settings and region defined.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_voice_not_specified"><a class="anchor" href="#_voice_not_specified"></a>Voice Not Specified</h4>
+<div class="paragraph">
+<p>When no voice is specified, a default voice(gender) value will be set to <code>man</code> for most of the TTS engines. Acapela&#8217;s default is <code>woman</code>. This is part of the configuration and can change based on the TTS engine.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tts_engine_failure"><a class="anchor" href="#_tts_engine_failure"></a>TTS Engine Failure</h4>
+<div class="paragraph">
+<p>It is possible that TTS engine is specified but fails due to configuration issues, incorrect API key, 3rd party service got down etc. In such cases the call will be terminated.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </article>
