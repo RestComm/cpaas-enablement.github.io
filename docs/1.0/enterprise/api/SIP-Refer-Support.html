@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="csp-persona">
+<html lang="en" class="enterprise-persona">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="REST API Overview - Restcomm Docs"></title>
+    <title data-custom-title="Restcomm SIP Refer support - Restcomm Docs"></title>
     <link rel="canonical" href="
-      https://www.restcomm.com/docs/1.0/api/overview.html
+      https://cloud.restcomm.com/docs/api/SIP-Refer-Support.html
     ">
+    <meta name="description" content="Learn how to send text messages from Visual Designer to a Jitsi SIP phone.">
+    <meta name="keywords" content="sip refer">
     <meta name="generator" content="Antora 1.1.1">
-    <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
-    <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
+    <link rel="icon" type="image/png" href=""/>
+    <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
     <!-- Not using it for now
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -18,7 +20,7 @@
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
       </head>
-  <body class="article" >
+  <body class="article" style="display: none">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
@@ -28,19 +30,6 @@
       -->
       <a class="navbar-item header-logo-link" href="/docs/">
       </a>
-    </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        <!-- TODO: Bring back when we integrate with searching facilities
-        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
-        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
-        <div class="navbar-item">
-          <span>
-            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
-          </span>
-        </div>
-      </div>
     </div>
   </nav>
   <!-- TODO: need to improve the variable used to decide displaying this nav -->
@@ -58,9 +47,10 @@
 
 
 
-        <a class="navbar-enterprise-item" href="/docs/1.0/api/overview.html">Reference</a>
-        <a class="navbar-enterprise-item" href="/docs/1.0/visual-designer/index.html">Visual Designer</a>
-        <a class="navbar-enterprise-item" href="/docs/1.0/tutorials/index.html">Tutorials</a>
+        <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" href="/docs/solutions/index.html">Solutions</a>
+        <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+        <a class="navbar-enterprise-item" href="/docs/visual-designer/index.html">Visual Designer</a>
 
 
     </div>
@@ -73,24 +63,577 @@
   <div class="navigation-menu is-active" data-panel="menu">
     <nav class="nav-menu">
       <!-- Not applicable to our Enterprise docs
-    <h3 class="title"><a href="../index.html">docs</a></h3>
+    <h3 class="title"><a href="../../index.html">docs</a></h3>
     -->
         <ul class="nav-list">
           <ul class="nav-list">
-              <ul class="nav-list">
-              <ul class="nav-list">
-                                                              </ul>
-              <ul class="nav-list">
-                          <ul class="nav-list">
-                                                                          </ul>
-              <ul class="nav-list">
-                                                  </ul>
-              <ul class="nav-list">
-                          </ul>
-              <ul class="nav-list">
-              </ul>
-              <ul class="nav-list">
-                                                                                                              </ul>
+            <li class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              icomoon3-font-reference-api
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html">REST API</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html">Overview</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_api_endpoint">API Endpoint</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_authentication">Authentication</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_requests">Requests</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_responses">Responses</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_paging">Paging</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              icomoon3-font-reference-voice
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="voice-category.html">Voice</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="available-phone-numbers-api.html">Available Phone Numbers</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html">Calls</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_call_list_resource_uri">Call List Resource URI</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_making_a_call_to_a_sip_account">Making a Call</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_modifying_live_calls">Modifying Live Calls</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#examples">Examples</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_list_filter">List Filter</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_paging_information">Paging Information</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html">Clients</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_create_a_client">Create a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_delete_a_client">Delete a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html">Conference Management</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_supported_operations">Supported Operations</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_conference_list_resource_uri">Conference List Resource URI</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="participants-api.html">Conference Participants Management</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="participants-api.html#_participant_list_resource_uri">Participants List Resource URI</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumber_instance_resource">IncomingPhoneNumber Instance Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumbers_list_resource">IncomingPhoneNumbers List Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_local_incomingphonenumber_factory_resource">Local IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_toll_free_incomingphonenumber_factory_resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_mobile_incomingphonenumber_factory_resource">Mobile IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_attach_a_phone_number_to_an_application">Attach a phone number to an application</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_delete_a_phone_number">Delete a phone number</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_list_of_phone_numbers">List of Phone Numbers</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incoming_phone_number_regex_support">Incoming Phone Number Regex Support</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="recordings-api.html">Recordings</a>
+
+            </span>
+              </div>
+                          </li>
                         <li class="nav-item" data-depth="3">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
@@ -99,161 +642,33 @@
               
               
               
-              
-              
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="../enterprise/api/SIP-Refer-Support.html">SIP Refer Support</a>
-
-            </span>
-              </div>
-                          </li>
-              </ul>
-              <ul class="nav-list">
-                          <ul class="nav-list">
-                                                  </ul>
-              <ul class="nav-list">
-                                                                                                              </ul>
-              <ul class="nav-list">
-                                                  </ul>
-              </ul>
-                                                  </ul>
-              <ul class="nav-list">
-              <ul class="nav-list">
-                          </ul>
-              <ul class="nav-list">
-                                                  </ul>
-                                                                                                                          </ul>
-              <ul class="nav-list">
-              </ul>
-  </ul>
-          <ul class="nav-list">
-            <li class="nav-item is-current-page" data-depth="1">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              icomoon3-font-reference-api
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="overview.html">API Overview</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_api_endpoint">API Endpoint</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_authentication">Authentication</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_requests">Requests</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_responses">Responses</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_paging">Paging</a>
+              <a class="nav-link nav-flex-item-text" href="email-api.html">Email</a>
 
             </span>
               </div>
                           </li>
   </ul>
             </li>
-            <li class="nav-item" data-depth="1">
+            <li class="nav-item" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
+              icomoon3-font-reference-sms
               
               
-              
-              
-              icomoon3-font-reference-management
               
               
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="organization-api.html">Management APIs</a>
+              <a class="nav-link nav-flex-item-text" href="sms-category.html">SMS</a>
                       <button class="nav-toggle"></button>
             </span>
               </div>
                 <ul class="nav-list">
-            <li class="nav-item" data-depth="2">
+            <li class="nav-item" data-depth="3">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -261,16 +676,337 @@
               
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="organization-api.html">Organization</a>
+              <a class="nav-link nav-flex-item-text" href="available-phone-numbers-api.html">Available Phone Numbers</a>
 
             </span>
               </div>
                           </li>
-            <li class="nav-item" data-depth="2">
+            <li class="nav-item" data-depth="3">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
               
               
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html">Clients</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_create_a_client">Create a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_delete_a_client">Delete a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumber_instance_resource">IncomingPhoneNumber Instance Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumbers_list_resource">IncomingPhoneNumbers List Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_local_incomingphonenumber_factory_resource">Local IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_toll_free_incomingphonenumber_factory_resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_mobile_incomingphonenumber_factory_resource">Mobile IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_attach_a_phone_number_to_an_application">Attach a phone number to an application</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_delete_a_phone_number">Delete a phone number</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_list_of_phone_numbers">List of Phone Numbers</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incoming_phone_number_regex_support">Incoming Phone Number Regex Support</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html">Messages</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_send_sms">Send SMS</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_get_sms_list">Get SMS List</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_get_single_sms_information">Get single SMS Information</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_sms_attributes">SMS Attributes</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="email-api.html">Email</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
               
               
               
@@ -291,8 +1027,6 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="applications-api.html">Applications</a>
@@ -303,8 +1037,6 @@
             <li class="nav-item" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -325,8 +1057,6 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="usage-records-api.html">Usage Records</a>
@@ -341,1208 +1071,7 @@
             <span class="nav-flex-item-icon
               
               
-              icomoon3-font-reference-voice
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="voice-category.html">Voice APIs</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="available-phone-numbers-api.html">Available Phone Numbers</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="calls-api.html">Calls</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="calls-api.html#_call_list_resource_uri">Call List Resource URI</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="calls-api.html#_making_a_call_to_a_sip_account">Making a Call</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="calls-api.html#_modifying_live_calls">Modifying Live Calls</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="calls-api.html#examples">Examples</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="calls-api.html#_list_filter">List Filter</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="calls-api.html#_paging_information">Paging Information</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html">Clients</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html#_create_a_client">Create a Client</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html#_delete_a_client">Delete a Client</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="conferences-api.html">Conference Management</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_supported_operations">Supported Operations</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_conference_list_resource_uri">Conference List Resource URI</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="participants-api.html">Conference Participants Management</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="participants-api.html#_participant_list_resource_uri">Participants List Resource URI</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumber_instance_resource">IncomingPhoneNumber Instance Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumbers_list_resource">IncomingPhoneNumbers List Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_local_incomingphonenumber_factory_resource">Local IncomingPhoneNumber Factory Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_toll_free_incomingphonenumber_factory_resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_mobile_incomingphonenumber_factory_resource">Mobile IncomingPhoneNumber Factory Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_attach_a_phone_number_to_an_application">Attach a phone number to an application</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_delete_a_phone_number">Delete a phone number</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_list_of_phone_numbers">List of Phone Numbers</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incoming_phone_number_regex_support">Incoming Phone Number Regex Support</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="recordings-api.html">Recordings</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="SIP-Refer-Support.html">SIP Refer Support</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="email-api.html">Email</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="1">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              icomoon3-font-reference-sms
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="sms-category.html">SMS APIs</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="available-phone-numbers-api.html">Available Phone Numbers</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html">Clients</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html#_create_a_client">Create a Client</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html#_delete_a_client">Delete a Client</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumber_instance_resource">IncomingPhoneNumber Instance Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumbers_list_resource">IncomingPhoneNumbers List Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_local_incomingphonenumber_factory_resource">Local IncomingPhoneNumber Factory Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_toll_free_incomingphonenumber_factory_resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_mobile_incomingphonenumber_factory_resource">Mobile IncomingPhoneNumber Factory Resource</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_attach_a_phone_number_to_an_application">Attach a phone number to an application</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_delete_a_phone_number">Delete a phone number</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_list_of_phone_numbers">List of Phone Numbers</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incoming_phone_number_regex_support">Incoming Phone Number Regex Support</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="sms-api.html">Messages</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="sms-api.html#_send_sms">Send SMS</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="sms-api.html#_get_sms_list">Get SMS List</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="sms-api.html#_get_single_sms_information">Get single SMS Information</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="sms-api.html#_sms_attributes">SMS Attributes</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="email-api.html">Email</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="1">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              icomoon3-font-reference-solutions
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../solutions/Two-factor-Authentication-2FA.html">Solution APIs</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../solutions/Two-factor-Authentication-2FA.html">Two-Factor Authentication (2FA)</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../solutions/Two-factor-Authentication-2FA.html#_sending_one_time_passwords_api_reference">Sending One-Time Passwords</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../solutions/Two-factor-Authentication-2FA.html#_verifying_one_time_passwords_api_reference">Verifying One-Time Passwords</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../solutions/Two-factor-Authentication-2FA.html#_cancel_one_time_passwords_api_reference">Cancel One-Time Passwords</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../solutions/Two-factor-Authentication-2FA.html#_session_detail_record_sdr">Session Detail Record (SDR)</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../solutions/Two-factor-Authentication-2FA.html#_get_list_of_one_time_passwords_api_reference">Get list of One-Time Passwords</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../solutions/Two-factor-Authentication-2FA.html#_get_single_one_time_passwords_api_reference">Get a Single One-Time Password</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../solutions/Two-factor-Authentication-2FA.html#_usage_record_one_time_passwords_api_reference">Usage Record One-Time Passwords</a>
-
-            </span>
-              </div>
-                          </li>
-              </ul>
-            </li>
-            <li class="nav-item" data-depth="2">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="message-exchange/overview.html">Message Exchange API</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="message-exchange/create-operation.html">Create Operation</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="message-exchange/read-operation.html">Read Operation</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="message-exchange/delete-operation.html">Delete Operation</a>
-
-            </span>
-              </div>
-                          </li>
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="message-exchange/common-response-error-codes.html">Error Codes</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
-  </ul>
-            </li>
-            <li class="nav-item" data-depth="1">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
               icomoon3-font-reference-rcml
-              
               
               
             "></span>
@@ -1555,8 +1084,6 @@
             <li class="nav-item" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -1577,11 +1104,9 @@
               
               
               
-              
-              
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">Interacting with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">How wlparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"</a>
 
             </span>
               </div>
@@ -1589,8 +1114,6 @@
             <li class="nav-item" data-depth="3">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -1613,8 +1136,6 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/dial-rcml.html">Dial</a>
@@ -1625,8 +1146,6 @@
             <li class="nav-item" data-depth="3">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -1647,8 +1166,6 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/conference-rcml.html">Conference</a>
@@ -1664,8 +1181,6 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/number-rcml.html">Number</a>
@@ -1676,8 +1191,6 @@
             <li class="nav-item" data-depth="3">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -1700,8 +1213,6 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/email-rcml.html">Email</a>
@@ -1712,8 +1223,6 @@
             <li class="nav-item" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -1734,39 +1243,16 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/say-rcml.html">Say</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/ssml-reference.html">SSML Reference</a>
 
             </span>
               </div>
                           </li>
-  </ul>
-            </li>
             <li class="nav-item" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -1782,9 +1268,7 @@
             <li class="nav-item" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
-              
+              icomoon3-font-reference-sms
               
               
               
@@ -1799,8 +1283,6 @@
             <li class="nav-item" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -1821,8 +1303,6 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/pause-rcml.html">Pause</a>
@@ -1833,8 +1313,6 @@
             <li class="nav-item" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
-              
-              
               
               
               
@@ -1855,8 +1333,6 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/record-rcml.html">Record</a>
@@ -1872,8 +1348,6 @@
               
               
               
-              
-              
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="../rcml/reject-rcml.html">Reject</a>
@@ -1883,6 +1357,78 @@
                           </li>
   </ul>
             </li>
+            <li class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              icomoon3-font-reference-solutions
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../solutions/index.html">Solution APIs</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Two-factor-Authentication-2FA.html">Two-Factor Authentication (2FA)</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+  </ul>
+          <ul class="nav-list">
+              <ul class="nav-list">
+                                                              </ul>
+              <ul class="nav-list">
+                                                              </ul>
+              <ul class="nav-list">
+                          <ul class="nav-list">
+                                                                          </ul>
+              <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                          </ul>
+              <ul class="nav-list">
+              </ul>
+              <ul class="nav-list">
+                                                                                                              </ul>
+                                      </ul>
+              <ul class="nav-list">
+                          <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                                                                                                              </ul>
+              <ul class="nav-list">
+                                                  </ul>
+              </ul>
+              <ul class="nav-list">
+              <ul class="nav-list">
+                                                                                                  </ul>
+              <ul class="nav-list">
+                                                  </ul>
+  </ul>
+              <ul class="nav-list">
+              <ul class="nav-list">
+                          </ul>
+              <ul class="nav-list">
+                                                  </ul>
+                                      <ul class="nav-list">
+              </ul>
+                                                                                      </ul>
   </ul>
   </ul>
     </nav>
@@ -1897,7 +1443,7 @@
       <span class="title">docs</span>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="../index.html">1.0</a>
+          <a href="../../index.html">1.0</a>
         </li>
       </ul>
     </li>
@@ -1912,302 +1458,99 @@
 -->
 <div class="toolbar" role="navigation" style="display: none;">
   <button class="navigation-toggle"></button>
-  <a href="../index.html" class="home-link"></a>
+  <a href="../../index.html" class="home-link"></a>
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
-    <li class="crumb"><a href="../index.html">docs</a></li>
-    <li class="crumb"><a href="overview.html">CSP:API Overview</a></li>
+    <li class="crumb"><a href="../../index.html">docs</a></li>
+    <li class="crumb"><a href="overview.html">Enterprise:REST API</a></li>
+    <li class="crumb"><a href="voice-category.html">Enterprise:Voice</a></li>
+    <li class="crumb"><a href="SIP-Refer-Support.html">CSP:SIP Refer Support</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>REST API Overview</h1>
+  <h1><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> SIP Refer support</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> REST APIs power the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Communications Platform as a Service (CPaaS) and represent wide range of operations that enable you to create programmable Voice and SMS applications. You can use the REST APIs to create enterprise application that focus on your users needs. The REST APIs are implemented on the HTTP protocol, so you can use them with your preferred programming language and tools.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> true now supports RFC5589 flow 6.1 SIP Refer that allows clients to transfer calls.</p>
+</div>
+<div class="paragraph">
+<p>This new feature enables usage of blind transfer capabilities in desk phones and other SIP clients such as Linphone.</p>
+</div>
+<div class="paragraph">
+<p>The feature is supported for calls that were created using the Dial verb and was tested with Yealink SIP-T21P E2, Cisco SPA525G and Polycom SoundPoint IP 335 deskphones.</p>
+</div>
+<div class="paragraph">
+<p>Currently call transfer is not supported on peer to peer calls.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_rest_api_capabilities"><a class="anchor" href="#_rest_api_capabilities"></a>REST API Capabilities</h2>
+<h2 id="_example"><a class="anchor" href="#_example"></a>Example</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A REST API client should support the following:</p>
+<p>Let’s start with the simple scenario involving three parties: Alice, Bob and Carol. Alice calls Bob and Bob wants to connect Alice to Carol. Bob presses the Blind Transfer button on his desk phone and types Carol’s number. His phone hungs up and Alice should be connected to Carol. There is also a possibility that Carol will not answer timely or will be busy talking with somebody else. In that case, it’s needed to connect Alice to Bob again, and this is easy to implement with existing <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> features as we’ll see later.</p>
+</div>
+<div class="paragraph">
+<p>For the described scenario, we will need two incoming phone numbers:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>HTTPS and basic authentication</p>
+<p>Number A which is the number that Alice will call to connect to Bob. This number points to Visual Designer application that dials Bob. For this Number we need to set the refer url application</p>
 </li>
 <li>
-<p>HTTP GET, POST, PUT and DELETE requests</p>
-</li>
-<li>
-<p>Ability to set and read request and response headers</p>
-</li>
-<li>
-<p>XML or JSON responses</p>
+<p>Number B will be used by Bob as a transfer target during the call transfer. This Number points to an Visual Designer application that dials Carol.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_api_endpoint"><a class="anchor" href="#_api_endpoint"></a>API Endpoint</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>The base for all the API urls is: <strong><code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24">https://$DOMAIN/restcomm/2012-04-24</span></code></strong></p>
+<p>The number A has additional property called Refer URL which could be either Visual Designer application name or any other URL and is used to point to the refer application that will be executed during the call transfer. So configuration for number A should look like this:</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/Restcomm_SIP_Refer.png" alt="Incoming Phone Number SIP Refer URL">
 </div>
-</div>
-<div class="sect1">
-<h2 id="_supported_http_methods"><a class="anchor" href="#_supported_http_methods"></a>Supported HTTP Methods</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>GET</strong>: Lists or reads objects and includes the information needed to perform any Read operations on the object. Sample use: list all of the applications under your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> account.</p>
 </div>
 <div class="paragraph">
-<p><strong>POST/PUT</strong>: Creates or updates objects. Most requests using the POST/PUT method require JSON/XML in the request body. Sample use: modify a Client under your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> account.</p>
+<p>During call transfer, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will check the SIP Refer request in order to extract the call transfer details and will create the following new parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Transferor. Transferor is the one that initates the transfer</p>
+</li>
+<li>
+<p>Transferee. Transferee is the one that gets transfered</p>
+</li>
+<li>
+<p>ReferTarget. Is the transfer target</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p><strong>DELETE</strong>: Removes objects. Sample use: delete an application or client under your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> account.</p>
+<p>The above new parameters will be part of the HTTP request that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will do download the RCML and so at Visual Designer you can use the following new core variables:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>$core_Transferor</p>
+</li>
+<li>
+<p>$core_Transferee</p>
+</li>
+<li>
+<p>$core_ReferTarget</p>
+</li>
+</ul>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> APIs use basic HTTP authentication to restrict access to API endpoints to authenticated users only. After you sign up with <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>, you can find your Account SID and Auth Token by navigating to <code>your profile</code> &#8594; <code>Account</code> in the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Console.</p>
+<p>For example, the Visual Designer application for number B that will be executed after call transfer can use <code>&lt;Dial&gt;&lt;Number&gt;$core_ReferTarget&lt;/Number&gt;&lt;/Dial&gt;</code> so what ever Bob dialed during the call transfered it will be in the Dial verb of the Refer application.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../_images/Restcomm_AccountSID_and_Token.png" alt="Account SID and Token"></span></p>
+<p>Call flow exceptions such as no answer, failed etc, should be handled the usual way, by using Dial Action or verbs after Dial.</p>
 </div>
-<div class="paragraph">
-<p>You then need to use these credentials in your request&#8217;s Authorization header using <code>Basic</code> authentication type (i.e. <code>Authorization: Basic &lt;base64-encoded AccountSID:AuthToken&gt;</code>). Here&#8217;s how you would use an HTTP client to authenticate with <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>:</p>
-</div>
-<script>
-      function openLanguage(language, index) {
-        const sampleClasses = document.getElementsByClassName("sample-language-" + index);
-        for (const sampleClass of sampleClasses) {
-          sampleClass.style.display = "none";
-        }
-        document.getElementById(language + '-' + index).style.display = "block";
-
-        // first, disable the previously selected tab title
-        const previouslyActive = document.getElementsByClassName('scsIndex-' + index + ' is-active')
-        if (previouslyActive.length > 0) {
-          previouslyActive[0].classList.toggle('is-active')
-        }
-
-        // then, enable the newly selected title
-        event.target.classList.toggle('is-active')
-      }
-      </script>
-      <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-53 is-active" onclick="openLanguage('Curl', 53)">Curl</button>
-        <button class="sample-code-button scsIndex-53" onclick="openLanguage('Nodejs', 53)">Nodejs</button>
-        <button class="sample-code-button scsIndex-53" onclick="openLanguage('Python', 53)">Python</button>
-        <button class="sample-code-button scsIndex-53" onclick="openLanguage('Java', 53)">Java</button>
-      </div>
-      <div id="Curl-53" class="sample-language-53">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Nodejs-53" class="sample-language-53" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
-
-// Provide your Account Sid and Auth Token from your Console Account page
-const ACCOUNT_SID = 'my_ACCOUNT_SID';
-const AUTH_TOKEN = 'my_AUTH_TOKEN';
-
-request({
-      method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
-   },
-   function (error, response, body) {
-      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
-      ...
-   }
-);
-</code></pre>
-      </div>
-      <div id="Python-53" class="sample-language-53" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-
-# Provide your Account Sid and Auth Token from your Console Account page
-ACCOUNT_SID = 'my_ACCOUNT_SID'
-AUTH_TOKEN = 'my_AUTH_TOKEN'
-
-userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass }
-
-conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
-      headers=headers)
-res = conn.getresponse()
-
-# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
-...
-</code></pre>
-      </div>
-      <div id="Java-53" class="sample-language-53" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
-   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".json");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("GET");
-
-      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
-      ...
-  }
-}
-</code></pre>
-      </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_requests"><a class="anchor" href="#_requests"></a>Requests</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>API resources are accessed via HTTPS requests utilizing UTF-8 format. Data passed to the API through <code>POST</code> and <code>PUT</code> requests should use urlencoded format (i.e. <code>Content Type: application/x-www-form-urlencoded</code>).</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_responses"><a class="anchor" href="#_responses"></a>Responses</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> can return its API responses either in <code>.json</code> or <code>.xml</code> format depending on the suffix of the url the request was made on. For example a request sent to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json">https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json</span></code> will yield a <code>.json</code> response, while a request sent to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.xml">https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.xml</span></code> will yield an <code>.xml</code> response.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Some <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> APIs support pagination by accepting as query parameters the page number we interested in as well as the page size. The following query parameters are supported:</p>
-</div>
-<table class="tableblock frame-top grid-rows spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Query Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of SMS records to return, starting from 0.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>For example, the following request will return the first page of results with a size of 10 items:</p>
-</div>
-      <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-54 is-active" onclick="openLanguage('Curl', 54)">Curl</button>
-        <button class="sample-code-button scsIndex-54" onclick="openLanguage('Nodejs', 54)">Nodejs</button>
-        <button class="sample-code-button scsIndex-54" onclick="openLanguage('Python', 54)">Python</button>
-        <button class="sample-code-button scsIndex-54" onclick="openLanguage('Java', 54)">Java</button>
-      </div>
-      <div id="Curl-54" class="sample-language-54">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json?Page=0&PageSize=10  \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Nodejs-54" class="sample-language-54" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
-
-// Provide your Account Sid and Auth Token from your Console Account page
-const ACCOUNT_SID = 'my_ACCOUNT_SID';
-const AUTH_TOKEN = 'my_AUTH_TOKEN';
-
-request({
-      method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Messages.json?Page=0&PageSize=10',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
-   },
-   function (error, response, body) {
-      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
-      ...
-   }
-);
-</code></pre>
-      </div>
-      <div id="Python-54" class="sample-language-54" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-
-# Provide your Account Sid and Auth Token from your Console Account page
-ACCOUNT_SID = 'my_ACCOUNT_SID'
-AUTH_TOKEN = 'my_AUTH_TOKEN'
-
-userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass }
-
-conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Messages.json?Page=0&PageSize=10',
-      headers=headers)
-res = conn.getresponse()
-
-# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
-...
-</code></pre>
-      </div>
-      <div id="Java-54" class="sample-language-54" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
-   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/SMS/Messages.json?Page=0&PageSize=10");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("GET");
-
-      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
-      ...
-  }
-}
-</code></pre>
-      </div>
 </div>
 </div>
 </article>
@@ -2218,45 +1561,29 @@ public class JavaSampleClass {
     <div class="footer-column-container">
       <div class="footer-column">
         <h5 class="footer-column-title">Products</h5>
-          <p><a href="/docs/programmable.html">Programmable Voice</a></p>
-          <p><a href="/docs/programmable.html">Programmable SMS</a></p>
-          <p><a href="/docs/message-exchange.html">Message Exchange</a></p>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Use Cases</h5>
-        <p><a href="https://www.restcomm.com/use-cases/two-factor-authentication-2fa/">Two-Factor Authentication (2FA)</a></p>
-        <p><a href="https://www.restcomm.com/use-cases/phone-number-masking/">Phone Number Masking</a></p>
-        <p><a href="https://www.restcomm.com/voicemail-using-restcomm-visual-designer/">Interactive Voicemail to Email Application</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-Factor Authentication (2FA)</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Phone-number-masking.html">Phone Number Masking</a></p>
+        <p><a class="footer-usecase-item" href="/docs/tutorials/Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email Application</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
-        <p><a href="https://www.restcomm.com/blog/">Blog</a></p>
 
-          <p><a id="terms-link" href="/docs/support.html">Terms And Conditions</a></p>
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="/docs/terms.html">Terms And Conditions</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Contact us</h5>
         <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/" data-default-text="Company Name" data-default-link="#">Telestax</a></p>
-        <p>
-          <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
-          <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
-          <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
-          <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
-        </p>
-      </div>
-    </div>
-    <div class="footer-bottom-container">
-      <div class="footer-logo">
-        <a class="footer-logo-link" href="https://telestax.com"></a>
-      </div>
-      <div class="footer-copyright">
-        <p class="footer-copyright-paragraph">COPYRIGHT © 2018, TELESTAX INC., ALL RIGHTS RESERVED.</p>
       </div>
     </div>
   </div>
 </footer>
-<script src="../../../_/js/site.js"></script>
-<script src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/site.js"></script>
+<script src="../../../../_/js/vendor/highlight.js"></script>
 <!--
 <script>hljs.initHighlighting()</script>
 -->
