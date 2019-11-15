@@ -1489,7 +1489,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Two factor authentication (2FA) API lets you to send One Time Password (OTP) using SMS, Voice or email.</p>
+<p>Two factor authentication (2FA) API lets you to send One Time Passowrd (OTP) using SMS, Voice or email.</p>
 </div>
 <div class="paragraph">
 <p>2FA allows you to add a second layer of security to your Application in addition to the user-id and password. The flexibility of using any channel makes sure your users get OTP even when they experience issue with one of the channels.</p>
@@ -1504,13 +1504,13 @@
 <p><strong>User is prompted to enter his phone number</strong></p>
 </div>
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives the login attempt and prompts the user to enter his phone number in order to authorize the new device.</p>
+<p>Restcomm receives the login attempt and prompts the user to enter his phone number in order to authorize the new device.</p>
 </div>
 <div class="paragraph">
 <p><strong>PIN code is sent to the user via SMS, phone call or email depending on API called</strong></p>
 </div>
 <div class="paragraph">
-<p>Once the user enters a valid phone number, from your application you will need to ask <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to send a verification code to that phone number by using the HTTP REST API Call Below.</p>
+<p>Once the user enters a valid phone number, from your application you will need to ask Restcomm to send a verification code to that phone number by using the HTTP REST API Call Below.</p>
 </div>
 <div class="paragraph">
 <p><strong>Categories</strong></p>
@@ -1669,7 +1669,7 @@
 <div class="listingblock">
 <div class="content">
 <pre>{
-    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>", // the name of your service
+    "service" : "2FA", // the name of your service
     "from" : "+XXXXXXXXX", // the SMS sender phone number
     "to" : "+XXXXXXXXXX", // the SMS recepient phone number
     "body": "Your verification code is: \{code}" // SMS body, containing the verification code
@@ -1679,21 +1679,140 @@
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X POST \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/send">https://$DOMAIN/2fa/send</span> \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
-    "from" : "+13216549878",
-    "to" : "+13216549879",
-    "body": "Your verification code is: \{code}"
-}</pre>
-</div>
-</div>
+<script>
+      function openLanguage(language, index) {
+        const sampleClasses = document.getElementsByClassName("sample-language-" + index);
+        for (const sampleClass of sampleClasses) {
+          sampleClass.style.display = "none";
+        }
+        document.getElementById(language + '-' + index).style.display = "block";
+
+        // first, disable the previously selected tab title
+        const previouslyActive = document.getElementsByClassName('scsIndex-' + index + ' is-active')
+        if (previouslyActive.length > 0) {
+          previouslyActive[0].classList.toggle('is-active')
+        }
+
+        // then, enable the newly selected title
+        event.target.classList.toggle('is-active')
+      }
+      </script>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-134 is-active" onclick="openLanguage('Curl', 134)">Curl</button>
+        <button class="sample-code-button scsIndex-134" onclick="openLanguage('Nodejs', 134)">Nodejs</button>
+        <button class="sample-code-button scsIndex-134" onclick="openLanguage('Python', 134)">Python</button>
+        <button class="sample-code-button scsIndex-134" onclick="openLanguage('Java', 134)">Java</button>
+      </div>
+      <div id="Curl-134" class="sample-language-134">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/send.json \
+   -H 'Cache-Control: no-cache' \
+   -H 'Content-Type: application/json' \
+   -d 'From=XXXXXXXX' \
+   -d 'To=XXXXXXXX' \
+   -d 'service=2FA' \
+   -d 'body=Your verification code is: {code}' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-134" class="sample-language-134" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/send.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      headers: {
+          'Cache-Control': 'no-cache',
+          'Content-Type': 'application/json'
+      },
+      form: {
+         'From': 'XXXXXXXX',
+         'To': 'XXXXXXXX',
+         'service': '2FA',
+         'body': 'Your verification code is: {code}'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-134" class="sample-language-134" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'application/json',
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'From': 'XXXXXXXX',
+   'To': 'XXXXXXXX',
+   'service': '2FA',
+   'body': 'Your verification code is: {code}'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/2fa/send.json',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-134" class="sample-language-134" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/send.json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestProperty("Cache-Control", "no-cache");
+      conn.setRequestProperty("Content-Type", "application/json");
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("From=XXXXXXXX&" +
+        "To=XXXXXXXX&" +
+        "service=2FA&" +
+        "body=Your verification code is: {code}");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
 <p>If send is successful, below is the response returned:</p>
 </div>
@@ -1864,7 +1983,7 @@
 <div class="listingblock">
 <div class="content">
 <pre>{
-    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>", // the name of your service
+    "service" : "2FA", // the name of your service
     "number" : "+XXXXXXXXXX",  // the phone number of the SMS recepient
     "code": "XXXXX" // the verification code
 }</pre>
@@ -1873,27 +1992,125 @@
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X POST \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/verify">https://$DOMAIN/2fa/verify</span> \
-  --user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
-    "number" : "+13216549879",
-    "code": "294228"
-}</pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-135 is-active" onclick="openLanguage('Curl', 135)">Curl</button>
+        <button class="sample-code-button scsIndex-135" onclick="openLanguage('Nodejs', 135)">Nodejs</button>
+        <button class="sample-code-button scsIndex-135" onclick="openLanguage('Python', 135)">Python</button>
+        <button class="sample-code-button scsIndex-135" onclick="openLanguage('Java', 135)">Java</button>
+      </div>
+      <div id="Curl-135" class="sample-language-135">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/verify.json \
+   -H 'Cache-Control: no-cache' \
+   -H 'Content-Type: application/json' \
+   -d 'service=2FA' \
+   -d 'number=XXXXXXXX' \
+   -d 'code=294228' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-135" class="sample-language-135" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/verify.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      headers: {
+          'Cache-Control': 'no-cache',
+          'Content-Type': 'application/json'
+      },
+      form: {
+         'service': '2FA',
+         'number': 'XXXXXXXX',
+         'code': '294228'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-135" class="sample-language-135" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'application/json',
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'service': '2FA',
+   'number': 'XXXXXXXX',
+   'code': '294228'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/2fa/verify.json',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-135" class="sample-language-135" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/verify.json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestProperty("Cache-Control", "no-cache");
+      conn.setRequestProperty("Content-Type", "application/json");
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("service=2FA&" +
+        "number=XXXXXXXX&" +
+        "code=294228");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 </div>
 <div class="sect2">
 <h3 id="_example_for_latest_api"><a class="anchor" href="#_example_for_latest_api"></a>Example (for latest API):</h3>
 <div class="listingblock">
 <div class="content">
 <pre>{
-    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>", // the name of your service
+    "service" : "2FA", // the name of your service
     "requestId" : "OTPYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY",  // the unique OTP Id generated when send was called
     "code": "XXXXX" // the verification code
 }</pre>
@@ -1902,20 +2119,118 @@
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X POST \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/verify">https://$DOMAIN/2fa/verify</span> \
-  --user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
-    "requestId" : "OTPb6eb071d21124dbab20b095c25f1274f",
-    "code": "294228"
-}</pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-136 is-active" onclick="openLanguage('Curl', 136)">Curl</button>
+        <button class="sample-code-button scsIndex-136" onclick="openLanguage('Nodejs', 136)">Nodejs</button>
+        <button class="sample-code-button scsIndex-136" onclick="openLanguage('Python', 136)">Python</button>
+        <button class="sample-code-button scsIndex-136" onclick="openLanguage('Java', 136)">Java</button>
+      </div>
+      <div id="Curl-136" class="sample-language-136">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/verify.json \
+   -H 'Cache-Control: no-cache' \
+   -H 'Content-Type: application/json' \
+   -d 'service=2FA' \
+   -d 'requestId=OTPb6eb071d21124dbab20b095c25f1274f' \
+   -d 'code=294228' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-136" class="sample-language-136" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/verify.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      headers: {
+          'Cache-Control': 'no-cache',
+          'Content-Type': 'application/json'
+      },
+      form: {
+         'service': '2FA',
+         'requestId': 'OTPb6eb071d21124dbab20b095c25f1274f',
+         'code': '294228'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-136" class="sample-language-136" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'application/json',
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'service': '2FA',
+   'requestId': 'OTPb6eb071d21124dbab20b095c25f1274f',
+   'code': '294228'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/2fa/verify.json',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-136" class="sample-language-136" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/verify.json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestProperty("Cache-Control", "no-cache");
+      conn.setRequestProperty("Content-Type", "application/json");
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("service=2FA&" +
+        "requestId=OTPb6eb071d21124dbab20b095c25f1274f&" +
+        "code=294228");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 </div>
 </div>
 </div>
@@ -2076,19 +2391,114 @@
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X POST \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/cancel">https://$DOMAIN/2fa/cancel</span> \
-  --user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "requestId" : "OTPabc2128918293123413216549879",
-    "accountSid": "AC123461724187287abcbas791282cf"
-}</pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-137 is-active" onclick="openLanguage('Curl', 137)">Curl</button>
+        <button class="sample-code-button scsIndex-137" onclick="openLanguage('Nodejs', 137)">Nodejs</button>
+        <button class="sample-code-button scsIndex-137" onclick="openLanguage('Python', 137)">Python</button>
+        <button class="sample-code-button scsIndex-137" onclick="openLanguage('Java', 137)">Java</button>
+      </div>
+      <div id="Curl-137" class="sample-language-137">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/cancel.json \
+   -H 'Cache-Control: no-cache' \
+   -H 'Content-Type: application/json' \
+   -d 'requestId=OTPb6eb071d21124dbab20b095c25f1274f' \
+   -d 'accountSid=AC123461724187287abcbas791282cf' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-137" class="sample-language-137" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/cancel.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      headers: {
+          'Cache-Control': 'no-cache',
+          'Content-Type': 'application/json'
+      },
+      form: {
+         'requestId': 'OTPb6eb071d21124dbab20b095c25f1274f',
+         'accountSid': 'AC123461724187287abcbas791282cf'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-137" class="sample-language-137" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'application/json',
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'requestId': 'OTPb6eb071d21124dbab20b095c25f1274f',
+   'accountSid': 'AC123461724187287abcbas791282cf'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/2fa/cancel.json',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-137" class="sample-language-137" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/cancel.json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestProperty("Cache-Control", "no-cache");
+      conn.setRequestProperty("Content-Type", "application/json");
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("requestId=OTPb6eb071d21124dbab20b095c25f1274f&" +
+        "accountSid=AC123461724187287abcbas791282cf");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
 <p>If cancel is successful, you should see below response</p>
 </div>
@@ -2309,7 +2719,7 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">events</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This captures the events like sms, call or email that was sent to end user. It has all details like sender, recipient, targetSid which is underlying platform <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> id. It also exposes channel Error and message if delivery of SMS, Call or email fails.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This captures the events like sms, call or email that was sent to end user. It has all details like sender, recipient, targetSid which is underlying platform Restcomm id. It also exposes channel Error and message if delivery of SMS, Call or email fails.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2354,14 +2764,83 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X GET \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/search">https://$DOMAIN/2fa/search</span> \
-  --user  ' {your_account_SID}:{your_account_token}' \
-  -d '{  "pageSize": "2", "page":"0", "status":"success", "sortBy":"DateCreated:asc"}'</pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-138 is-active" onclick="openLanguage('Curl', 138)">Curl</button>
+        <button class="sample-code-button scsIndex-138" onclick="openLanguage('Nodejs', 138)">Nodejs</button>
+        <button class="sample-code-button scsIndex-138" onclick="openLanguage('Python', 138)">Python</button>
+        <button class="sample-code-button scsIndex-138" onclick="openLanguage('Java', 138)">Java</button>
+      </div>
+      <div id="Curl-138" class="sample-language-138">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/search.json?pageSize=2&page=0&status=success&sortBy=DateCreated:asc  \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-138" class="sample-language-138" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/search.json?pageSize=2&page=0&status=success&sortBy=DateCreated:asc',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-138" class="sample-language-138" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("GET", '/restcomm/2012-04-24/2fa/search.json?pageSize=2&page=0&status=success&sortBy=DateCreated:asc',
+      headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-138" class="sample-language-138" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/search.json?pageSize=2&page=0&status=success&sortBy=DateCreated:asc");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
 <p>Example response:</p>
 </div>
@@ -2381,7 +2860,7 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
    "twoFaOtpSdrs":[
       {
          "sid":"OTP2a73130a3c7d492c93d0b1234596f308",
-         "service":"Restcomm3",
+         "service":"2FA",
          "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
          "dateCreated":"2019-08-20 10:28:08",
          "dateUpdated":"2019-08-20 10:28:49",
@@ -2411,7 +2890,7 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
       },
       {
          "sid":"OTP02a7c56a08374eedb8789a1a038e7aae",
-         "service":"Restcomm2",
+         "service":"2FA",
          "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
          "dateCreated":"2019-08-20 02:43:11",
          "dateUpdated":"2019-08-20 02:43:52",
@@ -2511,13 +2990,83 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X GET \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/search/OTPabc2128918293123413216549879">https://$DOMAIN/2fa/search/OTPabc2128918293123413216549879</span> \
-  --user  ' {your_account_SID}:{your_account_token}'</pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-139 is-active" onclick="openLanguage('Curl', 139)">Curl</button>
+        <button class="sample-code-button scsIndex-139" onclick="openLanguage('Nodejs', 139)">Nodejs</button>
+        <button class="sample-code-button scsIndex-139" onclick="openLanguage('Python', 139)">Python</button>
+        <button class="sample-code-button scsIndex-139" onclick="openLanguage('Java', 139)">Java</button>
+      </div>
+      <div id="Curl-139" class="sample-language-139">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/search/{OTPSid}.json  \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-139" class="sample-language-139" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/search/{OTPSid}.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-139" class="sample-language-139" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("GET", '/restcomm/2012-04-24/2fa/search/{OTPSid}.json',
+      headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-139" class="sample-language-139" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/search/{OTPSid}.json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
 <p>Example response:</p>
 </div>
@@ -2526,7 +3075,7 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
 <pre>{
     {
         "sid":"OTPe2bd1d6583194aa1aa3892cea1e6d824",
-        "service" : "<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
+        "service" : "2FA",
         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
         "dateCreated":"2019-07-22 04:40:31",
         "dateUpdated":"2019-07-22 04:40:31",
@@ -2662,13 +3211,83 @@ If there are multiple checks with invalid and finally valid, this records are co
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X GET \
-  wlparam:replace[text="https://$DOMAIN/2fa/usage/records?startDate=2019-08-01&amp;endDate=2019-08-31
-"] \</pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-140 is-active" onclick="openLanguage('Curl', 140)">Curl</button>
+        <button class="sample-code-button scsIndex-140" onclick="openLanguage('Nodejs', 140)">Nodejs</button>
+        <button class="sample-code-button scsIndex-140" onclick="openLanguage('Python', 140)">Python</button>
+        <button class="sample-code-button scsIndex-140" onclick="openLanguage('Java', 140)">Java</button>
+      </div>
+      <div id="Curl-140" class="sample-language-140">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records.json?startDate=2019-08-01&endDate=2019-08-31  \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-140" class="sample-language-140" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records.json?startDate=2019-08-01&endDate=2019-08-31',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-140" class="sample-language-140" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("GET", '/restcomm/2012-04-24/2fa/usage/records.json?startDate=2019-08-01&endDate=2019-08-31',
+      headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-140" class="sample-language-140" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records.json?startDate=2019-08-01&endDate=2019-08-31");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
 <p>Example Response</p>
 </div>
@@ -2693,19 +3312,114 @@ If there are multiple checks with invalid and finally valid, this records are co
 <div class="paragraph">
 <p>HTTP POST example</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X POST \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records">https://$DOMAIN/2fa/usage/records</span> \
-  --user  ' {your_account_SID}:{your_account_token}'
-    -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "startTime" : "2019-08-05T06:37:00",
-    "endTime": "2019-08-30"
-}</pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-141 is-active" onclick="openLanguage('Curl', 141)">Curl</button>
+        <button class="sample-code-button scsIndex-141" onclick="openLanguage('Nodejs', 141)">Nodejs</button>
+        <button class="sample-code-button scsIndex-141" onclick="openLanguage('Python', 141)">Python</button>
+        <button class="sample-code-button scsIndex-141" onclick="openLanguage('Java', 141)">Java</button>
+      </div>
+      <div id="Curl-141" class="sample-language-141">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records \
+   -H 'Cache-Control: no-cache' \
+   -H 'Content-Type: application/json' \
+   -d 'startTime2019-08-05T06:37:00' \
+   -d 'endTime=2019-08-30' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-141" class="sample-language-141" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      headers: {
+          'Cache-Control': 'no-cache',
+          'Content-Type': 'application/json'
+      },
+      form: {
+         'startTime2019-08-05T06:37:00': 'undefined',
+         'endTime': '2019-08-30'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-141" class="sample-language-141" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'application/json',
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'startTime2019-08-05T06:37:00': 'undefined',
+   'endTime': '2019-08-30'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/2fa/usage/records',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-141" class="sample-language-141" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestProperty("Cache-Control", "no-cache");
+      conn.setRequestProperty("Content-Type", "application/json");
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("startTime2019-08-05T06:37:00&" +
+        "endTime=2019-08-30");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
 <p>Example Response</p>
 </div>
@@ -2733,18 +3447,110 @@ If there are multiple checks with invalid and finally valid, this records are co
 <div class="paragraph">
 <p>HTTP POST example</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X POST \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records">https://$DOMAIN/2fa/usage/records</span> \
-  --user  ' {your_account_SID}:{your_account_token}'
-    -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "channel" : "sms"
-}</pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-142 is-active" onclick="openLanguage('Curl', 142)">Curl</button>
+        <button class="sample-code-button scsIndex-142" onclick="openLanguage('Nodejs', 142)">Nodejs</button>
+        <button class="sample-code-button scsIndex-142" onclick="openLanguage('Python', 142)">Python</button>
+        <button class="sample-code-button scsIndex-142" onclick="openLanguage('Java', 142)">Java</button>
+      </div>
+      <div id="Curl-142" class="sample-language-142">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records.json \
+   -H 'Cache-Control: no-cache' \
+   -H 'Content-Type: application/json' \
+   -d 'channel=sms' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-142" class="sample-language-142" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      headers: {
+          'Cache-Control': 'no-cache',
+          'Content-Type': 'application/json'
+      },
+      form: {
+         'channel': 'sms'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-142" class="sample-language-142" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'application/json',
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'channel': 'sms'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/2fa/usage/records.json',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-142" class="sample-language-142" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records.json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestProperty("Cache-Control", "no-cache");
+      conn.setRequestProperty("Content-Type", "application/json");
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("channel=sms");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
 <p>Example Response</p>
 </div>
@@ -2829,12 +3635,83 @@ If there are multiple checks with invalid and finally valid, this records are co
 <div class="paragraph">
 <p>HTTP GET Example</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X GET \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records/daily">https://$DOMAIN/2fa/usage/records/daily</span> \</pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-143 is-active" onclick="openLanguage('Curl', 143)">Curl</button>
+        <button class="sample-code-button scsIndex-143" onclick="openLanguage('Nodejs', 143)">Nodejs</button>
+        <button class="sample-code-button scsIndex-143" onclick="openLanguage('Python', 143)">Python</button>
+        <button class="sample-code-button scsIndex-143" onclick="openLanguage('Java', 143)">Java</button>
+      </div>
+      <div id="Curl-143" class="sample-language-143">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records/daily.json  \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-143" class="sample-language-143" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records/daily.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-143" class="sample-language-143" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("GET", '/restcomm/2012-04-24/2fa/usage/records/daily.json',
+      headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-143" class="sample-language-143" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records/daily.json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
 <p>Example Response</p>
 </div>
@@ -2933,8 +3810,8 @@ If there are multiple checks with invalid and finally valid, this records are co
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">452</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Underlying message from <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error returned by underlying <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> platform.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Underlying message from Restcomm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error returned by underlying Restcomm platform.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
 </tr>
 </tbody>
