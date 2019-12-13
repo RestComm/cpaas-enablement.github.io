@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="Conference - Restcomm Docs"></title>
+    <title data-custom-title="Audit Logs - Restcomm Docs"></title>
     <link rel="canonical" href="
-      https://www.restcomm.com/docs/1.0/api/conferences-api.html
+      https://www.restcomm.com/docs/1.0/api/audit-logs-api.html
     ">
-    <meta name="description" content="The Conference represents a single conference originated and terminated from an account.">
-    <meta name="keywords" content="#{&quot;spsParm&quot;:&quot;application_name&quot;,&quot;rcText&quot;:&quot;Restcomm&quot;,&quot;defaultText&quot;:&quot;$INFER_FROM_DOMAIN&quot;} conference api">
+    <meta name="description" content="Audit Logs (a.k.a Audit Events) allows you to view a log of activity within your Restcomm Account including all the Solutions developed on top of Restcomm,">
+    <meta name="keywords" content="restcomm audit logs, audit logs api">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
@@ -389,7 +389,7 @@
             </span>
               </div>
                           </li>
-            <li class="nav-item" data-depth="2">
+            <li class="nav-item is-current-page" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
               
@@ -667,7 +667,7 @@
                           </li>
   </ul>
             </li>
-            <li class="nav-item is-current-page" data-depth="2">
+            <li class="nav-item" data-depth="2">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
               
@@ -696,7 +696,7 @@
               
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="#_supported_operations">Supported Operations</a>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_supported_operations">Supported Operations</a>
 
             </span>
               </div>
@@ -713,7 +713,7 @@
               
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="#_conference_list_resource_uri">Conference List Resource URI</a>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_conference_list_resource_uri">Conference List Resource URI</a>
 
             </span>
               </div>
@@ -2092,229 +2092,344 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">docs</a></li>
-    <li class="crumb"><a href="voice-category.html">CSP:Voice APIs</a></li>
-    <li class="crumb"><a href="conferences-api.html">CSP:Conference Management</a></li>
+    <li class="crumb"><a href="management-apis-overview.html">CSP:Management APIs</a></li>
+    <li class="crumb"><a href="audit-logs-api.html">CSP:Audit Logs</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>Conference</h1>
+  <h1>Audit Logs</h1>
 <div class="sect1">
-<h2 id="_conference"><a class="anchor" href="#_conference"></a>Conference</h2>
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The &lt;Conference&gt; represents a single conference originated and terminated from an account.</p>
-</div>
-<div class="sect2">
-<h3 id="_conference_resource_uri"><a class="anchor" href="#_conference_resource_uri"></a>Conference Resource URI</h3>
-<div class="literalblock">
-<div class="content">
-<pre>/2012-04-24/Accounts/\{AccountSid}/Conferences/{ConferenceSid}</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_get_conference_details"><a class="anchor" href="#_get_conference_details"></a>Get Conference details</h3>
-<div class="paragraph">
-<p><strong>HTTP GET</strong>. Returns the representation of a Conference resource, including the properties above.</p>
-</div>
-<div class="sect3">
-<h4 id="_example_get_conference_by_conferencesid"><a class="anchor" href="#_example_get_conference_by_conferencesid"></a>Example: Get Conference by ConferenceSid</h4>
-<script>
-      function openLanguage(language, index) {
-        const sampleClasses = document.getElementsByClassName("sample-language-" + index);
-        for (const sampleClass of sampleClasses) {
-          sampleClass.style.display = "none";
-        }
-        document.getElementById(language + '-' + index).style.display = "block";
-
-        // first, disable the previously selected tab title
-        const previouslyActive = document.getElementsByClassName('scsIndex-' + index + ' is-active')
-        if (previouslyActive.length > 0) {
-          previouslyActive[0].classList.toggle('is-active')
-        }
-
-        // then, enable the newly selected title
-        event.target.classList.toggle('is-active')
-      }
-      </script>
-      <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-39 is-active" onclick="openLanguage('Curl', 39)">Curl</button>
-        <button class="sample-code-button scsIndex-39" onclick="openLanguage('Nodejs', 39)">Nodejs</button>
-        <button class="sample-code-button scsIndex-39" onclick="openLanguage('Python', 39)">Python</button>
-        <button class="sample-code-button scsIndex-39" onclick="openLanguage('Java', 39)">Java</button>
-      </div>
-      <div id="Curl-39" class="sample-language-39">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Conferences/(conference_sid).json  \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Nodejs-39" class="sample-language-39" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
-
-// Provide your Account Sid and Auth Token from your Console Account page
-const ACCOUNT_SID = 'my_ACCOUNT_SID';
-const AUTH_TOKEN = 'my_AUTH_TOKEN';
-
-request({
-      method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Conferences/(conference_sid).json',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
-   },
-   function (error, response, body) {
-      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
-      ...
-   }
-);
-</code></pre>
-      </div>
-      <div id="Python-39" class="sample-language-39" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-
-# Provide your Account Sid and Auth Token from your Console Account page
-ACCOUNT_SID = 'my_ACCOUNT_SID'
-AUTH_TOKEN = 'my_AUTH_TOKEN'
-
-userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass }
-
-conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Conferences/(conference_sid).json',
-      headers=headers)
-res = conn.getresponse()
-
-# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
-...
-</code></pre>
-      </div>
-      <div id="Java-39" class="sample-language-39" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
-   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Conferences/(conference_sid).json");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("GET");
-
-      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
-      ...
-  }
-}
-</code></pre>
-      </div>
-<div class="paragraph">
-<p><strong>HTTP POST</strong>
-Not supported</p>
+<p>Audit Logs (a.k.a Audit Events) allows you to view a log of activity within your Restcomm Account including all the Solutions developed on top of Restcomm, for example Message Exchange, Cisco WebEx, Auto Attendant etc. This log contains detailed information about actions taken by users within the Restcomm or Solutions Dashboard or changes made by your application via the API.</p>
 </div>
 <div class="paragraph">
-<p><strong>HTTP PUT</strong>
-Not supported</p>
+<p>For example provisioning a Phone Number or Visual Designer Application or editing the URL against Phone Number etc are all logged.</p>
 </div>
 <div class="paragraph">
-<p><strong>HTTP DELETE</strong>
-Not supported</p>
+<p>This information can be used by your security/compliance team to understand who made what changes to Restcomm Resources and also help for debugging.</p>
 </div>
 <div class="paragraph">
-<p><strong>Conference Subresources</strong>
-&lt;Participants&gt; represent set/list of in-progress calls in a running conference room.</p>
+<p>Audit logs will only record logs for resources that are created, updated or deleted. If it&#8217;s a simple read operation, activity is not logged.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>/2012-04-24/Accounts/\{AccountSid}/Conferences/{ConferenceSid}/Participants</pre>
+<div class="paragraph">
+<p>User can retrieve the Audit Log via REST API call as explained in 2 Audit Log API Definition.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Logs and Events are interchanged in definition below, but they mean one and the same.
+</td>
+</tr>
+</table>
 </div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Audit Logs are available only for the last 6 months after which its deleted and cannot be retrieved.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conference_list_resource_uri"><a class="anchor" href="#_conference_list_resource_uri"></a>Conference List Resource URI</h2>
+<h2 id="_audit_log_api_definition"><a class="anchor" href="#_audit_log_api_definition"></a>Audit Log API Definition</h2>
 <div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>/2012-04-24/Accounts/\{AccountSid}/Conferences</pre>
+<div class="sect2">
+<h3 id="_base_resource_uri"><a class="anchor" href="#_base_resource_uri"></a>Base Resource URI</h3>
+<div class="paragraph">
+<p><a href="https://&lt;custom_domain_of_CSP’s&gt" class="bare">https://&lt;custom_domain_of_CSP’s&gt</a>;</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_audit_logs"><a class="anchor" href="#_get_audit_logs"></a>Get Audit Logs</h3>
+<div class="paragraph">
+<p>/auditlogs</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h3>
 <div class="paragraph">
-<p><strong>*HTTP GET</strong>
-Returns the list representation of all the Conference resources for this Account, including the properties above.</p>
-</div>
-<div class="paragraph">
-<p><strong>HTTP POST</strong>
-Not supported</p>
-</div>
-<div class="paragraph">
-<p><strong>HTTP PUT</strong>
-Not supported</p>
-</div>
-<div class="paragraph">
-<p><strong>HTTP DELETE</strong>
-Not supported</p>
+<p>Http GET: list of event for provisioning action on the RC platform</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_conference_attributes"><a class="anchor" href="#_conference_attributes"></a>Conference Attributes</h3>
+<h3 id="_filter"><a class="anchor" href="#_filter"></a>Filter</h3>
+<div class="paragraph">
+<p>Below are supported parameters for filtering event.</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attribute</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies this conference.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Descriptions</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FriendlyName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A user provided string that identifies this conference room.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organizationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include audit log event for this specific organization SID, this parameter is available if the user is Telestax super admin account.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A string representing the status of the conference. Possible values are RUNNING_MODERATOR_PRESENT, RUNNING_MODERATOR_ABSENT and COMPLETED.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include auditlog event for this specific accountSid, this parameter is available for telestax super admin account and master account.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this conference was created.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">actorSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include audit log event for this specific actor Sid.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DateUpdated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this conference was last updated.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eventType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include audit log event for this specific eventType</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The unique id of the Account that created this conference.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resourceSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include audit log event for this specific resource Sid</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ApiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the current API version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sourceIpAddress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include audit log event for this specific source IP address.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm">https://$DOMAIN/restcomm</span></code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">limit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Limit the number of audit logs events that can be retrieved in one request.</p>
+<p class="tableblock">Response will carry nextToken attribute which can be used to query next page of audit logs for this current request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nextToken</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To query next page of audit log event for previous request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_response_body"><a class="anchor" href="#_response_body"></a>Response Body</h3>
+<div class="paragraph">
+<p>Response will be HTTP 200 OK along with JASON payload carrying events details if all ok. Else corresponding error will be returned.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Event Id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organization_sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique SID of Organization to which this event belongs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">account_sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm Account SID that created the resource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">actor_sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID of Actor that caused the event.</p>
+<p class="tableblock">For example if Enterprise Account created PhoneNumber, account_sid will be returning the SID of Enterprise Account and if CSP Admin made changes to this number, actor_sid will be the Account SID of CSP.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">actor_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not used for now and will always be either ACCOUNT, USER or ADMIN for now. TODO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of event. Can be null.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event_data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional data about the event. The contents depend on event_type. For example, event-types of the form RESOURCE.updated, this value contains a resource attributes that describes the previous and updated properties of the resource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date and time when event was recorded. Date format is given as an ISO-8601 date/time string. Note that the given date/time is inclusive and is assumed to be in UTC timezone</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">event_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The event&#8217;s type. Event-types are typically in the form: RESOURCE_TYPE.ACTION, where RESOURCE_TYPE is the type of resource that was affected (see resource_type parameter below) and ACTION is what happened to it. For example, phone-number.created. For a full list of all event-types, see the 2.5.1 List of supported Resource Type and Event Type</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">links</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The relative URL of Actor and Resource</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resource_sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The SID of resource that was affected</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">resource_type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of resource that was affected. For a full list of all resource-types, see the 2.5.1 List of supported Resource Type and Event Type</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The originating system or interface that caused the event. Can be: web for events caused by user action in the Restcomm Console, api for events caused by a request to our API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">source_ip_address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The IP Address of Source</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Relative URL of this event.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_list_of_supported_resource_type_and_event_type"><a class="anchor" href="#_list_of_supported_resource_type_and_event_type"></a>List of supported Resource Type and Event Type</h4>
+<div class="paragraph">
+<p>Events currently tracks the following resource types and associated event types:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resource Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event Type</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">account.created<br>
+account.updated<br>
+account.deleted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">application.created<br>
+application.updated<br>
+application.deleted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">incomingphonenumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">incomingphonenumber.created<br>
+incomingphonenumber.updated<br>
+incomingphonenumber.deleted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">client.created<br>
+client.updated<br>
+client.deleted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">messageexchange_domain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">messageexchange_domain.created<br>
+messageexchange_domain.updated<br>
+messageexchange_domain.deleted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">messageexchange_enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">messageexchange_enterprise.created<br>
+messageexchange_enterprise.updated<br>
+messageexchange_enterprise.deleted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">meesageexchange_mapping</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">meesageexchange_mapping.created<br>
+meesageexchange_mapping.updated<br>
+meesageexchange_mapping.deleted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">messageexchange_whitelist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">messageexchange_whitelist.created<br>
+messageexchange_whitelist.updated<br>
+messageexchange_whitelist.deleted</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example"><a class="anchor" href="#_example"></a>Example</h3>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET https://vpcpoc.restcomm.com/auditlogs\?sourceIpAddress\=3.231.244.120 --user  &lt;AccountSid&gt;:&lt;account Token&gt;'</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+   "events":[
+      {
+         "event":{
+            "sid":"ALEa2339e30656e43a4a02136d049680766",
+            "organization_sid":"OR5d6cb692dc8e4ae9809b1fd7f8bbf421",
+            "account_sid":"AC673d59bdeca6cafdb56a07e47f2626c4",
+            "actor_sid":"AC673d59bdeca6cafdb56a07e47f2626c4",
+            "actor_type":"ACCOUNT",
+            "description":null,
+            "event_data":"{\"data\":{\"sid\":\"XM57e4320377c04e7480d08936ea4d4b2b\",\"dateUpdated\":\"2019-12-03T06:59:03+0000\",\"dateCreated\":\"2019-12-03T06:57:29+0000\",\"accountSid\":\"AC673d59bdeca6cafdb56a07e47f2626c4\",\"accountEmail\":\"anh.ntnguyen@telestax.com\",\"uri\":\"/messageexchange/mappings/search/XM57e4320377c04e7480d08936ea4d4b2b\",\"jabberAddress\":\"laskjdh@ljakld.com\",\"externalAddress\":\"1241231\",\"enterpriseSid\":\"EN8d8e6c7736de4c2d89a4840241238486\",\"name\":\"Hoan luu 1234\",\"enterpriseName\":\"Anh Nguyen Enterprise1\"},\"code\":200,\"message\":\"OK\"}\n",
+            "event_date":"2019-12-03T11:54:562Z",
+            "event_type":"messageexchange-mappings.deleted",
+            "links":{
+               "actor":"/2012-04-24/Accounts.json/AC673d59bdeca6cafdb56a07e47f2626c4",
+               "resource":"/messageexchange/mappings/search/XM57e4320377c04e7480d08936ea4d4b2b"
+            },
+            "resource_sid":"XM57e4320377c04e7480d08936ea4d4b2b",
+            "resource_type":"MESSAGEEXCHANGE_MAPPING",
+            "source":"API",
+            "source_ip_address":"3.231.244.120",
+            "url":"/auditlogs/ALEa2339e30656e43a4a02136d049680766"
+         }
+      },
+      {
+         "event":{
+            "sid":"ALEf276379922f044539ecc5637b48649ff",
+            "organization_sid":"OR5d6cb692dc8e4ae9809b1fd7f8bbf421",
+            "account_sid":"AC588ced19a16a65567756d68a90f612c9",
+            "actor_sid":"AC588ced19a16a65567756d68a90f612c9",
+            "actor_type":"ACCOUNT",
+            "description":null,
+            "event_data":"{\"datadateUpdated\":{\"previous\":\"2019-12-04T03:34:14+0000\",\"updated\":\"2019-12-04T03:44:10+0000\"},\"dataname\":{\"previous\":\"sdfasdfa241234\",\"updated\":\"sdfasdfa241234324141\"}}",
+            "event_date":"2019-12-04T03:44:148Z",
+            "event_type":"messageexchange-mappings.updated",
+            "links":{
+               "actor":"/2012-04-24/Accounts.json/AC588ced19a16a65567756d68a90f612c9",
+               "resource":"/messageexchange/mappings/search/XM74119d924b7e4cb8ac951018b05898a2"
+            },
+            "resource_sid":"XM74119d924b7e4cb8ac951018b05898a2",
+            "resource_type":"MESSAGEEXCHANGE_MAPPING",
+            "source":"API",
+            "source_ip_address":"3.231.244.120",
+            "url":"/auditlogs/ALEf276379922f044539ecc5637b48649ff"
+         }
+      }
+   ]
+}</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
