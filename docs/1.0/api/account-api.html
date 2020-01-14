@@ -1585,6 +1585,23 @@
               
             "></span>
                   <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange/update-operation.html">Update Operation</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
               <a class="nav-link nav-flex-item-text" href="message-exchange/delete-operation.html">Delete Operation</a>
 
             </span>
@@ -2578,298 +2595,6 @@ In the process, all child accounts will also be migrated.</p>
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-2 is-active" onclick="openLanguage('Curl', 2)">Curl</button>
-        <button class="sample-code-button scsIndex-2" onclick="openLanguage('Nodejs', 2)">Nodejs</button>
-        <button class="sample-code-button scsIndex-2" onclick="openLanguage('Python', 2)">Python</button>
-        <button class="sample-code-button scsIndex-2" onclick="openLanguage('Java', 2)">Java</button>
-      </div>
-      <div id="Curl-2" class="sample-language-2">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Nodejs-2" class="sample-language-2" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
-
-// Provide your Account Sid and Auth Token from your Console Account page
-const ACCOUNT_SID = 'my_ACCOUNT_SID';
-const AUTH_TOKEN = 'my_AUTH_TOKEN';
-
-request({
-      method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
-   },
-   function (error, response, body) {
-      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
-      ...
-   }
-);
-</code></pre>
-      </div>
-      <div id="Python-2" class="sample-language-2" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-
-# Provide your Account Sid and Auth Token from your Console Account page
-ACCOUNT_SID = 'my_ACCOUNT_SID'
-AUTH_TOKEN = 'my_AUTH_TOKEN'
-
-userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass }
-
-conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
-      headers=headers)
-res = conn.getresponse()
-
-# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
-...
-</code></pre>
-      </div>
-      <div id="Java-2" class="sample-language-2" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
-   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("GET");
-
-      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
-      ...
-  }
-}
-</code></pre>
-      </div>
-<div class="paragraph">
-<p><strong>Change default account password(AuthToken).</strong></p>
-</div>
-<div class="paragraph">
-<p>To update an account you need to provide the SID of the account or the email address of the account (make sure you url escape the @ sign of the email address)</p>
-</div>
-<div class="paragraph">
-<p>For example, update password using account sid:</p>
-</div>
-      <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-3 is-active" onclick="openLanguage('Curl', 3)">Curl</button>
-        <button class="sample-code-button scsIndex-3" onclick="openLanguage('Nodejs', 3)">Nodejs</button>
-        <button class="sample-code-button scsIndex-3" onclick="openLanguage('Python', 3)">Python</button>
-        <button class="sample-code-button scsIndex-3" onclick="openLanguage('Java', 3)">Java</button>
-      </div>
-      <div id="Curl-3" class="sample-language-3">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
-   -d 'Password=NewPassword' \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Nodejs-3" class="sample-language-3" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
-
-// Provide your Account Sid and Auth Token from your Console Account page
-const ACCOUNT_SID = 'my_ACCOUNT_SID';
-const AUTH_TOKEN = 'my_AUTH_TOKEN';
-
-request.({
-      method: 'PUT',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
-      form: {
-         'Password': 'NewPassword'
-      }
-   },
-   function (error, response, body) {
-      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
-      ...
-});
-</code></pre>
-      </div>
-      <div id="Python-3" class="sample-language-3" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-from urllib.parse import urlencode
-
-# Provide your Account Sid and Auth Token from your Console Account page
-ACCOUNT_SID = 'my_ACCOUNT_SID'
-AUTH_TOKEN = 'my_AUTH_TOKEN'
-
-userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-    'Content-type': 'application/x-www-form-urlencoded',
-    'Accept': 'text/plain' }
-
-# Update POST parameters accordingly
-params = urlencode({
-   'Password': 'NewPassword'
-})
-
-conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("PUT", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
-      params, headers=headers)
-res = conn.getresponse()
-
-# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
-...
-</code></pre>
-      </div>
-      <div id="Java-3" class="sample-language-3" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
-   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("PUT");
-      conn.setDoOutput(true);
-      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-
-      // Update POST parameters accordingly
-      os.writeBytes("Password=NewPassword");
-      os.close();
-
-      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
-      ...
-  }
-}
-</code></pre>
-      </div>
-<div class="paragraph">
-<p>And update password using email address of the account:</p>
-</div>
-      <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-4 is-active" onclick="openLanguage('Curl', 4)">Curl</button>
-        <button class="sample-code-button scsIndex-4" onclick="openLanguage('Nodejs', 4)">Nodejs</button>
-        <button class="sample-code-button scsIndex-4" onclick="openLanguage('Python', 4)">Python</button>
-        <button class="sample-code-button scsIndex-4" onclick="openLanguage('Java', 4)">Java</button>
-      </div>
-      <div id="Curl-4" class="sample-language-4">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml  \
-   -d 'Password=NewPassword' \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Nodejs-4" class="sample-language-4" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
-
-// Provide your Account Sid and Auth Token from your Console Account page
-const ACCOUNT_SID = 'my_ACCOUNT_SID';
-const AUTH_TOKEN = 'my_AUTH_TOKEN';
-
-request.({
-      method: 'PUT',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
-      form: {
-         'Password': 'NewPassword'
-      }
-   },
-   function (error, response, body) {
-      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
-      ...
-});
-</code></pre>
-      </div>
-      <div id="Python-4" class="sample-language-4" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-from urllib.parse import urlencode
-
-# Provide your Account Sid and Auth Token from your Console Account page
-ACCOUNT_SID = 'my_ACCOUNT_SID'
-AUTH_TOKEN = 'my_AUTH_TOKEN'
-
-userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-    'Content-type': 'application/x-www-form-urlencoded',
-    'Accept': 'text/plain' }
-
-# Update POST parameters accordingly
-params = urlencode({
-   'Password': 'NewPassword'
-})
-
-conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("PUT", '/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml',
-      params, headers=headers)
-res = conn.getresponse()
-
-# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
-...
-</code></pre>
-      </div>
-      <div id="Java-4" class="sample-language-4" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
-   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("PUT");
-      conn.setDoOutput(true);
-      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-
-      // Update POST parameters accordingly
-      os.writeBytes("Password=NewPassword");
-      os.close();
-
-      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
-      ...
-  }
-}
-</code></pre>
-      </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The above command uses the Account SID of the requester, and the one below uses the Email Account. Note the administrator%40company.com is used instead of <a href="mailto:administrator@company.com">administrator@company.com</a> . This is because using curl on the bash terminal doesn&#8217;t parse the @ correctlyl. If you were to running on a browser, you can safely use the @ as the web browser will correctly handle it.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The above commands will print an output similar to the one below:</p>
-</div>
-      <div class="sample-code-bar">
         <button class="sample-code-button scsIndex-5 is-active" onclick="openLanguage('Curl', 5)">Curl</button>
         <button class="sample-code-button scsIndex-5" onclick="openLanguage('Nodejs', 5)">Nodejs</button>
         <button class="sample-code-button scsIndex-5" onclick="openLanguage('Python', 5)">Python</button>
@@ -2920,6 +2645,298 @@ res = conn.getresponse()
 </code></pre>
       </div>
       <div id="Java-5" class="sample-language-5" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
+<div class="paragraph">
+<p><strong>Change default account password(AuthToken).</strong></p>
+</div>
+<div class="paragraph">
+<p>To update an account you need to provide the SID of the account or the email address of the account (make sure you url escape the @ sign of the email address)</p>
+</div>
+<div class="paragraph">
+<p>For example, update password using account sid:</p>
+</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-6 is-active" onclick="openLanguage('Curl', 6)">Curl</button>
+        <button class="sample-code-button scsIndex-6" onclick="openLanguage('Nodejs', 6)">Nodejs</button>
+        <button class="sample-code-button scsIndex-6" onclick="openLanguage('Python', 6)">Python</button>
+        <button class="sample-code-button scsIndex-6" onclick="openLanguage('Java', 6)">Java</button>
+      </div>
+      <div id="Curl-6" class="sample-language-6">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+   -d 'Password=NewPassword' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-6" class="sample-language-6" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'PUT',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      form: {
+         'Password': 'NewPassword'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-6" class="sample-language-6" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'Password': 'NewPassword'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("PUT", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-6" class="sample-language-6" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("PUT");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("Password=NewPassword");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
+<div class="paragraph">
+<p>And update password using email address of the account:</p>
+</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-7 is-active" onclick="openLanguage('Curl', 7)">Curl</button>
+        <button class="sample-code-button scsIndex-7" onclick="openLanguage('Nodejs', 7)">Nodejs</button>
+        <button class="sample-code-button scsIndex-7" onclick="openLanguage('Python', 7)">Python</button>
+        <button class="sample-code-button scsIndex-7" onclick="openLanguage('Java', 7)">Java</button>
+      </div>
+      <div id="Curl-7" class="sample-language-7">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml  \
+   -d 'Password=NewPassword' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-7" class="sample-language-7" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'PUT',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      form: {
+         'Password': 'NewPassword'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-7" class="sample-language-7" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'Password': 'NewPassword'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("PUT", '/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-7" class="sample-language-7" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("PUT");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("Password=NewPassword");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The above command uses the Account SID of the requester, and the one below uses the Email Account. Note the administrator%40company.com is used instead of <a href="mailto:administrator@company.com">administrator@company.com</a> . This is because using curl on the bash terminal doesn&#8217;t parse the @ correctlyl. If you were to running on a browser, you can safely use the @ as the web browser will correctly handle it.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above commands will print an output similar to the one below:</p>
+</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-8 is-active" onclick="openLanguage('Curl', 8)">Curl</button>
+        <button class="sample-code-button scsIndex-8" onclick="openLanguage('Nodejs', 8)">Nodejs</button>
+        <button class="sample-code-button scsIndex-8" onclick="openLanguage('Python', 8)">Python</button>
+        <button class="sample-code-button scsIndex-8" onclick="openLanguage('Java', 8)">Java</button>
+      </div>
+      <div id="Curl-8" class="sample-language-8">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-8" class="sample-language-8" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-8" class="sample-language-8" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-8" class="sample-language-8" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3050,17 +3067,17 @@ public class JavaSampleClass {
 <p>You can read more about Sub-Accounts and Multi-tenancy <a href="Multi-tenancy-and-Managing-Sub-Accounts.adoc">HERE</a></p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-6 is-active" onclick="openLanguage('Curl', 6)">Curl</button>
-        <button class="sample-code-button scsIndex-6" onclick="openLanguage('Nodejs', 6)">Nodejs</button>
-        <button class="sample-code-button scsIndex-6" onclick="openLanguage('Python', 6)">Python</button>
-        <button class="sample-code-button scsIndex-6" onclick="openLanguage('Java', 6)">Java</button>
+        <button class="sample-code-button scsIndex-9 is-active" onclick="openLanguage('Curl', 9)">Curl</button>
+        <button class="sample-code-button scsIndex-9" onclick="openLanguage('Nodejs', 9)">Nodejs</button>
+        <button class="sample-code-button scsIndex-9" onclick="openLanguage('Python', 9)">Python</button>
+        <button class="sample-code-button scsIndex-9" onclick="openLanguage('Java', 9)">Java</button>
       </div>
-      <div id="Curl-6" class="sample-language-6">
+      <div id="Curl-9" class="sample-language-9">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-6" class="sample-language-6" style="display:none">
+      <div id="Nodejs-9" class="sample-language-9" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3079,7 +3096,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-6" class="sample-language-6" style="display:none">
+      <div id="Python-9" class="sample-language-9" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3099,7 +3116,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-6" class="sample-language-6" style="display:none">
+      <div id="Java-9" class="sample-language-9" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3133,17 +3150,17 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_get_a_list_of_all_current_accounts"><a class="anchor" href="#_get_a_list_of_all_current_accounts"></a>Get a list of all current accounts</h3>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-7 is-active" onclick="openLanguage('Curl', 7)">Curl</button>
-        <button class="sample-code-button scsIndex-7" onclick="openLanguage('Nodejs', 7)">Nodejs</button>
-        <button class="sample-code-button scsIndex-7" onclick="openLanguage('Python', 7)">Python</button>
-        <button class="sample-code-button scsIndex-7" onclick="openLanguage('Java', 7)">Java</button>
+        <button class="sample-code-button scsIndex-10 is-active" onclick="openLanguage('Curl', 10)">Curl</button>
+        <button class="sample-code-button scsIndex-10" onclick="openLanguage('Nodejs', 10)">Nodejs</button>
+        <button class="sample-code-button scsIndex-10" onclick="openLanguage('Python', 10)">Python</button>
+        <button class="sample-code-button scsIndex-10" onclick="openLanguage('Java', 10)">Java</button>
       </div>
-      <div id="Curl-7" class="sample-language-7">
+      <div id="Curl-10" class="sample-language-10">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.xml  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-7" class="sample-language-7" style="display:none">
+      <div id="Nodejs-10" class="sample-language-10" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3162,7 +3179,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-7" class="sample-language-7" style="display:none">
+      <div id="Python-10" class="sample-language-10" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3182,7 +3199,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-7" class="sample-language-7" style="display:none">
+      <div id="Java-10" class="sample-language-10" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3213,12 +3230,12 @@ public class JavaSampleClass {
 <p>Here is an example of how to create a <strong>sub-account</strong>. The sub-account will inherit the same permissions has the Administrator&#8217;s account.</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-8 is-active" onclick="openLanguage('Curl', 8)">Curl</button>
-        <button class="sample-code-button scsIndex-8" onclick="openLanguage('Nodejs', 8)">Nodejs</button>
-        <button class="sample-code-button scsIndex-8" onclick="openLanguage('Python', 8)">Python</button>
-        <button class="sample-code-button scsIndex-8" onclick="openLanguage('Java', 8)">Java</button>
+        <button class="sample-code-button scsIndex-11 is-active" onclick="openLanguage('Curl', 11)">Curl</button>
+        <button class="sample-code-button scsIndex-11" onclick="openLanguage('Nodejs', 11)">Nodejs</button>
+        <button class="sample-code-button scsIndex-11" onclick="openLanguage('Python', 11)">Python</button>
+        <button class="sample-code-button scsIndex-11" onclick="openLanguage('Java', 11)">Java</button>
       </div>
-      <div id="Curl-8" class="sample-language-8">
+      <div id="Curl-11" class="sample-language-11">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
    -d 'FriendlyName=MySubAccount' \
    -d 'EmailAddress=test@company.com' \
@@ -3226,7 +3243,7 @@ public class JavaSampleClass {
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-8" class="sample-language-8" style="display:none">
+      <div id="Nodejs-11" class="sample-language-11" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3249,7 +3266,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-8" class="sample-language-8" style="display:none">
+      <div id="Python-11" class="sample-language-11" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -3279,7 +3296,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-8" class="sample-language-8" style="display:none">
+      <div id="Java-11" class="sample-language-11" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3318,12 +3335,12 @@ public class JavaSampleClass {
 <p>Here is an example of creating an account under a specific organization.</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-9 is-active" onclick="openLanguage('Curl', 9)">Curl</button>
-        <button class="sample-code-button scsIndex-9" onclick="openLanguage('Nodejs', 9)">Nodejs</button>
-        <button class="sample-code-button scsIndex-9" onclick="openLanguage('Python', 9)">Python</button>
-        <button class="sample-code-button scsIndex-9" onclick="openLanguage('Java', 9)">Java</button>
+        <button class="sample-code-button scsIndex-12 is-active" onclick="openLanguage('Curl', 12)">Curl</button>
+        <button class="sample-code-button scsIndex-12" onclick="openLanguage('Nodejs', 12)">Nodejs</button>
+        <button class="sample-code-button scsIndex-12" onclick="openLanguage('Python', 12)">Python</button>
+        <button class="sample-code-button scsIndex-12" onclick="openLanguage('Java', 12)">Java</button>
       </div>
-      <div id="Curl-9" class="sample-language-9">
+      <div id="Curl-12" class="sample-language-12">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
    -d 'FriendlyName=MySubAccount' \
    -d 'EmailAddress=test@company.com' \
@@ -3332,7 +3349,7 @@ public class JavaSampleClass {
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-9" class="sample-language-9" style="display:none">
+      <div id="Nodejs-12" class="sample-language-12" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3356,7 +3373,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-9" class="sample-language-9" style="display:none">
+      <div id="Python-12" class="sample-language-12" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -3387,7 +3404,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-9" class="sample-language-9" style="display:none">
+      <div id="Java-12" class="sample-language-12" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3478,18 +3495,18 @@ the <strong>SID</strong>, Email and the <strong>AuthToken</strong> of the sub-ac
 <div class="sect2">
 <h3 id="_examples_3"><a class="anchor" href="#_examples_3"></a>Examples</h3>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-10 is-active" onclick="openLanguage('Curl', 10)">Curl</button>
-        <button class="sample-code-button scsIndex-10" onclick="openLanguage('Nodejs', 10)">Nodejs</button>
-        <button class="sample-code-button scsIndex-10" onclick="openLanguage('Python', 10)">Python</button>
-        <button class="sample-code-button scsIndex-10" onclick="openLanguage('Java', 10)">Java</button>
+        <button class="sample-code-button scsIndex-13 is-active" onclick="openLanguage('Curl', 13)">Curl</button>
+        <button class="sample-code-button scsIndex-13" onclick="openLanguage('Nodejs', 13)">Nodejs</button>
+        <button class="sample-code-button scsIndex-13" onclick="openLanguage('Python', 13)">Python</button>
+        <button class="sample-code-button scsIndex-13" onclick="openLanguage('Java', 13)">Java</button>
       </div>
-      <div id="Curl-10" class="sample-language-10">
+      <div id="Curl-13" class="sample-language-13">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
    -d 'Status=closed' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-10" class="sample-language-10" style="display:none">
+      <div id="Nodejs-13" class="sample-language-13" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3510,7 +3527,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-10" class="sample-language-10" style="display:none">
+      <div id="Python-13" class="sample-language-13" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -3538,7 +3555,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-10" class="sample-language-10" style="display:none">
+      <div id="Java-13" class="sample-language-13" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;

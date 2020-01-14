@@ -1582,7 +1582,7 @@
               <ul class="nav-list">
                                                                                                   </ul>
               <ul class="nav-list">
-                                                  </ul>
+                                                              </ul>
               <ul class="nav-list">
                                                   </ul>
               <ul class="nav-list">
@@ -1661,7 +1661,7 @@
 <p>Service providers can use <strong>sub-accounts</strong> to segment phone numbers, collect granular usage data and control data access for their enterprise customers.</p>
 </div>
 <div class="paragraph">
-<p>Service providers can create sub-accounts using the Restcomm Console or  programmatically via the <strong>REST API</strong>. Phone number related usage statistics for an account can be obtained via the REST API using the credentials of the respective account.</p>
+<p>Service providers can create sub-accounts using the Restcomm Console or programmatically via the <a href="api/account-api.html#_strong_http_post_strong"><strong>REST API</strong></a>. Phone number related usage statistics for an account can be obtained via the <a href="api/usage-records-api.html">REST API</a> using the credentials of the respective account.</p>
 </div>
 <div class="paragraph">
 <p>Account and sub-account hierarchy</p>
@@ -1856,7 +1856,7 @@ Closed account status shows that the account is terminated and all its resource 
 <div class="sect2">
 <h3 id="_rationale"><a class="anchor" href="#_rationale"></a>Rationale</h3>
 <div class="paragraph">
-<p>The Audit log files will allow the Restcomm cloud customers to monitor their Organizations/Accounts and track all administrative operations.</p>
+<p>The <a href="api/audit-logs-api.html">Audit log</a> files will allow the Restcomm cloud customers to monitor their Organizations/Accounts and track all administrative operations.</p>
 </div>
 <div class="paragraph">
 <p>For example, it will allow tracking the following operations:</p>
@@ -1892,19 +1892,19 @@ Closed account status shows that the account is terminated and all its resource 
 <div class="ulist">
 <ul>
 <li>
-<p>Accounts</p>
+<p><a href="api/account-api.html">Accounts</a></p>
 </li>
 <li>
-<p>Applications</p>
+<p><a href="api/applications-api.html">Applications</a></p>
 </li>
 <li>
-<p>Phone Numbers</p>
+<p><a href="api/available-phone-numbers-api.html">Phone Numbers</a></p>
 </li>
 <li>
-<p>Recordings (Delete only)</p>
+<p><a href="api/recordings-api.html">Recordings</a> (Delete only)</p>
 </li>
 <li>
-<p>Restcomm Clients</p>
+<p><a href="api/clients-api.html">Restcomm Clients</a></p>
 </li>
 <li>
 <p>XMPP Domain</p>
@@ -1916,7 +1916,7 @@ Closed account status shows that the account is terminated and all its resource 
 <p>XMPP Mappings</p>
 </li>
 <li>
-<p>BYON: Voice &amp; SMS Requests</p>
+<p><a href="byon.html">BYOC: Voice &amp; SMS Requests</a></p>
 </li>
 </ul>
 </div>
@@ -1945,13 +1945,24 @@ Closed account status shows that the account is terminated and all its resource 
 <p>We recommend asking this in a monthly period</p>
 </li>
 <li>
-<p>The current retention policy is to keep this Audit log file for 3 months
-INFORMATION: if you need to have it saved for longer, please request them on a monthly basis and backup them on your system</p>
+<p>The current retention policy is to keep this Audit log file for 3 months</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+if you need to have it saved for longer, please request them on a monthly basis and backup them on your system
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Upon your request, our support team will collect the Audit logs and share them with on the generated ticket.</p>
@@ -1962,10 +1973,9 @@ INFORMATION: if you need to have it saved for longer, please request them on a m
 <div class="paragraph">
 <p>The audit file provided has a CSV format with the following information:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Restcomm Console</p>
+<div class="paragraph">
+<p><strong>Restcomm API</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1973,9 +1983,15 @@ INFORMATION: if you need to have it saved for longer, please request them on a m
 <div class="ulist">
 <ul>
 <li>
-<p>Date and Time (in milliseconds) of the operation in UTC
-*8 AccountSid</p>
+<p>Date and Time (in milliseconds) of the operation in UTC</p>
 </li>
+</ul>
+</div>
+</li>
+<li>
+<p>AccountSid</p>
+<div class="ulist">
+<ul>
 <li>
 <p>The Restcomm identifier of the Account where the event happened</p>
 </li>
@@ -2083,9 +2099,9 @@ INFORMATION: if you need to have it saved for longer, please request them on a m
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Restcomm Message Exchange API</p>
+<div class="paragraph">
+<p><strong>Restcomm Message Exchange API</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -2179,9 +2195,6 @@ INFORMATION: if you need to have it saved for longer, please request them on a m
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
@@ -2189,21 +2202,139 @@ INFORMATION: if you need to have it saved for longer, please request them on a m
 <p>Check below the following examples and description of each operation.</p>
 </div>
 <div class="paragraph">
-<p><strong>Restcomm Console/API</strong></p>
+<p><strong>Restcomm API</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Creation of a new Account made by user admin@mail.com under the Account “ACae6e420f425248d6a26948c1xxxxxx”. The details of the new Account are “{Status=[ACTIVE], FriendlyName=[newaccount4], Password=[abc123], EmailAddress=[newaccount4@email.com], Role=[Developer]}”</p>
+<p>Creation of a new Account made by user admin@mail.com under the Account “ACae6e420f425248d6a26948c1xxxxxx”. The details of the new Account are “{FriendlyName=[newaccount4], Password=[abc123], EmailAddress=[newaccount4@email.com], Role=[Developer]}”</p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>Date,AccountSid,AccountEmail,OrganizationSid,OrganizationDomain,Role,IP Address,Resource,Action,Sid,Parameters
-"2018-10-29T17:22:42,435+02",ACae6e420f425248d6a26948c1xxxxxx,admin@mail.com,ORafbe225ad37541eba518a742xxxxxxx,asterix,Administrator,192.168.1.1,Accounts,Create,,"{Status=[ACTIVE], FriendlyName=[newaccount4], Password=[abc123], EmailAddress=[newaccount4@email.com], Role=[Developer]}"</code></pre>
-</div>
-</div>
+<script>
+      function openLanguage(language, index) {
+        const sampleClasses = document.getElementsByClassName("sample-language-" + index);
+        for (const sampleClass of sampleClasses) {
+          sampleClass.style.display = "none";
+        }
+        document.getElementById(language + '-' + index).style.display = "block";
+
+        // first, disable the previously selected tab title
+        const previouslyActive = document.getElementsByClassName('scsIndex-' + index + ' is-active')
+        if (previouslyActive.length > 0) {
+          previouslyActive[0].classList.toggle('is-active')
+        }
+
+        // then, enable the newly selected title
+        event.target.classList.toggle('is-active')
+      }
+      </script>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-2 is-active" onclick="openLanguage('Curl', 2)">Curl</button>
+        <button class="sample-code-button scsIndex-2" onclick="openLanguage('Nodejs', 2)">Nodejs</button>
+        <button class="sample-code-button scsIndex-2" onclick="openLanguage('Python', 2)">Python</button>
+        <button class="sample-code-button scsIndex-2" onclick="openLanguage('Java', 2)">Java</button>
+      </div>
+      <div id="Curl-2" class="sample-language-2">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+   -d 'FriendlyName=newaccount4' \
+   -d 'Password=abc123' \
+   -d 'EmailAddress=newaccount4@email.com' \
+   -d 'Role=Developer' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-2" class="sample-language-2" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      form: {
+         'FriendlyName': 'newaccount4',
+         'Password': 'abc123',
+         'EmailAddress': 'newaccount4@email.com',
+         'Role': 'Developer'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-2" class="sample-language-2" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'FriendlyName': 'newaccount4',
+   'Password': 'abc123',
+   'EmailAddress': 'newaccount4@email.com',
+   'Role': 'Developer'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-2" class="sample-language-2" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("FriendlyName=newaccount4&" +
+        "Password=abc123&" +
+        "EmailAddress=newaccount4@email.com&" +
+        "Role=Developer");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="ulist">
 <ul>
 <li>
@@ -2211,25 +2342,188 @@ INFORMATION: if you need to have it saved for longer, please request them on a m
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>Date,AccountSid,AccountEmail,OrganizationSid,OrganizationDomain,Role,IP Address,Resource,Action,Sid,Parameters
-"2018-10-29T17:28:57,704+02",ACae6e420f425248d6a26948c1xxxxxx,admin@mail.com,ORafbe225ad37541eba518a742xxxxxxx,asterix,Administrator,192.168.1.1,IncomingPhoneNumbers,Update,PNfc3e9c907f9340a1b02894d82xxxxxx,"{VoiceFallbackUrl=[], UssdFallbackMethod=[POST], FriendlyName=[412341], UssdApplicationSid=[], PhoneNumber=[412341], VoiceApplicationSid=[AP86a8bc22ce374067890780bxxxxxxx], UssdFallbackUrl=[], VoiceUrl=[], SmsUrl=[], ReferUrl=[], UssdMethod=[POST], VoiceMethod=[POST], VoiceFallbackMethod=[POST], ReferMethod=[POST], StatusCallback=[], SmsApplicationSid=[], SmsFallbackMethod=[POST], StatusCallbackMethod=[POST], ReferApplicationSid=[], SmsFallbackUrl=[], UssdUrl=[], SmsMethod=[POST]}"</code></pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-3 is-active" onclick="openLanguage('Curl', 3)">Curl</button>
+        <button class="sample-code-button scsIndex-3" onclick="openLanguage('Nodejs', 3)">Nodejs</button>
+        <button class="sample-code-button scsIndex-3" onclick="openLanguage('Python', 3)">Python</button>
+        <button class="sample-code-button scsIndex-3" onclick="openLanguage('Java', 3)">Java</button>
+      </div>
+      <div id="Curl-3" class="sample-language-3">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/IncomingPhoneNumbers.json  \
+   -d 'PhoneNumber=412341' \
+   -d 'VoiceApplicationSid=AP86a8bc22ce374067890780bxxxxxxx' \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-3" class="sample-language-3" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request.({
+      method: 'POST',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/IncomingPhoneNumbers.json',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
+      form: {
+         'PhoneNumber': '412341',
+         'VoiceApplicationSid': 'AP86a8bc22ce374067890780bxxxxxxx'
+      }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+});
+</code></pre>
+      </div>
+      <div id="Python-3" class="sample-language-3" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+from urllib.parse import urlencode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass,
+    'Content-type': 'application/x-www-form-urlencoded',
+    'Accept': 'text/plain' }
+
+# Update POST parameters accordingly
+params = urlencode({
+   'PhoneNumber': '412341',
+   'VoiceApplicationSid': 'AP86a8bc22ce374067890780bxxxxxxx'
+})
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/IncomingPhoneNumbers.json',
+      params, headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-3" class="sample-language-3" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/IncomingPhoneNumbers.json");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("POST");
+      conn.setDoOutput(true);
+      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+
+      // Update POST parameters accordingly
+      os.writeBytes("PhoneNumber=412341&" +
+        "VoiceApplicationSid=AP86a8bc22ce374067890780bxxxxxxx");
+      os.close();
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Delete of the recording “RE50675909d9c94acda36f0e119xxxxxx”</p>
+<p>Deletion of the recording “RE50675909d9c94acda36f0e119xxxxxx”</p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>Date,AccountSid,AccountEmail,OrganizationSid,OrganizationDomain,Role,IP Address,Resource,Action,Sid,Parameters
-"2018-10-29T17:30:33,106+02",ACae6e420f425248d6a26948c1xxxxxx,admin@mail.com,ORafbe225ad37541eba518a742xxxxxxx,asterix,Administrator,192.168.1.1,Recordings,Delete,RE50675909d9c94acda36f0e119xxxxxx,{}</code></pre>
-</div>
-</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-4 is-active" onclick="openLanguage('Curl', 4)">Curl</button>
+        <button class="sample-code-button scsIndex-4" onclick="openLanguage('Nodejs', 4)">Nodejs</button>
+        <button class="sample-code-button scsIndex-4" onclick="openLanguage('Python', 4)">Python</button>
+        <button class="sample-code-button scsIndex-4" onclick="openLanguage('Java', 4)">Java</button>
+      </div>
+      <div id="Curl-4" class="sample-language-4">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X DELETE https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/ACCOUNT_SID/Recordings/RE50675909d9c94acda36f0e119xxxxxx'  \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-4" class="sample-language-4" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'DELETE',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/' + ACCOUNT_SID + '/Recordings/RE50675909d9c94acda36f0e119xxxxxx'',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-4" class="sample-language-4" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("DELETE", '/restcomm/2012-04-24/"Accounts/' + ACCOUNT_SID + '/Recordings/RE50675909d9c94acda36f0e119xxxxxx'',
+      headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-4" class="sample-language-4" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/" + ACCOUNT_SID + "/Recordings/RE50675909d9c94acda36f0e119xxxxxx'");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("DELETE");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
 <p><strong>Restcomm Message Exchange API</strong></p>
 </div>
@@ -2242,21 +2536,43 @@ INFORMATION: if you need to have it saved for longer, please request them on a m
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>Date,AccountEmail,AccountSid,IP Address,Resource,Action,Id,Parameters
-2018-11-05T17:30:43.177+02,user@email.com,ACd239d5cab74caaa43a594772xxxxxx,0:0:0:0:0:0:0:1,xmppMappings,Update,XM5c8651c6d262437188c16fa0xxxxxx,"{   ""jabberAddress"": ""joe@uc3.mycompany.com"",   ""domain"": ""mydomain.com"",   ""externalAddress"": 19111111111}"</code></pre>
+<pre class="highlightjs highlight"><code>curl -X PUT \
+https://cloud.restcomm.com/messageexchange/mappings/XM5c8651c6d262437188c16fa0xxxxxx  \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+       "dateUpdated": "2019-10-11T11:19:54+0000",
+       "dateCreated": "2019-10-11T11:16:03+0000",
+       "accountSid": "ACa91f3a070d55122d9ec0069b0be27758",
+       "accountEmail": "subhahu.reddy@telestax.com",
+       "uri": "/messageexchange/mappings/search/XM04f7959a96c34814ba163a4f5c8c7fc1",
+       "jabberAddress": "joe@uc3.mycompany.com",
+       "externalAddress": "19111111111",
+       "enterpriseSid": "EN38d48bc7dea7470090c8fc809a69a620",
+       "name": "Amit Bhayani New",
+       "enterpriseName": "mydomain.com",
+       "domain": "mydomain.com",
+}</code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Creation of a new Whitelist IP entry for the Account “ACd239d5cab74caaa43a594772xxxxxx” made by user@email.com.</p>
+<p>Creation of a new Whitelist IP entry can be done as follows.</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>Date,AccountEmail,AccountSid,IP Address,Resource,Action,Id,Parameters
-2018-11-05T17:33:25.689+02,user@email.com,ACd239d5cab74caaa43a594772xxxxxx,0:0:0:0:0:0:0:1,whitelistRules,Create,,"{   ""ipAddress"": ""10.10.10.10"" }"</code></pre>
+<pre class="highlightjs highlight"><code>curl -X POST \
+  https://cloud.restcomm.com/messageexchange/whitelist\
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "ipAddress":"1.2.3.4"
+}’</code></pre>
 </div>
 </div>
 </div>
