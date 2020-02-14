@@ -8,7 +8,7 @@
     <link rel="canonical" href="
       https://cloud.restcomm.com/docs/rcml/say-rcml.html
     ">
-    <meta name="description" content="The &amp;lt;Say&amp;gt; verb is used to synthesize text to speech and play it to the remote party. The voices supported depends on the TTS Service provider plug-in. Below are the voices for our default TTS service provider plug-in which uses Acapela Voice and *VoiceRSS* (default) as a Service.">
+    <meta name="description" content="The &amp;lt;Say&amp;gt; verb is used to synthesize text to speech and play it to the remote party. The voices supported depends on the TTS Service provider plug-in.">
     <meta name="keywords" content="say verb, #{&quot;spsParm&quot;:&quot;application_name&quot;,&quot;rcText&quot;:&quot;Restcomm&quot;,&quot;defaultText&quot;:&quot;$INFER_FROM_DOMAIN&quot;} say, #{&quot;spsParm&quot;:&quot;application_name&quot;,&quot;rcText&quot;:&quot;Restcomm&quot;,&quot;defaultText&quot;:&quot;$INFER_FROM_DOMAIN&quot;} text to speech, play text to speech">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href=""/>
@@ -1665,19 +1665,21 @@
 <h2 id="_say"><a class="anchor" href="#_say"></a>Say</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <strong>&lt;Say&gt;</strong> verb is used to synthesize text to speech and play it back to the remote party. The voices supported depend on the talk-to-speech Service provider plug-in. By default Amazon Polly is used with the following language options. For more information about text to speech and SSML support check out the <a href="ssml-reference.html">Text-to-Speech and SSML Support Guide</a>.</p>
+<p>The <strong>&lt;Say&gt;</strong> verb is used to synthesize text to speech and play it back to the remote party.</p>
 </div>
 <div class="sect2">
 <h3 id="_say_attributes"><a class="anchor" href="#_say_attributes"></a>Say Attributes</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
 <th class="tableblock halign-left valign-top">Allowed Values</th>
 <th class="tableblock halign-left valign-top">Default Value</th>
 </tr>
@@ -1685,34 +1687,24 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">voice</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">man, woman</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">man</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The gender of the voice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">provider-dependent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">female</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">language</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bf, bp, en, en-gb,cf, cs, dan, fi es, fr, de, el, it, nl, no, pl, pt, ru, ar, ca, sv, tr</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">en</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The text language. May contain TTS provider.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">provider-dependent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">voicerss.en</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">loop</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">integer &gt; 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How many times to play the synthesized text. Zero will loop indefinitely.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">non-negative integer</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 </tr>
 </tbody>
 </table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>voice.</strong> The <code>voice</code> attribute allows you to select the variation of the voice (male or female) used to synthesize the text to speech for playback.</p>
-</li>
-<li>
-<p><strong>language.</strong> The <code>language</code> attribute lets you pick a specific language for speech synthesis. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> currently supports the following languages 'bf' (Belgium-French), 'bp' (Brazilian-Portugues), 'en' (English), 'en-gb' (British-English), 'cf' (Canadian-French), 'cs' (Czech), 'dan' (Dannish), 'fi' (Finnish), 'es' (Spanish), 'fr' (French), 'de' (German), 'el' (Greek), 'it' (Italian), 'nl' (Netherlands-Dutch), 'no' (Norwegian), 'pl' (Polish), 'pt' (Portuguese), 'ru' (Russian), 'ar' (Saudi-Arabia Arabic), 'ca' (Spain Catalan), 'sv' (Swedish), and 'tr' (Turkish).</p>
-</li>
-<li>
-<p><strong>loop.</strong> The <code>loop</code> attribute specifies how many times you would like the text to be repeated. Setting the attribute to '0' will result in endless repetition.</p>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_nesting"><a class="anchor" href="#_nesting"></a>Nesting</h3>
@@ -1742,108 +1734,105 @@
 &lt;/Response&gt;</pre>
 </div>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-When translating text to speech, the &lt;Say&gt; verb makes an assumptions about how to pronounce numbers, dates, times, amounts of money and other abbreviations. When announcing numbers, '12345' will be spoken as "twelve thousand three hundred forty-five". Whereas '1 2 3 4 5' will be spoken as "one two three four five".
-</td>
-</tr>
-</table>
+</div>
+<div class="sect2">
+<h3 id="_dictation"><a class="anchor" href="#_dictation"></a>Dictation</h3>
+<div class="paragraph">
+<p>By default the &lt;Say&gt; verb will make assumptions about how to pronounce numbers, dates, times, amounts of money and other abbreviations.
+For example, the number '12345' will be spoken as "twelve thousand three hundred forty-five." Whereas '1 2 3 4 5' will be spoken as "one two three four five."</p>
+</div>
+<div class="paragraph">
+<p>To control dictation of synthesized text, users can inject Speech Synthesis Markup Language (SSML) into their text.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;Response&gt;
+&lt;Say&gt;
+  &lt;speak&gt;
+     &lt;say-as interpret-as="ordinal"&gt;12345&lt;/say-as&gt;
+  &lt;/speak&gt;
+&lt;/Say&gt;
+&lt;/Response&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information about text to speech and SSML support check out the <a href="ssml-reference.html">Text-to-Speech and SSML Support Guide</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_using_the_language_parameter"><a class="anchor" href="#_using_the_language_parameter"></a>Using the language parameter</h3>
+<h3 id="_configuring_tts_provider_and_language"><a class="anchor" href="#_configuring_tts_provider_and_language"></a>Configuring TTS Provider and Language</h3>
 <div class="paragraph">
-<p>With the help of the <code>language</code> parameter you can specify what TTS engine you would to use for your application.</p>
-</div>
-<div class="paragraph">
-<p>Below you can find a list of all available TTS engines.</p>
+<p>The supported voices depend on the Text-to-Speech (TTS) Service provider.
+RestComm supports the following list of TTS Provider:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">TTS Provider</th>
+<th class="tableblock halign-left valign-top">Voices</th>
+<th class="tableblock halign-left valign-top">Default Voice</th>
+<th class="tableblock halign-left valign-top">Languages</th>
+<th class="tableblock halign-left valign-top">Default Language</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TTS Provider</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RCML Name Reference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://www.voicerss.org/">voicerss</a> <strong>(default)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">female only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">female</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://www.voicerss.org/api/documentation.aspx">VoiceRSS Documentation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">en</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Google</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">google</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://cloud.google.com/text-to-speech">google</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">male,female</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">male</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://cloud.google.com/text-to-speech/docs/voices">Google TTS Documentation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">en-US-Wavenet-A</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon Polly</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">awspolly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://aws.amazon.com/polly/">awspolly</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">male,female</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">male</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">AWS Polly Documentation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">en-US</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Acapela</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">acapela</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VoiceRSS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">voicerss</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Nuance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">nuance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.acapela-group.com/">acapela</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">man,woman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">woman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.acapela-group.com/voices/repertoire/">Acapela Documentation</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">en</p></td>
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="_tts_engine_language_convention"><a class="anchor" href="#_tts_engine_language_convention"></a>TTS Engine/Language Convention</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Restcomm default TTS Provider is VoiceRSS
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>If you would like to set your TTS engine to Acapela English, you should use the following parameter:</p>
+<p>If a user wishes to use a specific provider he can do so by specifying it in the language parameter of the &lt;Say&gt; tag as
+shown below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>language="acapela.en"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>for Google english US Wavenet-A, the parameter should be:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>language="google.en-US-Wavenet-A"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In a similar manner you can specify any other TTS engine to be used.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_tts_engine_not_specified"><a class="anchor" href="#_tts_engine_not_specified"></a>TTS Engine Not Specified</h4>
-<div class="paragraph">
-<p>If no TTS engine is specified, for example <code>&lt;Say&gt;Hello there&lt;/Say&gt;</code>, the first one from the list below will be taken as default value, or the next available if the first one isn&#8217;t.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>&lt;speech-synthesizer active="awspolly,acapela,voicerss,nuance,google"/&gt;</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_language_not_specified"><a class="anchor" href="#_language_not_specified"></a>Language Not Specified</h4>
-<div class="paragraph">
-<p>If no language is set, for example <code>&lt;Say&gt;Hello there&lt;/Say&gt;</code>, the value will fallback to the first TTS engine from the list and respectively the engine&#8217;s default language. Usually the TTS engine&#8217;s default language is English US. However that can vary based on the configuration settings and region defined.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_voice_not_specified"><a class="anchor" href="#_voice_not_specified"></a>Voice Not Specified</h4>
-<div class="paragraph">
-<p>When no voice is specified, a default voice(gender) value will be set to <code>man</code> for most of the TTS engines. Acapela&#8217;s default is <code>woman</code>. This is part of the configuration and can change based on the TTS engine.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_tts_engine_failure"><a class="anchor" href="#_tts_engine_failure"></a>TTS Engine Failure</h4>
-<div class="paragraph">
-<p>It is possible that TTS engine is specified but fails due to configuration issues, incorrect API key, 3rd party service got down etc. In such cases the call will be terminated.</p>
+<pre>language="acapela.en"
+language="google.en-US-Wavenet-A"</pre>
 </div>
 </div>
 </div>
