@@ -1675,7 +1675,7 @@
 <li><a href="#_setting_up_your_domain_with_godaddy">Setting up your domain with GoDaddy</a></li>
 <li><a href="#_setting_up_your_ssl_certificate_with_godaddy">Setting up your SSL certificate with GoDaddy</a>
 <ul class="sectlevel2">
-<li><a href="#_setting_up_a_new_domain_in_message_exchange">Setting up a new domain in Message Exchange</a></li>
+<li><a href="#_setting_up_a_new_domain_in_message_exchange_via_api">Setting up a new domain in Message Exchange via API</a></li>
 </ul>
 </li>
 </ul>
@@ -1933,7 +1933,20 @@ DNS Records propagation might take some time to complete.
 <h2 id="_setting_up_your_ssl_certificate_with_godaddy"><a class="anchor" href="#_setting_up_your_ssl_certificate_with_godaddy"></a>Setting up your SSL certificate with GoDaddy</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To begin using white labeling, you must first set up an SSL Certificate for the sub-domain and upload full chain of certificate on Restcomm via Swagger UI. Make sure the order of the SSL Certificate chain is as follows: your domain certificate, your private key, authority issuing your certificate,  root certificate.</p>
+<p>Prior to using white labeling, you must:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up an SSL Certificate for the sub-domain.</p>
+</li>
+<li>
+<p>Upload a full chain of the certificate using the <a href="message-exchange-console.html#_add_domains">Message Exchange Console UI</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Make sure the order of the SSL Certificate chain is as follows: your domain certificate, your private key, authority issuing your certificate, root certificate.</p>
 </div>
 <div class="paragraph">
 <p>For simplicity let’s assume your domain is testxmpp.com and for UC-One you are using the following sub-domain: text.testxmpp.com. In the steps below, we will explain how to generate a private key and  certificate using OpenSSL.</p>
@@ -2006,38 +2019,17 @@ DNS Records propagation might take some time to complete.
 <div class="ulist">
 <ul>
 <li>
-<p>The newly created text.testxmpp.combined.pem will contain the certificate you need to create a new domain mapping in Swagger. Copy and paste the content of the combine.pem to Swagger UI.</p>
+<p>The newly created text.testxmpp.combined.pem will contain the certificate you need in order to create a new domain mapping in the <a href="message-exchange-console.html#_add_domains">Console UI</a>. Copy and paste the content of the combine.pem to the <a href="message-exchange-console.html#_add_domains">Console UI</a>.</p>
 </li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/message-exchange/Certificate_pem_file.png" alt="Message Exchange - Content of the certificate pem file">
-</div>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p>If the mapping and the certificate are valid, you will see the following response:</p>
+<p>If the mapping and the certificate are valid, you will see a confirmation message that the domain was successfully added.</p>
 </li>
 </ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/message-exchange/SSL_Certificate_validation.png" alt="Message Exchange - SSL certificate validation">
-</div>
 </div>
 <div class="sect2">
-<h3 id="_setting_up_a_new_domain_in_message_exchange"><a class="anchor" href="#_setting_up_a_new_domain_in_message_exchange"></a>Setting up a new domain in Message Exchange</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Log in to your Restcomm account</p>
-</li>
-<li>
-<p><a href="message-exchange-console.html#_add_domains">Create a new Domain</a></p>
-</li>
-</ul>
+<h3 id="_setting_up_a_new_domain_in_message_exchange_via_api"><a class="anchor" href="#_setting_up_a_new_domain_in_message_exchange_via_api"></a>Setting up a new domain in Message Exchange via API</h3>
+<div class="paragraph">
+<p>Find out more about setting up a new domain using the Message Exchange API at <a href="api/message-exchange/create-operation.html#_create_domain">Create Domain API</a> documentation page.</p>
 </div>
 </div>
 </div>
