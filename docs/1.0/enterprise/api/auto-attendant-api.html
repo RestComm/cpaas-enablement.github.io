@@ -1569,10 +1569,12 @@
             "></span>
                   <span>
               <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html">Auto Attendant</a>
-
+                      <button class="nav-toggle"></button>
             </span>
               </div>
-                          </li>
+                <ul class="nav-list">
+                                                  </ul>
+            </li>
   </ul>
             </li>
   </ul>
@@ -1612,6 +1614,8 @@
                                                   </ul>
               <ul class="nav-list">
                                       </ul>
+              <ul class="nav-list">
+                                                  </ul>
   </ul>
               <ul class="nav-list">
               <ul class="nav-list">
@@ -1712,7 +1716,7 @@ Where ever API returns Timestamp or expects Date/Timestamp as request parameter,
 <div class="sect2">
 <h3 id="_create_user"><a class="anchor" href="#_create_user"></a>Create User</h3>
 <div class="paragraph">
-<p>This endpoint will be used to create user depending on role as explained below</p>
+<p>This endpoint will be used to create user depending on role as explained below.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1790,7 +1794,7 @@ Where ever API returns Timestamp or expects Date/Timestamp as request parameter,
 <p>Response Body will carry Code, corresponding message and data of User if it was  successfully created. HTTP response will be 200 Created  (OK).</p>
 </div>
 <div class="paragraph">
-<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2010,7 +2014,7 @@ Where ever API returns Timestamp or expects Date/Timestamp as request parameter,
 <div class="sect2">
 <h3 id="_create_announcement"><a class="anchor" href="#_create_announcement"></a>Create Announcement</h3>
 <div class="paragraph">
-<p>Creating an announcement  will upload an audio file to AA System and will populate the uri in Database.</p>
+<p>Creating an announcement will upload an audio file to AA System and will populate the uri in Database.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_2"><a class="anchor" href="#_base_resource_uri_2"></a>Base Resource URI</h4>
@@ -2067,7 +2071,7 @@ Where ever API returns Timestamp or expects Date/Timestamp as request parameter,
 <p>The Response Body will carry the Code, corresponding message and data of the Announcement File if it was  successfully created. HTTP response will be 200 Created  (OK).</p>
 </div>
 <div class="paragraph">
-<p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below</p>
+<p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3083,10 +3087,10 @@ Where ever API returns Timestamp or expects Date/Timestamp as request parameter,
 <div class="sect3">
 <h4 id="_response_body_5"><a class="anchor" href="#_response_body_5"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of User if it was  successfully updated. HTTP response will be 200 OK.</p>
+<p>Response Body will carry Code, corresponding message and data of User if it was successfully updated. HTTP response will be 200 OK.</p>
 </div>
 <div class="paragraph">
-<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4114,31 +4118,58 @@ Where ever API returns Timestamp or expects Date/Timestamp as request parameter,
 </table>
 <div class="sect4">
 <h5 id="_data_parameter_4"><a class="anchor" href="#_data_parameter_4"></a>Data Parameter</h5>
-<div class="paragraph">
-<p>Data Parameter
-Description
-sid
-Unique phoneNumber Sid
-accountEmail
-Unique <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Account that created/updated this particular Phone number
-dateCreated
-Timestamp when this Enterprise was created
-dateUpdated
-Timestamp when this Enterprise was updated
-number
-Phone number
-isExtension
-true if  the number being added is an extension.
- false if the  number will be considered an AA number.
-uri
-Unique URI that you can call to get only this specific PhoneNumber
-enterpriseSid
-Sid of the enterprise the phoneNumber belongs to.
-extension
-Extension assigned to the number
-extensionSpokenName
-Name of the user the extension belongs to.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique phoneNumber Sid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Account that created/updated this particular Phone number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Enterprise was created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Enterprise was updated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">isExtension</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true if the number being added is an extension. false if the  number will be considered an AA number.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific PhoneNumber</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of the enterprise the phoneNumber belongs to.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">extension</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extension assigned to the number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">extensionSpokenName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the user the extension belongs to.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Update phoneNumber API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
 </div>
@@ -4611,7 +4642,7 @@ Name of the user the extension belongs to.</p>
 <div class="sect2">
 <h3 id="_get_list_of_users"><a class="anchor" href="#_get_list_of_users"></a>Get list of Users</h3>
 <div class="paragraph">
-<p>This endpoint will be used to get list of  user.</p>
+<p>This endpoint will be used to get list of user.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_12"><a class="anchor" href="#_base_resource_uri_12"></a>Base Resource URI</h4>
@@ -5148,7 +5179,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list of Announcement  data as explained in the table 2.2.5.1 Data Parameter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list of Announcement data as explained in the table 2.2.5.1 Data Parameter.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
@@ -5990,7 +6021,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list of AA system  data as explained in the table 3.4.5.1 Data Parameters .</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list of AA system  data as explained in the table 3.4.5.1 Data Parameters.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
@@ -6447,7 +6478,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list of Phone number  data as explained in the table 3.6.5.1 Data Parameter .</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list of Phone number data as explained in the Data Parameter section.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>

@@ -114,7 +114,9 @@
               <ul class="nav-list">
                           <ul class="nav-list">
                                       </ul>
-              </ul>
+              <ul class="nav-list">
+                                                  </ul>
+  </ul>
   </ul>
           <ul class="nav-list">
             <li class="nav-item" data-depth="1">
@@ -1551,7 +1553,7 @@
               
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="../message-exchange/overview.html">Message Exchange API</a>
+              <a class="nav-link nav-flex-item-text" href="../message-exchange/overview.html">Message Exchange</a>
                       <button class="nav-toggle"></button>
             </span>
               </div>
@@ -1655,7 +1657,7 @@
               
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="../cisco-webex/overview.html">Cisco Webex API</a>
+              <a class="nav-link nav-flex-item-text" href="../cisco-webex/overview.html">Cisco Webex</a>
                       <button class="nav-toggle"></button>
             </span>
               </div>
@@ -1799,6 +1801,25 @@
               </div>
                           </li>
   </ul>
+            </li>
+            <li class="nav-item is-current-page" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html">Auto Attendant</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+                                                  </ul>
             </li>
   </ul>
             </li>
@@ -2183,7 +2204,8 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../../index.html">docs</a></li>
-    <li class="crumb"><a href="auto-attendant-api.html">Auto Attendant API</a></li>
+    <li class="crumb"><a href="../../solutions/Two-factor-Authentication-2FA.html">CSP:Solution APIs</a></li>
+    <li class="crumb"><a href="auto-attendant-api.html">CSP:Auto Attendant</a></li>
   </ul>
 </nav>
 </div>
@@ -2219,21 +2241,21 @@ Restcomm Auto Attendant helps service providers enable their enterprise customer
 </div>
 <div class="paragraph">
 <p>add phone numbers and assign,add extensions.
-Restcomm Auto Attendant API’s  can be broadly classified as belowing operations:</p>
+Restcomm Auto Attendant API’s can be broadly classified as belowing operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Create</p>
+<p><a href="auto-attendant-api.html#_create_operation">Create</a></p>
 </li>
 <li>
-<p>Read</p>
+<p><a href="auto-attendant-api.html#_read_operations">Read</a></p>
 </li>
 <li>
-<p>Update</p>
+<p><a href="auto-attendant-api.html#_update_operation">Update</a></p>
 </li>
 <li>
-<p>Delete</p>
+<p><a href="auto-attendant-api.html#_delete_operation">Delete</a></p>
 </li>
 </ul>
 </div>
@@ -2255,7 +2277,7 @@ Where ever API returns Timestamp or expects Date/Timestamp as request parameter,
 <h2 id="_create_operation"><a class="anchor" href="#_create_operation"></a>Create Operation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Create allows CSP admins to create users,announcement,schedule,menu, auto attendant systems,
+<p>Create allows CSP admins to create users, announcement, schedule, menu, auto attendant systems,
 enterprise,phone numbers.</p>
 </div>
 <div class="paragraph">
@@ -2326,18 +2348,18 @@ enterprise,phone numbers.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Required. Possible values are:</p>
-<p class="tableblock">* SUPPORT (This is specifically for Telestax Support Not yet implemented)
-* CSP_ADMIN
-* ENTERPRISE_ADMIN
-* AA_ADMIN
-* USER_ADMIN(Not yet Implemented)</p></td>
+<p class="tableblock">- SUPPORT (This is specifically for Telestax Support Not yet implemented)<br>
+- CSP_ADMIN<br>
+- ENTERPRISE_ADMIN<br>
+- AA_ADMIN<br>
+- USER_ADMIN (Not yet Implemented)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Will be set to active if not passed. Possible values are</p>
-<p class="tableblock">* ACTIVE
-* SUSPENDED
-* DELETED</p></td>
+<p class="tableblock">- ACTIVE<br>
+- SUSPENDED<br>
+- DELETED</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
@@ -2918,11 +2940,7 @@ enterprise,phone numbers.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">scheduleType</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type of the schedule entries</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Possible Values: WEEKLY(weekly schedule),</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DATE_RANGE(special days schedule)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of the schedule entries. Possible Values: WEEKLY(weekly schedule), DATE_RANGE(special days schedule)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startDate</p></td>
@@ -3325,32 +3343,21 @@ enterprise,phone numbers.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">timeoutAction</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Action type and action data to perform after timeout.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Possible actionType are as below</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Transfer to Phone</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dial by extension</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dial by name</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Go To Menu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Return to previous menu</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replay Menu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Announcement Return</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Announcement Hangup</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hangup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Action type and action data to perform after timeout. Possible actionType are as below:<br>
+- Transfer to Phone<br>
+- Dial by extension<br>
+- Dial by name<br>
+- Go To Menu<br>
+- Return to previous menu<br>
+- Replay Menu<br>
+- Announcement Return<br>
+- Announcement Hangup<br>
+- Hangup</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_key_data_parameters"><a class="anchor" href="#_key_data_parameters"></a>key data parameters:</h5>
+<h5 id="_key_data_parameters"><a class="anchor" href="#_key_data_parameters"></a>Key data parameters:</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -3369,27 +3376,16 @@ enterprise,phone numbers.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">menuAction</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Contains action type and action data if needed  of each key</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Possible actionType are as below:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Transfer to Phone</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dial by extension</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dial by name</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Go To Menu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Return to previous menu</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replay Menu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Announcement Return</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Announcement Hangup</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hangup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains action type and action data if needed  of each key. Possible actionType are as below:<br>
+- Transfer to Phone      <br>
+- Dial by extension      <br>
+- Dial by name           <br>
+- Go To Menu             <br>
+- Return to previous menu<br>
+- Replay Menu            <br>
+- Announcement Return    <br>
+- Announcement Hangup    <br>
+- Hangup</p></td>
 </tr>
 </tbody>
 </table>
@@ -3857,11 +3853,11 @@ https://&lt;custom domain of CSP’s&gt;</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalidExtensionMaxOccurance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Consecutive occurrences that the user presses invalidextension  to perform invalid extension action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Consecutive occurrences that the user presses invalidextension to perform invalid extension action</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalidExtensionAction</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Action type and action data(if needed ) to perform after invalid extension max occurrences</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Action type and action data (if needed) to perform after invalid extension max occurrences</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalidInputMaxOccurance</p></td>
@@ -4969,7 +4965,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Annoincement data as explained in the table 2.2.5.1 Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Annoincement data as explained in the table Data Parameter section</p></td>
 </tr>
 </tbody>
 </table>
@@ -5043,7 +5039,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_example_8"><a class="anchor" href="#_example_8"></a>Example:</h4>
+<h4 id="_example_8"><a class="anchor" href="#_example_8"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
 <pre>{
@@ -5120,7 +5116,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <div class="sect3">
 <h4 id="_update_menu_resource_uri"><a class="anchor" href="#_update_menu_resource_uri"></a>Update Menu Resource URI</h4>
 <div class="paragraph">
-<p>/autoattendant/menu/\{announecementssId}</p>
+<p>/autoattendant/menu/{announecementssId}</p>
 </div>
 </div>
 <div class="sect3">
@@ -5205,7 +5201,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">menu data as explained in the table 2.4.5.1 Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">menu data as explained in the Data Parameter section</p></td>
 </tr>
 </tbody>
 </table>
@@ -5399,9 +5395,13 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <div class="sect2">
 <h3 id="_update_auto_attendant_system"><a class="anchor" href="#_update_auto_attendant_system"></a>Update Auto Attendant System</h3>
 <div class="paragraph">
-<p>This endpoint will be used to update an existing auto attendant system.
-==== Base Resource URI
-https://&lt;custom domain of CSP’s&gt;</p>
+<p>This endpoint will be used to update an existing auto attendant system.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_7"><a class="anchor" href="#_base_resource_uri_7"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p>https://&lt;custom domain of CSP’s&gt;</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_update_aa_system_resource_uri"><a class="anchor" href="#_update_aa_system_resource_uri"></a>Update AA-System Resource URI</h4>
@@ -5649,7 +5649,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <p>This endpoint will be used to update an existing enterprise.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_7"><a class="anchor" href="#_base_resource_uri_7"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_8"><a class="anchor" href="#_base_resource_uri_8"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -5846,7 +5846,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <p>This endpoint will be used to update an existing phone number. User can choose to make an extension an autoattendant number or vice-versa.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_8"><a class="anchor" href="#_base_resource_uri_8"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_9"><a class="anchor" href="#_base_resource_uri_9"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -6063,9 +6063,13 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <div class="sect2">
 <h3 id="_delete_user"><a class="anchor" href="#_delete_user"></a>Delete User</h3>
 <div class="paragraph">
-<p>This endpoint will be used to delete an existing user.
-==== Base Resource URI
-https://&lt;custom domain of CSP’s&gt;</p>
+<p>This endpoint will be used to delete an existing user.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_10"><a class="anchor" href="#_base_resource_uri_10"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p>https://&lt;custom domain of CSP’s&gt;</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_delete_user_resource_uri"><a class="anchor" href="#_delete_user_resource_uri"></a>Delete User Resource URI</h4>
@@ -6241,7 +6245,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <p>Delete announcement will delete an existing announcement</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_9"><a class="anchor" href="#_base_resource_uri_9"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_11"><a class="anchor" href="#_base_resource_uri_11"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -6400,9 +6404,13 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <div class="sect2">
 <h3 id="_delete_menu"><a class="anchor" href="#_delete_menu"></a>Delete Menu</h3>
 <div class="paragraph">
-<p>This endpoint will be used to delete an existing menu.
-==== Base Resource URI
-https://&lt;custom domain of CSP’s&gt;</p>
+<p>This endpoint will be used to delete an existing menu.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_12"><a class="anchor" href="#_base_resource_uri_12"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p>https://&lt;custom domain of CSP’s&gt;</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_delete_menu_resource_uri"><a class="anchor" href="#_delete_menu_resource_uri"></a>Delete Menu Resource URI</h4>
@@ -6511,7 +6519,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_example_15"><a class="anchor" href="#_example_15"></a>Example:</h4>
+<h4 id="_example_15"><a class="anchor" href="#_example_15"></a>Example</h4>
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
@@ -6577,9 +6585,13 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <div class="sect2">
 <h3 id="_delete_auto_attendant_system"><a class="anchor" href="#_delete_auto_attendant_system"></a>Delete Auto Attendant System</h3>
 <div class="paragraph">
-<p>This endpoint will be used to delete an existing auto attendant system.
-==== Base Resource URI
-https://&lt;custom domain of CSP’s&gt;</p>
+<p>This endpoint will be used to delete an existing auto attendant system.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_13"><a class="anchor" href="#_base_resource_uri_13"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p>https://&lt;custom domain of CSP’s&gt;</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_delete_aa_system_resource_uri"><a class="anchor" href="#_delete_aa_system_resource_uri"></a>Delete AA-System Resource URI</h4>
@@ -6744,7 +6756,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <p>This endpoint will be used to delete an existing enterprise.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_10"><a class="anchor" href="#_base_resource_uri_10"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_14"><a class="anchor" href="#_base_resource_uri_14"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -6908,7 +6920,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 <p>This endpoint will be used to delete an existing phone number.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_11"><a class="anchor" href="#_base_resource_uri_11"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_15"><a class="anchor" href="#_base_resource_uri_15"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -7078,7 +7090,7 @@ https://&lt;custom domain of CSP’s&gt;</p>
 This endpoint will be used to get list of  user.</p>
 </div>
 <div class="sect2">
-<h3 id="_base_resource_uri_12"><a class="anchor" href="#_base_resource_uri_12"></a>Base Resource URI</h3>
+<h3 id="_base_resource_uri_16"><a class="anchor" href="#_base_resource_uri_16"></a>Base Resource URI</h3>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -7355,7 +7367,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <p>Single Enterprise search API allows users to retrieve specific User.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_13"><a class="anchor" href="#_base_resource_uri_13"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_17"><a class="anchor" href="#_base_resource_uri_17"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -7447,7 +7459,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <p>This endpoint will be used to delete an existing user.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_14"><a class="anchor" href="#_base_resource_uri_14"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_18"><a class="anchor" href="#_base_resource_uri_18"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -7611,7 +7623,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list of Announcement  data as explained in the table 2.2.5.1 Data Parameter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list of Announcement data as explained in the table 2.2.5.1 Data Parameter.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
@@ -7709,7 +7721,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <p>Single Announcement search API allows users to retrieve specific announcement.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_15"><a class="anchor" href="#_base_resource_uri_15"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_19"><a class="anchor" href="#_base_resource_uri_19"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -7815,7 +7827,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <p>Get schedule for an AA-System</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_16"><a class="anchor" href="#_base_resource_uri_16"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_20"><a class="anchor" href="#_base_resource_uri_20"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -7905,9 +7917,13 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect2">
 <h3 id="_get_list_of_menus"><a class="anchor" href="#_get_list_of_menus"></a>Get list of Menus</h3>
 <div class="paragraph">
-<p>This endpoint will be used to get list of Menus
-==== Base Resource URI
-https://&lt;custom domain of CSP’s&gt;</p>
+<p>This endpoint will be used to get list of Menus</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_21"><a class="anchor" href="#_base_resource_uri_21"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p>https://&lt;custom domain of CSP’s&gt;</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_get_menu_list_resource_uri"><a class="anchor" href="#_get_menu_list_resource_uri"></a>Get Menu List Resource URI</h4>
@@ -8175,7 +8191,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <p>Single Menu search API allows users to retrieve specific Menu.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_17"><a class="anchor" href="#_base_resource_uri_17"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_22"><a class="anchor" href="#_base_resource_uri_22"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -8282,9 +8298,13 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect2">
 <h3 id="_get_list_of_aa_systems"><a class="anchor" href="#_get_list_of_aa_systems"></a>Get list of AA-Systems</h3>
 <div class="paragraph">
-<p>This endpoint will be used to get list of AA-Systems
-==== Base Resource URI
-https://&lt;custom domain of CSP’s&gt;</p>
+<p>This endpoint will be used to get list of AA-Systems</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_23"><a class="anchor" href="#_base_resource_uri_23"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p>https://&lt;custom domain of CSP’s&gt;</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_get_aa_system_list_resource_uri"><a class="anchor" href="#_get_aa_system_list_resource_uri"></a>Get AA system list  Resource URI</h4>
@@ -8548,7 +8568,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <p>Single Menu search API allows users to retrieve specific Menu.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_18"><a class="anchor" href="#_base_resource_uri_18"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_24"><a class="anchor" href="#_base_resource_uri_24"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -8747,7 +8767,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <p>List Enterprise API allows users to list all the Enterprise created under that “Organisation” which means under that CSP.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_19"><a class="anchor" href="#_base_resource_uri_19"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_25"><a class="anchor" href="#_base_resource_uri_25"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -8799,11 +8819,15 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </td>
 <td class="content">
 If search API is called without page and pageSize, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
-==== Filtering
-Following filtering parameters are supported
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering_6"><a class="anchor" href="#_filtering_6"></a>Filtering</h4>
+<div class="paragraph">
+<p>Following filtering parameters are supported</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -9020,7 +9044,7 @@ Following filtering parameters are supported
 <p>Single Enterprise search API allows users to retrieve specific Enterprise created under that “Organisation” which means under that CSP.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_20"><a class="anchor" href="#_base_resource_uri_20"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_26"><a class="anchor" href="#_base_resource_uri_26"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
@@ -9113,9 +9137,13 @@ Following filtering parameters are supported
 <div class="sect2">
 <h3 id="_get_list_of_phone_numbers"><a class="anchor" href="#_get_list_of_phone_numbers"></a>Get list of Phone Numbers</h3>
 <div class="paragraph">
-<p>This endpoint will be used to get list of AA-Systems
-==== Base Resource URI
-https://&lt;custom domain of CSP’s&gt;</p>
+<p>This endpoint will be used to get list of AA-Systems</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_27"><a class="anchor" href="#_base_resource_uri_27"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p>https://&lt;custom domain of CSP’s&gt;</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_get_phone_number_list_resource_uri"><a class="anchor" href="#_get_phone_number_list_resource_uri"></a>Get Phone number list Resource URI</h4>
@@ -9170,7 +9198,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 </div>
 <div class="sect3">
-<h4 id="_filtering_6"><a class="anchor" href="#_filtering_6"></a>Filtering</h4>
+<h4 id="_filtering_7"><a class="anchor" href="#_filtering_7"></a>Filtering</h4>
 <div class="paragraph">
 <p>Following filtering parameters are supported</p>
 </div>
@@ -9389,7 +9417,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <p>Single Phonenumber search API allows users to retrieve specific phonenumber.</p>
 </div>
 <div class="sect3">
-<h4 id="_base_resource_uri_21"><a class="anchor" href="#_base_resource_uri_21"></a>Base Resource URI</h4>
+<h4 id="_base_resource_uri_28"><a class="anchor" href="#_base_resource_uri_28"></a>Base Resource URI</h4>
 <div class="paragraph">
 <p>https://&lt;custom domain of CSP’s&gt;</p>
 </div>
