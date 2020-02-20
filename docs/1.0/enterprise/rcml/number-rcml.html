@@ -1689,11 +1689,6 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sendDigits</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">any digits</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
@@ -1722,9 +1717,6 @@
 </table>
 <div class="ulist">
 <ul>
-<li>
-<p><strong>sendDigits.</strong> The 'sendDigits' attribute tells <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to play DTMF tones when the call is answered. This is useful when dialing a phone number and an extension. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will dial the number, and when the automated system picks up, send the DTMF tones to connect to the extension.</p>
-</li>
 <li>
 <p><strong>url.</strong> The 'url' attribute allows you to specify a url for a RCML document that will run on the called party&#8217;s end, after he/she answers, but before the parties are connected. You can use this RCML to privately play or say information to the called party, or provide a chance to decline the phone call using &lt;Gather&gt; and &lt;Hangup&gt;. The current caller will continue to hear ringing while the RCML document executes on the other end. RCML documents executed in this manner are not allowed to contain the &lt;Dial&gt; verb.</p>
 </li>
@@ -1851,33 +1843,6 @@
 <div class="paragraph">
 <p>This noun allows to customize propietary SIP headers to be included in the outgoing
 SIP message. Those will be include following SIP URI params syntax. See example below.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
-<div class="paragraph">
-<p>For an example of how to use the <strong>&lt;Number&gt;</strong> noun see below.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-    &lt;Dial&gt;
-    &lt;Number sendDigits="wwww1234"&gt;1-444-555-6666&lt;/Number&gt;
-    &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Dialing with propietary SIP headers</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-    &lt;Dial&gt;
-    &lt;Number sendDigits="wwww1234"&gt;1-444-555-6666?X-Custom-Header1=1234&amp;X-Custom-Header2=4321&lt;/Number&gt;
-    &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
 </div>
 </div>
 </div>
