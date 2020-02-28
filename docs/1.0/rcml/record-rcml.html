@@ -2259,16 +2259,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">3600 (1 hour)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">transcribe</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">transcribeCallback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">relative or absolute URL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">playBeep</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
@@ -2325,49 +2315,6 @@
 <li>
 <p><strong>maxLength.</strong> The 'maxLength' attribute lets you set the maximum length for the recording in seconds.</p>
 </li>
-<li>
-<p><strong>transcribe.</strong> The 'transcribe' attribute tells <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> that you would like a text representation of the audio of the recording.</p>
-</li>
-<li>
-<p><strong>transcribeCallback.</strong> The 'transcribeCallback' attribute is used in conjunction with the 'transcribe' attribute. It allows you to specify a URL to which <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make an asynchronous POST request when the transcription is complete. This is not a request for RCML and the response will not change call flow, but the request will contain the standard RCML request parameters as well as 'TranscriptionStatus', 'TranscriptionText', 'TranscriptionUrl' and 'RecordingUrl'. If 'transcribeCallback' is specified, then there is no need to specify 'transcribe=true'. It is implied. If you specify 'transcribe=true' without a 'transcribeCallback', the completed transcription will be stored for you to retrieve later (see the REST API Transcriptions section), but <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will not asynchronously notify your application.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_request_parameters_2"><a class="anchor" href="#_request_parameters_2"></a>Request Parameters</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TranscriptionText</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Contains the text of the transcription.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TranscriptionStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The status of the transcription attempt: either 'completed' or 'failed'.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TranscriptionUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL for the transcription&#8217;s REST API resource.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RecordingUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL for the transcription&#8217;s source recording resource.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
 <li>
 <p><strong>playBeep.</strong> The 'playBeep' attribute allows you to toggle between playing a sound before the start of a recording.</p>
 </li>
