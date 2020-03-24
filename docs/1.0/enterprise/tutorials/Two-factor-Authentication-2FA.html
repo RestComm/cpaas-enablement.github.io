@@ -1815,13 +1815,11 @@
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Responde Body</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Responde Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sub error code for the request.</p></td>
@@ -1839,8 +1837,33 @@
 <div class="sect3">
 <h4 id="_response_parameters"><a class="anchor" href="#_response_parameters"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>send API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a></p>
+<p>send API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a> In addition below are the Error&#8217;s that it can return</p>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">453</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Too many OTP request to same destination Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OTP is sent to same destination number within 1 min of previously sent. 2FA system limits number of OTP sent to same number to maximum one per min.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1851,7 +1874,7 @@
     "service" : "2FA", // the name of your service
     "from" : "+XXXXXXXXX", // the SMS sender phone number
     "to" : "+XXXXXXXXXX", // the SMS recepient phone number
-    "body": "Your verification code is: {code}" // SMS body, containing the verification code
+    "body": "Your verification code is: \{code}" // SMS body, containing the verification code
 }</pre>
 </div>
 </div>
@@ -1862,14 +1885,14 @@
 <div class="content">
 <pre>curl -X POST \
   <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/send">https://$DOMAIN/2fa/send</span> \
-  --user  ' {your_account_SID}:{your_account_token}' \
+  --user  ' \{your_account_SID}:\{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{
     "service" : "2FA",
     "from" : "XXXXXXXXXXX",
     "to" : "ZZZZZZZZZZZ",
-    "body": "Your verification code is: {code}"
+    "body": "Your verification code is: \{code}"
   }'</pre>
 </div>
 </div>
@@ -1915,13 +1938,11 @@
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">service</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The name of your service.</p></td>
@@ -1948,13 +1969,11 @@
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Responde Body</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Responde Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sub error code for the request.</p></td>
@@ -1982,16 +2001,14 @@
 <col style="width: 20%;">
 <col style="width: 20%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Error Code</th>
-<th class="tableblock halign-left valign-top">HTTP Status</th>
-<th class="tableblock halign-left valign-top">Error Message</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Category</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">470</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
@@ -2049,7 +2066,7 @@
 <div class="content">
 <pre>curl -X POST \
   <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/verify">https://$DOMAIN/2fa/verify</span> \
-  --user  ' {your_account_SID}:{your_account_token}' \
+  --user  ' \{your_account_SID}:\{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -2195,7 +2212,7 @@
 <div class="content">
 <pre>curl -X POST \
   <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/cancel">https://$DOMAIN/2fa/cancel</span> \
-  --user  ' {your_account_SID}:{your_account_token}' \
+  --user  ' \{your_account_SID}:\{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -2349,21 +2366,6 @@ This allows to filter OTP sent to specific country code.</p></td>
 <p class="tableblock">* For SMS, possible channel status value can be as explained in <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_status_description<br>
 * For Call, possible values are as explained in “status” property in below link <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/calls-api.html#_calls_attributes</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">channelErrorCode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that match underlying channel code, partially or fully in any position<br>
-For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_sms_specific_error_codes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">channelErrorMessage</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that match channel error message text, partially or fully in any position</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">checkStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has this check status. Possible values are<br>
-* valid<br>
-* invalid</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -2473,7 +2475,7 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
 <div class="content">
 <pre>  curl -X GET \
     <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/search">https://$DOMAIN/2fa/search</span> \
-    --user  ' {your_account_SID}:{your_account_token}' \
+    --user  ' \{your_account_SID}:\{your_account_token}' \
     -d '{  "pageSize": "2", "page":"0", "status":"success", "sortBy":"DateCreated:asc"}'</pre>
 </div>
 </div>
@@ -2518,9 +2520,7 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
                "sender":"<a href="mailto:info@telestax.com">info@telestax.com</a>",
                "recipient":"<a href="mailto:amit.bhayani@telestax.com">amit.bhayani@telestax.com</a>",
                "targetSid":"",
-               "channelStatus":"queued",
-               "channelErrorCode":null,
-               "channelErrorMessage":null
+               "channelStatus":"queued"
             }
          ]
       },
@@ -2554,9 +2554,7 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
                "sender":"12012751398",
                "recipient":"919960639901",
                "targetSid":"SM286fa07039ab498d80bd44d4cc91ac3c",
-               "channelStatus":"failed",
-               "channelErrorCode":null,
-               "channelErrorMessage":null
+               "channelStatus":"delivered"
             }
          ]
       }
@@ -2601,16 +2599,14 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
 <col style="width: 20%;">
 <col style="width: 20%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Error Code</th>
-<th class="tableblock halign-left valign-top">HTTP Status</th>
-<th class="tableblock halign-left valign-top">Error Message</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Category</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">480</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
@@ -2630,7 +2626,7 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
 <div class="content">
 <pre>curl -X GET \
   <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/search/OTPabc2128918293123413216549879">https://$DOMAIN/2fa/search/OTPabc2128918293123413216549879</span> \
-  --user  ' {your_account_SID}:{your_account_token}'</pre>
+  --user  ' \{your_account_SID}:\{your_account_token}'</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2657,8 +2653,6 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
                 "recipient":"120120105124",
                 "targetSid":"SMd0a8b9819dfa42548bd3c306daade4f3",
                 "channelStatus":"undelivered",
-                "channelErrorCode":"30008",
-                "channelErrorMessage":"Unknown error"
             }
         ]
     }
@@ -2673,6 +2667,18 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Usage record REST resource provides a simple API to retrieve usage made by your 2FA account during any time period and by any usage channel. This makes it easy to build reporting and analytics tools for your application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Usage records doesn&#8217;t include real time data and can be delayed by maximum of 1 hour.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_base_resource_uri_6"><a class="anchor" href="#_base_resource_uri_6"></a>Base Resource URI</h3>
@@ -2697,48 +2703,31 @@ For SMS, possible value can be <span class="non-sps-text non-sps-link" data-orig
 <div class="paragraph">
 <p>Usage filter will return usage records for passed filter. Following filtering parameters are supported.</p>
 </div>
-<table class="tableblock frame-top grid-rows spread">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Query Parameter</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">service</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match this service text, partially or fully in any position.<br>
-For example if OTP Service is “Support” and service filter parameter is “ppo”, it will match.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match this service text, partially or fully in any position. For example if OTP Service is “Support” and service filter parameter is “ppo”, it will match.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that is initiated via this channel. Possible values are<br>
-* call<br>
-* sms<br>
-* email</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has from begins with this number/email text.<br></p>
-<p class="tableblock">For example if OTP from  is “15713316943” and from filter parameter is “1”, it will match. However if from filter parameter is “3”, this record will not match.<br>
-This allows to filter Usage records sent from specific country code.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that is initiated via this channel. Possible values are: call, sms, email</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has to begins with this number/email text.<br></p>
-<p class="tableblock">For example if OTP to  is “16513333367” and to filter parameter is “1”, it will match. However if to filter parameter is “3”, this record will not match.<br>
-This allows to filter Usage records sent to specific country code.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has to begins with this number/email text. For example if OTP to  is “16513333367” and to filter parameter is “1”, it will match. However if to filter parameter is “3”, this record will not match. This allows to filter Usage records sent to specific country code.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has this status. Possible values are<br>
-* success<br>
-* canceled<br>
-* expired<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has this status. Possible values are: success, canceled, expired</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
@@ -2750,16 +2739,7 @@ This allows to filter Usage records sent to specific country code.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channelStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match underlying channel status, partially or fully in any position<br></p>
-<p class="tableblock">* For SMS, possible channel status value can be as explained in <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_status_description<br>
-* For Call, possible values are as explained in “status” property in below link <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/calls-api.html#_calls_attributes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">checkStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has this check status. Possible values are<br>
-* valid<br>
-* invalid<br>
-If there are multiple checks with invalid and finally valid, this records are counted for both valid and invalid filter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match underlying channel status, partially or fully in any position. For SMS, possible channel status value can be as explained in <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_status_description  For Call, possible values are as explained in “status” property in below link <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/calls-api.html#_calls_attributes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
@@ -2780,7 +2760,7 @@ If there are multiple checks with invalid and finally valid, this records are co
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records?startDate=2019-08-01&amp;endDate=2019-08-31">https://$DOMAIN/2fa/usage/records?startDate=2019-08-01&amp;endDate=2019-08-31</span> \</pre>
+  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records?startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z">https://$DOMAIN/2fa/usage/records?startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z</span> \</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2791,14 +2771,14 @@ If there are multiple checks with invalid and finally valid, this records are co
 <pre>{
    "usageRecords":[
       {
-         "channel":"All",
-         "description":"Total OTP sent, irrespective of channel or retry",
-         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startTime":"2019-08-01",
-         "endTime":"2019-08-30",
-         "count":"14",
-         "unit":"OTP",
-         "uri":"/2fa/usage/records?startTime=2019-08-01&amp;endTime=2019-08-30&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+         "description":"2FA Usage record",
+         "startTime":"2020-03-16",
+         "endTime":"2020-03-19",
+         "count":10,
+         "successful":5,
+         "unsuccessful":5,
+         "unit":"2FA",
+         "uri":"/2fa/usage/records?startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z"
       }
    ]
 }</pre>
@@ -2811,12 +2791,12 @@ If there are multiple checks with invalid and finally valid, this records are co
 <div class="content">
 <pre>curl -X POST \
   <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records">https://$DOMAIN/2fa/usage/records</span> \
-    --user  ' {your_account_SID}:{your_account_token}'
+    --user  ' \{your_account_SID}:\{your_account_token}'
     -H 'Cache-Control: no-cache' \
     -H 'Content-Type: application/json' \
     -d '{
-      "startTime" : "2019-08-05T06:37:00",
-      "endTime": "2019-08-30"
+      "startTime" : "2020-03-16T18:30:00.000Z",
+      "endTime": "2020-03-19"
     }'</pre>
 </div>
 </div>
@@ -2828,14 +2808,14 @@ If there are multiple checks with invalid and finally valid, this records are co
 <pre>{
    "usageRecords":[
       {
-         "channel":"All",
-         "description":"Total OTP sent, irrespective of channel or retry",
-         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startTime":"2019-08-05T06:37:00",
-         "endTime":"2019-08-30",
-         "count":"13",
-         "unit":"OTP",
-         "uri":"/2fa/usage/records?startTime=2019-08-05T06%3A37%3A00&amp;endTime=2019-08-30&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+         "description":"2FA Usage record",
+         "startTime":"2020-03-16",
+         "endTime":"2020-03-19",
+         "count":10,
+         "successful":5,
+         "unsuccessful":5,
+         "unit":"2FA",
+         "uri":"/2fa/usage/records?startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z"
       }
    ]
 }</pre>
@@ -2851,7 +2831,7 @@ If there are multiple checks with invalid and finally valid, this records are co
 <div class="content">
 <pre>curl -X POST \
   <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records">https://$DOMAIN/2fa/usage/records</span> \
-    --user  ' {your_account_SID}:{your_account_token}'
+    --user  ' \{your_account_SID}:\{your_account_token}'
     -H 'Cache-Control: no-cache' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -2867,14 +2847,14 @@ If there are multiple checks with invalid and finally valid, this records are co
 <pre>{
    "usageRecords":[
       {
-         "channel":"sms",
-         "description":"2FA sent by SMS",
-         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startTime":"null",
-         "endTime":"2019-08-24",
-         "count":"6",
-         "unit":"Messages",
-         "uri":"/2fa/usage/record?channel=sms&amp;endTime=2019-08-24&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+         "description":"2FA Usage record",
+         "startTime":"2020-03-16",
+         "endTime":"2020-03-19",
+         "count":3,
+         "successful":1,
+         "unsuccessful":2,
+         "unit":"2FA",
+         "uri":"/2fa/usage/records?channel=sms&amp;startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z"
       }
    ]
 }</pre>
@@ -2947,7 +2927,7 @@ If there are multiple checks with invalid and finally valid, this records are co
 <div class="content">
 <pre>curl -X GET \
   <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records/daily">https://$DOMAIN/2fa/usage/records/daily</span> \
-  --user  ' {your_account_SID}:{your_account_token}'</pre>
+  --user  ' \{your_account_SID}:\{your_account_token}'</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2958,34 +2938,31 @@ If there are multiple checks with invalid and finally valid, this records are co
 <pre>{
    "usageRecords":[
       {
-         "channel":"All",
-         "description":"Total OTP sent, irrespective of channel or retry",
-         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startTime":"2019-08-05",
-         "endTime":"2019-08-05",
-         "count":"7",
-         "unit":"OTP",
-         "uri":"/2fa/usage/records/daily?channel=All&amp;startTime=2019-07-24&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+         "description":"2FA Usage record",
+         "startTime":"2020-03-17",
+         "endTime":"2020-03-17",
+         "count":259200,
+         "successful":155671,
+         "unsuccessful":103529,
+         "unit":"2FA"
       },
       {
-         "channel":"All",
-         "description":"Total OTP sent, irrespective of channel or retry",
-         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startTime":"2019-08-19",
-         "endTime":"2019-08-19",
-         "count":"4",
-         "unit":"OTP",
-         "uri":"/2fa/usage/records/daily?channel=All&amp;startTime=2019-07-24&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+         "description":"2FA Usage record",
+         "startTime":"2020-03-19",
+         "endTime":"2020-03-19",
+         "count":140404,
+         "successful":84220,
+         "unsuccessful":56184,
+         "unit":"2FA"
       },
       {
-         "channel":"All",
-         "description":"Total OTP sent, irrespective of channel or retry",
-         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startTime":"2019-08-20",
-         "endTime":"2019-08-20",
-         "count":"3",
-         "unit":"OTP",
-         "uri":"/2fa/usage/records/daily?channel=All&amp;startTime=2019-07-24&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf"
+         "description":"2FA Usage record",
+         "startTime":"2020-03-18",
+         "endTime":"2020-03-18",
+         "count":259200,
+         "successful":155656,
+         "unsuccessful":103544,
+         "unit":"2FA"
       }
    ]
 }</pre>
@@ -3014,16 +2991,14 @@ If there are multiple checks with invalid and finally valid, this records are co
 <col style="width: 20%;">
 <col style="width: 20%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Error Code</th>
-<th class="tableblock halign-left valign-top">HTTP Status</th>
-<th class="tableblock halign-left valign-top">Error Message</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Category</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">401</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">401</p></td>
