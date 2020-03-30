@@ -1672,7 +1672,7 @@
 <p>Call Queue is a feature that allows callers (A leg) to be placed in a Queue, hearing background music or announcement (text-to-speech) while waiting to get connected to called party (B leg). This is one of the most commonly needed features to build any kind of Inbound Contact Center solution.</p>
 </div>
 <div class="paragraph">
-<p>The document below describes the Call Queue Solution from <span class="sps-text non-sps-link" data-orig-text="Telestax" data-parm-text="company_name" data-default-text="$INFER_FROM_DOMAIN">Telestax</span> build on top of the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform leveraging its APIs. A Queue stores incoming calls in First In First Out (FIFO) order (let’s call those callers Customers). The Queue then connects the first call in queue to receivers (let’s call those Agents).</p>
+<p>The document below describes the Call Queue Solution from <span class="sps-text non-sps-link" data-orig-text="ACME" data-parm-text="company_name" data-default-text="$INFER_FROM_DOMAIN">ACME</span> build on top of the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Platform leveraging its APIs. A Queue stores incoming calls in First In First Out (FIFO) order (let’s call those callers Customers). The Queue then connects the first call in queue to receivers (let’s call those Agents).</p>
 </div>
 </div>
 </div>
@@ -1680,10 +1680,10 @@
 <h2 id="_call_queue"><a class="anchor" href="#_call_queue"></a>Call Queue</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order to use Call Queue, you need a valid <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud account.</p>
+<p>In order to use Call Queue, you need a valid <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud account.</p>
 </div>
 <div class="paragraph">
-<p>For the Call Queue solution to function correctly at least two numbers must be reserved in <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud (via Call Queue API) and at least one unique Queue defined (via Call Queue API), let’s call this “Support” Queue have to be defined. The first number will be used by Customers to call and get in “Support” Queue. Let&#8217;s set this number to +1 571 331 6666. The second number is called by Agents and starts accepting call’s queued in “Support” in FIFO order. Let&#8217;s have this number set to +1 571 331 9999. Users can create as many queues as long as they all have unique names.</p>
+<p>For the Call Queue solution to function correctly at least two numbers must be reserved in <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud (via Call Queue API) and at least one unique Queue defined (via Call Queue API), let’s call this “Support” Queue have to be defined. The first number will be used by Customers to call and get in “Support” Queue. Let&#8217;s set this number to +1 571 331 6666. The second number is called by Agents and starts accepting call’s queued in “Support” in FIFO order. Let&#8217;s have this number set to +1 571 331 9999. Users can create as many queues as long as they all have unique names.</p>
 </div>
 <div class="sect2">
 <h3 id="_create_queue_api"><a class="anchor" href="#_create_queue_api"></a>Create Queue API</h3>
@@ -1756,15 +1756,15 @@ For example, Customer Number URL can return:&#160;<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">phoneNumber</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory parameter. Phone Number that must be provisioned in <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud. Number is either Customer Number or Agent Number.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory parameter. Phone Number that must be provisioned in <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud. Number is either Customer Number or Agent Number.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">override</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">override parameter is either true or false. If <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud already has a number provisioned and API is called passing the same number, setting override to “true”, Call Queue Solution will override the setting of the number. By default it is set to false.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">override parameter is either true or false. If <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud already has a number provisioned and API is called passing the same number, setting override to “true”, Call Queue Solution will override the setting of the number. By default it is set to false.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">byoc</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">byoc parameter defines if provisioned phoneNumber is to be bought from <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud Platform or to be used as SIP number (Bring Your Own Career). iF byoc is set to true, phoneNumber is registered as SIP number. Its default value is set to true.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">byoc parameter defines if provisioned phoneNumber is to be bought from <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud Platform or to be used as SIP number (Bring Your Own Career). iF byoc is set to true, phoneNumber is registered as SIP number. Its default value is set to true.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1797,7 +1797,7 @@ For example, Customer Number URL can return:&#160;<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Account Sid that called this API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Account Sid that called this API</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">friendlyName</p></td>
@@ -1809,11 +1809,11 @@ For example, Customer Number URL can return:&#160;<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">voiceUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">URL that is provisioned for passed phoneNumber in <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud. This URL is made up of “applicationUrlMethod” that was passed as request parameter along with some additional parameters that are used by Call Queue Solution.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URL that is provisioned for passed phoneNumber in <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud. This URL is made up of “applicationUrlMethod” that was passed as request parameter along with some additional parameters that are used by Call Queue Solution.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">voiceMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Method for calling the voiceUrl provisioned in <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud for PhoneNumber. This is the same value as applicationUrlMethod parameter passed in API request.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Method for calling the voiceUrl provisioned in <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud for PhoneNumber. This is the same value as applicationUrlMethod parameter passed in API request.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">voiceFallbackUrl</p></td>
@@ -1833,11 +1833,11 @@ For example, Customer Number URL can return:&#160;<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request to pass status parameters (such as call ended) to Call Queue application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> will request to pass status parameters (such as call ended) to Call Queue application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will use to make requests to the StatusCallback URL.Always POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> will use to make requests to the StatusCallback URL.Always POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">smsUrl</p></td>
@@ -1857,15 +1857,15 @@ For example, Customer Number URL can return:&#160;<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The API version of <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API version of <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">isSIP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If phoneNumber is registered as SIP Number (BYOC) or if it&#8217;s provided by <span class="sps-text non-sps-link" data-orig-text="Telestax" data-parm-text="company_name" data-default-text="$INFER_FROM_DOMAIN">Telestax</span>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If phoneNumber is registered as SIP Number (BYOC) or if it&#8217;s provided by <span class="sps-text non-sps-link" data-orig-text="ACME" data-parm-text="company_name" data-default-text="$INFER_FROM_DOMAIN">ACME</span>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI in <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Cloud to reach to provisioned phoneNumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI in <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud to reach to provisioned phoneNumber</p></td>
 </tr>
 </tbody>
 </table>
@@ -2209,6 +2209,7 @@ https://yourcompany.com/restcomm/music/electronica/teru_-_110_Downtempo_Electron
         <h5 class="footer-column-title">Solutions</h5>
         <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-Factor Authentication (2FA)</a></p>
           <p><a class="footer-usecase-item" href="/docs/api/call-queue-api.html">Call Queue</a></p>
+          <p><a class="footer-usecase-item" href="/docs/solutions/auto-attendant-overview.html">Auto Attendant</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>

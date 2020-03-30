@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="Restcomm REST API - Restcomm Docs"></title>
+    <title data-custom-title="CPaaS REST API - Restcomm Docs"></title>
     <link rel="canonical" href="
       https://cloud.restcomm.com/docs/Multi-tenancy-and-Managing-Sub-Accounts.html
     ">
@@ -1656,19 +1656,19 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">docs</a></li>
-    <li class="crumb"><a href="Multi-tenancy-and-Managing-Sub-Accounts.html"><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> REST API</a></li>
+    <li class="crumb"><a href="Multi-tenancy-and-Managing-Sub-Accounts.html"><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> REST API</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> REST API</h1>
+  <h1><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> REST API</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In our continuous effort to improve <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> functionalities, we have introduced multi-tenancy support. It provides a set of rules that improve user information management and control who can gain access to specific accounts. This set of rules will be also applied by the upcoming OAuth support, so they both OAuth and Multi-tenancy Support will handle this consistency together. The information below will provide an overview of how multi-tenancy is applied to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>.</p>
+<p>In our continuous effort to improve <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> functionalities, we have introduced multi-tenancy support. It provides a set of rules that improve user information management and control who can gain access to specific accounts. This set of rules will be also applied by the upcoming OAuth support, so they both OAuth and Multi-tenancy Support will handle this consistency together. The information below will provide an overview of how multi-tenancy is applied to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>.</p>
 </div>
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> REST API access control is managed by two main entities, credentials and accounts. To better understand how it works, we&#8217;ll assume the following diagram as the account hierarchy, where each account and sub account has its own information.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> REST API access control is managed by two main entities, credentials and accounts. To better understand how it works, we&#8217;ll assume the following diagram as the account hierarchy, where each account and sub account has its own information.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1676,7 +1676,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Considering that Primary and Secondary accounts represents different <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> users, they will not be able to manage information from each other. So if Primary Account tries to access the REST API using its own credentials but requesting for the list of DIDs of the Secondary Account, the response will be a HTTP 401 error. The 'curl' command below represents the given situation.</p>
+<p>Considering that Primary and Secondary accounts represents different <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> users, they will not be able to manage information from each other. So if Primary Account tries to access the REST API using its own credentials but requesting for the list of DIDs of the Secondary Account, the response will be a HTTP 401 error. The 'curl' command below represents the given situation.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1758,10 +1758,10 @@ The Applications API has a different access control, and allows the accounts to 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_span_class_sps_text_non_sps_link_data_orig_text_restcomm_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_admin_ui"><a class="anchor" href="#_span_class_sps_text_non_sps_link_data_orig_text_restcomm_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_admin_ui"></a><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Admin UI</h2>
+<h2 id="_span_class_sps_text_non_sps_link_data_orig_text_cpaas_data_parm_text_application_name_data_default_text_infer_from_domain_cpaas_span_admin_ui"><a class="anchor" href="#_span_class_sps_text_non_sps_link_data_orig_text_cpaas_data_parm_text_application_name_data_default_text_infer_from_domain_cpaas_span_admin_ui"></a><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Admin UI</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The user interface follows a similar behaviour to the API. Is known that the AdminUI currently shows only info related to the logged user, but now the local applications displayed under the '<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Apps' option were adjusted to follow the same behaviour. This filter is also applied to the available applications when configuring a DID, as shown by the images below.</p>
+<p>The user interface follows a similar behaviour to the API. Is known that the AdminUI currently shows only info related to the logged user, but now the local applications displayed under the '<span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Apps' option were adjusted to follow the same behaviour. This filter is also applied to the available applications when configuring a DID, as shown by the images below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1787,13 +1787,13 @@ The Applications API has a different access control, and allows the accounts to 
 <h2 id="_security_constraints"><a class="anchor" href="#_security_constraints"></a>Security constraints</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If the hostname of the request doesn&#8217;t match the organization domain name of the provided account credential <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will not allow access.</p>
+<p>If the hostname of the request doesn&#8217;t match the organization domain name of the provided account credential <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> will not allow access.</p>
 </div>
 <div class="paragraph">
-<p>For example, if trying to login to 'https://wonderland.restcomm.com' using account credentials that belong to organization 'https://alice.restcomm.com', <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will drop the request.</p>
+<p>For example, if trying to login to 'https://wonderland.restcomm.com' using account credentials that belong to organization 'https://alice.restcomm.com', <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> will drop the request.</p>
 </div>
 <div class="paragraph">
-<p>Same is true for accessing organization/account resources using REST API. If the hostname of the REST API request doesn&#8217;t match the domain name of the organization that the account credentials belong, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will drop the request.</p>
+<p>Same is true for accessing organization/account resources using REST API. If the hostname of the REST API request doesn&#8217;t match the domain name of the organization that the account credentials belong, <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> will drop the request.</p>
 </div>
 </div>
 </div>
@@ -1812,6 +1812,7 @@ The Applications API has a different access control, and allows the accounts to 
         <h5 class="footer-column-title">Solutions</h5>
         <p><a class="footer-usecase-item" href="/docs/tutorials/Two-factor-Authentication-2FA.html">Two-Factor Authentication (2FA)</a></p>
           <p><a class="footer-usecase-item" href="/docs/api/call-queue-api.html">Call Queue</a></p>
+          <p><a class="footer-usecase-item" href="/docs/solutions/auto-attendant-overview.html">Auto Attendant</a></p>
       </div>
       <div class="footer-column">
         <h5 class="footer-column-title">Learn</h5>
