@@ -3091,13 +3091,13 @@ public class JavaSampleClass {
 <p>To redirect or terminate a live call, you make an <strong>HTTP POST</strong> request to an in­-progress Call instance resource URI:</p>
 </div>
 <div class="paragraph">
-<p><strong>/2012­04­24/Accounts/{AccountSid}/Calls/{CallSid}</strong></p>
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Calls/{CallSid}</strong></p>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
 <div class="paragraph">
-<p><strong>/2012­04­24/Accounts/{AccountSid}/Calls.json/{CallSid}</strong></p>
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Calls.json/{CallSid}</strong></p>
 </div>
 <div class="paragraph">
 <p>The following parameters are available for you to <strong>POST</strong> request when modifying a phone call:</p>
@@ -3240,7 +3240,7 @@ public class JavaSampleClass {
 <p>Bob wants to transfer the call to Alice and sends the request to Controller (application server)</p>
 </li>
 <li>
-<p>Application server: - Prepares new RCML with a given URL: http://app.server/CallToAlice that using Dial will dial to Alice - Uses Live Call Modification prepares a new POST request: <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls/YOUR_CALL_SID">https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls/YOUR_CALL_SID</span></code> - in the POST requests adds the following parameters: Url=http://app.server/CallToAlice</p>
+<p>Application server: - Prepares new RCML with a given URL: http://app.server/CallToAlice that using Dial will dial to Alice - Uses Live Call Modification prepares a new POST request: <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/YOUR_CALL_SID">https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/YOUR_CALL_SID</span></code> - in the POST requests adds the following parameters: Url=http://app.server/CallToAlice</p>
 </li>
 <li>
 <p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> process this Live Call Modification request and redirects the incoming call to the new RCML application (to the new URL)</p>
@@ -3262,7 +3262,7 @@ public class JavaSampleClass {
 <p>Will prepare new POST Live Call Modification request for the incoming call to be connected to the new url (that will dial to the conference)</p>
 </li>
 <li>
-<p>Will then prepare new outgoing call request, using the Calls Rest API that will connect Bob to the conference application URL: - <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls">https://$DOMAIN/restcomm/2012­04­24/Accounts/ACCOUNT_SID/Calls</span>` - will pass the following parameters: <strong>From</strong>=INCOMING_CALL_ID <strong>To</strong>=client:bob <strong>Url</strong>=CONFERENCE_APPLICATION_URL</p>
+<p>Will then prepare new outgoing call request, using the Calls Rest API that will connect Bob to the conference application URL: - <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls">https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls</span>` - will pass the following parameters: <strong>From</strong>=INCOMING_CALL_ID <strong>To</strong>=client:bob <strong>Url</strong>=CONFERENCE_APPLICATION_URL</p>
 </li>
 <li>
 <p>Later application server can create more outgoing call requests, similar to the one above, to invite other clients or sip URLs or PSTN numbers to this conference call</p>
