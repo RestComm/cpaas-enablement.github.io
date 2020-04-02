@@ -1624,7 +1624,7 @@
 <p>Send an SMS to a mobile number and optionally get notified of its delivery status</p>
 </li>
 <li>
-<p>Send a text message to a VoIP <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client, representing a registered software or hardware SIP phone</p>
+<p>Send a text message to a VoIP <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Client, representing a registered software or hardware SIP phone</p>
 </li>
 <li>
 <p>Query details for already exchanged SMS messages</p>
@@ -1648,7 +1648,7 @@
 <p>If the recipient of the SMS is a mobile number the message is routed to the mobile network and delivered to the mobile device.</p>
 </li>
 <li>
-<p>If the recipient is a registered <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client then a SIP message is generated and routed to the VoIP client. Note that in this case the recipient client name needs to be prefixed with the string <code>client:</code> in the <code>To</code> parameter described below.</p>
+<p>If the recipient is a registered <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Client then a SIP message is generated and routed to the VoIP client. Note that in this case the recipient client name needs to be prefixed with the string <code>client:</code> in the <code>To</code> parameter described below.</p>
 </li>
 </ul>
 </div>
@@ -1666,11 +1666,11 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number or short code to be used as the message sender. This number needs to be SMS-enabled in the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform (Required).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number or short code to be used as the message sender. This number needs to be SMS-enabled in the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Platform (Required).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number, short code or <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client to which the message will be sent to. Needs to be in E.164 format in case of a phone number. In case of a <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> client, the client name needs to be prefixed with the string 'client:' (Required).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number, short code or <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> client to which the message will be sent to. Needs to be in E.164 format in case of a phone number. In case of a <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> client, the client name needs to be prefixed with the string 'client:' (Required).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
@@ -1678,14 +1678,14 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A URL for the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform to send webhook requests to notify on any SMS delivery status event. Note that StatusCallback is not applicable to messages addressed to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Clients. For more information check below (Optional).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL for the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Platform to send webhook requests to notify on any SMS delivery status event. Note that StatusCallback is not applicable to messages addressed to <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Clients. For more information check below (Optional).</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
 <h3 id="_status_callback"><a class="anchor" href="#_status_callback"></a>Status Callback</h3>
 <div class="paragraph">
-<p>The <strong>StatusCallback</strong> body parameter allows you to specify a URL where you can receive events in the form of HTTP POST requests (webhooks) with updates on SMS delivery status from the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform. Those requests can contain the following body parameters:</p>
+<p>The <strong>StatusCallback</strong> body parameter allows you to specify a URL where you can receive events in the form of HTTP POST requests (webhooks) with updates on SMS delivery status from the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Platform. Those requests can contain the following body parameters:</p>
 </div>
 <table class="tableblock frame-top grid-rows spread">
 <colgroup>
@@ -1735,7 +1735,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Sent status event</strong>, indicating whether <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> managed to successfully forward the SMS to the provider for further routing. The status is reflected on <code>MessageStatus</code> attribute described above and can be either <strong>sent</strong> on success or <strong>failed</strong> on failure. In case of failure no delivery status event is sent (see below).</p>
+<p><strong>Sent status event</strong>, indicating whether <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> managed to successfully forward the SMS to the provider for further routing. The status is reflected on <code>MessageStatus</code> attribute described above and can be either <strong>sent</strong> on success or <strong>failed</strong> on failure. In case of failure no delivery status event is sent (see below).</p>
 </li>
 <li>
 <p><strong>Delivery status event</strong>, indicating whether the provider managed to successfully deliver the SMS to the destination, given that the sent status event previously was <strong>sent</strong>. The status is reflected on <code>MessageStatus</code> attribute described above and can be <strong>delivered</strong>, <strong>undelivered</strong> or <strong>failed</strong></p>
@@ -1895,7 +1895,7 @@ public class JavaSampleClass {
 </div>
 </div>
 <div class="paragraph">
-<p>Send a (SIP) message from 19876543212 to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Client <code>alice</code>. Notice the <code>client:</code> prefix in the <code>To</code> (remember that this client needs to be registered):</p>
+<p>Send a (SIP) message from 19876543212 to <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Client <code>alice</code>. Notice the <code>client:</code> prefix in the <code>To</code> (remember that this client needs to be registered):</p>
 </div>
       <div class="sample-code-bar">
         <button class="sample-code-button scsIndex-139 is-active" onclick="openLanguage('Curl', 139)">Curl</button>
@@ -2378,7 +2378,7 @@ public class JavaSampleClass {
   "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "from": "dev-test",
   "to": "4915739360736",
-  "body":"Another test from <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>",
+  "body":"Another test from <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span>",
   "status": "delivered",
   "direction": "outbound-api",
   "num_segments": 1,
@@ -2424,7 +2424,7 @@ public class JavaSampleClass {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DateSent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The date on which the SMS was sent or received by <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date on which the SMS was sent or received by <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
@@ -2452,7 +2452,7 @@ public class JavaSampleClass {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ApiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The API version <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> used to handle the SMS message.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API version <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> used to handle the SMS message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
@@ -2491,7 +2491,7 @@ public class JavaSampleClass {
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">queued</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> has queued the message pending transmission. Applies to outbound messages.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> has queued the message pending transmission. Applies to outbound messages.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sending</p></td>

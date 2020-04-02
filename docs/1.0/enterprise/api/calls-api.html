@@ -1615,7 +1615,7 @@
 <h2 id="_calls"><a class="anchor" href="#_calls"></a>Calls</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A <strong>Call</strong> represents a connection between a phone or user agent and <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. This may be inbound or outbound. The Calls list resource represents the set of phone calls originated and terminated from an account.</p>
+<p>A <strong>Call</strong> represents a connection between a phone or user agent and <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span>. This may be inbound or outbound. The Calls list resource represents the set of phone calls originated and terminated from an account.</p>
 </div>
 <div class="sect2">
 <h3 id="_call_resource_uri"><a class="anchor" href="#_call_resource_uri"></a>Call Resource URI</h3>
@@ -1767,15 +1767,15 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Method</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when making its request to the above Url. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> should use when making its request to the above Url. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request if execution of Url fails for any reason.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> will request if execution of Url fails for any reason.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method that <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> should use to request the FallbackUrl. Must be either GET or POST. Defaults to POST.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallbackEvent</p></td>
@@ -1791,7 +1791,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Timeout</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of seconds that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should allow the phone to ring before assuming there is no answer. The default is 60 seconds.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of seconds that <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> should allow the phone to ring before assuming there is no answer. The default is 60 seconds.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1801,7 +1801,7 @@
 <p>When creating a Call using the Calls API, an outbound call is initiated. The call transitions from the initiated state to the ringing state when the phone starts ringing. It transitions to the answered state when the call is picked up, and finally to the completed state when the call is over. With <strong>StatusCallbackEvent</strong>, you can subscribe to receive webhooks for the different call progress events: initiated, ringing, answered, or completed for a given call.</p>
 </div>
 <div class="paragraph">
-<p>The <strong>StatusCallbackEvent</strong> attribute allows you to specify which events <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should webhook on. To specify multiple events separate them with a comma like this: <code>initiated,ringing,answered,completed</code>. If a StatusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
+<p>The <strong>StatusCallbackEvent</strong> attribute allows you to specify which events <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> should webhook on. To specify multiple events separate them with a comma like this: <code>initiated,ringing,answered,completed</code>. If a StatusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1822,7 +1822,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initiated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> starts dialing the call.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
@@ -1842,19 +1842,19 @@
 <div class="sect3">
 <h4 id="_statuscallback"><a class="anchor" href="#_statuscallback"></a>StatusCallback</h4>
 <div class="paragraph">
-<p>The <strong>StatusCallback</strong> attribute allows you to specify a URL for <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to send webhook requests to on each event specified in the StatusCallbackEvent attribute.</p>
+<p>The <strong>StatusCallback</strong> attribute allows you to specify a URL for <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> to send webhook requests to on each event specified in the StatusCallbackEvent attribute.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_statuscallbackmethod"><a class="anchor" href="#_statuscallbackmethod"></a>StatusCallbackMethod</h4>
 <div class="paragraph">
-<p>The <strong>StatusCallbackMethod</strong> attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the URL in the StatusCallback attribute. The default is POST.</p>
+<p>The <strong>StatusCallbackMethod</strong> attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> should use when requesting the URL in the StatusCallback attribute. The default is POST.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
 <div class="paragraph">
-<p>The parameters <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
+<p>The parameters <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
 </div>
 <div class="paragraph">
 <p>When the call progress events are fired, the Status Callback request also passes these additional parameters:</p>
