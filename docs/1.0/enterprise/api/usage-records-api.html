@@ -1991,17 +1991,17 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-142 is-active" onclick="openLanguage('Curl', 142)">Curl</button>
-        <button class="sample-code-button scsIndex-142" onclick="openLanguage('Nodejs', 142)">Nodejs</button>
-        <button class="sample-code-button scsIndex-142" onclick="openLanguage('Python', 142)">Python</button>
-        <button class="sample-code-button scsIndex-142" onclick="openLanguage('Java', 142)">Java</button>
+        <button class="sample-code-button scsIndex-141 is-active" onclick="openLanguage('Curl', 141)">Curl</button>
+        <button class="sample-code-button scsIndex-141" onclick="openLanguage('Nodejs', 141)">Nodejs</button>
+        <button class="sample-code-button scsIndex-141" onclick="openLanguage('Python', 141)">Python</button>
+        <button class="sample-code-button scsIndex-141" onclick="openLanguage('Java', 141)">Java</button>
       </div>
-      <div id="Curl-142" class="sample-language-142">
+      <div id="Curl-141" class="sample-language-141">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/ACCOUNT_SID/Usage/Records/Daily.xml  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-142" class="sample-language-142" style="display:none">
+      <div id="Nodejs-141" class="sample-language-141" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2020,7 +2020,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-142" class="sample-language-142" style="display:none">
+      <div id="Python-141" class="sample-language-141" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -2040,7 +2040,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-142" class="sample-language-142" style="display:none">
+      <div id="Java-141" class="sample-language-141" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2069,37 +2069,50 @@ public class JavaSampleClass {
       </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;RestcommResponse&gt;
-  &lt;UsageRecords&gt;
-    &lt;UsageRecord&gt;
-      &lt;Category&gt;calls&lt;/Category&gt;
-      &lt;Description&gt;Total Calls&lt;/Description&gt;
-      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
-      &lt;StartDate&gt;2016-01-01&lt;/StartDate&gt;
-      &lt;EndDate&gt;2016-01-01&lt;/EndDate&gt;
-      &lt;Usage&gt;4&lt;/Usage&gt;
-      &lt;UsageUnit&gt;minutes&lt;/UsageUnit&gt;
-      &lt;Count&gt;2&lt;/Count&gt;
-      &lt;CountUnit&gt;calls&lt;/CountUnit&gt;
-      &lt;Price&gt;0.0&lt;/Price&gt;
-      &lt;PriceUnit&gt;USD&lt;/PriceUnit&gt;
-      &lt;Uri&gt;/todo&lt;/Uri&gt;
-    &lt;/UsageRecord&gt;
-    &lt;UsageRecord&gt;
-      &lt;Category&gt;calls&lt;/Category&gt;
-      &lt;Description&gt;Total Calls&lt;/Description&gt;
-      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
-      &lt;StartDate&gt;2016-01-04&lt;/StartDate&gt;
-      &lt;EndDate&gt;2016-01-04&lt;/EndDate&gt;
-      &lt;Usage&gt;0&lt;/Usage&gt;
-      &lt;UsageUnit&gt;minutes&lt;/UsageUnit&gt;
-      &lt;Count&gt;1&lt;/Count&gt;
-      &lt;CountUnit&gt;calls&lt;/CountUnit&gt;
-      &lt;Price&gt;0.0&lt;/Price&gt;
-      &lt;PriceUnit&gt;USD&lt;/PriceUnit&gt;
-      &lt;Uri&gt;/todo&lt;/Uri&gt;
-    &lt;/UsageRecord&gt;
-  &lt;/UsageRecords&gt;</pre>
+<pre>[
+  {
+    "category": "calls",
+    "description": "Total Calls",
+    "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "start_date": "2020-03-09",
+    "end_date": "2020-03-10",
+    "usage": "1",
+    "usage_unit": "minutes",
+    "count": "1",
+    "count_unit": "calls",
+    "price": "0",
+    "price_unit": "USD",
+    "uri": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily?Category=calls&amp;StartDate=2020-03-09&amp;EndDate=2020-03-10"
+  },
+  {
+    "category": "calls",
+    "description": "Total Calls",
+    "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "start_date": "2020-03-11",
+    "end_date": "2020-03-12",
+    "usage": "0",
+    "usage_unit": "minutes",
+    "count": "1",
+    "count_unit": "calls",
+    "price": "0",
+    "price_unit": "USD",
+    "uri": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily?Category=calls&amp;StartDate=2020-03-11&amp;EndDate=2020-03-12"
+  },
+  {
+    "category": "calls",
+    "description": "Total Calls",
+    "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "start_date": "2020-03-12",
+    "end_date": "2020-03-13",
+    "usage": "1",
+    "usage_unit": "minutes",
+    "count": "3",
+    "count_unit": "calls",
+    "price": "0",
+    "price_unit": "USD",
+    "uri": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily?Category=calls&amp;StartDate=2020-03-12&amp;EndDate=2020-03-13"
+  }
+}</pre>
 </div>
 </div>
 </div>

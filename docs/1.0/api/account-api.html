@@ -2935,7 +2935,7 @@ The above command uses the Account SID of the requester, and the one below uses 
 </table>
 </div>
 <div class="paragraph">
-<p>The above commands will print an output similar to the one below:</p>
+<p>The below commands will print an output similar to the one below:</p>
 </div>
       <div class="sample-code-bar">
         <button class="sample-code-button scsIndex-8 is-active" onclick="openLanguage('Curl', 8)">Curl</button>
@@ -2944,7 +2944,7 @@ The above command uses the Account SID of the requester, and the one below uses 
         <button class="sample-code-button scsIndex-8" onclick="openLanguage('Java', 8)">Java</button>
       </div>
       <div id="Curl-8" class="sample-language-8">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -2957,7 +2957,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request({
       method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
@@ -2979,7 +2979,7 @@ userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       headers=headers)
 res = conn.getresponse()
 
@@ -3003,7 +3003,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("GET");
@@ -3019,29 +3019,32 @@ public class JavaSampleClass {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;RestcommResponse&gt;
-  &lt;Account&gt;
-    &lt;Sid&gt;&lt;accountSid&gt;&lt;/Sid&gt;
-    &lt;FriendlyName&gt;Default Administrator Account&lt;/FriendlyName&gt;
-    &lt;Status&gt;active&lt;/Status&gt;
-    &lt;Type&gt;Full&lt;/Type&gt;
-    &lt;DateCreated&gt;2012-04-24T00:00:00.000-06:00&lt;/DateCreated&gt;
-    &lt;DateUpdated&gt;2012-04-24T00:00:00.000-06:00&lt;/DateUpdated&gt;
-    &lt;AuthToken&gt;77f8c12cc7b8f8423e5c38b035249166&lt;/AuthToken&gt;
-    &lt;Uri&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;&lt;/Uri&gt;
-    &lt;SubresourceUris&gt;
-      &lt;AvailablePhoneNumbers&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/AvailablePhoneNumbers&lt;/AvailablePhoneNumbers&gt;
-      &lt;Calls&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/Calls&lt;/Calls&gt;
-      &lt;Conferences&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/Conferences&lt;/Conferences&gt;
-      &lt;IncomingPhoneNumbers&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/IncomingPhoneNumbers&lt;/IncomingPhoneNumbers&gt;
-      &lt;Notifications&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/Notifications&lt;/Notifications&gt;
-      &lt;OutgoingCallerIds&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/OutgoingCallerIds&lt;/OutgoingCallerIds&gt;
-      &lt;Recordings&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/Recordings&lt;/Recordings&gt;
-      &lt;Sandbox&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/Sandbox&lt;/Sandbox&gt;
-      &lt;SMSMessages&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/SMS/Messages&lt;/SMSMessages&gt;
-      &lt;Transcriptions&gt;/2012-04-24/Accounts/&lt;secondaryAccountSid&gt;/Transcriptions&lt;/Transcriptions&gt;
-    &lt;/SubresourceUris&gt;
-  &lt;/Account&gt;</pre>
+<pre>{
+  "sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "organization": "ORafbe225ad37541eba518a74248f0ac4c",
+  "owner_account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "friendly_name": "Jane Doe",
+  "email_address": "jane.doe@company.com",
+  "type": "Full",
+  "status": "active",
+  "role": "Administrator",
+  "date_created": "Wed, 4 Nov 2015 10:17:35 +0000",
+  "date_updated": "Tue, 7 Apr 2020 09:31:17 +0000",
+  "auth_token": "70XXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "uri": "/2012-04-24/Accounts.json/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "subresource_uris": {
+    "available_phone_numbers": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/AvailablePhoneNumbers.json",
+    "calls": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Calls.json",
+    "conferences": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Conferences.json",
+    "incoming_phone_numbers": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/IncomingPhoneNumbers.json",
+    "notifications": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Notifications.json",
+    "outgoing_caller_ids": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/OutgoingCallerIds.json",
+    "recordings": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Recordings.json",
+    "sandbox": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Sandbox.json",
+    "sms_messages": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/SMS/Messages.json",
+    "transcriptions": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Transcriptions.json"
+  }
+}</pre>
 </div>
 </div>
 </div>
