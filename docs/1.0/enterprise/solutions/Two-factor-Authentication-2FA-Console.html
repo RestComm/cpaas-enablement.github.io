@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="Solutions - Restcomm Docs"></title>
+    <title data-custom-title="Two-Factor Authentication (2FA) Console - Restcomm Docs"></title>
     <link rel="canonical" href="
-      https://cloud.restcomm.com/docs/solutions/index.html
+      https://cloud.restcomm.com/docs/solutions/Two-factor-Authentication-2FA-Console.html
     ">
+    <meta name="description" content="Secure online transactions, account sign-ins, mobile apps, websites and more by providing two-factor authentication (2FA) with One-Time Passwords to your users.">
+    <meta name="keywords" content="2fa, two-factor authentication, secure online transactions, otp, one-time passwords, #{&quot;spsParm&quot;:&quot;application_name&quot;,&quot;rcText&quot;:&quot;CPaaS&quot;,&quot;defaultText&quot;:&quot;$INFER_FROM_DOMAIN&quot;} two-factor authentication">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
@@ -1457,7 +1459,7 @@
                           </li>
   </ul>
             </li>
-            <li class="nav-item is-current-page" data-depth="1">
+            <li class="nav-item" data-depth="1">
               <div class="nav-flex-container">
             <span class="nav-flex-item-icon
               
@@ -1604,46 +1606,223 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../../index.html">docs</a></li>
-    <li class="crumb"><a href="index.html">Enterprise:Solution APIs</a></li>
+    <li class="crumb"><a href="Two-factor-Authentication-2FA-Console.html">Two-Factor Authentication (2FA) Console</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>Solutions</h1>
+  <h1>Two-Factor Authentication (2FA) Console</h1>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Explore a wide range of <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> use cases and industry best solutions.<br></p>
+<p>Two-factor authentication (2FA) API lets you send One Time Password (OTP) using SMS, Voice or email.</p>
 </div>
-<div class="api-callout-container">
-  <div class="api-callout-item">
-    <div class="api-callout-title api-callout-title-usecase">
-      <div class="api-callout-header-container">
-        <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-        <a class="api-callout-link" href="../tutorials/Two-factor-Authentication-2FA-Overview.html">Two-Factor Authentication (2FA)</a>
-      </div>
-    </div>
-    <p class="api-callout-text">Secure online transactions, account sign-ins, mobile apps, websites, and more by providing two-factor authentication (2FA) with one-time passwords to your users.</p>
-    <p class="api-callout-text"><a class="api-callout-link-usecase" href="../tutorials/Two-factor-Authentication-2FA-Overview.html">Read more</a></p>
-  </div>
-  <div class="api-callout-item">
-     <div class="api-callout-title api-callout-title-usecase">
-       <div class="api-callout-header-container">
-         <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-         <a class="api-callout-link" href="call-queue-overview.html">Call Queue</a>
-       </div>
-     </div>
-     <p class="api-callout-text">Call Queue allows callers to be placed in a Queue, hearing background music or announcement (text to speech) while waiting to get connected to called party.</p>
-     <p class="api-callout-text"><a class="api-callout-link-usecase" href="call-queue-overview.html">Read more</a></p>
-   </div>
-   <div class="api-callout-item">
-       <div class="api-callout-title api-callout-title-usecase">
-         <div class="api-callout-header-container">
-           <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-           <a class="api-callout-link" href="auto-attendant-overview.html">Auto Attendant</a>
-         </div>
-       </div>
-       <p class="api-callout-text">Auto Attendant (AA) is intended for business customers who want to provide an automated means of directing incoming calls to the appropriate person within the organization, typically to offload this task from a receptionist and also offer a simple menu system.</p>
-       <p class="api-callout-text"><a class="api-callout-link-usecase" href="auto-attendant-overview.html">Read more</a></p>
-     </div>
+<div class="paragraph">
+<p>2FA allows you to add a second layer of security to your Application in addition to the user-id and password. The flexibility of using any channel makes sure your users get OTP even when they experience issues with one of the channels.</p>
+</div>
+<div class="paragraph">
+<p>To understand more about 2FA, follow the general doc here.</p>
+</div>
+<div class="paragraph">
+<p>This document covers features and functionalities of 2FA UI Console that leverages underlying API.</p>
+</div>
+<div class="paragraph">
+<p>To access 2FA Console visit https://&lt;your custom restcomm domain&gt;/twofa/ and login via Credentials provided by your Service Provider.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_home"><a class="anchor" href="#_home"></a>Home</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is the default page user will see after the user logs in. Here users can find the number of OTP requests sent per channel - SMS, Voice and Email in the last 24 hours and 30 days usage report of OTP requests.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/2fa/2fa-home.png" alt="2FA Home">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_session_details"><a class="anchor" href="#_session_details"></a>Session Details</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Session Details Records allows users to Search for a specific set of 2FA requests based on filter criteria or to retrieve Usage Records like how many 2FA requests per day based on filter criteria.</p>
+</div>
+<div class="sect2">
+<h3 id="_search"><a class="anchor" href="#_search"></a>Search</h3>
+<div class="paragraph">
+<p>The user can search for a specific set of 2FA. Below are the supported filters for search:</p>
+</div>
+<div class="paragraph">
+<p><strong>Account Scope</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Search in Current Account: Shows the 2FA requests that are created by the logged in user.</p>
+</li>
+<li>
+<p>Search current account and sub-accounts: Shows 2FA requests that are created by logged in user and all other Sub-Accounts under logged in user.</p>
+</li>
+<li>
+<p>Search in Specific Account: Search 2FA requests that are created by specific Sub-Account under logged in user. User is presented with a list of Sub-Accounts in a popup window. The user can select the Sub-Account on that popup window.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Start Date:</strong> Shows the list of 2FA requests that were created on or after this date.</p>
+</div>
+<div class="paragraph">
+<p><strong>End Date:</strong> Shows the list of 2FA requests that were created on or before this date.</p>
+</div>
+<div class="paragraph">
+<p><strong>Status:</strong> Shows the list of 2FA requests that have selected status.</p>
+</div>
+<div class="paragraph">
+<p><strong>Channel:</strong> Shows the list of 2FA requests that are sent via selected channel.</p>
+</div>
+<div class="paragraph">
+<p><strong>Service:</strong> Shows the list of 2FA requests that match this service text, partially or fully in any position.</p>
+</div>
+<div class="paragraph">
+<p><strong>From:</strong> Only includes 2FA list that begins with this number/email text. For example if OTP from is “15713316943” and from filter parameter is “1”, it will match. However if the filter parameter is “3”, this record will not match. This allows to filter 2FA sent from specific country codes.</p>
+</div>
+<div class="paragraph">
+<p><strong>To:</strong> Only includes OTP list that has to begin with this number/email text. For example if OTP to is “16513333367” and to filter parameter is “1”, it will match. However if the filter parameter is “3”, this record will not match. This allows to filter OTP sent to specific country codes.</p>
+</div>
+<div class="paragraph">
+<p><strong>TargetSid:</strong> Only include 2FA list that matches the target sid of SMS/ Call/ Email text, partially or fully in any position.</p>
+</div>
+<div class="paragraph">
+<p><strong>Channel Status:</strong> Only includes 2FA list that match underlying channel status, partially or fully in any position. For SMS, possible channel status value can be as explained <a href="../api/sms-api.html#_status_description">here</a>. For Call, possible can be found <a href="../api/calls-api.html#_calls_attributes">here</a></p>
+</div>
+<div class="sect3">
+<h4 id="_sorting"><a class="anchor" href="#_sorting"></a>Sorting</h4>
+<div class="paragraph">
+<p>Users can sort the search results by clicking on Column Header as explained below</p>
+</div>
+<div class="paragraph">
+<p><strong>Date:</strong> Ascending or Descending list of 2FA based on Date when it was created
+<strong>Service:</strong> Sort by Service.
+<strong>Status:</strong> Sort by status of 2FA request.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/2fa/2fa-search.jpg" alt="2FA Search">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_download_as_csv"><a class="anchor" href="#_download_as_csv"></a>Download as CSV</h4>
+<div class="paragraph">
+<p>Once results are displayed for search criteria, users can click on the Download icon below the Search icon to download search results as CSV.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2fa_request_details"><a class="anchor" href="#_2fa_request_details"></a>2FA request details</h4>
+<div class="paragraph">
+<p>Users can view details of particular 2FA by clicking any row in the list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/2fa/2fa-request.jpg" alt="2FA Request">
+</div>
+</div>
+<div class="paragraph">
+<p>Users can click on Check link to see the details of the 2FA check request</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/2fa/2fa-request-check.png" alt="2FA Check Request"></span></p>
+</div>
+<div class="paragraph">
+<p>Users can click on Events to see details of the Channel used to send the 2FA request.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/2fa/2fa-events.png" alt="2FA Events">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usage_records"><a class="anchor" href="#_usage_records"></a>Usage Records</h3>
+<div class="paragraph">
+<p>The Usage record allows you to retrieve usage made by your 2FA account during any time period and by any usage channel. Below filter parameters are supported</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Usage Records do not include real time data and can be delayed by maximum 1 hour.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Account Scope:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Search in Current Account: Shows the 2FA requests that are created by the logged in user.</p>
+</li>
+<li>
+<p>Search current account and sub-accounts: Shows 2FA requests that are created by logged in user and all other Sub-Accounts under logged in user.</p>
+</li>
+<li>
+<p>Search in Specific Account: Search 2FA requests that are created by specific Sub-Account under logged in user. User is presented with a list of Sub-Accounts in a popup window. The user can select the Sub-Account on that popup window.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Subresource:</strong>
+* Daily: Shows the record of 2FA on a daily basis for selected Start Date and End Date.
+* Monthly: Shows the record of 2FA on a monthly basis for selected Start Date and End Date..
+* Yearly: Shows the record of 2FA on a yearly basis for selected Start Date and End Date.
+* Today: Shows the record of 2FA today.
+* Yesterday: Shows the record of 2FA on yesterday.
+* This Month: Shows the record of 2FA this month.
+* Last Month: Shows the record of 2FA last month.</p>
+</div>
+<div class="paragraph">
+<p><strong>Start Date:</strong> Only include 2FA requests that were created on or after this date.</p>
+</div>
+<div class="paragraph">
+<p><strong>End Date:</strong> Only include 2FA requests that were created on or before this date.</p>
+</div>
+<div class="paragraph">
+<p><strong>Status:</strong> Only include 2FA requests that have selected status.</p>
+</div>
+<div class="paragraph">
+<p><strong>Channel:</strong> Only include 2FA requests that are sent via selected channel.</p>
+</div>
+<div class="paragraph">
+<p><strong>Filter By Country Code:</strong> Only include 2FA requests sent to selected Country Code. For example if OTP is sent to “16513333367” and the filter parameter is “1 - United States”, it will match.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/2fa/2fa-usage-records.png" alt="2FA Usage Records">
+</div>
+</div>
+<div class="paragraph">
+<p>Usage Records will show Total, Successful, UnSuccessful and Success Ratio (Successful/Total).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_demo"><a class="anchor" href="#_demo"></a>Demo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>2FA Console also provides an easy demo for users to send OTP and test the API. To try Demo, click on your name at top right corner and select “2FA Demo”. Click on the “Try Demo” button on the card displayed. It displays a form where users can enter all the values and send OTP. If sending is successful, it displays the API called along with parameters.</p>
+</div>
+</div>
 </div>
 </article>
   </main>
