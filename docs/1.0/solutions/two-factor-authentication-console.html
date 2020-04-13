@@ -1615,6 +1615,7 @@
 <li><a href="#_usage_records">Usage Records</a></li>
 </ul>
 </li>
+<li><a href="#_demo">Demo</a></li>
 </ul>
 </div>
 <div class="sect1">
@@ -1627,10 +1628,13 @@
 <p>2FA allows you to add a second layer of security to your Application in addition to the user-id and password. The flexibility of using any channel makes sure your users get OTP even when they experience issues with one of the channels.</p>
 </div>
 <div class="paragraph">
-<p>This document covers features and functionalities of 2FA UI Console that leverages underlying API.</p>
+<p>To learn more about 2FA, check out the <a href="two-factor-authentication-overview.html">Two-Factor Authentication (2FA) Overview</a></p>
 </div>
 <div class="paragraph">
-<p>To access 2FA Console visit <a href="https://&lt;your_custom_restcomm_domain&gt;/twofa/" class="bare">https://&lt;your_custom_restcomm_domain&gt;/twofa/</a> and login with your Restcomm Credentials.</p>
+<p>This document covers features and functionalities of the 2FA UI Console that leverage the underlying API.</p>
+</div>
+<div class="paragraph">
+<p>To access 2FA Console visit https://&lt;your_custom_domain&gt;/twofa/ and login with your Restcomm Credentials.</p>
 </div>
 </div>
 </div>
@@ -1638,7 +1642,7 @@
 <h2 id="_white_labeling"><a class="anchor" href="#_white_labeling"></a>White Labeling</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Restcomm enables you to go to market with your own 2FA brand in a matter of days. 2FA leverages the Restcomm Whitelabel, hence all the work done by user to whitelabel Restcomm Dashboard is used by 2FA as it is. For further details on Restcomm Dashboard whitelabel please visit <a href="https://www.restcomm.com/docs/whitelabeling.html" class="bare">https://www.restcomm.com/docs/whitelabeling.html</a></p>
+<p>Restcomm enables you to go to market with your own 2FA brand in a matter of days. 2FA leverages the Restcomm Whitelabel, hence all the work done by user to whitelabel Restcomm Dashboard is used by 2FA as it is. For further details on Restcomm Dashboard whitelabeling please check the <a href="../whitelabeling.html">Restcomm Whitelabeling Guide</a>.</p>
 </div>
 </div>
 </div>
@@ -1646,7 +1650,7 @@
 <h2 id="_home"><a class="anchor" href="#_home"></a>Home</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is the default page user will see after the user logs in. Here user can find the number of OTP requests sent per channel - SMS, Voice and Email in the last 24 hours for users Account and 30 days usage report of OTP requests.</p>
+<p>This is the default page the user will see after logging in. Here user can find the number of OTP requests sent per channel - SMS, Voice and Email in the last 24 hours for users Account and 30 days usage report of OTP requests.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1710,10 +1714,10 @@
 <p><strong>Check Status:</strong> Only include a 2FA list that has this check status. Possible values are valid or invalid</p>
 </div>
 <div class="paragraph">
-<p><strong>Channel Status:</strong> Only include 2FA list that matches underlying channel status, partially or fully in any position. For SMS, possible channel status value can be as explained <a href="https://cloud.restcomm.com/docs/api/sms-api.html#_status_description">here</a>. For Call, possible values are as explained in “status” property <a href="https://cloud.restcomm.com/docs/api/calls-api.html#_calls_attributes">here</a>.</p>
+<p><strong>Channel Status:</strong> Only include 2FA list that matches underlying channel status, partially or fully in any position. For SMS, possible channel status value can be as explained <a href="../api/sms-api.html#_status_description">here</a>. For Call, possible values are as explained in “status” property <a href="../api/calls-api.html#_calls_attributes">here</a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Channel Error Code:</strong> Only include a 2FA list that matches underlying channel code, partially or fully in any position. For SMS, the possible value can be found <a href="https://cloud.restcomm.com/docs/api/sms-api.html#_sms_specific_error_codes">here</a></p>
+<p><strong>Channel Error Code:</strong> Only include a 2FA list that matches underlying channel code, partially or fully in any position. For SMS, the possible value can be found <a href="../api/sms-api.html#_sms_specific_error_codes">here</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Channel Error Message:</strong> Only include 2FA list that matches channel error message text, partially or fully in any position</p>
@@ -1723,10 +1727,18 @@
 <div class="paragraph">
 <p>Users can sort the search results by clicking on Column Header as explained below.</p>
 </div>
-<div class="paragraph">
-<p><strong>Date:</strong> Ascending or Descending list of 2FA based on Date when it was created
-<strong>Service:</strong> Sort by Service.
-<strong>Status:</strong> Sort by the status of 2FA request.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Date:</strong> Ascending or Descending list of 2FA based on Date when it was created</p>
+</li>
+<li>
+<p><strong>Service:</strong> Sort by Service.</p>
+</li>
+<li>
+<p><strong>Status:</strong> Sort by the status of 2FA request.</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1743,7 +1755,7 @@
 <div class="sect3">
 <h4 id="_2fa_request_details"><a class="anchor" href="#_2fa_request_details"></a>2FA request details:</h4>
 <div class="paragraph">
-<p>Users can view details of particular 2FA by clicking any row in the list.</p>
+<p>User can view details of particular 2FA by clicking on any row in the list.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1751,7 +1763,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Users can click on Check link to see the details of the 2FA check request</p>
+<p>User can click on Check link to see the details of the 2FA check request</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1763,7 +1775,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/two-factor-authentication/restcomm-2fa-channel-details.png" alt="Two-factor authentication - Channel details">
+<img src="../_images/two-factor-authentication/restcomm-2fa-channel-details.jpg" alt="Two-factor authentication - Channel details">
 </div>
 </div>
 </div>
@@ -1771,7 +1783,19 @@
 <div class="sect2">
 <h3 id="_usage_records"><a class="anchor" href="#_usage_records"></a>Usage Records</h3>
 <div class="paragraph">
-<p>The Usage record allows to retrieve usage made by your 2FA account during any time period and by any usage channel. Below filter parameters are supported</p>
+<p>The Usage record allows to retrieve usage made by your 2FA account during any time period and by any usage channel. Below filter parameters are supported.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Usage Records do not include real-time data and can be delayed by maximum 1 hour.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><strong>Account Scope:</strong></p>
@@ -1818,31 +1842,19 @@
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Start Date:</strong> Only include 2FA requests that were created on or after this date.</p>
+<p><strong>Start Date:</strong> Only includes 2FA requests that were created on or after this date.</p>
 </div>
 <div class="paragraph">
-<p><strong>End Date:</strong> Only include 2FA requests that were created on or before this date.</p>
+<p><strong>End Date:</strong> Only includes 2FA requests that were created on or before this date.</p>
 </div>
 <div class="paragraph">
-<p><strong>Status:</strong> Only include 2FA requests that have selected status.</p>
+<p><strong>Status:</strong> Only includes 2FA requests that have selected status.</p>
 </div>
 <div class="paragraph">
-<p><strong>Channel:</strong> Only include 2FA requests that are sent via selected channel.</p>
+<p><strong>Channel:</strong> Only includes 2FA requests that are sent via selected channel.</p>
 </div>
 <div class="paragraph">
-<p><strong>Service:</strong> Only include 2FA requests that match this service text, partially or fully in any position.</p>
-</div>
-<div class="paragraph">
-<p><strong>From:</strong> Only include 2FA requests that has from begins with this number/email text. For example, if OTP is generated from number “15713316943” and from filter parameter is “1”, it will match. However if from filter parameter is “3”, this record will not match. This allows filtering 2FA sent from specific country code.</p>
-</div>
-<div class="paragraph">
-<p><strong>To:</strong> Only include 2FA requests that have to begin with this number/email text. For example, if OTP sent to number “16513333367” and to filter parameter is “1”, it will match. However if to filter parameter is “3”, this record will not match. This allows filtering OTP sent to specific country code.</p>
-</div>
-<div class="paragraph">
-<p><strong>Check Status:</strong> Only include 2FA requests that have this check status. Possible values are valid or invalid</p>
-</div>
-<div class="paragraph">
-<p><strong>Channel Status:</strong> Only include 2FA requests that match underlying channel status, partially or fully in any position. For SMS, possible channel status value can be as explained <a href="https://cloud.restcomm.com/docs/api/sms-api.html#_status_description">here</a>. For Call, possible values are as explained in “status” property <a href="https://cloud.restcomm.com/docs/api/calls-api.html#_calls_attributes">here</a>.</p>
+<p><strong>Filter By Country Code:</strong> Only includes 2FA requests sent to selected Country Code. For example if OTP is sent to “16513333367” and the filter parameter is “1 - United States”, it will match.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1850,9 +1862,20 @@
 </div>
 </div>
 <div class="paragraph">
-<p>If you would like to explore the Two-factor authentication (2FA) API, we recommend having a loot at the
+<p>Usage Records will show Total, Successful, UnSuccessful and Success Ratio (Successful / Total).</p>
+</div>
+<div class="paragraph">
+<p>If you would like to explore the Two-factor authentication (2FA) API, we recommend having a look at the
 <a href="Two-factor-Authentication-2FA.html">Getting Started with the Two-factor authentication (2FA) API Guide</a></p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_demo"><a class="anchor" href="#_demo"></a>Demo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>2FA Console provides an easy to use demo for users to send OTP and test the 2FA API. To try Demo, click on your name at top right corner and select “2FA Demo”. Click on the “Try Demo” button on the card displayed. You will see a form where you can enter all the values and send OTP. If sending is successful, you will see the API called along with parameters.</p>
 </div>
 </div>
 </div>
