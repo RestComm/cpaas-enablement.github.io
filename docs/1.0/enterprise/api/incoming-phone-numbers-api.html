@@ -1735,30 +1735,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">The application name.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UssdUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request when receiving an incoming USSD request to this number.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UssdMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will use when making requests to the UssdUrl. Either GET or POST.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UssdFallbackUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request if an error occurs retrieving or executing the RCML from UssdUrl.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UssdFallbackMethod</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will use when requesting the above URL. Either GET or POST.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UssdApplicationSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The 34 character sid of the application <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use to handle USSD requests to this number. If a UssdApplicationSid is present, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will ignore all of the Ussd urls above and use those set on the application.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UssdApplicationName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The application name.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ReferUrl</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The URL <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will request when receiving a SIP Refer request to this number.</p></td>
 </tr>
@@ -2079,17 +2055,17 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-116 is-active" onclick="openLanguage('Curl', 116)">Curl</button>
-        <button class="sample-code-button scsIndex-116" onclick="openLanguage('Nodejs', 116)">Nodejs</button>
-        <button class="sample-code-button scsIndex-116" onclick="openLanguage('Python', 116)">Python</button>
-        <button class="sample-code-button scsIndex-116" onclick="openLanguage('Java', 116)">Java</button>
+        <button class="sample-code-button scsIndex-37 is-active" onclick="openLanguage('Curl', 37)">Curl</button>
+        <button class="sample-code-button scsIndex-37" onclick="openLanguage('Nodejs', 37)">Nodejs</button>
+        <button class="sample-code-button scsIndex-37" onclick="openLanguage('Python', 37)">Python</button>
+        <button class="sample-code-button scsIndex-37" onclick="openLanguage('Java', 37)">Java</button>
       </div>
-      <div id="Curl-116" class="sample-language-116">
+      <div id="Curl-37" class="sample-language-37">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/IncomingPhoneNumbers.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-116" class="sample-language-116" style="display:none">
+      <div id="Nodejs-37" class="sample-language-37" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2108,7 +2084,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-116" class="sample-language-116" style="display:none">
+      <div id="Python-37" class="sample-language-37" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -2128,7 +2104,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-116" class="sample-language-116" style="display:none">
+      <div id="Java-37" class="sample-language-37" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2181,11 +2157,11 @@ public class JavaSampleClass {
     "sms_fallback_url": null,
     "sms_fallback_method": "POST",
     "sms_application_sid": null,
-    "ussd_url": null,
-    "ussd_method": null,
-    "ussd_fallback_url": null,
-    "ussd_fallback_method": null,
-    "ussd_application_sid": null,
+//    "ussd_url": null,
+//    "ussd_method": null,
+//    "ussd_fallback_url": null,
+//    "ussd_fallback_method": null,
+//    "ussd_application_sid": null,
     "refer_url": null,
     "refer_method": null,
     "refer_application_sid": null,
@@ -2544,19 +2520,19 @@ public class JavaSampleClass {
 <p>This one uses the default application</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-117 is-active" onclick="openLanguage('Curl', 117)">Curl</button>
-        <button class="sample-code-button scsIndex-117" onclick="openLanguage('Nodejs', 117)">Nodejs</button>
-        <button class="sample-code-button scsIndex-117" onclick="openLanguage('Python', 117)">Python</button>
-        <button class="sample-code-button scsIndex-117" onclick="openLanguage('Java', 117)">Java</button>
+        <button class="sample-code-button scsIndex-38 is-active" onclick="openLanguage('Curl', 38)">Curl</button>
+        <button class="sample-code-button scsIndex-38" onclick="openLanguage('Nodejs', 38)">Nodejs</button>
+        <button class="sample-code-button scsIndex-38" onclick="openLanguage('Python', 38)">Python</button>
+        <button class="sample-code-button scsIndex-38" onclick="openLanguage('Java', 38)">Java</button>
       </div>
-      <div id="Curl-117" class="sample-language-117">
+      <div id="Curl-38" class="sample-language-38">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/IncomingPhoneNumbers.json  \
    -d 'PhoneNumber=+15105555555' \
    -d 'VoiceUrl=https://mycompany.com/restcomm/demos/hello-play.xml' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-117" class="sample-language-117" style="display:none">
+      <div id="Nodejs-38" class="sample-language-38" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2578,7 +2554,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-117" class="sample-language-117" style="display:none">
+      <div id="Python-38" class="sample-language-38" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -2607,7 +2583,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-117" class="sample-language-117" style="display:none">
+      <div id="Java-38" class="sample-language-38" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2683,12 +2659,12 @@ If you are trying to attach a number that you didn&#8217;t look up previously fr
 <p>This one uses the default application</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-118 is-active" onclick="openLanguage('Curl', 118)">Curl</button>
-        <button class="sample-code-button scsIndex-118" onclick="openLanguage('Nodejs', 118)">Nodejs</button>
-        <button class="sample-code-button scsIndex-118" onclick="openLanguage('Python', 118)">Python</button>
-        <button class="sample-code-button scsIndex-118" onclick="openLanguage('Java', 118)">Java</button>
+        <button class="sample-code-button scsIndex-39 is-active" onclick="openLanguage('Curl', 39)">Curl</button>
+        <button class="sample-code-button scsIndex-39" onclick="openLanguage('Nodejs', 39)">Nodejs</button>
+        <button class="sample-code-button scsIndex-39" onclick="openLanguage('Python', 39)">Python</button>
+        <button class="sample-code-button scsIndex-39" onclick="openLanguage('Java', 39)">Java</button>
       </div>
-      <div id="Curl-118" class="sample-language-118">
+      <div id="Curl-39" class="sample-language-39">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/IncomingPhoneNumbers.json  \
    -d 'PhoneNumber=1234' \
    -d 'VoiceUrl=https://mycompany.com/restcomm/demos/hello-play.xml' \
@@ -2696,7 +2672,7 @@ If you are trying to attach a number that you didn&#8217;t look up previously fr
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-118" class="sample-language-118" style="display:none">
+      <div id="Nodejs-39" class="sample-language-39" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2719,7 +2695,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-118" class="sample-language-118" style="display:none">
+      <div id="Python-39" class="sample-language-39" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -2749,7 +2725,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-118" class="sample-language-118" style="display:none">
+      <div id="Java-39" class="sample-language-39" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2817,17 +2793,17 @@ public class JavaSampleClass {
 <p>You have to get the SID of the phone and use curl to delete as follows</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-119 is-active" onclick="openLanguage('Curl', 119)">Curl</button>
-        <button class="sample-code-button scsIndex-119" onclick="openLanguage('Nodejs', 119)">Nodejs</button>
-        <button class="sample-code-button scsIndex-119" onclick="openLanguage('Python', 119)">Python</button>
-        <button class="sample-code-button scsIndex-119" onclick="openLanguage('Java', 119)">Java</button>
+        <button class="sample-code-button scsIndex-40 is-active" onclick="openLanguage('Curl', 40)">Curl</button>
+        <button class="sample-code-button scsIndex-40" onclick="openLanguage('Nodejs', 40)">Nodejs</button>
+        <button class="sample-code-button scsIndex-40" onclick="openLanguage('Python', 40)">Python</button>
+        <button class="sample-code-button scsIndex-40" onclick="openLanguage('Java', 40)">Java</button>
       </div>
-      <div id="Curl-119" class="sample-language-119">
+      <div id="Curl-40" class="sample-language-40">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X DELETE https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/IncomingPhoneNumbers/PHONENUMBER_SID.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-119" class="sample-language-119" style="display:none">
+      <div id="Nodejs-40" class="sample-language-40" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2848,7 +2824,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-119" class="sample-language-119" style="display:none">
+      <div id="Python-40" class="sample-language-40" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -2870,7 +2846,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-119" class="sample-language-119" style="display:none">
+      <div id="Java-40" class="sample-language-40" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2907,17 +2883,17 @@ public class JavaSampleClass {
 <p>Gets all numbers created using <strong>IncomingPhoneNumbers.json</strong></p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-120 is-active" onclick="openLanguage('Curl', 120)">Curl</button>
-        <button class="sample-code-button scsIndex-120" onclick="openLanguage('Nodejs', 120)">Nodejs</button>
-        <button class="sample-code-button scsIndex-120" onclick="openLanguage('Python', 120)">Python</button>
-        <button class="sample-code-button scsIndex-120" onclick="openLanguage('Java', 120)">Java</button>
+        <button class="sample-code-button scsIndex-41 is-active" onclick="openLanguage('Curl', 41)">Curl</button>
+        <button class="sample-code-button scsIndex-41" onclick="openLanguage('Nodejs', 41)">Nodejs</button>
+        <button class="sample-code-button scsIndex-41" onclick="openLanguage('Python', 41)">Python</button>
+        <button class="sample-code-button scsIndex-41" onclick="openLanguage('Java', 41)">Java</button>
       </div>
-      <div id="Curl-120" class="sample-language-120">
+      <div id="Curl-41" class="sample-language-41">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/IncomingPhoneNumbers.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-120" class="sample-language-120" style="display:none">
+      <div id="Nodejs-41" class="sample-language-41" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2936,7 +2912,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-120" class="sample-language-120" style="display:none">
+      <div id="Python-41" class="sample-language-41" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -2956,7 +2932,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-120" class="sample-language-120" style="display:none">
+      <div id="Java-41" class="sample-language-41" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
