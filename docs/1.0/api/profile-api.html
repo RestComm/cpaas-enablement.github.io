@@ -2395,10 +2395,15 @@ Subscriber Profiles can only be created by the CSP Administrators.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enabling_of_dns_srv_resolution_sip_outbound_calls"><a class="anchor" href="#_enabling_of_dns_srv_resolution_sip_outbound_calls"></a>Enabling of DNS SRV resolution (SIP outbound calls)</h3>
+<h3 id="_outbound_sip_routing"><a class="anchor" href="#_outbound_sip_routing"></a>Outbound SIP Routing</h3>
+<div class="sect3">
+<h4 id="_enabling_dns_resolution"><a class="anchor" href="#_enabling_dns_resolution"></a>Enabling DNS resolution</h4>
 <div class="paragraph">
-<p>Usage of DNS SRV resolution calls is disabled by default. To enable it you need to add an "dns_resolve" addition of the "multiProvider.outbound-voice.proxy.uri" Network Profile parameter. Example:</p>
+<p>By default the usage of DNS resolution for calls is disabled. To enable it you need to add an "dns_resolve" addition of the "multiProvider.outbound-voice.proxy.uri" Network Profile parameter.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_example"><a class="anchor" href="#_example"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
 <pre>{
@@ -2416,6 +2421,43 @@ Subscriber Profiles can only be created by the CSP Administrators.
         ],
     },
 }</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_manipulation_of_sip_fields"><a class="anchor" href="#_manipulation_of_sip_fields"></a>Manipulation of SIP fields</h4>
+<div class="paragraph">
+<p>This session control extension allows fine-grained control on how DNS resolution shall affect different fields and headers of the outbound SIP requests.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "sessionControl": {
+        "resolveRequestUri": "resolve(default)|keep",
+        "resolveToHeader" : "resolve(default)|keep"
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>resolveRequestUri</code> decides whether the hostname in the SIP Request URI shall be replaced with outbound-voice proxy defined in the MultiProvider extension.
+If the value is set to <code>keep</code>, no resolution is attempted and the field is left unmodified.</p>
+</div>
+<div class="paragraph">
+<p>The <code>resolveToHeader</code> decides whether the hostname in the SIP To header shall be replaced with outbound-voice proxy defined in the MultiProvider extension.
+If the value is set to <code>keep</code>, no resolution is attempted and the field is left unmodified.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If not specified, both extensions default to <code>resolve</code> to maintain backwards compatibility.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
