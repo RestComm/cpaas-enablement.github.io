@@ -1694,17 +1694,17 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-128 is-active" onclick="openLanguage('Curl', 128)">Curl</button>
-        <button class="sample-code-button scsIndex-128" onclick="openLanguage('Nodejs', 128)">Nodejs</button>
-        <button class="sample-code-button scsIndex-128" onclick="openLanguage('Python', 128)">Python</button>
-        <button class="sample-code-button scsIndex-128" onclick="openLanguage('Java', 128)">Java</button>
+        <button class="sample-code-button scsIndex-132 is-active" onclick="openLanguage('Curl', 132)">Curl</button>
+        <button class="sample-code-button scsIndex-132" onclick="openLanguage('Nodejs', 132)">Nodejs</button>
+        <button class="sample-code-button scsIndex-132" onclick="openLanguage('Python', 132)">Python</button>
+        <button class="sample-code-button scsIndex-132" onclick="openLanguage('Java', 132)">Java</button>
       </div>
-      <div id="Curl-128" class="sample-language-128">
+      <div id="Curl-132" class="sample-language-132">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-128" class="sample-language-128" style="display:none">
+      <div id="Nodejs-132" class="sample-language-132" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1723,7 +1723,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-128" class="sample-language-128" style="display:none">
+      <div id="Python-132" class="sample-language-132" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -1743,7 +1743,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-128" class="sample-language-128" style="display:none">
+      <div id="Java-132" class="sample-language-132" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1820,17 +1820,17 @@ public class JavaSampleClass {
 <p>For example, the following request will return the first page of results with a size of 10 items:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-129 is-active" onclick="openLanguage('Curl', 129)">Curl</button>
-        <button class="sample-code-button scsIndex-129" onclick="openLanguage('Nodejs', 129)">Nodejs</button>
-        <button class="sample-code-button scsIndex-129" onclick="openLanguage('Python', 129)">Python</button>
-        <button class="sample-code-button scsIndex-129" onclick="openLanguage('Java', 129)">Java</button>
+        <button class="sample-code-button scsIndex-133 is-active" onclick="openLanguage('Curl', 133)">Curl</button>
+        <button class="sample-code-button scsIndex-133" onclick="openLanguage('Nodejs', 133)">Nodejs</button>
+        <button class="sample-code-button scsIndex-133" onclick="openLanguage('Python', 133)">Python</button>
+        <button class="sample-code-button scsIndex-133" onclick="openLanguage('Java', 133)">Java</button>
       </div>
-      <div id="Curl-129" class="sample-language-129">
+      <div id="Curl-133" class="sample-language-133">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json?Page=0&PageSize=10  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-129" class="sample-language-129" style="display:none">
+      <div id="Nodejs-133" class="sample-language-133" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -1849,7 +1849,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-129" class="sample-language-129" style="display:none">
+      <div id="Python-133" class="sample-language-133" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -1869,7 +1869,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-129" class="sample-language-129" style="display:none">
+      <div id="Java-133" class="sample-language-133" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -1886,6 +1886,124 @@ public class JavaSampleClass {
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
       URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/SMS/Messages.json?Page=0&PageSize=10");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_limit_for_span_class_sps_text_non_sps_link_data_orig_text_restcomm_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_accounting_apis"><a class="anchor" href="#_limit_for_span_class_sps_text_non_sps_link_data_orig_text_restcomm_data_parm_text_application_name_data_default_text_infer_from_domain_restcomm_span_accounting_apis"></a>Limit for <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Accounting APIs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Accounting APIs impose a limitation in the number of the total results that can be fetched by querying the specific APIs, using the Limit parameter.</p>
+</div>
+<div class="paragraph">
+<p>The maximum value of the Limit parameter will be set by the system but user queries can provide a Limit value lower than the system default, to improve query results and response times.</p>
+</div>
+<div class="paragraph">
+<p>The Limit parameter is a filter that can be used to restrict the total number of results to be fetched and improve the response times, while on the contrary the PageSize parameter will limit the number of records to be fetched for each page.</p>
+</div>
+<div class="paragraph">
+<p>The Limit parameter will be included in the API response.</p>
+</div>
+<div class="paragraph">
+<p>The following query parameter is supported:</p>
+</div>
+<table class="tableblock frame-top grid-rows spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Limit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of items in the list.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For example, the following request will result in a response of 500 items:</p>
+</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-134 is-active" onclick="openLanguage('Curl', 134)">Curl</button>
+        <button class="sample-code-button scsIndex-134" onclick="openLanguage('Nodejs', 134)">Nodejs</button>
+        <button class="sample-code-button scsIndex-134" onclick="openLanguage('Python', 134)">Python</button>
+        <button class="sample-code-button scsIndex-134" onclick="openLanguage('Java', 134)">Java</button>
+      </div>
+      <div id="Curl-134" class="sample-language-134">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json?Limit=500  \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-134" class="sample-language-134" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Messages.json?Limit=500',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-134" class="sample-language-134" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/SMS/Messages.json?Limit=500',
+      headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-134" class="sample-language-134" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/SMS/Messages.json?Limit=500");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("GET");
