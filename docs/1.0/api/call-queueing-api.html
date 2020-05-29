@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="Call Queueing - Restcomm Docs"></title>
+    <title data-custom-title="Call Queuing - Restcomm Docs"></title>
     <link rel="canonical" href="
       https://www.restcomm.com/docs/1.0/api/call-queueing-api.html
     ">
-    <meta name="description" content="Call Queueing allows callers to be placed in a Queue, hearing background music or announcement (text to speech) while waiting to get connected to called party.">
-    <meta name="keywords" content="call queue, restcomm call queueing api">
+    <meta name="description" content="Call Queuing allows callers to be placed in a Queue, hearing background music or announcement (text to speech) while waiting to get connected to called party.">
+    <meta name="keywords" content="call queue, restcomm call queuing api">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
@@ -2223,12 +2223,12 @@
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>Call Queueing</h1>
+  <h1>Call Queuing</h1>
 <div class="sect1">
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Call Queueing is a feature that allows callers (A leg) to be placed in a Queue, hearing background music or announcement (text to speech) while waiting to get connected to called party (B leg). This is one of the most commonly needed features to build any kind of Inbound Contact Center solution.</p>
+<p>Call Queuing is a feature that allows callers (A leg) to be placed in a Queue, hearing background music or announcement (text to speech) while waiting to get connected to called party (B leg). This is one of the most commonly needed features to build any kind of Inbound Contact Center solution.</p>
 </div>
 <div class="paragraph">
 <p>The document below describes the Call Queue turnkey application from Telestax build on top of the Restcomm Platform leveraging its APIs. A Queue stores incoming calls in First In First Out (FIFO) order (let’s call those callers Customers). The Queue then connects the first call in queue to receivers (let’s call those Agents).</p>
@@ -2236,18 +2236,18 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_call_queueing"><a class="anchor" href="#_call_queueing"></a>Call Queueing</h2>
+<h2 id="_call_queuing"><a class="anchor" href="#_call_queuing"></a>Call Queuing</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order to use Call Queueing, you need a valid Restcomm Cloud account.</p>
+<p>In order to use Call Queuing, you need a valid Restcomm Cloud account.</p>
 </div>
 <div class="paragraph">
-<p>For the Call Queueing turnkey application to function correctly at least two numbers must be reserved in Restcomm Cloud (via Call Queueing API) and at least one unique Queue defined (via Call Queueing API), let’s call this “Support” Queue have to be defined. The first number will be used by Customers to call and get in “Support” Queue. Let&#8217;s set this number to +1 571 331 6666. The second number is called by Agents and starts accepting call’s queued in “Support” in FIFO order. Let&#8217;s have this number set to +1 571 331 9999. Users can create as many queues as long as they all have unique names.</p>
+<p>For the Call Queuing turnkey application to function correctly at least two numbers must be reserved in Restcomm Cloud (via Call Queuing API) and at least one unique Queue defined (via Call Queuing API), let’s call this “Support” Queue have to be defined. The first number will be used by Customers to call and get in “Support” Queue. Let&#8217;s set this number to +1 571 331 6666. The second number is called by Agents and starts accepting call’s queued in “Support” in FIFO order. Let&#8217;s have this number set to +1 571 331 9999. Users can create as many queues as long as they all have unique names.</p>
 </div>
 <div class="sect2">
-<h3 id="_create_queueing_api"><a class="anchor" href="#_create_queueing_api"></a>Create Queueing API</h3>
+<h3 id="_create_queuing_api"><a class="anchor" href="#_create_queuing_api"></a>Create Queuing API</h3>
 <div class="paragraph">
-<p>Create Queueing API has to be called twice.</p>
+<p>Create Queuing API has to be called twice.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2266,7 +2266,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_add_queueing_resource_uri"><a class="anchor" href="#_add_queueing_resource_uri"></a>Add Queueing Resource URI</h4>
+<h4 id="_add_queuing_resource_uri"><a class="anchor" href="#_add_queuing_resource_uri"></a>Add Queuing Resource URI</h4>
 <div class="paragraph">
 <p>/callqueue/provisioning</p>
 </div>
@@ -2348,7 +2348,7 @@ For example, Customer Number URL can return:&#160;<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Id for this Application within Call Queueing turnkey application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Id for this Application within Call Queuing turnkey application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">phoneNumber</p></td>
@@ -2364,11 +2364,11 @@ For example, Customer Number URL can return:&#160;<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Call Queueing app was created.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Call Queuing app was created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">voiceUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">URL that is provisioned for passed phoneNumber in Restcomm Cloud. This URL is made up of “applicationUrlMethod” that was passed as request parameter along with some additional parameters that are used by Call Queueing turnkey application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URL that is provisioned for passed phoneNumber in Restcomm Cloud. This URL is made up of “applicationUrlMethod” that was passed as request parameter along with some additional parameters that are used by Call Queuing turnkey application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">voiceMethod</p></td>
@@ -2392,7 +2392,7 @@ For example, Customer Number URL can return:&#160;<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that Restcomm will request to pass status parameters (such as call ended) to Call Queueing application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URL that Restcomm will request to pass status parameters (such as call ended) to Call Queuing application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackMethod</p></td>
@@ -2454,7 +2454,7 @@ For example, Customer Number URL can return:&#160;<br>
 </div>
 </div>
 <div class="paragraph">
-<p>If the creation of Call Queueing is successful, below is the response returned:</p>
+<p>If the creation of Call Queuing is successful, below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
