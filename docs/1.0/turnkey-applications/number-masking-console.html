@@ -1569,7 +1569,7 @@
                                       </ul>
               <ul class="nav-list">
                                                   </ul>
-  </ul>
+              </ul>
               <ul class="nav-list">
               <ul class="nav-list">
                           </ul>
@@ -1618,40 +1618,132 @@
 <article class="doc fix-anchor-links-position">
   <h1>Number Masking Console</h1>
 <div class="sect1">
-<h2 id="_coming_soon"><a class="anchor" href="#_coming_soon"></a>Coming soon</h2>
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p> <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br></p>
+<p>Number Masking enables Enterprise to easily make communication between two or more parties without revealing private information (Phone Number).</p>
+</div>
+<div class="paragraph">
+<p>CSP can create, manage and view Enterprises. In addition, CSP can also add, manage and view Users for each Enterprise.</p>
+</div>
+<div class="paragraph">
+<p>Both CSP Admin and Enterprise Admin can create, manage and view Applications, Contexts and Mask Pools etc. To understand more about managing Number Masking, check out the <a href="https://cloud.restcomm.com/docs/turnkey-applications/number-masking-console.html">Getting Started with Enterprise Number Masking Console Guide</a>.</p>
+</div>
+<div class="paragraph">
+<p>This document covers the features and functionalities of the Number Masking Console (UII) from a CSP user point of view.</p>
+</div>
+<div class="paragraph">
+<p>More information about the Number Masking API can be at the found <a href="../api/number-masking-api.html">Getting Started with the Number Masking API Guide</a>.</p>
+</div>
+<div class="paragraph">
+<p>To sign in to the Number Masking Console please navigate to https://&lt;your domain&gt;/numbermaskingconsole/.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enterprise"><a class="anchor" href="#_enterprise"></a>Enterprise</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Enterprises are customers of the CSP. CSPs can create, manage and delete enterprises. This is a logical grouping of CSP customers that helps to easily manage billing andinvoices for enterprises.</p>
+</div>
+<div class="sect2">
+<h3 id="_enterprise_list"><a class="anchor" href="#_enterprise_list"></a>Enterprise List</h3>
+<div class="paragraph">
+<p>Users can view a list of all enterprises that have been added under their organization. Enterprises can be filtered based on their name.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/number-masking/enterprise-list.png" alt="enterprise list">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enterprise_details"><a class="anchor" href="#_enterprise_details"></a>Enterprise Details</h3>
+<div class="paragraph">
+<p>Users can view details of a particular enterprise by clicking on any enterprise name in the list.</p>
+</div>
+<div class="paragraph">
+<p>Users can Delete the enterprise by clicking on the “Delete Enterprise” button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/number-masking/enterprise-details.png" alt="enterprise details">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_add_enterprise"><a class="anchor" href="#_add_enterprise"></a>Add Enterprise</h3>
+<div class="paragraph">
+<p>Whenever the CSP adds a new enterprise, the system prompts for a mandatory eser under that enterprise. This User gets created under Restcomm as a Sub-Account of the CSP organisation. The CSP should provision all the Phone Numbers under this Sub-Account in Restcomm as explained in documentation <a href="https://www.restcomm.com/docs/api/incoming-phone-numbers-api.html">here</a>. These phone numbers are available for enterprises to create a Mask Number Pool for any application.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is expected that CSP will not share newly created User credentials with Enterprise Customers. CSP should create more Users via User Management API and only share newly created credentials. This is because the first User created with Enterprise will have all the Phone Numbers provisioned and CSP wouldn’t want Enterprise customers to make any changes to those numbers.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Follow the steps below to add an enterprise:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click on the “Add Enterprise” button in the enterprise list page .</p>
+</li>
+<li>
+<p>Enter the name of the new enterprise.</p>
+</li>
+<li>
+<p>An enterprise admin to be assigned to this enterprise. Enter the email Id of the enterprise  admin user you’d want to be the admin of the enterprise. All the numbers will be provisioned under this account.</p>
+</li>
+<li>
+<p>Enter the password for the enterprise admin account. This will be set in Restcomm.</p>
+</li>
+<li>
+<p>Enter a friendly name of the enterprise admin user.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Enterprise name,Mail ID  must be unique.<br>
+Note: Password should meet below criteria:<br>
+ At least one Uppercase letter(A,B,C,D…&#8230;&#8203;)<br>
+ At least one Lowercase letter(a,b,c,d,&#8230;&#8203;&#8230;&#8203;.)<br>
+ At least one number(1,2,3,4,5….)<br>
+ At least one special character(!,@,#,$,%,&amp;,&#8230;&#8203;&#8230;&#8203;.)<br>
+ Length of the password should be greater than equal to 8.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Once the enterprise is created, click on the “Applications” link of a particular enterprise to see all other options mentioned as described in the <a href="https://cloud.restcomm.com/docs/turnkey-applications/number-masking-console.html">Enterprise Console documentation</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/number-masking/add-enterprise.png" alt="add enterprise">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_search"><a class="anchor" href="#_search"></a>Search</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All the options are explained in Enterprise Console Docs. There only one more feature exposed for CSP Admin Console is CSP Admin can select the Enterprise as filter to search each of the entities.</p>
 </div>
 </div>
 </div>
