@@ -1653,75 +1653,46 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">call screening url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code>, <code>POST</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>POST</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">method for call screening url</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackEvent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>initiated</code>, <code>ringing</code>, <code>answered</code>, <code>completed</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">initiated, ringing, answered ,completed</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event triggers for status callback</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackMethod</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code>, <code>POST</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>POST</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">method for statusCallback url</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_name"><a class="anchor" href="#_name"></a>name</h4>
-<div class="paragraph">
-<p>The 'name' attribute allows you to inform the client who will answer to a video call. This attribute should be used only when <code>&lt;Video&gt;</code> noun is nested, otherwise client&#8217;s name should be informed as value of the tag <code>&lt;Client&gt;</code>.</p>
-</div>
-<div class="paragraph">
-<p>Client&#8217;s name without <code>&lt;Video&gt;</code> noun nesting.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Client&gt;alice&lt;/Client&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Client&#8217;s name with <code>&lt;Video&gt;</code> noun nesting.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Client name="alice"&gt;&lt;Video enable=”true”&gt;&lt;/Video&gt;&lt;/Client&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For more information, please read <a href="#">video-rcml.adoc#video</a>.</p>
-</div>
-<div class="paragraph">
-<p>This attribute may contain URI params to declare propietary SIP headers to be
-included in the outgoing INVITE message.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Client&gt;alice?X-Custom-Header1=1234&amp;X-Custom-Header2=4321&lt;/Client&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
 <h4 id="_url"><a class="anchor" href="#_url"></a>url</h4>
 <div class="paragraph">
-<p>The 'url' attribute allows you to specify a url for a RCML document that will run on the called party&#8217;s end, after she answers, but before the parties are connected. You can use this RCML to privately play or say information to the called party, or provide a chance to decline the phone call using &lt;Gather&gt; and &lt;Hangup&gt;. The current caller will continue to hear ringing while the RCML document executes on the other end. RCML documents executed in this manner are not allowed to contain the &lt;Dial&gt; verb. method</p>
+<p>The 'url' attribute lets you specify a url for a RCML document that will run on the called party&#8217;s end, after they answer, but before the both parties are connected. You can use this RCML to privately Play or Say information to the called party, or provide a chance to decline the phone call using &lt;Gather&gt; and &lt;Hangup&gt;. The caller will continue to hear ringing while the RCML document executes on the other end. RCML documents executed in this manner are not allowed to contain the &lt;Dial&gt; verb.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1736,13 +1707,16 @@ included in the outgoing INVITE message.</p>
 <p>When dialing out to a Client using &lt;Dial&gt;, an outbound call is initiated. The call transitions from the initiated state to the ringing state when the phone starts ringing. It transitions to the answered state when the call is picked up, and finally to the completed state when the call is over. With <strong>statusCallbackEvent</strong>, you can subscribe to receive webhooks for the different call progress events: initiated, ringing, answered, or completed for a given call.</p>
 </div>
 <div class="paragraph">
-<p>The <strong>statusCallbackEvent</strong> attribute allows you to specify which events <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should webhook on. To specify multiple events separate them with a comma: <code>initiated,ringing,answered,completed</code>. If a statusCallback is provided and no status callback events are specified the completed event will be sent by default.</p>
+<p>The <strong>statusCallbackEvent</strong> attribute allows you to specify which events <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> should webhook on. You can specify multiple events by separating them with a comma: <code>initiated,ringing,answered,completed</code>. If a statusCallback is provided and no status callback events are specified then all of the events will be triggered by default.</p>
 </div>
 <div class="paragraph">
 <p>As opposed to creating an outbound call via the API, outbound calls created using &lt;Dial&gt; are initiated right away and never queued. The following shows a timeline of possible call events that can be returned and the different call statuses that a &lt;Dial&gt; leg may experience:</p>
 </div>
 <div class="paragraph">
-<p>The <strong>&lt;Client&gt;</strong> noun specifies a client identifier to dial. You can use multiple <strong>&lt;Client&gt;</strong> nouns within a <strong>&lt;Dial&gt;</strong> verb to simultaneously attempt a connection with many clients at once. The first client to accept the incoming connection is connected to the call and the other connection attempts are canceled.</p>
+<p>The <strong>&lt;Client&gt;</strong> noun specifies a client identifier to dial. You can use multiple <strong>&lt;Client&gt;</strong> nouns within a <strong>&lt;Dial&gt;</strong> verb to simultaneously attempt a call with many clients at once. The first client to accept the incoming call is connected to the call, while the rest of the call attempts are canceled.</p>
+</div>
+<div class="paragraph">
+<p>If a client has several registrations in a server then the server will make call attempts to all available registrations. <strong>statusCallbackEvent</strong> events sets will be invoked for all registrations. But if no client registration is available (a client is not registered) then no call attempts will be made and no <strong>statusCallbackEvent</strong> event will be invoked.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1763,19 +1737,19 @@ included in the outgoing INVITE message.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initiated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> starts dialing the call with CallStatus <code>initiated</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>ringing</code> event is fired when the call starts ringing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>ringing</code> event is fired when the call starts ringing with CallStatus <code>ringing</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">answered</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>answered</code> event is fired when the call is answered.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>answered</code> event is fired when the call is answered with CallStatus <code>in-progress</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">completed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>completed</code> event is fired when the call is completed regardless of the termination status: <code>busy</code>, <code>canceled</code>, <code>completed</code>, <code>failed</code>, or <code>no-answer</code>. If no <code>statusCallbackEvent</code> is specified, <code>completed</code> will be fired by default.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>completed</code> event is fired when the call is completed regardless of the termination status with CallStatus <code>busy</code>, <code>completed</code>, <code>failed</code>, or <code>no-answer</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1795,7 +1769,7 @@ included in the outgoing INVITE message.</p>
 <div class="sect3">
 <h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
 <div class="paragraph">
-<p>The parameters <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
+<p>The parameters <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation <a href="overview.html#_request_parameters">Request Parameters</a>.</p>
 </div>
 <div class="paragraph">
 <p>When the call progress events are fired, the Status Callback request also passes these additional parameters:</p>
@@ -1813,14 +1787,6 @@ included in the outgoing INVITE message.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CallSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CallStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A descriptive status for the call. The value is one of <strong><code>queued</code></strong>, <strong><code>initiated</code></strong>, <strong><code>ringing</code></strong>, <strong><code>in-progress</code></strong>, <strong><code>busy</code></strong>, <strong><code>failed</code></strong>, or <strong><code>no-answer</code></strong>. See the CallStatus section for more details.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CallDuration</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The duration in seconds of the just-completed call. Only present in the <code>completed</code> event.</p></td>
 </tr>
@@ -1835,6 +1801,10 @@ included in the outgoing INVITE message.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SequenceNumber</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The order in which the events were fired, starting from <code>0</code>. Although events are fired in order, they are made as separate HTTP requests and there is no guarantee they will arrive in the same order.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ParentCallSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for the parent call.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1890,31 +1860,12 @@ included in the outgoing INVITE message.</p>
 &lt;Response&gt;
 &lt;Dial&gt;
         &lt;Client
-             statusCallbackEvent='initiated ringing answered completed'
+             statusCallbackEvent='initiated,ringing,answered,completed'
              statusCallback='https://myapp.com/calls/events'
              statusCallbackMethod='POST'&gt;
                                         thomas
          &lt;/Client&gt;
 &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_example_4_video_call_to_client"><a class="anchor" href="#_example_4_video_call_to_client"></a>Example 4: Video call to Client</h3>
-<div class="paragraph">
-<p>The following RCML dials to alice enabling video.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;Response&gt;
-    &lt;Dial&gt;
-	    &lt;Client name="alice"&gt;
-	        &lt;Video enable=”true”&gt;
-    	    &lt;/Video&gt;
-	    &lt;/Client&gt;
-    &lt;/Dial&gt;
 &lt;/Response&gt;</pre>
 </div>
 </div>

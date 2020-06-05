@@ -2274,29 +2274,34 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-</tr>
-<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">call screening url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code>, <code>POST</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>POST</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">method for call screening url</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackEvent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>initiated</code>, <code>ringing</code>, <code>answered</code>, <code>completed</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">initiated,ringing,answered,completed</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">initiated,ringing,answered,completed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event triggers for status callback</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback url</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackMethod</p></td>
@@ -2305,31 +2310,6 @@
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="_name"><a class="anchor" href="#_name"></a>name</h4>
-<div class="paragraph">
-<p>The 'name' attribute allows you to inform the SIP URI who will answer to a video call. This attribute should be used only when <code>&lt;Video&gt;</code> noun is nested, otherwise the SIP URI should be informed as value of the tag <code>&lt;Sip&gt;</code>.</p>
-</div>
-<div class="paragraph">
-<p>Sip URI (name) without <code>&lt;Video&gt;</code> noun nesting.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Sip&gt;sip:alice@127.0.0.1:5080&lt;/Sip&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Sip URI (name) with <code>&lt;Video&gt;</code> noun nesting.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Sip name="sip:alice@127.0.0.1:5080"&gt;&lt;Video enable=”true”&gt;&lt;/Video&gt;&lt;/Sip&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For more information, please read <a href="#">video-rcml.adoc#video</a>.</p>
-</div>
-</div>
 <div class="sect3">
 <h4 id="_url"><a class="anchor" href="#_url"></a>url</h4>
 <div class="paragraph">
@@ -2375,19 +2355,19 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initiated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call with CallStatus <code>initiated</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>ringing</code> event is fired when the call starts ringing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>ringing</code> event is fired when the call starts ringing with CallStatus <code>ringing</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">answered</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>answered</code> event is fired when the call is answered.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>answered</code> event is fired when the call is answered with CallStatus <code>in-progress</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">completed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>completed</code> event is fired when the call is completed regardless of the termination status: <code>busy</code>, <code>canceled</code>, <code>completed</code>, <code>failed</code>, or <code>no-answer</code>. If no <code>statusCallbackEvent</code> is specified, <code>completed</code> will be fired by default.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>completed</code> event is fired when the call is completed regardless of the termination status with CallStatus <code>busy</code>, <code>completed</code>, <code>failed</code>, or <code>no-answer</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -2404,10 +2384,11 @@
 <p>The <strong>statusCallbackMethod</strong> attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the URL in the statusCallback attribute. The default is POST.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
+</div>
+<div class="sect2">
+<h3 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h3>
 <div class="paragraph">
-<p>The parameters <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
+<p>The <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> parameters passed to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your numbers. The full list of parameters can be found in the <a href="overview.html#_request_parameters">RCML Voice Request documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p>When the call progress events are fired, the Status Callback request also passes these additional parameters:</p>
@@ -2425,14 +2406,6 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CallSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CallStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A descriptive status for the call. The value is one of <strong><code>queued</code></strong>, <strong><code>initiated</code></strong>, <strong><code>ringing</code></strong>, <strong><code>in-progress</code></strong>, <strong><code>busy</code></strong>, <strong><code>failed</code></strong>, or <strong><code>no-answer</code></strong>. See the CallStatus section for more details.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CallDuration</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The duration in seconds of the just-completed call. Only present in the <code>completed</code> event.</p></td>
 </tr>
@@ -2448,156 +2421,20 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">SequenceNumber</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The order in which the events were fired, starting from <code>0</code>. Although events are fired in order, they are made as separate HTTP requests and there is no guarantee they will arrive in the same order.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ParentCallSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for the parent call.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
-</div>
 <div class="sect2">
-<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<h3 id="_call_screening_http_parameters"><a class="anchor" href="#_call_screening_http_parameters"></a>Call Screening HTTP parameters</h3>
 <div class="paragraph">
-<p>For an example of how to use the &lt;Sip&gt; noun see below.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-    &lt;Dial&gt;
-    &lt;Sip&gt;sip:alice@127.0.0.1:5080&lt;/Sip&gt;
-    &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h3>
-<div class="paragraph">
-<p>Send username and password attributes for authentication to your SIP infrastructure as attributes on the Sip noun.</p>
+<p>When a call is answered, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes the following parameters with its request to your screening URL (in addition to the standard RCML Voice request parameters). The full list of parameters can be found in the <a href="overview.html#_request_parameters">RCML Voice Request documentation</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attribute Name</th>
-<th class="tableblock halign-left valign-top">Values</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Username for SIP authentication.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password for SIP authentication</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_authentication_example"><a class="anchor" href="#_authentication_example"></a>Authentication Example</h3>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;Response&gt;
-    &lt;Dial&gt;
-    &lt;Sip username="alice" password="secret"&gt;sip:alice@example.com&lt;/Sip&gt;
-    &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_custom_headers"><a class="anchor" href="#_custom_headers"></a>Custom headers</h3>
-<div class="paragraph">
-<p>Send custom headers by appending them to the SIP URI&#8201;&#8212;&#8201;just as you&#8217;d pass headers in a URI over HTTP. For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;Response&gt;
-    &lt;Dial&gt;
-        &lt;Sip&gt;
-        sip:alice@example.com?mycustomheader=tata&amp;myotherheader=toto
-        &lt;/Sip&gt;
-    &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_character_limit"><a class="anchor" href="#_character_limit"></a>Character Limit</h3>
-<div class="paragraph">
-<p>While the SIP URI itself must be under 255 chars, the headers must be under 1024 characters.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_transport"><a class="anchor" href="#_transport"></a>Transport</h3>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;Response&gt;
-    &lt;Dial&gt;
-        &lt;Sip&gt;
-        sip:alice@example.com;transport=tcp
-        &lt;/Sip&gt;
-    &lt;/Dial&gt;
-&lt;/Response&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Set a parameter on your SIP URI to specify what transport protocol you want to use. Currently, this is limited to TCP and UDP. By default, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> sends your SIP INVITE over UDP. Change this by using the transport parameter:</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_attributes"><a class="anchor" href="#_attributes"></a>Attributes</h3>
-<div class="sect3">
-<h4 id="_request_parameters_2"><a class="anchor" href="#_request_parameters_2"></a>Request Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attribute Name</th>
-<th class="tableblock halign-left valign-top">Allowed Values</th>
-<th class="tableblock halign-left valign-top">Default Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">call screening url.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GET, POST</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The url attribute allows you to specify a url for a RCML document that runs on the called party&#8217;s end, after they answer, but before the two parties are connected. You can use this RCML to privately Play or Say information to the called party, or provide a chance to decline the phone call using Gather and Hangup. The current caller continues to hear ringing while the RCML document executes on the other end. RCML documents executed in this manner cannot contain the Dial verb.</p>
-</div>
-<div class="sect4">
-<h5 id="_method_2"><a class="anchor" href="#_method_2"></a>method</h5>
-<div class="paragraph">
-<p>The method attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the URL specified in the url attribute. The default is POST.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_call_screening_http_parameters"><a class="anchor" href="#_call_screening_http_parameters"></a>Call Screening HTTP parameters</h5>
-<div class="paragraph">
-<p>When a call is answered, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes the following parameters with its request to your screening URL (in addition to the standard RCML Voice request parameters):</p>
-</div>
-<div class="sect5">
-<h6 id="_request_parameters_3"><a class="anchor" href="#_request_parameters_3"></a>Request Parameters</h6>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2622,14 +2459,28 @@
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<div class="paragraph">
+<p>For an example of how to use the &lt;Sip&gt; noun see below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;Response&gt;
+    &lt;Dial&gt;
+    &lt;Sip&gt;sip:alice@127.0.0.1:5080&lt;/Sip&gt;
+    &lt;/Dial&gt;
+&lt;/Response&gt;</pre>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_dial_action_http_parameters"><a class="anchor" href="#_dial_action_http_parameters"></a>Dial Action HTTP parameters</h4>
+<h4 id="_authentication"><a class="anchor" href="#_authentication"></a>Authentication</h4>
 <div class="paragraph">
-<p>Use the action callback parameters to modify your application based on the results of the SIP dial attempt:</p>
+<p>Send username and password attributes for authentication to your SIP infrastructure as attributes on the Sip noun.</p>
 </div>
-<div class="sect4">
-<h5 id="_request_parameters_4"><a class="anchor" href="#_request_parameters_4"></a>Request Parameters</h5>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_2"><a class="anchor" href="#_request_parameters_2"></a>Request Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2643,23 +2494,72 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DialSipCallId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The SIP call ID header of the request made to the remote SIP infrastructure.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">username</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username for SIP authentication.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DialSipResponseCode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The SIP response code as a result of the INVITE attempt.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DialSipHeader_</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name/value of any X-headers returned in the final response to the SIP INVITE request.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password for SIP authentication</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_authentication_example"><a class="anchor" href="#_authentication_example"></a>Authentication Example</h4>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;Response&gt;
+    &lt;Dial&gt;
+    &lt;Sip username="alice" password="secret"&gt;sip:alice@example.com&lt;/Sip&gt;
+    &lt;/Dial&gt;
+&lt;/Response&gt;</pre>
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_dial_with_multiple_examples"><a class="anchor" href="#_dial_with_multiple_examples"></a>Dial with Multiple Examples.</h4>
+<h4 id="_custom_headers"><a class="anchor" href="#_custom_headers"></a>Custom headers</h4>
+<div class="paragraph">
+<p>Send custom headers by appending them to the SIP URI&#8201;&#8212;&#8201;just as you&#8217;d pass headers in a URI over HTTP. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Response&gt;
+    &lt;Dial&gt;
+        &lt;Sip&gt;
+        sip:alice@example.com?mycustomheader=tata&amp;myotherheader=toto
+        &lt;/Sip&gt;
+    &lt;/Dial&gt;
+&lt;/Response&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_character_limit"><a class="anchor" href="#_character_limit"></a>Character Limit</h4>
+<div class="paragraph">
+<p>While the SIP URI itself must be under 255 chars, the headers must be under 1024 characters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_transport"><a class="anchor" href="#_transport"></a>Transport</h4>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Response&gt;
+    &lt;Dial&gt;
+        &lt;Sip&gt;
+        sip:alice@example.com;transport=tcp
+        &lt;/Sip&gt;
+    &lt;/Dial&gt;
+&lt;/Response&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Set a parameter on your SIP URI to specify what transport protocol you want to use. Currently, this is limited to TCP and UDP. By default, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> sends your SIP INVITE over UDP. Change this by using the transport parameter:</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_complex_dial_examples"><a class="anchor" href="#_complex_dial_examples"></a>Complex Dial Examples</h4>
 <div class="paragraph">
 <p>A more complex Dial, specifying custom settings as attributes on Dial, including call screening and setting the protocol to TCP.</p>
 </div>

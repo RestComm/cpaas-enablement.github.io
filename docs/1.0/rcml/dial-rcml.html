@@ -2309,7 +2309,13 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h3>
+<h3 id="_dial_action_request_http_parameters"><a class="anchor" href="#_dial_action_request_http_parameters"></a>Dial action request HTTP Parameters</h3>
+<div class="paragraph">
+<p>The <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> parameters passed to your application in its asynchronous request to the Dial action URL. The full list of parameters can be found in the <a href="overview.html#_request_parameters">RCML Voice Request documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Status Callback request also passes these additional parameters:</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2335,12 +2341,44 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">The duration in seconds of the dialed call. This parameter is not sent after dialing a conference.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DialRingDuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The duration in seconds of the dialed call ringing time. This parameter is not sent after dialing a conference.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RecordingUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URL of the recorded audio. This parameter is only sent if record="true" is set on the <code>Dial</code> verb, and does not include recordings from the <code>Record</code> verb or Record=True on REST API calls..</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URL of the recorded audio. This parameter is only sent if record="true" is set on the <code>Dial</code> verb, and does not include recordings from the <code>Record</code> verb or Record=True on REST API calls. The recording file may not yet be accessible when the action callback is sent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ReferTarget</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Refer-To</code> parameter of REFER if a call is created after a call transfer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transferor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Contact</code> parameter of REFER if a call is created after a call transfer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transferee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>To</code> parameter of REFER if a call is created after a call transfer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FailureReason (optional)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Provides more information about failure reason where Dial Number/Sip/Client is blocked by an extension. This parameter is optional and will only be present when call status is Failed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides more information about failure reason where Dial Number/Sip/Client. This parameter is optional and will only be present when call status is Failed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SipHeader_*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A set of optional field with custom SIP headers that are present in INVITE SIP request or in a last SIP response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DialSipCallId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter: sipCallId from a response in a last SIP response if a last SIP response code &gt;=400</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DialSipResponseCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter: statusCode in a last SIP response if a last SIP response code &gt;=400</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DialSipHeader_*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A set of optional field with custom SIP headers that are present in a last SIP response</p></td>
 </tr>
 </tbody>
 </table>

@@ -2265,29 +2265,39 @@
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">call screening url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code>, <code>POST</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>POST</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">method for call screening url</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackEvent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>initiated</code>, <code>ringing</code>, <code>answered</code>, <code>completed</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">initiated,ringing,answered,completed</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event triggers for status callback</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackMethod</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code>, <code>POST</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>POST</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">method for statusCallback url</p></td>
 </tr>
 </tbody>
 </table>
@@ -2337,19 +2347,19 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initiated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>initiated</code> event is fired when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> starts dialing the call with CallStatus <code>initiated</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>ringing</code> event is fired when the call starts ringing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>ringing</code> event is fired when the call starts ringing with CallStatus <code>ringing</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">answered</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>answered</code> event is fired when the call is answered.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>answered</code> event is fired when the call is answered with CallStatus <code>in-progress</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">completed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>completed</code> event is fired when the call is completed regardless of the termination status: <code>busy</code>, <code>canceled</code>, <code>completed</code>, <code>failed</code>, or <code>no-answer</code>. If no <code>statusCallbackEvent</code> is specified, <code>completed</code> will be fired by default.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <code>completed</code> event is fired when the call is completed regardless of the termination status with CallStatus <code>busy</code>, <code>completed</code>, <code>failed</code>, or <code>no-answer</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -2369,7 +2379,7 @@
 <div class="sect3">
 <h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
 <div class="paragraph">
-<p>The parameters <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation.</p>
+<p>The <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> parameters passed to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> receives a call to one of your numbers. The full list of parameters can be found in the <a href="overview.html#_request_parameters">RCML Voice Request documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p>When the call progress events are fired, the Status Callback request also passes these additional parameters:</p>
@@ -2387,14 +2397,6 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CallSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for this call, generated by <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>. You can use the <code>CallSid</code> to modify the child call by POSTing to Calls/{CallSid} with a new RCML URL.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CallStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A descriptive status for the call. The value is one of <strong><code>queued</code></strong>, <strong><code>initiated</code></strong>, <strong><code>ringing</code></strong>, <strong><code>in-progress</code></strong>, <strong><code>busy</code></strong>, <strong><code>failed</code></strong>, or <strong><code>no-answer</code></strong>. See the CallStatus section for more details.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CallDuration</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The duration in seconds of the just-completed call. Only present in the <code>completed</code> event.</p></td>
 </tr>
@@ -2410,15 +2412,26 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">SequenceNumber</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The order in which the events were fired, starting from <code>0</code>. Although events are fired in order, they are made as separate HTTP requests and there is no guarantee they will arrive in the same order.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ParentCallSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A unique identifier for the parent call.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_including_propietary_sip_headers"><a class="anchor" href="#_including_propietary_sip_headers"></a>Including propietary SIP headers</h3>
+<h3 id="_including_proprietary_sip_headers"><a class="anchor" href="#_including_proprietary_sip_headers"></a>Including proprietary SIP headers</h3>
 <div class="paragraph">
-<p>This noun allows to customize propietary SIP headers to be included in the outgoing
-SIP message. Those will be include following SIP URI params syntax. See example below.</p>
+<p>This noun lets you customize proprietary SIP headers to be included in the outgoing SIP message. Those will be include following SIP URI params syntax.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Response&gt;
+    &lt;Number&gt;+131313?X-Custom-Header1=1234&amp;X-Custom-Header2=4321&lt;/Number&gt;
+&lt;/Response&gt;</pre>
+</div>
 </div>
 </div>
 </div>
