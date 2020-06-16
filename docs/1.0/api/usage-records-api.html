@@ -2714,7 +2714,7 @@
         <button class="sample-code-button scsIndex-71" onclick="openLanguage('Java', 71)">Java</button>
       </div>
       <div id="Curl-71" class="sample-language-71">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/ACCOUNT_SID/Usage/Records/Daily.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Usage/Records/Daily.xml  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -2727,7 +2727,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request({
       method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.xml',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
@@ -2749,7 +2749,7 @@ userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/"Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.xml',
+conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.xml',
       headers=headers)
 res = conn.getresponse()
 
@@ -2773,7 +2773,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/" + ACCOUNT_SID + "/Usage/Records/Daily.xml");
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Usage/Records/Daily.xml");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("GET");
