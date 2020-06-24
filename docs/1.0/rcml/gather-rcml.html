@@ -2267,6 +2267,11 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">current document URL</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">actionOnEmptyResult</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET, POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
@@ -2348,13 +2353,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>method.</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> whether to request the 'action' URL via HTTP GET or POST.</p>
+<p><strong>actionOnEmptyResult</strong> If set to true, it will forcefully trigger a webhook to the action URL even when there is no collected input. Otherwise, the following verb will be processed.</p>
 </li>
 <li>
-<p><strong>timeout.</strong> The 'timeout' attribute sets the limit in seconds that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will wait for the caller to press another digit before moving on and making a request to the 'action' URL. For example, if 'timeout' is '10', <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will wait ten seconds for the caller to press another key before submitting the previously entered digits to the 'action' URL. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> waits until completing the execution of all nested verbs before beginning the timeout period.</p>
+<p><strong>method</strong> The 'method' attribute takes the value 'GET' or 'POST'. This tells <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> whether to request the 'action' URL via HTTP GET or POST.</p>
 </li>
 <li>
-<p><strong>finishOnKey.</strong> The 'finishOnKey' attribute lets you choose one value that submits the received data when entered. For example, if you set 'finishOnKey' to '#' and the user enters '1234#', <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will immediately stop waiting for more input when the '#' is received and will submit "Digits=1234" to the 'action' URL. Note that the 'finishOnKey' value is not sent. The allowed values are the digits 0-9, ‘#’, ‘*’ . If the attribute hasn’t been set or has an empty string, the <code>#</code> symbol will be used as a fallback instead.</p>
+<p><strong>timeout</strong> The 'timeout' attribute sets the limit in seconds that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will wait for the caller to press another digit before moving on and making a request to the 'action' URL. For example, if 'timeout' is '10', <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will wait ten seconds for the caller to press another key before submitting the previously entered digits to the 'action' URL. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> waits until completing the execution of all nested verbs before beginning the timeout period.</p>
+</li>
+<li>
+<p><strong>finishOnKey</strong> The 'finishOnKey' attribute lets you choose one value that submits the received data when entered. For example, if you set 'finishOnKey' to '#' and the user enters '1234#', <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will immediately stop waiting for more input when the '#' is received and will submit "Digits=1234" to the 'action' URL. Note that the 'finishOnKey' value is not sent. The allowed values are the digits 0-9, ‘#’, ‘*’ . If the attribute hasn’t been set or has an empty string, the <code>#</code> symbol will be used as a fallback instead.</p>
 </li>
 <li>
 <p><strong>input</strong> A list of inputs that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should accept for &lt;Gather&gt;. Can be "dtmf" or "speech". Defaults to "dtmf".</p>
