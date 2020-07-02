@@ -1631,7 +1631,7 @@
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Number Masking exposes API to obfuscate called/calling parties. As of today API allows only voice conversation but will soon be followed by SMS as well.</p>
+<p>Number Masking exposes API to obfuscate called/calling parties. Both voice calls and messages (SMS) are supported</p>
 </div>
 <div class="paragraph">
 <p>Number Masking allows users to create and manage:</p>
@@ -1652,6 +1652,9 @@
 </li>
 <li>
 <p><a href="number-masking-api.html#_interactions">Interactions</a></p>
+</li>
+<li>
+<p><a href="number-masking-api.html#_usage_records">Usage Records</a></p>
 </li>
 </ul>
 </div>
@@ -1876,9 +1879,7 @@
         “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
         “enterpriseSid”: “ EN838bcdf35f9d421fad3ab516195b873b”,
         “name”:”MyTestApplication”,
-        “status”:”open”,
         “ttl”:”0”,
-        “numberSelectionBehavior”:”avoid-sticky”,
         “accountEmail”:”aditya.dixit@telestax.com”,
         "dateCreated":"2019-07-22 09:53:51",
         "dateUpdated":"2019-07-22 09:53:51",
@@ -2151,23 +2152,21 @@ If search API is called without page and pageSize, by default pageSize will be 1
 {
         “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
         “name”:”MyTestApplication”,
-        “status”:”open”,
         “ttl”:”0”,
-        “numberSelectionBehavior”:”avoid-sticky”,
         “accountEmail”:”aditya.dixit@telestax.com”,
         "dateCreated":"2019-07-22 09:53:51",
         "dateUpdated":"2019-07-22 09:53:51",
+        “enterpriseSid”: “ EN838bcdf35f9d421fad3ab516195b873b”,
           "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f "
     },
 {
         “sid":"NMAb6eb071d21124dbab20b095c25f1274e",
         “name”:”DeliveryApplication”,
-        “status”:”open”,
         “ttl”:”0”,
-        “numberSelectionBehavior”:”avoid-sticky”,
         “accountEmail”:”aditya.dixit@telestax.com”,
         "dateCreated":"2019-07-23 09:53:51",
         "dateUpdated":"2019-07-23 09:53:51",
+         “enterpriseSid”: “ EN838bcdf35f9d421fad3ab516195b873b”,
           "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274e "
     }
 
@@ -2268,12 +2267,11 @@ If search API is called without page and pageSize, by default pageSize will be 1
     "data": {
         “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
         “name”:”MyTestApplication”,
-        “status”:”open”,
         “ttl”:”0”,
-        “numberSelectionBehavior”:”avoid-sticky”,
         “accountEmail”:”aditya.dixit@telestax.com”,
         "dateCreated":"2019-07-22 09:53:51",
         "dateUpdated":"2019-07-22 09:53:51",
+        “enterpriseSid”: “ EN838bcdf35f9d421fad3ab516195b873b”,
           "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f "
     },
     "code": 200,
@@ -3958,7 +3956,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 "applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
 "phoneNumber":"12013507693",
 "isReserved":"true",
-“inUse”:”trrue”,
+“inUse”:”0”,
 “accountEmail”:”aditya.dixit@telestax.com”,
 "dateCreated":"2019-07-22 09:53:51",
 "dateUpdated":"2019-07-22 09:53:51",
@@ -4111,7 +4109,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 </div>
 </div>
 <div class="paragraph">
-<p>If Remove Mask Number  is successful, below is the response returned:</p>
+<p>If Remove Mask Number is successful, below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4122,7 +4120,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 "applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
 "phoneNumber":"12013507693",
 "isReserved":"false",
-“inUse”:”true”,
+“inUse”:”0”,
 “accountEmail”:”aditya.dixit@telestax.com”,
 "dateCreated":"2019-07-22 09:53:51",
 "dateUpdated":"2019-07-22 09:53:51",
@@ -4212,7 +4210,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The Mode of the Session. Can be: message-only, voice-only, or voice-and-message and the default value is voice-only. For now voice-only is supported.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The Mode of the Session. Can be: message-only, voice-only, or voice-and-message and the default value is voice-only.</p></td>
 </tr>
 </tfoot>
 <tbody>
@@ -4238,7 +4236,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 <div class="sect3">
 <h4 id="_response_body_7"><a class="anchor" href="#_response_body_7"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Context if it was  successfully created. HTTP response will be 200 Created  (OK).</p>
+<p>The Response Body will carry Code, corresponding message and data of Context if it was  successfully created. HTTP response will be 200 Created  (OK).</p>
 </div>
 <div class="paragraph">
 <p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below</p>
@@ -4314,7 +4312,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Mode of the Session. Can be: message-only, voice-only, or voice-and-message and the default value is voice-only. For now voice-only is supported.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Mode of the Session. Can be: message, voice, or voice and message. The default value is voice-only.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
@@ -4326,7 +4324,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">closedReason</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The reason Context was closed. Possible values are: Expired, Deleted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The reason Context was closed. Possible values are: EXPIRED: Context expired due to ttl or dateExpiry has passed; API: Context was Closed via API call;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
@@ -4413,7 +4411,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 "applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
 "name":"TestSession1",
 "ttl":"600",
-"mode":"voice-only",
+"mode":"voice",
 "status":"open",
 “accountEmail”:”aditya.dixit@telestax.com”,
 "dateCreated":"2019-07-22 09:53:51",
@@ -4710,7 +4708,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 "applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
 "name":"TestSession1",
 "ttl":"600",
-"mode":"voice-only",
+"mode":"voice",
 "status":"open",
 “accountEmail”:”aditya.dixit@telestax.com”,
 "dateCreated":"2019-07-22 09:53:51",
@@ -4830,7 +4828,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 "applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
 "name":"TestSession1",
 "ttl":"600",
-"mode":"voice-only",
+"mode":"voice",
 "status":"open",
 “accountEmail”:”aditya.dixit@telestax.com”,
 "dateCreated":"2019-07-22 09:53:51",
@@ -5016,7 +5014,7 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 "applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
 "name":"TestSession1",
 "ttl":"3600",
-"mode":"voice-only",
+"mode":"voice",
 "status":"open",
 “accountEmail”:”aditya.dixit@telestax.com”,
 "dateCreated":"2019-07-22 09:53:51",
@@ -5189,7 +5187,7 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 "applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
 "name":"TestSession1",
 "ttl":"600",
-"mode":"voice-only",
+"mode":"voice",
 "status":"closed",
 “accountEmail”:”aditya.dixit@telestax.com”,
 "dateCreated":"2019-07-22 09:53:51",
@@ -5308,7 +5306,7 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 <div class="sect3">
 <h4 id="_response_body_10"><a class="anchor" href="#_response_body_10"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Particiapnt if it was  successfully added. HTTP response will be 200 Created  (OK).</p>
+<p>Response Body will carry Code, corresponding message and data of participant if it was successfully added. HTTP response will be 200 Created  (OK).</p>
 </div>
 <div class="paragraph">
 <p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below</p>
@@ -5432,7 +5430,7 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 <td class="tableblock halign-left valign-top"><p class="tableblock">467</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Context is closed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Context cannot be modifed or deleted as its status Closed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Context cannot be modified or deleted as its status Closed</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Participant to Context</p></td>
 </tr>
 </tfoot>
@@ -5462,7 +5460,7 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 <td class="tableblock halign-left valign-top"><p class="tableblock">481</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Context already have 2 Participants</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If Add Participnat is called while context already have 2 of them. Max allowed is 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If Add participant is called while context already have 2 of them. Max allowed is 2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Participant to Context</p></td>
 </tr>
 </tbody>
@@ -6674,6 +6672,628 @@ type:"voice",
     "code": 200,
     "message": "OK"
 }</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage_records"><a class="anchor" href="#_usage_records"></a>Usage Records</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Usage record REST resource provides a simple API to retrieve usage made by your Number Masking during any time period and by any Mode (Voice, Message or VoiceAndMessage). This makes it easy to build reporting and analytics tools for your application.</p>
+</div>
+<div class="paragraph">
+<p>Usage Records for Number Masking consists of Contexts created, Voice minutes including number of calls, and SMS Units.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Usage Records data is collected every 15 minutes. So there is possibility that once Context/Interaction is completed, it may take maximum 15 minutes to be reflected in the Usage Records.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_context_2"><a class="anchor" href="#_context_2"></a>Context</h3>
+<div class="sect3">
+<h4 id="_base_resource_uri_24"><a class="anchor" href="#_base_resource_uri_24"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_context_usage_resource_uri"><a class="anchor" href="#_get_context_usage_resource_uri"></a>Get Context Usage Resource URI</h4>
+<div class="paragraph">
+<p><code>/numbermasking/contexts/usage/records</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_24"><a class="anchor" href="#_supported_operations_24"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET and POST: List usage records for Number Masking</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering_7"><a class="anchor" href="#_filtering_7"></a>Filtering</h4>
+<div class="paragraph">
+<p>Usage filters will return usage records for the passed filter. Following filtering parameters are supported.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">applicationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Only include Usage records for Specific Application. If ENTERPRISE_ADMIN is calling this API and applicationSid is not passed, Usage Records for the entire Enterprise is retrieved.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Only include Usage records for specific Category. All, voice, message or voiceandmessage. If not passed, default is “all” which includes Contexts created for every mode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage that has occurred on or after this date. Format is YYYY-MM-DD. All dates are in GMT. As a convenience, you can also specify offsets to today. For example, StartDate=-30days will make StartDate be 30 days before today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage that has occurred on or before this date. Format is YYYY-MM-DD. All dates are in GMT. As a convenience, you can also specify offsets to today. For example, EndDate=+30days will make EndDate be 30 days from today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organisationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory for SUPPORT_ADMIN users. Only include Usage records for Specific Organisation. Only users with SUPPORT_ADMIN role can pass this parameter. If users with any other role passes this parameter, it&#8217;s ignored.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Only include Usage records for specific Enterprise. If CSP_ADMIN is calling this API and enterpriseSid is not passed, Usage Records for the entire Organisation is retrieved. For ENTERPRISE_ADMIN use this parameter is ignored.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_example_usage"><a class="anchor" href="#_example_usage"></a>Example Usage:</h5>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \ https://yourdomain.com/numbermasking/contexts/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23
+
+ \
+
+--user  ' {your_account_SID}:{your_account_token}' \
+
+  -H 'Cache-Control: no-cache' \
+
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+
+        "usageRecords":
+
+      [
+
+       {
+
+         "category":"voice",
+
+        "description":"Total Contexts created",
+
+        "startDate":"2019-07-01",
+
+        "endDate":"2019-07-23",
+
+        "count":"2123",
+
+        "countUnit":"Contexts",
+
+        “usage”:”2123”,
+
+        “usageCount”:”Contexts”
+
+        "uri":"/numbermasking/contexts/usage/record?startDate=2019-07-01&amp;endDate=2019-07-23"
+
+        }
+
+    ]
+
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_subresource"><a class="anchor" href="#_request_subresource"></a>Request Subresource</h4>
+<div class="paragraph">
+<p>The main UsageRecords list resource supports a variety of convenience subresources. In general these take the form:</p>
+</div>
+<div class="paragraph">
+<p><code>/numbermasking/contexts/usage/records/{Subresource}</code></p>
+</div>
+<div class="paragraph">
+<p>Supported subresources are:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Subresource</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lastmonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record last month.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">daily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on a daily basis. If no date filter is passed, last 30 days usage is retrieved.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monthly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on a monthly basis. If no date filter is passed, last 12 months usage is retrieved</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yearly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on yearly basis. If no date filter is passed, only this year and previous year usage is retrieved.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">today</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yesterday</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record yesterday.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thismonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record this month.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Filters mentioned in the <a href="number-masking-api.html#_filtering_2">Phone Numbers Filtering section</a> can also be passed.</p>
+</div>
+<div class="sect4">
+<h5 id="_example_24"><a class="anchor" href="#_example_24"></a>Example</h5>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+
+  https://yourdomain.com/numbermasking/contexts/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-23 \
+
+--user  ' {your_account_SID}:{your_account_token}' \
+
+  -H 'Cache-Control: no-cache' \
+
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+
+  "usageRecords":
+
+  [
+
+        {
+
+        "category":"voice",
+
+        "description":"Total Contexts created",
+
+        "startDate":"2019-07-21",
+
+        "endDate":"2019-07-21",
+
+        "count":"101",
+
+        "countUnit":"Contexts",
+
+        “usage”:”101”,
+
+        “usageUnit”:”Contexts”
+
+        "uri":"/numbermasking/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-21"
+
+        },
+
+       {
+
+      "category":"voice",
+
+        "description":"Total Contexts created",
+
+        "startDate":"2019-07-22",
+
+        "endDate":"2019-07-22",
+
+        "count":"134",
+
+        "countUnit":"Contexts",
+
+        “usage”:”134”,
+
+        “usageUnit”:”Contexts”
+
+        "uri":"/numbermasking/usage/records/daily?startDate=2019-07-22&amp;endDate=2019-07-23"
+
+        }
+
+   ]
+
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above example if you don’t pass “startDate”and “endDate” parameters, 30 records will be shown.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interactions_2"><a class="anchor" href="#_interactions_2"></a>Interactions</h3>
+<div class="sect3">
+<h4 id="_base_resource_uri_25"><a class="anchor" href="#_base_resource_uri_25"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_mapping_usage_resource_uri"><a class="anchor" href="#_get_mapping_usage_resource_uri"></a>Get Mapping Usage Resource URI</h4>
+<div class="paragraph">
+<p><code>/numbermasking/interactions/usage/records</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_25"><a class="anchor" href="#_supported_operations_25"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET and POST: List usage records for Interactions</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering_8"><a class="anchor" href="#_filtering_8"></a>Filtering</h4>
+<div class="paragraph">
+<p>Usage filters will return usage records for the passed filter. Following filtering parameters are supported.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">applicationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Only include Usage records for Specific Application. If ENTERPRISE_ADMIN is calling this API and applicationSid is not passed, Usage Records for the entire Enterprise is retrieved.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records for specific Mode. Possible values are: voice, message. Default one is voice.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage that has occurred on or after this date. Format is YYYY-MM-DD. All dates are in GMT. As a convenience, you can also specify offsets to today. For example, StartDate=-30days will make StartDate be 30 days before today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage that has occurred on or before this date. Format is YYYY-MM-DD. All dates are in GMT. As a convenience, you can also specify offsets to today. For example, EndDate=+30days will make EndDate be 30 days from today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organisationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory for SUPPORT_ADMIN users. Only include Usage records for Specific Organisation. Only users with SUPPORT_ADMIN role can pass this parameter. If users with any other role pass this parameter, it&#8217;s ignored.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Only include Usage records for specific Enterprise. If CSP_ADMIN is calling this API and enterpriseSid is not passed, Usage Records for the entire Organisation is retrieved. For ENTERPRISE_ADMIN use this parameter is ignored.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_example_voice_usage"><a class="anchor" href="#_example_voice_usage"></a>Example Voice Usage</h5>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X GET \ https://yourdomain.com/numbermasking/interactions/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23?category=voice
+
+ \
+
+--user  ' {your_account_SID}:{your_account_token}' \
+
+  -H 'Cache-Control: no-cache' \
+
+  -H 'Content-Type: application/json' \</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+
+        "usageRecords":
+
+      [
+
+       {
+
+         "category":"voice",
+
+        "description":"Total Voice mins and Counts",
+
+        "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
+
+        "startDate":"2019-07-01",
+
+        "endDate":"2019-07-23",
+
+        "count":"2123",
+
+       “countUnit”:calls”
+
+       "usage": "1777369.00000",
+
+       "usageUnit": "minutes",
+
+  "uri":"/numbermasking/interactions/usage/record?startDate=2019-07-01&amp;endDate=2019-07-23"
+
+        }
+
+    ]
+
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_message_usage"><a class="anchor" href="#_example_message_usage"></a>Example Message Usage</h5>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \ https://yourdomain.com/numbermasking/interactions/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23?category=message
+
+ \
+
+--user  ' {your_account_SID}:{your_account_token}' \
+
+  -H 'Cache-Control: no-cache' \
+
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+        "usageRecords":
+      [
+
+       {
+
+         "category":"message",
+
+        "description":"Total Message Counts",
+
+        "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
+
+        "startDate":"2019-07-01",
+
+        "endDate":"2019-07-23",
+
+        "count":"2123",
+
+       “countUnit”:messages”
+
+       "usage": "2534.00000",
+
+       "usageUnit": "messages",
+
+  "uri":"/numbermasking/interactions/usage/record?startDate=2019-07-01&amp;endDate=2019-07-23"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_subresource_2"><a class="anchor" href="#_request_subresource_2"></a>Request Subresource</h4>
+<div class="paragraph">
+<p>The main Usage Records list resource supports a variety of convenience subresources. In general these take the form:</p>
+</div>
+<div class="paragraph">
+<p>/numbermasking/interactions/usage/records/{Subresource}</p>
+</div>
+<div class="paragraph">
+<p>Supported subresources are:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Subresource</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lastmonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record last month.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">daily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on a daily basis. If no date filter is passed, last 30 days usage is retrieved.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monthly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on a monthly basis. If no date filter is passed, last 12 months usage is retrieved</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yearly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on yearly basis. If no date filter is passed, only this year and previous year usage is retrieved.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">today</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yesterday</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record yesterday.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thismonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record this month.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Filters mentioned in <a href="number-masking-api.html#_filtering_2">Phone Numbers Filtering section</a> can also be passed.</p>
+</div>
+<div class="sect4">
+<h5 id="_example_25"><a class="anchor" href="#_example_25"></a>Example:</h5>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+
+  https://yourdomain.com/numbermasking/interactions/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-23 \
+
+--user  ' {your_account_SID}:{your_account_token}' \
+
+  -H 'Cache-Control: no-cache' \
+
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+
+  "usageRecords":
+
+  [
+
+        {
+
+        "category":"voice",
+
+        "description":"Total Voice mins and Counts",
+
+        "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
+
+        "startDate":"2019-07-21",
+
+        "endDate":"2019-07-21",
+
+       "count":"101",
+
+       "countUnit":"calls"
+
+       "usage": "177.00000",
+
+       "usageUnit":"minutes",
+
+        "uri":"/numbermasking/interactions/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-21"
+
+        },
+
+       {
+
+       "category":"voice",
+
+        "description":"Total Voice mins and Counts",
+
+        "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
+
+        "startDate":"2019-07-22",
+
+        "endDate":"2019-07-22",
+
+        "count":"134",
+
+       "countUnit":"calls"
+
+       "usage": "197.00000",
+
+       "usageUnit":"minutes",
+
+        "uri":"/numbermasking/interactions/usage/records/daily?startDate=2019-07-22&amp;endDate=2019-07-23"
+
+        }
+
+   ]
+
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you don’t pass “startDate”and “endDate” parameters, 30 records will be shown.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
