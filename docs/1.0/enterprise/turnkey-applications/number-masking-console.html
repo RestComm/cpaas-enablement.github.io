@@ -1708,10 +1708,22 @@ Name of the application should be unique.
 <p>Description of the fields to edit application:</p>
 </div>
 <div class="paragraph">
-<p>Default Time to Live: Default time to live for context in the application after Contexts last update date or interaction. If not passed, default is 0 which is unlimited</p>
+<p><strong>Default Time to Live</strong>: Default time to live for context in the application after Contexts last update date or interaction. If not passed, default is 0 which is unlimited</p>
 </div>
 <div class="paragraph">
-<p>Application Name: Name of the application.</p>
+<p><strong>Application Name</strong>: Name of the application.</p>
+</div>
+<div class="paragraph">
+<p><strong>GeoMatch Level</strong>: Where a Mask Number must be located relative to the Participant phone number. For example if the Participant Number is “15713316943” and the Mask Number pool has a phone number starting with Country Code “1”, it will be selected. If not Error will be returned. As of today only “country” is supported. By default it is set to none.</p>
+</div>
+<div class="paragraph">
+<p><strong>CallBack Url</strong>: URL to call when interaction status changes. To unset an existing value, pass an empty string like “”.</p>
+</div>
+<div class="paragraph">
+<p><strong>Intercept Callback Url</strong>: The URL platform is called on every interaction. If the platform receives a 403 status, it will block the interaction, otherwise the interaction will continue.</p>
+</div>
+<div class="paragraph">
+<p><strong>Out of Context Callback Url</strong>: The URL platform shall be called when an inbound call occurs on a closed or non-existent context. If your server responds with valid RCML, the platform will process it. This means that it is possible, for example, to play a message for a call, or redirect a call to another Phone Number.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2280,6 +2292,95 @@ Usage Records data is collected every 15 minutes. So there is possibility that o
 </li>
 <li>
 <p><strong>Category</strong>: List usage records for the specified Context mode.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage_records_2"><a class="anchor" href="#_usage_records_2"></a>Usage Records</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Usage record REST resource provides a simple API to retrieve usage made by your Number Masking during any time period and by any Mode (Voice, Message or VoiceAndMessage). This makes it easy to build reporting and analytics tools for your application.</p>
+</div>
+<div class="paragraph">
+<p>Usage Records for Number Masking consists of contexts created, voice minutes, including number of calls and SMS units.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Usage Records data is collected every 15 minutes. So there is possibility that once Context/Interaction is done, it may take maximum 15 minutes to be reflected in the Usage Records.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_context_3"><a class="anchor" href="#_context_3"></a>Context</h3>
+<div class="paragraph">
+<p>To navigate to Context click on the Usage Records on top menu and then select Context</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/number-masking/usage_records_context.png" alt="Usage Records Context">
+</div>
+</div>
+<div class="paragraph">
+<p>Below are all supported filters you can use to search the Context Usage Records.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sub Resource: The main Usage Records list resource supports a variety of convenience subresources like Daily, Monthly etc. If you want consolidated usage records for specific time period, avoid using this filter.</p>
+</li>
+<li>
+<p>Start Date: List usage records starting from passed start date filter.</p>
+</li>
+<li>
+<p>End Date: List usage records ending at passed end date filter.</p>
+</li>
+<li>
+<p>Application: List usage records for passed Application filter.</p>
+</li>
+<li>
+<p>Category: List usage records for passed Context mode.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interaction"><a class="anchor" href="#_interaction"></a>Interaction</h3>
+<div class="paragraph">
+<p>To navigate to Interactions click on Usage Records on top menu and then select Interactions.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/number-masking/usage-records-interactions.png" alt="Usage Records Interactions">
+</div>
+</div>
+<div class="paragraph">
+<p>Below is a list of all supported filters you can use to search the Interactions Usage Records.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sub Resource: The main Usage Records list resource supports a variety of convenience subresources like Daily, Monthly etc. If you want consolidated usage records for specific time period, avoid using this filter</p>
+</li>
+<li>
+<p>Start Date: List usage records starting from passed start date filter</p>
+</li>
+<li>
+<p>End Date: List usage records ending at passed end date filter</p>
+</li>
+<li>
+<p>Application: List usage records for passed Application filter</p>
+</li>
+<li>
+<p>Category: List usage records for passed mode</p>
 </li>
 </ul>
 </div>
