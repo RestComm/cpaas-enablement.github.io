@@ -1642,11 +1642,662 @@
 </div>
 <article class="doc fix-anchor-links-position">
   <h1>Task Router Console</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_workspace">Workspace</a>
+<ul class="sectlevel2">
+<li><a href="#_create_workspace">Create Workspace</a></li>
+</ul>
+</li>
+<li><a href="#_taskqueue">Taskqueue</a>
+<ul class="sectlevel2">
+<li><a href="#_create_taskqueue">Create Taskqueue</a></li>
+<li><a href="#_edit_taskqueue">Edit Taskqueue</a></li>
+</ul>
+</li>
+<li><a href="#_workflow">Workflow</a>
+<ul class="sectlevel2">
+<li><a href="#_create_workflow">Create Workflow</a></li>
+<li><a href="#_edit_workflow">Edit Workflow</a></li>
+</ul>
+</li>
+<li><a href="#_worker">Worker</a>
+<ul class="sectlevel2">
+<li><a href="#_create_worker">Create Worker</a></li>
+<li><a href="#_edit_worker">Edit Worker</a></li>
+</ul>
+</li>
+<li><a href="#_activities">Activities</a>
+<ul class="sectlevel2">
+<li><a href="#_create_activity">Create Activity</a></li>
+<li><a href="#_edit_activity">Edit Activity</a></li>
+</ul>
+</li>
+<li><a href="#_workspace_settings">WorkSpace Settings</a></li>
+<li><a href="#_user_management">User Management</a>
+<ul class="sectlevel2">
+<li><a href="#_create_user">Create User</a></li>
+</ul>
+</li>
+<li><a href="#_search">Search</a>
+<ul class="sectlevel2">
+<li><a href="#_workspaces_search">Workspaces Search</a></li>
+<li><a href="#_taskqueues_search">TaskQueues Search</a></li>
+<li><a href="#_workflows_search">Workflows Search</a></li>
+<li><a href="#_activities_search">Activities Search</a></li>
+<li><a href="#_workers_search">Workers Search</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="sect1">
-<h2 id="_coming_soon"><a class="anchor" href="#_coming_soon"></a>Coming soon</h2>
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The documentation on the Task Router Console is under development and will be coming soon.</p>
+<p>Task Router is a skills based routing system that helps contact center to control the flow of calls through this application. Enterprise Customers can define, manage and view Workspaces,Task Queues,Workflows etc.</p>
+</div>
+<div class="paragraph">
+<p>This document covers the features and functionalities of the Task Router Console (UI) from Enterprise user point of view. To learn more about the API please check out the <a href="../api/task-router-api.html">Getting Started with the Task Router API</a> documentation.</p>
+</div>
+<div class="paragraph">
+<p>To sign in to the Console, visit wlparam:replace[text="https://$DOMAIN"]/taskrouterconsole/.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workspace"><a class="anchor" href="#_workspace"></a>Workspace</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Workspace is a container which contains  Workers, TaskQueues, Workflows, and Activities. Each of these items exists within a single Workspace and can not be shared across Workspaces. For example, if you were using Task Router to distribute tasks for two separate customers in your business, you might create a Workspace for each customer.</p>
+</div>
+<div class="paragraph">
+<p>To navigate to the page, click on the Workspaces on the top header.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users can view a list of all Workspace that have been created under Enterprise.</p>
+</li>
+<li>
+<p>The workspace can be filtered based on the name.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/task-router-workspace.png" alt="Task Router Workspace">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_workspace"><a class="anchor" href="#_create_workspace"></a>Create Workspace</h3>
+<div class="paragraph">
+<p>To add a workspace click on the “Add Workspace” button. Enter the fields required and click on the “Save” button.</p>
+</div>
+<div class="paragraph">
+<p>Description of the field to add Workspace:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Workspace Name</strong>: Mandatory field and should be unique within Enterprise.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>On creating a workspace two default activities are created under the workspace you can use them or else edit them as per your requirement.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/create-workspace.png" alt="Task Router Create Workspace">
+</div>
+</div>
+<div class="paragraph">
+<p>To add items in workspace click on the name of workspace in the workspace list page. You will be redirected to another page where you can add, edit ,delete Task Queues, Workflows, Activities, Workers</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_taskqueue"><a class="anchor" href="#_taskqueue"></a>Taskqueue</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Task Queues distribute tasks to workers based on the eligibility of workers  to handle those tasks.</p>
+</div>
+<div class="paragraph">
+<p>To navigate to the page, click on the  “Task Queue” in the side navigation bar of the screen.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users can view a list of all Task Queues that have been created under a particular workspace.</p>
+</li>
+<li>
+<p>Task Queues can be filtered based on the name.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/task-queue.png" alt="Task Router Task Queue">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_taskqueue"><a class="anchor" href="#_create_taskqueue"></a>Create Taskqueue</h3>
+<div class="paragraph">
+<p>To add a task queue click on the “Add TaskQueue” button. Enter the fields required and click on the “Save” button.</p>
+</div>
+<div class="paragraph">
+<p>Description of the field to add TaskQueue:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Taskqueue Name</strong>: Mandatory field and should be unique within Workspace.</p>
+</li>
+<li>
+<p><strong>Assignment Activity</strong>: Activity to assign workers once a task is assigned for them</p>
+</li>
+<li>
+<p><strong>Reservation Activity</strong>: Activity to assign workers once a task is reserved for them.</p>
+</li>
+<li>
+<p><strong>Task Order</strong>: TaskOrder will determine which order the Tasks will be assigned to Workers.
+“FIFO”, “LIFO”</p>
+</li>
+<li>
+<p><strong>Queue Expression</strong>: String describing the Worker selection criteria for any Tasks that enter this TaskQueue. For example '"language" == "spanish"'.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/create-task-queue.png" alt="Task Router Create Task Queue">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_edit_taskqueue"><a class="anchor" href="#_edit_taskqueue"></a>Edit Taskqueue</h3>
+<div class="paragraph">
+<p>To edit a taskqueue click on the name in the taskqueue  list page. Edit the fields required to update and click on “Save”. Click on “Delete” to delete a task queue.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/edit-taskqueues.png" alt="Task Router Edit Task Queues">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workflow"><a class="anchor" href="#_workflow"></a>Workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Workflows control how tasks will be routed into appropriate Queues, and how Tasks should escalate in priority or move across queues over time.</p>
+</div>
+<div class="paragraph">
+<p>To navigate to the page, click on the  “Workflows” in the side navigation bar of the screen.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users can view a list of all Workflows that have been created under a particular workspace.</p>
+</li>
+<li>
+<p>Workflows can be filtered based on the name.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/workflow.png" alt="Task Router Workflow">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_workflow"><a class="anchor" href="#_create_workflow"></a>Create Workflow</h3>
+<div class="paragraph">
+<p>To add a workflow click on the “Add Workflow” button. Enter the fields required and click on the “Save” button.</p>
+</div>
+<div class="paragraph">
+<p>Description of the field to add WorkFlow:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Workflow Name</strong>: Mandatory field and should be unique within Workspace.</p>
+</li>
+<li>
+<p><strong>Assignment Url</strong>: URL from your application that will process task assignment events</p>
+</li>
+<li>
+<p><strong>Fallback Url</strong>: URL that we should call when a call to the assignmentCallbackUrl fails.</p>
+</li>
+<li>
+<p><strong>Configuration</strong>: JSON string that contains the rules to apply to the Workflow.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To create  configuration click on add filter and add name, select a queue and expression describing selection criteria for Task that should be processed by TaskQueue.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/create-workflow.png" alt="Task Router Create Workflow">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_edit_workflow"><a class="anchor" href="#_edit_workflow"></a>Edit Workflow</h3>
+<div class="paragraph">
+<p>To edit a workflow click on the name in the workflow  list page. Edit the fields required to update and click on “Save”.</p>
+</div>
+<div class="paragraph">
+<p>Click on “Delete” to delete a workflow.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/edit-workflow.png" alt="Task Router Edit Workflow">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_worker"><a class="anchor" href="#_worker"></a>Worker</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Workers are entities that are able to perform tasks, such as an agent working in a call center or the support staff on a support team. To navigate to the page, click on the  “Workers” in the side navigation bar of the screen.</p>
+</div>
+<div class="paragraph">
+<p>Users can view a list of all Workers that have been created under a particular workspace.  Workers can be filtered based on the name.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/workers.png" alt="Task Router Workers">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_worker"><a class="anchor" href="#_create_worker"></a>Create Worker</h3>
+<div class="paragraph">
+<p>To add a worker click on the “AddWorker” button Enter the fields required and click on the “Save” button.</p>
+</div>
+<div class="paragraph">
+<p>Description of the field to add Worker:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Worker Name</strong>: Mandatory field and should be unique within Workspace.</p>
+</li>
+<li>
+<p><strong>Activity</strong>: The Activity that will describe the new Worker&#8217;s initial state. If not provided, the new Worker&#8217;s initial state is the default activity configured on the Workspace</p>
+</li>
+<li>
+<p><strong>Attributes</strong>: JSON string that describes the new Worker. For example: { "email": "<a href="mailto:Bob@example.com">Bob@example.com</a>", "phone": "+15095551234" }.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/create-worker.png" alt="Task Router Create Worker">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_edit_worker"><a class="anchor" href="#_edit_worker"></a>Edit Worker</h3>
+<div class="paragraph">
+<p>To edit a worker click on the name in the worker list page. Edit the fields required to update and click on “Save”.</p>
+</div>
+<div class="paragraph">
+<p>Click on “Delete” to delete a worker.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/edit-worker.png" alt="Task Router Edit Worker">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_activities"><a class="anchor" href="#_activities"></a>Activities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Activities describe the status of your Workers, which determines whether they are eligible to receive a task.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a Worker is performing an Activity that has an availability of "true", it means that Worker is ready to have Tasks assigned to it. If a Worker is set to an Activity with an availability of "false", it means the Worker is not able to accept new Tasks and will not be considered for assignment.</p>
+</div>
+<div class="paragraph">
+<p>To navigate to the page, click on the  “Activities” in the side navigation bar of the screen.</p>
+</div>
+<div class="paragraph">
+<p>Users can view a list of all Activities that have been created under a particular workspace. Activities can be filtered based on the name.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/activities.png" alt="Task Router Activities">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_activity"><a class="anchor" href="#_create_activity"></a>Create Activity</h3>
+<div class="paragraph">
+<p>To add an activity click on the “Add Activity” button. Enter the fields required and click on the “Save” button.</p>
+</div>
+<div class="paragraph">
+<p>Description of the field to add activity:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Activity Name</strong>: Mandatory field and should be unique within Workspace.</p>
+</li>
+<li>
+<p><strong>Availability</strong>: The status of the worker who performs this activity. Only available options are  True, False</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/create-activity.png" alt="Task Router Create Activity">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_edit_activity"><a class="anchor" href="#_edit_activity"></a>Edit Activity</h3>
+<div class="paragraph">
+<p>To edit an activity click on the name in the activity  list page. Edit the fields required to update and click on “Save”.</p>
+</div>
+<div class="paragraph">
+<p>Click on “Delete” to delete an activity.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/edit-activity.png" alt="Task Router Edit Activity">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workspace_settings"><a class="anchor" href="#_workspace_settings"></a>WorkSpace Settings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To Edit default settings of the Workspace click on the  “Settings” in the side navigation bar of the screen.</p>
+</div>
+<div class="paragraph">
+<p>Description of the field to edit Workspace:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Workspace Name</strong>: Mandatory field and should be unique within Enterprise.</p>
+</li>
+<li>
+<p><strong>Default Activity</strong>: Default Activity assigned to Worker when a new one is added in Workspace.</p>
+</li>
+<li>
+<p><strong>Timeout Activity</strong>: Activity that will be assigned to Worker when a Task reservation timeout without a response.</p>
+</li>
+<li>
+<p><strong>Order Priority</strong>: TaskQueue to prioritize when Workers are receiving Tasks from both types of TaskQueues. Can be: LIFO or FIFO and the default is FIFO.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Click on the “Delete” button To delete a workspace.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/workspace-settings.png" alt="Workspace Settings">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_management"><a class="anchor" href="#_user_management"></a>User Management</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To navigate to the page, click on the  “User Management” on the top header.</p>
+</div>
+<div class="paragraph">
+<p>Users can view a list of all Users that have been created under enterprise. Users can be filtered based on the name.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/user-management.png" alt="User Management">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_user"><a class="anchor" href="#_create_user"></a>Create User</h3>
+<div class="paragraph">
+<p>To add users under enterprise click on the “Add User” button in the User management page</p>
+</div>
+<div class="paragraph">
+<p>Follow the steps below to add an user:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter the name of the new user.</p>
+</li>
+<li>
+<p>Enter email id of the user.</p>
+</li>
+<li>
+<p>Enter the password for the user account.</p>
+</li>
+<li>
+<p>Set a role for the user (Enterprise ADMIN)</p>
+</li>
+<li>
+<p>Set the status of the account(ACTIVE,INACTIVE)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Mail ID  must be unique.</p>
+</div>
+<div class="paragraph">
+<p>Password should meet below criteria:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At least one Uppercase letter(A,B,C,D…&#8230;&#8203;)</p>
+</li>
+<li>
+<p>At least one Lowercase letter(a,b,c,d,&#8230;&#8203;&#8230;&#8203;.)</p>
+</li>
+<li>
+<p>At least one number(1,2,3,4,5….)</p>
+</li>
+<li>
+<p>At least one special character(!,@,#,$,%,&amp;,&#8230;&#8203;&#8230;&#8203;.)</p>
+</li>
+<li>
+<p>Length of the password should be greater than equal to 8.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/create-user.png" alt="Create User">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_search"><a class="anchor" href="#_search"></a>Search</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_workspaces_search"><a class="anchor" href="#_workspaces_search"></a>Workspaces Search</h3>
+<div class="paragraph">
+<p>To navigate to the page, click on the “Search” on the top header.</p>
+</div>
+<div class="paragraph">
+<p>The user can perform a search on the workspace of the enterprise. Below are the supported filters for workspace search:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Start Date</strong>: Shows the list of Workspaces that were created on or after this date.</p>
+</li>
+<li>
+<p><strong>End Date</strong>: Shows the list of Workspaces that were created on or before this date.</p>
+</li>
+<li>
+<p><strong>Workspace Name</strong>: Shows the list of Workspaces whose names partially or fully match with the given name.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/workspace-search.png" alt="Workspace Search">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_taskqueues_search"><a class="anchor" href="#_taskqueues_search"></a>TaskQueues Search</h3>
+<div class="paragraph">
+<p>To navigate to the page, click on the “TaskQueue”  on the side navigation bar.</p>
+</div>
+<div class="paragraph">
+<p>The user can perform a search on the TaskQueue of the enterprise. Below are the supported filters for taskqueue search:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Start Date</strong>: Shows the list of TaskQueues that were created on or after this date.</p>
+</li>
+<li>
+<p><strong>End Date</strong>: Shows the list of TaskQueues that were created on or before this date.</p>
+</li>
+<li>
+<p><strong>Workspace</strong>: Shows the list of TaskQueues that belong to the Workspace selected from the dropdown.</p>
+</li>
+<li>
+<p><strong>TaskQueue name</strong>: Shows the list of TaskQueues whose names partially or fully match with the given name.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/task-queue-search.png" alt="Task Queue Search">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_workflows_search"><a class="anchor" href="#_workflows_search"></a>Workflows Search</h3>
+<div class="paragraph">
+<p>To navigate to the page, click on the “Workflows”  on the side navigation bar.</p>
+</div>
+<div class="paragraph">
+<p>The user can perform a search on the Workflows of the enterprise. Below are the supported filters for workflows search:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Start Date</strong>: Shows the list of Workflows  that were created on or after this date.</p>
+</li>
+<li>
+<p><strong>End Date</strong>: Shows the list of Workflows  that were created on or before this date.</p>
+</li>
+<li>
+<p><strong>Workspace</strong>: Shows the list of Workflows  that belong to the Workspace selected from the dropdown.</p>
+</li>
+<li>
+<p><strong>Workflow name</strong>: Shows the list of Workflows  whose names partially or fully match with the given name.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/workflows-search.png" alt="Workflow Search">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activities_search"><a class="anchor" href="#_activities_search"></a>Activities Search</h3>
+<div class="paragraph">
+<p>To navigate to the page, click on the “Activities”  on the side navigation bar.</p>
+</div>
+<div class="paragraph">
+<p>The user can perform a search on the Activities of the enterprise. Below are the supported filters for activities search:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Start Date</strong>: Shows the list of Activities  that were created on or after this date.</p>
+</li>
+<li>
+<p><strong>End Date</strong>: Shows the list of Activities  that were created on or before this date.</p>
+</li>
+<li>
+<p><strong>Workspace</strong>: Shows the list of Activities that belong to the Workspace selected from the dropdown.</p>
+</li>
+<li>
+<p><strong>Activity name</strong>: Shows the list of Activities  whose names partially or fully match with the given name.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/activities-search.png" alt="Activities Search">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_workers_search"><a class="anchor" href="#_workers_search"></a>Workers Search</h3>
+<div class="paragraph">
+<p>To navigate to the page, click on the “Workers”  on the side navigation bar.</p>
+</div>
+<div class="paragraph">
+<p>The user can perform a search on the workers of the enterprise. Below are the supported filters for workers search:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Start Date</strong>: Shows the list of Workers  that were created on or after this date.</p>
+</li>
+<li>
+<p><strong>End Date</strong>: Shows the list of Workers  that were created on or before this date.</p>
+</li>
+<li>
+<p><strong>Workspace</strong>: Shows the list of Workers that belong to the Workspace selected from the dropdown.</p>
+</li>
+<li>
+<p><strong>TaskQueue</strong>: Shows the list of Workers whose “Attributes” matches the “TargetWorkers” expression of TaskQueue selected from the dropdown.</p>
+</li>
+<li>
+<p><strong>Activities</strong>: Shows the list of workers whose Activity matches the Activity selected from the dropdown.</p>
+</li>
+<li>
+<p><strong>Worker Expression</strong>: Shows the list of Workers that would match an expression passed.</p>
+</li>
+<li>
+<p><strong>Workername</strong>: Shows the list of Workers  whose names partially or fully match with the given name.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/workers-search.png" alt="Workers Search">
+</div>
+</div>
 </div>
 </div>
 </div>
