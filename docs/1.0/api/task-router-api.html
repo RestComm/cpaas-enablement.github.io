@@ -1,0 +1,4451 @@
+<!DOCTYPE html>
+<html lang="en" class="csp-persona">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
+    <title data-custom-title="Task Router API - Restcomm Docs"></title>
+    <link rel="canonical" href="
+      https://www.restcomm.com/docs/1.0/api/task-router-api.html
+    ">
+    <meta name="keywords" content="task router, task router ai">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
+    <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <!-- Not using it for now
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      </head>
+  <body class="article" >
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        -->
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" href="/docs/1.0/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" href="/docs/1.0/visual-designer/index.html">Visual Designer</a>
+        <a class="navbar-enterprise-item" href="/docs/1.0/tutorials/index.html">Tutorials</a>
+
+
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="docs" data-version="1.0" >
+  <aside class="navigation">
+    <div class="panels">
+  <div class="navigation-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+      <!-- Not applicable to our Enterprise docs
+    <h3 class="title"><a href="../index.html">docs</a></h3>
+    -->
+        <ul class="nav-list">
+          <ul class="nav-list">
+              <ul class="nav-list">
+              <ul class="nav-list">
+                                                              </ul>
+  </ul>
+              <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                          <ul class="nav-list">
+                                                                          </ul>
+              <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                          </ul>
+              <ul class="nav-list">
+              </ul>
+              <ul class="nav-list">
+                                                                                                              </ul>
+                          </ul>
+              <ul class="nav-list">
+                          <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                                                                                                              </ul>
+              <ul class="nav-list">
+                                                  </ul>
+              </ul>
+              <ul class="nav-list">
+              <ul class="nav-list">
+                          </ul>
+              <ul class="nav-list">
+                                                  </ul>
+                                                                                                                          </ul>
+              <ul class="nav-list">
+              <ul class="nav-list">
+                                                  <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                                                  </ul>
+  </ul>
+                                                  </ul>
+  </ul>
+          <ul class="nav-list">
+            <li class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              icomoon3-font-reference-api
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html">API Overview</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_api_endpoint">API Endpoint</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_authentication">Authentication</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_requests">Requests</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_responses">Responses</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_paging">Paging</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              icomoon3-font-reference-management
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="management-apis-overview.html">Management APIs</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+                        <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="account-api.html">Accounts</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="account-api.html#_strong_http_get_strong">Retrieve Account</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="account-api.html#_strong_http_post_strong">Create Account</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="account-api.html#_strong_http_put_strong">Update Account</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="account-api.html#_strong_http_delete_strong">Delete Account</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="account-roles.html">Account Roles</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="profile-api.html">Profiles</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="applications-api.html">Applications</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="notifications-api.html">Notifications</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="usage-records-api.html">Usage Records</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="audit-logs-api.html">Audit Logs</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              icomoon3-font-reference-voice
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="voice-category.html">Voice APIs</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="available-phone-numbers-api.html">Available Phone Numbers</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html">Calls</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_call_list_resource_uri">Call List Resource URI</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_making_a_call_to_a_sip_account">Making a Call</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_modifying_live_calls">Modifying Live Calls</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#examples">Examples</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_list_filter">List Filter</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_paging_information">Paging Information</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="outgoing-caller-id-api.html">Outgoing Caller ID</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html">Clients</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_create_a_client">Create a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_delete_a_client">Delete a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html">Conference Management</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_supported_operations">Supported Operations</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_conference_list_resource_uri">Conference List Resource URI</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="participants-api.html">Conference Participants Management</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="participants-api.html#_participant_list_resource_uri">Participants List Resource URI</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumber_instance_resource">IncomingPhoneNumber Instance Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumbers_list_resource">IncomingPhoneNumbers List Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_local_incomingphonenumber_factory_resource">Local IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_toll_free_incomingphonenumber_factory_resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_mobile_incomingphonenumber_factory_resource">Mobile IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_attach_a_phone_number_to_an_application">Attach a phone number to an application</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_delete_a_phone_number">Delete a phone number</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_list_of_phone_numbers">List of Phone Numbers</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incoming_phone_number_regex_support">Incoming Phone Number Regex Support</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="recordings-api.html">Recordings</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="SIP-Refer-Support.html">SIP Refer Support</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              icomoon3-font-reference-sms
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-category.html">SMS APIs</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="available-phone-numbers-api.html">Available Phone Numbers</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html">Clients</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_create_a_client">Create a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_delete_a_client">Delete a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumber_instance_resource">IncomingPhoneNumber Instance Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumbers_list_resource">IncomingPhoneNumbers List Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_local_incomingphonenumber_factory_resource">Local IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_toll_free_incomingphonenumber_factory_resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_mobile_incomingphonenumber_factory_resource">Mobile IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_attach_a_phone_number_to_an_application">Attach a phone number to an application</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_delete_a_phone_number">Delete a phone number</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_list_of_phone_numbers">List of Phone Numbers</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incoming_phone_number_regex_support">Incoming Phone Number Regex Support</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="outgoing-caller-id-api.html">Outgoing Caller ID</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html">Messages</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_send_sms">Send SMS</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_get_sms_list">Get SMS List</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_get_single_sms_information">Get single SMS Information</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_sms_attributes">SMS Attributes</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="email-api.html">Email</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              icomoon3-font-reference-solutions
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html">Turnkey Apps APIs</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html">Smart 2FA</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_sending_one_time_passwords_api_reference">Sending One-Time Passwords</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_verifying_one_time_passwords_api_reference">Verifying One-Time Passwords</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_cancel_one_time_passwords_api_reference">Cancel One-Time Passwords</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_session_detail_record_sdr">Session Detail Record (SDR)</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_get_list_of_one_time_passwords_api_reference">Get list of One-Time Passwords</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_get_single_one_time_passwords_api_reference">Get a Single One-Time Password</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_usage_record_one_time_passwords_api_reference">Usage Record One-Time Passwords</a>
+
+            </span>
+              </div>
+                          </li>
+                          <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                                                  </ul>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-uc-one/overview.html">Message Exchange for Cisco UC-One</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-uc-one/create-operation.html">Create Operation</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-uc-one/read-operation.html">Read Operation</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-uc-one/update-operation.html">Update Operation</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-uc-one/delete-operation.html">Delete Operation</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-uc-one/common-response-error-codes.html">Error Codes</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-webex-teams/overview.html"> Message Exchange for Cisco Webex Teams</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-webex-teams/overview.html#_create_operation">Create Operation</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-webex-teams/overview.html#_read_operation">Read Operation</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-webex-teams/overview.html#_update_enterprise">Update Operation</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="message-exchange-for-cisco-webex-teams/overview.html#_delete_operation">Delete Operation</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="call-queueing-api.html">Call Queuing</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="call-queueing-api.html#_create_queue_api">Create Queue</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="call-queueing-api.html#_queue_rcml">Queue RCML</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="call-queueing-api.html#_enqueue_rcml">Enqueue RCML</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant/auto-attendant-api.html">Auto Attendant</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+                                                  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="number-masking-api.html">Number Masking</a>
+
+            </span>
+              </div>
+                          </li>
+              <ul class="nav-list">
+                                                                                                  </ul>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              icomoon3-font-reference-rcml
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html">RCML</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html">Overview</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">Interacting with Your Application</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_the_rcml_verbs">RCML Verbs</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/dial-rcml.html">Dial</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/client-rcml.html">Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/conference-rcml.html">Conference</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/number-rcml.html">Number</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/sip-rcml.html">SIP</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/email-rcml.html">Email</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/gather-rcml.html">Gather</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/say-rcml.html">Say</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/ssml-reference.html">SSML Reference</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/play-rcml.html">Play</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/sms-rcml.html">SMS</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/hangup-rcml.html">Hangup</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/pause-rcml.html">Pause</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/redirect-rcml.html">Redirect</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/record-rcml.html">Record</a>
+
+            </span>
+              </div>
+                          </li>
+            <li class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/reject-rcml.html">Reject</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+  </ul>
+  </ul>
+    </nav>
+  </div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<!--
+
+-->
+<div class="toolbar" role="navigation" style="display: none;">
+  <button class="navigation-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../index.html">docs</a></li>
+    <li class="crumb"><a href="task-router-api.html">Task Router API</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc fix-anchor-links-position">
+  <h1>Task Router API</h1>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Telestax TaskRouter exposes white label API to allow Enterprises to create Contact Center kind of Solution.</p>
+</div>
+<div class="paragraph">
+<p>Below API explains how CSP can manage Enterprise and add Users under Enterprise.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enterprise"><a class="anchor" href="#_enterprise"></a>Enterprise</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CSP’s can create, manage, delete Enterprises. This is logical grouping of CSP customers and helps to easily manage billing/invoices for Enterprise.</p>
+</div>
+<div class="sect2">
+<h3 id="_create_enterprise"><a class="anchor" href="#_create_enterprise"></a>Create Enterprise</h3>
+<div class="paragraph">
+<p>This endpoint will be used to create an enterprise in the TaskRouter. Create Enterprise will add unique Enterprise names for given CSP.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri"><a class="anchor" href="#_base_resource_uri"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_context_resource_uri"><a class="anchor" href="#_create_context_resource_uri"></a>Create Context Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/enterprises</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP POST: Create Enterprise</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory name of Enterprise. Name must be unique within the given CSP Organisation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseAdmin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise User data  explained in the table below  that will be assigned as the admin of this enterprise.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_enterprise_admin_parameters"><a class="anchor" href="#_enterprise_admin_parameters"></a>Enterprise Admin Parameters:</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Admin data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Friendly name of the Enterprise admin</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">emailId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Admin User email Id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Admin password</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Enterprise Admin is Restcomm Sub-Account as of today. If this user is already present in Restcomm, the user gets access to TaskRouter. For existing users, the password field is ignored and not reset in Restcomm.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_body"><a class="anchor" href="#_response_body"></a>Response Body</h4>
+<div class="paragraph">
+<p>Response Body will carry Code, corresponding message and data of Enterprise if it was  successfully created. HTTP response will be 201 Created (OK).</p>
+</div>
+<div class="paragraph">
+<p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise data as explained in the Data Parameter below.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameter"><a class="anchor" href="#_data_parameter"></a>Data Parameter</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Enterprise Id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created/ this particular Enterprise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Enterprise was created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Enterprise was updated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of this Enterprise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific Enterprise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseAdminEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email id of enterprise Admin</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseAdminSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm Account sid created under Restcomm for Enterprise Admin user</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters"><a class="anchor" href="#_response_parameters"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Create Enterprise API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">475</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise name not unique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise name is already exist in database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">476</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User not unique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User already exists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">477</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error in creating subaccount on Restcomm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error while creating subaccount in Restcomm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example"><a class="anchor" href="#_example"></a>Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "name": "test Enterprise",
+  "enterpriseAdmin": {
+    "emailId": "Testenterprise@telestax.com",
+    "password": "Telestax@123",
+    "name": "test user"
+  }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST \
+  https://cloud.restcomm.com/taskrouter/enterprises \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "test Enterprise",
+  "enterpriseAdmin": {
+    "emailId": "Testenterprise@telestax.com",
+    "password": "Telestax@123",
+    "name": "test user"
+  }
+}’</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If creation of Enterprise  is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "data": {
+    "sid": "EN54e3389b5bf34896876b86e139cca614",
+    "dateUpdated": "2020-01-27T11:14:10+0000",
+    "dateCreated": "2020-01-27T11:14:10+0000",
+    "accountEmail": "subhahu.reddy@telestax.com",
+    "uri": "/taskrouter/enterprises/search/EN54e3389b5bf34896876b86e139cca614",
+    "name": "test Enterprise",
+    "enterpriseAdminEmail": "Testenterprise@telestax.com",
+    "enterpriseAdminSid": "RCSe107da10db554ef79934fd7aa6a97f71"
+
+  },
+  "code": 200,
+  "message": "OK"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If creation fails, below response is returned with corresponding HTTP Error Code</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "errorCode": "475",
+    "message": "Enterprise name not unique",
+    "data": {
+        "name": "test Enterprise",
+        "enterpriseAdmin": {
+            "emailId": "Testenterprise@telestax.com",
+            "password": "Telestax@123",
+            "status": "ACTIVE",
+            "name": "test user"
+        }
+    }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_list_of_enterprise"><a class="anchor" href="#_get_list_of_enterprise"></a>Get list of Enterprise</h3>
+<div class="paragraph">
+<p>List Enterprise API allows users to list all the Enterprise created under that “Organisation” which means under that CSP.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_2"><a class="anchor" href="#_base_resource_uri_2"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_list_of_enterprise_resource_uri"><a class="anchor" href="#_get_list_of_enterprise_resource_uri"></a>Get List of Enterprise Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/enterprises/search</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: List Enterprise</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h4>
+<div class="paragraph">
+<p>The following paging parameters are supported</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Enterprise records to return, starting from 0.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the search API is called without page and pageSize, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering"><a class="anchor" href="#_filtering"></a>Filtering</h4>
+<div class="paragraph">
+<p>Following filtering parameters are supported</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Enterprises that match name text, partially or fully.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show enterprises that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. NOTEthat the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show enterprises that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. NOTEthat the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h4>
+<div class="paragraph">
+<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+</div>
+<div class="sect4">
+<h5 id="_sort_attributes"><a class="anchor" href="#_sort_attributes"></a>Sort Attributes</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date when Enterprise was created</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_2"><a class="anchor" href="#_response_parameters_2"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Search Enterprise API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Each SDR parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data of search as explained in table below</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters"><a class="anchor" href="#_data_parameters"></a>Data parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list of Enterprise  data as explained in the table Data Parameter .</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total Number of records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nextPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in next page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_2"><a class="anchor" href="#_example_2"></a>Example:</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+  https://cloud.restcomm.com/taskrouter/enterprises/search?pageSize=2&amp;page=0 \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "result": [
+            {
+                "sid": "EN838bcdf35f9d421fad3ab516195b873b",
+                "dateUpdated": "2020-01-21T13:35:19+0000",
+                "dateCreated": "2020-01-21T13:35:16+0000",
+                "accountEmail": "derick.adams@acme.com",
+                "uri": "/taskrouter/enterprises/search/EN838bcdf35f9d421fad3ab516195b873b",
+                "name": "Enterprise2",
+"enterpriseAdminSid": "RCSe107da10db554ef79934fd7aa6a97f72",
+                "enterpriseAdminEmail": "testbg@acme-ent2.com"
+            },
+            {
+                "sid": "ENc4a6ddacbea548f7b7b2dca120d5ff20",
+                "dateUpdated": "2020-01-15T05:36:10+0000",
+                "dateCreated": "2020-01-15T05:36:09+0000",
+                "accountEmail": "derick.adams@acme.com",
+                "uri": "/taskrouter/enterprises/search/ENc4a6ddacbea548f7b7b2dca120d5ff20",
+                "name": "Enterprise1",
+"enterpriseAdminSid": "RCSe107da10db554ef79934fd7aa6a97f71",
+                "enterpriseAdminEmail": "testbg@acme-ent1.com"
+            }
+        ],
+        "pageSize": 10,
+        "total": 2,
+        "page": 0,
+        "numPages": 1,
+        "start": 0,
+        "end": 1,
+        "firstPageUri": "/taskrouter/enterprises/search/?pageSize=10&amp;page=0",
+        "uri": "/taskrouter/enterprises/search/?pageSize=10&amp;page=0"
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_single_enterprise"><a class="anchor" href="#_get_single_enterprise"></a>Get Single Enterprise</h3>
+<div class="paragraph">
+<p>Single Enterprise search API allows users to retrieve specific Enterprise created under that “Organisation” which means under that CSP.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_3"><a class="anchor" href="#_base_resource_uri_3"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_single_enterprise_resource_uri"><a class="anchor" href="#_get_single_enterprise_resource_uri"></a>Get Single Enterprise Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/enterprises/search/{EnterpriseId}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_3"><a class="anchor" href="#_supported_operations_3"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: Specific Enterprise</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_3"><a class="anchor" href="#_response_parameters_3"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Search Enterprise API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Enterprise, Search Enterprise, Delete Enterprise</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_3"><a class="anchor" href="#_example_3"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+  https://cloud.restcomm.com/taskrouter/enterprises/search/EN838bcdf35f9d421fad3ab516195b873b \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "sid": "EN838bcdf35f9d421fad3ab516195b873b",
+        "dateUpdated": "2020-01-21T13:35:19+0000",
+        "dateCreated": "2020-01-21T13:35:16+0000",
+        "accountEmail": "derick.adams@acme.com",
+        "uri": "/taskrouter/enterprises/search/EN838bcdf35f9d421fad3ab516195b873b",
+        "name": "Enterprise2",
+        "enterpriseAdminSid": "RCSe107da10db554ef79934fd7aa6a97f71",
+        "enterpriseAdminEmail": "testbg@acme.com"
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_enterprise"><a class="anchor" href="#_update_enterprise"></a>Update Enterprise</h3>
+<div class="paragraph">
+<p>This endpoint will be used to update an existing enterprise.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_4"><a class="anchor" href="#_base_resource_uri_4"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_update_enterprise_resource_uri"><a class="anchor" href="#_update_enterprise_resource_uri"></a>Update Enterprise Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/enterprises/{enterpriseSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_4"><a class="anchor" href="#_supported_operations_4"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP PUT: Update Enterprise</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_2"><a class="anchor" href="#_request_parameters_2"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Id of the enterprise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name must be unique within the given CSP Organisation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_2"><a class="anchor" href="#_response_body_2"></a>Response Body</h4>
+<div class="paragraph">
+<p>Response Body will carry Code, corresponding message and data of Enterprise if it was  successfully updated. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise data as explained in the table Data Parameter.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Update Enterprise API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">475</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise name not unique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise name is already exist in database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Id not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_4"><a class="anchor" href="#_example_4"></a>Example</h4>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "name" : "Enterprise3"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X PUT \
+  https://cloud.restcomm.com/taskrouter/enterprises/EN54e3389b5bf34896876b86e139cca614  \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name" : "Enterprise3"
+}’</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If updating of Enterprise  is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "data": {
+    "sid": "EN54e3389b5bf34896876b86e139cca614",
+    "dateUpdated": "2020-01-27T11:14:10+0000",
+    "dateCreated": "2020-01-27T11:14:10+0000",
+    "accountEmail": "subhahu.reddy@telestax.com",
+    "uri": "/taskrouter/enterprises/search/EN54e3389b5bf34896876b86e139cca614",
+    "name": "Enterprise3",
+    "enterpriseAdminEmail": "Testenterprise@telestax.com"
+  },
+  "code": 200,
+  "message": "OK"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the update of the enterprise fails, below is the response returned. Exact error code and message will depend on error occurred</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "errorCode": "478",
+    "message": "Enterprise not found",
+    "data": {
+        "sid": "EN838bcdf35f9d421d3ab516195b873b"
+    }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delete_enterprise"><a class="anchor" href="#_delete_enterprise"></a>Delete Enterprise</h3>
+<div class="paragraph">
+<p>This endpoint will be used to delete an existing enterprise.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you Delete an Enterprise, all the users under that Enterprise will be “Suspended” under Restcomm. If you want to “Close” these accounts, please sign in using Restcomm Console and mark these Accounts as closed.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_5"><a class="anchor" href="#_base_resource_uri_5"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delete_enterprise_resource_uri"><a class="anchor" href="#_delete_enterprise_resource_uri"></a>Delete Enterprise Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/enterprises/{enterpriseSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_5"><a class="anchor" href="#_supported_operations_5"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP Delete: Delete Enterprise</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_3"><a class="anchor" href="#_request_parameters_3"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID to uniquely identify an enterprise</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_3"><a class="anchor" href="#_response_body_3"></a>Response Body</h4>
+<div class="paragraph">
+<p>Response Body will carry Code, corresponding message and data of Enterprise if it was  successfully deleted. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise data as explained in the table  Data Parameter</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_4"><a class="anchor" href="#_response_parameters_4"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Delete Enterprise API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise SID doesn’t exist in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Enterprise,</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete enterprise,</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">479</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise has Applications assigned to it</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_5"><a class="anchor" href="#_example_5"></a>Example:</h4>
+<div class="paragraph">
+<p>the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X DELETE \
+  https://cloud.restcomm.com/taskrouter/enterprises/ENb6eb071d21124dbab20b095c25f1274f   \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If deletion of Enterprise  is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "sid": "EN54e3389b5bf34896876b86e139cca614",
+        "dateUpdated": "2020-01-27T11:14:14+0000",
+        "dateCreated": "2020-01-27T11:14:10+0000",
+        "accountEmail": "subhahu.reddy@telestax.com",
+        "uri": "/taskrouter/enterprises/search/EN54e3389b5bf34896876b86e139cca614",
+        "name": "test Enterprise",
+        "enterpriseAdminEmail": "Testenterprise@telestax.com"
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If delete fails, below response is returned with corresponding HTTP Error Code</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "errorCode": "478",
+    "message": "Enterprise not found",
+    "data": {
+        "sid": "EN54e3389b5bf34896876b86e139cca614"
+    }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_users"><a class="anchor" href="#_users"></a>Users</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_create_user"><a class="anchor" href="#_create_user"></a>Create User</h3>
+<div class="paragraph">
+<p>This endpoint will be used to create user depending on role as explained below</p>
+</div>
+<div class="paragraph">
+<p>SUPPORT: Role for Telestax Support
+CRUD another user with role SUPPORT
+Read all Enterprise and within Enterprise
+Read all Users
+Read all Workspace and within Workspace
+Read all Workflow, TaskQueue, Workers and Tasks
+Read Interactions
+Read Usage Records</p>
+</div>
+<div class="paragraph">
+<p>CSP_ADMIN : Role for CSP Admin (Admin Account in Restcomm).
+Can create Enterprise and within Enterprise
+CRUD users with role ENTERPRISE_ADMIN
+CRUD Workspaces and within Workspace
+CRUD Workflow, TaskQueue, Workers and Tasks
+Read Interactions
+Read Usage Records</p>
+</div>
+<div class="paragraph">
+<p>ENTERPRISE_ADMIN : Role for Enterprise users
+CRUD users with role ENTERPRISE_ADMIN
+CRUD Workspaces and within Workspace
+CRUD Workflow, TaskQueue, Workers and Tasks
+Read Interactions
+Read Usage Records</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_6"><a class="anchor" href="#_base_resource_uri_6"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_user_resource_uri"><a class="anchor" href="#_add_user_resource_uri"></a>Add User Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/users</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_6"><a class="anchor" href="#_supported_operations_6"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP POST: Add User</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_4"><a class="anchor" href="#_request_parameters_4"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Full name of the user being added</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">emailId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required. Email Id of the user</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Password associated with this user.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Required. Possible values are:
+SUPPORT (This is specifically for Telestax Support Not yet implemented) <br>
+CSP_ADMIN <br>
+ENTERPRISE_ADMIN</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Will be set to active if not passed. Possible values are: <br></p>
+<p class="tableblock">ACTIVE<br>
+SUSPENDED<br>
+DELETED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of the enterprise the user belongs to.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If Sub-Account was already added in Restcomm-console, adding the same user as ENTERPRISE_ADMIN is possible by specifying the same emailId. The password pass will not be changed in Restcomm and users can still sign in with existing credentials.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_body_4"><a class="anchor" href="#_response_body_4"></a>Response Body</h4>
+<div class="paragraph">
+<p>Response Body will carry the Code, corresponding message and data of the User if it was  successfully created. HTTP response will be 200 Created  (OK).</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User data as explained in the table below.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameter_2"><a class="anchor" href="#_data_parameter_2"></a>Data Parameter</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique User Id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created this particular user</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this User was created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this User was updated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of this user</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">emailId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email Id of the user created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Role of the user</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status of the user (ACTIVE/SUSPENDED)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific user</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_5"><a class="anchor" href="#_response_parameters_5"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Create User API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">499</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error in creating subaccount on Restcomm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error while creating subaccount in restcomm(password fail)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create User, Update User</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise for which user is to be added is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create User, Update User</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User not unique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A user already exists in the DB with provided emailId</p>
+<p class="tableblock">Create User, Update User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">501</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_6"><a class="anchor" href="#_example_6"></a>Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre>{
+   "status":"ACTIVE",
+   "name":"Test BG 2",
+   "enterpriseSid":"EN838bcdf35f9d421fad3ab516195b873b",
+   "emailId":"testbgadmin2@telestax.com",
+   "password":"W31Comet0@@!",
+   "role":"ENTERPRISE_ADMIN"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST \
+  https://cloud.restcomm.com/taskrouter/users  \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+   "status":"ACTIVE",
+   "name":"Test BG 2",
+   "enterpriseSid":"EN838bcdf35f9d421fad3ab516195b873b",
+   "emailId":"testbgadmin2@telestax.com",
+   "password":"W31Comet0@@!",
+   "role":"ENTERPRISE_ADMIN"
+}’</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If creation of User  is successful, below is the response returned</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "sid": "RCS31e4303c3d06409a9e7a847fc7221bd0",
+        "dateUpdated": "2020-01-27T05:50:02+0000",
+        "dateCreated": "2020-01-27T05:50:02+0000",
+        "accountEmail": "subhahu.reddy@telestax.com",
+        "uri": "/taskrouter/users/search/RCS31e4303c3d06409a9e7a847fc7221bd0",
+        "emailId": "testbgadmin2@telestax.com",
+        "status": "ACTIVE",
+        "role": "ENTERPRISE_ADMIN",
+        "name": "Test BG 2"
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If creation fails, below response is returned with corresponding HTTP Error Code</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "errorCode": "499",
+    "message": "Error in creating subaccount on Restcomm",
+    "data": {
+        "emailId": "testbgadmin2@telestax.com",
+        "password": "W31Comet0@@!",
+        "status": "ACTIVE",
+        "role": "ENTERPRISE_ADMIN",
+        "name": "Test BG 2",
+        "enterpriseSid": "EN838bcdf35f9d421fad3ab516195b873b"
+    }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_list_of_users"><a class="anchor" href="#_get_list_of_users"></a>Get list of Users</h3>
+<div class="paragraph">
+<p>This endpoint will be used to get a list of  users.
+==== Base Resource URI
+<a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+<div class="sect3">
+<h4 id="_get_user_list_resource_uri"><a class="anchor" href="#_get_user_list_resource_uri"></a>Get User list  Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/users/search</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_7"><a class="anchor" href="#_supported_operations_7"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: Get User list</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paging_2"><a class="anchor" href="#_paging_2"></a>Paging</h4>
+<div class="paragraph">
+<p>The following paging parameters are supported</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Users records to return, starting from 0.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If search API is called without page and pageSize, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering_2"><a class="anchor" href="#_filtering_2"></a>Filtering</h4>
+<div class="paragraph">
+<p>Following filtering parameters are supported</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Users that match name text, partially or fully.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">emailId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Users that match email text, partially or fully.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show users that have this particular role.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Parameter. Only show users for this particular enterprise.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show users that have this particular status.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show users that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. NOTEthat the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show users that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. NOTEthat the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_sorting_information_2"><a class="anchor" href="#_sorting_information_2"></a>Sorting Information</h4>
+<div class="paragraph">
+<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sort_attributes_2"><a class="anchor" href="#_sort_attributes_2"></a>Sort Attributes</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by email</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by created date</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_5"><a class="anchor" href="#_response_body_5"></a>Response Body</h4>
+<div class="paragraph">
+<p>Response Body will carry Code, corresponding message and data of User if it was  successfully fetched. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data of search as explained in table below</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters_2"><a class="anchor" href="#_data_parameters_2"></a>Data parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list of Users data as explained in the table Data Parameter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total Number of records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nextPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in next page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_7"><a class="anchor" href="#_example_7"></a>Example:</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+  https://cloud.restcomm.com/taskrouter/users/search?enterpriseSid=EN54e3389b5bf34896876b86e139cca614 \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "data": {
+    "result": [
+      {
+        "sid": "RCS6de60a360c75453893b5b6d1503b7276",
+        "dateUpdated": "2020-01-27T11:14:14+0000",
+        "dateCreated": "2020-01-27T11:14:14+0000",
+        "accountEmail": "subhahu.reddy@telestax.com",
+        "uri": "/taskrouter/users/search/RCS6de60a360c75453893b5b6d1503b7276",
+        "emailId": "Testenterprise@telestax.com",
+        "status": "ACTIVE",
+        "role": "ENTERPRISE_ADMIN",
+        "name": "testbg"
+      }
+    ],
+    "pageSize": 10,
+    "total": 1,
+    "page": 0,
+    "numPages": 1,
+    "start": 0,
+    "end": 0,
+"firstPageUri": "/taskrouter/users/search/?enterpriseSid=EN54e3389b5bf34896876b86e139cca614&amp;pageSize=10&amp;page=0",
+"uri": "/taskrouter/users/search/?enterpriseSid=EN54e3389b5bf34896876b86e139cca614&amp;pageSize=10&amp;page=0"
+  },
+  "code": 200,
+  "message": "OK"
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_single_user"><a class="anchor" href="#_get_single_user"></a>Get Single User</h3>
+<div class="paragraph">
+<p>Single Enterprise search API allows users to retrieve specific User.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_7"><a class="anchor" href="#_base_resource_uri_7"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_single_user_resource_uri"><a class="anchor" href="#_get_single_user_resource_uri"></a>Get Single User Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/users/search/{userId}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_8"><a class="anchor" href="#_supported_operations_8"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: Specific User</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_6"><a class="anchor" href="#_response_parameters_6"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Search User API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">502</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete User,
+Update User,
+Get User</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_8"><a class="anchor" href="#_example_8"></a>Example:</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+  https://cloud.restcomm.com/taskrouter/users/search/AAEb6eb071d21124dbab20b095c25f1274f \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+         "code":”200”,
+         "message":"OK",
+         “data”:
+{
+        “sid":"AAEb6eb071d21124dbab20b095c25f1274f",
+        “accountEmail”:”aditya.dixit@telestax.com”,
+        "dateCreated":"2019-07-22 09:53:51",
+        "dateUpdated":"2019-07-22 09:53:51",
+          "name" : "test",
+          “emailId”:”test@telestax.com”,
+           “role”: “ENTERPRISE-ADMIN”,
+           “enterpriseSid”: “ EN801e792d86504368a9385314e8c5c4d6”,
+        "uri":/taskrouter/users/search/ AAEb6eb071d21124dbab20b095c25f1274f "
+}
+ }</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_user"><a class="anchor" href="#_update_user"></a>Update User</h3>
+<div class="paragraph">
+<p>This endpoint will be used to update existing users.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>SUPPORT can make changes to all users irrespective of role</p>
+</li>
+<li>
+<p>CSP_ADMIN can make changes to all users with ENTERPRISE_ADMIN of all Enterprise that belongs to same Organisation</p>
+</li>
+<li>
+<p>ENTERPRISE_ADMIN cannot make any changes to other users.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_8"><a class="anchor" href="#_base_resource_uri_8"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_update_user_resource_uri"><a class="anchor" href="#_update_user_resource_uri"></a>Update User Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/users/{UserSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_9"><a class="anchor" href="#_supported_operations_9"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP PUT: Update User</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_5"><a class="anchor" href="#_request_parameters_5"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Unique id of the user</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Status of the user, could be one of the following</p>
+<p class="tableblock">ACTIVE     <br>
+SUSPENDED   <br>
+DELETED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Name of user to be updated.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Enterprise id. If user wants to move user from one enterprise to another, pass the enterpriseId of the target Enterprise.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_6"><a class="anchor" href="#_response_body_6"></a>Response Body</h4>
+<div class="paragraph">
+<p>Response Body will carry Code, corresponding message and data of User if it was  successfully updated. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User data as explained in the table Data Parameter</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_7"><a class="anchor" href="#_response_parameters_7"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Update User API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise for which user is to be added is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create User, Update User</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">501</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm subaccount belongs to a different Admin account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user id is already sub account to different account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create User, Update User</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">502</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User Id not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User Id not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update User</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_9"><a class="anchor" href="#_example_9"></a>Example:</h4>
+<div class="listingblock">
+<div class="content">
+<pre>{
+"status":"SUSPENDED"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X PUT \
+  https://cloud.restcomm.com/taskrouter/users/RCSb4ba60022d87407db2134146e3bd4ceb \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+"status":"SUSPENDED"
+}’</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If User update is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "sid": "RCSb4ba60022d87407db2134146e3bd4ceb",
+        "dateUpdated": "2020-01-29T05:21:28+0000",
+        "dateCreated": "2020-01-21T13:35:19+0000",
+        "accountEmail": "derick.adams@acme.com",
+        "uri": "/taskrouter/users/search/RCSb4ba60022d87407db2134146e3bd4ceb",
+        "emailId": "testbg@acme-ent2.com",
+        "status": "SUSPENDED",
+        "role": "ENTERPRISE_ADMIN",
+        "name": "Ent2 Test Admin"
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If updating fails, below response is returned with corresponding HTTP Error Code</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "errorCode": "502",
+    "message": "User Id not found",
+    "data": {
+        "sid": "RCSb4ba60022d87407db2134146e3bd4c"
+    }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delete_user"><a class="anchor" href="#_delete_user"></a>Delete User</h3>
+<div class="paragraph">
+<p>This endpoint will be used to delete an existing user. In Restcomm, users will be DELETED.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_9"><a class="anchor" href="#_base_resource_uri_9"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><a href="https://&lt;custom" class="bare">https://&lt;custom</a> domain of CSP’s&gt;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delete_user_resource_uri"><a class="anchor" href="#_delete_user_resource_uri"></a>Delete User Resource URI</h4>
+<div class="paragraph">
+<p>/taskrouter/users/{UserSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_10"><a class="anchor" href="#_supported_operations_10"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP DELETE: Delete User</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_6"><a class="anchor" href="#_request_parameters_6"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UserSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID of the user to be deleted</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_7"><a class="anchor" href="#_response_body_7"></a>Response Body</h4>
+<div class="paragraph">
+<p>Response Body will carry Code, corresponding message and data of User if it was  successfully deleted. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User data as explained in the table Data Parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_8"><a class="anchor" href="#_response_parameters_8"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Delete User API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">502</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User Id not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User SID doesn’t exist in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update User, Delete user, Get User</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">503</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user is an enterprise admin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user is an enterprise admin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete user</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_10"><a class="anchor" href="#_example_10"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X DELETE \
+  https://cloud.restcomm.com/taskrouter/users/RCS31e4303c3d06409a9e7a847fc7221bd0	 \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If User delete is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "sid": "RCS31e4303c3d06409a9e7a847fc7221bd0",
+        "dateUpdated": "2020-01-27T05:50:02+0000",
+        "dateCreated": "2020-01-27T05:50:02+0000",
+        "accountEmail": "subhahu.reddy@telestax.com",
+        "uri": "/taskrouter/users/search/RCS31e4303c3d06409a9e7a847fc7221bd0",
+        "emailId": "testbgadmin2@telestax.com",
+        "status": "ACTIVE",
+        "role": "ENTERPRISE_ADMIN",
+        "name": "Test BG 2"
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If delete fails, below response is returned with corresponding HTTP Error Code</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "code":502,
+  "message":"User not found",
+   “data”:{
+   	          "sid”:” RCS31e4303c3d06409a9e7a847fc7221bd0”
+}
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column-container">
+      <div class="footer-column">
+          <h5 class="footer-column-title">Contact Us</h5>
+          <p>+1 (650) 263 6146</p>
+          <p><a href="https://go.telestax.com/sales-inquiries">SALES</a></p>
+          <p><a href="https://go.telestax.com/support-inquiries">SUPPORT</a></p>
+          <p><a href="https://go.telestax.com/general-inquiries">GENERAL</a></p>
+          <h5 class="footer-column-title">Follow Us</h5>
+          <p>
+            <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
+            <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
+            <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
+            <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
+          </p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Turnkey Applications</h5>
+        <p><a class="footer-usecase-item" href="/docs/1.0/turnkey-applications/smart-2fa-overview.html">SMART 2FA</a></p>
+          <p><a class="footer-usecase-item" href="/docs/1.0/solutions/message-exchange-overview.html">MESSAGE EXCHANGE</a></p>
+          <p><a class="footer-usecase-item" href="/docs/1.0/solutions/cisco-webex-overview.html">CISCO WEBEX</a></p>
+          <p><a class="footer-usecase-item" href="/docs/1.0/api/call-queue-api.html">CALL QUEUE</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Learn</h5>
+        <p><a href="https://www.telestax.com/blog/">BLOG</a></p>
+
+          <p><a id="terms-link" href="/docs/support.html">TERMS AND CONDITIONS</a></p>
+      </div>
+      <div class="footer-column">
+    <h5 class="footer-column-title">Additional Links</h5>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/about/" data-default-text="About Us" data-default-link="#">ABOUT</a></p>
+       <p><a href="https://www.telestax.com/faqs/">FAQ'S</a></p>
+       <p><a href="https://www.telestax.com/privacy-statement/">PRIVACY POLICY</a></p>
+       <p><a href="https://www.telestax.com/contact/">CONTACT</a></p>
+      </div>
+    </div>
+    <!---->
+    <!--<div class="footer-bottom-container">-->
+      <!--<div class="footer-logo">-->
+        <!--<a class="footer-logo-link" href="https://telestax.com"></a>-->
+      <!--</div>-->
+      <!--<div class="footer-copyright">-->
+        <!--<p class="footer-copyright-paragraph">COPYRIGHT © 2020, TELESTAX INC., ALL RIGHTS RESERVED.</p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!---->
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<!--
+<script>hljs.initHighlighting()</script>
+-->
+<!--
+  Tried to get this chunk into js/05-countly.js but it has some issues with the async loading so fell back to putting it here
+  where it works for some reason
+-->
+  <!-- Only enable countly if the key is set -->
+  <script type='text/javascript' src='https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'></script>
+  <script>
+    var Countly = Countly || {}
+    Countly.q = Countly.q || []
+
+    // provide countly initialization parameters
+    Countly.app_key = '56bdc77c4c53e32ebd439e2586dd4ee22b3d3ad0'
+    Countly.url = 'https://restcomm.count.ly'
+
+    Countly.q.push(['track_sessions'])
+    Countly.q.push(['track_pageview'])
+    Countly.q.push(['track_clicks'])
+    Countly.q.push(['track_errors'])
+    Countly.q.push(['track_links'])
+    Countly.q.push(['track_forms'])
+    Countly.q.push(['collect_from_forms'])
+
+    // send event
+    Countly.q.push(['add_event', {
+      key: 'Restcomm CSPs Documentation',
+      segmentation: {},
+    }]);
+
+    // load countly script asynchronously
+    (function () {
+      var cly = document.createElement('script')
+      cly.type = 'text/javascript'
+      cly.async = true
+      // enter url of script here
+      cly.src = 'https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'
+      cly.onload = function () {
+        Countly.init()
+      }
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(cly, s)
+    })()
+  </script>
+<!-- UserBack Tool -->
+<script>
+    Userback = window.Userback || {};
+    Userback.access_token = '5061|10149|r9Ure7pw7zJFVyflkflhPEQJvrsbdWcpYS5Vz3safDjZZg7ukX';
+    (function(id) {
+        var s = document.createElement('script');
+        s.async = 1;s.src = 'https://static.userback.io/widget/v1.js';
+        var parent_node = document.head || document.body;parent_node.appendChild(s);
+    })('userback-sdk');
+</script>
+
+  </body>
+</html>

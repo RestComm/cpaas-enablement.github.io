@@ -1859,6 +1859,8 @@
             </span>
               </div>
                           </li>
+              <ul class="nav-list">
+                                                                                                  </ul>
   </ul>
             </li>
             <li class="nav-item" data-depth="1">
@@ -2251,19 +2253,124 @@
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_coming_soon">Coming Soon</a>
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_enterprise">Enterprise</a>
 <ul class="sectlevel2">
-<li><a href="#_the_task_router_console_documentation_is_under_development_and_will_be_coming_soon">The Task Router Console documentation is under development and will be coming soon.</a></li>
+<li><a href="#_enterprise_list">Enterprise List</a></li>
+<li><a href="#_enterprise_details">Enterprise Details</a></li>
+<li><a href="#_add_enterprise">Add Enterprise</a></li>
 </ul>
 </li>
+<li><a href="#_search">Search</a></li>
 </ul>
 </div>
 <div class="sect1">
-<h2 id="_coming_soon"><a class="anchor" href="#_coming_soon"></a>Coming Soon</h2>
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Task Router is a skill based Task routing to Agent. Task can be generated from any Channel, though as of today only Voice is supported.</p>
+</div>
+<div class="paragraph">
+<p>CSP can create, manage and view Enterprises. In addition, they can add, manage and view users for each enterprise.</p>
+</div>
+<div class="paragraph">
+<p>Both CSP Admin and Enterprise Admin can create, manage and view Workspace,Workflow, TaskQueue, Worker, Activity etc. To understand more on managing Task Router features it-self please read Enterprise Console Doc here.</p>
+</div>
+<div class="paragraph">
+<p>This document covers the features and functionalities of the TaskRouter (UI) from CSP user Point of View.</p>
+</div>
+<div class="paragraph">
+<p>To find out more about the Task Router API please check the <a href="../api/task-router/task-router-api.htm">API documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>To sign in to Console please visit <a href="https://&lt;your_custom_domain&gt;/taskrouterconsole/" class="bare">https://&lt;your_custom_domain&gt;/taskrouterconsole/</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enterprise"><a class="anchor" href="#_enterprise"></a>Enterprise</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Enterprises are customers of CSP. CSP’s can create, manage, delete Enterprises. This is logical grouping of CSP customers and helps to easily manage billing/invoices for Enterprise.</p>
+</div>
 <div class="sect2">
-<h3 id="_the_task_router_console_documentation_is_under_development_and_will_be_coming_soon"><a class="anchor" href="#_the_task_router_console_documentation_is_under_development_and_will_be_coming_soon"></a>The Task Router Console documentation is under development and will be coming soon.</h3>
-
+<h3 id="_enterprise_list"><a class="anchor" href="#_enterprise_list"></a>Enterprise List</h3>
+<div class="paragraph">
+<p>Users can view a list of all enterprises that have been added under their organization. Enterprises can be filtered based on the name.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/enterprise-list.png" alt="enterprise list">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enterprise_details"><a class="anchor" href="#_enterprise_details"></a>Enterprise Details</h3>
+<div class="paragraph">
+<p>Users can view details of a particular Enterprise by clicking any enterprise name in the list.</p>
+</div>
+<div class="paragraph">
+<p>Users can Delete the enterprise by clicking on the “Delete Enterprise” button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/enterprise-details.png" alt="enterprise details">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_add_enterprise"><a class="anchor" href="#_add_enterprise"></a>Add Enterprise</h3>
+<div class="paragraph">
+<p>Whenever CSP adds a new Enterprise, it asks for a mandatory User under that Enterprise. This User gets created under Restcomm as a Sub-Account of CSP Organisation. CSP should provision all the Phone Numbers under this Sub-Account in Restcomm as explained in documentation <a href="https://restcomm.com/docs/api/incoming-phone-numbers-api.html">here</a>. These phone numbers are available to Enterprise to assign to TaskRouter.</p>
+</div>
+<div class="paragraph">
+<p>Follow the steps below to add an enterprise:
+Click on the “Add Enterprise” button in the enterprise list page .
+Enter the name of the new enterprise.
+An enterprise admin to be assigned to this enterprise. Enter the email Id of the enterprise  admin user you’d want to be the admin of the enterprise. All the numbers will be provisioned under this account.
+Enter the password for the enterprise admin account. This will be set in Restcomm.
+Enter a friendly name of the enterprise admin user.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Enterprise name,Mail ID  must be unique.</p>
+</div>
+<div class="paragraph">
+<p>Password should meet below criteria:</p>
+</div>
+<div class="paragraph">
+<p>At least one Uppercase letter(A,B,C,D…&#8230;&#8203;)<br>
+At least one Lowercase letter(a,b,c,d,&#8230;&#8203;&#8230;&#8203;.)<br>
+At least one number(1,2,3,4,5….)<br>
+At least one special character(!,@,#,$,%,&amp;,&#8230;&#8203;&#8230;&#8203;.)<br>
+Length of the password should be greater than equal to 8.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Once the enterprise is created, click on the “Workspace” link of a particular enterprise to see all other options mentioned as described in the [Enterprise Console documentation].</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/task-router/create-enterprise.png" alt="create enterprise">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_search"><a class="anchor" href="#_search"></a>Search</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All the options are explained in Enterprise Console Docs. There is only one more feature exposed for CSP Admin Console is CSP Admin can select the Enterprise as filter to search each of the entities.</p>
 </div>
 </div>
 </div>
