@@ -6782,7 +6782,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect2">
 <h3 id="_get_single_phone_number"><a class="anchor" href="#_get_single_phone_number"></a>Get Single Phone number</h3>
 <div class="paragraph">
-<p>Single Phonenumber search API allows users to retrieve specific phonenumber.</p>
+<p>Single phone number search API allows users to retrieve a specific phone number.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_22"><a class="anchor" href="#_base_resource_uri_22"></a>Base Resource URI</h4>
@@ -6866,6 +6866,346 @@ If search API is called without page and pageSize, by default pageSize will be 1
     "code": 200,
     "message": "OK"
 }</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usage_records"><a class="anchor" href="#_usage_records"></a>Usage Records</h3>
+<div class="paragraph">
+<p>Numbers are either main phone numbers or extension phone numbers added for a given enterprise. Usage Records keeps track of Number additions for a given month. For example if a number was added on the 5th day of Month and removed on 25th day of the same month, still that number will be counted under Usage Records for that particular month. However from next month onward it will not be counted as it was deleted. If the number was not deleted, the Usage Records count will include that number for next month and hence its monthly recurring count.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_23"><a class="anchor" href="#_base_resource_uri_23"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_mapping_usage_resource_uri"><a class="anchor" href="#_get_mapping_usage_resource_uri"></a>Get Mapping Usage Resource URI</h4>
+<div class="paragraph">
+<p>/autoattendant/phonenumber/usage/records</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_23"><a class="anchor" href="#_supported_operations_23"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: List usage records for numbers</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering_7"><a class="anchor" href="#_filtering_7"></a>Filtering</h4>
+<div class="paragraph">
+<p>Usage filters will return usage records for the passed filter. Following filtering parameters are supported.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Query Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage that has occurred on or after this date. Format is YYYY-MM-DD. All dates are in GMT. As a convenience, you can also specify offsets to today. For example, StartDate=-30days will make StartDate be 30 days before today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include usage that has occurred on or before this date. Format is YYYY-MM-DD. All dates are in GMT. As a convenience, you can also specify offsets to today. For example, EndDate=+30days will make EndDate be 30 days from today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organisationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory for SUPPORT_ADMIN users. Only include Usage records for Specific Organisation.</p>
+<p class="tableblock">Only users with SUPPORT_ADMIN role can pass this parameter. If users with any other role passes this parameter, it&#8217;s ignored.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Only include Usage records for specific Enterprise.+</p>
+<p class="tableblock">If CSP_ADMIN is calling this API and enterpriseSid is not passed, Usage Records for the entire Organisation is retrieved.<br></p>
+<p class="tableblock">For ENTERPRISE_ADMIN use this parameter is ignored.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_17"><a class="anchor" href="#_response_body_17"></a>Response Body</h4>
+<div class="paragraph">
+<p>Response Body will carry Code, corresponding message and data of Usage Records if it was  successfully fetched. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usageRecords</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data of Usage Records as explained in table below</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total Number of records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nextPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in next page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters_7"><a class="anchor" href="#_data_parameters_7"></a>Data parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The category of Usage Records.<br></p>
+<p class="tableblock">As of today only “phonenumbers” is supported</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of Usage Records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startDate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The first date for which usage is included in this UsageRecord. The date is specified in GMT and formatted as YYYY-MM-DD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endDate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The last date for which usage is included in the UsageRecord. The date is specified in GMT and formatted as YYYY-MM-DD.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">asOf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usage records up to date as of this timestamp, formatted as YYYY-MM-DDTHH:MM:SS+00:00. All timestamps are in GMT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">count</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of usage events,  such as the number of calls. <br></p>
+<p class="tableblock">In this case Phone Numbers including Extension Phone Numbers provisioned</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">countUnit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The units in which count is measured, such as calls for calls or messages for SMS.  <br></p>
+<p class="tableblock">In this case Phone Numbers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The amount used to bill usage and measured in units described in usage_unit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usageUnit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The units in which usage is measured, such as minutes for calls or messages for SMS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_of_numbers_usage"><a class="anchor" href="#_example_of_numbers_usage"></a>Example of Numbers Usage</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+  https://$DOMAIN/autoattendant/phonenumber/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23
+ \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+	"usageRecords":
+      [
+       {
+        "description":"Total Numbers created",
+        "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
+        "startDate":"2019-07-01",
+        "endDate":"2019-07-23",
+        "count":"2123",
+       “countUnit”:”numbers”
+       "usage": "2123",
+       "usageUnit": "numbers",
+  "uri":"/autoattendant/phonenumber/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23"
+        }
+    ],
+   "pageSize": 10,
+   "total": 1,
+   "page": 0,
+   "numPages": 1,
+   "start": 0,
+   "end": 1,
+"firstPageUri":"/autoattendant/phonenumber/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23&amp;pageSize=10&amp;page=0",
+"uri":"/autoattendant/phonenumber/search/?enterpriseSid=EN838bcdf35f9d421fad3ab516195b873b&amp;pageSize=10&amp;page=0"
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_subresource"><a class="anchor" href="#_request_subresource"></a>Request Subresource</h4>
+<div class="paragraph">
+<p>The main UsageRecords list resource supports a variety of convenience subresources. In general these take the form:</p>
+</div>
+<div class="paragraph">
+<p>/autoattendant/phonenumbers/usage/records/{Subresource}</p>
+</div>
+<div class="paragraph">
+<p>Supported subresources are:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subresource</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">daily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on a daily basis. If no date filter is passed, last 30 days usage is retrieved.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monthly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on a monthly basis. If no date filter is passed, last 12 months usage is retrieved</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yearly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record on yearly basis. If no date filter is passed, only this year and previous year usage is retrieved.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">today</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record today.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yesterday</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record yesterday.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thismonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record this month.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lastmonth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return Usage record last month.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_example_22"><a class="anchor" href="#_example_22"></a>Example:</h5>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+  https://$DOMAIN/autoattendant/phonenumber/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-23 \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "usageRecords":
+  [
+        {
+        "description":"Total Numbers created",
+        "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
+        "startDate":"2019-07-21",
+        "endDate":"2019-07-21",
+       "count":"101",
+       "countUnit":"numbers"
+       "usage": "101",
+       "usageUnit":"numbers",
+   "uri":"/autoattendant/phonenumber/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-21"
+        },
+       {
+        "description":"Total Numbers Created",
+        "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
+        "startDate":"2019-07-22",
+        "endDate":"2019-07-22",
+        "count":"134",
+       "countUnit":"numbers"
+       "usage": "134",
+       "usageUnit":"numbers",
+        "uri":"/autoattendant/phonenumber/usage/records/daily?startDate=2019-07-22&amp;endDate=2019-07-23"
+        }
+   ],
+   "pageSize": 10,
+   "total": 1,
+   "page": 0,
+   "numPages": 1,
+   "start": 0,
+   "end": 1,
+"firstPageUri":"/autoattendant/phonenumber/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-23&amp;pageSize=10&amp;page=0",
+"uri":"/autoattendant/phonenumber/usage/recordsdaily?startDate=2019-07-21&amp;endDate=2019-07-23&amp;pageSize=10&amp;page=0"
+
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above example if you don’t pass “startDate” and “endDate” parameters, 30 records will be shown.</p>
 </div>
 </div>
 </div>
