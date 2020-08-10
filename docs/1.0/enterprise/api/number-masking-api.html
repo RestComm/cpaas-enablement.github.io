@@ -1957,6 +1957,22 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">ttl</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Default time to live for Context created in Application. TTL (time to live) is measured in seconds after Contexts last create date or interaction .If not passed, default is 0 which is unlimited.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">geoMatchLevel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Where a Mask Number must be located relative to the Participant phone number. For example if the Participant Number is “15713316943” and the Mask Number pool has a phone number starting with Country Code “1”, it will be selected. If not Error will be returned. As of today only “country” is supported. By default it&#8217;s none.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">callBackUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. URL to call when interaction status changes. To unset existing value pass empty string like “”.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interceptCallbackUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The URL platform will call on each interaction. If the platform receives a 403 status, it blocks the interaction; otherwise the interaction continues. To unset existing value pass empty string like “”.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">outOfContextCallbackUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The URL platform should call when an inbound call occurs on a closed or non-existent Context. If your server responds with valid RCML, the platform will process it. This means it is possible, for example, to play a message for a call, or redirect a call to another Phone Number. See the Out of Context Callback section for more information. To unset existing value pass empty string like “”.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2139,6 +2155,335 @@
 }</pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_out_of_context_callback"><a class="anchor" href="#_out_of_context_callback"></a>Out of Context Callback</h3>
+<div class="paragraph">
+<p>It often happens that Mask Number receives calls that are not from Participants in an Open Context or valid Participants but from Closed Context, in that case if your Application has defined outOfContextCallbackUrl, Application will make a URL request with payload.</p>
+</div>
+<div class="paragraph">
+<p>Your business logic can respond from either of below two responses.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Valid RCML with Content-Type response header set to “application/xml”. All the RCML verbs are supported</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example see below payload to be sent.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="paragraph">
+<p>&lt;Response&gt;
+    &lt;Say&gt;Welcome to Acme Enterprise. The party you are calling is not present any more.&lt;/Say&gt;
+&lt;/Response&gt;
+---</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For more details on RCML please check <a href="https://cloud.restcomm.com/docs/rcml/overview.html">the RCML documentation</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Valid Auto-create Context JSON, with the Content-Type response header set to “application/json”</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example see below payload to be sent.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="paragraph">
+<p>{
+    "participantIdentifier": "1xxxxxxxxxx",
+    "name": "Cantext-timestamp-1594897729787",
+    "ttl": "600"
+}
+---</p>
+</div>
+<div class="sect3">
+<h4 id="_auto_create_context"><a class="anchor" href="#_auto_create_context"></a>Auto-create Context</h4>
+<div class="paragraph">
+<p>If business logic determines, based on the information included in the callback payload, that the caller should be connected to a particular Agent, you can respond with json that tells Application to create a Context between the caller/sender and Agent. Application will create the Context and Participants and will then proceed as if the caller/sender had reached an open Context.</p>
+</div>
+<div class="sect4">
+<h5 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Unique name for Context.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Context Mode. Possible values are:<br></p>
+<p class="tableblock">- message-only      <br>
+- voice-only         <br>
+- Voice-and-message   <br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ttl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The time, in seconds, when the Context will expire. The time is measured from the last Context create or the Context&#8217;s last Interaction. Default is 0 which means Context never expires</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateExpiry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Date/Time at which Context should expire, if any. If this value is present, it overrides the ttl value.<br></p>
+<p class="tableblock">Default is not set which means Context never expires</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">participantIdentifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Real Phone Number of the second Participant (e.g., your agent)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">participantMaskIdentifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Mask Identifier to use for second Participant (e.g., a Reserved Number from your pool)<br></p>
+<p class="tableblock">Application will choose a non-Reserved number from the pool if not specified.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_of_call_back_payload"><a class="anchor" href="#_example_of_call_back_payload"></a>Example of Call Back Payload</h3>
+<div class="paragraph">
+<p>All callback parameters will be submitted as form parameters (application/x-www-form-urlencoded). Each call back will pass specific parameters as shown below with their example values.</p>
+</div>
+<div class="sect3">
+<h4 id="_callbackurl"><a class="anchor" href="#_callbackurl"></a>callBackUrl</h4>
+<div class="paragraph">
+<p>To understand the meaning of each of these headers please look at Interactions Data Parameters.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value examples</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundParticipantSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PT70fc31025aa84031bb3400edf52079d5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundTargetSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IDbb44ef8c2ebf4d4599d0378a2a8a2ea8-CAda85d7935b96454983154e7feb5d75ad</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundChannelStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundChannelType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Call</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionAccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AC1a85c065d5ba4f4fc4ddb96469e88e4d</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionApplicationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APP0582af44b3f04325a0f948d471f083cd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionContextSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTXef986543fc0b429ea16aedb28bc29336</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionData</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionDateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-07-15T08:59:14+0000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionDateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-07-15T08:59:14+0000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IN0bbcf93d3d5d453692eecf6a3b60ec09</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VOICE</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_interceptcallbackurl"><a class="anchor" href="#_interceptcallbackurl"></a>interceptCallbackUrl</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value Example</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundParticipantSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PT70fc31025aa84031bb3400edf52079d5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundTargetSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IDbb44ef8c2ebf4d4599d0378a2a8a2ea8-CAda85d7935b96454983154e7feb5d75ad</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundChannelStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundChannelType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Call</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionAccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AC1a85c065d5ba4f4fc4ddb96469e88e4d</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionApplicationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APP0582af44b3f04325a0f948d471f083cd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionContextSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTXef986543fc0b429ea16aedb28bc29336</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionData</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionDateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-07-15T08:59:14+0000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionDateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-07-15T08:59:14+0000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IN0bbcf93d3d5d453692eecf6a3b60ec09</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VOICE</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_callbackurl_2"><a class="anchor" href="#_callbackurl_2"></a>callBackUrl</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value Example</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundParticipantSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PT70fc31025aa84031bb3400edf52079d5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundTargetSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IDbb44ef8c2ebf4d4599d0378a2a8a2ea8-CAda85d7935b96454983154e7feb5d75ad</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundChannelStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ringing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inboundChannelType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Call</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionAccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AC1a85c065d5ba4f4fc4ddb96469e88e4d</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionApplicationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APP0582af44b3f04325a0f948d471f083cd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionContextSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTXef986543fc0b429ea16aedb28bc29336</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionData</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{"duration":35}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionDateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-07-15T08:59:14+0000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionDateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-07-15T08:59:14+0000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IN0bbcf93d3d5d453692eecf6a3b60ec09</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">interactionType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VOICE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">outboundParticipantSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PT5f88ad573052477d845bb4d658774958</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">outboundTargetSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IDbb44ef8c2ebf4d4599d0378a2a8a2ea8-CA7cee4bb9cd37483d822832f591835fff</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">outboundChannelStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">completed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">outboundChannelType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VOICE</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
