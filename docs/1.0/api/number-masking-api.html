@@ -2330,6 +2330,18 @@ It is expected that CSP will not share newly created User credentials with Enter
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory name of Enterprise. Name must be unique within the given CSP Organisation.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Accepts JSON Body in the following format:<br></p>
+<p class="tableblock"> {<br>
+    "numberMasking":{<br>
+       "concurrentMaskNumberLimit":"10" <br>
+    } <br>
+ } <br></p>
+<p class="tableblock"><br>
+ In how many concurrent sessions masked number can be used simultaneously. Minimum value can be 1. If the enterprise tries to use masked number in more sessions than the the number set in “concurrentMaskNumberLimit” , the application will throw an error code 474 “Mask Numbers are not available”.<br></p>
+<p class="tableblock"> The default "concurrentMaskNumberLimit" is 100.</p></td>
+</tr>
 </tbody>
 </table>
 <div class="sect4">
