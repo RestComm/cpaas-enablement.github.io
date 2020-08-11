@@ -1872,7 +1872,7 @@
 <div class="sect2">
 <h3 id="_email_resource_uri"><a class="anchor" href="#_email_resource_uri"></a>Email resource URI</h3>
 <div class="paragraph">
-<p><strong>/2012-04-24/Accounts/{AccountSid}<strong>/Email/Messages.json</strong></strong></p>
+<p><strong>/2012-04-24/Accounts/{AccountSid}<strong>/Email/Messages</strong></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -2078,7 +2078,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-123" onclick="openLanguage('Java', 123)">Java</button>
       </div>
       <div id="Curl-123" class="sample-language-123">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
    -d 'To=email@hotmail.com' \
    -d 'From=email@gmail.com' \
    -d 'Body=This is a test' \
@@ -2095,7 +2095,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'To': 'email@hotmail.com',
@@ -2133,7 +2133,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages.xml',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -2157,7 +2157,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Email/Messages.xml");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Email/Messages");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -2204,7 +2204,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-124" onclick="openLanguage('Java', 124)">Java</button>
       </div>
       <div id="Curl-124" class="sample-language-124">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages.json  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
    -d 'To=email@hotmail.com' \
    -d 'From=email@gmail.com' \
    -d 'Body=This is a test ' \
@@ -2221,7 +2221,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages.json',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'To': 'email@hotmail.com',
@@ -2259,7 +2259,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages.json',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -2283,7 +2283,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Email/Messages.json");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Email/Messages");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
