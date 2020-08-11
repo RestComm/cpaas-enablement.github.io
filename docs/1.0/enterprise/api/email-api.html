@@ -1953,7 +1953,7 @@
         <button class="sample-code-button scsIndex-122" onclick="openLanguage('Java', 122)">Java</button>
       </div>
       <div id="Curl-122" class="sample-language-122">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
    -d 'To=email@hotmail.com' \
    -d 'From=email@gmail.com' \
    -d 'Body=This is a test' \
@@ -1970,7 +1970,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'To': 'email@hotmail.com',
@@ -2008,7 +2008,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages.xml',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -2032,7 +2032,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Email/Messages.xml");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Email/Messages");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
