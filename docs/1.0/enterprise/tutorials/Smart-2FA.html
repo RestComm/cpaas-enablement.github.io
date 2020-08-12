@@ -1901,16 +1901,22 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Send</strong><br></p>
+<p><a href="Smart-2FA.html#_sending_one_time_passwords_api_reference"><strong>Send</strong></a><br></p>
 </li>
 <li>
-<p><strong>Verify</strong><br></p>
+<p><a href="Smart-2FA.html#_verifying_one_time_passwords_api_reference"><strong>Verify</strong></a><br></p>
 </li>
 <li>
-<p><strong>Control</strong><br></p>
+<p><a href="Smart-2FA.html#_control"><strong>Control</strong></a><br></p>
 </li>
 <li>
-<p><strong>Session Detail Record</strong></p>
+<p><a href="Smart-2FA.html#_session_detail_record_sdr"><strong>Session Detail Record</strong></a><br></p>
+</li>
+<li>
+<p><a href="Smart-2FA.html#_limit"><strong>Limit</strong></a><br></p>
+</li>
+<li>
+<p><a href="Smart-2FA.html#_workflow"><strong>Workflow</strong></a></p>
 </li>
 </ul>
 </div>
@@ -2000,11 +2006,19 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">timeout (Optional)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Time in seconds for which OTP is valid. Post timeout period, OTP is automatically canceled if still not successfully verified. Default is 300 seconds.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time in seconds for which OTP is valid. Post timeout period, OTP is automatically canceled if still not successfully verified. Default is 300 seconds.<br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">guardTime (Optional)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">If send is called again to send new OTP passing same service and to parameter while previous OTP generated is still valid, the previous OTP is Canceled and new OTP is sent. However if guardTime (in seconds) parameter is passed in send request, old OTP is valid for guardTime and then cancelled. This is to accomodate scenarios where the underlying SMS, Call or email channel may be slow to deliver the message and by the time new OTP is generated, user might have received old OTP.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">limits (Optional)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key-Value pair Limits to restrict on number of OTPs generated based on criteria that developers select.  For further details please look at <a href="https://www.restcomm.com/docs/turnkey-applications/smart-2fa.html#_limit">Limit section</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">workflow (Optional)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow Name to apply corresponding workflow template. For further details please look at the <a href="https://www.restcomm.com/docs/turnkey-applications/smart-2fa.html#_workflow">Workflow section</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2038,7 +2052,7 @@
 <div class="sect3">
 <h4 id="_response_parameters"><a class="anchor" href="#_response_parameters"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>send API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a> In addition below are the Error&#8217;s that it can return</p>
+<p>Send API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a> In addition below are the Error&#8217;s that it can return</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2062,6 +2076,20 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Too many OTP request to same destination Number</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OTP is sent to same destination number within 1 min of previously sent. 2FA system limits number of OTP sent to same number to maximum one per min.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Send</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">497</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid Limits. There is no Limits with name "XXX"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send API is called with Limits name that is not defined.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">505</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid Workflow Name: "XXX"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send API is called with Workflow name that is not defined.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send API</p></td>
 </tr>
 </tbody>
 </table>
@@ -2525,10 +2553,11 @@ For example if OTP Service is “Support” and service filter parameter is “p
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that is initiated via this channel. Possible values are<br>
-* call<br>
-* sms<br>
-* email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that is initiated via this channel. Possible values are<br></p>
+<p class="tableblock">- call<br>
+- sms<br>
+- email<br>
+- combined (Combined is for OTP sent via Workflow). For more details on workflow please look at the <a href="Smart-2FA.html#_workflow">Workflow section</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
@@ -2548,10 +2577,10 @@ This allows to filter OTP sent to specific country code.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has this status. Possible values are<br>
-* success<br>
-* canceled<br>
-* expired<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has this status. Possible values are<br></p>
+<p class="tableblock">- success<br>
+- canceled<br>
+- expired<br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
