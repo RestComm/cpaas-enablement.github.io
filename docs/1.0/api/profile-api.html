@@ -2626,6 +2626,119 @@ If not specified, both extensions default to <code>resolve</code> to maintain ba
 </div>
 </div>
 <div class="sect3">
+<h4 id="_mapping_of_billing_headers"><a class="anchor" href="#_mapping_of_billing_headers"></a>Mapping of billing headers</h4>
+<div class="paragraph">
+<p>The billing headers are sent in SIP INVITE / MESSAGE requests and responses as SIP custom headers, and in SMPP messages as TLV fields.
+"P-Asserted-Service" header is used for identifying which service is originating the traffic (e.g. Visual Designer, 2FA, Number Masking, Auto Attendant etc.) for charging/billing purposes. Extra headers can be assigned per an enterprise account.
+Renaming of headers names is possible by adding a "headerTranslationMap" into a subscribe profile. This can be specified separately for voice and messages.</p>
+</div>
+<div class="sect4">
+<h5 id="_replacement_example_for_voice"><a class="anchor" href="#_replacement_example_for_voice"></a>Replacement example for voice:</h5>
+<div class="listingblock">
+<div class="content">
+<pre>{"multiProvider": {
+  "outbound-voice":[
+    {
+      "proxy":[
+        {
+          "uri": "replacement.com",
+          "username": "yourusername",
+          "password": "yourpassword",
+          "headerTranslationMap": {
+            "P-Asserted-Service": "X-SomeCustomHeader"
+          },
+        },
+      ]
+    }
+  ]
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_replacement_example_for_messages"><a class="anchor" href="#_replacement_example_for_messages"></a>Replacement example for messages:</h5>
+<div class="listingblock">
+<div class="content">
+<pre>{"multiProvider": {
+  "outbound-sms": [
+    {
+      "destination_network_id":"101",
+      "headerTranslationMap": {
+        "P-Asserted-Service":"X-TLV-COCTET-3000", "X-MSIDN":"X-TLV-COCTET-3001"
+      }
+    }
+  ]
+}}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the headerTranslationMap is applied the "P-Asserted-Service" will be replaced with "X-SomeCustomHeader" for voice, and "X-TLV-COCTET-3000" for messaging (if that is a SIP message that reaches a customer).</p>
+</div>
+<div class="paragraph">
+<p>Translated headers with names that start with "X-TLV-" have a special meaning. Headers with such names will be converted into SMPP TLVs before being sent by the SMPP protocol.</p>
+</div>
+<div class="paragraph">
+<p>The name has the following format: "X-TLV-&lt;TLV type&gt;-&lt;TLV tag (a decimal value)&gt;". The table below contains a list of possible TLV types.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TLV type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name Example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value example</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1BYTE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A digital 1-byte value (0..255)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X-TLV-1BYTE-3001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">150</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2BYTE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A digital 2-bytes value (-32768..32767)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X-TLV-2BYTE-3002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-1001</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4BYTE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A digital 4-bytes value (-2147483648..2147483647 )</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X-TLV-4BYTE-3003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2147483</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">COCTET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string value (ASCII only available)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X-TLV-COCTET-3004</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Some text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OCTET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A binary value byte per byte hex encoded</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X-TLV-OCTET-3005</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0199FEAB3A5B</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h4>
 <div class="paragraph">
 <p>Add a new Network Profile</p>
@@ -3598,7 +3711,7 @@ Subscriber Profiles can only be deleted by the CSP Administrator who created the
 <p>Resource Schema for Subscriber Profile: <a href="https://&lt;ORG&gt;.restcomm.com/restcomm/2012-04-24/Profiles/schemas/rc-subscriber-schema.json" class="bare">https://&lt;ORG&gt;.restcomm.com/restcomm/2012-04-24/Profiles/schemas/rc-subscriber-schema.json</a></p>
 </li>
 <li>
-<p>Resource Schema for multiProvider: <a href="https://&lt;ORG&gt;.restcomm.com/restcomm/2012-04-24/Profiles/schema/" class="bare">https://&lt;ORG&gt;.restcomm.com/restcomm/2012-04-24/Profiles/schema/</a> rc-multi-provider-schema.json</p>
+<p>Resource Schema for multiProvider: <a href="https://&lt;ORG&gt;.restcomm.com/restcomm/2012-04-24/Profiles/schema/rc-multi-provider-schema.json" class="bare">https://&lt;ORG&gt;.restcomm.com/restcomm/2012-04-24/Profiles/schema/rc-multi-provider-schema.json</a></p>
 </li>
 <li>
 <p>Resource Schema for sessionControl: <a href="https://&lt;ORG&gt;.restcomm.com/restcomm/2012-04-24/Profiles/schema/rc-session-control-schema.json" class="bare">https://&lt;ORG&gt;.restcomm.com/restcomm/2012-04-24/Profiles/schema/rc-session-control-schema.json</a></p>
