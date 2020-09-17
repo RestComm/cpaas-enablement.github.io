@@ -1654,14 +1654,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">The units in which <code>Count</code> is measured. For example <code>calls</code> for calls, <code>messages</code> for SMS.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Price</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The total price of the usage, in the currency associated with the account.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PriceUnit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The currency in which <code>Price</code> is measured, in ISO 4127 format (e.g. <code>usd</code>, <code>eur</code>, <code>jpy</code>).</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The URI that returns only this UsageRecord, relative to <code>https://<span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>_IP_ADDRESS</code></p></td>
 </tr>
@@ -1673,9 +1665,9 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="_usage_count_and_price"><a class="anchor" href="#_usage_count_and_price"></a>Usage, Count, and Price</h4>
+<h4 id="_usage_count"><a class="anchor" href="#_usage_count"></a>Usage, Count</h4>
 <div class="paragraph">
-<p>Each UsageRecord contains three amounts: <code>Usage</code>, <code>Count</code>, and <code>Price</code>. <code>Usage</code> is the primary way usage is measured for that category: <code>minutes</code> for calls, <code>messages</code> for SMS, etc. <code>Count</code> is the number of usage events: <code>calls</code> for calls, etc. And <code>Price</code> is the price of the usage in the currency associated with the account. Each UsageRecord also has fields that show the units in which each amount is measured: <code>Usage</code> is measured in units of <code>UsageUnit</code>, for instance. These fields make it easy to build usage dashboards. For example, you can always display human-readable strings describing usage with "`$Usagz`</p>
+<p>Each UsageRecord contains three amounts: <code>Usage</code>, <code>Count</code>. <code>Usage</code> is the primary way usage is measured for that category: <code>minutes</code> for calls, <code>messages</code> for SMS, etc. <code>Count</code> is the number of usage events: <code>calls</code> for calls, etc. Each UsageRecord also has fields that show the units in which each amount is measured: <code>Usage</code> is measured in units of <code>UsageUnit</code>, for instance. These fields make it easy to build usage dashboards. For example, you can always display human-readable strings describing usage with "`$Usagz`</p>
 </div>
 </div>
 <div class="sect3">
@@ -1709,7 +1701,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RECORDINGS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings of voice calls. <code>Count</code> is the number of recordings and <code>Usage</code> is the number of recorded minutes. Note that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> doesn&#8217;t charge for making recordings (only storing them long term) so <code>Price</code> will always be 0.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings of voice calls. <code>Count</code> is the number of recordings and <code>Usage</code> is the number of recorded minutes.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1923,11 +1915,11 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RECORDINGS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings of voice calls. <code>Count</code> is the number of recordings and <code>Usage</code> is the number of recorded minutes. Note that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> doesn&#8217;t charge for making recordings (only storing them long term) so <code>Price</code> will always be 0.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings of voice calls. <code>Count</code> is the number of recordings and <code>Usage</code> is the number of recorded minutes.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RECORDINGSTORAGE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of storage used by call recordings stored for the account. <code>Count</code> is the number of stored recordings, <code>Usage</code> is the number of stored recorded minutes, and <code>Price</code> is the price of storing the recordings.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amount of storage used by call recordings stored for the account. <code>Count</code> is the number of stored recordings, <code>Usage</code> is the number of stored recorded minutes.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2141,8 +2133,6 @@ public class JavaSampleClass {
     "usage_unit": "minutes",
     "count": "1",
     "count_unit": "calls",
-    "price": "0",
-    "price_unit": "USD",
     "uri": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily?Category=calls&amp;StartDate=2020-03-09&amp;EndDate=2020-03-10"
   },
   {
@@ -2155,8 +2145,6 @@ public class JavaSampleClass {
     "usage_unit": "minutes",
     "count": "1",
     "count_unit": "calls",
-    "price": "0",
-    "price_unit": "USD",
     "uri": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily?Category=calls&amp;StartDate=2020-03-11&amp;EndDate=2020-03-12"
   },
   {
@@ -2169,8 +2157,6 @@ public class JavaSampleClass {
     "usage_unit": "minutes",
     "count": "3",
     "count_unit": "calls",
-    "price": "0",
-    "price_unit": "USD",
     "uri": "/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Usage/Records/Daily?Category=calls&amp;StartDate=2020-03-12&amp;EndDate=2020-03-13"
   }
 }</pre>

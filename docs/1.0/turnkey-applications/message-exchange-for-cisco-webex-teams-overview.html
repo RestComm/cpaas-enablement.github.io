@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="Restcomm Message Exchange for Cisco WebEx Teams Overview - Restcomm Docs"></title>
+    <title data-custom-title="Restcomm Message Exchange for Cisco Webex Teams Overview - Restcomm Docs"></title>
     <link rel="canonical" href="
       https://www.restcomm.com/docs/1.0/turnkey-applications/message-exchange-for-cisco-webex-teams-overview.html
     ">
-    <meta name="description" content="Restcomm Cisco Webex helps service providers enable their Enterprise customers to send and receive SMS using Webex Teams and to manage and monitor their usage. Cisco users can have two-way conversations with any phone number right in the Cisco Webex Teams and UC-One applications.">
+    <meta name="description" content="Restcomm Cisco Webex Teams helps service providers enable their Enterprise customers to send and receive SMS using Webex Teams and to manage and monitor their usage. Cisco users can have two-way conversations with any phone number right in the Cisco Webex Teams.">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
@@ -2084,16 +2084,16 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">docs</a></li>
-    <li class="crumb"><a href="message-exchange-for-cisco-webex-teams-overview.html">Restcomm Message Exchange for Cisco WebEx Teams Overview</a></li>
+    <li class="crumb"><a href="message-exchange-for-cisco-webex-teams-overview.html">Restcomm Message Exchange for Cisco Webex Teams Overview</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>Restcomm Message Exchange for Cisco WebEx Teams Overview</h1>
+  <h1>Restcomm Message Exchange for Cisco Webex Teams Overview</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_understanding_the_restcomm_cisco_webex_console_and_api">Understanding the Restcomm Cisco Webex Console and API</a></li>
+<li><a href="#_understanding_the_restcomm_cisco_webex_teams_console_and_api">Understanding the Restcomm Cisco Webex Teams Console and API</a></li>
 <li><a href="#_overview">Overview</a></li>
 <li><a href="#_prerequisite">Prerequisite</a></li>
 <li><a href="#_setting_up_your_first_mapping">Setting up your first mapping</a>
@@ -2112,7 +2112,7 @@
 </ul>
 </div>
 <div class="sect1">
-<h2 id="_understanding_the_restcomm_cisco_webex_console_and_api"><a class="anchor" href="#_understanding_the_restcomm_cisco_webex_console_and_api"></a>Understanding the Restcomm Cisco Webex Console and API</h2>
+<h2 id="_understanding_the_restcomm_cisco_webex_teams_console_and_api"><a class="anchor" href="#_understanding_the_restcomm_cisco_webex_teams_console_and_api"></a>Understanding the Restcomm Cisco Webex Teams Console and API</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="message-exchange-for-cisco-webex-teams-console.html">Getting Started with the Cisco Webex Console</a></p>
@@ -2129,12 +2129,20 @@
 <p>Restcomm Cisco Webex helps service providers enable their Enterprise customers to send and receive SMS using Webex Teams and to manage and monitor their usage. Enterprise customers can send two-way SMS.</p>
 </div>
 <div class="paragraph">
-<p>If you want to use the Restcomm Cisco Webex feature, you will need to complete the following steps:</p>
+<p>If you would like to start using the Restcomm Cisco Webex Teams feature, you need to complete the following steps:</p>
 </div>
-<div class="paragraph">
-<p>Create Bot for each of the Enterprises and map the Bot Access Token with Enterprise as explained in 4 Create Bot for Enterprise
-Create a mapping (Via API or UI Console)
-Start sending messages</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Create Bot for each of the Enterprises and map the Bot Access Token to the Enterprise as explained in <a href="message-exchange-for-cisco-webex-teams-overview.html#_create_bot_for_enterprise">Create Bot for Enterprise</a> documentation.</p>
+</li>
+<li>
+<p>Create a mapping (via the API or the user interface of the Console)</p>
+</li>
+<li>
+<p>Start sending messages</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -2147,16 +2155,16 @@ Start sending messages</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Webex setup for your Enterprise Customers</p>
-</li>
-<li>
-<p>Working knowledge of cURL and a way to make HTTP API calls (either using cURL or Postman; we recommend Postman if you’re not familiar with cURL.) Or you can directly use UI Console exposed by Restcomm.</p>
-</li>
-<li>
-<p>An understanding of Restcomm API for Cisco Webex Teams or Console on how to add mappings.</p>
-</li>
-<li>
 <p>An activated Restcomm Cloud account.</p>
+</li>
+<li>
+<p>Webex Teams setup for your Enterprise customers</p>
+</li>
+<li>
+<p>Working knowledge of cURL and a way to make HTTP API calls (either using cURL or Postman; We recommend using Postman, if you’re not familiar with cURL.) Or you can directly use the interface of the Restcomm Cisco Webex Console.</p>
+</li>
+<li>
+<p>An understanding of how to add mappings via the Restcomm API for Cisco Webex Teams or the Console.</p>
 </li>
 </ul>
 </div>
@@ -2167,7 +2175,7 @@ Start sending messages</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You need to reach out to your Technical Account Manager to make sure your Account has been correctly set up for Cisco WebEx SMS enablement.
+You need to reach out to your Technical Account Manager to make sure your Account has been correctly set up for Cisco Webex Teams SMS enablement.
 </td>
 </tr>
 </table>
@@ -2190,29 +2198,32 @@ You must have a valid, working Restcomm account in order to complete this step. 
 </table>
 </div>
 <div class="paragraph">
-<p>The purpose of Webex mapping is to associate a phone phone number with an existing Cisco WebexId. For example, imagine you have a user with the Webex teams id of <a href="mailto:joe@myserver.com">joe@myserver.com</a> and Restcomm number is +1-919-555-1212.</p>
+<p>The purpose of Webex Teams mapping is to associate a phone phone number with an existing Cisco Webex Teams Id. For example, imagine you have a user with the Webex Teams id of <a href="mailto:joe@myserver.com">joe@myserver.com</a> and Restcomm number is +1-919-555-1212.</p>
 </div>
 <div class="paragraph">
-<p>Mapping will tell the Restcomm for Cisco Webex Teams service for Cisco Webex to send all inbound SMS messages sent to Joe’s number to <a href="mailto:joe@myserver.com">joe@myserver.com</a>. Additionally, any time Joe sends an outbound SMS from his Cisco Webex account, it will be sent from his phone number.</p>
+<p>It also supports setting up Group Messaging where the number +1-919-555-1212 is mapped to multiple Webex Teams Ids, like <a href="mailto:joe@myserver.com">joe@myserver.com</a>, <a href="mailto:bob@myserver.com">bob@myserver.com</a>, etc.</p>
 </div>
 <div class="paragraph">
-<p>You can set up your mapping in two different ways, either via the Restcomm Message Exchange for Cisco Webex Teams Console for CiscoWebex or via the API.</p>
+<p>Mapping will tell Restcomm for Cisco Webex Teams service to send all inbound SMS messages, sent to phone number (+1-919-555-1212), to Webex Teams Space. Where <a href="mailto:joe@myserver.com">joe@myserver.com</a> is part of, or in case of Group Messaging, both Joe and Bob are added in that space. Additionally, any time Joe (or Bob if part of the same space) sends an outbound SMS from the Cisco Webex Teams account, it will be sent from a mapped phone number.</p>
+</div>
+<div class="paragraph">
+<p>You can set up your mapping in two different ways, either via the Restcomm Message Exchange for Cisco Webex Teams Console or via the API.</p>
 </div>
 <div class="sect2">
 <h3 id="_setting_up_a_new_mapping_via_console"><a class="anchor" href="#_setting_up_a_new_mapping_via_console"></a>Setting up a new mapping via Console</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Log in to your Restcomm Message Exchange for Cisco Webex Teams Console via your Restcomm cloud account</p>
+<p>Log into your <a href="message-exchange-for-cisco-webex-teams-console.html">Restcomm Message Exchange for Cisco Webex Teams Console</a> via your Restcomm cloud account</p>
 </li>
 <li>
-<p>Create new Mapping as explained in Section 2.3 Add Mappings in Docs :Cisco Webex console</p>
+<p>Create a new mapping as explained in <a href="message-exchange-for-cisco-webex-teams-console.html#_add_a_mapping">Add Mappings Console</a> documentation.</p>
 </li>
 <li>
-<p>Before creating mapping, you need to create Enterprise. This is a very important step as Cisco Webex Bot has one to one mapping with Enterprise.</p>
+<p>Before creating a mapping, you need to create an Enterprise. This is a very important step as Cisco Webex Bot has a one-to-one mapping with the Enterprise.</p>
 </li>
 <li>
-<p>Create Bot (for each enterprise) as explained in 3 Create Bot for Enterprise</p>
+<p>Create Bot (for each enterprise) as explained in the <a href="message-exchange-for-cisco-webex-teams-overview.html#_create_bot_for_enterprise">Create a Bot for Enterprise</a> documentation.</p>
 </li>
 </ul>
 </div>
@@ -2223,21 +2234,21 @@ You must have a valid, working Restcomm account in order to complete this step. 
 <p>Once you’ve completed all of the steps above, you’re ready to test.</p>
 </div>
 <div class="paragraph">
-<p>Send a message from PSTN number to mapped number. You should then see the message appear in Webex Teams whose Cisco Id is mapped with this restcomm number. The message should appear in new Webex Space if you are receiving a message for the first time. All subsequent messages appear in the same space. Space name by default is the phone number from which the message was initiated. You can rename space to something more meaningful, for example, “Ryan’s Mobile Phone”</p>
+<p>To begin, send a message from a PSTN number to the mapped number. You should see the message appearing in the Webex Teams space. The message should appear in a new space if you are receiving a message for the first time. All subsequent messages will appear in the same space. The default space name is set to “Phone Number:xxx”, where <code>phone number</code> is the sender&#8217;s number and <code>xxx</code> is the name provided while creating the mapping. You can rename the space to something more meaningful, for example, “Ryan’s Mobile Phone:Group 1”.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_replying_to_received_sms_message"><a class="anchor" href="#_replying_to_received_sms_message"></a>Replying to received SMS/message</h3>
 <div class="paragraph">
-<p>To reply to received message follow steps below:</p>
+<p>To reply to received message follow the steps below:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>In newly created space, refer to Bot with “@” prefix and then type your message</p>
+<p>In newly created space, refer to the Bot with “@” prefix and then type your message.</p>
 </li>
 <li>
-<p>Hit Enter and your message will be sent as SMS to the mobile number of the receiver.</p>
+<p>Hit enter and your message will be sent as SMS to the recepient&#8217;s mobile number.</p>
 </li>
 </ul>
 </div>
@@ -2257,15 +2268,22 @@ You must have a valid, working Restcomm account in order to complete this step. 
 </li>
 <li>
 <p>It should respond back with Card that allows you to enter the receiving party’s phone number</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are part of multiple mappings, it also allows you to select via which mapping you want to send out SMS.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Enter the receiving party&#8217;s phone number and hit Submit. It should create a new Space with receiver Phone number as Space name</p>
+<p>Enter the recepient&#8217;s phone number and hit <code>Submit</code>. It should create a new space with “recepient&#8217;s phone number:Mapping name” as Space name</p>
 </li>
 <li>
-<p>In newly created space, refer to Bot with “@” prefix and then type your message</p>
+<p>In newly created space, refer to the Bot with “@” prefix and then type your message.</p>
 </li>
 <li>
-<p>Hit Enter and your message will be sent as SMS to the mobile number of the receiver.</p>
+<p>Hit <code>enter</code> and your message will be sent as an SMS to the mobile number of the recepient.</p>
 </li>
 </ul>
 </div>
@@ -2278,19 +2296,19 @@ You must have a valid, working Restcomm account in order to complete this step. 
 <div class="ulist">
 <ul>
 <li>
-<p>Visit  <a href="https://developer.webex.com/" class="bare">https://developer.webex.com/</a>  then click on “Start Building Apps”.</p>
+<p>Visit  <a href="https://developer.webex.com/" class="bare">https://developer.webex.com/</a> then click on <strong>Start Building Apps</strong>.</p>
 </li>
 <li>
 <p>Login with the webex teams for developers credentials.</p>
 </li>
 <li>
-<p>Click on “Create a New App”.</p>
+<p>Click on <strong>Create a New App</strong>.</p>
 </li>
 <li>
-<p>Click on “Create a Bot”.</p>
+<p>Click on <strong>Create a Bot</strong>.</p>
 </li>
 <li>
-<p>Fill the basic details of the bot such as “Bot Name”, “Bot Username”, “Icon”, “Description” then click   “Add Bot”.</p>
+<p>Fill the basic details of the bot such as “Bot Name”, “Bot Username”, “Icon”, “Description” then click <strong>Add Bot</strong>.</p>
 </li>
 <li>
 <p>You will get “Bot’s Access Token”, “Bot Id”</p>
@@ -2301,7 +2319,7 @@ You must have a valid, working Restcomm account in order to complete this step. 
 <h3 id="_mapping_bot_access_token_with_the_enterprise"><a class="anchor" href="#_mapping_bot_access_token_with_the_enterprise"></a>Mapping Bot Access Token With the enterprise</h3>
 <div class="paragraph">
 <p>Once bot is created in Webex we will get bot access token
-To map a Bot with an enterprise we have to call the below API or add it via UI as explained in section <a href="message-exchange-for-cisco-webex-teams-console.html#_adding_an_enterprise">Adding Enterprise Cisco WebEx Console Documentation</a>.</p>
+To map a Bot with an enterprise we have to call the below API or add it via UI as explained in the <a href="message-exchange-for-cisco-webex-teams-console.html#_adding_an_enterprise">Adding Enterprise Cisco WebEx Console documentation</a>.</p>
 </div>
 <script>
       function openLanguage(language, index) {
