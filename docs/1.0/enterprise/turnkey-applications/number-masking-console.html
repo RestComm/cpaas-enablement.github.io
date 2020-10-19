@@ -1828,16 +1828,16 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Number Masking enables Enterprise to easily make communication between two or more parties without revealing private information (Phone Number).</p>
+<p>Number Masking enables Business Customers to easily make communication possible between two or more parties without revealing private information (such as phone number).</p>
 </div>
 <div class="paragraph">
-<p>Enterprise customers can define, manage and view Applications, Contexts, Mask Number Pool etc.</p>
+<p>Business customers can define, manage and view Applications, Contexts, Masked Number Pool etc.</p>
 </div>
 <div class="paragraph">
-<p>This document covers the features and functionalities of the Number Masking Console (UI) from Enterprise user Point of View.</p>
+<p>This document covers the features and functionalities of the Number Masking Console (UI) from Business Customer&#8217;s User Point of View.</p>
 </div>
 <div class="paragraph">
-<p>To understand more on API please refer to Documentation here.</p>
+<p>To find out more about the Number Masking API, please check the <a href="../api/number-masking-api.html">API documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p>To sign in to Console please visit <a href="https://&lt;domain-provided-by-csp&gt;/numbermaskingconsole/" class="bare">https://&lt;domain-provided-by-csp&gt;/numbermaskingconsole/</a></p>
@@ -1845,13 +1845,41 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="_terminology"><a class="anchor" href="#_terminology"></a>Terminology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As part of this documentation, the following terms will be used to describe specific individuals, concepts, and organizations.</p>
+</div>
+<div class="sect2">
+<h3 id="_communications_provider"><a class="anchor" href="#_communications_provider"></a>Communications Provider</h3>
+<div class="paragraph">
+<p>Communications Provider generally refers to any organization providing communications products, applications, capabilities, or services. The term can refer to operators, carriers, providers, suppliers, or any other entity that delivers communications capabilities to enterprise or business customers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_business_customer"><a class="anchor" href="#_business_customer"></a>Business Customer</h3>
+<div class="paragraph">
+<p>An enterprise or business customer that relies on a Communications Provider to deliver communications products, capabilities, or services to customers or end users.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_business_customer_2"><a class="anchor" href="#_business_customer_2"></a>Business Customer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Communications Providers serve Business Customers. Through their own Accounts, Communications Providers can create, manage, or delete Business Customer Sub Accounts. By setting up Sub Accounts for Business Customers, the Communications Provider can easily manage billing and invoices for a specific Business Customer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_applications"><a class="anchor" href="#_applications"></a>Applications</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To navigate to the page, click on the Applications on the top header.</p>
+<p>To navigate to the page, click on <strong>Applications</strong> on the top menu.</p>
 </div>
 <div class="paragraph">
-<p>Users can view a list of all Applications that have been created under Enterprise.</p>
+<p>Users can view a list of all Applications that have been created for this account/Business Customer.</p>
 </div>
 <div class="paragraph">
 <p>Applications can be filtered based on the name.</p>
@@ -1869,10 +1897,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>click on “Add Application” button</p>
+<p>Click on “Add Application” button</p>
 </li>
 <li>
-<p>enter the name of the application and click the “Done” button.</p>
+<p>Enter the name of the application and click the “Done” button.</p>
 </li>
 </ul>
 </div>
@@ -1883,7 +1911,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Name of the application should be unique.
+The name of the application should be unique.
 </td>
 </tr>
 </table>
@@ -1900,25 +1928,25 @@ Name of the application should be unique.
 <h2 id="_basic_details"><a class="anchor" href="#_basic_details"></a>Basic details</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To edit an Application click on the name of the Application in the list of applications, users will view the “Basic Details” page.On the page, enter the fields  and click on the “Save” button.</p>
+<p>To edit an Application click on the <strong>name of the Application</strong> in the list. Users will view the Basic Details page. On the page, enter the fields and click <strong>Save</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Description of the fields to edit application:</p>
+<p>The description of the fields to edit an application include:</p>
 </div>
 <div class="paragraph">
-<p><strong>Default Time to Live</strong>: Default time to live for context in the application after Contexts last update date or interaction. If not passed, default is 0 which is unlimited</p>
+<p><strong>Default Time to Live</strong>: Default time to live for context or session in the application after Contexts last update date or interaction. If not passed, default is 0, which means unlimited time to live.</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Name</strong>: Name of the application.</p>
 </div>
 <div class="paragraph">
-<p><strong>GeoMatch Level</strong>: Where a Mask Number must be located relative to the Participant phone number. For example if the Participant Number is “15713316943” and the Mask Number pool has a phone number starting with Country Code “1”, it will be selected. If not Error will be returned. As of today only “country” is supported. By default it is set to none.</p>
+<p><strong>GeoMatch Level</strong>: Where a masked number must be located relative to the Participant&#8217;s phone number. For example if the Participant&#8217;s Number is “15713316943” and the masked number pool has a phone number starting with Country Code “1”, it will be selected. If not an error will be returned. As of today only “country” is supported. By default it is set to none.</p>
 </div>
 <div class="paragraph">
-<p><strong>CallBack Url</strong>: URL to call when interaction status changes. To unset an existing value, pass an empty string like “”.</p>
+<p><strong>CallBack Url</strong>: URL to call when the interaction status changes. To reset an existing value, pass an empty string like “”.</p>
 </div>
 <div class="paragraph">
-<p><strong>Intercept Callback Url</strong>: The URL platform is called on every interaction. If the platform receives a 403 status, it will block the interaction, otherwise the interaction will continue.</p>
+<p><strong>Intercept Callback Url</strong>: The URL that the platform will call on each interaction. If the platform receives a 403 status, it will block the interaction, otherwise the interaction will continue.</p>
 </div>
 <div class="paragraph">
 <p><strong>Out of Context Callback Url</strong>: The URL platform shall be called when an inbound call occurs on a closed or non-existent context. If your server responds with valid RCML, the platform will process it. This means that it is possible, for example, to play a message for a call, or redirect a call to another Phone Number.</p>
@@ -1929,18 +1957,22 @@ Name of the application should be unique.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_mask_numbers"><a class="anchor" href="#_mask_numbers"></a>Mask Numbers</h3>
+<h3 id="_masked_numbers"><a class="anchor" href="#_masked_numbers"></a>Masked Numbers</h3>
 <div class="paragraph">
-<p>To navigate to this page click on “Mask Numbers” in the side navigation bar of the screen.</p>
+<p>To navigate to this page click on <strong>Masked Numbers</strong> in the side navigation bar of the screen.</p>
 </div>
-<div class="paragraph">
-<p>Users can view a list of all Mask Numbers in the pool that is assigned to the Application.</p>
-</div>
-<div class="paragraph">
-<p>Mask Numbers list can be filtered based on the mask number.</p>
-</div>
-<div class="paragraph">
-<p>To mark a Mask Number as reserved/unreserved click on checkbox of particular mask number</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users can view a list of all Masked Numbers in the pool that are assigned to the Application.</p>
+</li>
+<li>
+<p>The Masked Numbers list can be filtered based on the masked number.</p>
+</li>
+<li>
+<p>To mark a Masked Number as reserved/unreserved click on checkbox of a particular masked number.</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1948,16 +1980,16 @@ Name of the application should be unique.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_add_mask_number"><a class="anchor" href="#_add_mask_number"></a>Add Mask number</h4>
+<h4 id="_add_masked_number"><a class="anchor" href="#_add_masked_number"></a>Add Masked number</h4>
 <div class="paragraph">
-<p>To add a mask number click on the “Add Mask number” button.</p>
+<p>To add a masked number click on the “Add Masked number” button.</p>
 </div>
 <div class="paragraph">
-<p>List of all the Phone Numbers belonging to the Enterprise and not assigned to any Applications  are shown. To add a Phone Number as Mask Number, user need to select the checkbox of  particular number.</p>
+<p>List of all the Phone Numbers belonging to the Enterprise and not assigned to any Applications are shown. To add a Phone Number as Masked Number, user need to select the checkbox of particular number.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/number-masking/add-mask-number.png" alt="Add Mask Number">
+<img src="../_images/number-masking/add-mask-number.png" alt="Add Masked Number">
 </div>
 </div>
 </div>
@@ -1965,7 +1997,7 @@ Name of the application should be unique.
 <div class="sect2">
 <h3 id="_context"><a class="anchor" href="#_context"></a>Context</h3>
 <div class="paragraph">
-<p>To navigate to this page click on “Contexts” in the side navigation bar of the screen.</p>
+<p>To navigate to this page click on <strong>Contexts</strong> in the side navigation bar of the screen.</p>
 </div>
 <div class="paragraph">
 <p>Users can view a list of all Contexts that have been created under the Application.</p>
@@ -1981,13 +2013,13 @@ Name of the application should be unique.
 <div class="sect3">
 <h4 id="_add_context"><a class="anchor" href="#_add_context"></a>Add Context</h4>
 <div class="paragraph">
-<p>To add a context click on the “Add Context” button.</p>
+<p>To add a context click on the <strong>Add Context</strong> button.</p>
 </div>
 <div class="paragraph">
 <p>Enter the fields required and click on the “Done” button.</p>
 </div>
 <div class="paragraph">
-<p>Description of the field to add context:</p>
+<p>The description of the field to add context:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1995,13 +2027,13 @@ Name of the application should be unique.
 <p><strong>Context Name</strong>: Mandatory field and should be unique within Application.</p>
 </li>
 <li>
-<p><strong>Time to live</strong>: Optional field. If provided, it overrides the default time to live configured in the basic details of application .</p>
+<p><strong>Time to Live</strong>: Optional field. If provided, it overrides the default time to live configured in the basic details of application .</p>
 </li>
 <li>
-<p><strong>Expiry Date</strong>: Optional field,the date when context should expire, this will override time to live if configured.</p>
+<p><strong>Expiry Date</strong>: Optional field,the date when the Context should expire. This will override time to live if configured.</p>
 </li>
 <li>
-<p><strong>Mode</strong>: Mode of the interaction, example:“Voice”.</p>
+<p><strong>Mode</strong>: Mode of the interaction, example:Voice.</p>
 </li>
 </ul>
 </div>
@@ -2015,16 +2047,20 @@ Name of the application should be unique.
 <div class="sect2">
 <h3 id="_edit_context"><a class="anchor" href="#_edit_context"></a>Edit Context</h3>
 <div class="paragraph">
-<p>To edit a context click on the context name in the contexts list page. To go back to the context list page click on the “back” button on top right.</p>
+<p>To edit a Context click on the <strong>Context name</strong> in the Contexts list page. To go back to the context list page click on the <strong>Back</strong> button on top right.</p>
 </div>
 <div class="paragraph">
-<p>Users can view the details of the context.</p>
+<p>Users can view the details of the Context.</p>
 </div>
-<div class="paragraph">
-<p>Can edit context by updating Name, Expiry date, Mode, Status, Time to live and click on the “Save Changes” button.</p>
-</div>
-<div class="paragraph">
-<p>Can Delete the context by clicking on the “Delete” button</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Edit the Context by updating Name, Expiry Date, Mode, Status, Time to live and click on the “Save Changes” button.</p>
+</li>
+<li>
+<p>Delete the Context by clicking on the “Delete” button</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2035,16 +2071,16 @@ Name of the application should be unique.
 <div class="sect2">
 <h3 id="_participants"><a class="anchor" href="#_participants"></a>Participants</h3>
 <div class="paragraph">
-<p>To view or to add the participants in the context click on “participant” link of particular context in context list page</p>
+<p>To view or add the participants in the Context click on Participant link in the Context list page.</p>
 </div>
 <div class="paragraph">
-<p>To go back to the context list page click on the “back” button on top right.</p>
+<p>To go back to the Context list page click the <strong>Back</strong> button on the top right.</p>
 </div>
 <div class="paragraph">
-<p>Users can view the list of participants which are added under that particular context.</p>
+<p>Users can view the list of Participants which are added under that particular context.</p>
 </div>
 <div class="paragraph">
-<p>Participants can be filtered based on the participant number.</p>
+<p>Participants can be filtered based on the Participant Number.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2059,13 +2095,16 @@ Name of the application should be unique.
 <div class="ulist">
 <ul>
 <li>
-<p>Participant Name: Optional. Name of the participant. * Phone number: Mandatory field. Phone number of participant</p>
+<p>Participant Name: Optional. Name of the participant.</p>
 </li>
 <li>
-<p>Mask Number: Optional field. Mask Number available in Mask Number pool of Application.</p>
+<p>Phone number: Mandatory field. Phone number of the participant</p>
 </li>
 <li>
-<p>Mask Number SID: Optional field. Sid of the Mask Number number.</p>
+<p>Masked Number: Optional field. Masked Number available in Masked Number pool of Application.</p>
+</li>
+<li>
+<p>Masked Number SID: Optional field. SID of the Masked Number number.</p>
 </li>
 </ul>
 </div>
@@ -2076,8 +2115,7 @@ Name of the application should be unique.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If both Mask Number Sid and Mask Number are specified ,Mask Number SID takes   preference.
-NOTE: If both Mask number and Mask Number SID are not specified, Application will select a random number from the Mask numbers  pool.
+If both the Masked Number SID and Masked Number are specified, the Masked Number SID takes preference. If both the Masked number and Masked Number SID are not specified, the Application will select a random number from the Masked Number pool.
 </td>
 </tr>
 </table>
@@ -2091,7 +2129,7 @@ NOTE: If both Mask number and Mask Number SID are not specified, Application wil
 <div class="sect3">
 <h4 id="_participants_details"><a class="anchor" href="#_participants_details"></a>Participants Details</h4>
 <div class="paragraph">
-<p>Click on the name of the participant to view the details of the participant.</p>
+<p>Click on the <strong>Name of the Participant</strong> to view the details.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2106,13 +2144,13 @@ NOTE: If both Mask number and Mask Number SID are not specified, Application wil
 <h2 id="_numbers"><a class="anchor" href="#_numbers"></a>Numbers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Your Communications Service Provider (CSP) would have reserved Phone Numbers for your Enterprise to use. Only these numbers can be used as Mask Numbers.</p>
+<p>Your Communications Provider would have reserved Phone Numbers for your Business to use. Only these numbers can be used as Masked Numbers.</p>
 </div>
 <div class="paragraph">
-<p>To navigate to the page, click on the Numbers on the top header.</p>
+<p>To navigate to the page, click on <strong>Numbers</strong> located on the top menu.</p>
 </div>
 <div class="paragraph">
-<p>Users can view a list of all  numbers that have been assigned for your Enterprise.</p>
+<p>Users can view a list of all phone numbers that have been assigned for particular Business Customer.</p>
 </div>
 <div class="paragraph">
 <p>Numbers can be filtered based on the phone numbers.</p>
@@ -2128,13 +2166,17 @@ NOTE: If both Mask number and Mask Number SID are not specified, Application wil
 <h2 id="_user_management"><a class="anchor" href="#_user_management"></a>User Management</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To navigate to the page, click on the User Management on the top header.</p>
+<p>To navigate to the page, click on <strong>User Management</strong> on the top menu.</p>
 </div>
-<div class="paragraph">
-<p>Users can view a list of all users that have been created under enterprise.</p>
-</div>
-<div class="paragraph">
-<p>List of users can be filtered based on the user name.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>View a list of all users that have been created under an account.</p>
+</li>
+<li>
+<p>Filter based on the User Name.</p>
+</li>
+</ul>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2144,27 +2186,27 @@ NOTE: If both Mask number and Mask Number SID are not specified, Application wil
 <div class="sect2">
 <h3 id="_add_users"><a class="anchor" href="#_add_users"></a>Add Users</h3>
 <div class="paragraph">
-<p>To add users under enterprise click on the “Add User” button in the User management page.</p>
+<p>To add Users click on the <strong>Add User</strong> button in the User management page.</p>
 </div>
 <div class="paragraph">
-<p>Follow the steps below to add an user:</p>
+<p>Follow the steps below to add a User:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Enter the name of the new user.</p>
+<p>Enter the name of the new User.</p>
 </li>
 <li>
-<p>Enter email id of the user.</p>
+<p>Enter the email ID of the User.</p>
 </li>
 <li>
-<p>Enter the password for the user account.</p>
+<p>Enter the password for the User Account.</p>
 </li>
 <li>
-<p>Set a role for the user (Enterprise ADMIN)</p>
+<p>Set a role for the user (ADMIN)</p>
 </li>
 <li>
-<p>Set the status of the account(ACTIVE,INACTIVE)</p>
+<p>Set the status of the account (ACTIVE, INACTIVE)</p>
 </li>
 </ul>
 </div>
@@ -2175,13 +2217,42 @@ NOTE: If both Mask number and Mask Number SID are not specified, Application wil
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Mail ID  must be unique.
-NOTE: Password should meet below criteria:
- At least one Uppercase letter(A,B,C,D…&#8230;&#8203;)
- At least one Lowercase letter(a,b,c,d,&#8230;&#8203;&#8230;&#8203;.)
- At least one number(1,2,3,4,5….)
- At least one special character(!,@,#,$,%,&amp;,&#8230;&#8203;&#8230;&#8203;.)
- Length of the password should be greater than equal to 8.
+Email ID must be unique.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Password should meet below criteria:</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At least one Uppercase letter(A,B,C,D…&#8230;&#8203;)</p>
+</li>
+<li>
+<p>At least one Lowercase letter(a,b,c,d,&#8230;&#8203;&#8230;&#8203;.)</p>
+</li>
+<li>
+<p>At least one number(1,2,3,4,5….)</p>
+</li>
+<li>
+<p>At least one special character(!,@,#,$,%,&amp;,&#8230;&#8203;&#8230;&#8203;.)</p>
+</li>
+<li>
+<p>Length of the password should be greater than equal to 8.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
@@ -2195,10 +2266,10 @@ NOTE: Password should meet below criteria:
 <div class="sect2">
 <h3 id="_user_details"><a class="anchor" href="#_user_details"></a>User Details</h3>
 <div class="paragraph">
-<p>Click on the name of the user in the users list  to view the details of the user.</p>
+<p>Click on the <strong>name of the user</strong> in list to view the details.</p>
 </div>
 <div class="paragraph">
-<p>Click on “Close Account” to delete the user</p>
+<p>Click on <strong>Close Account</strong> to delete the user.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2214,10 +2285,10 @@ NOTE: Password should meet below criteria:
 <div class="sect2">
 <h3 id="_search_application"><a class="anchor" href="#_search_application"></a>Search Application</h3>
 <div class="paragraph">
-<p>To navigate to the page, click on the <code>Search</code> on the top header.</p>
+<p>To navigate to the page, click on <strong>Search</strong> on the top menu.</p>
 </div>
 <div class="paragraph">
-<p>The user can perform a search on the applications of the enterprise. Below are the supported filters for application search:</p>
+<p>User can perform a search on the applications of the Account. Below are the supported filters for application search:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2228,7 +2299,7 @@ NOTE: Password should meet below criteria:
 <p><strong>End Date</strong>: Shows the list of applications that were created on or before this date.</p>
 </li>
 <li>
-<p><strong>Application Name</strong>: Shows the list of applications whose name are partially or fully match with the given name:</p>
+<p><strong>Application Name</strong>: Shows the list of applications which name partially or fully matches with the given name.</p>
 </li>
 </ul>
 </div>
@@ -2250,48 +2321,48 @@ NOTE: Password should meet below criteria:
 </div>
 </div>
 <div class="sect2">
-<h3 id="_search_mask_numbers"><a class="anchor" href="#_search_mask_numbers"></a>Search Mask Numbers</h3>
+<h3 id="_search_masked_numbers"><a class="anchor" href="#_search_masked_numbers"></a>Search Masked Numbers</h3>
 <div class="paragraph">
-<p>To navigate to the page, click on the Mask numbers on the side navigation bar..</p>
+<p>To navigate to the page, click on the <strong>Masked numbers</strong> on the side navigation bar..</p>
 </div>
 <div class="paragraph">
-<p>users can perform a search on the Mask numbers of the enterprise. Below are the supported filters for Mask number search:</p>
+<p>Users can perform a search on the Masked numbers of the account. Below are the supported search filters:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Start Date</strong>: Shows the list of Mask numbers that were created on or after this date.</p>
+<p><strong>Start Date</strong>: Shows the list of Masked numbers that were created on or after this date.</p>
 </li>
 <li>
-<p><strong>End Date</strong>: Shows the list of Mask numbers that were created on or before this date.</p>
+<p><strong>End Date</strong>: Shows the list of Masked numbers that were created on or before this date.</p>
 </li>
 <li>
-<p><strong>Application</strong>: Shows the list of Mask numbers that belong to the application selected from the dropdown.</p>
+<p><strong>Application</strong>: Shows the list of Masked numbers that belong to the application selected from the dropdown.</p>
 </li>
 <li>
-<p><strong>Is Reserved</strong>: Shows the list of Mask numbers with this Is Reserved status(“True”, “False”).</p>
+<p><strong>Is Reserved</strong>: Shows the list of Masked numbers with the <code>Is Reserved</code> status (True, False).</p>
 </li>
 <li>
-<p><strong>In Use</strong>: Shows the list of Mask numbers with this In Use status (“True”, “False”).</p>
+<p><strong>In Use</strong>: Shows the list of Masked numbers with the <code>In Use</code> status (True, False).</p>
 </li>
 <li>
-<p><strong>Mask number</strong>: Only show Mask Number that starts with phoneNumber digits. This is useful to search Mask Numbers that belong to specific Country Code.</p>
+<p><strong>Masked number</strong>: Only show Masked Number that starts with phoneNumber digits. This is useful to search Masked Numbers that belong to specific country code.</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/number-masking/search-mask-numbers.png" alt="Search Mask Numbers">
+<img src="../_images/number-masking/search-mask-numbers.png" alt="Search Masked Numbers">
 </div>
 </div>
 <div class="sect3">
-<h4 id="_mask_number_details"><a class="anchor" href="#_mask_number_details"></a>Mask Number Details</h4>
+<h4 id="_masked_number_details"><a class="anchor" href="#_masked_number_details"></a>Masked Number Details</h4>
 <div class="paragraph">
-<p>Users can view details of a particular mask number by clicking any sid  in the list.</p>
+<p>Users can view details of a particular Masked Number by clicking any <strong>SID</strong> in the list.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/number-masking/mask-numbers-details.png" alt="Mask Number Details">
+<img src="../_images/number-masking/mask-numbers-details.png" alt="Masked Number Details">
 </div>
 </div>
 </div>
@@ -2299,10 +2370,10 @@ NOTE: Password should meet below criteria:
 <div class="sect2">
 <h3 id="_search_context"><a class="anchor" href="#_search_context"></a>Search Context</h3>
 <div class="paragraph">
-<p>To navigate to the page, click on the Contexts on the side navigation bar..</p>
+<p>To navigate to the page, click on <strong>Contexts</strong> on the side navigation bar.</p>
 </div>
 <div class="paragraph">
-<p>Users can perform a search on the Contexts of the enterprise. Below are the supported filters for Context  search:</p>
+<p>Users can perform a search on the Contexts of the account. Below are the supported filters for Context search:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2317,7 +2388,7 @@ A* <strong>pplication</strong>: Shows the list of Contexts that belong to the ap
 <p><strong>Status</strong>: Shows the list of Contexts that matches with this status (‘Open’, ‘In progress’ , ‘Closed’)</p>
 </li>
 <li>
-<p><strong>Context name</strong>: Shows the list of Contexts whose name are partially or fully match with the given name:</p>
+<p><strong>Context Name</strong>: Shows the list of Contexts with a name that partially or fully matches with the given name:</p>
 </li>
 </ul>
 </div>
@@ -2329,7 +2400,7 @@ A* <strong>pplication</strong>: Shows the list of Contexts that belong to the ap
 <div class="sect3">
 <h4 id="_context_details"><a class="anchor" href="#_context_details"></a>Context Details</h4>
 <div class="paragraph">
-<p>Users can view details of a particular Context by clicking any Context name  in the list.</p>
+<p>Users can view details of a particular Context by clicking any Context name in the list.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2339,10 +2410,10 @@ A* <strong>pplication</strong>: Shows the list of Contexts that belong to the ap
 </div>
 </div>
 <div class="sect2">
-<h3 id="_search_call_logs"><a class="anchor" href="#_search_call_logs"></a>Search Call logs</h3>
+<h3 id="_search_call_logs"><a class="anchor" href="#_search_call_logs"></a>Search Call Logs</h3>
 <div class="paragraph">
-<p>To navigate to the page, click on the Call Logs on the side navigation bar..
-The user can perform a search on the Call Logs of the enterprise. Below are the supported filters for Call Logs search:</p>
+<p>To navigate to the page, click on the <strong>Call Logs</strong> on the side navigation bar.
+A User can perform a search on the Call Logs of the Account. Below are the supported filters for Call Logs search:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2354,10 +2425,10 @@ The user can perform a search on the Call Logs of the enterprise. Below are the 
 <p>Search in Current Account: Shows the list of call logs that are created by the logged in user.</p>
 </li>
 <li>
-<p>Search in current Account and sub accounts : Shows the list of all the call logs  that are created by the logged in user and their sub accounts.</p>
+<p>Search in current Account and Sub Accounts: Shows the list of all the call logs that are created by the logged in user and their Sub Accounts.</p>
 </li>
 <li>
-<p>Search in Specific sub  Account: To search call logs that are created by a particular sub account user, the user is presented with a list of sub account users in a popup window. The user can select the subaccount on that popup window.</p>
+<p>Search in Specific Sub Account: To search call logs that are created by a particular Sub Account User. The User is presented with a list of Sub Account Users in a popup window. The User can select the Sub Account on that popup window.</p>
 </li>
 </ul>
 </div>
@@ -2372,19 +2443,19 @@ The user can perform a search on the Call Logs of the enterprise. Below are the 
 <p>Application: Shows the list of call logs that belong to the application selected from the dropdown.</p>
 </li>
 <li>
-<p>Context SID: Shows the list of call logs whose Context SID partially or fully matches the entered context sid.</p>
+<p>Context SID: Shows the list of call logs with a Context SID that partially or fully matches the entered Context SID.</p>
 </li>
 <li>
-<p>Inbound participant Number: Shows the list of call logs whose Inbound participant Number partially or fully matches the entered number.</p>
+<p>Inbound Participant Number: Shows the list of call logs with an Inbound Participant Number that partially or fully matches the entered number.</p>
 </li>
 <li>
-<p>Inbound Mask Number: Shows the list of call logs whose Inbound Mask Number partially or fully matches the entered number.</p>
+<p>Inbound Masked Number: Shows the list of call logs with an Inbound Masked Number that partially or fully matches the entered number.</p>
 </li>
 <li>
-<p>Outbound Participant Number: Shows the list of call logs whose Outbound Participant Number partially or fully matches the entered number.</p>
+<p>Outbound Participant Number: Shows the list of call logs with an Outbound Participant Number that partially or fully matches the entered number.</p>
 </li>
 <li>
-<p>Outbound Mask Number: Shows the list of call logs whose Outbound Participant Number partially or fully matches the entered number.</p>
+<p>Outbound Masked Number: Shows the list of call logs with an Outbound Participant Number that partially or fully matches the entered number.</p>
 </li>
 </ul>
 </div>
@@ -2396,7 +2467,7 @@ The user can perform a search on the Call Logs of the enterprise. Below are the 
 <div class="sect3">
 <h4 id="_call_log_details"><a class="anchor" href="#_call_log_details"></a>Call log Details:</h4>
 <div class="paragraph">
-<p>Users can view details of a particular Call log by clicking any SID in the list.</p>
+<p>View details of a particular Call log by clicking any SID in the list.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2411,7 +2482,7 @@ The user can perform a search on the Call Logs of the enterprise. Below are the 
 <h2 id="_usage_records"><a class="anchor" href="#_usage_records"></a>Usage Records</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Usage record REST resource provides a simple API to retrieve usage records of your Number Masking application during any period of time and in any mode (Voice, Message or VoiceAndMessage). This makes it easy to build reporting and analytics tools for your application.</p>
+<p>The Usage Record REST resource provides a simple API to retrieve usage records of Number Masking application during any period of time and in any mode (Voice, Message or VoiceAndMessage). This makes it easy to build reporting and analytics tools for your application.</p>
 </div>
 <div class="paragraph">
 <p>Usage Records for Number Masking consist of Contexts created, Voice minutes including number of calls, and SMS Units.</p>
@@ -2423,7 +2494,7 @@ The user can perform a search on the Call Logs of the enterprise. Below are the 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Usage Records data is collected every 15 minutes. So there is possibility that once Context/Interaction is completed, it may take maximum 15 minutes to be reflected in the Usage Records.
+Usage Records data is collected every 15 minutes, so there is possibility that once Context/Interaction is completed, it may take a maximum of 15 minutes to be reflected in the Usage Records.
 </td>
 </tr>
 </table>
@@ -2431,7 +2502,7 @@ Usage Records data is collected every 15 minutes. So there is possibility that o
 <div class="sect2">
 <h3 id="_context_2"><a class="anchor" href="#_context_2"></a>Context</h3>
 <div class="paragraph">
-<p>To navigate to Context click on the <code>Usage Records</code> on top menu and navigate to <code>Context</code>.</p>
+<p>To navigate to Context click on <strong>Usage Records</strong> &#8594; <strong>Context</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2447,16 +2518,16 @@ Usage Records data is collected every 15 minutes. So there is possibility that o
 <p><strong>Subresource</strong>: The main usage records list resource supports a variety of convenient subresources like Daily, Monthly etc. If you would like to see consolidated usage records for specific time period, avoid using this filter.</p>
 </li>
 <li>
-<p><strong>Start Date</strong>: List usage records starting from the specified start date filter.</p>
+<p><strong>Start Date</strong>: List Usage Records starting from the specified start date filter.</p>
 </li>
 <li>
-<p><strong>End Date</strong>: List usage records ending at the specified end date filter.</p>
+<p><strong>End Date</strong>: List Usage Records ending at the specified end date filter.</p>
 </li>
 <li>
-<p><strong>Application</strong>: List usage records for the specified Application filter.</p>
+<p><strong>Application</strong>: List Usage Records for the specified Application filter.</p>
 </li>
 <li>
-<p><strong>Category</strong>: List usage records for the specified Context mode.</p>
+<p><strong>Category</strong>: List Usage Records for the specified Context mode.</p>
 </li>
 </ul>
 </div>
@@ -2472,24 +2543,24 @@ Usage Records data is collected every 15 minutes. So there is possibility that o
 </div>
 </div>
 <div class="paragraph">
-<p>Below are supported filters you can apply to search Interactions Usage Records</p>
+<p>Below are the supported filters you can apply to search Interactions Usage Records.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Sub Resource</strong>: The main usage records list resource supports a variety of convenient subresources like Daily, Monthly etc. If you would like to see consolidated usage records for specific time period, avoid using this filter</p>
+<p><strong>Sub Resource</strong>: The main Usage Records list resource supports a variety of convenient subresources like Daily, Monthly etc. If you would like to see consolidated usage records for specific time period, avoid using this filter.</p>
 </li>
 <li>
-<p><strong>Start Date</strong>: List usage records starting from the specified start date filter.</p>
+<p><strong>Start Date</strong>: List Usage Records starting from the specified start date filter.</p>
 </li>
 <li>
-<p><strong>End Date</strong>: List usage records ending at the specified end date filter.</p>
+<p><strong>End Date</strong>: List Usage Records ending at the specified end date filter.</p>
 </li>
 <li>
-<p><strong>Application</strong>: List usage records for the specified Application filter.</p>
+<p><strong>Application</strong>: List Usage Records for the specified Application filter.</p>
 </li>
 <li>
-<p><strong>Category</strong>: List usage records for the specified Context mode.</p>
+<p><strong>Category</strong>: List Usage Records for the specified Context mode.</p>
 </li>
 </ul>
 </div>

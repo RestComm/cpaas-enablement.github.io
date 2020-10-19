@@ -2286,10 +2286,10 @@
 <p>Telestax Number Masking exposes white label API to obfuscate called/calling parties. To find out more about that please visit the <a href="../turnkey-applications/number-masking-overview.html">General documentation</a>.</p>
 </div>
 <div class="paragraph">
-<p>Below API explains how CSP can manage Enterprise and add Users under Enterprise.</p>
+<p>Below API explains how Communication Provider can manage Business Customers and add Users under Business Customer.</p>
 </div>
 <div class="paragraph">
-<p>Whenever CSP adds a new Enterprise, it asks for a mandatory User under that Enterprise. This User gets created under Restcomm as a Sub-Account of CSP Organisation. CSP should provision all the Phone Numbers under this Sub-Account in Restcomm as explained in documentation <a href="incoming-phone-numbers-api.html">here</a>. These phone numbers are available to Enterprise to create a Mask Number Pool for any Application.</p>
+<p>Whenever Communication Provider adds a new Business Customer, it asks for a mandatory User under that Business Customer. This User gets created under Restcomm as a Sub-Account of Communication Provider Organisation. Communication Provider should provision all the Phone Numbers under this Sub-Account in Restcomm as explained in documentation <a href="incoming-phone-numbers-api.html">here</a>. These phone numbers are available to Business Customer to create a Masked Number Pool for any Application.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2298,7 +2298,19 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is expected that CSP will not share newly created User credentials with Enterprise Customers. CSP should create more Users via User Management API and only share newly created credentials. This is because the first User created with Enterprise will have all the Phone Numbers provisioned and CSP wouldn’t want Enterprise customers to make any changes to those numbers.
+It is expected that Communication Provider will not share newly created User credentials with Business Customers. Communication Provider should create more Users via User Management API and only share newly created credentials. This is because the first User created for Business Customer will have all the Phone Numbers provisioned and Communication Provider wouldn’t want Business Customers to make any changes to those numbers.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The API(s) described in this document are only available for communication providers. In addition, communication providers also have access to API(s) exposed to business customers. Please sign in <a href="https://cloud.restcomm.com/docs/api/number-masking-api.html">here</a> the see the API(s) available to business customers.
 </td>
 </tr>
 </table>
@@ -2306,15 +2318,35 @@ It is expected that CSP will not share newly created User credentials with Enter
 </div>
 </div>
 <div class="sect1">
-<h2 id="_enterprise"><a class="anchor" href="#_enterprise"></a>Enterprise</h2>
+<h2 id="_terminology"><a class="anchor" href="#_terminology"></a>Terminology</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>CSP’s can create, manage, delete Enterprises. This is logical grouping of CSP customers and helps to easily manage billing/invoices for Enterprise.</p>
+<p>As part of this documentation, the following terms will be used to describe specific individuals, concepts, and organizations.</p>
 </div>
 <div class="sect2">
-<h3 id="_create_enterprise"><a class="anchor" href="#_create_enterprise"></a>Create Enterprise</h3>
+<h3 id="_communications_provider"><a class="anchor" href="#_communications_provider"></a>Communications Provider</h3>
 <div class="paragraph">
-<p>This endpoint will be used to create an enterprise in the Number Masking. Create Enterprise will add unique Enterprise names for given CSP.</p>
+<p>Communications Provider generally refers to any organization providing communications products, applications, capabilities, or services. The term can refer to operators, carriers, providers, suppliers, or any other entity that delivers communications capabilities to enterprise or business customers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_business_customer"><a class="anchor" href="#_business_customer"></a>Business Customer</h3>
+<div class="paragraph">
+<p>An enterprise or business customer that relies on a Communications Provider to deliver communications products, capabilities, or services to customers or end users.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_business_customer_2"><a class="anchor" href="#_business_customer_2"></a>Business Customer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Communication Provider’s can create, manage, delete Business Customers. This is logical grouping of Communication Provider customers and helps to easily manage billing/invoices for Business Customer.</p>
+</div>
+<div class="sect2">
+<h3 id="_create_business_customer"><a class="anchor" href="#_create_business_customer"></a>Create Business Customer</h3>
+<div class="paragraph">
+<p>This endpoint will be used to create an Business Customer in the Number Masking. Create Business Customer will add unique Business Customer name for given Communication Provider.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri"><a class="anchor" href="#_base_resource_uri"></a>Base Resource URI</h4>
@@ -2323,7 +2355,7 @@ It is expected that CSP will not share newly created User credentials with Enter
 </div>
 </div>
 <div class="sect3">
-<h4 id="_create_context_resource_uri"><a class="anchor" href="#_create_context_resource_uri"></a>Create Context Resource URI</h4>
+<h4 id="_create_business_customer_resource_uri"><a class="anchor" href="#_create_business_customer_resource_uri"></a>Create Business Customer Resource URI</h4>
 <div class="paragraph">
 <p>/numbermasking/enterprises</p>
 </div>
@@ -2331,32 +2363,36 @@ It is expected that CSP will not share newly created User credentials with Enter
 <div class="sect3">
 <h4 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP POST: Create Enterprise</p>
+<p>HTTP POST: Create Business Customer</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
 <th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Type</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseAdmin</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise User data  explained in the table below  that will be assigned as the admin of this enterprise.A subaccount will be created on restcomm with these values.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer User data  explained in the table below  that will be assigned as the admin of this Business Customer.A subaccount will be created on restcomm with these values.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory name of Enterprise. Name must be unique within the given CSP Organisation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory name of Business Customer. Name must be unique within the given Communication Provider Organisation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">configuration</p></td>
@@ -2367,13 +2403,14 @@ It is expected that CSP will not share newly created User credentials with Enter
     } <br>
  } <br></p>
 <p class="tableblock"><br>
- In how many concurrent sessions masked number can be used simultaneously. Minimum value can be 1. If the enterprise tries to use masked number in more sessions than the the number set in “concurrentMaskNumberLimit” , the application will throw an error code 474 “Mask Numbers are not available”.<br></p>
+ In how many concurrent sessions masked number can be used simultaneously. Minimum value can be 1. If the Business Customer tries to use masked number in more sessions than the the number set in “concurrentMaskNumberLimit” , the application will throw an error code 474 “Masked Numbers are not available”.<br></p>
 <p class="tableblock"> The default "concurrentMaskNumberLimit" is 100.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JSON</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_enterprise_admin_parameters"><a class="anchor" href="#_enterprise_admin_parameters"></a>Enterprise Admin Parameters:</h5>
+<h5 id="_business_customer_admin_parameters"><a class="anchor" href="#_business_customer_admin_parameters"></a>Business Customer Admin Parameters:</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2381,24 +2418,24 @@ It is expected that CSP will not share newly created User credentials with Enter
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Enterprise Admin data Parameter</th>
+<th class="tableblock halign-left valign-top">Business Customer Admin data Parameter</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Admin password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer Admin password</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Friendly name of the Enterprise admin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Friendly name of the Business Customer admin</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">emailId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Admin User email Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer&#8217;s Admin User email Id</p></td>
 </tr>
 </tbody>
 </table>
@@ -2407,10 +2444,10 @@ It is expected that CSP will not share newly created User credentials with Enter
 <div class="sect3">
 <h4 id="_response_body"><a class="anchor" href="#_response_body"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Enterprise if it was  successfully created. HTTP response will be 201 Created (OK).</p>
+<p>The response body will contain code, corresponding message and data of Business Customer if it was successfully created. The HTTP response will be 201 Created (OK).</p>
 </div>
 <div class="paragraph">
-<p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below</p>
+<p>The response returned is the JSON body as shown in the example below. All parameters are listed below.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2426,7 +2463,7 @@ It is expected that CSP will not share newly created User credentials with Enter
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise data as explained in the Data Parameter below.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer data as explained in the Data Parameter below.</p></td>
 </tr>
 </tfoot>
 <tbody>
@@ -2456,37 +2493,37 @@ It is expected that CSP will not share newly created User credentials with Enter
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseAdminSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm Account sid created under Restcomm for Enterprise Admin user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restcomm Account sid created under Restcomm for Business Customer Admin user</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Enterprise Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Business Customer Id</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created/ this particular Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created this particular Business Customer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Enterprise was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Business Customer was created</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Enterprise was updated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Business Customer was updated</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of this Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of this Business Customer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific Business Customer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseAdminEmail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email id of enterprise Admin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email id of Business Customer Admin</p></td>
 </tr>
 </tbody>
 </table>
@@ -2495,7 +2532,7 @@ It is expected that CSP will not share newly created User credentials with Enter
 <div class="sect3">
 <h4 id="_response_parameters"><a class="anchor" href="#_response_parameters"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Create Enterprise API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+<p>Create Business Customer API can also return an error code and a corresponding HTTP error as mentioned in the Common Response Error Code section. In addition, below are the error codes it can return</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2520,23 +2557,23 @@ It is expected that CSP will not share newly created User credentials with Enter
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Error in creating subaccount on Restcomm</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Error while creating subaccount in restcomm</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Business Customer, Update Business Customer</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">475</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise name not unique</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise name is already exist in database</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer name not unique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer name already exists in the database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Business Customer, Update Business Customer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">476</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User not unique</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">User already exists</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Business Customer, Update Business Customer</p></td>
 </tr>
 </tbody>
 </table>
@@ -2576,7 +2613,7 @@ It is expected that CSP will not share newly created User credentials with Enter
 </div>
 </div>
 <div class="paragraph">
-<p>If creation of Enterprise  is successful, below is the response returned:</p>
+<p>If creation of Business Customer is successful, below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2620,9 +2657,9 @@ It is expected that CSP will not share newly created User credentials with Enter
 </div>
 </div>
 <div class="sect2">
-<h3 id="_get_list_of_enterprise"><a class="anchor" href="#_get_list_of_enterprise"></a>Get list of Enterprise</h3>
+<h3 id="_get_list_of_business_customer"><a class="anchor" href="#_get_list_of_business_customer"></a>Get list of Business Customer</h3>
 <div class="paragraph">
-<p>List Enterprise API allows users to list all the Enterprise created under that “Organisation” which means under that CSP.</p>
+<p>This API allows users to list all the Business Customers created under that “Organisation” which means under that Communication Provider.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_2"><a class="anchor" href="#_base_resource_uri_2"></a>Base Resource URI</h4>
@@ -2631,7 +2668,7 @@ It is expected that CSP will not share newly created User credentials with Enter
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_list_of_enterprise_resource_uri"><a class="anchor" href="#_get_list_of_enterprise_resource_uri"></a>Get List of Enterprise Resource URI</h4>
+<h4 id="_get_list_of_business_customer_resource_uri"><a class="anchor" href="#_get_list_of_business_customer_resource_uri"></a>Get List of Business Customer Resource URI</h4>
 <div class="paragraph">
 <p>/numbermasking/enterprises/search</p>
 </div>
@@ -2639,7 +2676,7 @@ It is expected that CSP will not share newly created User credentials with Enter
 <div class="sect3">
 <h4 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: List Enterprise</p>
+<p>HTTP GET: List Business Customer</p>
 </div>
 </div>
 <div class="sect3">
@@ -2667,7 +2704,7 @@ It is expected that CSP will not share newly created User credentials with Enter
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Enterprise records to return, starting from 0.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Business Customer records to return, starting from 0.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2703,17 +2740,17 @@ If the search API is called without page and pageSize, by default pageSize will 
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show enterprises that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Business Customers that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Enterprises that match name text, partially or fully.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Business Customers that match name text, partially or fully.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show enterprises that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Business Customer that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2739,7 +2776,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date when Enterprise was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date when Business Customer was created.</p></td>
 </tr>
 </tfoot>
 <tbody>
@@ -2754,7 +2791,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <div class="sect3">
 <h4 id="_response_parameters_2"><a class="anchor" href="#_response_parameters_2"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Search Enterprise API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
+<p>Search Business Customer API will return an error code and a corresponding HTTP Error as mentioned in Common Response Error Code section.</p>
 </div>
 <div class="paragraph">
 <p>The response returned is JSON body as shown in the example below. Each SDR parameters are as explained below</p>
@@ -2809,7 +2846,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list of Enterprise  data as explained in the table Data Parameter .</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list of Business Customer data as explained in the table Data Parameter.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
@@ -2907,9 +2944,9 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_get_single_enterprise"><a class="anchor" href="#_get_single_enterprise"></a>Get Single Enterprise</h3>
+<h3 id="_get_single_business_customer"><a class="anchor" href="#_get_single_business_customer"></a>Get Single Business Customer</h3>
 <div class="paragraph">
-<p>Single Enterprise search API allows users to retrieve specific Enterprise created under that “Organisation” which means under that CSP.</p>
+<p>Single Business Customer search API allows users to retrieve specific Business Customer created under that “Organisation” which means under that Communication Provider.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_3"><a class="anchor" href="#_base_resource_uri_3"></a>Base Resource URI</h4>
@@ -2918,7 +2955,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_single_enterprise_resource_uri"><a class="anchor" href="#_get_single_enterprise_resource_uri"></a>Get Single Enterprise Resource URI</h4>
+<h4 id="_get_single_business_customer_resource_uri"><a class="anchor" href="#_get_single_business_customer_resource_uri"></a>Get Single Business Customer Resource URI</h4>
 <div class="paragraph">
 <p>/numbermasking/enterprises/search/{EnterpriseId}</p>
 </div>
@@ -2926,13 +2963,13 @@ If the search API is called without page and pageSize, by default pageSize will 
 <div class="sect3">
 <h4 id="_supported_operations_3"><a class="anchor" href="#_supported_operations_3"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: Specific Enterprise</p>
+<p>HTTP GET: Specific Business Customer</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_response_parameters_3"><a class="anchor" href="#_response_parameters_3"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Search Enterprise API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
+<p>Search Business Customer API will return an error code and a corresponding HTTP Error as mentioned in Common Response Error Code section.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2955,9 +2992,9 @@ If the search API is called without page and pageSize, by default pageSize will 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise is not found.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update Enterprise, Search Enterprise, Delete Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Business Customer, Search Business Customer, Delete Business Customer</p></td>
 </tr>
 </tfoot>
 </table>
@@ -3000,9 +3037,9 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_update_enterprise"><a class="anchor" href="#_update_enterprise"></a>Update Enterprise</h3>
+<h3 id="_update_business_customer"><a class="anchor" href="#_update_business_customer"></a>Update Business Customer</h3>
 <div class="paragraph">
-<p>This endpoint will be used to update an existing enterprise.</p>
+<p>This endpoint will be used to update an existing Business Customer.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_4"><a class="anchor" href="#_base_resource_uri_4"></a>Base Resource URI</h4>
@@ -3011,7 +3048,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_update_enterprise_resource_uri"><a class="anchor" href="#_update_enterprise_resource_uri"></a>Update Enterprise Resource URI</h4>
+<h4 id="_update_business_customer_resource_uri"><a class="anchor" href="#_update_business_customer_resource_uri"></a>Update Business Customer Resource URI</h4>
 <div class="paragraph">
 <p>/numbermasking/enterprises/{enterpriseSid}</p>
 </div>
@@ -3019,32 +3056,36 @@ If the search API is called without page and pageSize, by default pageSize will 
 <div class="sect3">
 <h4 id="_supported_operations_4"><a class="anchor" href="#_supported_operations_4"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP PUT: Update Enterprise</p>
+<p>HTTP PUT: Update Business Customer</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_request_parameters_2"><a class="anchor" href="#_request_parameters_2"></a>Request Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
 <th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Type</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name must be unique within the given CSP Organisation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name must be unique within the given Communication Provider Organisation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Id of the enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Id of the Business Customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tbody>
 </table>
@@ -3052,7 +3093,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <div class="sect3">
 <h4 id="_response_body_2"><a class="anchor" href="#_response_body_2"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Enterprise if it was  successfully updated. HTTP response will be 200 OK.</p>
+<p>Response Body will carry Code, corresponding message and data of Enterprise if it was successfully updated. HTTP response will be 200 OK.</p>
 </div>
 <div class="paragraph">
 <p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
@@ -3071,7 +3112,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise data as explained in the table Data Parameter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer data as explained in the table Data Parameter.</p></td>
 </tr>
 </tfoot>
 <tbody>
@@ -3086,7 +3127,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </tbody>
 </table>
 <div class="paragraph">
-<p>Update Enterprise API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+<p>Update Business Customer API can also return an error code and a corresponding HTTP error as mentioned in the Common Response Error Code section. In addition, below are the error codes it can return</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3109,18 +3150,18 @@ If the search API is called without page and pageSize, by default pageSize will 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Id not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer Id not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Business Customer, Update Business Customer</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">475</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise name not unique</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise name is already exist in database</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create Enterprise, Update Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer name not unique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer name already exists in database</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Business Customer, Update Business Customer</p></td>
 </tr>
 </tbody>
 </table>
@@ -3150,7 +3191,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 </div>
 <div class="paragraph">
-<p>If updating of Enterprise  is successful, below is the response returned:</p>
+<p>If updating of Business Customer is successful, below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3170,13 +3211,13 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 </div>
 <div class="paragraph">
-<p>If the update of the enterprise fails, below is the response returned. Exact error code and message will depend on error occurred</p>
+<p>If the update of the Business Customer fails, below is the response returned. Exact error code and message will depend on error occurred</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>{
     "errorCode": "478",
-    "message": "Enterprise not found",
+    "message": "Business Customer not found",
     "data": {
         "sid": "EN838bcdf35f9d421d3ab516195b873b"
     }
@@ -3186,9 +3227,9 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_delete_enterprise"><a class="anchor" href="#_delete_enterprise"></a>Delete Enterprise</h3>
+<h3 id="_delete_business_customer"><a class="anchor" href="#_delete_business_customer"></a>Delete Business Customer</h3>
 <div class="paragraph">
-<p>This endpoint will be used to delete an existing enterprise.</p>
+<p>This endpoint will be used to delete an existing Business Customer.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3197,7 +3238,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you Delete an Enterprise, all the users under that Enterprise will be “Suspended” under Restcomm. If you want to “Close” these accounts, please sign in using Restcomm Console and mark these Accounts as closed.
+If you Delete a Business Customer, all the users under that Business Customer will be “Suspended” under Restcomm. If you want to “Close” these accounts, please sign in using Restcomm Console and mark these Accounts as closed.
 </td>
 </tr>
 </table>
@@ -3209,7 +3250,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 </div>
 </div>
 <div class="sect3">
-<h4 id="_delete_enterprise_resource_uri"><a class="anchor" href="#_delete_enterprise_resource_uri"></a>Delete Enterprise Resource URI</h4>
+<h4 id="_delete_business_customer_resource_uri"><a class="anchor" href="#_delete_business_customer_resource_uri"></a>Delete Business Customer Resource URI</h4>
 <div class="paragraph">
 <p>/numbermasking/enterprises/{enterpriseSid}</p>
 </div>
@@ -3217,26 +3258,29 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <div class="sect3">
 <h4 id="_supported_operations_5"><a class="anchor" href="#_supported_operations_5"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP Delete: Delete Enterprise</p>
+<p>HTTP Delete: Delete Business Customer</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_request_parameters_3"><a class="anchor" href="#_request_parameters_3"></a>Request Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
 <th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Type</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SID to uniquely identify an enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID to uniquely identify a Business Customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tfoot>
 </table>
@@ -3244,7 +3288,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <div class="sect3">
 <h4 id="_response_body_3"><a class="anchor" href="#_response_body_3"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Enterprise if it was  successfully deleted. HTTP response will be 200 OK.</p>
+<p>The response body will contain code, corresponding message and data of Business Customer if it was successfully deleted. HTTP response will be 200 OK.</p>
 </div>
 <div class="paragraph">
 <p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below</p>
@@ -3263,7 +3307,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise data as explained in the table  Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer data as explained in the table  Data Parameter</p></td>
 </tr>
 </tfoot>
 <tbody>
@@ -3281,7 +3325,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <div class="sect3">
 <h4 id="_response_parameters_4"><a class="anchor" href="#_response_parameters_4"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Delete Enterprise API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+<p>Delete Business Customer API can also return an error code and a corresponding HTTP error as mentioned in the Common Response Error Code section. In addition, below are the error codes it can return</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3304,18 +3348,18 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">479</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise has Applications assigned to it</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise has active Applications</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer has Applications assigned to it</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer has active Applications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete Business Customer</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise SID doesn’t exist in the system</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update Enterprise, Delete enterprise, Get Enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer SID doesn’t exist in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Business Customer, Delete Business Customer, Get Business Customer</p></td>
 </tr>
 </tbody>
 </table>
@@ -3335,7 +3379,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 </div>
 </div>
 <div class="paragraph">
-<p>If deletion of Enterprise  is successful, below is the response returned:</p>
+<p>If deletion of Business Customer  is successful, below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3361,7 +3405,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <div class="content">
 <pre>{
     "errorCode": "478",
-    "message": "Enterprise not found",
+    "message": "Business Customer not found",
     "data": {
         "sid": "EN54e3389b5bf34896876b86e139cca614"
     }
@@ -3390,7 +3434,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <p>CRUD another user with role SUPPORT</p>
 </li>
 <li>
-<p>Read all Enterprise and within Enterprise</p>
+<p>Read all Business Customers and within Business Customer</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3404,7 +3448,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <p>Read all Contexts</p>
 </li>
 <li>
-<p>Read Mask Pool Numbers</p>
+<p>Read Masked Pool Numbers</p>
 </li>
 <li>
 <p>Read Participants</p>
@@ -3428,11 +3472,11 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 </div>
 </li>
 <li>
-<p>CSP_ADMIN: Role for CSP Admin (Admin Account in Restcomm).</p>
+<p>CSP_ADMIN: Role for Communication Provider Admin (Admin Account in Restcomm).</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Can create Enterprise and within Enterprise</p>
+<p>Can create Business Customer and within Business Customer</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3449,7 +3493,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <p>CRUD all Contexts</p>
 </li>
 <li>
-<p>CRUD Mask Pool Numbers</p>
+<p>CRUD Masked Pool Numbers</p>
 </li>
 <li>
 <p>CRUD Participants</p>
@@ -3470,7 +3514,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 </div>
 </li>
 <li>
-<p>ENTERPRISE_ADMIN: Role for Enterprise users</p>
+<p>ENTERPRISE_ADMIN: Role for Business Customer users</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3487,7 +3531,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <p>CRUD all Contexts</p>
 </li>
 <li>
-<p>CRUD Mask Pool Numbers</p>
+<p>CRUD Masked Pool Numbers</p>
 </li>
 <li>
 <p>CRUD Participants</p>
@@ -3528,40 +3572,47 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <h4 id="_request_parameters_4"><a class="anchor" href="#_request_parameters_4"></a>Request Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
 <th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Type</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of the enterprise the user belongs to.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of the Business Customer the user belongs to.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Full name of the user being added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">emailId</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Required. Email Id of the user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">password</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Password associated with this user.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Required. Possible values are:<br>
-- SUPPORT (This is specifically for Telestax Support Not yet implemented)<br>
+- SUPPORT (This is specifically for Telestax Support)<br>
 - CSP_ADMIN<br>
 - ENTERPRISE_ADMIN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
@@ -3569,6 +3620,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 - ACTIVE<br>
 - SUSPENDED<br>
 - DELETED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tbody>
 </table>
@@ -3579,7 +3631,7 @@ If you Delete an Enterprise, all the users under that Enterprise will be “Susp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If Sub-Account was already added in Restcomm-console, adding the same user as ENTERPRISE_ADMIN is possible by specifying the same emailId. The password pass will not be changed in Restcomm and users can still sign in with existing credentials.
+If Sub-Account was already added in Restcomm-console, adding the same user as ENTERPRISE_ADMIN is possible by specifying the same emailId. The password passed will not be changed in Restcomm and users can still sign in with existing credentials.
 </td>
 </tr>
 </table>
@@ -3588,7 +3640,7 @@ If Sub-Account was already added in Restcomm-console, adding the same user as EN
 <div class="sect3">
 <h4 id="_response_body_4"><a class="anchor" href="#_response_body_4"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry the Code, corresponding message and data of the User if it was  successfully created. HTTP response will be 200 Created  (OK).</p>
+<p>Response Body will carry the Code, corresponding message and data of the User if it was successfully created. HTTP response will be 200 Created  (OK).</p>
 </div>
 <div class="paragraph">
 <p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
@@ -3680,7 +3732,7 @@ If Sub-Account was already added in Restcomm-console, adding the same user as EN
 <div class="sect3">
 <h4 id="_response_parameters_5"><a class="anchor" href="#_response_parameters_5"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Create User API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+<p>Create User API can also return an error code and a corresponding HTTP error as mentioned in the Common Response Error Code section. In addition, below are the error codes it can return</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3719,8 +3771,8 @@ If Sub-Account was already added in Restcomm-console, adding the same user as EN
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise for which user is to be added is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer for which user is to be added is not found.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create User, Update User</p></td>
 </tr>
 <tr>
@@ -3912,7 +3964,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Parameter. Only show users for this particular enterprise.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Parameter. Only show users for this particular Business Customer.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
@@ -3965,7 +4017,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect3">
 <h4 id="_response_body_5"><a class="anchor" href="#_response_body_5"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of User if it was  successfully fetched. HTTP response will be 200 OK.</p>
+<p>The response body will contain code, corresponding message and data of User if it was successfully fetched. HTTP response will be 200 OK.</p>
 </div>
 <div class="paragraph">
 <p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
@@ -4111,7 +4163,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect2">
 <h3 id="_get_single_user"><a class="anchor" href="#_get_single_user"></a>Get Single User</h3>
 <div class="paragraph">
-<p>Single Enterprise search API allows users to retrieve specific User.</p>
+<p>Single User search API allows users to retrieve specific User.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_8"><a class="anchor" href="#_base_resource_uri_8"></a>Base Resource URI</h4>
@@ -4134,7 +4186,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect3">
 <h4 id="_response_parameters_6"><a class="anchor" href="#_response_parameters_6"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Search User API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
+<p>Search User API will return an error code and a corresponding HTTP Error as mentioned in Common Response Error Code section.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4208,10 +4260,18 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="paragraph">
 <p>This endpoint will be used to update existing users.</p>
 </div>
-<div class="paragraph">
-<p>SUPPORT can make changes to all users irrespective of role
-CSP_ADMIN can make changes to all users with ENTERPRISE_ADMIN of all Enterprise that belongs to same Organisation
-ENTERPRISE_ADMIN cannot make any changes to other users.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>SUPPORT can make changes to all users irrespective of role.</p>
+</li>
+<li>
+<p>CSP_ADMIN can make changes to all users with role ENTERPRISE_ADMIN of all Businesses within an Organisation.</p>
+</li>
+<li>
+<p>ENTERPRISE_ADMIN cannot make any changes to other users.</p>
+</li>
+</ul>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_9"><a class="anchor" href="#_base_resource_uri_9"></a>Base Resource URI</h4>
@@ -4235,25 +4295,29 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 <h4 id="_request_parameters_5"><a class="anchor" href="#_request_parameters_5"></a>Request Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
 <th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Type</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Enterprise id. If user wants to move user from one enterprise to another, pass the enterpriseId of the target Enterprise.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Enterprise id. If user wants to move user from one business to another, pass the enterpriseId of the target business customer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tfoot>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UserSid</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Unique id of the user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
@@ -4261,10 +4325,12 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 - ACTIVE<br>
 - SUSPENDED<br>
 - DELETED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Name of user to be updated.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tbody>
 </table>
@@ -4272,7 +4338,7 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 <div class="sect3">
 <h4 id="_response_body_6"><a class="anchor" href="#_response_body_6"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of User if it was  successfully updated. HTTP response will be 200 OK.</p>
+<p>The response body will contain code, corresponding message and data of User if it was successfully updated. HTTP response will be 200 OK.</p>
 </div>
 <div class="paragraph">
 <p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
@@ -4309,7 +4375,7 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 <div class="sect3">
 <h4 id="_response_parameters_7"><a class="anchor" href="#_response_parameters_7"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Update User API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+<p>Update User API can also return an error code and a corresponding HTTP error as mentioned in the Common Response Error Code section. In addition, below are the error codes it can return</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4341,8 +4407,8 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">478</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise for which user is to be added is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer for which user is to be added is not found.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create User, Update User</p></td>
 </tr>
 <tr>
@@ -4444,19 +4510,22 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 <h4 id="_request_parameters_6"><a class="anchor" href="#_request_parameters_6"></a>Request Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Parameter</th>
 <th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Type</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UserSid</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SID of the user to be deleted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tfoot>
 </table>
@@ -4464,7 +4533,7 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 <div class="sect3">
 <h4 id="_response_body_7"><a class="anchor" href="#_response_body_7"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of User if it was  successfully deleted. HTTP response will be 200 OK.</p>
+<p>The response body will contain code, corresponding message and data of User if it was successfully deleted. HTTP response will be 200 OK.</p>
 </div>
 <div class="paragraph">
 <p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
@@ -4483,7 +4552,7 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User data as explained in the table Data Parameter .</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User data as explained in the table Data Parameter.</p></td>
 </tr>
 </tfoot>
 <tbody>
@@ -4501,7 +4570,7 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 <div class="sect3">
 <h4 id="_response_parameters_8"><a class="anchor" href="#_response_parameters_8"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Delete User API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
+<p>Delete User API can also return an error code and a corresponding HTTP error as mentioned in the Common Response Error Code section. In addition, below are the error codes it can return</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4524,8 +4593,8 @@ ENTERPRISE_ADMIN cannot make any changes to other users.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">503</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user is an enterprise admin</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user is an enterprise admin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user is a business customer admin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user is a business customer admin</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete user</p></td>
 </tr>
 </tfoot>
