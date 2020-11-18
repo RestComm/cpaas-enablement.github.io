@@ -2658,6 +2658,10 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallback</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A URL for the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform to send webhook requests to notify on any SMS delivery status event. Note that StatusCallback is not applicable to messages addressed to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Clients. For more information check below (Optional).</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">StatusCallbackMethod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code>, <code>POST</code>. Default <code>POST</code></p></td>
+</tr>
 </tbody>
 </table>
 <div class="sect2">
@@ -2665,6 +2669,14 @@
 <div class="paragraph">
 <p>The <strong>StatusCallback</strong> body parameter allows you to specify a URL where you can receive events in the form of HTTP POST requests (webhooks) with updates on SMS delivery status from the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Platform. Those requests can contain the following body parameters:</p>
 </div>
+<div class="sect3">
+<h4 id="_statuscallbackmethod"><a class="anchor" href="#_statuscallbackmethod"></a>StatusCallbackMethod</h4>
+<div class="paragraph">
+<p>The <strong>StatusCallbackMethod</strong> attribute allows you to specify which HTTP method <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> should use when requesting the URL in the StatusCallback attribute. The default is POST.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
 <table class="tableblock frame-top grid-rows spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2719,6 +2731,7 @@
 <p><strong>Delivery status event</strong>, indicating whether the provider managed to successfully deliver the SMS to the destination, given that the sent status event previously was <strong>sent</strong>. The status is reflected on <code>MessageStatus</code> attribute described above and can be <strong>delivered</strong>, <strong>undelivered</strong> or <strong>failed</strong></p>
 </li>
 </ol>
+</div>
 </div>
 </div>
 <div class="sect2">
