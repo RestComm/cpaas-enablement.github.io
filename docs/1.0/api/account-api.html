@@ -3012,7 +3012,7 @@ client registration related to the accoutn, will be rejected.</p>
         <button class="sample-code-button scsIndex-5" onclick="openLanguage('Java', 5)">Java</button>
       </div>
       <div id="Curl-5" class="sample-language-5">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -3025,7 +3025,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request({
       method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
@@ -3047,7 +3047,7 @@ userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       headers=headers)
 res = conn.getresponse()
 
@@ -3071,7 +3071,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("GET");
@@ -3098,7 +3098,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-6" onclick="openLanguage('Java', 6)">Java</button>
       </div>
       <div id="Curl-6" class="sample-language-6">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
    -d 'Password=NewPassword' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
@@ -3112,7 +3112,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request.({
       method: 'PUT',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'Password': 'NewPassword'
@@ -3144,7 +3144,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("PUT", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+conn.request("PUT", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -3168,7 +3168,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("PUT");
@@ -3195,7 +3195,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-7" onclick="openLanguage('Java', 7)">Java</button>
       </div>
       <div id="Curl-7" class="sample-language-7">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).json  \
    -d 'Password=NewPassword' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
@@ -3209,7 +3209,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request.({
       method: 'PUT',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'Password': 'NewPassword'
@@ -3241,7 +3241,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("PUT", '/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml',
+conn.request("PUT", '/restcomm/2012-04-24/Accounts/#(administrator%40company.com).json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -3265,7 +3265,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).xml");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/#(administrator%40company.com).json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("PUT");
@@ -3486,7 +3486,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-9" onclick="openLanguage('Java', 9)">Java</button>
       </div>
       <div id="Curl-9" class="sample-language-9">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -3499,7 +3499,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request({
       method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
@@ -3521,7 +3521,7 @@ userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       headers=headers)
 res = conn.getresponse()
 
@@ -3545,7 +3545,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("GET");
@@ -3570,7 +3570,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-10" onclick="openLanguage('Java', 10)">Java</button>
       </div>
       <div id="Curl-10" class="sample-language-10">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -3583,7 +3583,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request({
       method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
@@ -3605,7 +3605,7 @@ userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts.xml',
+conn.request("GET", '/restcomm/2012-04-24/Accounts.json',
       headers=headers)
 res = conn.getresponse()
 
@@ -3629,7 +3629,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.xml");
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("GET");
@@ -3650,7 +3650,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-11" onclick="openLanguage('Java', 11)">Java</button>
       </div>
       <div id="Curl-11" class="sample-language-11">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
    -d 'FriendlyName=MySubAccount' \
    -d 'EmailAddress=test@company.com' \
    -d 'Password=restcomm' \
@@ -3666,7 +3666,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'FriendlyName': 'MySubAccount',
@@ -3702,7 +3702,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -3726,7 +3726,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -3755,7 +3755,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-12" onclick="openLanguage('Java', 12)">Java</button>
       </div>
       <div id="Curl-12" class="sample-language-12">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
    -d 'FriendlyName=MySubAccount' \
    -d 'EmailAddress=test@company.com' \
    -d 'Password=restcomm' \
@@ -3772,7 +3772,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'FriendlyName': 'MySubAccount',
@@ -3810,7 +3810,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -3834,7 +3834,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
@@ -3915,7 +3915,7 @@ the <strong>SID</strong>, Email and the <strong>AuthToken</strong> of the sub-ac
         <button class="sample-code-button scsIndex-13" onclick="openLanguage('Java', 13)">Java</button>
       </div>
       <div id="Curl-13" class="sample-language-13">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.xml  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
    -d 'Status=closed' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
@@ -3929,7 +3929,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request.({
       method: 'PUT',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'Status': 'closed'
@@ -3961,7 +3961,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("PUT", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.xml',
+conn.request("PUT", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -3985,7 +3985,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".xml");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("PUT");
