@@ -1,0 +1,3556 @@
+<!DOCTYPE html>
+<html lang="en" class="enterprise-persona">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
+    <title data-custom-title="Campaign Manager - Restcomm Docs"></title>
+    <link rel="canonical" href="
+      https://cloud.restcomm.com/docs/api/campaign-manager-api.html
+    ">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="icon" type="image/png" href=""/>
+    <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <!-- Not using it for now
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      </head>
+  <body class="article" style="display: none">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" href="/docs/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" href="/docs/turnkey-applications/index.html">Turnkey Applications</a>
+        <a class="navbar-enterprise-item" href="/docs/tutorials/index.html">Tutorials</a>
+        <a class="navbar-enterprise-item" href="/docs/visual-designer/index.html">Visual Designer</a>
+
+
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="docs" data-version="1.0" >
+  <aside class="navigation">
+    <div class="panels">
+  <div class="navigation-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+      <!-- Not applicable to our Enterprise docs
+    <h3 class="title"><a href="../../index.html">docs</a></h3>
+    -->
+        <ul class="nav-list">
+          <ul class="nav-list">
+            <li id="RESTAPI" class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              icomoon3-font-reference-api
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html">REST API</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="Overview" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html">Overview</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="APIEndpoint" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_api_endpoint">API Endpoint</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Authentication" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_authentication">Authentication</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Requests" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_requests">Requests</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Responses" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_responses">Responses</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Paging" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="overview.html#_paging">Paging</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="ReasonCodesDictionary" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="reasoncodes.html">Reason Codes Dictionary</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="ManagementAPIs" class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              icomoon3-font-reference-management
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="management-apis-overview.html">Management APIs</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="Accounts" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="account-api.html">Accounts</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Applications" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="applications-api.html">Applications</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Clients" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html">Clients</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="CreateaClient" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_create_a_client">Create a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="DeleteaClient" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_delete_a_client">Delete a Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="ChangeClient&#8217;sPassword" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="GetaListofAvailableClients" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="IncomingPhoneNumbers" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="IncomingPhoneNumberInstanceResource" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumber_instance_resource">IncomingPhoneNumber Instance Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="IncomingPhoneNumbersListResource" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incomingphonenumbers_list_resource">IncomingPhoneNumbers List Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="LocalIncomingPhoneNumberFactoryResource" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_local_incomingphonenumber_factory_resource">Local IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Toll-FreeIncomingPhoneNumberFactoryResource" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_toll_free_incomingphonenumber_factory_resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="MobileIncomingPhoneNumberFactoryResource" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_mobile_incomingphonenumber_factory_resource">Mobile IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Attachaphonenumbertoanapplication" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_attach_a_phone_number_to_an_application">Attach a phone number to an application</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Deleteaphonenumber" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_delete_a_phone_number">Delete a phone number</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="ListofPhoneNumbers" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_list_of_phone_numbers">List of Phone Numbers</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="IncomingPhoneNumberRegexSupport" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="incoming-phone-numbers-api.html#_incoming_phone_number_regex_support">Incoming Phone Number Regex Support</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="Notifications" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="notifications-api.html">Notifications</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="UsageRecords" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="usage-records-api.html">Usage Records</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="Voice" class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              icomoon3-font-reference-voice
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="voice-category.html">Voice</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="Calls" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html">Calls</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="CallListResourceURI" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_call_list_resource_uri">Call List Resource URI</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="MakingaCall" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_making_a_call_to_a_sip_account">Making a Call</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="ModifyingLiveCalls" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_modifying_live_calls">Modifying Live Calls</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Examples" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#examples">Examples</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="ListFilter" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_list_filter">List Filter</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="PagingInformation" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_paging_information">Paging Information</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="ConferenceManagement" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html">Conference Management</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="SupportedOperations" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_supported_operations">Supported Operations</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="ConferenceListResourceURI" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="conferences-api.html#_conference_list_resource_uri">Conference List Resource URI</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="ConferenceParticipantsManagement" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="participants-api.html">Conference Participants Management</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="ParticipantsListResourceURI" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="participants-api.html#_participant_list_resource_uri">Participants List Resource URI</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="Recordings" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="recordings-api.html">Recordings</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="SIPReferSupport" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="SIP-Refer-Support.html">SIP Refer Support</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="SMS" class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              icomoon3-font-reference-sms
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-category.html">SMS</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="Messages" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html">Messages</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="SendSMS" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_send_sms">Send SMS</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="GetSMSList" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_get_sms_list">Get SMS List</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="GetsingleSMSInformation" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_get_single_sms_information">Get single SMS Information</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="SMSAttributes" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="sms-api.html#_sms_attributes">SMS Attributes</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="Email" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="email-api.html">Email</a>
+
+            </span>
+              </div>
+                          </li>
+              </ul>
+            </li>
+            <li id="RCML" class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              icomoon3-font-reference-rcml
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html">RCML</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="Overview" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html">Overview</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="InteractingwithYourApplication" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">Interacting with Your Application</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="RCMLVerbs" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_the_rcml_verbs">RCML Verbs</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="Dial" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/dial-rcml.html">Dial</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="Client" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/client-rcml.html">Client</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Conference" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/conference-rcml.html">Conference</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Number" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/number-rcml.html">Number</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="SIP" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/sip-rcml.html">SIP</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="Email" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/email-rcml.html">Email</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Gather" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/gather-rcml.html">Gather</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Say" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/say-rcml.html">Say</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Play" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/play-rcml.html">Play</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="SMS" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/sms-rcml.html">SMS </a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Hangup" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/hangup-rcml.html">Hangup</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Pause" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/pause-rcml.html">Pause</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Redirect" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/redirect-rcml.html">Redirect</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Record" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/record-rcml.html">Record</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Reject" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/reject-rcml.html">Reject</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="TurnkeyAppsAPIs" class="nav-item" data-depth="1">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              icomoon3-font-reference-solutions
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/index.html">Turnkey Apps APIs</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="Smart2FA" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html">Smart 2FA</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="SendOTPs" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_sending_one_time_passwords_api_reference">Send OTPs</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="VerifyOTPs" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_verifying_one_time_passwords_api_reference">Verify OTPs</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="ControlOTPs" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_control">Control OTPs</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Limit" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_limit">Limit</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="CreateLimit" class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_create_limit">Create Limit</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="UpdateLimit" class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_update_limit">Update Limit</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="DeleteLimit" class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_delete_limit">Delete Limit</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="GetListofLimits" class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_get_list_of_limits">Get List of Limits</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="Workflow" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_workflow">Workflow</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="CreateWorkflow" class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_workflow">Create Workflow</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="UpdateWorkflow" class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_update_workflow">Update Workflow</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="DeleteWorkflow" class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_delete_workflow">Delete Workflow</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="GetListofWorkflows" class="nav-item" data-depth="4">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_get_list_of_workflows">Get List of Workflows</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+  </ul>
+            </li>
+            <li id="CallQueuing" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="call-queueing-api.html">Call Queuing</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="AutoAttendant" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html">Auto Attendant</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="User" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html#_user">User</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Announcement" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html#_announcement">Announcement</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="AutoAttendantSystem" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html#_auto_attendant_system">Auto Attendant System</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Menu" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html#_menu">Menu</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Schedule" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html#_schedule">Schedule</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="PhoneNumber" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html#_phone_number">Phone Number</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="RCML" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              icomoon3-font-reference-rcml
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html#_rcml">RCML</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="UsageRecords" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="auto-attendant-api.html#_usage_records">Usage Records</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="NumberMasking" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="number-masking-api.html">Number Masking</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="Application" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="number-masking-api.html#_application">Application</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="MaskNumberPool" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="number-masking-api.html#_mask_numbers">Mask Number Pool</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Context" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="number-masking-api.html#_context">Context</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Participants" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="number-masking-api.html#_participants">Participants</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="Interactions" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="number-masking-api.html#_interactions">Interactions</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="UsageRecords" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="number-masking-api.html#_usage_records">Usage Records</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+            <li id="TaskRouter" class="nav-item" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="task-router-api.html">Task Router</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="CampaignManager" class="nav-item is-current-page" data-depth="2">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="campaign-manager-api.html">Campaign Manager</a>
+                      <button class="nav-toggle"></button>
+            </span>
+              </div>
+                <ul class="nav-list">
+            <li id="CreateCampaign" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="#_create_campaign">Create Campaign</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="UpdateCampaign" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="#_update_campaign">Update Campaign</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="DeleteCampaign" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="#_delete_campaign">Delete Campaign</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="GetListofCampaigns" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="#_get_list_of_campaigns">Get List of Campaigns</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="GetSingleCampaign" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="#_get_single_campaign">Get Single Campaign</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="GetListofCredits" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="#_get_list_of_credits">Get List of Credits</a>
+
+            </span>
+              </div>
+                          </li>
+            <li id="GetSingleCredit" class="nav-item" data-depth="3">
+              <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+            "></span>
+                  <span>
+              <a class="nav-link nav-flex-item-text" href="#_get_single_credit">Get Single Credit</a>
+
+            </span>
+              </div>
+                          </li>
+  </ul>
+            </li>
+  </ul>
+            </li>
+  </ul>
+          <ul class="nav-list">
+              <ul class="nav-list">
+                                                                          </ul>
+              <ul class="nav-list">
+                          <ul class="nav-list">
+                                                              </ul>
+              <ul class="nav-list">
+                                                              </ul>
+              <ul class="nav-list">
+                                                                                                                                                  </ul>
+                          <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                                                                                                              </ul>
+                                      </ul>
+              <ul class="nav-list">
+              <ul class="nav-list">
+                                                                          </ul>
+                          <ul class="nav-list">
+                          </ul>
+              <ul class="nav-list">
+              </ul>
+                          </ul>
+              <ul class="nav-list">
+                          <ul class="nav-list">
+                                                  </ul>
+                          </ul>
+              <ul class="nav-list">
+              <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                                                                                                              <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                                                  </ul>
+  </ul>
+              <ul class="nav-list">
+                                                              </ul>
+              <ul class="nav-list">
+                                                  </ul>
+              <ul class="nav-list">
+                                      </ul>
+              <ul class="nav-list">
+                                                                                                  </ul>
+                          <ul class="nav-list">
+                                                                                                              </ul>
+              <ul class="nav-list">
+              <ul class="nav-list">
+                                                                          </ul>
+              <ul class="nav-list">
+                                                  </ul>
+                                                  <ul class="nav-list">
+                          </ul>
+              <ul class="nav-list">
+                                      </ul>
+  </ul>
+  </ul>
+              <ul class="nav-list">
+              <ul class="nav-list">
+                          </ul>
+              <ul class="nav-list">
+                                                  </ul>
+                                      <ul class="nav-list">
+              </ul>
+                                                                                      </ul>
+  </ul>
+  </ul>
+    </nav>
+  </div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<!--
+
+-->
+<div class="toolbar" role="navigation" style="display: none;">
+  <button class="navigation-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../../index.html">docs</a></li>
+    <li class="crumb"><a href="../turnkey-applications/index.html">Enterprise:Turnkey Apps APIs</a></li>
+    <li class="crumb"><a href="campaign-manager-api.html">Enterprise:Campaign Manager</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc fix-anchor-links-position">
+  <h1>Campaign Manager</h1>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Campaign Manager allows you to send the same SMS to hundreds of thousands of phone numbers within minutes. For more details, please review the <a href="../turnkey-applications/campaign-manager-overview.html">general documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>This document covers the API(s) that are available to you to manage campaigns and get information on credits added to the account to  track the usage of the service.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_campaign"><a class="anchor" href="#_campaign"></a>Campaign</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_campaign_status"><a class="anchor" href="#_campaign_status"></a>Campaign Status</h3>
+<div class="paragraph">
+<p>A campaign can be in one of the following states:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Initiating</strong>: The Campaign is getting created. For example setting up From numbers, To numbers and Body. Ideally the Campaign will remain in this state for a very short time. If there are any errors in processing <code>From</code> or <code>To</code> numbers, the Campaign will directly move to a <code>Failed</code> state.</p>
+</li>
+<li>
+<p><strong>Scheduled</strong>: The Campaign is Scheduled. This means the Campaign Manager has all the resources and data it needs to execute this Campaign when Scheduled time kicks in. The only option to move Campaign, via API call, from a Scheduled state is to Cancelled state.</p>
+</li>
+<li>
+<p><strong>Cancelled</strong>: When a scheduled Campaign is Cancelled.</p>
+</li>
+<li>
+<p><strong>InProgress</strong>: The Campaign is in Progress. This state automatically kicks in when scheduled time has arrived. The only possible transition from this state is either <code>Completed</code> or <code>Failed</code></p>
+</li>
+<li>
+<p><strong>Completed</strong>: Once all SMS are successfully sent to the underlying platform, the Campaign is marked as completed. It doesn’t depend on the state of SMS, for example whether it is Delivered or not.</p>
+</li>
+<li>
+<p><strong>Failed</strong>: If the Campaign failed for some reason or cannot setup data correctly from the initiating state.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The life cycle of Campaign&#8217;s Status is as below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/campaign-manager/campaign-status.png" alt="campaign status">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_campaign"><a class="anchor" href="#_create_campaign"></a>Create Campaign</h3>
+<div class="paragraph">
+<p>The Create Campaign API is used to create SMS Campaigns.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri"><a class="anchor" href="#_base_resource_uri"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_campaign_resource_uri"><a class="anchor" href="#_create_campaign_resource_uri"></a>Create Campaign Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/campaigns</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP POST: Create Campaign</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. The SMS Body.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. The name of the campaign.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Date when Campaign is to be started given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note: that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fromPrefix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The prefix for country code for source/origin address, Campaign Manager application will automatically generate random source address with specific prefix. <code>fromPrefix</code> is mandatory if <code>fromFile</code> parameter is not passed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fromFile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The source/origin phone address. Multipart File values can  be passed as new line separated. In case of multiple values passed, each address will be used as round robin for the given number of <code>to</code> addresses. <code>fromFile</code> is mandatory if <code>fromPrefix</code> is not passed. In case both are passed <code>fromPrefix</code> is ignored.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">toFile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. The destination address. Multipart File having multiple <code>To</code> numbers can be passed, each number in a new line.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body"><a class="anchor" href="#_response_body"></a>Response Body</h4>
+<div class="paragraph">
+<p>The response body will contain the code, corresponding message, and data of the Application if it was successfully created. HTTP response will be 200 Created(OK).</p>
+</div>
+<div class="paragraph">
+<p>The response returned is the JSON body as shown in the example below. Parameters are as explained below:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign data as explained in the table below.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters"><a class="anchor" href="#_data_parameters"></a>Data Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fromPrefix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The prefix for country code for source/origin address, campaignmanager application will automatically generate random source address with specific prefix.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique sid identity for Campaign</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Campaign</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when Campaign was created given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note: that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when Campaign was updated given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when Campaign is to be started given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Business Customer sid to which the Campaign belongs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of SMS segments for this Campaign.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The status of the campaign as explained earlier.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The Create Campaign API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition, seen below are the Errors that it can return.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">489</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Time is invalid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign is defined with a start date in the past.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update Campaign</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example"><a class="anchor" href="#_example"></a>Example</h4>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "name" : "TestCampaign",
+    "startTime":"2020-01-01T22:45:32",
+    "fromPrefix":"+91",
+    "toFile":"file:/user/home/toPhoneNumbersfile.txt",
+    "body":"Happy New Year"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST \
+  https://yourdomain.com/campaignmanager/campaigns \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name" : "TestCampaign",
+    "startTime":"2020-01-01T22:45:32",
+    "fromPrefix":"+91",
+    "toFile":"file:/user/home/toPhoneNumbersfile.txt"
+    "body":"Happy New Year"
+}’</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If creation of campaign is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "sid": "EC2f1e91bcdeb346519612a96dd31dcd53",
+        "dateUpdated": "2020-01-01T11:40:15+0000",
+        "dateCreated": "2020-01-01T11:40:15+0000",
+        "accountSid": "AC9f5746bbeba827841634b106f23e7395",
+        "accountEmail": "teste1@testent7.com",
+        "uri": "/campaignmanager/campaigns/search/EC2f1e91bcdeb346519612a96dd31dcd53",
+        "name": "Test Data 1",
+        "startTime": "2020-01-01T22:45:32+0000",
+        "enterpriseSid": "ENfda064f487ff4309b8b306d25adc0a86",
+        "total": 1,
+        "status": "initiating",
+        "fromPrefix": "+91"
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_campaign"><a class="anchor" href="#_update_campaign"></a>Update Campaign</h3>
+<div class="paragraph">
+<p>This endpoint will be used to update existing campaigns. Only campaigns with a status of “Scheduled” can be updated. If the status of the campaign changes to any other, updating is no longer possible.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_2"><a class="anchor" href="#_base_resource_uri_2"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_update_context_resource_uri"><a class="anchor" href="#_update_context_resource_uri"></a>Update Context Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/campaigns/{CampaignSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP PUT: Update Campaign</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_2"><a class="anchor" href="#_request_parameters_2"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The status of the campaign can be changed from Scheduled to Cancelled.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CampaignSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Campaign SID of the campaign</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_2"><a class="anchor" href="#_response_body_2"></a>Response Body</h4>
+<div class="paragraph">
+<p>The Response Body will carry Code, corresponding message and data of Application if it was successfully Updated. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Parameters are as explained below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign data as explained in the data parameter of create campaign.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Update Campaign API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition, seen below are the Errors that it can return.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">485</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign Status is mandatory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status of campaign missing while updating campaign</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Campaign</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">489</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Time is invalid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign is defined with a start date in the past.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Campaign, Update Campaign</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">486</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise campaign not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign SID doesn&#8217;t exist in the system or probably assigned to some other Organization where existing user doesn&#8217;t have permission to access.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Campaign, Delete Campaign, List Single Campaign</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">487</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Campaign cannot update status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Campaign cannot update status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Campaign</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_2"><a class="anchor" href="#_example_2"></a>Example</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+"status" : "cancelled"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X PUT \
+  https://yourdomain.com/campaignmanager/campaigns/CPb6eb071d21124dbab20b095c25f1274f \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "status" : "cancelled"
+}’</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If update of Context  is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data": {
+        "sid": "EC2f1e91bcdeb346519612a96dd31dcd53",
+        "dateUpdated": "2020-01-01T11:40:15+0000",
+        "dateCreated": "2020-01-01T11:40:15+0000",
+        "accountSid": "AC9f5746bbeba827841634b106f23e7395",
+        "accountEmail": "teste1@testent7.com",
+        "uri": "/campaignmanager/campaigns/search/EC2f1e91bcdeb346519612a96dd31dcd53",
+        "name": "Test Data 1",
+        "startTime": "2020-01-01T22:45:32+0000",
+        "enterpriseSid": "ENfda064f487ff4309b8b306d25adc0a86",
+        "total": 1,
+        "status": "cancelled",
+        "fromPrefix": "+91"
+    },
+    "code": 200,
+    "message": "OK"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If update of Context fails, corresponding error code and message is returned along with HTTP Error Response</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "errorCode": "486",
+    "message": "Enterprise campaign not found",
+    "data": {
+        "sid": "EC2f1e91bcdeb346519612a96dd31dcd"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delete_campaign"><a class="anchor" href="#_delete_campaign"></a>Delete Campaign</h3>
+<div class="paragraph">
+<p>This endpoint will be used to delete existing campaigns. Only campaigns with a status of Scheduled can be deleted. If the status of the campaign changes to any other, deleting is no longer possible.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_3"><a class="anchor" href="#_base_resource_uri_3"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_update_context_resource_uri_2"><a class="anchor" href="#_update_context_resource_uri_2"></a>Update Context Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/campaigns/{CampaignSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_3"><a class="anchor" href="#_supported_operations_3"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP DELETE: Delete Campaign</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_3"><a class="anchor" href="#_request_parameters_3"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CampaignSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Campaign SID of the campaign</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_3"><a class="anchor" href="#_response_body_3"></a>Response Body</h4>
+<div class="paragraph">
+<p>The Response Body will carry Code, corresponding message and data of Application if it was successfully Updated. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Parameters are as explained below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign data as explained in the data parameter of create campaign.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Delete Campaign API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition, seen below are the Errors that it can return.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">488</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Campaign cannot be deleted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Campaign cannot be deleted as status not scheduled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete Campaign</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">486</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise campaign not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign SID doesn&#8217;t exist in the system or probably assigned to some other Organization where existing user doesn&#8217;t have permission to access.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Campaign, Delete Campaign, List Single Campaign</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_3"><a class="anchor" href="#_example_3"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X DELETE \
+  https://yourdomain.com/campaignmanager/campaigns/CPb6eb071d21124dbab20b095c25f1274f \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If delete of Campaign is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data": {
+        "sid": "EC2f1e91bcdeb346519612a96dd31dcd53",
+        "dateUpdated": "2020-01-01T11:40:15+0000",
+        "dateCreated": "2020-01-01T11:40:15+0000",
+        "accountSid": "AC9f5746bbeba827841634b106f23e7395",
+        "accountEmail": "teste1@testent7.com",
+        "uri": "/campaignmanager/campaigns/search/EC2f1e91bcdeb346519612a96dd31dcd53",
+        "name": "Test Data 1",
+        "startTime": "2020-01-01T22:45:32+0000",
+        "enterpriseSid": "ENfda064f487ff4309b8b306d25adc0a86",
+        "total": 1,
+        "status": "cancelled",
+        "fromPrefix": "+91"
+    },
+    "code": 200,
+    "message": "OK"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_list_of_campaigns"><a class="anchor" href="#_get_list_of_campaigns"></a>Get List of Campaigns</h3>
+<div class="paragraph">
+<p>This endpoint will be used to retrieve a list of existing campaigns.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_4"><a class="anchor" href="#_base_resource_uri_4"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_list_of_campaigns_resource_uri"><a class="anchor" href="#_get_list_of_campaigns_resource_uri"></a>Get List of Campaigns Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/campaigns/search</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_4"><a class="anchor" href="#_supported_operations_4"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: List Campaigns</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paging"><a class="anchor" href="#_paging"></a>Paging</h4>
+<div class="paragraph">
+<p>The following paging parameters are supported</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Campaigns records to return, starting from 0.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the search API is called without page and pageSize, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering"><a class="anchor" href="#_filtering"></a>Filtering</h4>
+<div class="paragraph">
+<p>Following filtering parameters are supported:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Contexts that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Campaign’s that match name text, partially or fully.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show campaigns having selected status. Possible value of status are as explained in campaign status section.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Contexts that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h4>
+<div class="paragraph">
+<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. ou can sort by the following attributes:</p>
+</div>
+<div class="sect4">
+<h5 id="_sort_attributes"><a class="anchor" href="#_sort_attributes"></a>Sort Attributes</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by status of campaign</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date when campaign was created</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters"><a class="anchor" href="#_response_parameters"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Response Body will carry Code, corresponding message, and data of Campaigns if it was  successfully fetched. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Parameters are as explained below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Code</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data of search as explained in Data parameters below</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters_2"><a class="anchor" href="#_data_parameters_2"></a>Data parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">campaign data as explained in Data Parameter of create campaign</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total Number of records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nextPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in next page</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_4"><a class="anchor" href="#_example_4"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+  https://yourdomain.com/campaignmanager/campaigns/search?name=test \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "result": [
+            {
+        "sid": "EC2f1e91bcdeb346519612a96dd31dcd53",
+        "dateUpdated": "2020-01-01T11:40:15+0000",
+        "dateCreated": "2020-01-01T11:40:15+0000",
+        "accountSid": "AC9f5746bbeba827841634b106f23e7395",
+        "accountEmail": "teste1@testent7.com",
+        "uri": "/campaignmanager/campaigns/search/EC2f1e91bcdeb346519612a96dd31dcd53",
+        "name": "Test Data 1",
+        "startTime": "2020-01-01T22:45:32+0000",
+        "enterpriseSid": "ENfda064f487ff4309b8b306d25adc0a86",
+        "total": 1,
+        "status": "cancelled",
+        "fromPrefix": "+91"
+    },
+        ],
+        "pageSize": 10,
+        "total": 1,
+        "page": 0,
+        "numPages": 1,
+        "start": 0,
+        "end": 0,
+        "firstPageUri": "/campaignmanager/campaigns/search/?pageSize=10&amp;page=0",
+        "uri": "/campaignmanager/campaigns/search/?pageSize=10&amp;page=0"
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_single_campaign"><a class="anchor" href="#_get_single_campaign"></a>Get Single Campaign</h3>
+<div class="paragraph">
+<p>The Single Campaign search API allows users to retrieve specific Campaigns.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_5"><a class="anchor" href="#_base_resource_uri_5"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_single_campaign_resource_uri"><a class="anchor" href="#_get_single_campaign_resource_uri"></a>Get Single Campaign Resource URI</h4>
+<div class="paragraph">
+<p>/numbermasking/campaigns/search/{CampaignSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_5"><a class="anchor" href="#_supported_operations_5"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: Specific Campaign</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_4"><a class="anchor" href="#_request_parameters_4"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CampaignSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Campaign SID of the campaign</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_2"><a class="anchor" href="#_response_parameters_2"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Response Body will carry Code, corresponding message, and data of User if it was  successfully searched. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Parameters are as explained below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign data as explained in the data parameter of create campaign.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Delete Campaign API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition, seen below are the Errors that it can return.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">486</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise campaign not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign SID doesn&#8217;t exist in the system or probably assigned to some other Organization where existing user doesn&#8217;t have permission to access.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Campaign, Delete Campaign, List Single Campaign</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_5"><a class="anchor" href="#_example_5"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X DELETE \
+  https://yourdomain.com/campaignmanager/campaigns/search/CPb6eb071d21124dbab20b095c25f1274f \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data": {
+        "sid": "EC2f1e91bcdeb346519612a96dd31dcd53",
+        "dateUpdated": "2020-01-01T11:40:15+0000",
+        "dateCreated": "2020-01-01T11:40:15+0000",
+        "accountSid": "AC9f5746bbeba827841634b106f23e7395",
+        "accountEmail": "teste1@testent7.com",
+        "uri": "/campaignmanager/campaigns/search/EC2f1e91bcdeb346519612a96dd31dcd53",
+        "name": "Test Data 1",
+        "startTime": "2020-01-01T22:45:32+0000",
+        "enterpriseSid": "ENfda064f487ff4309b8b306d25adc0a86",
+        "total": 1,
+        "status": "cancelled",
+        "fromPrefix": "+91"
+    },
+    "code": 200,
+    "message": "OK"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_credit"><a class="anchor" href="#_credit"></a>Credit</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_get_list_of_credits"><a class="anchor" href="#_get_list_of_credits"></a>Get List of Credits</h3>
+<div class="paragraph">
+<p>This endpoint will be used to get list of Credits for the Business Customer.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_6"><a class="anchor" href="#_base_resource_uri_6"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_list_of_credit_resource_uri"><a class="anchor" href="#_get_list_of_credit_resource_uri"></a>Get List of Credit Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/credits/search</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_6"><a class="anchor" href="#_supported_operations_6"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP Get: Get list of Credits for a  Business Customer</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paging_2"><a class="anchor" href="#_paging_2"></a>Paging</h4>
+<div class="paragraph">
+<p>The following paging parameters are supported.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Participants records to return, starting from 0.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the search API is called without page and pageSize, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering_2"><a class="anchor" href="#_filtering_2"></a>Filtering</h4>
+<div class="paragraph">
+<p>The following filtering parameters are supported:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Credits  that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Credits that are either <code>credit</code> which means added or <code>debit</code> which means reduced.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Credits that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note: that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_sorting_information_2"><a class="anchor" href="#_sorting_information_2"></a>Sorting Information</h4>
+<div class="paragraph">
+<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. You can sort by the following attributes:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by created date</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_4"><a class="anchor" href="#_response_body_4"></a>Response Body</h4>
+<div class="paragraph">
+<p>The Response Body will carry Code, corresponding message and data of the Credit if it was successfully fetched. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is the JSON body as shown in the example below. Parameters are as explained below:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actual data in form of a list that matches the filter criteria. Data as explained in Data Parameter in create Credit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total Number of records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nextPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in next page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_6"><a class="anchor" href="#_example_6"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \https://yourdomain.com/campaignmanager/credits/search?enterprriseSid=EN6c9dfebda23b403a959a99112437e785 \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "result": [
+            {
+                "sid": "ENCd05ad50a49e445f5a4924f9862a5a6aa",
+                "dateUpdated": "2020-09-04T07:57:44+0000",
+                "dateCreated": "2020-09-04T07:57:44+0000",
+                "accountSid": "ACb06dc1c0b555df46a02ccaea1cb11bc1",
+                "accountEmail": "cspadmin1@nmorgtest1.com",
+                "uri": "/campaignmanager/credits/ENCd05ad50a49e445f5a4924f9862a5a6aa",
+                "description": "initial credits on 4th",
+                "enterpriseSid": "ENc165d92e63f14fdf84666a9b8a57c805",
+                "credit": 500
+            }
+        ],
+        "pageSize": 10,
+        "total": 1,
+        "page": 0,
+        "numPages": 1,
+        "start": 0,
+        "end": 0,
+        "firstPageUri": "/campaignmanager/credits/search/?enterpriseSid=ENc165d92e63f14fdf84666a9b8a57c805&amp;pageSize=10&amp;page=0",
+        "uri": "/campaignmanager/credits/search/?enterpriseSid=ENc165d92e63f14fdf84666a9b8a57c805&amp;pageSize=10&amp;page=0"
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_single_credit"><a class="anchor" href="#_get_single_credit"></a>Get Single Credit</h3>
+<div class="paragraph">
+<p>The Single Credit search API allows users to retrieve a specific Credit.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_7"><a class="anchor" href="#_base_resource_uri_7"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_single_user_resource_uri"><a class="anchor" href="#_get_single_user_resource_uri"></a>Get Single User Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/credits/search/{creditSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_7"><a class="anchor" href="#_supported_operations_7"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP Get: Get Specific Credit</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_5"><a class="anchor" href="#_request_parameters_5"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">creditSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID to uniquely identify a Credit</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_5"><a class="anchor" href="#_response_body_5"></a>Response Body</h4>
+<div class="paragraph">
+<p>The Response Body will carry the Code, corresponding message, and data of the Credit if it was  successfully searched. HTTP response will be 200 OK.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">472</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Credit not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Credit SID doesn’t exist in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get Credit</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="paragraph">
+<p>The response returned is the JSON body as shown in the example below. Parameters are listed below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Credit data as explained in the Data Parameter of Create Credit.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_7"><a class="anchor" href="#_example_7"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X GET \
+  https://yourdomain.com/campaignmanager/credits/search/ENCee320039e3e647eaa7df7cef5e3d6b55 \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+    "data": {
+        "sid": "ENC3807ff7ff73e46e7a9c9a95af3d85189",
+        "dateUpdated": "2020-09-04T09:58:57+0000",
+        "dateCreated": "2020-09-04T09:58:57+0000",
+        "accountSid": ACb06dc1c0b555df46a02ccaea1cb11bc1",
+        "accountEmail": "cspadmin1@nmorgtest1.com",
+        "uri": "/campaignmanager/credits/ENC3807ff7ff73e46e7a9c9a95af3d85189",
+        "description": "initial credits",
+        "enterpriseSid": "EN671a5f2c6c5c4e88b814bdc23ca389bc",
+        "credit": 500
+    },
+    "code": 200,
+    "message": "OK"
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column-container">
+      <div class="footer-column">
+          <h5 class="footer-column-title">Platform</h5>
+          <p><a class="footer-products-item" href="/docs/api/voice-category.html">Programmable Voice</a></p>
+          <p><a class="footer-products-item" href="/docs/api/sms-category.html">Programmable SMS</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Turnkey Applications</h5>
+        <p><a class="footer-usecase-item" id="Smart2FA" href="/docs/turnkey-applications/Smart-2FA-Overview.html">Smart 2FA</a></p>
+          <p><a class="footer-usecase-item" id="CallQueuing" href="/docs/api/call-queue-api.html">Call Queue</a></p>
+          <p><a class="footer-usecase-item" id="AutoAttendant" href="/docs/solutions/auto-attendant-overview.html">Auto Attendant</a></p>
+          <p><a class="footer-usecase-item" id="NumberMasking" href="/docs/turnkey-applications/number-masking-overview.html">Number Masking</a></p>
+          <p><a class="footer-usecase-item" id="TaskRouter" href="/docs/turnkey-applications/task-router-overview.html">Task Router</a></p>
+          <p><a class="footer-usecase-item" id="CampaignManager" href="/docs/turnkey-applications/campaign-manager-overview.html">Campaign Manager</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Learn</h5>
+
+          <p><a id="terms-link" class="non-sps-text sps-link" data-parm-link="terms_link" href="/docs/terms.html" data-default-link="/docs/terms.html">Terms And Conditions</a></p>
+      </div>
+      <div class="footer-column">
+    <h5 class="footer-column-title">About</h5>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/about/" data-default-text="About Us" data-default-link="#">ABOUT</a></p>
+  <p><a class="sps-text sps-link" data-parm-text="Contact Us" data-parm-link="contact_link" href="https://www.telestax.com/contact/" data-default-text="Contact Us" data-default-link="#">CONTACT US</a></p>
+      </div>
+    </div>
+   <div class="footer-bottom-container">
+    <div class="footer-copyright">
+     <p class="footer-copyright-paragraph"><a class="sps-text" data-parm-text="copyright_text" data-default-text="© 2020, All rights reserved.">© 2020, All rights reserved.</a></p>
+    </div>
+   </div>
+    <!---->
+  </div>
+</footer>
+<script src="../../../../_/js/site.js"></script>
+<script src="../../../../_/js/vendor/highlight.js"></script>
+<!--
+<script>hljs.initHighlighting()</script>
+-->
+<!--
+  Tried to get this chunk into js/05-countly.js but it has some issues with the async loading so fell back to putting it here
+  where it works for some reason
+-->
+  <!-- Only enable countly if the key is set -->
+  <script type='text/javascript' src='https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'></script>
+  <script>
+    var Countly = Countly || {}
+    Countly.q = Countly.q || []
+
+    // provide countly initialization parameters
+    Countly.app_key = '56bdc77c4c53e32ebd439e2586dd4ee22b3d3ad0'
+    Countly.url = 'https://restcomm.count.ly'
+
+    Countly.q.push(['track_sessions'])
+    Countly.q.push(['track_pageview'])
+    Countly.q.push(['track_clicks'])
+    Countly.q.push(['track_errors'])
+    Countly.q.push(['track_links'])
+    Countly.q.push(['track_forms'])
+    Countly.q.push(['collect_from_forms'])
+
+    // send event
+    Countly.q.push(['add_event', {
+      key: 'Restcomm CSPs Documentation',
+      segmentation: {},
+    }]);
+
+    // load countly script asynchronously
+    (function () {
+      var cly = document.createElement('script')
+      cly.type = 'text/javascript'
+      cly.async = true
+      // enter url of script here
+      cly.src = 'https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'
+      cly.onload = function () {
+        Countly.init()
+      }
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(cly, s)
+    })()
+  </script>
+
+  </body>
+</html>
