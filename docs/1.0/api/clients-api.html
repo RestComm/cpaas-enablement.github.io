@@ -3693,7 +3693,7 @@ public class JavaSampleClass {
         <button class="sample-code-button scsIndex-39" onclick="openLanguage('Java', 39)">Java</button>
       </div>
       <div id="Curl-39" class="sample-language-39">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Clients  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Clients.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -3706,7 +3706,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request({
       method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Clients',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Clients.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
@@ -3728,122 +3728,6 @@ userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Clients',
-      headers=headers)
-res = conn.getresponse()
-
-# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
-...
-</code></pre>
-      </div>
-      <div id="Java-39" class="sample-language-39" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
-   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Clients");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("GET");
-
-      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
-      ...
-  }
-}
-</code></pre>
-      </div>
-<div class="paragraph">
-<p>XML GET Response</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-lang:xml hljs" data-lang="lang:xml">&lt;RestcommResponse&gt;
-  &lt;Clients&gt;
-    &lt;Client&gt;
-      &lt;Sid&gt;CL3003328d0de04ba68f38de85b732ed56&lt;/Sid&gt;
-      &lt;DateCreated&gt;Mon, 4 Nov 2013 16:33:39 -0500&lt;/DateCreated&gt;
-      &lt;DateUpdated&gt;Mon, 4 Nov 2013 16:33:39 -0500&lt;/DateUpdated&gt;
-      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
-      &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
-      &lt;FriendlyName&gt;bob&lt;/FriendlyName&gt;
-      &lt;Login&gt;bob&lt;/Login&gt;
-      &lt;Password&gt;i-1c8468a2&lt;/Password&gt;
-      &lt;Status&gt;1&lt;/Status&gt;
-      &lt;VoiceMethod&gt;POST&lt;/VoiceMethod&gt;
-      &lt;VoiceFallbackMethod&gt;POST&lt;/VoiceFallbackMethod&gt;
-      &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Clients/CL3003328d0de04ba68f38de85b732ed56&lt;/Uri&gt;
-    &lt;/Client&gt;
-    &lt;Client&gt;
-      &lt;Sid&gt;CLa2b99142e111427fbb489c3de357f60a&lt;/Sid&gt;
-      &lt;DateCreated&gt;Mon, 4 Nov 2013 12:52:44 -0500&lt;/DateCreated&gt;
-      &lt;DateUpdated&gt;Mon, 4 Nov 2013 12:52:44 -0500&lt;/DateUpdated&gt;
-      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
-      &lt;ApiVersion&gt;2012-04-24&lt;/ApiVersion&gt;
-      &lt;FriendlyName&gt;alice&lt;/FriendlyName&gt;
-      &lt;Login&gt;alice&lt;/Login&gt;
-      &lt;Password&gt;i-1c8468a2&lt;/Password&gt;
-      &lt;Status&gt;1&lt;/Status&gt;
-      &lt;VoiceMethod&gt;POST&lt;/VoiceMethod&gt;
-      &lt;VoiceFallbackMethod&gt;POST&lt;/VoiceFallbackMethod&gt;
-      &lt;Uri&gt;/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Clients/CLa2b99142e111427fbb489c3de357f60a&lt;/Uri&gt;
-    &lt;/Client&gt;
-  &lt;/Clients&gt;
-&lt;/RestcommResponse&gt;</code></pre>
-</div>
-</div>
-      <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-40 is-active" onclick="openLanguage('Curl', 40)">Curl</button>
-        <button class="sample-code-button scsIndex-40" onclick="openLanguage('Nodejs', 40)">Nodejs</button>
-        <button class="sample-code-button scsIndex-40" onclick="openLanguage('Python', 40)">Python</button>
-        <button class="sample-code-button scsIndex-40" onclick="openLanguage('Java', 40)">Java</button>
-      </div>
-      <div id="Curl-40" class="sample-language-40">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Clients.json  \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Nodejs-40" class="sample-language-40" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
-
-// Provide your Account Sid and Auth Token from your Console Account page
-const ACCOUNT_SID = 'my_ACCOUNT_SID';
-const AUTH_TOKEN = 'my_AUTH_TOKEN';
-
-request({
-      method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Clients.json',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
-   },
-   function (error, response, body) {
-      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
-      ...
-   }
-);
-</code></pre>
-      </div>
-      <div id="Python-40" class="sample-language-40" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-
-# Provide your Account Sid and Auth Token from your Console Account page
-ACCOUNT_SID = 'my_ACCOUNT_SID'
-AUTH_TOKEN = 'my_AUTH_TOKEN'
-
-userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass }
-
-conn = HTTPSConnection('mycompany.restcomm.com')
 conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Clients.json',
       headers=headers)
 res = conn.getresponse()
@@ -3852,7 +3736,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-40" class="sample-language-40" style="display:none">
+      <div id="Java-39" class="sample-language-39" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;

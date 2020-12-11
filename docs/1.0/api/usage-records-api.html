@@ -3540,17 +3540,17 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-75 is-active" onclick="openLanguage('Curl', 75)">Curl</button>
-        <button class="sample-code-button scsIndex-75" onclick="openLanguage('Nodejs', 75)">Nodejs</button>
-        <button class="sample-code-button scsIndex-75" onclick="openLanguage('Python', 75)">Python</button>
-        <button class="sample-code-button scsIndex-75" onclick="openLanguage('Java', 75)">Java</button>
+        <button class="sample-code-button scsIndex-73 is-active" onclick="openLanguage('Curl', 73)">Curl</button>
+        <button class="sample-code-button scsIndex-73" onclick="openLanguage('Nodejs', 73)">Nodejs</button>
+        <button class="sample-code-button scsIndex-73" onclick="openLanguage('Python', 73)">Python</button>
+        <button class="sample-code-button scsIndex-73" onclick="openLanguage('Java', 73)">Java</button>
       </div>
-      <div id="Curl-75" class="sample-language-75">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Usage/Records/Daily.xml  \
+      <div id="Curl-73" class="sample-language-73">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Usage/Records/Daily.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-75" class="sample-language-75" style="display:none">
+      <div id="Nodejs-73" class="sample-language-73" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3559,7 +3559,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request({
       method: 'GET',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.xml',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
@@ -3569,7 +3569,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-75" class="sample-language-75" style="display:none">
+      <div id="Python-73" class="sample-language-73" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3581,7 +3581,7 @@ userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("
 headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.xml',
+conn.request("GET", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Usage/Records/Daily.json',
       headers=headers)
 res = conn.getresponse()
 
@@ -3589,7 +3589,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-75" class="sample-language-75" style="display:none">
+      <div id="Java-73" class="sample-language-73" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3605,7 +3605,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Usage/Records/Daily.xml");
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Usage/Records/Daily.json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("GET");
@@ -3616,37 +3616,6 @@ public class JavaSampleClass {
 }
 </code></pre>
       </div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;RestcommResponse&gt;
-  &lt;UsageRecords&gt;
-    &lt;UsageRecord&gt;
-      &lt;Category&gt;calls&lt;/Category&gt;
-      &lt;Description&gt;Total Calls&lt;/Description&gt;
-      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
-      &lt;StartDate&gt;2016-01-01&lt;/StartDate&gt;
-      &lt;EndDate&gt;2016-01-01&lt;/EndDate&gt;
-      &lt;Usage&gt;4&lt;/Usage&gt;
-      &lt;UsageUnit&gt;minutes&lt;/UsageUnit&gt;
-      &lt;Count&gt;2&lt;/Count&gt;
-      &lt;CountUnit&gt;calls&lt;/CountUnit&gt;
-      &lt;Uri&gt;/todo&lt;/Uri&gt;
-    &lt;/UsageRecord&gt;
-    &lt;UsageRecord&gt;
-      &lt;Category&gt;calls&lt;/Category&gt;
-      &lt;Description&gt;Total Calls&lt;/Description&gt;
-      &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
-      &lt;StartDate&gt;2016-01-04&lt;/StartDate&gt;
-      &lt;EndDate&gt;2016-01-04&lt;/EndDate&gt;
-      &lt;Usage&gt;0&lt;/Usage&gt;
-      &lt;UsageUnit&gt;minutes&lt;/UsageUnit&gt;
-      &lt;Count&gt;1&lt;/Count&gt;
-      &lt;CountUnit&gt;calls&lt;/CountUnit&gt;
-      &lt;Uri&gt;/todo&lt;/Uri&gt;
-    &lt;/UsageRecord&gt;
-  &lt;/UsageRecords&gt;</pre>
-</div>
-</div>
 </div>
 </div>
 </article>

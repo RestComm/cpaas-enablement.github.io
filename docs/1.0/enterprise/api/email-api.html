@@ -2055,12 +2055,12 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-120 is-active" onclick="openLanguage('Curl', 120)">Curl</button>
-        <button class="sample-code-button scsIndex-120" onclick="openLanguage('Nodejs', 120)">Nodejs</button>
-        <button class="sample-code-button scsIndex-120" onclick="openLanguage('Python', 120)">Python</button>
-        <button class="sample-code-button scsIndex-120" onclick="openLanguage('Java', 120)">Java</button>
+        <button class="sample-code-button scsIndex-118 is-active" onclick="openLanguage('Curl', 118)">Curl</button>
+        <button class="sample-code-button scsIndex-118" onclick="openLanguage('Nodejs', 118)">Nodejs</button>
+        <button class="sample-code-button scsIndex-118" onclick="openLanguage('Python', 118)">Python</button>
+        <button class="sample-code-button scsIndex-118" onclick="openLanguage('Java', 118)">Java</button>
       </div>
-      <div id="Curl-120" class="sample-language-120">
+      <div id="Curl-118" class="sample-language-118">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
    -d 'To=john.doe@yourcompany.com' \
    -d 'From=jane.doe@yourcompany.com' \
@@ -2069,7 +2069,7 @@
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-120" class="sample-language-120" style="display:none">
+      <div id="Nodejs-118" class="sample-language-118" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2093,7 +2093,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-120" class="sample-language-120" style="display:none">
+      <div id="Python-118" class="sample-language-118" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -2124,7 +2124,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-120" class="sample-language-120" style="display:none">
+      <div id="Java-118" class="sample-language-118" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2170,134 +2170,8 @@ public class JavaSampleClass {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_example_post_response_xml_and_json"><a class="anchor" href="#_example_post_response_xml_and_json"></a>Example POST Response - XML and JSON</h2>
+<h2 id="_example_post_response"><a class="anchor" href="#_example_post_response"></a>Example POST Response</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>XML POST Response</p>
-</li>
-</ul>
-</div>
-      <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-121 is-active" onclick="openLanguage('Curl', 121)">Curl</button>
-        <button class="sample-code-button scsIndex-121" onclick="openLanguage('Nodejs', 121)">Nodejs</button>
-        <button class="sample-code-button scsIndex-121" onclick="openLanguage('Python', 121)">Python</button>
-        <button class="sample-code-button scsIndex-121" onclick="openLanguage('Java', 121)">Java</button>
-      </div>
-      <div id="Curl-121" class="sample-language-121">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
-   -d 'To=john.doe@yourcompany.com' \
-   -d 'From=jane.doe@yourcompany.com' \
-   -d 'Body=This is a test' \
-   -d 'Subject=Test Email' \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Nodejs-121" class="sample-language-121" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
-
-// Provide your Account Sid and Auth Token from your Console Account page
-const ACCOUNT_SID = 'my_ACCOUNT_SID';
-const AUTH_TOKEN = 'my_AUTH_TOKEN';
-
-request.({
-      method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
-      form: {
-         'To': 'john.doe@yourcompany.com',
-         'From': 'jane.doe@yourcompany.com',
-         'Body': 'This is a test',
-         'Subject': 'Test Email'
-      }
-   },
-   function (error, response, body) {
-      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
-      ...
-});
-</code></pre>
-      </div>
-      <div id="Python-121" class="sample-language-121" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-from urllib.parse import urlencode
-
-# Provide your Account Sid and Auth Token from your Console Account page
-ACCOUNT_SID = 'my_ACCOUNT_SID'
-AUTH_TOKEN = 'my_AUTH_TOKEN'
-
-userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-    'Content-type': 'application/x-www-form-urlencoded',
-    'Accept': 'text/plain' }
-
-# Update POST parameters accordingly
-params = urlencode({
-   'To': 'john.doe@yourcompany.com',
-   'From': 'jane.doe@yourcompany.com',
-   'Body': 'This is a test',
-   'Subject': 'Test Email'
-})
-
-conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
-      params, headers=headers)
-res = conn.getresponse()
-
-# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
-...
-</code></pre>
-      </div>
-      <div id="Java-121" class="sample-language-121" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
-   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Email/Messages");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("POST");
-      conn.setDoOutput(true);
-      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-
-      // Update POST parameters accordingly
-      os.writeBytes("To=john.doe@yourcompany.com&" +
-        "From=jane.doe@yourcompany.com&" +
-        "Body=This is a test&" +
-        "Subject=Test Email");
-      os.close();
-
-      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
-      ...
-  }
-}
-</code></pre>
-      </div>
-<div class="listingblock">
-<div class="content">
-<pre>&lt;RestcommResponse&gt;
-  &lt;EmailMessage&gt;
-    &lt;DateSent&gt;2016-02-07T23:43:03.910Z&lt;/DateSent&gt;
-    &lt;AccountSid&gt;ACae6e420f425248d6a26948c17a9e2acf&lt;/AccountSid&gt;
-    &lt;From&gt;jane.doe@yourcompany.com&lt;/From&gt;
-    &lt;To&gt;john.doe@yourcompany.com&lt;/To&gt;
-    &lt;Body&gt;This is a test&lt;/Body&gt;
-    &lt;Subject&gt;Test Email&lt;/Subject&gt;
-  &lt;/EmailMessage&gt;</pre>
-</div>
-</div>
 <div class="ulist">
 <ul>
 <li>
@@ -2306,12 +2180,12 @@ public class JavaSampleClass {
 </ul>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-122 is-active" onclick="openLanguage('Curl', 122)">Curl</button>
-        <button class="sample-code-button scsIndex-122" onclick="openLanguage('Nodejs', 122)">Nodejs</button>
-        <button class="sample-code-button scsIndex-122" onclick="openLanguage('Python', 122)">Python</button>
-        <button class="sample-code-button scsIndex-122" onclick="openLanguage('Java', 122)">Java</button>
+        <button class="sample-code-button scsIndex-119 is-active" onclick="openLanguage('Curl', 119)">Curl</button>
+        <button class="sample-code-button scsIndex-119" onclick="openLanguage('Nodejs', 119)">Nodejs</button>
+        <button class="sample-code-button scsIndex-119" onclick="openLanguage('Python', 119)">Python</button>
+        <button class="sample-code-button scsIndex-119" onclick="openLanguage('Java', 119)">Java</button>
       </div>
-      <div id="Curl-122" class="sample-language-122">
+      <div id="Curl-119" class="sample-language-119">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
    -d 'To=john.doe@yourcompany.com' \
    -d 'From=jane.doe@yourcompany.com' \
@@ -2320,7 +2194,7 @@ public class JavaSampleClass {
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-122" class="sample-language-122" style="display:none">
+      <div id="Nodejs-119" class="sample-language-119" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -2344,7 +2218,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-122" class="sample-language-122" style="display:none">
+      <div id="Python-119" class="sample-language-119" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -2375,7 +2249,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-122" class="sample-language-122" style="display:none">
+      <div id="Java-119" class="sample-language-119" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
