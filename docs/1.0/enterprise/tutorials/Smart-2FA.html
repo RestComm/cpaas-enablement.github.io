@@ -1359,88 +1359,6 @@
                           </li>
   </ul>
             </li>
-            <li id="Workflow" class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_workflow">Workflow</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li id="CreateWorkflow" class="nav-item" data-depth="4">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_workflow">Create Workflow</a>
-
-            </span>
-              </div>
-                          </li>
-            <li id="UpdateWorkflow" class="nav-item" data-depth="4">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_update_workflow">Update Workflow</a>
-
-            </span>
-              </div>
-                          </li>
-            <li id="DeleteWorkflow" class="nav-item" data-depth="4">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_delete_workflow">Delete Workflow</a>
-
-            </span>
-              </div>
-                          </li>
-            <li id="GetListofWorkflows" class="nav-item" data-depth="4">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="#_get_list_of_workflows">Get List of Workflows</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
   </ul>
             </li>
             <li id="CallQueuing" class="nav-item" data-depth="2">
@@ -1977,7 +1895,7 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Smart 2FA API lets you to send One Time Passowrd (OTP) using SMS, Voice or email.</p>
+<p>Smart 2FA API lets you to send One Time Password (OTP) using SMS, Voice or email.</p>
 </div>
 <div class="paragraph">
 <p>2FA allows you to add a second layer of security to your Application in addition to the user-id and password. The flexibility of using any channel makes sure your users get OTP even when they experience issue with one of the channels.</p>
@@ -2022,9 +1940,6 @@
 </li>
 <li>
 <p><a href="Smart-2FA.html#_limit"><strong>Limit</strong></a><br></p>
-</li>
-<li>
-<p><a href="Smart-2FA.html#_workflow"><strong>Workflow</strong></a></p>
 </li>
 </ul>
 </div>
@@ -2124,10 +2039,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">limits (Optional)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key-Value pair Limits to restrict on number of OTPs generated based on criteria that developers select.  For further details please look at <a href="Smart-2FA.html#_limit">Limit section</a>.</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">workflow (Optional)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow Name to apply corresponding workflow template. For further details please look at the <a href="Smart-2FA.html#_workflow">Workflow section</a>.</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -2190,13 +2101,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Invalid Limits. There is no Limits with name "XXX"</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Send API is called with Limits name that is not defined.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Send API</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">505</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid Workflow Name: "XXX"</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Send API is called with Workflow name that is not defined.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Send API</p></td>
 </tr>
 </tbody>
@@ -2650,26 +2554,25 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">service</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that match this service text, partially or fully in any position.<br>
-For example if OTP Service is “Support” and service filter parameter is “ppo”, it will match.</p></td>
+For example if OTP Service is “Support“ and service filter parameter is “ppo“, it will match.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channel</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that is initiated via this channel. Possible values are<br></p>
 <p class="tableblock">- call<br>
 - sms<br>
-- email<br>
-- combined (Combined is for OTP sent via Workflow). For more details on workflow please look at the <a href="Smart-2FA.html#_workflow">Workflow section</a></p></td>
+- email<br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has from begins with this number/email text.<br></p>
-<p class="tableblock">For example if OTP from  is “15713316943” and from filter parameter is “1”, it will match. However if from filter parameter is “3”, this record will not match.<br>
+<p class="tableblock">For example if OTP from  is “15713316943“ and from filter parameter is “1“, it will match. However if from filter parameter is “3“, this record will not match.<br>
 This allows to filter OTP sent from specific country code.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that has to begins with this number/email text.<br></p>
-<p class="tableblock">For example if OTP to  is “16513333367” and to filter parameter is “1”, it will match. However if to filter parameter is “3”, this record will not match.<br>
+<p class="tableblock">For example if OTP to  is “16513333367“ and to filter parameter is “1“, it will match. However if to filter parameter is “3“, this record will not match.<br>
 This allows to filter OTP sent to specific country code.</p></td>
 </tr>
 <tr>
@@ -2695,7 +2598,7 @@ This allows to filter OTP sent to specific country code.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channelStatus</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Only include OTP list that match underlying channel status, partially or fully in any position<br></p>
 <p class="tableblock">* For SMS, possible channel status value can be as explained in <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_status_description<br>
-* For Call, possible values are as explained in “status” property in below link <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/calls-api.html#_calls_attributes</p></td>
+* For Call, possible values are as explained in “status“ property in below link <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/calls-api.html#_calls_attributes</p></td>
 </tr>
 </tbody>
 </table>
@@ -2765,7 +2668,7 @@ This allows to filter OTP sent to specific country code.</p></td>
 <div class="sect2">
 <h3 id="_sorting"><a class="anchor" href="#_sorting"></a>Sorting</h3>
 <div class="paragraph">
-<p>You can use the SortBy GET or POST query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: <strong>sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;</strong>. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+<p>You can use the SortBy GET or POST query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here is the overall format: <strong>sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;</strong>. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
 </div>
 <div class="paragraph">
 <p>SortBy Attributes</p>
@@ -3046,7 +2949,7 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">service</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match this service text, partially or fully in any position. For example if OTP Service is “Support” and service filter parameter is “ppo”, it will match.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match this service text, partially or fully in any position. For example if OTP Service is “Support“ and service filter parameter is “ppo“, it will match.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channel</p></td>
@@ -3054,7 +2957,7 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has to begins with this number/email text. For example if OTP to  is “16513333367” and to filter parameter is “1”, it will match. However if to filter parameter is “3”, this record will not match. This allows to filter Usage records sent to specific country code.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that has to begins with this number/email text. For example if OTP to  is “16513333367“ and to filter parameter is “1“, it will match. However if to filter parameter is “3“, this record will not match. This allows to filter Usage records sent to specific country code.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
@@ -3070,7 +2973,7 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channelStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match underlying channel status, partially or fully in any position. For SMS, possible channel status value can be as explained in <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_status_description  For Call, possible values are as explained in “status” property in below link <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/calls-api.html#_calls_attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Usage records that match underlying channel status, partially or fully in any position. For SMS, possible channel status value can be as explained in <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/sms-api.html#_status_description  For Call, possible values are as explained in “status“ property in below link <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/docs/api/calls-api.html#_calls_attributes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
@@ -3340,8 +3243,8 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">450</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">401</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid passed is wrong or not sub-account of account “zzzzz”.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">“zzzzz” is accountSid passed in validation request, but is wrong or not sub-account of accountSid passed in authentication header.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid passed is wrong or not sub-account of account “zzzzz“.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">“zzzzz“ is accountSid passed in validation request, but is wrong or not sub-account of accountSid passed in authentication header.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">All</p></td>
 </tr>
 <tr>
@@ -3366,7 +3269,7 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 <h2 id="_limit"><a class="anchor" href="#_limit"></a>Limit</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Limits provide the capability to enforce limitations on the number of OTP’s sent based on various Keys defined. Keys can be defined to put limits based on many parameters. Some of the examples are below</p>
+<p>Limits provide the capability to enforce limitations on the number of OTPs sent based on various Keys defined. Keys can be defined to put limits based on many parameters. Some of the examples are below</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3385,7 +3288,7 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 </ul>
 </div>
 <div class="paragraph">
-<p>This enables developers to safeguard against malicious attacks like bots trying to sign in to an application from one specific IP address or some user intentionally trying to generate many OTP’s.</p>
+<p>This enables developers to safeguard against malicious attacks like bots trying to sign in to an application from one specific IP address or some user intentionally trying to generate many OTPs.</p>
 </div>
 <div class="paragraph">
 <p>2FA provides flexibility for Developers to define Limits based on mixed Keys. For example 1 OTP per min per number but 4 OTP per min per IP address etc.</p>
@@ -3394,7 +3297,7 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 <p>Each Limit has, Buckets associated with (maximum of 2 Buckets allowed per Limit) to put restrictions for that Limit. For example 1 OTP per 60 Seconds and 10 OTP per 86400 Seconds (24 Hrs) for Limit based on Phone Number. Which means OTP will be limited to 1 per min and maximum 10 per day for the same Phone Number recipient.</p>
 </div>
 <div class="paragraph">
-<p>Developers have to pass a list of Limit’s when invoking Send API to enforce limits.</p>
+<p>Developers have to pass a list of Limits when invoking Send API to enforce limits.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3411,7 +3314,7 @@ If no Limit is defined by Developer or if no Limit is passed when invoking Send 
 <div class="sect2">
 <h3 id="_order_of_limit_in_send_api"><a class="anchor" href="#_order_of_limit_in_send_api"></a>Order of Limit in Send API</h3>
 <div class="paragraph">
-<p>If Developer is calling the Send API with a combination of “limits” as explained in Request Parameters of Send, the order of limits defined matters.</p>
+<p>If Developer is calling the Send API with a combination of “limits“ as explained in Request Parameters of Send, the order of limits defined matters.</p>
 </div>
 <div class="paragraph">
 <p>For example consider below two limits defined.</p>
@@ -3419,10 +3322,10 @@ If no Limit is defined by Developer or if no Limit is passed when invoking Send 
 <div class="ulist">
 <ul>
 <li>
-<p>“limit_on_Session”  with  only one bucket [ {"name":"bucket1", "max":"1", "interval":"60"}]</p>
+<p>“limit_on_Session“  with  only one bucket [ {"name":"bucket1", "max":"1", "interval":"60"}]</p>
 </li>
 <li>
-<p>“limit_on_phonenumber” with two buckets [{"name":"bucket1","max":"1", "interval":"30"},{ "name":"bucket2", "max":"2", "interval":"300"}]</p>
+<p>“limit_on_phonenumber“ with two buckets [{"name":"bucket1","max":"1", "interval":"30"},{ "name":"bucket2", "max":"2", "interval":"300"}]</p>
 </li>
 </ul>
 </div>
@@ -3437,16 +3340,16 @@ If no Limit is defined by Developer or if no Limit is passed when invoking Send 
 <div class="ulist">
 <ul>
 <li>
-<p>timestamp “T0”: 1st Send API called. OTP will be sent.</p>
+<p>timestamp “T0“: 1st Send API called. OTP will be sent.</p>
 </li>
 <li>
-<p>timestamp “T1=T0+31 sec”: 2nd Send API called. OTP will be blocked with error code 454 and error message “Too many Otp requests to the same Limit! key: limit_on_Session with value: aabbcd”</p>
+<p>timestamp “T1=T0+31 sec“: 2nd Send API called. OTP will be blocked with error code 454 and error message “Too many Otp requests to the same Limit! key: limit_on_Session with value: aabbcd“</p>
 </li>
 <li>
-<p>timestamp “T2=T0+61 sec”: 3rd Send API called. OTP will be sent.</p>
+<p>timestamp “T2=T0+61 sec“: 3rd Send API called. OTP will be sent.</p>
 </li>
 <li>
-<p>From T2 to “T0+300 sec” OTP will be blocked</p>
+<p>From T2 to “T0+300 sec“ OTP will be blocked</p>
 </li>
 </ul>
 </div>
@@ -3463,16 +3366,16 @@ If no Limit is defined by Developer or if no Limit is passed when invoking Send 
 <div class="ulist">
 <ul>
 <li>
-<p>timestamp “T0”: 1st Send API called. OTP will be sent.</p>
+<p>timestamp “T0“: 1st Send API called. OTP will be sent.</p>
 </li>
 <li>
-<p>timestamp “T1=T0+31 sec”: 2nd Send API called. OTP will be sent.</p>
+<p>timestamp “T1=T0+31 sec“: 2nd Send API called. OTP will be sent.</p>
 </li>
 <li>
-<p>timestamp “T2=T0+61 sec”: 3rd Send API called. OTP will be blocked</p>
+<p>timestamp “T2=T0+61 sec“: 3rd Send API called. OTP will be blocked</p>
 </li>
 <li>
-<p>From T2 to “T0+300 sec” OTP will be blocked.</p>
+<p>From T2 to “T0+300 sec“ OTP will be blocked.</p>
 </li>
 </ul>
 </div>
@@ -3705,11 +3608,11 @@ If no Limit is defined by Developer or if no Limit is passed when invoking Send 
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
-  -d ‘{
+  -d '{
     "name": "limit_on_phonenumber",
     "buckets": "[{ \"name\":\"bucket1\", \"max\":\"1\", \"interval\":\"30\"},{ \"name\":\"bucket2\", \"max\":\"2\", \"interval\":\"300\"}]",
     "description": "limit on Phone Number"
-}’</pre>
+}'</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3914,10 +3817,10 @@ Account can update Sub-Account Limits
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
-  -d ‘{
+  -d '{
     "buckets":"[{\"name\":\"bucket1\", \"max\":\"1\", \"interval\":\"30\"},{\"name\":\"bucket2\", \"max\":\"2\", \"interval\":\"300\"}]",
     "description": "limit on Phone Number of receiver blabla"
-}’</pre>
+}'</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4118,7 +4021,7 @@ Account can Delete SubAccount Limits
 <div class="sect2">
 <h3 id="_get_list_of_limits"><a class="anchor" href="#_get_list_of_limits"></a>Get list of Limits</h3>
 <div class="paragraph">
-<p>List Limits API allows users to list all the Limits created under that “Account” or “Sub-Account”</p>
+<p>List Limits API allows users to list all the Limits created under that “Account“ or “Sub-Account“</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_10"><a class="anchor" href="#_base_resource_uri_10"></a>Base Resource URI</h4>
@@ -4217,7 +4120,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <div class="sect3">
 <h4 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h4>
 <div class="paragraph">
-<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of Limits is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here is the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of Limits is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
 </div>
 <div class="sect4">
 <h5 id="_sort_attributes"><a class="anchor" href="#_sort_attributes"></a>Sort Attributes</h5>
@@ -4389,7 +4292,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <div class="sect2">
 <h3 id="_get_single_limits"><a class="anchor" href="#_get_single_limits"></a>Get Single Limits</h3>
 <div class="paragraph">
-<p>Single Limits search API allows users to retrieve specific Limits created under that “Account” or “Sub-Account”</p>
+<p>Single Limits search API allows users to retrieve specific Limits created under that “Account“ or “Sub-Account“</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_11"><a class="anchor" href="#_base_resource_uri_11"></a>Base Resource URI</h4>
@@ -4498,1163 +4401,6 @@ Account can get single Limits of  SubAccount
         "description": "limit on Phone Number of receiver blabla",
         "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
         "uri": "/2fa/limits/search/LM88170d5b0e1f4eb3ad724ffc8131c9c1"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_workflow"><a class="anchor" href="#_workflow"></a>Workflow</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Via 2FA Workflow, developers have the best chance of reaching end users by combining SMS, or Voice in any sequence it seems fit.  For example</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Workflow 1: Send OTP via SMS, wait for 60 sec and then send OTP as Text-to-speech wait for 60 sec and finally one more time via text-to-speech. If the end user verifies the OTP successfully, workflow is stopped.</p>
-</li>
-<li>
-<p>Workflow 2: Send OTP via Text-to-speech and wait for 60 sec and then send via Text-to-speech again.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Developers can provide any wait (timeout) period between the events.  Minimum value for timeout is 15 seconds.</p>
-</div>
-<div class="sect2">
-<h3 id="_create_workflow"><a class="anchor" href="#_create_workflow"></a>Create Workflow</h3>
-<div class="paragraph">
-<p>The create Workflow endpoint API is called to create a new Workflow for a given Account.</p>
-</div>
-<div class="sect3">
-<h4 id="_base_resource_uri_12"><a class="anchor" href="#_base_resource_uri_12"></a>Base Resource URI</h4>
-<div class="paragraph">
-<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_create_workflow_resource_uri"><a class="anchor" href="#_create_workflow_resource_uri"></a>Create Workflow Resource URI</h4>
-<div class="paragraph">
-<p>/2fa/workflows</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_supported_operations_12"><a class="anchor" href="#_supported_operations_12"></a>Supported Operations</h4>
-<div class="paragraph">
-<p>HTTP POST: Create Workflow</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_request_parameters_8"><a class="anchor" href="#_request_parameters_8"></a>Request Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Unique Name for this Workflow. Developers will pass this as key when passing Workflow to Send API.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">channels</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JSON body of events. For example</p>
-<p class="tableblock">   "channels":[
-      {
-         "channel":"sms",
-         "timeout":"60"
-      },
-      {
-         "channel":"voice",
-         "timeout":"60"
-      },
-      {
-         "channel":"voice",
-         "timeout":"60"
-      }
-   ]</p>
-<p class="tableblock">channel: indicates via which channel the OTP event should be sent to the end user. Only sms and voice are supported as of today.<br></p>
-<p class="tableblock">timeout: Time period in seconds from previous event by which if OTP is not verified, next event will be fired via Channel as defined in workflow.<br></p>
-<p class="tableblock">timeout can be a minimum 15 seconds. If value less than 15 is passed, Error is returned.<br></p>
-<p class="tableblock">Maximum 5 channels can be defined for any Workflow.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Description for this Workflow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Sub-Account Sid for which Limit is to be created. If not passed Limit is created for same Account calling the API</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_response_body_4"><a class="anchor" href="#_response_body_4"></a>Response Body</h4>
-<div class="paragraph">
-<p>The Response Body will carry Code, corresponding message and data of Workflow if it was  successfully created. HTTP response will be 200 OK.</p>
-</div>
-<div class="paragraph">
-<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code in case of error</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Limit data as explained in the table below.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect4">
-<h5 id="_workflow_data_parameter"><a class="anchor" href="#_workflow_data_parameter"></a>Workflow Data Parameter</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Data Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Workflow Id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Account wich called API to create the Workflow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Account email corresponding to accountSid</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">targetAccountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Account for which this particular Workflow is created</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">targetAccountEmail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Account email corresponding to targetAccountSid</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Workflow was created.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Workflow was updated</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Name of this Limit</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">channels</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JSON formatted channels as explained below:</p>
-<p class="tableblock">channel: Channel via which OTP event is to be sent    <br>
-interval: Time period in seconds from previous event to send OTP via defined channel</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description for this Workflow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific Workflow</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Create Worrkflow API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">502</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow with that name already exist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow name should be unique in given Account</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update Workflow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">504</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Too many channels, Max is 5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum 5 Channels can be defined for a given Workflow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update Workflow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">507</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Channel Timeout cannot be smaller than 15</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the timeout passed is less than 15 seconds, this error is returned.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update Workflow</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_example_11"><a class="anchor" href="#_example_11"></a>Example</h4>
-<div class="listingblock">
-<div class="content">
-<pre>{
-    "name" : "Workflow SSV",
-    "description" : "Workflow to send SMS, SMS and then Voice",
-   "channels":	[
-      {
-         "channel":"sms",
-         "interval":"0"
-      },
-      {
-         "channel":"sms",
-         "interval":"60"
-      },
-      {
-         "channel":"voice",
-         "interval":"60"
-      }
-   ]
- }</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>From the bash terminal you can run the command below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X POST \
-  https://your_custom_domain/2fa/workflows \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d ‘{
-    "name": "Workflow SSV",
-    "channels": "[{ \"channel\":\"sms\", \"interval\":\"0\"}, { \"channel\":\"sms\", \"interval\":\"60\"}, { \"channel\":\"voice\", \"interval\":\"60\"}]",
-    "description": "Workflow to send SMS, SMS and then Voice"
-}’</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If creation of limit  is successful, below is the response returned:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{
-    "data": {
-        "sid": "WFe7d332c72d2f40b9bfe8982425af14bc",
-        "name": "Workflow SSV",
-       "channels":[
-      {
-         "channel":"sms",
-         "interval":"0"
-      },
-      {
-         "channel":"sms",
-         "interval":"60"
-      },
-      {
-         "channel":"voice",
-         "interval":"60"
-      }
-      ]
-        "description": "Workflow to send SMS, SMS and then Voice",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "accountEmail": "jane.doe@yourcompany.com",
-        "targetAccountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "targetAccountEmail": "jane.doe@yourcompany.com",
-        "uri": "/2fa/workflows/search/WFe7d332c72d2f40b9bfe8982425af14bc"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If creation of Workflow fails, below response is returned with corresponding HTTP Error Code</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{
-    "code": 495,
-    "message": "Workflow with that name already exists",
-    "requestID": null
-}</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_update_workflow"><a class="anchor" href="#_update_workflow"></a>Update Workflow</h3>
-<div class="paragraph">
-<p>The update Workflow endpoint API is called to update existing Workflow for a given Account.</p>
-</div>
-<div class="sect3">
-<h4 id="_base_resource_uri_13"><a class="anchor" href="#_base_resource_uri_13"></a>Base Resource URI</h4>
-<div class="paragraph">
-<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_update_workflow_resource_uri"><a class="anchor" href="#_update_workflow_resource_uri"></a>Update Workflow Resource URI</h4>
-<div class="paragraph">
-<p>/2fa/workflows/{workflowSid}</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_supported_operations_13"><a class="anchor" href="#_supported_operations_13"></a>Supported Operations</h4>
-<div class="paragraph">
-<p>HTTP PUT: Update Workflow</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_request_parameters_9"><a class="anchor" href="#_request_parameters_9"></a>Request Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">workflowSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Unique SID of Workflow that was returned when Create Workflow was invoked.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">channels</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. JSON formatted Channels as explained below</p>
-<p class="tableblock">channel: Channel via which OTP event is to be sent <br>
-interval: Time period in seconds from previous event to send OTP via defined channel</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Description for this Limit</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Account can update Sub-Account Workflows
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_response_body_5"><a class="anchor" href="#_response_body_5"></a>Response Body</h4>
-<div class="paragraph">
-<p>The Response Body will carry Code, corresponding message and data of Workflow if it was  successfully updated. HTTP response will be 200 OK.</p>
-</div>
-<div class="paragraph">
-<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code in case of error</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow data as explained in the table.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Update Workflow API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">503</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid Workflow Id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow sid passed is not present in the System</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update, Search Single, Delete Workflow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">502</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow with that name already exist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow name should be unique in given Account</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update Workflow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">504</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Too many channels, Max is 5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum 5 Channels can be defined for a given Workflow</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update Workflow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">507</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Channel Timeout cannot be smaller than 15</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the timeout passed is less than 15 seconds, this error is returned.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update Workflow</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_example_12"><a class="anchor" href="#_example_12"></a>Example</h4>
-<div class="listingblock">
-<div class="content">
-<pre>{
-          "channels": "[{ \"channel\":\"sms\", \"interval\":\"0\"}, { \"channel\":\"sms\", \"interval\":\"60\"}, { \"channel\":\"voice\", \"interval\":\"120\"}]",
-    "description": "Workflow to send SMS, SMS and then Voice after double the time period"
- }</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>From the bash terminal you can run the command below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X PUT \
-  https://your_custom_domain.com/2fa/workflows/WFe7d332c72d2f40b9bfe8982425af14bc \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d ‘{
-          "channels": "[{ \"channel\":\"sms\", \"interval\":\"0\"}, { \"channel\":\"sms\", \"interval\":\"60\"}, { \"channel\":\"voice\", \"interval\":\"120\"}]",
-    "description": "Workflow to send SMS, SMS and then Voice after double the time period"
- }’</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If update of Workflow  is successful, below is the response returned:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{
-    "data": {
-        "sid": "WFe7d332c72d2f40b9bfe8982425af14bc",
-        "name": "Workflow SSV",
-       "channels":[
-      {
-         "channel":"sms",
-         "interval":"0"
-      },
-      {
-         "channel":"sms",
-         "interval":"60"
-      },
-      {
-         "channel":"voice",
-         "interval":"120"
-      }
-      ]
-        "description": "Workflow to send SMS, SMS and then Voice after double the time period",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "accountEmail": "jane.doe@yourcompany.com",
-        "targetAccountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "targetAccountEmail": "jane.doe@yourcompany.com",
-        "uri": "/2fa/workflows/search/WFe7d332c72d2f40b9bfe8982425af14bc"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If update of Limit fails, below response is returned with corresponding HTTP Error Code</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{
-    "code": 499,
-    "message": "Invalid Workflow Id",
-    "requestID": null
-}</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_delete_workflow"><a class="anchor" href="#_delete_workflow"></a>Delete Workflow</h3>
-<div class="paragraph">
-<p>The delete Workflow endpoint API is called to delete existing Workflow for a given Account.</p>
-</div>
-<div class="sect3">
-<h4 id="_base_resource_uri_14"><a class="anchor" href="#_base_resource_uri_14"></a>Base Resource URI</h4>
-<div class="paragraph">
-<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_delete_limit_resource_uri_2"><a class="anchor" href="#_delete_limit_resource_uri_2"></a>Delete Limit Resource URI</h4>
-<div class="paragraph">
-<p>/2fa/workflows/{workflowSid}</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_supported_operations_14"><a class="anchor" href="#_supported_operations_14"></a>Supported Operations</h4>
-<div class="paragraph">
-<p>HTTP DELETE: Delete Workflow</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_request_parameters_10"><a class="anchor" href="#_request_parameters_10"></a>Request Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">workflowSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Unique SID of Workflow that was returned when Create Workflow was invoked.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Account can Delete SubAccount Workflows
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_response_body_6"><a class="anchor" href="#_response_body_6"></a>Response Body</h4>
-<div class="paragraph">
-<p>The Response Body will carry Code, corresponding message and data of Workflow if it was  successfully deleted. HTTP response will be 200 OK.</p>
-</div>
-<div class="paragraph">
-<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code in case of error</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow data as explained in the table.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Delete Worrkflow API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition below are the Error that it can return</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">503</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid Workflow Id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow sid passed is not present in the System</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update, Search Single, Delete Workflow</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_example_13"><a class="anchor" href="#_example_13"></a>Example:</h4>
-<div class="paragraph">
-<p>From the bash terminal you can run the command below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X DELETE \
-  https://your_custom_domain.com/2fa/workflows/WFe7d332c72d2f40b9bfe8982425af14bc \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If delete of Workflow  is successful, below is the response returned:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{
-    "data": {
-        "sid": "WFe7d332c72d2f40b9bfe8982425af14bc",
-        "name": "Workflow SSV",
-       "channels":[
-      {
-         "channel":"sms",
-         "interval":"0"
-      },
-      {
-         "channel":"sms",
-         "interval":"60"
-      },
-      {
-         "channel":"voice",
-         "interval":"120"
-      }
-      ]
-        "description": "Workflow to send SMS, SMS and then Voice after double the time period",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "accountEmail": "jane.doe@yourcompany.com",
-        "targetAccountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "targetAccountEmail": "jane.doe@yourcompany.com",
-        "uri": "/2fa/workflows/search/WFe7d332c72d2f40b9bfe8982425af14bc"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If delete of Limit fails, below response is returned with corresponding HTTP Error Code</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{
-    "code": 499,
-    "message": "Invalid Workflow Id",
-    "requestID": null
-}</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_get_list_of_workflows"><a class="anchor" href="#_get_list_of_workflows"></a>Get list of Workflows</h3>
-<div class="paragraph">
-<p>List Workflows API allows users to list all the Workflow created under that “Account” or “Sub-Account”</p>
-</div>
-<div class="sect3">
-<h4 id="_base_resource_uri_15"><a class="anchor" href="#_base_resource_uri_15"></a>Base Resource URI</h4>
-<div class="paragraph">
-<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_get_list_of_workflows_resource_uri"><a class="anchor" href="#_get_list_of_workflows_resource_uri"></a>Get List of Workflows Resource URI</h4>
-<div class="paragraph">
-<p>/2fa/workflows/search</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_supported_operations_15"><a class="anchor" href="#_supported_operations_15"></a>Supported Operations</h4>
-<div class="paragraph">
-<p>HTTP GET: List Workflows</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_paging_3"><a class="anchor" href="#_paging_3"></a>Paging</h4>
-<div class="paragraph">
-<p>The following paging parameters are supported</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Workflow records to return, starting from 0.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the search API is called without page and pageSize, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_filtering_4"><a class="anchor" href="#_filtering_4"></a>Filtering</h4>
-<div class="paragraph">
-<p>Following filtering parameters are supported</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Query Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Workflows that match name text, partially or fully.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only include Workflow list that is initiated by this specific accountSid. The accountSid should be one of the sub accounts of this account.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">subAccounts</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If set to true, include Workflows that are associated to all the sub accounts within this account. By default false.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Workflows that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show Workflows that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_sorting_information_2"><a class="anchor" href="#_sorting_information_2"></a>Sorting Information</h4>
-<div class="paragraph">
-<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of Limits is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
-</div>
-<div class="sect4">
-<h5 id="_sort_attributes_2"><a class="anchor" href="#_sort_attributes_2"></a>Sort Attributes</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by name</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date when Workflow was created</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_response_parameters_8"><a class="anchor" href="#_response_parameters_8"></a>Response Parameters</h4>
-<div class="paragraph">
-<p>Search Limit API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
-</div>
-<div class="paragraph">
-<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of Workflows data of search as explained in table below</p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect4">
-<h5 id="_data_parameters_2"><a class="anchor" href="#_data_parameters_2"></a>Data parameters</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Data Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflows data as explained in the table Workflow Data Parameter.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total Number of records</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">nextPageUri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in next page</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_example_14"><a class="anchor" href="#_example_14"></a>Example:</h4>
-<div class="paragraph">
-<p>From the bash terminal you can run the command below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X GET \
-  https://your_custom_domain.com/2fa/workflows/search?pageSize=2&amp;page=0 \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Below is the response returned:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{
-    "data": {
-        "result": [
-            {
-        "sid": "WFe7d332c72d2f40b9bfe8982425af14bc",
-        "name": "Workflow SSV",
-       "channels":[
-      {
-         "channel":"sms",
-         "interval":"0"
-      },
-      {
-         "channel":"sms",
-         "interval":"60"
-      },
-      {
-         "channel":"voice",
-         "interval":"120"
-      }
-      ]
-        "description": "Workflow to send SMS, SMS and then Voice after double the time period",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "accountEmail": "jane.doe@yourcompany.com",
-        "targetAccountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "targetAccountEmail": "jane.doe@yourcompany.com",
-        "uri": "/2fa/workflows/search/WFe7d332c72d2f40b9bfe8982425af14bc"
-            },
-            {
-        "sid": "WFe7d332c72d2f40b9bfe8982425af14bd",
-        "name": "Workflow SVV",
-       "channels":[
-      {
-         "channel":"sms",
-         "interval":"0"
-      },
-      {
-         "channel":"voice",
-         "interval":"60"
-      },
-      {
-         "channel":"voice",
-         "interval":"60"
-      }
-      ]
-        "description": "Workflow to send SMS, Voice and then Voice",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "accountEmail": "jane.doe@yourcompany.com",
-        "targetAccountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "targetAccountEmail": "jane.doe@yourcompany.com",
-        "uri": "/2fa/workflows/search/WFe7d332c72d2f40b9bfe8982425af14bd"
-            }
-        ],
-        "pageSize": 10,
-        "total": 2,
-        "page": 0,
-        "numPages": 1,
-        "start": 0,
-        "end": 1,
-        "firstPageUri": "/workflows/search/?pageSize=10&amp;page=0",
-        "uri": "/workflows/search/?pageSize=10&amp;page=0"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_get_single_workflow"><a class="anchor" href="#_get_single_workflow"></a>Get Single Workflow</h3>
-<div class="paragraph">
-<p>Single Workflow search API allows users to retrieve specific Workflow created under that “Account” or “Sub-Account”</p>
-</div>
-<div class="sect3">
-<h4 id="_base_resource_uri_16"><a class="anchor" href="#_base_resource_uri_16"></a>Base Resource URI</h4>
-<div class="paragraph">
-<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_get_single_workflow_resource_uri"><a class="anchor" href="#_get_single_workflow_resource_uri"></a>Get Single Workflow Resource URI</h4>
-<div class="paragraph">
-<p>/2fa/workflows/search/{WorkflowSid}</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_supported_operations_16"><a class="anchor" href="#_supported_operations_16"></a>Supported Operations</h4>
-<div class="paragraph">
-<p>HTTP GET: Specific Workflows</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_request_parameters_11"><a class="anchor" href="#_request_parameters_11"></a>Request Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">workflowSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Unique SID of Workflow that was returned when Create Workflow was invoked.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Account can get single Workflow of  SubAccount
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_response_parameters_9"><a class="anchor" href="#_response_parameters_9"></a>Response Parameters</h4>
-<div class="paragraph">
-<p>Search Limits API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP Status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">503</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid Workflow Id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Workflow sid passed is not present in the System</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update, Search Single, Delete Workflow</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_example_15"><a class="anchor" href="#_example_15"></a>Example:</h4>
-<div class="paragraph">
-<p>From the bash terminal you can run the command below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X GET \
-  https://your_custom_domain.com/2fa/workflows/search/WF88170d5b0e1f4eb3ad724ffc8131c9c1 \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Below is the response returned:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{
-    "data": {
-        "sid": "WFe7d332c72d2f40b9bfe8982425af14bc",
-        "name": "Workflow SSV",
-       "channels":[
-      {
-         "channel":"sms",
-         "interval":"0"
-      },
-      {
-         "channel":"sms",
-         "interval":"60"
-      },
-      {
-         "channel":"voice",
-         "interval":"60"
-      }
-      ]
-        "description": "Workflow to send SMS, SMS and then Voice",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "accountEmail": "jane.doe@yourcompany.com",
-        "targetAccountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "targetAccountEmail": "jane.doe@yourcompany.com",
-        "uri": "/2fa/workflows/search/WFe7d332c72d2f40b9bfe8982425af14bc"
     },
     "code": 200,
     "message": "OK"

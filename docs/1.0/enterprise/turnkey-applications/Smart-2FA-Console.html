@@ -1359,88 +1359,6 @@
                           </li>
   </ul>
             </li>
-            <li id="Workflow" class="nav-item" data-depth="3">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_workflow">Workflow</a>
-                      <button class="nav-toggle"></button>
-            </span>
-              </div>
-                <ul class="nav-list">
-            <li id="CreateWorkflow" class="nav-item" data-depth="4">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_workflow">Create Workflow</a>
-
-            </span>
-              </div>
-                          </li>
-            <li id="UpdateWorkflow" class="nav-item" data-depth="4">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_update_workflow">Update Workflow</a>
-
-            </span>
-              </div>
-                          </li>
-            <li id="DeleteWorkflow" class="nav-item" data-depth="4">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_delete_workflow">Delete Workflow</a>
-
-            </span>
-              </div>
-                          </li>
-            <li id="GetListofWorkflows" class="nav-item" data-depth="4">
-              <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-            "></span>
-                  <span>
-              <a class="nav-link nav-flex-item-text" href="../tutorials/Smart-2FA.html#_get_list_of_workflows">Get List of Workflows</a>
-
-            </span>
-              </div>
-                          </li>
-  </ul>
-            </li>
   </ul>
             </li>
             <li id="CallQueuing" class="nav-item" data-depth="2">
@@ -2009,7 +1927,7 @@
 <h2 id="_limits"><a class="anchor" href="#_limits"></a>Limits</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Limits provide the capability to enforce limitations on the number of OTP’s sent based on various Keys defined. Keys can be defined to put limits based on many parameters. Some of the examples are below</p>
+<p>Limits provide the capability to enforce limitations on the number of OTPs sent based on various Keys defined. Keys can be defined to put limits based on many parameters. Some of the examples are below</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2087,10 +2005,10 @@
 <p><strong>Name</strong>: Unique name of bucket. This is just for easy identification.</p>
 </li>
 <li>
-<p><strong>Max OTP</strong>: Maximum number of OTP’s allowed for passed Interval.</p>
+<p><strong>Max OTP</strong>: Maximum number of OTPs allowed for passed Interval.</p>
 </li>
 <li>
-<p><strong>Interval</strong>: Time in seconds under which maximum OTP will be allowed as specified in “Max OTP” parameter.</p>
+<p><strong>Interval</strong>: Time in seconds under which maximum OTP will be allowed as specified in “Max OTP“ parameter.</p>
 </li>
 </ul>
 </div>
@@ -2098,86 +2016,6 @@
 <div class="content">
 <img src="../_images/2fa/add-limit.png" alt="add limit">
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_workflow"><a class="anchor" href="#_workflow"></a>Workflow</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Via 2FA Workflow, developers have the best chance of reaching end users by combining SMS, or Voice in any sequence it seems fit.  For example</p>
-</div>
-<div class="paragraph">
-<p>Workflow 1: Send OTP via SMS, wait for 60 sec and then send OTP as Text-to-speech wait for 60 sec and finally one more time via text-to-speech. If the end user verifies the OTP successfully, workflow is stopped.
-Workflow 2: Send OTP via Text-to-speech and wait for 60 sec and then send via Text-to-speech again.</p>
-</div>
-<div class="paragraph">
-<p>Developers can provide any wait (timeout) period between the events.  Minimum value for timeout is 15 seconds.</p>
-</div>
-<div class="sect2">
-<h3 id="_workflow_page"><a class="anchor" href="#_workflow_page"></a>Workflow Page</h3>
-<div class="paragraph">
-<p>Workflow home page lets you:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Search Workflow.</p>
-</li>
-<li>
-<p>Lists all existing Workflow.</p>
-</li>
-<li>
-<p>Add new Workflow.</p>
-</li>
-<li>
-<p>Delete Workflow by hovering mouse on Workflow row and clicking on Delete icon that appears at right.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/2fa/workflow-page.png" alt="workflow page">
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_add_workflow"><a class="anchor" href="#_add_workflow"></a>Add Workflow</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Add Workflow allows user to define new Workflows</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Name</strong>: Unique Name for this Workflow. Developers will pass this as key when passing Workflow to Send API.</p>
-</li>
-<li>
-<p><strong>Account</strong>: Sub-Account Sid for which Workflow is to be created. If not passed, the Workflow is created for the same Account signed in.</p>
-</li>
-<li>
-<p><strong>Description</strong>: Optional Description for this Workflow</p>
-</li>
-<li>
-<p><strong>Add Channel</strong>: Add Channel button allows users to define new Channels. Maximum of 5 channels can be defined per Workflow.</p>
-</li>
-<li>
-<p><strong>Channel Parameters</strong></p>
-</li>
-<li>
-<p><strong>Channel</strong>: Dropdown to select either SMS or Call</p>
-</li>
-<li>
-<p><strong>Timeout</strong>: Timeout in seconds after which the same OTP will be sent via new next channel sequentially if OTP is not yet verified.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/2fa/create-2fa-workflow.png" alt="Create 2FA workflow">
 </div>
 </div>
 </div>
@@ -2225,10 +2063,10 @@ Workflow 2: Send OTP via Text-to-speech and wait for 60 sec and then send via Te
 <p><strong>Service:</strong> Shows the list of 2FA requests that match this service text, partially or fully in any position.</p>
 </div>
 <div class="paragraph">
-<p><strong>From:</strong> Only includes 2FA list that begins with this number/email text. For example if OTP from is “15713316943” and from filter parameter is “1”, it will match. However if the filter parameter is “3”, this record will not match. This allows to filter 2FA sent from specific country codes.</p>
+<p><strong>From:</strong> Only includes 2FA list that begins with this number/email text. For example if OTP from is “15713316943“ and from filter parameter is “1“, it will match. However if the filter parameter is “3“, this record will not match. This allows to filter 2FA sent from specific country codes.</p>
 </div>
 <div class="paragraph">
-<p><strong>To:</strong> Only includes OTP list that has to begin with this number/email text. For example if OTP to is “16513333367” and to filter parameter is “1”, it will match. However if the filter parameter is “3”, this record will not match. This allows to filter OTP sent to specific country codes.</p>
+<p><strong>To:</strong> Only includes OTP list that has to begin with this number/email text. For example if OTP to is “16513333367“ and to filter parameter is “1“, it will match. However if the filter parameter is “3“, this record will not match. This allows to filter OTP sent to specific country codes.</p>
 </div>
 <div class="paragraph">
 <p><strong>TargetSid:</strong> Only include 2FA list that matches the target sid of SMS/ Call/ Email text, partially or fully in any position.</p>
@@ -2358,7 +2196,7 @@ Usage Records do not include real time data and can be delayed by maximum 1 hour
 <p><strong>Channel:</strong> Only include 2FA requests that are sent via selected channel.</p>
 </div>
 <div class="paragraph">
-<p><strong>Filter By Country Code:</strong> Only include 2FA requests sent to selected Country Code. For example if OTP is sent to “16513333367” and the filter parameter is “1 - United States”, it will match.</p>
+<p><strong>Filter By Country Code:</strong> Only include 2FA requests sent to selected Country Code. For example if OTP is sent to “16513333367“ and the filter parameter is “1 - United States“, it will match.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2375,7 +2213,7 @@ Usage Records do not include real time data and can be delayed by maximum 1 hour
 <h2 id="_demo"><a class="anchor" href="#_demo"></a>Demo</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>2FA Console also provides an easy demo for users to send OTP and test the API. To try Demo, click on your name at top right corner and select “2FA Demo”. Click on the “Try Demo” button on the card displayed. It displays a form where users can enter all the values and send OTP. If sending is successful, it displays the API called along with parameters.</p>
+<p>2FA Console also provides an easy demo for users to send OTP and test the API. To try Demo, click on your name at top right corner and select “2FA Demo“. Click on the “Try Demo“ button on the card displayed. It displays a form where users can enter all the values and send OTP. If sending is successful, it displays the API called along with parameters.</p>
 </div>
 </div>
 </div>
