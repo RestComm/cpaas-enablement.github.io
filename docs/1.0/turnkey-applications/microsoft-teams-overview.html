@@ -3082,19 +3082,19 @@
 <li><a href="#_introduction">Introduction</a></li>
 <li><a href="#_prerequisite">Prerequisite</a></li>
 <li><a href="#_terminology">Terminology</a></li>
-<li><a href="#_setting_up_your_first_mapping">Setting up your First Mapping</a>
+<li><a href="#_setting_up_the_first_mapping">Setting Up the First Mapping</a>
 <ul class="sectlevel2">
-<li><a href="#_setting_up_a_new_mapping_via_console">Setting up a new mapping via Console</a></li>
+<li><a href="#_setting_up_a_new_mapping_via_the_message_exchange_console">Setting up a new mapping via the Message Exchange Console</a></li>
 </ul>
 </li>
-<li><a href="#_understanding_the_microsoft_teams_console_and_api">Understanding the Microsoft Teams Console and API:</a></li>
+<li><a href="#_understanding_the_message_exchange_for_microsoft_teams_console_and_api">Understanding the Message Exchange for Microsoft Teams Console and API</a></li>
 </ul>
 </div>
 <div class="sect1">
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Telestax Microsoft Teams helps Communications Providers enable their Business Customers to send and receive SMS using Microsoft Teams and to manage and monitor their usage. Business Customers can send two-way SMS.</p>
+<p>Telestax Message Exchange for Microsoft Teams helps Communications Providers enable their Business Customers to send and receive SMS using Microsoft Teams and to manage and monitor usage. Business Customers can send two-way SMS from within the application.</p>
 </div>
 <div class="paragraph">
 <p>To enable Business Customers on Microsoft Teams, below steps need to be followed.<br></p>
@@ -3102,13 +3102,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Request Access Tokens from Business Customers Microsoft Teams Admin as explained in the document <a href="https://usstaging.restcomm.com/docs/turnkey-applications/microsoft-teams/microsoft-teams-setup-for-enterprise.html">here</a><br></p>
+<p>Request Access Tokens from the Business Customer Microsoft Teams Admin as explained in the documentation <a href="https://cloud.restcomm.com/docs/turnkey-applications/microsoft-teams/microsoft-teams-setup-for-enterprise.html">here</a><br></p>
 </li>
 <li>
-<p>Create Business Customer and setup tokens received from previous step<br></p>
+<p>Create a Business Customer account and set up tokens received from the previous step</p>
 </li>
 <li>
-<p>Create a mapping (via the API or the user interface of the Console) within the Business Customer<br></p>
+<p>Create a mapping (via the API or the user interface of the Console) within the Business Customer account</p>
 </li>
 <li>
 <p>Start sending messages</p>
@@ -3126,7 +3126,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Microsoft Teams setup for your Enterprise Customers.</p>
+<p>Microsoft Teams to be set up for your Business Customers.</p>
 </li>
 <li>
 <p>Must have followed the steps mentioned in the document <a href="../enterprise/turnkey-applications/microsoft-teams/microsoft-teams-setup-for-enterprise.html">here</a></p>
@@ -3135,7 +3135,7 @@
 <p>Working knowledge of cURL and a way to make HTTP API calls (either using cURL or Postman. We recommend Postman if you are not familiar with cURL) Or you can directly use the UI Console exposed by Restcomm.</p>
 </li>
 <li>
-<p>An understanding of Restcomm API for Microsoft Teams or Console on how to add mappings.</p>
+<p>An understanding of the Restcomm API for Microsoft Teams or Console and how to add mappings.</p>
 </li>
 <li>
 <p>An activated Restcomm Cloud account.</p>
@@ -3149,7 +3149,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You need to reach out to your Technical Account Manager to make sure your Account has been correctly set up for Microsoft Teams SMS enablement.
+You need to reach out to your Technical Account Manager to make sure your account has been correctly set up for Microsoft Teams SMS enablement.
 </td>
 </tr>
 </table>
@@ -3171,7 +3171,7 @@ You need to reach out to your Technical Account Manager to make sure your Accoun
 </div>
 </div>
 <div class="sect1">
-<h2 id="_setting_up_your_first_mapping"><a class="anchor" href="#_setting_up_your_first_mapping"></a>Setting up your First Mapping</h2>
+<h2 id="_setting_up_the_first_mapping"><a class="anchor" href="#_setting_up_the_first_mapping"></a>Setting Up the First Mapping</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -3186,29 +3186,29 @@ You must have a valid, working <a href="https://www.restcomm.com/sign-up/">Restc
 </table>
 </div>
 <div class="paragraph">
-<p>The purpose of Microsoft Teams mapping is to associate a phone phone number with an existing Microsoft Teams Id. For example, imagine you have a user with the Microsoft Teams id of <a href="mailto:mac@myserver.com">mac@myserver.com</a> and Restcomm number is +1-919-555-1212.</p>
+<p>The purpose of Microsoft Teams mapping is to associate a phone phone number with an existing Microsoft Teams ID. For example, imagine you have a user with the Microsoft Teams ID of <a href="mailto:mac@myserver.com">mac@myserver.com</a> and the Restcomm number is +1-919-555-1212.</p>
 </div>
 <div class="paragraph">
-<p>Mapping will tell the Restcomm service for Microsoft Teams to send all inbound SMS messages sent to phone number (+1-919-555-1212) to Microsoft Teams Space where <a href="mailto:mac@myserver.com">mac@myserver.com</a> is a part of. Additionally, any time Joe sends an outbound SMS from Microsoft Teams account, it will be sent from a mapped phone number.</p>
+<p>With the proper mapping all inbound SMS messages to the phone number (+1-919-555-1212) will be sent via Message Exchange, the Restcomm service for Microsoft Teams, to the application and Team of <a href="mailto:mac@myserver.com">mac@myserver.com</a>. Additionally, any time Joe sends an outbound SMS from his Microsoft Teams account, it will be sent from a mapped phone number.</p>
 </div>
 <div class="paragraph">
-<p>You can set up your mapping in two different ways, either via the Restcomm Message Exchange Console for Microsoft Teams or via the API.</p>
+<p>You can set up your mapping in two different ways, either via the Restcomm Message Exchange UI Console for Microsoft Teams or via the API.</p>
 </div>
 <div class="sect2">
-<h3 id="_setting_up_a_new_mapping_via_console"><a class="anchor" href="#_setting_up_a_new_mapping_via_console"></a>Setting up a new mapping via Console</h3>
+<h3 id="_setting_up_a_new_mapping_via_the_message_exchange_console"><a class="anchor" href="#_setting_up_a_new_mapping_via_the_message_exchange_console"></a>Setting up a new mapping via the Message Exchange Console</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Log in to Restcomm Microsoft Teans Console via your Restcomm cloud account at <a href="https://yourdomain.com/msteamsconsole/" class="bare">https://yourdomain.com/msteamsconsole/</a>.</p>
+<p>Log in to you <a href="https://cloud.restcomm.com/msteamsconsole/">Restcomm Message Exchange Console</a> via your Restcomm Cloud account.  You will need to link the console URL once it is deployed.</p>
 </li>
 <li>
-<p>Create new Mapping as explained in <strong>Add Mappings</strong> section of <a href="microsoft-teams-console.html#_add_mapping">Microsoft Teams console</a> documentation.</p>
+<p>Create a new mapping as explained in Section <a href="microsoft-teams-console.html#_add_mapping">4.2 Add Mappings</a> in Docs: Message Exchange for Microsoft Teams Console.</p>
 </li>
 <li>
-<p>Before creating mapping, you need to create Enterprise. This is a very important step as Microsoft Teams Bot has one to one mapping with Enterprise.</p>
+<p>Before creating a mapping, you need to create an Enterprise. This is a very important step as the Microsoft Teams Bot has one-to-one mapping with the Enterprise.</p>
 </li>
 <li>
-<p>Add Bot Details(for each enterprise) as explained in the <a href="microsoft-teams-console.html#_manage_bot_details_for_business_customer">Manage Bot details</a> section of the Microsoft Teams Console documentation.</p>
+<p>Add Bot Details(for each Enterprise) as explained in section <a href="microsoft-teams-console.html#_manage_bot_details_for_business_customer">2.3 Manage Bot details</a> in Docs: Message Exchange for Microsoft Teams Console</p>
 </li>
 </ul>
 </div>
@@ -3216,13 +3216,13 @@ You must have a valid, working <a href="https://www.restcomm.com/sign-up/">Restc
 </div>
 </div>
 <div class="sect1">
-<h2 id="_understanding_the_microsoft_teams_console_and_api"><a class="anchor" href="#_understanding_the_microsoft_teams_console_and_api"></a>Understanding the Microsoft Teams Console and API:</h2>
+<h2 id="_understanding_the_message_exchange_for_microsoft_teams_console_and_api"><a class="anchor" href="#_understanding_the_message_exchange_for_microsoft_teams_console_and_api"></a>Understanding the Message Exchange for Microsoft Teams Console and API</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="microsoft-teams-console.html">Getting Started with the Microsoft Teams Console</a></p>
+<p><a href="microsoft-teams-console.html">Message Exchange for Microsoft Teams Console Getting Started Guide</a></p>
 </div>
 <div class="paragraph">
-<p><a href="../api/microsoft-teams/microsoft-teams-api.html">Getting Started with the Microsoft Teams API</a></p>
+<p><a href="../api/microsoft-teams/microsoft-teams-api.html">Message Exchange for Microsoft Teams API Getting Started Guide</a></p>
 </div>
 </div>
 </div>

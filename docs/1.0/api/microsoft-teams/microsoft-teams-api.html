@@ -3068,10 +3068,10 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Telestax MS Teams helps Communications Providers enable their Business Customers to send and receive SMS using Microsoft Teams and to manage and monitor their usage. For more information, access the <a href="../../turnkey-applications/microsoft-teams/Microsoft-Teams-Overview.html">General Docs</a></p>
+<p>Telestax Message Exchange for Microsoft Teams helps Communications Providers enable their Business Customers to send and receive SMS using Microsoft Teams and to manage and monitor usage. For more information, access the <a href="../../turnkey-applications/microsoft-teams/Microsoft-Teams-Overview.html">General Documentation</a>.</p>
 </div>
 <div class="paragraph">
-<p>This document covers the API(s) that are available to Communications Providers, thus helping to manage Business Customers, Users, and Mappings while keeping track of usage. If you are interested in managing the mapping via GUI, please follow Microsoft Teams Console Doc that leverages the API&#8217;s described here.</p>
+<p>This document covers the API(s) that are available to Communications Providers, thus helping to manage Business Customers, users, and mappings while keeping track of usage. If you are interested in managing the mapping via the UI, please access the <a href="../../turnkey-applications/microsoft-teams-console.html">Microsoft Teams Console</a> documentation that leverages the APIs described here.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3096,7 +3096,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When the API returns a timestamp or expects date/timestamp as request parameter, format is given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS±[hh][mm]. For example 2019-10-10T13:13:48+0000. Note that the given date/time is inclusive and is assumed to be in UTC timezone. Hence the offset ±[hh][mm] will always be +0000.
+Wherever an API returns a Timestamp or expects Date/Timestamp as a request parameter, the format is given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS±[hh][mm]. For example 2019-10-10T13:13:48+0000. Note that the given date/time is inclusive and is assumed to be in UTC timezone. Hence the offset ±[hh][mm] will always be +0000.
 </td>
 </tr>
 </table>
@@ -3112,23 +3112,25 @@ When the API returns a timestamp or expects date/timestamp as request parameter,
 <div class="sect2">
 <h3 id="_business_customer_status"><a class="anchor" href="#_business_customer_status"></a>Business Customer Status</h3>
 <div class="paragraph">
-<p>At any given point in time, Business Customers will have one of the following statuses:
-* ACTIVE: MS Teams mappings are operational</p>
+<p>At any given point in time, Business Customers will have one of the following statuses:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>INACTIVE: Once Business Customer is marked as INACTIVE -</p>
+<p>ACTIVE: Microsoft Teams mappings are operational</p>
+</li>
+<li>
+<p>INACTIVE: Once a Business Customer is marked as INACTIVE</p>
 <div class="ulist">
 <ul>
 <li>
-<p>All Business Customer Users are marked as INACTIVE and in the Restcomm Platform too they are marked as INACTIVE.</p>
+<p>All Business Customer Users are marked as INACTIVE and in the Restcomm Platform they will also be marked as INACTIVE.</p>
 </li>
 <li>
-<p>All the mappings will not work.</p>
+<p>None of the mappings will work.</p>
 </li>
 <li>
-<p>If status is changed from INACTIVE to ACTIVE, all users in MS Teams and Restcomm will be moved back to ACTIVE.</p>
+<p>If the status is changed from INACTIVE to ACTIVE, all users in Microsoft Teams and Restcomm will be moved back to ACTIVE.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3141,14 +3143,14 @@ When the API returns a timestamp or expects date/timestamp as request parameter,
 </div>
 </li>
 <li>
-<p>CLOSED: Once CLOSED, status cannot be changed to INACTIVE or ACTIVE.</p>
+<p>CLOSED: Once CLOSED, the status cannot be changed to INACTIVE or ACTIVE.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Business Customer users are CLOSED in the Restcomm Platform too.</p>
+<p>Business Customer users are also CLOSED in the Restcomm Platform.</p>
 </li>
 <li>
-<p>All the mappings are deleted in MS Teams</p>
+<p>All the mappings are deleted in Microsoft Teams</p>
 </li>
 </ul>
 </div>
@@ -3162,7 +3164,7 @@ When the API returns a timestamp or expects date/timestamp as request parameter,
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Eventually once CLOSED all resources associated with Business Customers will be Deleted. However, as of today resources are still kept in the database.
+Eventually once CLOSED all resources associated with the Business Customers will be deleted. However, as of today resources are still kept in the database.
 </td>
 </tr>
 </table>
@@ -3215,7 +3217,7 @@ Eventually once CLOSED all resources associated with Business Customers will be 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory name of the Business Customer. Name must be unique within the given CSP Organisation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory name of the Business Customer. Name must be unique within the given CP Organization.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
@@ -3238,7 +3240,7 @@ A sub account will be created on Restcomm with these values.</p></td>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Business Customer Admin data Parameter</th>
+<th class="tableblock halign-left valign-top">Business Customer Admin Data Parameter</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
@@ -3273,10 +3275,10 @@ If a new Sub Account being added is already present in Restcomm Core, that Sub A
 <div class="sect3">
 <h4 id="_response_body"><a class="anchor" href="#_response_body"></a>Response Body</h4>
 <div class="paragraph">
-<p>The Response Body will carry Code, corresponding message and data of Enterprise if it was  successfully created. HTTP response will be 201 Created (OK).</p>
+<p>The Response Body will carry Code, corresponding message and data of the Enterprise if it was successfully created. HTTP response will be 201 Created (OK).</p>
 </div>
 <div class="paragraph">
-<p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below</p>
+<p>The response returned is the JSON body as shown in the example below. Each parameters is explained below</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3352,7 +3354,7 @@ If a new Sub Account being added is already present in Restcomm Core, that Sub A
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseAdminEmail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email id of  Business Customer Admin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email ID of  Business Customer Admin</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseAdminSid</p></td>
@@ -3365,7 +3367,7 @@ If a new Sub Account being added is already present in Restcomm Core, that Sub A
 <div class="sect3">
 <h4 id="_response_parameters"><a class="anchor" href="#_response_parameters"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Create  Business Customer API can also return Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a> In addition below are the Error that it can return</p>
+<p>The Create Business Customer API can also return an Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Codes</a>. In addition below are the errors that it can return.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3389,7 +3391,7 @@ If a new Sub Account being added is already present in Restcomm Core, that Sub A
 <td class="tableblock halign-left valign-top"><p class="tableblock">4050</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer name not unique</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add Business Customer API is called with a name that is already present for the Organisation. There can be the same name of Business Customers  in different Orgs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add Business Customer API is called with a name that is already present for the organization. There can be the same name of Business Customers in different organizations.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Business Customer, Update Business Customer</p></td>
 </tr>
 <tr>
@@ -3436,7 +3438,7 @@ If a new Sub Account being added is already present in Restcomm Core, that Sub A
 <div class="listingblock">
 <div class="content">
 <pre>curl -X POST \
-  https://cloud.restcomm.com/msteams/enterprise \
+  https://yourdomain.com/msteams/enterprise \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
@@ -3518,7 +3520,7 @@ If a new Sub Account being added is already present in Restcomm Core, that Sub A
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional name of  Business Customer. Name must be unique within a given CSP Organisation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional name of  Business Customer. Name must be unique within a given CSP Organization.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3631,7 +3633,7 @@ If a new Sub Account being added is already present in Restcomm Core, that Sub A
 <div class="listingblock">
 <div class="content">
 <pre>curl -X PUT \
-  https://cloud.restcomm.com/msteams/enterprises/EN2a9f885831f4a3f935b4a56f296bd9f \
+  https://yourdomain.com/msteams/enterprises/EN2a9f885831f4a3f935b4a56f296bd9f \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
@@ -3703,8 +3705,8 @@ If a new Sub Account being added is already present in Restcomm Core, that Sub A
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EnterpriseId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Business Customer SID that was generated by calling create Business Customer API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EnterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Mandatory. SID to uniquely identify a Business Customer.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3743,11 +3745,11 @@ Deleting a Business Customer will mark status as CLOSED.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error, if an error occurred or a success message, if successful.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
@@ -3810,7 +3812,7 @@ Deleting a Business Customer will mark status as CLOSED.
 <div class="listingblock">
 <div class="content">
 <pre>curl -X DELETE \
-https://cloud.restcomm.com/msteams/enterprises/EN15fc8edcb9784ec18e91e32bfa0fb1e1\
+https://yourdomain.com/msteams/enterprises/EN15fc8edcb9784ec18e91e32bfa0fb1e1\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -3910,7 +3912,7 @@ https://cloud.restcomm.com/msteams/enterprises/EN15fc8edcb9784ec18e91e32bfa0fb1e
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If search API is called without page and pageSize parameters, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
+If the Search API is called without page and pageSize parameters, by default pageSize will be set to 10 and page will be set to 0 to avoid retrieving all data in a single API call.
 </td>
 </tr>
 </table>
@@ -4007,11 +4009,11 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of pages.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Size of the page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
@@ -4023,27 +4025,27 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Start offset of the current page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start offset of the current page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of the current page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of the current page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">URI to access first page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URI to access the first page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">previous_page_uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">URI to access previous page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URI to access the previous page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">next_page_uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">URI to access next page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URI to access the next page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">URI of current page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URI of the current page.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4062,7 +4064,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-  https://cloud.restcomm.com/msteams/enterprises/search?pageSize=2&amp;page=0 \
+  https://yourdomain.com/msteams/enterprises/search?pageSize=2&amp;page=0 \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -4180,7 +4182,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">EnterpriseId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory SID to uniquely identify a  Business Customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory SID to uniquely identify a Business Customer.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4212,7 +4214,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <td class="tableblock halign-left valign-top"><p class="tableblock">4051</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer SID doesn&#8217;t exist in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer SID doesn&#8217;t exist in the system.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update Business Customer,Delete Business Customer,Get Business Customer</p></td>
 </tr>
 </tbody>
@@ -4234,11 +4236,11 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message if successful.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
@@ -4261,7 +4263,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59ca420849 \
+https://yourdomain.com/msteams/enterprises/search/EN86b7850af05a454b95139d59ca420849 \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -4310,12 +4312,12 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <h2 id="_manage_mappings"><a class="anchor" href="#_manage_mappings"></a>Manage Mappings</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Mapping is always associated with a Business Customer.</p>
+<p>There is always a mapping associated with a Business Customer.</p>
 </div>
 <div class="sect2">
 <h3 id="_create_microsoft_teams_mappings"><a class="anchor" href="#_create_microsoft_teams_mappings"></a>Create Microsoft Teams Mappings</h3>
 <div class="paragraph">
-<p>Create Microsoft Teams Mapping  will add mapping between Microsoft Team user Id and SMS enabled number.</p>
+<p>Create Microsoft Teams Mapping will add a mapping between a Microsoft Teams user ID and an SMS enabled number.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_6"><a class="anchor" href="#_base_resource_uri_6"></a>Base Resource URI</h4>
@@ -4332,7 +4334,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <div class="sect3">
 <h4 id="_supported_operations_6"><a class="anchor" href="#_supported_operations_6"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP POST: SMS enable number and create mapping between Microsoft Teams users and  number</p>
+<p>HTTP POST: SMS enable a number and create a mapping between Microsoft Teams users and a phone number.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4351,7 +4353,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional friendly name of Microsoft Teams user. If not passed its same as Microsoft Teams UserId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional friendly name of Microsoft Teams user. If not passed it is the same as the Microsoft Teams UserID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">microsoftAddress</p></td>
@@ -4359,11 +4361,11 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">externalAddress</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory number that must be mapped with userId. System will also SMS enable this number. This must be unique in the whole system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory number that must be mapped with userID. The system will also SMS enable this number. This must be unique in the whole system.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory Enterprise id that was added via <a href="microsoft-teams-api.html#_create_business_customer">Create Business Customer</a> API call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory Enterprise ID that was added via <a href="microsoft-teams-api.html#_create_business_customer">Create Business Customer</a> API call.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4371,7 +4373,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <div class="sect3">
 <h4 id="_response_body_6"><a class="anchor" href="#_response_body_6"></a>Response Body</h4>
 <div class="paragraph">
-<p>The Response Body will carry Code, corresponding message and data of Mapping if it was  successfully created. HTTP response will be 200 OK.</p>
+<p>The Response Body will carry the Code, corresponding message and data of Mapping if it was successfully created. HTTP response will be 200 OK.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4415,47 +4417,47 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Microsoft Teams mapping Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Microsoft Teams mapping ID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer Id under which this Mapping is created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer ID under which this Mapping is created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Business Customer under which this Mapping is created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Business Customer under which this Mapping is created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created/updated this particular Business Customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created/updated this particular Business Customer.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email associated with accountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email associated with accountSID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was updated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was updated.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Friendly name of this user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Friendly name of this user.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">microsoftAddress</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft Teams user id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft Teams user ID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">externalAddress</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SMS enabled number mapped to this Microsoft Teams id.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMS enabled number mapped to this Microsoft Teams ID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific mapping SDR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific mapping SDR.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4464,7 +4466,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <div class="sect3">
 <h4 id="_response_parameters_4"><a class="anchor" href="#_response_parameters_4"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Create Microsoft Teams mapping API will return Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a></p>
+<p>The Create Microsoft Teams mapping API will return Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4502,7 +4504,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <td class="tableblock halign-left valign-top"><p class="tableblock">485</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft Address is not Valid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Microsoft Teams address/id which was passed for mapping is not valid. The Application tries to validate the MS Teams Id with the Bot details provided and only if MS Teams id belongs to the same Organisation for which Bot was created, mapping is allowed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Microsoft Teams address/ID which was passed for mapping is not valid. The Application tries to validate the Microsoft Teams ID with the Bot details provided and only if the Microsoft Teams ID belongs to the same Organization for which the Bot was created, mapping is allowed.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Mapping</p></td>
 </tr>
 </tbody>
@@ -4526,7 +4528,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <div class="listingblock">
 <div class="content">
 <pre>curl -X POST \
-  https://cloud.restcomm.com/msteams/teams/mappings\
+  https://yourdomain.com/msteams/teams/mappings\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
@@ -4579,7 +4581,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <div class="sect2">
 <h3 id="_update_microsoft_teams_mappings"><a class="anchor" href="#_update_microsoft_teams_mappings"></a>Update Microsoft Teams Mappings</h3>
 <div class="paragraph">
-<p>Update Microsoft Teams Mapping  will update mapping between Microsoft Teams user id and SMS enabled number.</p>
+<p>Update Microsoft Teams Mapping  will update mapping between the Microsoft Teams user ID and the SMS enabled number.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_7"><a class="anchor" href="#_base_resource_uri_7"></a>Base Resource URI</h4>
@@ -4614,11 +4616,11 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">mappingId Mandatory unique mapping id that was generated by calling Add Mapping API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mappingId Mandatory unique mapping ID that was generated by calling Add Mapping API.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional friendly name of Microsoft Teams user. If not passed its same as jabberAddress record</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional friendly name of Microsoft Teams user. If not passed it&#8217;s the same as jabberAddress record.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">microsoftAddress</p></td>
 </tr>
 <tr>
@@ -4631,7 +4633,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <div class="sect3">
 <h4 id="_response_body_7"><a class="anchor" href="#_response_body_7"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Mapping if it was  successfully Updated, HTTP response will be 200 OK.</p>
+<p>Response Body will carry the Code, corresponding message and data of Mapping. If it was successfully Updated, HTTP response will be 200 OK.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4647,15 +4649,15 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mappings data as explained in the table <a href="microsoft-teams-api#_mapping_data_parameter">Mapping Data Parameter</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mappings data as explained in the table <a href="microsoft-teams-api#_mapping_data_parameter">Mapping Data Parameter</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4663,7 +4665,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <div class="sect3">
 <h4 id="_response_parameters_5"><a class="anchor" href="#_response_parameters_5"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Update Microsoft Teams mapping API will return Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a></p>
+<p>Update Microsoft Teams Mapping API will return Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4694,7 +4696,7 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <td class="tableblock halign-left valign-top"><p class="tableblock">480</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mapping id not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update is called passing MappingId that is not found for give Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update is called passing Mapping ID that is not found for the Organization.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update Mapping</p></td>
 </tr>
 </tbody>
@@ -4715,13 +4717,12 @@ https://cloud.restcomm.com/msteams/enterprises/search/EN86b7850af05a454b95139d59
 <div class="listingblock">
 <div class="content">
 <pre>curl -X PUT \
-https://cloud.restcomm.com/msteams/teams/mappings/BEa0e3d44bd03947eaa3fbb783a3bc31dd \
+https://yourdomain.com/msteams/teams/mappings/BEa0e3d44bd03947eaa3fbb783a3bc31dd \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{
      "name" : "Mapping 11"
-
 }’</pre>
 </div>
 </div>
@@ -4766,7 +4767,7 @@ https://cloud.restcomm.com/msteams/teams/mappings/BEa0e3d44bd03947eaa3fbb783a3bc
 <div class="sect2">
 <h3 id="_delete_mapping"><a class="anchor" href="#_delete_mapping"></a>Delete Mapping</h3>
 <div class="paragraph">
-<p>Delete Mapping  will delete mapping between Microsoft Teams user and SMS enabled number.</p>
+<p>Delete Mapping will delete mapping between the Microsoft Teams user and the SMS enabled number.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_8"><a class="anchor" href="#_base_resource_uri_8"></a>Base Resource URI</h4>
@@ -4783,7 +4784,7 @@ https://cloud.restcomm.com/msteams/teams/mappings/BEa0e3d44bd03947eaa3fbb783a3bc
 <div class="sect3">
 <h4 id="_supported_operations_8"><a class="anchor" href="#_supported_operations_8"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP DELETE: Delete mapping between Microsoft Teams users and SMS enabled number</p>
+<p>HTTP DELETE: Delete mapping between the Microsoft Teams users and the SMS enabled number.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4802,7 +4803,7 @@ https://cloud.restcomm.com/msteams/teams/mappings/BEa0e3d44bd03947eaa3fbb783a3bc
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mappingId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique mapping id that was generated by calling Add Mapping API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Mapping ID that was generated by calling the Add Mapping API.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4810,7 +4811,7 @@ https://cloud.restcomm.com/msteams/teams/mappings/BEa0e3d44bd03947eaa3fbb783a3bc
 <div class="sect3">
 <h4 id="_response_body_8"><a class="anchor" href="#_response_body_8"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Mapping that is deleted .If it was  successfully deleted, HTTP response will be 200 OK.</p>
+<p>Response Body will carry the Code, corresponding message, and data of the Mapping that is deleted. If it was successfully deleted, HTTP response will be 200 OK.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4842,7 +4843,7 @@ https://cloud.restcomm.com/msteams/teams/mappings/BEa0e3d44bd03947eaa3fbb783a3bc
 <div class="sect3">
 <h4 id="_response_parameters_6"><a class="anchor" href="#_response_parameters_6"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Delete Microsoft Teams mapping API will return Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a></p>
+<p>Delete Microsoft Teams Mapping API will return Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4866,7 +4867,7 @@ https://cloud.restcomm.com/msteams/teams/mappings/BEa0e3d44bd03947eaa3fbb783a3bc
 <td class="tableblock halign-left valign-top"><p class="tableblock">480</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mapping not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MappingId is not found for give Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MappingID is not found for the Organization.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update Mapping, Delete Mapping, Search Mapping</p></td>
 </tr>
 </tbody>
@@ -4880,7 +4881,7 @@ https://cloud.restcomm.com/msteams/teams/mappings/BEa0e3d44bd03947eaa3fbb783a3bc
 <div class="listingblock">
 <div class="content">
 <pre>curl -X DELETE \
-https://cloud.restcomm.com/msteams/mappings/BEfbacbc4979564f32802cc9f284600b84\
+https://yourdomain.com/msteams/mappings/BEfbacbc4979564f32802cc9f284600b84\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -4927,7 +4928,7 @@ https://cloud.restcomm.com/msteams/mappings/BEfbacbc4979564f32802cc9f284600b84\
 <div class="sect2">
 <h3 id="_get_list_of_microsoft_teams_mappings"><a class="anchor" href="#_get_list_of_microsoft_teams_mappings"></a>Get list of Microsoft Teams Mappings</h3>
 <div class="paragraph">
-<p>List Microsoft Teams Mappings API allows users to list all the Mappings for specific Organisation  which means under that CSP.</p>
+<p>List Microsoft Teams Mappings API allows users to list all the Mappings for a specific organization which means under that Communications Provider.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_9"><a class="anchor" href="#_base_resource_uri_9"></a>Base Resource URI</h4>
@@ -4981,7 +4982,7 @@ https://cloud.restcomm.com/msteams/mappings/BEfbacbc4979564f32802cc9f284600b84\
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If search API is called without page and pageSize parameters, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
+If the Search API is called without page and pageSize parameters, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
 </td>
 </tr>
 </table>
@@ -4990,7 +4991,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="sect3">
 <h4 id="_filtering_2"><a class="anchor" href="#_filtering_2"></a>Filtering</h4>
 <div class="paragraph">
-<p>Following filtering parameters are supported</p>
+<p>The following filtering parameters are supported.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5006,7 +5007,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">EnterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter to show all mappings under that Enterprise Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter to show all mappings under that Enterprise ID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
@@ -5022,7 +5023,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">microsoftAddress</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show mappings that match Microsoft Teams user  id text, partially or fully.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show mappings that match Microsoft Teams user ID text, partially or fully.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">externalAddress</p></td>
@@ -5077,10 +5078,10 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="sect3">
 <h4 id="_response_body_9"><a class="anchor" href="#_response_body_9"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message, and data of the Mappings if it was  successfully fetched. HTTP response will be 200 OK.</p>
+<p>Response Body will carry the Code, corresponding message, and data of the Mappings if it was successfully fetched. HTTP response will be 200 OK.</p>
 </div>
 <div class="paragraph">
-<p>The response returned is JSON body as shown in the example below. Parameters are as explained below.</p>
+<p>The response returned is JSON body as shown in the example below. Each Parameter is explained below.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5096,11 +5097,11 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
@@ -5136,34 +5137,34 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Start offset of the current page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of the current page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records on the First page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">next_page_uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in next page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records on the next page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect4">
 <h5 id="_result_parameter"><a class="anchor" href="#_result_parameter"></a>Result Parameter</h5>
 <div class="paragraph">
-<p>This is explained in Data Parameter of <a href="microsoft-teams-api.html#_mapping_data_parameter">Mapping data Parameter</a> of create mapping</p>
+<p>This is explained in Data Parameter of <a href="microsoft-teams-api.html#_mapping_data_parameter">Mapping data Parameter</a> of create mapping.</p>
 </div>
 </div>
 </div>
@@ -5175,7 +5176,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-  https://cloud.restcomm.com/msteams/teams/mappings/search \
+  https://yourdomain.com/msteams/teams/mappings/search \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -5237,7 +5238,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="sect2">
 <h3 id="_get_single_microsoft_teams_mapping"><a class="anchor" href="#_get_single_microsoft_teams_mapping"></a>Get Single Microsoft Teams Mapping</h3>
 <div class="paragraph">
-<p>Single Mapping search API allows users to retrieve specific mapping created under that "Organisation" which means under that CSP.</p>
+<p>Single Mapping Search API allows users to retrieve a specific mapping created under that organisation which means under that Communications Provider.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_10"><a class="anchor" href="#_base_resource_uri_10"></a>Base Resource URI</h4>
@@ -5260,7 +5261,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="sect3">
 <h4 id="_response_parameters_7"><a class="anchor" href="#_response_parameters_7"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Search Microsoft Teams mapping Api will return Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a>.</p>
+<p>Search Microsoft Teams mapping API will return the Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5284,7 +5285,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <td class="tableblock halign-left valign-top"><p class="tableblock">480</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mapping not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MappingId is not found for give Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapping ID is not found for the Organization</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update Mapping, Delete Mapping, Search Mapping</p></td>
 </tr>
 </tbody>
@@ -5298,7 +5299,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b326336bb32\
+https://yourdomain.com/msteams/mappings/search/BE7c6b0bd04a92495096102b326336bb32\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -5333,26 +5334,26 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 </div>
 </div>
 <div class="sect1">
-<h2 id="_bot_details"><a class="anchor" href="#_bot_details"></a>Bot details</h2>
+<h2 id="_bot_details"><a class="anchor" href="#_bot_details"></a>Bot Details</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_create_bot_details"><a class="anchor" href="#_create_bot_details"></a>Create Bot details</h3>
+<h3 id="_create_bot_details"><a class="anchor" href="#_create_bot_details"></a>Create Bot Details</h3>
 <div class="paragraph">
-<p>For MS Teams users to be able to receive incoming SMS on MS Teams Client and to be able to send outbound SMS below parameters should be collected from Business Customers as explained in Doc <a href="https://usstaging.restcomm.com/docs/turnkey-applications/microsoft-teams/microsoft-teams-setup-for-enterprise.html">here</a>. These parameters must  be set up for each of the Business Customers defined in <a href="microsoft-teams-api.html#_create_business_customer">Create Business Customer</a> via API below.</p>
+<p>For Microsoft Teams users to be able to receive incoming SMS on the Microsoft Teams Client and to be able to send outbound SMS, the following parameters should be collected from Business Customers as explained in the documentation <a href="https://cloud.restcomm.com/docs/turnkey-applications/microsoft-teams/microsoft-teams-setup-for-enterprise.html">here</a>. These parameters must be set up for each of the Business Customers defined in <a href="microsoft-teams-api.html#_create_business_customer">Create Business Customer</a> via API below.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Application Id</p>
+<p>Application ID</p>
 </li>
 <li>
-<p>Tenant Id</p>
+<p>Tenant ID</p>
 </li>
 <li>
 <p>Client Secret</p>
 </li>
 <li>
-<p>Bot App Id</p>
+<p>Bot App ID</p>
 </li>
 </ul>
 </div>
@@ -5371,7 +5372,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <div class="sect3">
 <h4 id="_supported_operations_11"><a class="anchor" href="#_supported_operations_11"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP POST:  Add Bot details for the Business Customer</p>
+<p>HTTP POST:  Add Bot details for the Business Customer.</p>
 </div>
 </div>
 <div class="sect3">
@@ -5390,11 +5391,11 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">applicationId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Application Id which is generated by creating application in Azure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Application ID which is generated by creating application in Azure.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tenantId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. TenantId for Application above</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. TenantID for Application above.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">clientSecret</p></td>
@@ -5402,11 +5403,11 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">botAppId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory.Bot App Id is APP store id which is generated after publishing the bot app.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory.Bot App ID is APP store ID which is generated after publishing the bot app.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory Enterprise id that was added via <a href="microsoft-teams-api.html#_create_business_customer">Create Business Customer</a> API call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory Enterprise ID that was added via <a href="microsoft-teams-api.html#_create_business_customer">Create Business Customer</a> API call.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5414,7 +5415,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <div class="sect3">
 <h4 id="_response_body_10"><a class="anchor" href="#_response_body_10"></a>Response Body</h4>
 <div class="paragraph">
-<p>The Response Body will carry Code, corresponding message and data of Mapping if it was  successfully created. HTTP response will be 200 OK.</p>
+<p>The Response Body will carry the Code, corresponding message and data of Mapping if it was successfully created. HTTP response will be 200 OK.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5458,51 +5459,51 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Microsoft Teams mapping Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Microsoft Teams mapping ID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer Id under which this Mapping is created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer ID under which this Mapping is created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Business Customer under which this Mapping is created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Business Customer under which this Mapping is created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created/updated this particular Business Customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created/updated this particular Business Customer.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email associated with accountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email associated with accountSID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was updated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was updated.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">applicationId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Application Id of Business Customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application ID of Business Customer.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tenantId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant Id of Business Customer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant ID of Business Customer.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">clientSecret</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Client Secret of the enterprise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Client Secret of the enterprise.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">botAppId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">App store Id of Business Customer Bot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">App store ID of Business Customer Bot.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific Bot access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific Bot access.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5535,7 +5536,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <td class="tableblock halign-left valign-top"><p class="tableblock">4051</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer for which bot details is to be added is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer for which bot details are to be added is not found.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Bot details, Update Bot details Update Bot details</p></td>
 </tr>
 </tbody>
@@ -5560,7 +5561,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <div class="listingblock">
 <div class="content">
 <pre>curl -X POST \
-  https://cloud.restcomm.com/mxteams/teamsbot/details\
+  https://yourdomain.com/mxteams/teamsbot/details\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
@@ -5603,9 +5604,9 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 </div>
 </div>
 <div class="sect2">
-<h3 id="_update_bot_details"><a class="anchor" href="#_update_bot_details"></a>Update Bot details</h3>
+<h3 id="_update_bot_details"><a class="anchor" href="#_update_bot_details"></a>Update Bot Details</h3>
 <div class="paragraph">
-<p>This endpoint is used to update Bot details</p>
+<p>This endpoint is used to update Bot details.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_12"><a class="anchor" href="#_base_resource_uri_12"></a>Base Resource URI</h4>
@@ -5641,19 +5642,19 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BotSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Bot SID that was generated by calling create Bot details API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Bot SID that was generated by calling create Bot details API.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">applicationId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Application Id which is generated by creating application in Azure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Application ID which is generated by creating application in Azure.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tenantId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Organisation id for that Enterprise in Azure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Organization ID for that Enterprise in Azure.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">clientSecret</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional.  ClientSecret which is generated while  creating application in Azure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional.  ClientSecret which is generated while creating application in Azure .</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">botAppId</p></td>
@@ -5661,7 +5662,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Enterprise id that was added via <a href="microsoft-teams-api.html#_create_business_customer">Create Business Customer</a> API call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. EnterpriseID that was added via <a href="microsoft-teams-api.html#_create_business_customer">Create Business Customer</a> API call.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5669,7 +5670,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <div class="sect3">
 <h4 id="_response_body_11"><a class="anchor" href="#_response_body_11"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Bot details if it was  successfully Updated, HTTP response will be 200 OK.</p>
+<p>Response Body will carry the Code, corresponding message and data of Bot details if it was successfully Updated, HTTP response will be 200 OK.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5685,11 +5686,11 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
@@ -5698,9 +5699,9 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="_bot_details_data_parameter_2"><a class="anchor" href="#_bot_details_data_parameter_2"></a>Bot details Data Parameter</h5>
+<h5 id="_bot_details_data_parameter_2"><a class="anchor" href="#_bot_details_data_parameter_2"></a>Bot Details Data Parameter</h5>
 <div class="paragraph">
-<p>This is explained in <a href="microsoft-teams-api.html#_bot_details_data_parameter">Bot details Data Parameter</a> of Create Bot Details.</p>
+<p>This is explained in <a href="microsoft-teams-api.html#_bot_details_data_parameter">Bot Details Data Parameter</a> of Create Bot Details.</p>
 </div>
 </div>
 </div>
@@ -5731,15 +5732,15 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <td class="tableblock halign-left valign-top"><p class="tableblock">4051</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer for which Bot details is to be added is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer for which Bot details are to be added is not found.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Bot details, Update Bot details Update Bot details</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">481</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">There is no Details added for this Bot</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update is called passing BotSid that is not found for given Organisation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update Bot details,Delete Bot details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update is called passing BotSID that is not found for the given Organization.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update Bot details,Delete Bot details.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5764,7 +5765,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <div class="listingblock">
 <div class="content">
 <pre>curl -X POST \
-  https://cloud.restcomm.com/mxteams/teamsbot/details/BE0aa557177fe64a1ab5fc84e329c6066a\
+  https://yourdomain.com/mxteams/teamsbot/details/BE0aa557177fe64a1ab5fc84e329c6066a\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
@@ -5811,9 +5812,9 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 </div>
 </div>
 <div class="sect2">
-<h3 id="_delete_bot_details"><a class="anchor" href="#_delete_bot_details"></a>Delete Bot details</h3>
+<h3 id="_delete_bot_details"><a class="anchor" href="#_delete_bot_details"></a>Delete Bot Details</h3>
 <div class="paragraph">
-<p>Delete Mapping  will delete mapping between Microsoft Teams user  and SMS enabled number.</p>
+<p>Delete Mapping will delete mapping between the Microsoft Teams user and the SMS enabled number.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_13"><a class="anchor" href="#_base_resource_uri_13"></a>Base Resource URI</h4>
@@ -5849,7 +5850,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BotSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bot SID that was generated by calling create Bot details API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bot SID that was generated by calling create Bot details API.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5857,7 +5858,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <div class="sect3">
 <h4 id="_response_body_12"><a class="anchor" href="#_response_body_12"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Bot details that is deleted .If it was  successfully deleted, HTTP response will be 200 OK.</p>
+<p>Response Body will carry the Code, corresponding message, and data of Bot details that are deleted.If it was successfully deleted, HTTP response will be 200 OK.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5873,11 +5874,11 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
@@ -5888,7 +5889,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <div class="sect4">
 <h5 id="_bot_details_data_parameter_3"><a class="anchor" href="#_bot_details_data_parameter_3"></a>Bot details Data Parameter</h5>
 <div class="paragraph">
-<p>This is explained in <a href="microsoft-teams-api.html#_bot_details_data_parameter">Bot details Data Parameter</a> of Create Bot Details.</p>
+<p>This is explained in <a href="microsoft-teams-api.html#_bot_details_data_parameter">Bot Details Data Parameter</a> of Create Bot Details.</p>
 </div>
 </div>
 </div>
@@ -5919,7 +5920,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <td class="tableblock halign-left valign-top"><p class="tableblock">481</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">There is no Details added for this Bot</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update is called passing BotSid that is not found for given Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update is called passing BotSID that is not found for the given Organization.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update Bot details</p></td>
 </tr>
 </tbody>
@@ -5933,7 +5934,7 @@ https://cloud.restcomm.com/msteams/mappings/search/BE7c6b0bd04a92495096102b32633
 <div class="listingblock">
 <div class="content">
 <pre>curl -X DELETE \
-https://cloud.restcomm.com/msteams/teamsbot/details/BE0aa557177fe64a1ab5fc84e329c6066a\ --user  ' {your_account_SID}:{your_account_token}' \
+https://yourdomain.com/msteams/teamsbot/details/BE0aa557177fe64a1ab5fc84e329c6066a\ --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
 </div>
@@ -5971,9 +5972,9 @@ https://cloud.restcomm.com/msteams/teamsbot/details/BE0aa557177fe64a1ab5fc84e329
 </div>
 </div>
 <div class="sect2">
-<h3 id="_get_list_of_bot_details"><a class="anchor" href="#_get_list_of_bot_details"></a>Get list of Bot details</h3>
+<h3 id="_get_list_of_bot_details"><a class="anchor" href="#_get_list_of_bot_details"></a>Get List of Bot Details</h3>
 <div class="paragraph">
-<p>List Bot details API allows users to list all the Bot details for specific Organisation  which means under that CSP.</p>
+<p>List Bot details API allows users to list all the Bot details for specific organization which means under that Communications Provider.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_14"><a class="anchor" href="#_base_resource_uri_14"></a>Base Resource URI</h4>
@@ -5982,7 +5983,7 @@ https://cloud.restcomm.com/msteams/teamsbot/details/BE0aa557177fe64a1ab5fc84e329
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_list_of_bot_details_resource_uri"><a class="anchor" href="#_get_list_of_bot_details_resource_uri"></a>Get List of Bot details Resource URI</h4>
+<h4 id="_get_list_of_bot_details_resource_uri"><a class="anchor" href="#_get_list_of_bot_details_resource_uri"></a>Get List of Bot Details Resource URI</h4>
 <div class="paragraph">
 <p>/msteams/teamsbot/search</p>
 </div>
@@ -5990,7 +5991,7 @@ https://cloud.restcomm.com/msteams/teamsbot/details/BE0aa557177fe64a1ab5fc84e329
 <div class="sect3">
 <h4 id="_supported_operations_14"><a class="anchor" href="#_supported_operations_14"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: List all Bot details under Organisation</p>
+<p>HTTP GET: List all Bot details under Organization</p>
 </div>
 </div>
 <div class="sect3">
@@ -6016,7 +6017,7 @@ https://cloud.restcomm.com/msteams/teamsbot/details/BE0aa557177fe64a1ab5fc84e329
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6036,7 +6037,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="sect3">
 <h4 id="_filtering_3"><a class="anchor" href="#_filtering_3"></a>Filtering</h4>
 <div class="paragraph">
-<p>Following filtering parameters are supported</p>
+<p>The following filtering parameters are supported.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -6052,7 +6053,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">EnterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter to show all Bots under that Enterprise Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter to show all Bots under that Enterprise ID</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
@@ -6068,7 +6069,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="sect3">
 <h4 id="_sorting_information_3"><a class="anchor" href="#_sorting_information_3"></a>Sorting Information</h4>
 <div class="paragraph">
-<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here&#8217;s the overall format: sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. You can sort by the attributes listed below:</p>
+<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here&#8217;s the overall format: sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Sort by the attributes listed below:</p>
 </div>
 </div>
 <div class="sect3">
@@ -6077,7 +6078,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <p>Delete Bot API will return Error Code and corresponding HTTP Error as mentioned in <a href="microsoft-teams-api.html#_common_response_error_codes">Common Response Error Code</a></p>
 </div>
 <div class="paragraph">
-<p>The response returned is JSON body as shown in the example below. Parameters are as explained below.</p>
+<p>The response returned is JSON body as shown in the example below. Each Parameter is explained below.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -6093,15 +6094,15 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User data as explained in the table below.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data of search as explained in the table below.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6120,7 +6121,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This is explained in Data Parameter in <a href="microsoft-teams-api.html#_bot_details_data_parameter">Bot details data parameters</a> of Create Bot details</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is explained in Data Parameter in <a href="microsoft-teams-api.html#_bot_details_data_parameter">Bot details data parameters</a> of Create Bot Details.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
@@ -6128,7 +6129,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of records matching the given criteria.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of records.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
@@ -6140,23 +6141,23 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Start offset of the current page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of the current page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records on the first page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">next_page_uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in next page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records on the next page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6169,7 +6170,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-  https://cloud.restcomm.com/msteams/teamsbot/details/search \
+  https://yourdomain.com/msteams/teamsbot/details/search \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -6256,9 +6257,9 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </div>
 </div>
 <div class="sect2">
-<h3 id="_get_single_bot_details"><a class="anchor" href="#_get_single_bot_details"></a>Get Single Bot details</h3>
+<h3 id="_get_single_bot_details"><a class="anchor" href="#_get_single_bot_details"></a>Get Single Bot Details</h3>
 <div class="paragraph">
-<p>Single Bot details search API allows users to retrieve specific Bot details created under that "Organisation" which means under that CSP.</p>
+<p>The Single Bot Details search API allows users to retrieve specific Bot details created under that organisation which means under that Communications Provider.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_15"><a class="anchor" href="#_base_resource_uri_15"></a>Base Resource URI</h4>
@@ -6294,7 +6295,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BotSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Bot SID that was generated by calling create Bot details API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bot SID that was generated by calling create Bot details API.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6326,7 +6327,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <td class="tableblock halign-left valign-top"><p class="tableblock">481</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">There is no Details added for this Bot</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update is called passing BotSid that is not found for given Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update is called passing BotSID that is not found for the given Organization.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Update Bot details,Delete Bot details,Get Bot details</p></td>
 </tr>
 </tbody>
@@ -6335,7 +6336,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="sect3">
 <h4 id="_data_parameters_2"><a class="anchor" href="#_data_parameters_2"></a>Data parameters</h4>
 <div class="paragraph">
-<p>This is explained in Data Parameter in <a href="microsoft-teams-api.html#_bot_details_data_parameter">Bot details Data parameters</a>  of Create Bot details</p>
+<p>This is explained in Data Parameter in <a href="microsoft-teams-api.html#_bot_details_data_parameter">Bot Details Data Parameters</a> of Create Bot Details.</p>
 </div>
 </div>
 <div class="sect3">
@@ -6346,7 +6347,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-https://cloud.restcomm.com/msteams/teamsbot/search/BE733c4343e45e47a88297e4c5627df506\
+https://yourdomain.com/msteams/teamsbot/search/BE733c4343e45e47a88297e4c5627df506\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -6379,9 +6380,9 @@ https://cloud.restcomm.com/msteams/teamsbot/search/BE733c4343e45e47a88297e4c5627
 <h2 id="_messages"><a class="anchor" href="#_messages"></a>Messages</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_get_list_of_messages"><a class="anchor" href="#_get_list_of_messages"></a>Get list of Messages</h3>
+<h3 id="_get_list_of_messages"><a class="anchor" href="#_get_list_of_messages"></a>Get List of Messages</h3>
 <div class="paragraph">
-<p>List Message API allows users to list all the Messages for specific Organisation  which means under that CSP.</p>
+<p>List Message API allows users to list all the Messages for specific Organization which means under that Communications Provider.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_16"><a class="anchor" href="#_base_resource_uri_16"></a>Base Resource URI</h4>
@@ -6398,7 +6399,7 @@ https://cloud.restcomm.com/msteams/teamsbot/search/BE733c4343e45e47a88297e4c5627
 <div class="sect3">
 <h4 id="_supported_operations_16"><a class="anchor" href="#_supported_operations_16"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: List all Messages under Organisation</p>
+<p>HTTP GET: List all Messages under the Organization.</p>
 </div>
 </div>
 <div class="sect3">
@@ -6424,7 +6425,7 @@ https://cloud.restcomm.com/msteams/teamsbot/search/BE733c4343e45e47a88297e4c5627
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6435,7 +6436,7 @@ https://cloud.restcomm.com/msteams/teamsbot/search/BE733c4343e45e47a88297e4c5627
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If search API is called without page and pageSize parameters, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
+If the search API is called without page and pageSize parameters, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
 </td>
 </tr>
 </table>
@@ -6460,7 +6461,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">EnterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter to show all messages under that Enterprise Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter to show all messages under that Enterprise ID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
@@ -6472,9 +6473,9 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show message that match type .Possible values are
-*sms
-*mms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show messages that match type. Possible values are:<br>
+- SMS<br>
+- MMS</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">direction</p></td>
@@ -6484,11 +6485,11 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only show messages  that has from begins with  this number or Jabber Address text.For example, if a message  from  is "15713316943" and from filter parameter is "1", it will match. However if from filter parameter is "3", this record will not match.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show messages  that have from begins with this number or Jabber Address text.For example, if a message  from  is "15713316943" and from filter parameter is "1", it will match. However if from filter parameter is "3", this record will not match.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only show messages that has to begin with this number or Jabber Address Id text.For example, if a message to is "16513333367" and to filter parameter is "1", it will match. However if to  filter parameter is "3", this record will not match.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show messages that have to begin with this number or Jabber Address ID text. For example, if a message to is "16513333367" and to filter parameter is "1", it will match. However if to  filter parameter is "3", this record will not match.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channelStatus</p></td>
@@ -6527,15 +6528,15 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date when message was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date when the message was created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by from.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by to.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6567,7 +6568,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">data of search as explained in table below</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data of search as explained in table below</p></td>
 </tr>
 </tbody>
 </table>
@@ -6603,27 +6604,27 @@ If search API is called without page and pageSize parameters, by default pageSiz
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Start offset of the current page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start offset of the current page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of the current page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of the current page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records on the First page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">next_page_uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in next page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records on the next page.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6645,57 +6646,57 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Message  Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Message ID.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer Id under which this Message  is created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business Customer ID under which this Message is created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created/updated this particular message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created/updated this particular message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Message was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Message was created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Message was updated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Message was updated.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">direction</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Direction of this message. Possible values are
-* INBOUND
-* OUTBOUND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direction of this message. Possible values are:<br>
+- INBOUND<br>
+- OUTBOUND</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">From Which number or MS Teams ID this message is sent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From Which number or Microsoft Teams ID this message is sent</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To which number or MS Teams ID this message is sent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To which number or Microsoft Teams ID this message is sent</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific message  SDR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get only this specific message SDR.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">restcommMessageSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Target Sid of the message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Target SID of the message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channelStatus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Channel status of message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Channel status of message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channelErrorCode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Channel error code of the message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Channel error code of the message.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channelErrorMessage</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Channel error message of the message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Channel error message of the message.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6708,7 +6709,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-  https://cloud.restcomm.com/msteams/messages/search \
+  https://yourdomain.com/msteams/messages/search \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -6863,7 +6864,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="sect2">
 <h3 id="_get_single_message"><a class="anchor" href="#_get_single_message"></a>Get Single Message</h3>
 <div class="paragraph">
-<p>Single message search API allows users to retrieve specific Message created under that "Organisation" which means under that CSP.</p>
+<p>Single message search API allows users to retrieve a specific message created under that organisation which means under that Communications Provider.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_17"><a class="anchor" href="#_base_resource_uri_17"></a>Base Resource URI</h4>
@@ -6930,7 +6931,7 @@ If search API is called without page and pageSize parameters, by default pageSiz
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-  https://cloud.restcomm.com/msteams/messages/search/MS51c630e28e28e2744bb83677048e1b1c7ae \
+  https://yourdomain.com/msteams/messages/search/MS51c630e28e28e2744bb83677048e1b1c7ae \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
