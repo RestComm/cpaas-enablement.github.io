@@ -3252,8 +3252,35 @@
 <div class="sect3">
 <h4 id="_response_parameters"><a class="anchor" href="#_response_parameters"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>send API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a></p>
+<p>send API will return Error Code and corresponding HTTP Error as mentioned in <a href="#_common_response_error_code">Common Response Error Code</a>. In addition below are the Error&#8217;s that it can return</p>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">506</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Channel Timeout should be between 15 and 3600 seconnds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If timeout passed is less than 15 seconds or greater than 3600 seconds, this error is returned.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Send</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -3536,6 +3563,13 @@ public class JavaSampleClass {
 <td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Invalid OTP Unique Id</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verify is called for UniqueID which is not present in-system or already verified/expired/canceled.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verify</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">471</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OTP is already verified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verify is called for UniqueId which is present in-system but already verified (successfully)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verify</p></td>
 </tr>
 <tr>
