@@ -3083,7 +3083,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Create allows Communication Service Providers (CSP) Account (Restcomm Account) to create MX mappings and new Enterprise names for easy segregation of mappings specific to each enterprise account. For example consider Acme as CSP will have Kohl’s, Walmart etc as Enterprise Customers. Acme should be able to define the Enterprise and within each Enterprise add unique MX mappings</p>
+<p>Create allows Communication Providers Account (Restcomm Account) to create message exchange mappings and new Enterprise names for easy segregation of mappings specific to each enterprise account. For example consider Acme as CSP will have Kohl’s, Walmart etc as Enterprise Customers. Acme should be able to define the Enterprise and within each Enterprise add unique MX mappings</p>
 </div>
 </div>
 </div>
@@ -3307,10 +3307,49 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_create_mx_mappings"><a class="anchor" href="#_create_mx_mappings"></a>Create MX Mappings</h2>
+<h2 id="_create_message_exchange_mappings"><a class="anchor" href="#_create_message_exchange_mappings"></a>Create Message Exchange Mappings</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Create MX Mapping  will add mapping between Jabber Address and SMS enabled number.</p>
+<p>Create Message Exchange Mapping will add a mapping for a Jabber Address with SMS enabled number and provision the number with the network carrier.</p>
+</div>
+<div class="sect2">
+<h3 id="_lifecycle_of_number_mapping"><a class="anchor" href="#_lifecycle_of_number_mapping"></a>Lifecycle of number mapping</h3>
+<div class="paragraph">
+<p>Calling Create Message Exchange Mapping endpoint initiates SMS enablement of a number, provisioning it in Restcomm and creating a corresponding mapping in Message Exchange. This process is asynchronous. The diagram below shows various states of mapping and possible transitions from one state to another.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/message-exchange-uc-one/create_mapping_state_diagram.png" alt="create mapping state diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>As soon as create mapping request is sent, Message Exchange (MX) will immediately send back HTTP 200 OK Response with a <strong>“PROCESSING”</strong> status of the mapping.</p>
+</div>
+<div class="paragraph">
+<p>There are two possible outcomes. Either the number gets successfully provisioned by the carrier or it fails.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the number is successfully SMS enabled, the system will provision it in Restcomm by either adding a new number or updating an existing number. The status of the mapping will be updated to <strong>“SUCCESS”</strong>. If there is a failure from the Restcomm side the <strong>“deleteFailReason”</strong> field will be updated with the corresponding error message for that mapping.</p>
+</li>
+<li>
+<p>If the SMS enabling of a number failed, the mapping status will be updated to <strong>“FAILED”</strong> and the respective failed reason will be stored for that order in the deleteFailReason field. The number won&#8217;t be provisioned in Restcomm. Create mapping endpoint can be called again.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Number provisioning is asynchronous process. The user can call the create mapping API multiple times for the same number and jabber address until a successful order is made. In that case all other provisioning requests with same number will be marked as failed.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_base_resource_uri_2"><a class="anchor" href="#_base_resource_uri_2"></a>Base Resource URI</h3>
@@ -3456,6 +3495,14 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">domain</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain name that is setup for this mapping.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smsEnableProvisionStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status of create mapping as explained in <a href="create-operation.html#_lifecycle_of_number_mapping">Lifecycle of number mapping</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smsEnableProvisionFailMessage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reason message if creation of a mapping <strong>FAILED</strong> or was <strong>SUCCESSFUL</strong> but the number was not provisioned in Restcomm for whatever reason.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>

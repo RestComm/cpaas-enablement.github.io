@@ -3251,7 +3251,34 @@ https://cloud.restcomm.com/messageexchange/enterprise/EN263d95d2bafa4e4a9e6a5563
 <h2 id="_delete_mx_mappings"><a class="anchor" href="#_delete_mx_mappings"></a>Delete MX Mappings</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Delete MX Mapping  will delete mapping between Jabber Address  and SMS enabled number.</p>
+<p>Delete MX Mapping will delete the mapping for a Jabber Address with SMS enabled number and the number provisioned by the carrier.</p>
+</div>
+<div class="sect2">
+<h3 id="_lifecycle_of_number_deleting"><a class="anchor" href="#_lifecycle_of_number_deleting"></a>Lifecycle of Number Deleting</h3>
+<div class="paragraph">
+<p>Calling DELETE MX Mapping endpoint initiates deletion of numbers provisioned by the carrier, the ones in Restcomm, and al corresponding mappings in Message Exchange. The diagram below shows various states of mapping and possible transitions from one state to another.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/message-exchange-uc-one/delete_mapping_state_diagram.png" alt="Delete mapping state diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>As soon as delete mapping request is sent, Message Exchange (MX) will immediately send back HTTP 200 OK Response with a <strong>“BEING_DELETED””</strong> status of the mapping.</p>
+</div>
+<div class="paragraph">
+<p>There are two possible outcomes. Either the number gets successfully deleted by the carrier or it fails.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the number is successfully deleted, the system will delete it in Restcomm and will also delete all corresponding mappings in Message Exchange.</p>
+</li>
+<li>
+<p>If the deletion of the number failed, the mapping status will be updated back to <strong>“SUCCESS”</strong> and the respective failed reason will be stored for that order under the deleteFailReason field.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_base_resource_uri_2"><a class="anchor" href="#_base_resource_uri_2"></a>Base Resource URI</h3>
