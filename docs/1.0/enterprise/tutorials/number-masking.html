@@ -1888,56 +1888,128 @@
 </div>
 <article class="doc fix-anchor-links-position">
   <h1>Phone Number Masking</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_creating_your_phone_number_masking_application">Creating your phone number masking application</a></li>
+<li><a href="#_designing_your_application">Designing your application</a></li>
+<li><a href="#_binding_your_application_to_a_phone_number">Binding your application to a phone number</a></li>
+<li><a href="#_testing_your_application_with_span_class_sps_text_non_sps_link_data_orig_text_cpaas_data_parm_text_application_name_data_default_text_infer_from_domain_cpaas_span_webrtc_demo">Testing your application with <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> WebRTC demo</a></li>
+</ul>
+</div>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="image"><img src="../_images/number-masking/number_masking_workflow_diagram.png" alt="Workfow Diagram"></span></p>
-</div>
-<div class="paragraph">
-<p>In this tutorial, you will learn how to create a number masking application for a taxi service with <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Number Masking. The application will connect the customer and the taxi driver through masked phone numbers, while both of their identities stay protected. Follow the steps below to get started.</p>
+<p>This tutorial will help you to create a number masking application using the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Visual Designer. Follow the steps below to get started.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<h2 id="_creating_your_phone_number_masking_application"><a class="anchor" href="#_creating_your_phone_number_masking_application"></a>Creating your phone number masking application</h2>
 <div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Log into your account</p>
+</li>
+<li>
+<p>Navigate to ”<strong>Applications</strong>”</p>
+</li>
+<li>
+<p>Choose ”<strong>Create a Visual Designer Application</strong>” option</p>
+</li>
+<li>
+<p>Select ”<strong>Number masking</strong>” template from the list available in the Template Gallery</p>
+</li>
+<li>
+<p>Name your application and click “<strong>Create</strong>”</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>In order to set up your application, you will need to have an Enterprise account created in your <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> solution under your Communications Provider and enabled access to the Number Masking turnkey application.</p>
+<p>See screenshot below:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/binding_your_application_to_a_phone_number.png" alt="binding_your_application_to_a_phone_number"></span></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_registering_the_masked_numbers"><a class="anchor" href="#_registering_the_masked_numbers"></a>Registering the Masked Numbers</h2>
+<h2 id="_designing_your_application"><a class="anchor" href="#_designing_your_application"></a>Designing your application</h2>
 <div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Click on the “<strong>Design</strong>” button</p>
+</li>
+<li>
+<p>Next, configure your application parameters</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>agentPhoneNumber</em> - enter the phone number of the agent that will be dialed</p>
+</li>
+<li>
+<p><em>callerID</em> - specify the caller ID that will be displayed on the agent’s side (e.g. 5555)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Note: Some carriers don&#8217;t support the CallerID override.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>You will have to register two phone numbers that will later be used as masked numbers in order to protect the identity of the customer and the taxi driver.</p>
+<p>See screenshot below:</p>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/designing_your_application.png" alt="designing_your_application"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_binding_your_application_to_a_phone_number"><a class="anchor" href="#_binding_your_application_to_a_phone_number"></a>Binding your application to a phone number</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Log into the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Dashboard.</p>
+<p>Head back to the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Console and navigate to “<strong>Numbers</strong>”</p>
 </li>
 <li>
-<p>Navigate to the tab <strong>Numbers &#8594; Register Number &#8594; Provider Number</strong>.</p>
+<p>Search for available phone number in the region you are interested in</p>
 </li>
 <li>
-<p>Select the country and area codes.</p>
+<p>Click on “<strong>Register number</strong>”</p>
 </li>
 <li>
-<p>Set the Capabilities to Voice.</p>
+<p>Select your application from the Voice URI drop down</p>
+</li>
+<li>
+<p>Click “<strong>Save</strong>”</p>
 </li>
 </ul>
 </div>
-<div class="paragraph maxwidth-image">
-<p><span class="image"><img src="../_images/number-masking/registering_a_number.png" alt="Registering a number"></span></p>
+<div class="paragraph">
+<p>See screenshot below:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Register two numbers as shown below.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/creating_your_phone_number_masking_application.png" alt="creating_your_phone_number_masking_application"></span></p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing_your_application_with_span_class_sps_text_non_sps_link_data_orig_text_cpaas_data_parm_text_application_name_data_default_text_infer_from_domain_cpaas_span_webrtc_demo"><a class="anchor" href="#_testing_your_application_with_span_class_sps_text_non_sps_link_data_orig_text_cpaas_data_parm_text_application_name_data_default_text_infer_from_domain_cpaas_span_webrtc_demo"></a>Testing your application with <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> WebRTC demo</h2>
+<div class="sectionbody">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1945,128 +2017,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You need to have a minimum of two phone numbers registered in order for Number Masking to work.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../_images/number-masking/registered_masked_numbers.png" alt="Registered Masked Numbers"></span></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_creating_your_number_masking_application"><a class="anchor" href="#_creating_your_number_masking_application"></a>Creating Your Number Masking Application</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Navigate to the Number Making Console (<a href="https://yourdomain.com/numbermaskingconsole/" class="bare">https://yourdomain.com/numbermaskingconsole/</a>).</p>
-</li>
-<li>
-<p>Click on the <strong>Numbers</strong> tab.</p>
-</li>
-<li>
-<p>The phone numbers registered in the previous step will be available in the list of numbers, similar to the screenshot below.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph maxwidth-image">
-<p><span class="image"><img src="../_images/number-masking/numbers_list.png" alt="Numbers lis"></span></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Click on the <strong>Applications</strong> tab.</p>
-</li>
-<li>
-<p>Click on the <strong>Add Application</strong> button.</p>
-</li>
-<li>
-<p>Specify the name of the application and hit <strong>Done</strong>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph maxwidth-image">
-<p><span class="image"><img src="../_images/number-masking/add_application.png" alt="add application"></span></p>
-</div>
-<div class="paragraph">
-<p>The newly created application will appear in the list of Applications.</p>
-</div>
-<div class="paragraph maxwidth-image">
-<p><span class="image"><img src="../_images/number-masking/Application_details.png" alt="application details"></span></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_adding_masked_numbers_to_your_application"><a class="anchor" href="#_adding_masked_numbers_to_your_application"></a>Adding Masked Numbers to Your Application</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Click on the name of the newly created application.</p>
-</li>
-<li>
-<p>Go to <strong>Mask Numbers &#8594; Add Mask Number</strong>.</p>
-</li>
-<li>
-<p>Select and add the two numbers from the list.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph maxwidth-image">
-<p><span class="image"><img src="../_images/number-masking/add_masked_number.png" alt="Add masked number"></span></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_adding_context_to_your_application"><a class="anchor" href="#_adding_context_to_your_application"></a>Adding Context to Your Application</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>On the same screen, navigate to <strong>Context &#8594; Add Context</strong>.</p>
-</li>
-<li>
-<p>Fill out the Context form as shown below.</p>
-</li>
-<li>
-<p>Click <strong>Done</strong>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph maxwidth-image">
-<p><span class="image"><img src="../_images/number-masking/add_cotext.png" alt="Add Context"></span></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_adding_participants_to_the_context"><a class="anchor" href="#_adding_participants_to_the_context"></a>Adding Participants to the Context</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Click on the <strong>Participants</strong> link in the newly created context.</p>
-</li>
-<li>
-<p>Click on the <strong>Add Participants</strong> button.</p>
-</li>
-<li>
-<p>You will need to add two participants (Customer and Taxi driver) to the Context.</p>
-</li>
-<li>
-<p>Fill out the <strong>Add Participants</strong> form with the customer details.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The phone number field corresponds to the customer’s actual phone number. The Mask number field is the customer’s masked number registered in the previous steps.
+You need to have an active SIP client registered on the Cloud
 </td>
 </tr>
 </table>
@@ -2074,26 +2025,27 @@ The phone number field corresponds to the customer’s actual phone number. The 
 <div class="ulist">
 <ul>
 <li>
-<p>Click <strong>Done</strong></p>
+<p>Log into your <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> WebRTC demo account</p>
+</li>
+<li>
+<p>Click on “<strong>Add contact</strong>” button</p>
+</li>
+<li>
+<p>Enter the phone number your application was bound to</p>
+</li>
+<li>
+<p>Click on “<strong>Add contact</strong>”</p>
 </li>
 </ul>
 </div>
-<div class="paragraph maxwidth-image">
-<p><span class="image"><img src="../_images/number-masking/add_participants.png" alt="Add Participants"></span></p>
+<div class="paragraph">
+<p>See screenshot below:</p>
 </div>
 <div class="paragraph">
-<p>Repeat the steps above on a behalf of the taxi driver.</p>
+<p><span class="image"><img src="../_images/testing_your_application_with_restcomm_webrtc_demo.png" alt="testing_your_application_with_webrtc_demo"></span></p>
 </div>
-<div class="paragraph maxwidth-image">
-<p><span class="image"><img src="../_images/number-masking/participants_list.png" alt="Participants List"></span></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_your_number_masking_application_in_action"><a class="anchor" href="#_your_number_masking_application_in_action"></a>Your Number Masking Application in Action</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>You are all set! Every time the customer calls a taxi from their phone number to the driver’s masked number (+1111 to +13053902732), the taxi driver will appear to receive a call from the following caller ID: +13053878126l. With Number Masking, both parties can effectively communicate without exposing personal phone numbers.</p>
+<p>You are all set. Dial the newly added contact. Your agent should receive an incoming call with the previously configured caller ID.</p>
 </div>
 </div>
 </div>
