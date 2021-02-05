@@ -3140,6 +3140,11 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">beepUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The wav file&#8217;s relative or absolute URL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default beep sound will be played on entry and exit.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startConferenceOnEnter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true, false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
@@ -3152,7 +3157,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">waitUrl</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RCML url, empty string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">default <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> hold music</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default Restcomm music on hold.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">waitMethod</p></td>
@@ -3169,10 +3174,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>muted.</strong> The 'muted' attribute lets you specify whether a participant can speak in the conference. If this attribute is set to 'true', the participant will only be able to listen to people in the room.</p>
+<p><strong>muted.</strong> The <code>muted</code> attribute lets you specify whether a participant can speak in the conference. If this attribute is set to 'true', the participant will only be able to listen to people in the room.</p>
 </li>
 <li>
-<p><strong>beep.</strong> The 'beep' attribute lets you specify whether a notification beep is played in the conference when a participant joins or leaves the room.</p>
+<p><strong>beep.</strong> The <code>beep</code> attribute lets you specify whether a notification beep is played in the conference when a participant joins or leaves the room.</p>
+</li>
+<li>
+<p><strong>beepUrl.</strong> The <code>beepUrl</code> attribute lets you specify a wav file which will be played as a notification beep in the conference when a participant joins or leaves the room. If no 'beepUrl' attribute is specified then default beep tone will be played. There is a restrition for this functionality: RCML file for all participants of the same conference must contain same or no 'beepUrl' value.</p>
 </li>
 <li>
 <p><strong>startConferenceOnEnter.</strong> This attribute tells a conference to start when this participant joins the conference, if it is not already started. If this is false and the participant joins a conference that has not started, they are muted and hear background music until a participant joins where startConferenceOnEnter is true. This is useful for implementing moderated conferences.</p>
@@ -3181,7 +3189,7 @@
 <p><strong>endConferenceOnExit.</strong> If a participant has this attribute set to 'true', then when that participant leaves, the conference ends and all other participants drop out. This is useful for implementing moderated conferences that bridge two calls and allow either call leg to continue executing RCML if the other hangs up.</p>
 </li>
 <li>
-<p><strong>waitUrl.</strong> The 'waitUrl' attribute lets you specify a URL for music that plays before the conference has started. The URL may be a WAV or a RCML document that uses &lt;Play&gt; or &lt;Say&gt; for content. This defaults to a selection of Creative Commons licensed background music, but you can replace it with your own music and messages. If the 'waitUrl' responds with RCML, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will only process &lt;Play&gt;, &lt;Say&gt;, and &lt;Redirect&gt; verbs. If you do not wish anything to play while waiting for the conference to start, specify the empty string (set 'waitUrl' to '').</p>
+<p><strong>waitUrl.</strong> The <code>waitUrl</code> attribute lets you specify a URL for music that plays before the conference has started. The URL may be a WAV file or a RCML document that uses &lt;Play&gt; or &lt;Say&gt; for content. This defaults to a selection of Creative Commons licensed background music, but you can replace it with your own music and messages. If the <code>waitUrl</code> responds with RCML, Restcomm will only process &lt;Play&gt;, &lt;Say&gt;, and &lt;Redirect&gt; verbs. If you do not wish anything to play while waiting for the conference to start, specify the empty string (set 'waitUrl' to '').</p>
 </li>
 <li>
 <p><strong>waitMethod.</strong> This attribute indicates which HTTP method to use when requesting 'waitUrl'. It defaults to 'POST'. Be sure to use 'GET' if you are directly requesting static audio files such as WAV files so that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> properly caches the files.</p>
