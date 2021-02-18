@@ -2482,7 +2482,7 @@ if you need to have it saved for longer, please request them on a monthly basis 
         <button class="sample-code-button scsIndex-2" onclick="openLanguage('Java', 2)">Java</button>
       </div>
       <div id="Curl-2" class="sample-language-2">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json  \
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.json  \
    -d 'FriendlyName=newaccount4' \
    -d 'Password=abc123' \
    -d 'EmailAddress=newaccount4@email.com' \
@@ -2499,7 +2499,7 @@ const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
 request.({
       method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
          'FriendlyName': 'newaccount4',
@@ -2537,7 +2537,7 @@ params = urlencode({
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '.json',
+conn.request("POST", '/restcomm/2012-04-24/Accounts.json',
       params, headers=headers)
 res = conn.getresponse()
 
@@ -2561,7 +2561,7 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + ".json");
+      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts.json");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
       conn.setRequestMethod("POST");
