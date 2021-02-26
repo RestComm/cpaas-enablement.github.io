@@ -1240,7 +1240,7 @@
               
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="#_sending_one_time_passwords_api_reference">Send OTPs</a>
+              <a class="nav-link nav-flex-item-text" href="#_send">Send OTPs</a>
 
             </span>
               </div>
@@ -1256,7 +1256,7 @@
               
             "></span>
                   <span>
-              <a class="nav-link nav-flex-item-text" href="#_verifying_one_time_passwords_api_reference">Verify OTPs</a>
+              <a class="nav-link nav-flex-item-text" href="#_verify">Verify OTPs</a>
 
             </span>
               </div>
@@ -1900,6 +1900,8 @@
 <div class="paragraph">
 <p>2FA allows you to add a second layer of security to your Application in addition to the user-id and password. The flexibility of using any channel makes sure your users get OTP even when they experience issue with one of the channels.</p>
 </div>
+<div class="sect2">
+<h3 id="_how_2fa_works"><a class="anchor" href="#_how_2fa_works"></a>How 2FA Works?</h3>
 <div class="paragraph">
 <p><strong>User enters your application</strong></p>
 </div>
@@ -1945,8 +1947,9 @@
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_sending_one_time_passwords_api_reference"><a class="anchor" href="#_sending_one_time_passwords_api_reference"></a>Sending One-Time Passwords - API Reference</h2>
+<h2 id="_send"><a class="anchor" href="#_send"></a>Send</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Sending a verification code requires basic authorization that includes your account SID and auth token. Below is the format you have to use in order to send a verification code to the user&#8217;s phone number.</p>
@@ -2097,9 +2100,9 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Send</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">497</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">495</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid Limits. There is no Limits with name "XXX"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid Limit Name: XXX</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Send API is called with Limits name that is not defined.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Send API</p></td>
 </tr>
@@ -2145,11 +2148,30 @@
 <pre>{"code":200,"message":"OK","requestID":"OTPYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"}</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Example of sending OTP with limits:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST \
+https://yourdomain.com/2fa/send \
+--user  ' \{your_account_SID}:\{your_account_token}' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/json' \
+-d '{
+"service" : "2FA",
+"from" : "XXXXXXXXXXX",
+"to" : "ZZZZZZZZZZZ",
+"body": "Your verification code is: \{code}",
+"limits" : { "limit_on_phone": "+1205XXXXXXX" }
+}'</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_verifying_one_time_passwords_api_reference"><a class="anchor" href="#_verifying_one_time_passwords_api_reference"></a>Verifying One-Time Passwords - API Reference</h2>
+<h2 id="_verify"><a class="anchor" href="#_verify"></a>Verify</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>User receives the one-time PIN code via SMS, phone call or email, gets back to your application and enters it in order to complete the verification process. Verifying the code is simple and requires basic authorization that includes your account SID and auth token.</p>
@@ -2186,11 +2208,15 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">service</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of your service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of your service. For backward compatibility, this is mandatory if the API is called by passing the <code>number</code> instead of <code>requestId</code> as explained below.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">requestId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The requestID was received when initiating OTP message.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The requestID was received when initiating the OTP message. This parameter can be ignored if the service and number attributes are being used. It is also not needed if using the <code>number</code> to verify the OTP.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number to which the SMS containing the verification code was sent to. Not needed if you are using verify via <code>requestId</code>. The <code>requestId</code> will be ignored even if passed.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
@@ -2258,17 +2284,10 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verify</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">472</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">471</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OTP is expired</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Verify is called for UniqueId which is present in the system but expired</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Verify</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">473</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OTP is cancelled</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Verify is called for UniqueId which is present in the system but cancelled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OTP is already verified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verify is called for UniqueId which is present in-system but already verified successfully</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verify</p></td>
 </tr>
 <tr>
@@ -2317,13 +2336,8 @@
 <h2 id="_control"><a class="anchor" href="#_control"></a>Control</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Control API allows App developers to <strong>cancel</strong> already sent API or <strong>resend</strong> the OTP (resend is in roadmap)</p>
+<p>Control API allows App developers to <strong>cancel</strong> already OTP.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_cancel_one_time_passwords_api_reference"><a class="anchor" href="#_cancel_one_time_passwords_api_reference"></a>Cancel One-Time Passwords - API Reference</h2>
-<div class="sectionbody">
 <div class="sect2">
 <h3 id="_base_resource_uri_3"><a class="anchor" href="#_base_resource_uri_3"></a>Base Resource URI</h3>
 <div class="paragraph">
@@ -2423,6 +2437,13 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Invalid OTP Unique Id</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Control (Cancel for now, but may be other too in future) is called for UniqueID which is not present in-system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Control</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">471</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OTP is already verified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cancel is called for UniqueId which is present in-system but already verified successfully</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Control</p></td>
 </tr>
 </tbody>
@@ -2709,8 +2730,7 @@ This allows to filter OTP sent to specific country code.</p></td>
 <div class="content">
 <pre>  curl -X GET \
     <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/search">https://$DOMAIN/2fa/search</span> \
-    --user  ' \{your_account_SID}:\{your_account_token}' \
-    -d '{  "pageSize": "2", "page":"0", "status":"success", "sortBy":"DateCreated:asc"}'</pre>
+    --user  ' \{your_account_SID}:\{your_account_token}'</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2719,80 +2739,42 @@ This allows to filter OTP sent to specific country code.</p></td>
 <div class="listingblock">
 <div class="content">
 <pre>{
-   "page":0,
-   "num_pages":3,
-   "page_size":2,
-   "total":6,
-   "start":0,
-   "end":1,
-   "uri":"/2fa/search",
-   "first_page_uri":"/2fa/search?pageSize=2&amp;page=0&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf&amp;status=success",
-   "previous_page_uri":null,
-   "next_page_uri":"/2fa/search?pageSize=2&amp;page=1&amp;accountSid=ACae6e420f425248d6a26948c17a9e2acf&amp;status=success",
-   "twoFaOtpSdrs":[
-      {
-         "sid":"OTP2a73130a3c7d492c93d0b1234596f308",
-         "service":"2FA",
-         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "dateCreated":"2019-08-20 10:28:08",
-         "dateUpdated":"2019-08-20 10:28:49",
-         "status":"success",
-         "uri":"/2fa/search/OTP2a73130a3c7d492c93d0b1234596f308",
-         "checks":[
-            {
-               "sid":"OTC2c58e792946b4fc389d7711cafaa5e83",
-               "dateReceived":"2019-08-20 10:28:49",
-               "status":"valid",
-               "code":"312209"
-            }
-         ],
-         "events":[
-            {
-               "sid":"OTE492b1deb0a7e4a778ab95daa40e7a3f6",
-               "dateCreated":"2019-08-20 10:28:08",
-               "channel":"email",
-               "sender":"<a href="mailto:info@yourcompany.com">info@yourcompany.com</a>",
-               "recipient":"<a href="mailto:jane.doe@yourcompany.com">jane.doe@yourcompany.com</a>",
-               "targetSid":"",
-               "channelStatus":"queued"
-            }
-         ]
-      },
-      {
-         "sid":"OTP02a7c56a08374eedb8789a1a038e7aae",
-         "service":"2FA",
-         "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "dateCreated":"2019-08-20 02:43:11",
-         "dateUpdated":"2019-08-20 02:43:52",
-         "status":"success",
-         "uri":"/2fa/search/OTP02a7c56a08374eedb8789a1a038e7aae",
-         "checks":[
-            {
-               "sid":"OTC969ccb83b3cf40328c66719039c3b337",
-               "dateReceived":"2019-08-20 02:43:31",
-               "status":"invalid",
-               "code":"847992"
-            },
-            {
-               "sid":"OTC6991f661e3354a6fa1e0393c95168069",
-               "dateReceived":"2019-08-20 02:43:52",
-               "status":"valid",
-               "code":"347469"
-            }
-         ],
-         "events":[
-            {
-               "sid":"OTEb6f211a28ed0412bb2c097a428d2ad5a",
-               "dateCreated":"2019-08-20 02:43:11",
-               "channel":"sms",
-               "sender":"12012751398",
-               "recipient":"919960639901",
-               "targetSid":"SM286fa07039ab498d80bd44d4cc91ac3c",
-               "channelStatus":"delivered"
-            }
-         ]
-      }
-   ]
+    "page": 0,
+    "num_pages": 1,
+    "page_size": 10,
+    "total": 1,
+    "start": 0,
+    "end": 0,
+    "uri": "/2fa/search/?pageSize=10&amp;page=0",
+    "first_page_uri": "/2fa/search/?pageSize=10&amp;page=0",
+    "previous_page_uri": null,
+    "next_page_uri": null,
+    "twoFaOtpSdrs": [
+        {
+            "sid": "OTP233b636452e14782b63df062ab467f8f",
+            "service": "2FA",
+            "accountSid": "ACc6588005a608439e69889c45511defd6",
+            "organizationSid": "ORafbe225ad37541eba518a74248f0ac4c",
+            "code": "601817",
+            "dateCreated": "2021-02-02T16:04:04.000+0000",
+            "dateUpdated": "2021-02-02T16:04:05.000+0000",
+            "status": "expired",
+            "checks": [],
+            "events": [
+                {
+                    "sid": "OTE7ae7d6d28e744262b4983cdb961bd8a8",
+                    "dateCreated": "2021-02-02T16:04:04+0000",
+                    "dateUpdated": "2021-02-02T16:04:04+0000",
+                    "channel": "sms",
+                    "sender": "12224445555",
+                    "recipient": "13334748363",
+                    "targetSid": "SM3769217bf2fc4b7ea22ad5502bfa492c",
+                    "channelStatus": "undelivered",
+                    "channelErrorCode": "30008"
+                }
+            ]
+        }
+    ]
 }</pre>
 </div>
 </div>
@@ -2869,27 +2851,30 @@ This allows to filter OTP sent to specific country code.</p></td>
 <div class="listingblock">
 <div class="content">
 <pre>{
-    {
-        "sid":"OTPe2bd1d6583194aa1aa3892cea1e6d824",
-        "service" : "2FA",
-        "accountSid":"ACae6e420f425248d6a26948c17a9e2acf",
-        "dateCreated":"2019-07-22 04:40:31",
-        "dateUpdated":"2019-07-22 04:40:31",
-        "status":"expired",
-        "uri":"/2fa/search/OTPe2bd1d6583194aa1aa3892cea1e6d824",
-        "checks":[],
-        "events":[
-            {
-                "sid":"OTE243d763ffe7747b9a56d395a9e6a7923",
-                "dateCreated":"2019-07-22 04:40:31",
-                "channel":"sms",
-                "sender":"120120105123",
-                "recipient":"120120105124",
-                "targetSid":"SMd0a8b9819dfa42548bd3c306daade4f3",
-                "channelStatus":"undelivered",
-            }
-        ]
-    }
+    "sid": "OTP233b636452e14782b63df062ab467f8f",
+    "service": "2FA",
+    "accountSid": "ACc6588005a608439e69889c45511defd6",
+    "organizationSid": "ORafbe225ad37541eba518a74248f0ac4c",
+    "code": "601817",
+    "uri": "/2fa/seach/OTP233b636452e14782b63df062ab467f8f?accountSid=ACc6588005a608439e69889c45511defd6",
+    "dateCreated": "2021-02-02T16:04:04.000+0000",
+    "dateUpdated": "2021-02-02T16:04:05.000+0000",
+    "status": "expired",
+    "checks": [],
+    "events": [
+        {
+            "sid": "OTE7ae7d6d28e744262b4983cdb961bd8a8",
+            "dateCreated": "2021-02-02T16:04:04+0000",
+            "dateUpdated": "2021-02-02T16:04:04+0000",
+            "channel": "sms",
+            "sender": "12224445555",
+            "recipient": "13334748363",
+            "targetSid": "SM3769217bf2fc4b7ea22ad5502bfa492c",
+            "channelStatus": "undelivered",
+            "channelErrorCode": "30008"
+        },
+        null
+    ]
 }</pre>
 </div>
 </div>
@@ -2985,16 +2970,15 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+<div class="sect3">
+<h4 id="_examples_of_otp_usage"><a class="anchor" href="#_examples_of_otp_usage"></a>Examples of OTP Usage</h4>
 <div class="paragraph">
 <p>From the bash terminal you can run the command below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records?startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z">https://$DOMAIN/2fa/usage/records?startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z</span> \</pre>
+  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records?startDate=2019-07-01&amp;endDate=2021-02-02">https://$DOMAIN/2fa/usage/records?startDate=2019-07-01&amp;endDate=2021-02-02</span> \</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3003,94 +2987,171 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 <div class="listingblock">
 <div class="content">
 <pre>{
-   "usageRecords":[
-      {
-         "description":"2FA Usage record",
-         "startTime":"2020-03-16",
-         "endTime":"2020-03-19",
-         "count":10,
-         "successful":5,
-         "unsuccessful":5,
-         "unit":"2FA",
-         "uri":"/2fa/usage/records?startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z"
-      }
-   ]
+    "usageRecords": [
+        {
+            "description": "2FA Usage record",
+            "accountSid": "ACc6588005a608439e69889c45511defd6",
+            "count": 41,
+            "successful": 12,
+            "unsuccessful": 29,
+            "unit": "2FA",
+            "uri": "/2fa/usage/records?endDate=2021-02-02&amp;startDate=2019-07-01"
+        }
+    ]
 }</pre>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_example_of_call_usage"><a class="anchor" href="#_example_of_call_usage"></a>Example of Call Usage</h4>
 <div class="paragraph">
-<p>HTTP POST example</p>
+<p>From the bash terminal you can run the command below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X POST \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records">https://$DOMAIN/2fa/usage/records</span> \
-    --user  ' \{your_account_SID}:\{your_account_token}'
-    -H 'Cache-Control: no-cache' \
-    -H 'Content-Type: application/json' \
-    -d '{
-      "startTime" : "2020-03-16T18:30:00.000Z",
-      "endTime": "2020-03-19"
-    }'</pre>
+<pre>curl -X GET \ https://yourdomain.com/2fa/usage/records?channel=call&amp;startDate=2019-07-01&amp;endDate=2020-07-23
+ \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Example Response</p>
+<p>Below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>{
-   "usageRecords":[
-      {
-         "description":"2FA Usage record",
-         "startTime":"2020-03-16",
-         "endTime":"2020-03-19",
-         "count":10,
-         "successful":5,
-         "unsuccessful":5,
-         "unit":"2FA",
-         "uri":"/2fa/usage/records?startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z"
-      }
-   ]
+    "usageRecords": [
+        {
+            "description": "2FA Usage record",
+            "accountSid": "ACc6588005a608439e69889c45511defd6",
+            "count": 16,
+            "successful": 7,
+            "unsuccessful": 9,
+            "unit": "2FA",
+            "uri": "/2fa/usage/records?channel=call&amp;endDate=2020-07-23&amp;startDate=2019-07-01"
+        }
+    ]
 }</pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_example_for_sms_filter_parameter"><a class="anchor" href="#_example_for_sms_filter_parameter"></a>Example for SMS filter parameter</h3>
+<h3 id="_example_of_sms_usage"><a class="anchor" href="#_example_of_sms_usage"></a>Example of SMS Usage</h3>
+<script>
+      function openLanguage(language, index) {
+        const sampleClasses = document.getElementsByClassName("sample-language-" + index);
+        for (const sampleClass of sampleClasses) {
+          sampleClass.style.display = "none";
+        }
+        document.getElementById(language + '-' + index).style.display = "block";
+
+        // first, disable the previously selected tab title
+        const previouslyActive = document.getElementsByClassName('scsIndex-' + index + ' is-active')
+        if (previouslyActive.length > 0) {
+          previouslyActive[0].classList.toggle('is-active')
+        }
+
+        // then, enable the newly selected title
+        event.target.classList.toggle('is-active')
+      }
+      </script>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-142 is-active" onclick="openLanguage('Curl', 142)">Curl</button>
+        <button class="sample-code-button scsIndex-142" onclick="openLanguage('Nodejs', 142)">Nodejs</button>
+        <button class="sample-code-button scsIndex-142" onclick="openLanguage('Python', 142)">Python</button>
+        <button class="sample-code-button scsIndex-142" onclick="openLanguage('Java', 142)">Java</button>
+      </div>
+      <div id="Curl-142" class="sample-language-142">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records.json?channel=sms&startDate=2019-07-01&endDate=2020-07-23  \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-142" class="sample-language-142" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records.json?channel=sms&startDate=2019-07-01&endDate=2020-07-23',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-142" class="sample-language-142" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("GET", '/restcomm/2012-04-24/2fa/usage/records.json?channel=sms&startDate=2019-07-01&endDate=2020-07-23',
+      headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-142" class="sample-language-142" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/2fa/usage/records.json?channel=sms&startDate=2019-07-01&endDate=2020-07-23");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
 <div class="paragraph">
-<p>HTTP POST example</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>curl -X POST \
-  <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/2fa/usage/records">https://$DOMAIN/2fa/usage/records</span> \
-    --user  ' \{your_account_SID}:\{your_account_token}'
-    -H 'Cache-Control: no-cache' \
-    -H 'Content-Type: application/json' \
-    -d '{
-      "channel" : "sms"
-  }'</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Example Response</p>
+<p>Below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>{
-   "usageRecords":[
-      {
-         "description":"2FA Usage record",
-         "startTime":"2020-03-16",
-         "endTime":"2020-03-19",
-         "count":3,
-         "successful":1,
-         "unsuccessful":2,
-         "unit":"2FA",
-         "uri":"/2fa/usage/records?channel=sms&amp;startTime=2020-03-16T18:30:00.000Z&amp;endTime=2020-03-19T13:21:37.778Z"
-      }
-   ]
+    "usageRecords": [
+        {
+            "description": "2FA Usage record",
+            "accountSid": "ACc6588005a608439e69889c45511defd6",
+            "count": 18,
+            "successful": 1,
+            "unsuccessful": 17,
+            "unit": "2FA",
+            "uri": "/2fa/usage/records?channel=sms&amp;endDate=2020-07-23&amp;startDate=2019-07-01"
+        }
+    ]
 }</pre>
 </div>
 </div>
@@ -3153,9 +3214,9 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 </div>
 </div>
 <div class="sect2">
-<h3 id="_examples_2"><a class="anchor" href="#_examples_2"></a>Examples</h3>
+<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
 <div class="paragraph">
-<p>HTTP GET Example</p>
+<p>From the bash terminal you can run the command below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3170,37 +3231,22 @@ Usage records doesn&#8217;t include real time data and can be delayed by maximum
 <div class="listingblock">
 <div class="content">
 <pre>{
-   "usageRecords":[
-      {
-         "description":"2FA Usage record",
-         "startTime":"2020-03-17",
-         "endTime":"2020-03-17",
-         "count":259200,
-         "successful":155671,
-         "unsuccessful":103529,
-         "unit":"2FA"
-      },
-      {
-         "description":"2FA Usage record",
-         "startTime":"2020-03-19",
-         "endTime":"2020-03-19",
-         "count":140404,
-         "successful":84220,
-         "unsuccessful":56184,
-         "unit":"2FA"
-      },
-      {
-         "description":"2FA Usage record",
-         "startTime":"2020-03-18",
-         "endTime":"2020-03-18",
-         "count":259200,
-         "successful":155656,
-         "unsuccessful":103544,
-         "unit":"2FA"
-      }
-   ]
+    "usageRecords": [
+        {
+            "description": "2FA Usage record",
+            "startTime": "2021-02-01",
+            "endTime": "2021-02-01",
+            "count": 4,
+            "successful": 0,
+            "unsuccessful": 4,
+            "unit": "2FA"
+        }
+    ]
 }</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>In the above example if you don’t pass <code>startDate</code> and <code>endDate</code> parameters, 30 records will be shown.</p>
 </div>
 <div class="paragraph">
 <p>You can also test your service using <a href="https://www.getpostman.com/">Postman</a> or any other alike client.</p>
@@ -3622,12 +3668,17 @@ If no Limit is defined by Developer or if no Limit is passed when invoking Send 
 <div class="content">
 <pre>{
     "data": {
-        "sid": "LMe7d332c72d2f40b9bfe8982425af14bc",
-        "name": "limit_on_phonenumber",
+        "sid": "LM29c3cdc8123545a4aa62b7451f1f719d",
+        "name": "limit_on_phoneNumber",
         "buckets": "[{ \"name\":\"bucket1\", \"max\":\"1\", \"interval\":\"30\"},{ \"name\":\"bucket2\", \"max\":\"2\", \"interval\":\"300\"}]",
-        "description": "limit on Phone Number",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "uri": "/2fa/limits/search/LMe7d332c72d2f40b9bfe8982425af14bc"
+        "description": "Limit number of OTP sent per recipient Phone Number",
+        "accountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+        "accountEmail": "<a href="mailto:jane@company.com">jane@company.com</a>",
+        "targetAccountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+        "targetAccountEmail": "<a href="mailto:alice@company.com">alice@company.com</a>",
+        "uri": "/2fa/limits/search/LM29c3cdc8123545a4aa62b7451f1f719d",
+        "dateCreated": "2021-02-04T03:52:09.400+0000",
+        "dateUpdated": "2021-02-04T03:52:09.400+0000"
     },
     "code": 200,
     "message": "OK"
@@ -3672,7 +3723,7 @@ Updated in Bucket value will be reflected in maximum 5 mins as System caches the
 </div>
 </div>
 <div class="sect3">
-<h4 id="_update_limit_resource_uri"><a class="anchor" href="#_update_limit_resource_uri"></a>Update Limit Resource URI</h4>
+<h4 id="_update_limit_2"><a class="anchor" href="#_update_limit_2"></a>Update Limit</h4>
 <div class="paragraph">
 <p>/2fa/limits/{limitSid}</p>
 </div>
@@ -3813,7 +3864,7 @@ Account can update Sub-Account Limits
 <div class="listingblock">
 <div class="content">
 <pre>curl -X PUT \
-  https://your_custom_domain/2fa/limits/LM88170d5b0e1f4eb3ad724ffc8131c9c1 \
+  https://your_custom_domain/2fa/limits/LMcd3f402bbbf44bda858e3ab8f9bd5d44  \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
@@ -3830,12 +3881,17 @@ Account can update Sub-Account Limits
 <div class="content">
 <pre>{
     "data": {
-        "sid": "LM88170d5b0e1f4eb3ad724ffc8131c9c1",
-        "name": "limit_on_Session",
+        "sid": "LMcd3f402bbbf44bda858e3ab8f9bd5d44",
+        "name": "limit_on_phoneNumberr",
         "buckets": "[{\"name\":\"bucket1\", \"max\":\"1\", \"interval\":\"30\"},{\"name\":\"bucket2\", \"max\":\"2\", \"interval\":\"300\"}]",
         "description": "limit on Phone Number of receiver blabla",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "uri": "/2fa/limits/search/LM88170d5b0e1f4eb3ad724ffc8131c9c1"
+        "accountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+        "accountEmail": "jane@company.com",
+        "targetAccountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+        "targetAccountEmail": "alice@company.com",
+        "uri": "/2fa/limits/search/LMcd3f402bbbf44bda858e3ab8f9bd5d44",
+        "dateCreated": "2021-02-04T03:55:02.000+0000",
+        "dateUpdated": "2021-02-04T03:56:12.122+0000"
     },
     "code": 200,
     "message": "OK"
@@ -3979,7 +4035,7 @@ Account can Delete SubAccount Limits
 <div class="listingblock">
 <div class="content">
 <pre>curl -X DELETE \
-  https://your_custom_domain.com/2fa/limits/LM4d9cfa53230848199d787a99f1b431a4 \
+  https://your_custom_domain.com/2fa/limits/LMcd3f402bbbf44bda858e3ab8f9bd5d44 \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -3992,12 +4048,17 @@ Account can Delete SubAccount Limits
 <div class="content">
 <pre>{
     "data": {
-        "sid": "LM4d9cfa53230848199d787a99f1b431a4",
-        "name": "limit_on_IP",
-        "buckets": "[{ \"name\":\"bucket1\", \"max\":\"1\", \"interval\":\"30\"},{ \"name\":\"bucket2\", \"max\":\"2\", \"interval\":\"300\"}]",
-        "description": "limit on IP",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "uri": "/2fa/limits/search/LM4d9cfa53230848199d787a99f1b431a4"
+        "sid": "LMcd3f402bbbf44bda858e3ab8f9bd5d44",
+        "name": "limit_on_phoneNumberr",
+        "buckets": "[{\"name\":\"bucket1\", \"max\":\"1\", \"interval\":\"30\"},{\"name\":\"bucket2\", \"max\":\"2\", \"interval\":\"300\"}]",
+        "description": "limit on Phone Number of receiver",
+        "accountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+        "accountEmail": "alice@company.com",
+        "targetAccountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+        "targetAccountEmail": "jane@company.com",
+        "uri": "/2fa/limits/search/LMcd3f402bbbf44bda858e3ab8f9bd5d44",
+        "dateCreated": "2021-02-04T03:55:02.000+0000",
+        "dateUpdated": "2021-02-04T03:56:12.000+0000"
     },
     "code": 200,
     "message": "OK"
@@ -4257,30 +4318,41 @@ If the search API is called without page and pageSize, by default pageSize will 
     "data": {
         "result": [
             {
-                "sid": "LM88170d5b0e1f4eb3ad724ffc8131c9c1",
-                "name": "limit_on_Session",
-                "buckets": "[{\"name\":\"bucket1\", \"max\":\"1\", \"interval\":\"30\"},{\"name\":\"bucket2\", \"max\":\"2\", \"interval\":\"300\"}]",
-                "description": "limit on Phone Number of receiver blabla",
-                "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-                "uri": "/2fa/limits/search/LM88170d5b0e1f4eb3ad724ffc8131c9c1"
+                "sid": "LMec2561784a7f425e8049c8c27d4250db",
+                "name": "limit_on_phone",
+                "buckets": "[{\"name\":\"bucket1\",\"max\":\"1\",\"interval\":\"60\"},{\"name\":\"bucket2\",\"max\":\"2\",\"interval\":\"300\"}]",
+                "description": "Set limit on destination phone number to have maximum 1 OTP per min and maximum 2 per 5 mins",
+                "accountSid": "ACdcd5c6fe672b241945f495c4ca1a4966",
+                "accountEmail": "jane@company.com",
+                "targetAccountSid": "ACdcd5c6fe672b241945f495c4ca1a4966",
+                "targetAccountEmail": "alice@company.com",
+                "uri": "/2fa/limits/search/LMec2561784a7f425e8049c8c27d4250db",
+                "dateCreated": "2020-04-10T00:33:53.000+0000",
+                "dateUpdated": "2020-07-30T13:25:22.000+0000"
             },
             {
-                "sid": "LMe7d332c72d2f40b9bfe8982425af14bc",
-                "name": "limit_on_phonenumber",
-                "buckets": "[{ \"name\":\"bucket1\", \"max\":\"1\", \"interval\":\"30\"},{ \"name\":\"bucket2\", \"max\":\"2\", \"interval\":\"300\"}]",
-                "description": "limit on Phone Number",
-                "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-                "uri": "/2fa/limits/search/LMe7d332c72d2f40b9bfe8982425af14bc"
+                "sid": "LMfddc80d59f3549dd9044950e5c0ca7c6",
+                "name": "test",
+                "buckets": "[{\"name\":\"bucket1\",\"max\":\"1\",\"interval\":\"20\"}]",
+                "description": "tesr",
+                "accountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+                "accountEmail": "jane@company.com",
+                "targetAccountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+                "targetAccountEmail": "alice@company.com",
+                "uri": "/2fa/limits/search/LMfddc80d59f3549dd9044950e5c0ca7c6",
+                "dateCreated": "2020-12-18T03:29:18.000+0000",
+                "dateUpdated": "2020-12-18T03:29:18.000+0000"
             }
         ],
-        "pageSize": 10,
-        "total": 2,
+        "pageSize": 2,
+        "total": 7,
         "page": 0,
-        "numPages": 1,
+        "numPages": 4,
         "start": 0,
         "end": 1,
-        "firstPageUri": "/2falimits/search/?pageSize=10&amp;page=0",
-        "uri": "/2falimits/search/?pageSize=10&amp;page=0"
+        "firstPageUri": "/2falimits/search/?pageSize=2&amp;page=0",
+        "nextPageUri": "/2falimits/search/?pageSize=2&amp;page=1",
+        "uri": "/2falimits/search/?pageSize=2&amp;page=0"
     },
     "code": 200,
     "message": "OK"
@@ -4382,7 +4454,7 @@ Account can get single Limits of  SubAccount
 <div class="listingblock">
 <div class="content">
 <pre>curl -X GET \
-  https://your_custom_domain/2fa/limits/search/LM88170d5b0e1f4eb3ad724ffc8131c9c1 \
+  https://your_custom_domain/2fa/limits/search/LMfddc80d59f3549dd9044950e5c0ca7c6  \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</pre>
@@ -4395,12 +4467,17 @@ Account can get single Limits of  SubAccount
 <div class="content">
 <pre>{
     "data": {
-        "sid": "LM88170d5b0e1f4eb3ad724ffc8131c9c1",
-        "name": "limit_on_Session",
-        "buckets": "[{\"name\":\"bucket1\", \"max\":\"1\", \"interval\":\"30\"},{\"name\":\"bucket2\", \"max\":\"2\", \"interval\":\"300\"}]",
-        "description": "limit on Phone Number of receiver blabla",
-        "accountSid": "AC23f1b11bbb99a46436c365cb7bec246e",
-        "uri": "/2fa/limits/search/LM88170d5b0e1f4eb3ad724ffc8131c9c1"
+        "sid": "LMfddc80d59f3549dd9044950e5c0ca7c6",
+        "name": "test",
+        "buckets": "[{\"name\":\"bucket1\",\"max\":\"1\",\"interval\":\"20\"}]",
+        "description": "tesr",
+        "accountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+        "accountEmail": "jane@company.com",
+        "targetAccountSid": "AC55a9977a50647d2fa38fa1f505206aaf",
+        "targetAccountEmail": "alice@company.com",
+        "uri": "/2fa/limits/search/LMfddc80d59f3549dd9044950e5c0ca7c6",
+        "dateCreated": "2020-12-18T03:29:18.000+0000",
+        "dateUpdated": "2020-12-18T03:29:18.000+0000"
     },
     "code": 200,
     "message": "OK"
