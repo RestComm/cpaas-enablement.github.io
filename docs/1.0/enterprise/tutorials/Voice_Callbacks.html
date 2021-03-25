@@ -1996,13 +1996,10 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> provides
-several ways for an application to receive status updates for a call. Upon receiving those events, applications may
-provide a new set of instructions (RCML) that dictate the next actions in the call flow.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> provides several ways for an application to receive status updates for a call. Upon receiving those events, applications may provide a new set of instructions (RCML) that dictate the next actions in the call flow.</p>
 </div>
 <div class="paragraph">
-<p>By registering to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-status callback, applications can receive notifications for:</p>
+<p>By registering to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> status callback, applications can receive notifications for:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2018,9 +2015,7 @@ status callback, applications can receive notifications for:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Applications will also receive a status update on any RCML action URL where they can provide a new set of instructions
-for the call. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-exposes the following action URL:</p>
+<p>Applications will also receive a status update on any RCML action URL where they can provide a new set of instructions for the call. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> exposes the following action URL:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2036,8 +2031,7 @@ exposes the following action URL:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The purpose of this document is not to repeat the details already described in the existing documentation, but to provide
-the big picture and to clarify some corner cases.</p>
+<p>The purpose of this document is not to repeat the details already described in the existing documentation, but to provide the big picture and to clarify some corner cases.</p>
 </div>
 </div>
 </div>
@@ -2045,13 +2039,10 @@ the big picture and to clarify some corner cases.</p>
 <h2 id="_understanding_bridged_calls"><a class="anchor" href="#_understanding_bridged_calls"></a>Understanding Bridged Calls</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> uses the
-RCML Dial verb to connect two participants so they can communicate with each other.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> uses the RCML Dial verb to connect two participants so they can communicate with each other.</p>
 </div>
 <div class="paragraph">
-<p>Bridging two participants means connecting two distinct call legs. It is important to understand what a Call leg is in
-the context of <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-and what kind of status updates we can have for each call leg.</p>
+<p>Bridging two participants means connecting two distinct call legs. It is important to understand what a Call leg is in the context of <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> and what kind of status updates we can have for each call leg.</p>
 </div>
 <div class="paragraph">
 <p>Consider the call flow depicted in the following diagram:</p>
@@ -2060,13 +2051,10 @@ and what kind of status updates we can have for each call leg.</p>
 <p><span class="image"><img src="../_images/bridged_calls.png" alt="Bridge calls"></span></p>
 </div>
 <div class="paragraph">
-<p>In this diagram, call Leg A represents the incoming call from Alice to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-while call leg B represents the outgoing call from <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to Bob.</p>
+<p>In this diagram, call Leg A represents the incoming call from Alice to <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> while call leg B represents the outgoing call from <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to Bob.</p>
 </div>
 <div class="paragraph">
-<p>Both call legs are connected to each other in such way that media can flow both ways, but still remain two independent
-resources in the sense that they can be manipulated and observed separately. As such, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-status callbacks will provide details for each call leg using different parameters.</p>
+<p>Both call legs are connected to each other in such way that media can flow both ways, but still remain two independent resources in the sense that they can be manipulated and observed separately. As such, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> status callbacks will provide details for each call leg using different parameters.</p>
 </div>
 <div class="paragraph">
 <p>In the above call flow, where Bob answers the call from Alice, there will be two final status notifications:</p>
@@ -2088,10 +2076,7 @@ status callbacks will provide details for each call leg using different paramete
 <p><span class="image"><img src="../_images/bridged_call_busy.png" alt="Bridge Calls - Bob is busy"></span></p>
 </div>
 <div class="paragraph">
-<p>In this scenario the inbound call leg final status is <code>completed</code> because <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-answered the call from Alice and executed the RCML.
-On the other hand, the final status for the outbound call leg will be <code>busy</code> because the client Bob refused to answer the
-call.</p>
+<p>In this scenario the inbound call leg final status is <code>completed</code> because <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> answered the call from Alice and executed the RCML. On the other hand, the final status for the outbound call leg will be <code>busy</code> because the client Bob refused to answer the call.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -2108,14 +2093,10 @@ call.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>The fact that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-keeps a separate state per call leg provides great flexibility to application developers and enables dynamic call flows.</p>
+<p>The fact that <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> keeps a separate state per call leg provides great flexibility to application developers and enables dynamic call flows.</p>
 </div>
 <div class="paragraph">
-<p>In the previous example and after the call leg to Bob terminates, lparam:replace[textMode="sps",parmText="application_name",text="Restcomm",defaultText="$INFER_FROM_DOMAIN"]
-will send a request to the Application Server (AS) informing that the Dial operation terminates and that the status of
-the outbound leg was <code>busy</code> and requesting the AS to provide the next set of RCML instructions. At this point, the AS
-understands that the call to Bob failed so it can provide RCML that allows to reach a fallback contact:</p>
+<p>In the previous example and after the call leg to Bob terminates, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will send a request to the Application Server (AS) informing that the Dial operation terminates and that the status of the outbound leg was <code>busy</code> and requesting the AS to provide the next set of RCML instructions. At this point, the AS understands that the call to Bob failed so it can provide RCML that allows to reach a fallback contact:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2149,8 +2130,7 @@ understands that the call to Bob failed so it can provide RCML that allows to re
 <h2 id="_call_status_callback"><a class="anchor" href="#_call_status_callback"></a>Call Status callback</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Call Status callback is way for <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-to notify the Application Server about the progress of a call leg.</p>
+<p>The Call Status callback is way for <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to notify the Application Server about the progress of a call leg.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -2165,18 +2145,15 @@ A status callback request does not expect a response.
 </table>
 </div>
 <div class="paragraph">
-<p>If the application server needs to act on a call based on the status callback, it can use the Live Call Modification API
-to modify or terminate the call (read Calls API documentation on how to manipulate a live call).</p>
+<p>If the application server needs to act on a call based on the status callback, it can use the Live Call Modification API to modify or terminate the call (read Calls API documentation on how to manipulate a live call).</p>
 </div>
 <div class="sect2">
 <h3 id="_incomingphonenumber_status_callback"><a class="anchor" href="#_incomingphonenumber_status_callback"></a>IncomingPhoneNumber Status Callback</h3>
 <div class="paragraph">
-<p>The IncomingPhoneNumber resources allows users to set the <code>StatusCallback</code> URL and <code>StatusCallbackMethod</code> in order to
-receive status notifications for every incoming call that targets that number.</p>
+<p>The IncomingPhoneNumber resources allows users to set the <code>StatusCallback</code> URL and <code>StatusCallbackMethod</code> in order to receive status notifications for every incoming call that targets that number.</p>
 </div>
 <div class="paragraph">
-<p>For every request, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-will send the following parameters (among others):</p>
+<p>For every request, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will send the following parameters (among others):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2195,8 +2172,7 @@ will send the following parameters (among others):</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, consider the call flow depicted in the following diagram where <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-will send a notification for every state change during the call lifecycle.</p>
+<p>For example, consider the call flow depicted in the following diagram where <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will send a notification for every state change during the call lifecycle.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../_images/incoming_phone_number_callback.png" alt="Incoming Phone number Status callback"></span></p>
@@ -2208,9 +2184,7 @@ will send a notification for every state change during the call lifecycle.</p>
 <h2 id="_outgoing_voice_calls"><a class="anchor" href="#_outgoing_voice_calls"></a>Outgoing Voice Calls</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> can create
-an outgoing call either by using the RCML Dial verb or by using the Calls API. Each mechanism has its own way of providing
-status notifications.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> can create an outgoing call either by using the RCML Dial verb or by using the Calls API. Each mechanism has its own way of providing status notifications.</p>
 </div>
 <div class="sect2">
 <h3 id="_call_event_and_call_status"><a class="anchor" href="#_call_event_and_call_status"></a>Call event and Call status</h3>
@@ -2331,8 +2305,7 @@ Dial verb itself.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The sequence diagram bellow depicts the call flow for the above RCML, showing the various status callback from both the
-IncomingPhoneNumber and the Dial verb.</p>
+<p>The sequence diagram bellow depicts the call flow for the above RCML, showing the various status callback from both the IncomingPhoneNumber and the Dial verb.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../_images/dial_verb_status_callback.png" alt="Dial verb Status Callback"></span></p>
@@ -2341,8 +2314,7 @@ IncomingPhoneNumber and the Dial verb.</p>
 <div class="sect2">
 <h3 id="_calls_api_status_callback"><a class="anchor" href="#_calls_api_status_callback"></a>Calls API Status Callback</h3>
 <div class="paragraph">
-<p>Using the Calls API we can create an outgoing call and ask <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-to connect to an RCML application.</p>
+<p>Using the Calls API we can create an outgoing call and ask <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> to connect to an RCML application.</p>
 </div>
 <div class="paragraph">
 <p>In the Calls API POST request we can provide the following parameters regarding the status callback:</p>
@@ -2376,12 +2348,10 @@ to connect to an RCML application.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice that the response from <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-will contain details for the created call, such as <code>CallSid</code> and <code>CallStatus</code>.</p>
+<p>Notice that the response from <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will contain details for the created call, such as <code>CallSid</code> and <code>CallStatus</code>.</p>
 </div>
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will handle
-the status callback for an outgoing call generated via Calls API in the exact same way as in the Dial verb.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will handle the status callback for an outgoing call generated via Calls API in the exact same way as in the Dial verb.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram demonstrates the call flow for the above Calls API request.</p>
@@ -2396,8 +2366,7 @@ the status callback for an outgoing call generated via Calls API in the exact sa
 <h2 id="_dial_action_callback"><a class="anchor" href="#_dial_action_callback"></a>Dial Action Callback</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Dial verb action callback will provide only the <strong>final</strong> status for both the inbound and the outbound legs through
-the <code>CallStatus</code> and <code>DialCallStatus</code> parameters, respectively.</p>
+<p>The Dial verb action callback will provide only the <strong>final</strong> status for both the inbound and the outbound legs through the <code>CallStatus</code> and <code>DialCallStatus</code> parameters, respectively.</p>
 </div>
 <div class="paragraph">
 <p>An <code>action</code> url can be set for the Dial, Gather or Record verb and the following parameters can be set:</p>
@@ -2413,9 +2382,7 @@ the <code>CallStatus</code> and <code>DialCallStatus</code> parameters, respecti
 </ul>
 </div>
 <div class="paragraph">
-<p>After executing a verb that contains an <code>action</code> url, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>
-will send a request to that url with the usual call parameters (including the call state) and will then wait for a
-response containing a new set of RCML instructions for how to proceed.</p>
+<p>After executing a verb that contains an <code>action</code> url, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will send a request to that url with the usual call parameters (including the call state) and will then wait for a response containing a new set of RCML instructions for how to proceed.</p>
 </div>
 <div class="admonitionblock important">
 <table>
