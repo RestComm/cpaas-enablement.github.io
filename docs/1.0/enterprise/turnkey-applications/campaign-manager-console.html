@@ -1976,29 +1976,21 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Campaign Manager allows you to send the same SMS to hundreds of thousands of phone numbers within minutes. For more details, please review the <a href="campaign-manager-overview.html">general overview</a>.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Campaign Manager allows you to send the same SMS and Voice Calls to hundreds of thousands of phone numbers within minutes. For more details, please review the <a href="campaign-manager-overview.html">General Documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p>This document contains important information regarding the setup and management of campaigns using the Campaign Manager UI Console.</p>
 </div>
 <div class="paragraph">
-<p>To learn more about the API, please refer to the <a href="../api/campaign-manager-api.html">Getting Started with the Campaign Manager API Guide</a>.</p>
+<p>To learn more about the API, click <a href="campaign-manager-api.html">here</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_accessing_the_campaign_manager_console"><a class="anchor" href="#_accessing_the_campaign_manager_console"></a>Accessing the Campaign Manager Console</h2>
+<h2 id="_campaign"><a class="anchor" href="#_campaign"></a>Campaign</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To access the Campaign Manager Console, please navigate to <a href="https://yourdomain.com/campaignmanagerconsole/" class="bare">https://yourdomain.com/campaignmanagerconsole/</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_sms"><a class="anchor" href="#_sms"></a>SMS</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Once logged into the Campaign Manager console, you can click on SMS on the top menu to go to the SMS section to:</p>
+<p>Once logged into the Campaign Manager console, you can click on Campaign on the top menu to go to the Campaign section to:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2018,11 +2010,14 @@
 <div class="sect3">
 <h4 id="_upload_to_phone_numbers"><a class="anchor" href="#_upload_to_phone_numbers"></a>Upload to Phone Numbers</h4>
 <div class="paragraph">
-<p>Enter the batch name and provide the phone numbers to which you need to send the SMS,  in the Upload To Phone Numbers section. For adding phone numbers you can either upload a .txt file or manually enter the phone numbers. When you are finished, click Next.</p>
+<p>Campaign Name: Enter the campaign name for later reference</p>
+</div>
+<div class="paragraph">
+<p>To numbers: Provide the phone numbers to which you want to initiate the Campaign. You can either upload a .csv or .txt file with each number in a different line or manually enter the phone numbers, again one number per line. When you are done, click Next.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/campaign-manager/upload-to-numbers.png" alt="upload to phone numbers">
+<img src="../_images/campaign-manager/create-campaign-main.jpg" alt="create campaign main screen">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2032,26 +2027,21 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When uploading  a file of To Numbers, make sure to have one number per line as shown in the image below.
+When uploading a file of To Numbers, make sure to have one number per line as shown in the image below.
 </td>
 </tr>
 </table>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/campaign-manager/text-file.png" alt="text file">
+<img src="../_images/campaign-manager/to-numbers.png" alt="upload to phone numbers">
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_upload_from_phone_numbers"><a class="anchor" href="#_upload_from_phone_numbers"></a>Upload From Phone Numbers</h4>
 <div class="paragraph">
-<p>Provide the phone numbers from which the SMS will be sent in the Upload From Phone Numbers section. You can upload a .txt file from Phone Numbers, enter phone numbers manually, or generate From Phone Numbers randomly. When you are finished, click Next.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/campaign-manager/upload-from-numbers.png" alt="upload from phone numbers">
-</div>
+<p>Provide the phone numbers from which the SMS will be sent in the “Upload From Phonenumbers” section. You can upload a .txt file from Phone Numbers, enter phone numbers manually, or generate From Phone Numbers randomly. When you are finished, click Next.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2060,14 +2050,24 @@ When uploading  a file of To Numbers, make sure to have one number per line as s
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In the Generate From Numbers option, you will need to select a country code. The campaign manager will then generate a random source address that corresponds to the selected country code to send the SMS.
+In the Generate From Numbers option, you will need to select a country code. The campaign manager will then generate a random source/from address that corresponds to the selected country code to send the SMS.
 </td>
 </tr>
 </table>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/campaign-manager/from-phone-numbers.jpg" alt="upload from phone numbers">
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_write_your_message"><a class="anchor" href="#_write_your_message"></a>Write Your Message</h4>
+<h4 id="_content"><a class="anchor" href="#_content"></a>Content</h4>
+<div class="paragraph">
+<p>You can select the content type as either SMS or Voice. Based on your selection the screen will refresh and provide a corresponding option.</p>
+</div>
+<div class="sect4">
+<h5 id="_sms"><a class="anchor" href="#_sms"></a>SMS</h5>
 <div class="paragraph">
 <p>Choose the correct type of message encoding, then type your message in the text field provided. When you are finished, click Next.</p>
 </div>
@@ -2077,16 +2077,16 @@ In the Generate From Numbers option, you will need to select a country code. The
 <div class="ulist">
 <ul>
 <li>
-<p><strong>GSM7</strong>:  Supports standard alphabets.</p>
+<p>GSM7: Supports standard alphabets.</p>
 </li>
 <li>
-<p><strong>UCS2</strong>: Supports almost all traditional characters like Simplified Chinese, etc.</p>
+<p>UCS2: Supports almost all traditional characters like Simplified Chinese, etc.</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/campaign-manager/write-your-message.png" alt="write your message">
+<img src="../_images/campaign-manager/content-sms.jpg" alt="content-sms">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2102,14 +2102,37 @@ Encoding will affect the message length. If the message length is more than 160 
 </table>
 </div>
 </div>
+<div class="sect4">
+<h5 id="_voice"><a class="anchor" href="#_voice"></a>Voice</h5>
+<div class="paragraph">
+<p>There are 3 ways to setup Voice campaign as explained below</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Announcement: This is the most simple way where you need to first define an Announcement as explained in Section 4 Announcement. Once Campaign is in progress, the receiver of the call will hear the Announcement.</p>
+</li>
+<li>
+<p>Application: This is if you are looking for a more sophisticated call flow where you want to collect the DTMF from the end user or want to get a call connected to 3rd party for example contact center agent based on input received from users. You need to first define an Application as explained in Section 3 Applications</p>
+</li>
+<li>
+<p>RCML URL: This is for most advanced users who have hosted their own Applications which would return the RCML as explained here <a href="../rcml/overview.html">RCML Documentation</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>DialTimeout: The number of seconds that Campaign Manager should allow the phone to ring before assuming there is no answer. The default is 30 seconds.</p>
+</div>
+</div>
+</div>
 <div class="sect3">
 <h4 id="_schedule_the_campaign"><a class="anchor" href="#_schedule_the_campaign"></a>Schedule the Campaign</h4>
 <div class="paragraph">
-<p>Select the date and time at which you would like to send the SMS to the intended recipients. Once you click next, the campaign status will indicate that it is Scheduled.</p>
+<p>Select the date and time at which you would like to send the SMS to the intended recipients. Or leave the “Schedule Date” field empty to let the campaign be scheduled immediately. Click next to get a preview of Campaign and have final confirmation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/campaign-manager/schedule-campaign.png" alt="schedule campaign">
+<img src="../_images/campaign-manager/schedule-campaign.jpg" alt="schedule campaign screen">
 </div>
 </div>
 </div>
@@ -2122,7 +2145,7 @@ Encoding will affect the message length. If the message length is more than 160 
 <div class="ulist">
 <ul>
 <li>
-<p>The status of the campaign can be changed from <code>Scheduled</code> to <code>Cancelled</code>.</p>
+<p>The status of the campaign can be changed from Scheduled to Cancelled.</p>
 </li>
 </ul>
 </div>
@@ -2135,8 +2158,99 @@ Encoding will affect the message length. If the message length is more than 160 
 <div class="sect2">
 <h3 id="_delete_campaign"><a class="anchor" href="#_delete_campaign"></a>Delete Campaign</h3>
 <div class="paragraph">
-<p>A scheduled campaign can be deleted. To delete a campaign click on the name of the campaign and click the <code>Delete</code> button. Once deleted, the status of the campaign will be marked Cancelled.</p>
+<p>A scheduled campaign can be deleted. To delete a campaign click on the name of the campaign and click the Delete button. Once deleted, the status of the campaign will be marked Cancelled.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_applications"><a class="anchor" href="#_applications"></a>Applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can create a Visual Designer Application here. Check out the <a href="../visual-designer/index.html">Visual Designer Documentation</a> to learn more about how you can do that. Users can view a list of Applications.</p>
+</div>
+<div class="paragraph">
+<p>Visual Designer allows you to define call flow via low-code, no-code, drag and drop tool where you can collect DTMF input from the end user or connect the call to 3rd party like contact center agents and much more.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_announcement"><a class="anchor" href="#_announcement"></a>Announcement</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To navigate to this page click on Announcements on the top header. Announcements allow you to upload audio file (.wav 8Khz only), record your own announcement or write text-to-speech that would be played when a call is established.</p>
+</div>
+<div class="paragraph">
+<p>Users can view a list of all announcements that have been added under the enterprise.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/campaign-manager/create-announcement.jpg" alt="create-announcement">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on “Create Announcement” button</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the name of the announcement.</p>
+</li>
+<li>
+<p>Enter description of the announcement.</p>
+</li>
+<li>
+<p>Announcement can be via “Text to Speech” or “Audio File”</p>
+</li>
+<li>
+<p>For “Audio File”, user can upload a announcement by:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Click on the “Record” button and record the announcement through the browser itself.</p>
+</li>
+<li>
+<p>Drop the wav file with 8 khz mono specification from the local files into the specified field.</p>
+</li>
+<li>
+<p>Click on “Browse” and select the audio file of announcement from the local files (wav file with 8khz mono specification)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For “Text to Speech” (TTS), user can</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Specify Language of TTS</p>
+</li>
+<li>
+<p>Specify Voice. Options depend upon the TTS providers and are as below:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Google: Male and Female</p>
+</li>
+<li>
+<p>AWS Polly: Male and Female</p>
+</li>
+<li>
+<p>Acapela: Man and Woman</p>
+</li>
+<li>
+<p>Voicerss: Female(only)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Specify TTS body/text.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -2144,7 +2258,7 @@ Encoding will affect the message length. If the message length is more than 160 
 <h2 id="_search"><a class="anchor" href="#_search"></a>Search</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can search campaigns and details based on different filter parameters. Search by Campaign or Credit by going to the Search option on the top Menu and selecting the appropriate option.</p>
+<p>You can search campaigns and credits based on different filter parameters.</p>
 </div>
 <div class="sect2">
 <h3 id="_search_campaign"><a class="anchor" href="#_search_campaign"></a>Search Campaign</h3>
@@ -2154,22 +2268,25 @@ Encoding will affect the message length. If the message length is more than 160 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Start Date</strong>: Display campaigns created on or after this date.</p>
+<p>Start Date: Display campaigns created on or after this date.</p>
 </li>
 <li>
-<p><strong>End Date</strong>: Display campaigns created on or before this date.</p>
+<p>End Date: Display campaigns created on or before this date.</p>
 </li>
 <li>
-<p><strong>Campaign Name</strong>: Display campaigns the partially or fully match the entered value.</p>
+<p>Campaign Name: Display campaigns the partially or fully match the entered value.</p>
 </li>
 <li>
-<p><strong>Status</strong>: Display campaigns with the Status selected from the dropdown. The values available are Initiating, Scheduled, In Progress, Completed, Failed, Cancelled, and All Status. The default value is All Status.</p>
+<p>Status: Display campaigns with the Status selected from the dropdown. The values available are Initiating, Scheduled, In Progress, Completed, Failed, Cancelled, and All Status. The default value is All Status.</p>
+</li>
+<li>
+<p>Channel: Display campaigns based on channel selection.</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/campaign-manager/search-campaign.png" alt="search campaign">
+<img src="../_images/campaign-manager/search-campaign.jpg" alt="search-campaign">
 </div>
 </div>
 <div class="sect3">
@@ -2179,7 +2296,7 @@ Encoding will affect the message length. If the message length is more than 160 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/campaign-manager/campaign-details.png" alt="campaign details">
+<img src="../_images/campaign-manager/campaign-details.jpg" alt="campaign-details">
 </div>
 </div>
 </div>
@@ -2187,26 +2304,76 @@ Encoding will affect the message length. If the message length is more than 160 
 <div class="sect2">
 <h3 id="_search_credit"><a class="anchor" href="#_search_credit"></a>Search Credit</h3>
 <div class="paragraph">
-<p>You can search all the credits added by your Communications Provider to your business. Credits help you to create campaigns and send SMS to your own customers or audience. This model is pre-paid to make sure that cost will never overrun the budget you have available.
-The different filter options available to search credits are:</p>
+<p>You can search all the credits added by <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> to your business. Credits help you to create campaigns and send SMS/Voice to your own customers or audience. This model is pre-paid to make sure that cost will never overrun the budget you have available.</p>
+</div>
+<div class="paragraph">
+<p>Possible filter options include:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Start Date</strong>: Display credits created on or after this date.</p>
+<p>Start Date: Display credits created on or after this date.</p>
 </li>
 <li>
-<p><strong>End Date</strong>: Display credits created on or before this date.</p>
+<p>End Date: Display credits created on or before this date.</p>
 </li>
 <li>
-<p><strong>Type</strong>: Display credits with the selected type. The possible values of type are Credit, Debit, and All Types.</p>
+<p>Type: Display credits with the selected type. The possible values of type are Credit, Debit, and All Types.</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/campaign-manager/search-credit.PNG" alt="serach credit">
+<img src="../_images/campaign-manager/search-credit-details.jpg" alt="search-credit">
 </div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Whenever Campaign is scheduled, equivalent Credit is deducted.</p>
+</li>
+<li>
+<p>If there is not enough Credit available, scheduling of Campaign will fail.</p>
+</li>
+<li>
+<p>If Scheduled Campaign is cancelled, equivalent Credit is added back.</p>
+</li>
+<li>
+<p>Once a Campaign progresses to InProgress state, Credit cannot be reversed, no matter what.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>One credit is equal to 1 SMS or 1 Voice call.</p>
+</li>
+<li>
+<p>For example,if you have 100 credits, you can only send 100 SMS Segments or 100 Voice calls.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_credit_details"><a class="anchor" href="#_credit_details"></a>Credit Details</h4>
@@ -2215,7 +2382,7 @@ The different filter options available to search credits are:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../_images/campaign-manager/credit-details.png" alt="credit details">
+<img src="../_images/campaign-manager/search-credit-details.jpg" alt="search-credit">
 </div>
 </div>
 </div>
