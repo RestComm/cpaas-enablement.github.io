@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="en" class="csp-persona">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
+    <title data-custom-title="Visual Designer Usage Guide - Restcomm Docs"></title>
+    <link rel="canonical" href="
+      https://www.restcomm.com/docs/1.0/visual-designer/Visual-Designer-Usage-Guide.html
+    ">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
+    <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <!-- Not using it for now
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      </head>
+  <body class="article" >
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        -->
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" id="Reference" href="/docs/1.0/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" id="TurnkeyApplications" href="/docs/1.0/visual-designer/index.html">Visual Designer</a>
+        <a class="navbar-enterprise-item" id="Tutorials" href="/docs/1.0/tutorials/index.html">Tutorials</a>
+
+
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="docs" data-version="1.0" >
+  <aside class="navigation">
+    <div class="panels">
+  <div class="navigation-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+      <!-- Not applicable to our Enterprise docs
+    <h3 class="title"><a href="../index.html">docs</a></h3>
+    -->
+        <ul class="nav-list">
+          <ul class="nav-list">
+  </ul>
+          <ul class="nav-list">
+              <li id="Visual Designer Overview"
+                  class="nav-item"
+                  data-depth="1">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="Visual-Designer-Overview.html">Visual Designer Overview</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Visual Designer Usage Guide"
+                  class="nav-item is-current-page"
+                  data-depth="1">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="Visual-Designer-Usage-Guide.html">Visual Designer Usage Guide</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Overview"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_overview">Overview</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Getting Started"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_getting_started">Getting Started</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Visual Designer Verbs"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_visual_designer_verbs">Visual Designer Verbs</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Say Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_say_verb">Say Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Play Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_play_verb">Play Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Collect Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_collect_verb">Collect Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Dial Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_dial_verb">Dial Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Redirect Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_redirect_verb">Redirect Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Record Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_record_verb">Record Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Hangup Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_pause_verb">Hangup Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Reject Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_reject_verb">Reject Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Pause Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_pause_verb">Pause Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="SMS Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_sms_verb">SMS Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Email Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_email_verb">Email Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Control Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_control_verb">Control Verb</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="External Service"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_external_service_verb">External Service</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Log Verb"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_log_verb">Log Verb</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="Visual Designer Variables"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_visual_designer_variables">Visual Designer Variables</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Core Variables"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_core_variables">Core Variables</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Custom Variables"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_custom_variables">Custom Variables</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="Application Configuration"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_additional_application_settings">Application Configuration</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Application Diagram"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_application_diagram">Application Diagram</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Application URL"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_application_url">Application URL</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Web Trigger"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_web_trigger">Web Trigger</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="Application Management"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_application_management">Application Management</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Importing an Application"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_importing_an_application">Importing an Application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Exporting an Application"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_exporting_an_application">Exporting an Application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Deleting an Application"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="#_deleting_an_application">Deleting an Application</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+  </ul>
+              </li>
+              <li id="Visual Designer API"
+                  class="nav-item"
+                  data-depth="1">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html">Visual Designer API</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="List Application Templates"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">List Application Templates</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="List a Specific Application Templates"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">List a Specific Application Templates</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Create a Visual Designer"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Create a Visual Designer</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Get Application Details"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Get Application Details</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Save Application Changes"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Save Application Changes</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Create Application Parameters"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Create Application Parameters</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="List Application Parameters"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">List Application Parameters</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Delete Application Parameters"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Delete Application Parameters</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Upload Application Media Files"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Upload Application Media Files</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="List Application Media Files"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">List Application Media Files</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Play Application Media Files"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Play Application Media Files</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Get Application Logs"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Get Application Logs</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Delete Application Logs"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Delete Application Logs</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Get Application Settings"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Get Application Settings</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Modify Application Settings"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Modify Application Settings</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Rename a Visual Designer Application"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Rename a Visual Designer Application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Delete a Visual Designer Application"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Delete a Visual Designer Application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Get Visual Designer Configuration"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+                  <span class="nav-flex-item-icon"></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/visual-designer-api.html#_create_a_visual_designer_application">Get Visual Designer Configuration</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+  </ul>
+  </ul>
+    </nav>
+  </div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<!--
+
+-->
+<div class="toolbar" role="navigation" style="display: none;">
+  <button class="navigation-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="../index.html">docs</a></li>
+    <li class="crumb"><a href="Visual-Designer-Usage-Guide.html">VDCSP:Visual Designer Usage Guide</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc fix-anchor-links-position">
+  <h1>Visual Designer Usage Guide</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Restcomm Visual Designer is an easy to use graphical tool that enables non-programmers to design  and manage telecommunications applications. Drag and drop actions to support the quick development of a wide range of Voice &amp; Messaging applications. A set or series of actions and operations can be saved as a package to be shared and reused in other, more sophisticated applications and services.</p>
+</div>
+<div class="paragraph">
+<p>For example, one can start with a simple call flow in which an incoming call to a specific phone number is received and routed to a recorded message. You can then create an interactive voice response (IVR) menu. From the menu, you can allow callers to leave a voicemail, send them an SMS, or forward the call to different phone numbers or agents. In addition, you can use Visual Designer modules to integrate and automate calls to a customer from a third-party platform (CRMs, marketing automation tools, support portals etc). It is also possible to retrieve customer information from a database and send targeted A2P (Application-to-Person) marketing messages by SMS using your favorite programming language.</p>
+</div>
+<div class="paragraph">
+<p>The Visual Designer environment makes fast work of prototyping your telecom applications on the Restcomm platform. You do not need to develop a custom client to test your applications. Restcomm comes with a <a href="../tutorials/How-to-use-the-Restcomm-WebRTC-Demo.html">WebRTC Demo</a>, which helps you do that quickly. Diagnostics and <a href="Visual-Designer-Usage-Guide.html#_log_verb">logging tools</a> for generated code and call attempts provide clear visibility in the output of each step during the development process.</p>
+</div>
+<div class="sect2">
+<h3 id="_who_can_use_visual_designer"><a class="anchor" href="#_who_can_use_visual_designer"></a>Who Can Use Visual Designer</h3>
+<div class="paragraph">
+<p>Visual Designer can be used by anyone at your organization to create their own applications or use ready-made ones from the Template Gallery.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_visual_designer_features"><a class="anchor" href="#_visual_designer_features"></a>Visual Designer Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="Visual-Designer-Usage-Guide.html#_designing_your_visual_designer_application">Design</a> and customize an application</p>
+</li>
+<li>
+<p>Execute an application via inbound voice call, SMS, or <a href="Visual-Designer-Usage-Guide.html#_web_trigger">Web Trigger</a></p>
+</li>
+<li>
+<p><a href="Visual-Designer-Usage-Guide.html#_importing_an_application">Import</a> and <a href="Visual-Designer-Usage-Guide.html#_exporting_an_application">export</a> an application</p>
+</li>
+<li>
+<p>Create and pass application or module variables</p>
+</li>
+<li>
+<p>Make routing decision based on a variable value</p>
+</li>
+<li>
+<p>Monitor and troubleshoot application modules through the application log</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started"><a class="anchor" href="#_getting_started"></a>Getting Started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can start using Visual Designer by navigating to <code>your Restcomm Console</code> &#8594; <code>Applications</code> &#8594; <code>+Add New App</code> then clicking on the <code>Create Visual Designer application</code> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/getting-started.png" alt="Create an Application in the Console">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_main_components"><a class="anchor" href="#_main_components"></a>Main Components</h3>
+<div class="paragraph">
+<p>Below you can find out more about the main components of Visual Designer and how they can be in handy for you.</p>
+</div>
+<div class="sect3">
+<h4 id="_application"><a class="anchor" href="#_application"></a>Application</h4>
+<div class="paragraph">
+<p>An Application is the main Visual Designer entity. It represents your project and consists of modules and verbs. There are two types of applications you can build - Voice, SMS. Each application can have as many modules and verbs as you would like.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_modules"><a class="anchor" href="#_modules"></a>Modules</h4>
+<div class="paragraph">
+<p>Modules are the main Application components. Each one of those consists of a minimum one verb. There is no limit on the amount of modules used within an application as long as their names are unique. Modules are collections of programming statements and commands that use the Restcomm APIs. This means that programmers can reuse the commands and APIs available with other programming languages as desired. In addition, it is easy to incorporate input and output from <a href="Visual-Designer-Usage-Guide.html#_external_service_verb">external services</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_verbs"><a class="anchor" href="#_verbs"></a>Verbs</h4>
+<div class="paragraph">
+<p><a href="Visual-Designer-Usage-Guide.html#_visual_designer_verbs">Verbs</a> are the main Module’s components. A verb can trigger a single or multiple actions within a Visual Designer application. For example, a Collect verb can play an announcement to the user and also collect DTMF input. Often one and the same verb can be used multiple times within the same application module. Most of the verbs have a set of required configuration settings you must set up in order for those to be executed.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If required configuration fields are left undefinedunset, the application will be saved with validation errors and will not function properly.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_actions"><a class="anchor" href="#_actions"></a>Actions</h4>
+<div class="paragraph">
+<p>Actions are triggered when an application is executed. The number of actions varies based on the verb(s) used in an application module. In some cases multiple actions may be triggered for a single application module. For example, a DTMF input can be gathered using the <a href="Visual-Designer-Usage-Guide.html#_collect_verb">Collect verb</a> and assigned to an application wide variable.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/visual-designer-application-architecture.png" alt="Visual Designer Application Architecture">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_designing_your_visual_designer_application"><a class="anchor" href="#_designing_your_visual_designer_application"></a>Designing Your Visual Designer Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The variety of verbs inside Visual Designer makes it possible to build applications that cover various business functions. Before diving into the designing process make sure to first get familiar with each of the verbs capabilities. That will help you determine the right application design and save you time while designing.</p>
+</div>
+<div class="sect2">
+<h3 id="_visual_designer_verbs"><a class="anchor" href="#_visual_designer_verbs"></a>Visual Designer Verbs</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_say_verb"><a class="anchor" href="#_say_verb"></a>Say Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/say-verb.png" alt="Say Verb">
+</div>
+</div>
+<div class="paragraph">
+<p>The <a href="../rcml/say-rcml.html">Say verb</a> is one of the most commonly used within voice applications. It lets you play an announcement to the user. You can select the Language and voice type (male/female) for it, as well the number of times you want the announcement to be repeated. Say can be used alone or in combination with Collect.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_play_verb"><a class="anchor" href="#_play_verb"></a>Play Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/play-verb-url.png" alt="Play Verb URL">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/play-verb-project-wav.png" alt="Play Verb Project WAV">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="../rcml/play-rcml.html">Play verb</a> allows you to play media files to the application user. You can choose between playing .wav files uploaded directly within your application or select one from the ready made URL wav files library.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you choose to play a media file uploaded within your project, be aware of the required <a href="../rcml/play-rcml.html#_media_server_audio_file_format">media file format</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_collect_verb"><a class="anchor" href="#_collect_verb"></a>Collect Verb</h3>
+<div class="paragraph">
+<p>The Collect verb makes it easy to create IVR menus, gather DTMF input from the caller, and execute a followup application module.</p>
+</div>
+<div class="paragraph">
+<p>DTMF input can be gathered in two ways: by assigning the digit pressed to an application or module available variable, or by mapping it to an application module that will be executed next.</p>
+</div>
+<div class="sect3">
+<h4 id="_assigning_dtmf_input_to_a_variable"><a class="anchor" href="#_assigning_dtmf_input_to_a_variable"></a>Assigning DTMF Input to a Variable</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Drag and drop a Say verb inside Collect. Use the Say verb to create an announcement with options that will be played to the caller.</p>
+</li>
+<li>
+<p>Click on the gear icon and select the language in which you would like the announcement to be played.</p>
+</li>
+<li>
+<p>Set the number of times you would like the announcement to be played in the <code>Repeat # times</code> field. Leave it blank if you would like to play it only once.</p>
+</li>
+<li>
+<p>Under <code>Create a menu or collect digits</code> section, choose to <code>Collect digits.</code></p>
+</li>
+<li>
+<p>Next, you need to give a name to the variable under which the DTMF will be stored. Enter the desired variable name in the <code>Assign to</code> field. Define the variable <code>Scope.</code> You can either make it available for the whole application or for this particular application module.</p>
+</li>
+<li>
+<p>Once the input is gathered and stored under a variable, the app will proceed to a <code>Continue to</code> module. Make sure to select the proper followup module from the <code>Continue to</code> drop down.</p>
+</li>
+<li>
+<p>Optionally you can play a message to the caller if no input has been received.</p>
+</li>
+<li>
+<p>In addition, you may specify a <code>Validation pattern</code>. Either as an array of values to validate from or using a regex expression. You can set the validation pattern type from the drop-down next to the <code>Validation pattern</code> input field.</p>
+</li>
+<li>
+<p>If the validation pattern fails, a message can be played to the caller. That can be added under the <code>Say if invalid</code> field.</p>
+</li>
+<li>
+<p>In some cases you may want to let the caller end the call by pressing a particular digit. You can specify that under the <code>Finish on key</code> field. When that digit is pressed, the application will stop executing further modules and the call will be disconnected.</p>
+</li>
+<li>
+<p>Sometimes the caller may press more digits at once than the available options. That will lead to the call being disconnected. To avoid that, you can limit the number of digits pressed under the <code>Number of digits</code> field.</p>
+</li>
+<li>
+<p>Optionally you can set a module <code>Timeout</code> in seconds. If the caller does not press a digit during that time, the call will disconnect.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/collect-digits.png" alt="Collect Digits">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_collecting_dtmf_input"><a class="anchor" href="#_collecting_dtmf_input"></a>Collecting DTMF Input</h4>
+<div class="paragraph">
+<p>This step assumes that you have already specified the Say announcement to be played to the caller inside Collect. Set the desired language and number of times you would like the announcement to be played.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Under the <code>Create a menu or collect digits</code> section, choose <code>Menu.</code></p>
+</li>
+<li>
+<p>Next, map Digit option to the Target module which will be executed next once the DTMF is received.</p>
+</li>
+<li>
+<p>Make sure to map all the Digit options with their corresponding Targets. If a Target is left blank, the application will not execute further and the call will be disconnected.</p>
+</li>
+<li>
+<p>You can play a message to the caller if no input has been received.</p>
+</li>
+<li>
+<p>In addition, you may play a message to the user if the Validation fails. You can enter that in the <code>Say if invalid</code> field.</p>
+</li>
+<li>
+<p>In some cases you may want to let the caller end the call by pressing a particular digit. You can specify that under the <code>Finish on key</code> field. When that digit is pressed the application will stop executing further modules and the call will be disconnected.</p>
+</li>
+<li>
+<p>Sometimes the caller may press more digits at once than the available options. That will lead to the call being disconnected. To avoid that, you can limit the number of digits pressed under the <code>Number of digits</code> field.</p>
+</li>
+<li>
+<p>Optionally you can set a module <code>Timeout</code> in seconds. If the caller does not press a digit during that time the call will disconnect.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/collect-dtmf.png" alt="Collect DTMF">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When using Collect make sure to properly map digits option with Targets and set Continue to modules when necessary. Missing digits mappings will result in errors while trying to save your application and malfunction of the application.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dial_verb"><a class="anchor" href="#_dial_verb"></a>Dial Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/dial-verb.png" alt="Dial Verb">
+</div>
+</div>
+<div class="paragraph">
+<p>The <a href="../rcml/dial-rcml.html">Dial verb</a> helps you connect a caller to another party. You can dial a phone number, SIP client, SIP URI, or a conference room. When the dialed party answers the call, the two call participants are connected and may communicate until one of them disconnects.</p>
+</div>
+<div class="paragraph">
+<p>A call will end if:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the called party does not pick up</p>
+</li>
+<li>
+<p>the called party is busy</p>
+</li>
+<li>
+<p>The dialed number is invalid or out of reach</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Before Connect</strong></p>
+</div>
+<div class="paragraph">
+<p>Within the Dial verb you may want to set a Say message from another application module to be played to the caller while waiting to be connected.</p>
+</div>
+<div class="paragraph">
+<p><strong>StatusCallBack</strong></p>
+</div>
+<div class="paragraph">
+<p>You may set a StatusCallBack URL or module to pass along the status of the Dial attempt. For more information about the possible Dial attempt statuses, please check out the <a href="../rcml/dial-rcml.html">Dial RCML</a> documentation.</p>
+</div>
+<div class="paragraph">
+<p><strong>Caller ID</strong></p>
+</div>
+<div class="paragraph">
+<p>When dialing a number you may want to set a Caller ID to be displayed to the called party. For example, if you are dialing +12223334444 with Caller ID +16667778888, the called party will see +16667778888 as caller ID of the incoming call. The Caller ID can take the value of a phone number, as well as any core or custom Visual Designer variable.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Restcomm supports setting up a Caller ID for Numbers and Conferences only.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Timeout</strong></p>
+</div>
+<div class="paragraph">
+<p>With Dial you can set a dial connection timeout in seconds. When the specified period of time expires, the connection is terminated.</p>
+</div>
+<div class="paragraph">
+<p><strong>Time limit</strong></p>
+</div>
+<div class="paragraph">
+<p>Time limit helps you set the length of a call in seconds. When the specified period of time expires, the call is terminated.</p>
+</div>
+<div class="paragraph">
+<p><strong>Continue to</strong></p>
+</div>
+<div class="paragraph">
+<p>You may want to execute another application module once the call is completed. To do that you can simply choose the desired module from the Continue to drop-down menu.</p>
+</div>
+<div class="paragraph">
+<p><strong>Record</strong></p>
+</div>
+<div class="paragraph">
+<p>If you would like to record calls you can select the <code>Yes</code> option from the Record drop down.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Recording of Conference calls is not supported.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Ringback tone</strong></p>
+</div>
+<div class="paragraph">
+<p>The Ringback tone lets you change the default dial tone to a .wav file hosted in your application or public service.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_redirect_verb"><a class="anchor" href="#_redirect_verb"></a>Redirect Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/redirect-to-a-module.png" alt="Redirect to a module">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/redirect-to-a-url.png" alt="Redirect to a URL">
+</div>
+</div>
+<div class="paragraph">
+<p>The <a href="../rcml/redirect-rcml.html">Redirect verb</a> lets you redirect the user to another application module or a URL application. The allowed methods for URL applications are POST and GET. Redirect can be used in both Voice and SMS applications.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hangup_verb"><a class="anchor" href="#_hangup_verb"></a>Hangup Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/hangup-verb.png" alt="Hangup Verb">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="../rcml/hangup-rcml.html">Hang up</a> allows you to disconnect the call. If used as a first verb in your application it will result in answering the call and immediately hanging up after. If you would like the call to be unanswered, use the <a href="Visual-Designer-Usage-Guide.html#_reject_verb">Reject verb</a> instead.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reject_verb"><a class="anchor" href="#_reject_verb"></a>Reject Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/reject-verb.png" alt="Reject Verb">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="../rcml/reject-rcml.html">Reject</a> lets you reject a call for a particular reason. Possible options include: busy, rejected, forbidden, anonymity_disallowed, address_incomplete, no_route, service_unavailable, unwanted. Reject can be used when you do not want to answer a call and avoid additional billing of your account.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pause_verb"><a class="anchor" href="#_pause_verb"></a>Pause Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/pause-verb.png" alt="Pause Verb">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="../rcml/pause-rcml.html">Pause</a> makes it possible to add a pause in seconds between different Say announcements.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sms_verb"><a class="anchor" href="#_sms_verb"></a>SMS Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/sms-verb.png" alt="SMS Verb">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="../rcml/sms-rcml.html">SMS</a> makes it possible to send a message from one phone number or client to another. If the text of the message exceeds 163 characters, the text is <a href="../api/sms-category.html">split</a>. Optionally you can set a Status callback URL.This verb can be used both in Voice and SMS applications.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_email_verb"><a class="anchor" href="#_email_verb"></a>Email Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/email-verb.png" alt="Email Verb">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="../rcml/email-rcml.html">Email verb</a> enables you to send emails via your Visual Designer application. You can set the email body, subject, sender, and recipient email addresses. Optionally you can add CC and BCC recipients. Email can be used in both Voice and SMS applications.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_record_verb"><a class="anchor" href="#_record_verb"></a>Record Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/record-verb.png" alt="Record Verb">
+</div>
+</div>
+<div class="paragraph">
+<p>You may wish to record voice messages while you are unable to pick up the phone. <a href="../rcml/record-rcml.html">Record</a> lets you play a beep before the recording starts. Optionally you can put a timeout and maximum length of the messages in seconds. You can also set the finish on key. When the user presses it the recording will end. In addition, you must specify Continue to module. For example, when you would like voicemail to be sent to your email address.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_control_verb"><a class="anchor" href="#_control_verb"></a>Control Verb</h3>
+<div class="paragraph">
+<p>The Control verb performs basic tasks based on a set of conditions. It is the equivalent of if-then control structure in developer terms. Control consists of conditions and actions. If the conditions are met, the actions are executed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conditions"><a class="anchor" href="#_conditions"></a>Conditions</h3>
+<div class="paragraph">
+<p>You can create conditions using multiple operators or regex expressions.</p>
+</div>
+<div class="paragraph">
+<p>Available operators include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Equal</p>
+</li>
+<li>
+<p>Not equal</p>
+</li>
+<li>
+<p>Greater</p>
+</li>
+<li>
+<p>Greater or equal</p>
+</li>
+<li>
+<p>Less</p>
+</li>
+<li>
+<p>Less or equal</p>
+</li>
+<li>
+<p>Regex match</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/control-verb-conditions.png" alt="Control Verb Conditions">
+</div>
+</div>
+<div class="paragraph">
+<p>You can compare two operands either as a text (ABCD) or as numbers (1234). For numeric comparison, the operands shall be convertible to numbers. Floats are supported. For text based comparisons any operand will work. You can switch between comparison types using the ABCD/123 link right after the operands input fields.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Be aware while working with operands that numbers or text will not always render the same result. For example 4 is not greater than 05. At the same time '4' is greater than '05'. Make sure to always use the correct comparison type.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Regex Match</strong></p>
+</div>
+<div class="paragraph">
+<p>Regex match attempts to match a string (or a portion of it) to the regular expression specified in the pattern parameter. If a match is found it evaluates to true.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/control-verb-regex-match.png" alt="Control Verb Regex Match">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Handling Multiple Conditions</strong></p>
+</div>
+<div class="paragraph">
+<p>More than one condition can be evaluated within the Control element. When multiple conditions are set, each one of them will be evaluated individually and the results will be combined to determine the status of the whole complex condition. This can be achieved in two ways. Either All conditions should stand (AND operation) or Any condition should stand (OR operation).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In case no condition is present, the Control element will evaluate to true and the following actions will be executed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Actions</strong></p>
+</div>
+<div class="paragraph">
+<p>Actions represent a number of tasks that are sequentially executed if the condition(s) evaluate to true. Three types of actions are available to use: Assign, Capture, and Continue to.</p>
+</div>
+<div class="paragraph">
+<p><strong>Capture</strong></p>
+</div>
+<div class="paragraph">
+<p>You can capture part of a string according to a specified regex pattern and assign the captured value to a variable. Make sure to use a pair of parentheses to designate the captured segment. The use of a single pair parenthesis is obligatory inside the pattern parameter. In addition, only literal regex patterns are supported.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/control-verb-multiple-conditions.png" alt="Control Verb Multiple Conditions">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Assign</strong></p>
+</div>
+<div class="paragraph">
+<p>The Assign action lets you create a variable and assign a value to it once the Conditions are sequentially executed. It can be available either within the same application module or the whole application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/control-verb-assign.png" alt="control verb assign">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Continue to</strong></p>
+</div>
+<div class="paragraph">
+<p>With the help of Continue to you can specify which application module shall be executed next.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/control-verb-continue-to.png" alt="control verb continue to">
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Make sure to only include a single Continue to action in a Control element and always make it last. If Continue to is not last, the action specified afterward will not be executed. The application will continue to another module instead. You can alter the order of actions using the reorder button on the right of the action row.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_external_service_verb"><a class="anchor" href="#_external_service_verb"></a>External Service Verb</h3>
+<div class="paragraph">
+<p>External Service is one of the most powerful Visual Designer verbs. It can be used as a tool for making HTTP requests to external services and processing their responses. The following functionalities are supported within Visual Designer:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>GET or POST request methods</p>
+</li>
+<li>
+<p>JSON or web form content types</p>
+</li>
+<li>
+<p>HTTP or HTTPS schemes</p>
+</li>
+<li>
+<p>Basic HTTP authentication</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_external_service_get_request"><a class="anchor" href="#_external_service_get_request"></a>External Service GET Request</h4>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/external-service-get-request.png" alt="External Service GET Request">
+</div>
+</div>
+<div class="paragraph">
+<p>By default all requests are using the GET method. Note that name-value parameter is user defined. Such parameters are appended in the query when the request is made. It is a good practice to keep the service parameters in their own fields rather than putting them directly in the Service Url field.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_example"><a class="anchor" href="#_request_example"></a>Request Example</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>GET /services/simpleGetRequest?name=foo HTTP/1.1
+Host: yourdomain.com
+Response: HTTP/1.1 200 OK</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_variable_expansion"><a class="anchor" href="#_variable_expansion"></a>Variable Expansion</h4>
+<div class="paragraph">
+<p>Both Service Url and Value fields support variable expansion. That means that all $variables and references to them will be replaced by their actual value before the request is being made.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/external-service-variable-expansion.png" alt="external service variable expansion">
+</div>
+</div>
+<div class="paragraph">
+<p>Here the <code>$firstname</code> variable will be expanded to its actual content.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>$firstname → name</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_external_service_post_request"><a class="anchor" href="#_external_service_post_request"></a>External Service POST Request</h4>
+<div class="paragraph">
+<p>To change the default request method you will have to modify the External Service advanced settings. You can access those by clicking on the gear icon below the <code>add service parameter</code> button. Select POST from the Method drop down. Then set the content type to www-form or json. If you wish, you can manually add the POST body in the text area below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/external-service-post-request.png" alt="External Service POST Request">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that the service parameters will be ignored if url-encoded request body is provided. If you are entering a JSON body, make sure to use double quotes. For example:
+<code>{"firstname":"$firstname","lastname":"bar"}</code>. Visual Designer cannot differentiate between the various JSON types. Therefore it runs a search and replace. The goal is to ensure that a valid JSON expression is generated in the end.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_example_2"><a class="anchor" href="#_request_example_2"></a>Request Example</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>POST /services/simplePostRequest HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+firstname=foo&amp;lastname=bar
+
+Response
+HTTP/1.1 200 OK</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_basic_http_authentication"><a class="anchor" href="#_using_basic_http_authentication"></a>Using Basic HTTP Authentication</h4>
+<div class="paragraph">
+<p>If a service is using basic HTTP authentication, you will need to additionally provide user credentials, such as username and password as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/external-service-http-authentication.png" alt="External Service HTTP Authentication">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_handling_service_http_errors"><a class="anchor" href="#_handling_service_http_errors"></a>Handling Service HTTP Errors</h4>
+<div class="paragraph">
+<p>In case your external service is failing you may want to notify the caller about that. You can create an additional application module to be executed when the error occurs.</p>
+</div>
+<div class="paragraph">
+<p>To do that you can create a new module named Service Error Announcement. Drag and drop a Say verb into it and enter the announcement inside.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/external-service-errors-handling.png" alt="External Service Errors Handling">
+</div>
+</div>
+<div class="paragraph">
+<p>Next, get back to your external service module and navigate to the Error &amp; Timeouts section. Select the Service Error Announcement module from the On HTTP Error drop down. Optionally you can set Timeout in seconds after which this announcement will be played to the caller in case of external service failure. Lastly you may want to create an application module with another announcement to be played when Connection errors and Timeouts occur.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/external-service-errors-and-timeouts.png" alt="External Service Errors and Timeouts">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_log_verb"><a class="anchor" href="#_log_verb"></a>Log Verb</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/log-verb.png" alt="Log Verb">
+</div>
+</div>
+<div class="paragraph">
+<p>Log verb is designed to help you troubleshoot Visual Designer applications. It allows you to add text, refer to application or module variables, and see if those are properly captured in the application logs. If properly captured, you shall see the corresponding variable values printed in the logs. This module can be added to any application module and can be used in both Voice and SMS applications.</p>
+</div>
+<div class="sect3">
+<h4 id="_accessing_visual_designer_application_logs"><a class="anchor" href="#_accessing_visual_designer_application_logs"></a>Accessing Visual Designer Application Logs</h4>
+<div class="paragraph">
+<p>In order to start capturing Application logs you shall first enable that option from the Application settings. To do that, navigate to your <code>application name</code> &#8594; <code>Settings</code>. Go to the <code>Application logging</code> section and click on the check box next to <code>Enable</code>. Next, select what types of logs you would like to gather. Possible options include: RCML and External Service request and responses. Click <code>Save</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/accessing-the-visual-designer-application-logs.png" alt="Accessing the Visual Designer Application Logs">
+</div>
+</div>
+<div class="paragraph">
+<p>Once the application logging is enabled you will be able to see logs for each execution of your application. You can access the logs console by navigating to <code>your application name</code> &#8594; <code>Log</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deleting_visual_designer_application_logs"><a class="anchor" href="#_deleting_visual_designer_application_logs"></a>Deleting Visual Designer Application Logs</h4>
+<div class="paragraph">
+<p>You can delete your application logs by clicking on the <code>Reset</code> button in the Logs console screen.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_visual_designer_variables"><a class="anchor" href="#_visual_designer_variables"></a>Visual Designer Variables</h3>
+<div class="paragraph">
+<p>While designing your application you may use Restcomm core variables to retrieve user information that comes from the inbound call or SMS, as well as refer to custom variables introduced within modules that store values and pass those from one module to another.</p>
+</div>
+<div class="sect3">
+<h4 id="_core_variables"><a class="anchor" href="#_core_variables"></a>Core Variables</h4>
+<div class="paragraph">
+<p>The Visual Designer core variables are system-defined and can be accessed within most of the Visual Designer verbs by navigating to the Lookup variable dropdown. They can be easily recognized within the customly introduced ones by the <code>core_</code> prefix of their names. Below you can find more about each variable and what information it retrieves.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Variable Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_AccountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the corresponding Account SID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_Body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the body text of an SMS message</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_CallerName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the caller name (if specified)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_CallSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the caller Sid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_CallStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the call status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_CallTimestamp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the call time stamp</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_DialCallDuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the call duration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_DialCallSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the Dial call Sid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_DialCallStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the Dial call status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_DialRingDuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the Dial ring duration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_Digits</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the DTMF input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_Direction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the direction of the call</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_ForwardedFrom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves information about from where the call was forwarded</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_From</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the Caller phone number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_RecordingUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the public URL of a call recording</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_RecordingDuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the duration of the call recording</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_SmsSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the SMS Sid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_SmsStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the SMS status</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">core_To</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Retrieves the Callee phone number</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_custom_variables"><a class="anchor" href="#_custom_variables"></a>Custom Variables</h4>
+<div class="paragraph">
+<p>Custom variables are Visual Designer application variables defined by the user. They can be used to collect, store, and retrieve data within a particular module or the whole application. Each variable has to have a unique name. When the scope of the custom variable is set to the whole application, it can be referred to in any of the follow up application modules.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure to reference a custom variable only after its value is set or received as input. If you attempt to retrieve it earlier than that, your application will malfunction and you will not be able to execute the desired application flow.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_application_settings"><a class="anchor" href="#_additional_application_settings"></a>Additional Application Settings</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_application_diagram"><a class="anchor" href="#_application_diagram"></a>Application Diagram</h3>
+<div class="paragraph">
+<p>The Visual Designer application diagram is a graphical representation of an application flow. It outlines the connection between the application modules and what their triggering actions are.</p>
+</div>
+<div class="paragraph">
+<p>You can access an application diagram by navigating to its name inside Visual Designer and then clicking on the Diagram option.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/accessing-the-application-diagram.png" alt="Accessing the Application Diagram">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/application-diagram.png" alt="application Diagram">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_application_url"><a class="anchor" href="#_application_url"></a>Application URL</h3>
+<div class="paragraph">
+<p>The Application URL is the direct URL under which you can access a particular Visual Designer application. It has the following format and can be found by navigating to your application name &#8594; App URL.</p>
+</div>
+<div class="paragraph">
+<p><code>https://yourdomain.com/visual-designer/services/apps/AP60XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/controller</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_web_trigger"><a class="anchor" href="#_web_trigger"></a>Web Trigger</h3>
+<div class="paragraph">
+<p>Web Trigger offers you an alternative way to start a voice application. It allows establishing a call between the application and a destination address using a simple HTTP request.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Web Trigger is not available to use with SMS applications. However you can build a Voice application with an SMS functionality and use Web Trigger together with it.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Follow the steps below to enable Web Trigger for your voice application:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open your voice application in Visual Designer.</p>
+</li>
+<li>
+<p>Navigate to your <code>application name</code> &#8594; <code>Web Trigger</code>.</p>
+</li>
+<li>
+<p>Click on the <code>Enable</code> checkbox button.</p>
+</li>
+<li>
+<p>If you would like to authenticate the requests with your Restcomm account credentials, leave the Application access token field empty. Alternatively, enter your access token that will be used as an additional request parameter.</p>
+</li>
+<li>
+<p>Optionally you can override the call source and destination addresses of the call by filling out the To and From fields.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>To</code> and <code>From</code> fields are using the RCML Dial syntax. For example: +12223334444 or  sip:+<a href="mailto:15556667777@yourdomain.com">15556667777@yourdomain.com</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click on the <code>Advanced configuration</code> gear icon. From the <code>User parameter scope</code> drop down, select the application scope for which the From and To parameters will be overridden (either for the whole application or an application module). If left blank those will be overwritten for the whole application.</p>
+</li>
+<li>
+<p>Click on the <code>Save</code> button.</p>
+</li>
+<li>
+<p>Then Save your application changes.</p>
+</li>
+<li>
+<p>Now you can start your application by making a request to the WebTrigger URL using the following format:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>https://yourdomain.com:443/visual-designer/services/apps/APXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/start?from=+12223334444&amp;to=+15556667777&amp;token=yourtoken</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/web-trigger.png" alt="Web Trigger">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_application_management"><a class="anchor" href="#_application_management"></a>Application Management</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_importing_an_application"><a class="anchor" href="#_importing_an_application"></a>Importing an Application</h3>
+<div class="paragraph">
+<p>To import an application navigate to the <code>Restcomm Console</code> &#8594; <code>Applications</code> &#8594; <code>+ Add New App</code>. Choose to import a Visual Designer Application. Give your application a name, then click <code>Import</code>. You will be redirected to your application in Visual Designer.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/importing-an-application.png" alt="Importing an Application">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exporting_an_application"><a class="anchor" href="#_exporting_an_application"></a>Exporting an Application</h3>
+<div class="paragraph">
+<p>To export an application, navigate to the <code>Restcomm Console</code> &#8594; <code>Applications</code>. Choose the application you intend to import from the application list. Click on the <code>download</code> button next to the application name. A .ZIP file of your application will be downloaded to your machine.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/exporting-an-application.png" alt="Exporting an Application">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deleting_an_application"><a class="anchor" href="#_deleting_an_application"></a>Deleting an Application</h3>
+<div class="paragraph">
+<p>To delete a Visual Designer application, navigate to the <code>Restcomm Console</code> &#8594; <code>Applications</code>. Click on the application you would like to delete and then hit the <code>Delete Application</code> button. You will see a warning screen similar to the one below.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+The delete action cannot be undone. Once you delete the application you will not be able to restore it.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/visual-designer/deleting-an-application.png" alt="Deleting an Application">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_learn_more"><a class="anchor" href="#_learn_more"></a>Learn More</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Find out more about <a href="../rcml/overview.html">RCML</a> and how it can help bring additional functionality to communications applications.</p>
+</div>
+<div class="paragraph">
+<p>Visit the <a href="../api/overview.html">REST API</a> documentation to discover the various types of requests and how to use them to take new ideas from concept to reality.</p>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column-container">
+      <div class="footer-column">
+          <h5 class="footer-column-title">Contact Us</h5>
+          <p>+1 (650) 263 6146</p>
+          <p><a href="https://go.telestax.com/sales-inquiries">SALES</a></p>
+          <p><a href="https://go.telestax.com/support-inquiries">SUPPORT</a></p>
+          <p><a href="https://go.telestax.com/general-inquiries">GENERAL</a></p>
+          <h5 class="footer-column-title">Follow Us</h5>
+          <p>
+            <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
+            <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
+            <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
+            <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
+          </p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Turnkey Applications</h5>
+        <p><a class="footer-usecase-item" href="/docs/1.0/turnkey-applications/smart-2fa-overview.html">SMART 2FA</a></p>
+          <p><a class="footer-usecase-item" href="/docs/1.0/solutions/message-exchange-overview.html">MESSAGE EXCHANGE</a></p>
+          <p><a class="footer-usecase-item" href="/docs/1.0/solutions/cisco-webex-overview.html">CISCO WEBEX</a></p>
+          <p><a class="footer-usecase-item" href="/docs/1.0/api/call-queue-api.html">CALL QUEUE</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Learn</h5>
+        <p><a href="https://www.telestax.com/blog/">BLOG</a></p>
+
+          <p><a id="terms-link" href="/docs/support.html">TERMS AND CONDITIONS</a></p>
+      </div>
+      <div class="footer-column">
+    <h5 class="footer-column-title">Additional Links</h5>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/about/" data-default-text="About Us" data-default-link="#">ABOUT</a></p>
+       <p><a href="https://www.telestax.com/faqs/">FAQ'S</a></p>
+       <p><a href="https://www.telestax.com/privacy-statement/">PRIVACY POLICY</a></p>
+       <p><a href="https://www.telestax.com/contact/">CONTACT</a></p>
+      </div>
+    </div>
+    <!---->
+    <!--<div class="footer-bottom-container">-->
+      <!--<div class="footer-logo">-->
+        <!--<a class="footer-logo-link" href="https://telestax.com"></a>-->
+      <!--</div>-->
+      <!--<div class="footer-copyright">-->
+        <!--<p class="footer-copyright-paragraph">COPYRIGHT © 2020, TELESTAX INC., ALL RIGHTS RESERVED.</p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!---->
+  </div>
+</footer>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<!--
+<script>hljs.initHighlighting()</script>
+-->
+<!--
+  Tried to get this chunk into js/05-countly.js but it has some issues with the async loading so fell back to putting it here
+  where it works for some reason
+-->
+  <!-- Only enable countly if the key is set -->
+  <script type='text/javascript' src='https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'></script>
+  <script>
+    var Countly = Countly || {}
+    Countly.q = Countly.q || []
+
+    // provide countly initialization parameters
+    Countly.app_key = '56bdc77c4c53e32ebd439e2586dd4ee22b3d3ad0'
+    Countly.url = 'https://restcomm.count.ly'
+
+    Countly.q.push(['track_sessions'])
+    Countly.q.push(['track_pageview'])
+    Countly.q.push(['track_clicks'])
+    Countly.q.push(['track_errors'])
+    Countly.q.push(['track_links'])
+    Countly.q.push(['track_forms'])
+    Countly.q.push(['collect_from_forms'])
+
+    // send event
+    Countly.q.push(['add_event', {
+      key: 'Restcomm CSPs Documentation',
+      segmentation: {},
+    }]);
+
+    // load countly script asynchronously
+    (function () {
+      var cly = document.createElement('script')
+      cly.type = 'text/javascript'
+      cly.async = true
+      // enter url of script here
+      cly.src = 'https://cdn.jsdelivr.net/countly-sdk-web/latest/countly.min.js'
+      cly.onload = function () {
+        Countly.init()
+      }
+      var s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(cly, s)
+    })()
+  </script>
+<!-- UserBack Tool -->
+<script>
+    Userback = window.Userback || {};
+    Userback.access_token = '5061|10149|r9Ure7pw7zJFVyflkflhPEQJvrsbdWcpYS5Vz3safDjZZg7ukX';
+    (function(id) {
+        var s = document.createElement('script');
+        s.async = 1;s.src = 'https://static.userback.io/widget/v1.js';
+        var parent_node = document.head || document.body;parent_node.appendChild(s);
+    })('userback-sdk');
+</script>
+
+  </body>
+</html>
