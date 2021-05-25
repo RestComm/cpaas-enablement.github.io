@@ -8,8 +8,8 @@
     <link rel="canonical" href="
       https://www.restcomm.com/docs/1.0/turnkey-applications/auto-attendant-console.html
     ">
-    <meta name="description" content="Cisco Webex API allows Restcomm Accounts to create, manage and get usage records for mappings.">
-    <meta name="keywords" content="cisco webex api, webex teams api, cisco webex api overview, cisco webex">
+    <meta name="description" content="Auto Attendant (AA) is intended for business customers who want to provide an automated means of directing incoming calls.">
+    <meta name="keywords" content="auto attendant api, auto attendant">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
@@ -3992,18 +3992,19 @@
 <ul class="sectlevel2">
 <li><a href="#_enterprise_list">Enterprise List</a></li>
 <li><a href="#_add_enterprise">Add Enterprise</a></li>
+<li><a href="#_edit_enterprise">Edit Enterprise</a></li>
 </ul>
 </li>
 <li><a href="#_autoattendant_system">AutoAttendant System</a>
 <ul class="sectlevel2">
-<li><a href="#_aa_system_list">AA system List</a></li>
-<li><a href="#_aa_system">AA system</a></li>
+<li><a href="#_aa_system_list">AA System List</a></li>
+<li><a href="#_aa_system">AA System</a></li>
 </ul>
 </li>
-<li><a href="#_phone_numbers">Phone Numbers</a>
+<li><a href="#_phone_number">Phone Number</a>
 <ul class="sectlevel2">
-<li><a href="#_phone_numbers_list">Phone numbers List</a></li>
-<li><a href="#_add_phone_number">Add Phone number</a></li>
+<li><a href="#_phone_numbers_list">Phone Numbers List</a></li>
+<li><a href="#_add_phone_number">Add Phone Number</a></li>
 </ul>
 </li>
 <li><a href="#_extensions">Extensions</a>
@@ -4018,35 +4019,27 @@
 <li><a href="#_add_users">Add Users</a></li>
 </ul>
 </li>
+<li><a href="#_search">Search</a></li>
+<li><a href="#_usage_records">Usage Records</a></li>
 </ul>
 </div>
 <div class="sect1">
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Auto Attendant (AA) is intended for business customers who want to provide an automated means of directing incoming calls to the appropriate person within the organization, typically to offload this task from a receptionist and also offer a simple menu system ("for menu, press 1, for transfer to phone, press 2," etc.)</p>
+<p>With Telestax Auto Attendant (AA) Communications Providers (CPs) allow Business Customers (also known as Enterprise) to automate the management of incoming calls. Using a voice menu system, AA functions as a virtual receptionist, directing calls to the appropriate individual or department within an organization. For more information, have a look at the <a href="auto-attendant-overview.html">General Documentation</a>.</p>
 </div>
 <div class="paragraph">
-<p>Restcomm Auto Attendant helps service providers enable their enterprise customers to Edit Autoattendant,manage users,assign phone numbers and assign extensions. Enterprise Customers can define different menus for given AA. For example</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>“Work hour menu” provides option to caller to reach to out Extension etc</p>
-</li>
-<li>
-<p>“Non work hours menu” can request to call back during working hours</p>
-</li>
-<li>
-<p>“Special day menu” can announce different greetings</p>
-</li>
-</ul>
+<p>This document contains information for Communications Providers regarding the AA Console user interface. To access the AA Console, navigate to <code>https://yourdomain.com/autoattendantconsole/</code></p>
 </div>
 <div class="paragraph">
-<p>It allows Enterprise Users to create menus,schedules,announcements for an auto attendant system.</p>
+<p>To learn more about the API click <a href="../api/auto-attendant/auto-attendant-api.html">here</a>.</p>
 </div>
 <div class="paragraph">
-<p>This document covers the features and functionalities of the Telestax Auto Attendant from Communications Service Providers (CSP) Point of View.</p>
+<p>To begin, the CP must define at least one Enterprise (as explained in Section 2 <a href="#_enterprise">Enterprise</a>). Then, for each Enterprise, the CP has to define at least one Phone Number (as explained in Section 4 <a href="#_phone_numbers">Phone Numbers</a>). While Extensions are not mandatory, the majority of AA systems will have Extensions associated.</p>
+</div>
+<div class="paragraph">
+<p>To sign in to an AA Console, the CP will use the same credentials that they have for their Restcomm Account.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4055,28 +4048,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Auto Attendant can be White Labeled to follow CSP branding. For further details please look at <a href="https://www.restcomm.com/docs/whitelabeling.html" class="bare">https://www.restcomm.com/docs/whitelabeling.html</a>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>To begin with CSP has to define at-least one Enterprise as explained in section 2 Enterprise. Then for each Enterprise CSP has to define at-least one Phone Number as explained in section 4 Phone Numbers. While Extensions are not mandatory, 99% of the AA systems would have Extensions associated.</p>
-</div>
-<div class="paragraph">
-<p>Console can be accessed from <a href="https://&lt;CSP" class="bare">https://&lt;CSP</a> Custom Domain&gt;/autoattendantconsole/</p>
-</div>
-<div class="paragraph">
-<p>To sign in to AA Console, CSP has to use the same credentials that they have for their Restcomm Accounts.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Only CSP Admins under Restcomm can have access to AA. This restriction is because CSP Admin can define new Enterprise in AA Systems and in process it has to add Sub-Account. Restcomm as of today only allows top level Admin to define Sub-Account. Sub-Account cannot define another Sub-Account under it.
+Only CP Admins under Restcomm can have access to AA. This restriction is because a CP Admin can define a new Enterprise in AA systems. In the process, a Sub Account must also be added. As of today, Restcomm only allows top level Admins to define a Sub Account. A Sub Account cannot define another Sub Account under it.
 </td>
 </tr>
 </table>
@@ -4087,10 +4059,7 @@ Only CSP Admins under Restcomm can have access to AA. This restriction is becaus
 <h2 id="_enterprise"><a class="anchor" href="#_enterprise"></a>Enterprise</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Enterprises are customers of CSP. It allows CSP to easily categorize AA Systems for specific Enterprise and hence easy management, monitoring and also understanding the usage.</p>
-</div>
-<div class="paragraph">
-<p>Each Enterprise can have one or more AA System, Phone Numbers and Extensions.</p>
+<p>CPs serve Enterprises or Business Customers. Through their own Accounts, CPs can create, manage, or delete Business Customer Sub Accounts. By setting up Sub Accounts for Business Customers, the CP can easily manage AA and invoices for a specific Business Customer.</p>
 </div>
 <div class="sect2">
 <h3 id="_enterprise_list"><a class="anchor" href="#_enterprise_list"></a>Enterprise List</h3>
@@ -4100,7 +4069,10 @@ Only CSP Admins under Restcomm can have access to AA. This restriction is becaus
 </div>
 </div>
 <div class="paragraph">
-<p>Users can view a list of all enterprises that have been added under their organization. Enterprises can be filtered based on the name.</p>
+<p>Users can view a list of all Enterprises that have been added under their organization. Enterprises can be filtered based on the name.</p>
+</div>
+<div class="paragraph">
+<p>The Enterprise list also provides a link to navigate to the AA system configured under that Enterprise.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4122,7 +4094,7 @@ Only CSP Admins under Restcomm can have access to AA. This restriction is becaus
 <p>Enter the name of the new enterprise.</p>
 </li>
 <li>
-<p>An enterprise admin has to be assigned to this enterprise. Enter the email Id of the business group admin user you’d want to be the admin of the enterprise. All the numbers will be provisioned under this RC account.</p>
+<p>An Admin has to be assigned to this Enterprise. Enter the email ID of the Enterprise Admin user you would like to be the admin of the enterprise. All the numbers will be provisioned under this Restcomm account.<br></p>
 </li>
 </ul>
 </div>
@@ -4133,7 +4105,9 @@ Only CSP Admins under Restcomm can have access to AA. This restriction is becaus
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Never ever share this newly created Business Group Admin credentials with Enterprise. This is because, all Numbers added by CSP Admin are registered under this newly created Business Group Admin (Sub-Account) under Restcomm. If the Enterprise has access to Restcomm, they can sign-in to Restcomm and messup the settings. Once Enterprise is created, please go to the User Management section as explained in 6 User Management, create new BG Admin and share this credentials with Enterprise.
+<div class="paragraph">
+<p>Never share these newly created Business Group Admin credentials with the Enterprise. That is needed because all Numbers added by the CP Admin are registered under this newly created Business Group Admin (Sub Account) under Restcomm. If the Enterprise has access to Restcomm, they can sign in and change the settings. Once an Enterprise is created, please go to the User Management section as explained in Section 6 <a href="#_user_management">User Management</a>, and create a new BG Admin. Then share these credentials with the Enterprise.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -4141,10 +4115,13 @@ Never ever share this newly created Business Group Admin credentials with Enterp
 <div class="ulist">
 <ul>
 <li>
-<p>Enter the password for the enterprise admin account. This will be set in RC.</p>
+<p>Enter the password for the enterprise admin account. This will be set in Restcomm.</p>
 </li>
 <li>
-<p>Enter a friendly name of the enterprise admin user.</p>
+<p>A Calling Line Identity Presentation (CLIP) Phone Number is optional. If defined, this phone number will be used for all outbound calls as <code>Extension</code> as well as <code>Transfer to Phone</code>. If not defined, the phone number of the caller will be displayed. This feature can be helpful for a CP in the event their SBC is set up to take calls only from configured numbers.</p>
+</li>
+<li>
+<p>Enter a friendly name for the Enterprise Admin user.</p>
 </li>
 </ul>
 </div>
@@ -4155,19 +4132,49 @@ Never ever share this newly created Business Group Admin credentials with Enterp
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Enterprise name,Mail ID must be unique.
-NOTE: Password should meet below criteria:
- At least one Uppercase letter(A,B,C,D…&#8230;&#8203;)
- At least one Lowercase letter(a,b,c,d,&#8230;&#8203;&#8230;&#8203;.)
- At least one number(1,2,3,4,5….)
- At least one special character(!,@,#,$,%,&amp;,&#8230;&#8203;&#8230;&#8203;.)
- Length of the password should be greater than equal to 8.
+<div class="paragraph">
+<p>Enterprise name,Mail ID must be unique.<br></p>
+</div>
+<div class="paragraph">
+<p>Password should meet the following criteria:<br>
+ At least one Uppercase letter(A,B,C,D…&#8230;&#8203;)<br>
+ At least one Lowercase letter(a,b,c,d,&#8230;&#8203;&#8230;&#8203;.)<br>
+ At least one number(1,2,3,4,5….)<br>
+ At least one special character(!,@,#,$,%,&amp;,&#8230;&#8203;&#8230;&#8203;.)<br>
+ The length of the password should be greater than or equal to 8.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Once Enterprise is created, click on Enterprise Name to see all other options mentioned below from Section 3 to Section 6.</p>
+<p>Once an Enterprise is created, click on the AA system link to see all other options mentioned below.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_edit_enterprise"><a class="anchor" href="#_edit_enterprise"></a>Edit Enterprise</h3>
+<div class="paragraph">
+<p>To edit an Enterprise, click on the Enterprise name. The CP can edit the name, Calling Line Identity Presentation (CLIP) Phone Number, and the Ringback Tone.</p>
+</div>
+<div class="paragraph">
+<p><strong>Ringback Tone</strong>: The Announcement SID is assigned to this Enterprise as default Ringback Tone. Whenever a caller is waiting to get connected to a call, an Extension, or an external Phone Number, they will hear this Ringback Tone until the call gets connected.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Business Customers can overwrite this while creating a <code>Menu</code> in the AA System.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/auto-attendant/edit-enterprise.png" alt="Edit Enterprise">
+</div>
 </div>
 </div>
 </div>
@@ -4176,7 +4183,7 @@ NOTE: Password should meet below criteria:
 <h2 id="_autoattendant_system"><a class="anchor" href="#_autoattendant_system"></a>AutoAttendant System</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_aa_system_list"><a class="anchor" href="#_aa_system_list"></a>AA system List</h3>
+<h3 id="_aa_system_list"><a class="anchor" href="#_aa_system_list"></a>AA System List</h3>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/auto-attendant/auto-attendant-system-list.png" alt="Auto-attendant system list">
@@ -4188,27 +4195,30 @@ NOTE: Password should meet below criteria:
 <div class="ulist">
 <ul>
 <li>
-<p>Users can view a list of all AA systems that have been added under a particular enterprise.</p>
+<p>CP Admin can view a list of all AA systems that have been added under a particular Enterprise.</p>
 </li>
 <li>
 <p>AA System can be filtered based on the name.</p>
 </li>
 <li>
-<p>User can deactivate/activate the aa system by clicking on the status of any AA system</p>
+<p>CP Admin can deactivate/activate the AA system by clicking on the status of any AA system.</p>
 </li>
 <li>
-<p>Users can delete a AA system by clicking on the delete icon that appears by hovering the mouse on a specific row.</p>
+<p>CP Admin can delete an AA system by clicking on the delete icon that appears by hovering the mouse on a specific row.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_aa_system"><a class="anchor" href="#_aa_system"></a>AA system</h3>
+<h3 id="_aa_system"><a class="anchor" href="#_aa_system"></a>AA System</h3>
 <div class="paragraph">
-<p>To create a new AA system click on the add AA system button.
-To edit an existing AA system click on the name of the AA system.
-Both the actions will take the user to the basic details page.
-Steps to follow while creating an AA system.</p>
+<p>To create a new AA system click on the <code>Add AA System</code> button, provide a name and click on <code>Save &amp; Continue</code>. The CP Admin may complete a full AA System for Enterprise, but ideally the Enterprise Admin should do it for themselves.</p>
+</div>
+<div class="paragraph">
+<p>To edit an existing AA system click on the name of the AA system.</p>
+</div>
+<div class="paragraph">
+<p>Both actions will take you to the basic details page that allows users to edit the following:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4232,390 +4242,59 @@ Steps to follow while creating an AA system.</p>
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="_basic_details"><a class="anchor" href="#_basic_details"></a>Basic details</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Add a name of the AA System.</p>
-</li>
-<li>
-<p>Assign the phone numbers from the list of available phone numbers.</p>
-</li>
-<li>
-<p>Assign the extension numbers from the list of available extensions,</p>
-</li>
-<li>
-<p>Set the time zone where the AA system is being used.</p>
-</li>
-<li>
-<p>Add the description to the AA system</p>
-</li>
-<li>
-<p>Click ‘Save &amp; Continue’ Button</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/auto-attendant/auto-attendant-basic-details.png" alt="Basic details">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_announcement"><a class="anchor" href="#_announcement"></a>Announcement</h4>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/auto-attendant/auto-attendant-announcements.png" alt="Auto attendant announcements">
-</div>
-</div>
 <div class="paragraph">
-<p>To navigate to this page click on announcements in the side navigation bar of the screen.
-Users can view a list of all announcements that have been added under the enterprise.</p>
-</div>
-<div class="sect4">
-<h5 id="_create_announcement"><a class="anchor" href="#_create_announcement"></a>Create Announcement</h5>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/auto-attendant/create-announcement.png" alt="Auto attendant create announcements">
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Click on “Create Announcement” button</p>
-</li>
-<li>
-<p>Enter the name of the announcement.</p>
-</li>
-<li>
-<p>Enter description of the announcement.</p>
-</li>
-<li>
-<p>User can upload a announcement by:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Click on the “Record” button and record the announcement through the browser itself.</p>
-</li>
-<li>
-<p>Drop the wav file with 8 khz mono specification from the local files into the specified field.</p>
-</li>
-<li>
-<p>Click on “Browse” and select the audio file of announcement from the local files (wav file with 8khz mono specification)</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_menu"><a class="anchor" href="#_menu"></a>Menu</h4>
-<div class="paragraph">
-<p>To navigate to this page click on Schedule in the side navigation bar of the screen.</p>
-</div>
-<div class="paragraph">
-<p>Below the schedule table users can view the list of menus available for that AA system</p>
-</div>
-<div class="paragraph">
-<p>Users can change the color code of the menu by clicking on the color box in the list to change the color of the menu and click on select.</p>
-</div>
-<div class="paragraph">
-<p>Users can delete the menu by clicking on the delete icon of the particular menu.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Menu can only be deleted if it is not used in schedule and there is no announcement assigned to it.
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/auto-attendant/auto-attendant-menu.png" alt="Auto attendant menu">
-</div>
-</div>
-<div class="sect4">
-<h5 id="_create_menu"><a class="anchor" href="#_create_menu"></a>Create menu</h5>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/auto-attendant/auto-attendant-add-menu.png" alt="Auto attendant add menu">
-</div>
-</div>
-<div class="paragraph">
-<p>To add a menu click on “Add Menu” button. A popup screen will appear:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Enter the name of the menu.</p>
-</li>
-<li>
-<p>Assign an announcement to the menu from the list of the announcements.</p>
-</li>
-<li>
-<p>Assign action to be performed for the keys mentioned on the screen and respective data of the action if needed to carry out that particular action. Please see section 4.2.3.2 Menu Actions to understand the list of actions possible.</p>
-</li>
-<li>
-<p>Set the timeout of the menu in seconds and set the action and respective action data (if needed) to be performed after the timeout.</p>
-</li>
-<li>
-<p>Menu will be created by clicking on the “Done” button.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-After series of DTMF pressed by caller, its expected that user presses # key to indicate to the system that the caller is done with input. If user doesn’t press # key, System waits for timeout seconds and then carries necessary action depending on DTMF input.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_menu_actions"><a class="anchor" href="#_menu_actions"></a>Menu Actions</h5>
-<div class="paragraph">
-<p>Table below explains each of Menu actions that can be assigned to keys.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Menu Action</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Announcement Hangup</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Play the selected Announcement and hang up the call</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Announcement Return</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Play the selected Announcement and return to the menu. System will play the Menu Announcement again.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dial By Extension</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dial the extension number entered by caller</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dial By Name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Listen to speech from the caller and dial the corresponding extension. For this to work correctly the Name must have been defined for extensions.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Go To Menu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Play the selected Menu</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hangup</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hang Up the call</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Replay Menu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Play the existing Menu again</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Return To Previous Menu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Play the previous Menu again</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Transfer To Phone</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Transfer the call to specified Phone Number</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_schedule"><a class="anchor" href="#_schedule"></a>Schedule</h4>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/auto-attendant/auto-attendant-schedule.png" alt="Auto attendant schedule">
-</div>
-</div>
-<div class="paragraph">
-<p>To navigate to this page click on schedule on the side navigation bar of the screen.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A grid will appear where you can create a weekly schedule for different menus.</p>
-</li>
-<li>
-<p>Select a menu checkbox, drag and create the schedule for it in the grid.</p>
-</li>
-<li>
-<p>Grid can be changed to a 15 minutes or 30 minutes time window.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_special_days"><a class="anchor" href="#_special_days"></a>Special Days</h4>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/auto-attendant/auto-attendant-special-days.png" alt="Auto attendant special days">
-</div>
-</div>
-<div class="paragraph">
-<p>To navigate to this page click on special days on the side navigation bar of the screen.</p>
-</div>
-<div class="paragraph">
-<p>Select a checkbox of menu from the list of menus below the calendar</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A calendar will appear where you can create a special days schedule from different menus.</p>
-</li>
-<li>
-<p>Select a menu checkbox, select a date on the calendar to create special day schedule for it.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_error_handling"><a class="anchor" href="#_error_handling"></a>Error Handling</h4>
-<div class="imageblock">
-<div class="content">
-<img src="../_images/auto-attendant/auto-attendant-error-handling.png" alt="Auto attendant error handling">
-</div>
-</div>
-<div class="paragraph">
-<p>To navigate to this page click on “Error Handling” on the side navigation bar of the screen.</p>
-</div>
-<div class="paragraph">
-<p>In each AA System that you create, you should always define the action to be taken if the menu times out or the user presses invalid key or the user presses invalid extension: For example,if the user does not press a key within the specified time. you could repeat the menu so that the caller has another chance to check the options and select the right key, or transfer the caller to an operator.</p>
-</div>
-<div class="sect4">
-<h5 id="_timeout"><a class="anchor" href="#_timeout"></a>Timeout</h5>
-<div class="paragraph">
-<p>If the caller doesn’t press any DTMF for configured timeout duration, system will perform the configured action.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Set the timeout seconds to wait for the schedule.</p>
-</li>
-<li>
-<p>Set how many consecutive timeout occurrences are allowed after which</p>
-</li>
-<li>
-<p>Set the action and respective data of the action if needed to carry out that particular action.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If timeout is defined at Menu Level, it will override the global timeout defined here
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_unknown_input"><a class="anchor" href="#_unknown_input"></a>Unknown Input:</h5>
-<div class="paragraph">
-<p>If the menu detects unknown input: that is, if the user presses a key which is not defined in the menu.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Set how many occurences that the user presses unknown input after which</p>
-</li>
-<li>
-<p>Set the action and respective data of the action if needed to carry out that particular action.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_invalid_extension"><a class="anchor" href="#_invalid_extension"></a>Invalid Extension:</h5>
-<div class="paragraph">
-<p>Set the action to take place If the user presses a invalid extension which is not configured in the aa system.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Set how many occurences that the user presses invalid extension after which</p>
-</li>
-<li>
-<p>Set the action and respective data of the action if needed to carry out that particular action.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Each of the above points are explained in detail under the <a href="../enterprise/turnkey-applications/auto-attendant-console.html">Enterprise Customer Console Documentation</a>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_phone_numbers"><a class="anchor" href="#_phone_numbers"></a>Phone Numbers</h2>
+<h2 id="_phone_number"><a class="anchor" href="#_phone_number"></a>Phone Number</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>One or more lines/phone numbers are setup as Auto Attendant phone numbers. This means that the system provides Auto Attendant Service to caller on these numbers.</p>
+<p>The CP must set up one or more lines/phone numbers as Auto Attendant phone numbers. The CP can assign these numbers to an AA System as defined in Auto Attendant System but it is best to let the Enterprise Admin take care of that.</p>
 </div>
 <div class="sect2">
-<h3 id="_phone_numbers_list"><a class="anchor" href="#_phone_numbers_list"></a>Phone numbers List</h3>
+<h3 id="_phone_numbers_list"><a class="anchor" href="#_phone_numbers_list"></a>Phone Numbers List</h3>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/auto-attendant/auto-attendant-phone-numbers-list.png" alt="Auto attendant phone numbers list">
 </div>
 </div>
 <div class="paragraph">
-<p>To navigate to the page, click on the phone numbers on the top header.</p>
+<p>To navigate to the page, click on the phone numbers link located on the top header. There, the CP Admin can do the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Users can view the list of phone numbers under the enterprise.</p>
+<p>View the list of phone numbers under the enterprise.</p>
 </li>
 <li>
-<p>Users can assign the phone numbers to the AA system by selecting the AA system from the drop down of AA system names.</p>
+<p>Assign the phone numbers to the AA system by selecting the AA system from the drop down with AA system names.</p>
 </li>
 <li>
-<p>Users can delete the phone number by clicking on the delete icon that appears by hovering the mouse on a specific row.</p>
+<p>Delete the phone number by clicking on the delete icon that appears by hovering the mouse on a specific row.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_add_phone_number"><a class="anchor" href="#_add_phone_number"></a>Add Phone number</h3>
+<h3 id="_add_phone_number"><a class="anchor" href="#_add_phone_number"></a>Add Phone Number</h3>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/auto-attendant/auto-attendant-add-number.png" alt="Auto attendant add phone number">
 </div>
 </div>
 <div class="paragraph">
-<p>To add a phone number under the enterprise click on “Add Phonenumbers” button</p>
+<p>To add a phone number under the Enterprise click on the <code>Add Phone Numbers</code> button</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Enter phone number</p>
+<p>Enter a phone number.</p>
 </li>
 <li>
-<p>Enter friendly name of the phone number and click done</p>
+<p>Set a friendly name for the phone number and click <code>done</code>.</p>
 </li>
 </ul>
 </div>
@@ -4626,7 +4305,7 @@ If timeout is defined at Menu Level, it will override the global timeout defined
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-These numbers will be provisioned under main BG Admin Sub-Account under Restcomm.
+These numbers will be provisioned under the main Enterprise Admin Sub Account in Restcomm.
 </td>
 </tr>
 </table>
@@ -4637,6 +4316,9 @@ These numbers will be provisioned under main BG Admin Sub-Account under Restcomm
 <div class="sect1">
 <h2 id="_extensions"><a class="anchor" href="#_extensions"></a>Extensions</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The CP may set up one or more Extensions. The Enterprise Admin can only use the Extensions defined by the CP.</p>
+</div>
 <div class="sect2">
 <h3 id="_extension_list"><a class="anchor" href="#_extension_list"></a>Extension List</h3>
 <div class="imageblock">
@@ -4645,18 +4327,18 @@ These numbers will be provisioned under main BG Admin Sub-Account under Restcomm
 </div>
 </div>
 <div class="paragraph">
-<p>To navigate to the page, click on the Extensions on the top header.</p>
+<p>To navigate to the page, click on the Extensions link located on the top header. There, the CP Admin can do the following:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Users can view the list of Extensions that are configured under the enterprise.</p>
+<p>View the list of Extensions that are configured under the enterprise.</p>
 </li>
 <li>
-<p>Users can edit the extension number and spoken name of the number by clicking on the pencil icon in the respective fields( “Spoken name”, “Extension”)</p>
+<p>Edit the extension number and spoken name of the number by clicking on the pencil icon in the respective fields (Spoken Name, Extension).</p>
 </li>
 <li>
-<p>Users can delete the Extension by clicking on the delete icon that appears by hovering the mouse on a specific row.</p>
+<p>Delete the Extension by clicking on the delete icon that appears by hovering the mouse on a specific row.</p>
 </li>
 </ul>
 </div>
@@ -4669,10 +4351,10 @@ These numbers will be provisioned under main BG Admin Sub-Account under Restcomm
 </div>
 </div>
 <div class="paragraph">
-<p>To add an extension number under the enterprise click on “Add Extensions” button. Ideally as CSP_ADMIN, you would want to only set up the “Phone Number” that will act as Extension and let Spoken Name, Extension Number to reach configured Phone Number be set up by BG_ADMIN.</p>
+<p>To add an extension number under the enterprise click on the <code>Add Extensions</code> button. Ideally as the CP Admin, you would want to only set up the Phone Number that will act as Extension and let the Spoken Name and the Extension Number be set up by the Enterprise Admin.</p>
 </div>
 <div class="paragraph">
-<p>You have the option to set Phone Number for extension as either Restcomm Client or Phone/PSTN Number. More details about <a href="https://cloud.restcomm.com/docs/api/clients-api.html">Restcomm Client</a> .</p>
+<p>CP Admins have the option to set a Phone Number for the extension as either a Restcomm Client or Phone/PSTN Number. To learn more about Restcomm Client please visit tbe <a href="https://cloud.restcomm.com/docs/api/clients-api.html">Restcomm Client documentation</a> .</p>
 </div>
 </div>
 </div>
@@ -4680,6 +4362,22 @@ These numbers will be provisioned under main BG Admin Sub-Account under Restcomm
 <div class="sect1">
 <h2 id="_user_management"><a class="anchor" href="#_user_management"></a>User Management</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Users can have any of the following roles:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Communications Provider Admin (also known as CSP_ADMIN) can create Enterprise, Auto Attendant System, Phone Number, Extensions and users with role CSP_ADMIN, BG_ADMIN and AA_ADMIN. Users with roles BG_ADMIN and AA_ADMIN are for Enterprise.</p>
+</li>
+<li>
+<p>Enterprise Admin (also known as BG_ADMIN) can create users with role Enterprise Admin and AA Admin (also known as AA_ADMIN).</p>
+</li>
+<li>
+<p>The only difference between Enterprise Admin and AA Admin is that AA Admin cannot add any new users and cannot make changes to Extensions. The rest is all the same</p>
+</li>
+</ul>
+</div>
 <div class="sect2">
 <h3 id="_users_list"><a class="anchor" href="#_users_list"></a>Users List</h3>
 <div class="imageblock">
@@ -4688,18 +4386,18 @@ These numbers will be provisioned under main BG Admin Sub-Account under Restcomm
 </div>
 </div>
 <div class="paragraph">
-<p>To navigate to the page, click on the “User Management” on the top header.</p>
+<p>To navigate to the page, click on the User Management link located on the top header. There, the CP Admin can:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Users can view the list of accounts registered under the enterprise.</p>
+<p>View the list of accounts registered under the Enterprise.</p>
 </li>
 <li>
-<p>Users can deactivate/activate the account by clicking on the status of any account.</p>
+<p>Deactivate/activate the account by clicking on the status of any account.</p>
 </li>
 <li>
-<p>Users can delete the account by clicking on the delete icon that appears by hovering the mouse on a specific row.</p>
+<p>Delete the account by clicking on the delete icon that appears by hovering the mouse on a specific row.</p>
 </li>
 </ul>
 </div>
@@ -4710,7 +4408,7 @@ These numbers will be provisioned under main BG Admin Sub-Account under Restcomm
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-All the users created are Sub-Accounts under that CSP Admin Account in Restcomm
+All the users created are Sub Accounts under that CP Admin Account in Restcomm.
 </td>
 </tr>
 </table>
@@ -4729,7 +4427,7 @@ All the users created are Sub-Accounts under that CSP Admin Account in Restcomm
 <div class="ulist">
 <ul>
 <li>
-<p>Click on the “Add User” button in the User management page.</p>
+<p>Click on the Add User button in the User management page.</p>
 </li>
 <li>
 <p>Enter the name of the new user.</p>
@@ -4741,10 +4439,10 @@ All the users created are Sub-Accounts under that CSP Admin Account in Restcomm
 <p>Enter the password for the user account. This will be set in RC.</p>
 </li>
 <li>
-<p>Set a role for the user (BG ADMIN,AA ADMIN)</p>
+<p>Set a role for the user (BG ADMIN, AA ADMIN).</p>
 </li>
 <li>
-<p>Set the status of the account (ACTIVE,INACTIVE)</p>
+<p>Set the status of the account (ACTIVE,INACTIVE).</p>
 </li>
 </ul>
 </div>
@@ -4781,9 +4479,25 @@ All the users created are Sub-Accounts under that CSP Admin Account in Restcomm
 </tr>
 </table>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_search"><a class="anchor" href="#_search"></a>Search</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To navigate to the page, click on the Search link located on the top header. The CP Admin can search for Announcements, Menu, and Phone Numbers passing various filters as explained in the <a href="auto-attendant-console.html">Enterprise Console Doc</a>. Additionally the CP Admin can filter based on Enterprise as well.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage_records"><a class="anchor" href="#_usage_records"></a>Usage Records</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To navigate to the page, click on the Usage Records link located on the top header. The Usage Records data is based on the Monthly Recurring cost for Phone Numbers (including Extension Numbers ) set up on the AA System. For example, if a number was added on the 5th day of the month and removed on 25th day of the same month, that number will still be counted under the Usage Records data for that particular month. However, from the following month onward, it will not be counted as it was deleted. If the number was not deleted, the Usage Records count will include that number for next month and hence its monthly recurring count. A CP Admin can search for Usage Records for each Enterprise as well.</p>
+</div>
 <div class="paragraph">
 <p>If you would like to explore the Auto Attendant API, we recommend having a look at the <a href="../api/auto-attendant/auto-attendant-api.html">Getting Started with the Auto Attendant API Guide</a>.</p>
-</div>
 </div>
 </div>
 </div>

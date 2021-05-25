@@ -8,8 +8,8 @@
     <link rel="canonical" href="
       https://www.restcomm.com/docs/1.0/turnkey-applications/auto-attendant-overview.html
     ">
-    <meta name="description" content="Cisco Webex API allows Restcomm Accounts to create, manage and get usage records for mappings.">
-    <meta name="keywords" content="cisco webex api, webex teams api, cisco webex api overview, cisco webex">
+    <meta name="description" content="Auto Attendant (AA) is intended for business customers who want to provide an automated means of directing incoming calls.">
+    <meta name="keywords" content="auto attendant api, auto attendant">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
@@ -3990,88 +3990,104 @@
 <li><a href="#_overview">Overview</a>
 <ul class="sectlevel2">
 <li><a href="#_what_is_auto_attendant_aa">What is Auto Attendant (AA)?</a></li>
-<li><a href="#_how_to_set_up_an_auto_attendant">How to set up an Auto Attendant?</a></li>
 </ul>
 </li>
-<li><a href="#_understanding_the_restcomm_auto_attendant_api_and_console">Understanding the Restcomm Auto Attendant API and Console</a></li>
+<li><a href="#_terminology">Terminology</a>
+<ul class="sectlevel2">
+<li><a href="#_communications_provider">Communications Provider</a></li>
+<li><a href="#_business_customer">Business Customer</a></li>
+</ul>
+</li>
+<li><a href="#_features_and_benefits">Features and Benefits</a></li>
+<li><a href="#_understanding_the_auto_attendant_api_and_console">Understanding the Auto Attendant API and Console</a></li>
 </ul>
 </div>
 <div class="sect1">
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Auto Attendant (AA) is intended for business customers who want to provide an automated means of directing incoming calls to the appropriate person within the organization, typically to offload this task from a receptionist and also offer a simple menu system ("for menu, press 1, for transfer to phone, press 2," etc.)</p>
+<p>With Telestax Auto Attendant (AA), Communications Providers allow Business Customers to automate the management of incoming calls. Using a voice menu system, AA functions as a virtual receptionist, directing calls to the appropriate individual or department within the organization.</p>
 </div>
 <div class="sect2">
 <h3 id="_what_is_auto_attendant_aa"><a class="anchor" href="#_what_is_auto_attendant_aa"></a>What is Auto Attendant (AA)?</h3>
 <div class="paragraph">
-<p>Restcomm Auto-Attendant (AA) is a voice menu system that allows callers to be transferred to an extension without going through a telephone operator or receptionist.</p>
+<p>AA is a cloud-based voice menu system that allows callers to be transferred to an extension without going through a telephone operator, receptionist, or other agent.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../_images/auto-attendant-flow.png" alt="Auto Attendant Flow">
 </div>
 </div>
-<div class="paragraph">
-<p>Restcomm Auto Attendant allows you to create a menu of different options that a caller can access using telephone key presses.The caller hears an announcement listing the options, such as</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>To dial by name press 1.</p>
-</li>
-<li>
-<p>To dial by extension press 2.</p>
-</li>
-<li>
-<p>To hang up press 3.</p>
-</li>
-</ul>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_terminology"><a class="anchor" href="#_terminology"></a>Terminology</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Caller can then access each of these options by pressing the appropriate key on the telephone keypad.
-Enterprise Customers can define different menus for an AA system such as out of business hours and on holidays, so that the caller is presented with a different set of options according to the time of the call, or is presented with an announcement that the business is closed and cannot accept calls at this time. You can also include options to allow callers to reach a particular phone extension directly
- • Dial-by-extension: Callers who know the extension number of the person they want to call can dial this number. The Auto Attendant then connects the caller directly to the requested extension.</p>
+<p>As part of this documentation, the following terms will be used to describe specific individuals, concepts, and organizations.</p>
+</div>
+<div class="sect2">
+<h3 id="_communications_provider"><a class="anchor" href="#_communications_provider"></a>Communications Provider</h3>
+<div class="paragraph">
+<p>Communications Provider generally refers to any Telestax Partner providing communications products, applications, capabilities, or services. The term can refer to operators, carriers, providers, suppliers, or any other entity that delivers communications capabilities to enterprise or business customers.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_set_up_an_auto_attendant"><a class="anchor" href="#_how_to_set_up_an_auto_attendant"></a>How to set up an Auto Attendant?</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You must have a valid, working Restcomm account in order to complete this step. If you do not have one, you can contact us.
-</td>
-</tr>
-</table>
-</div>
+<h3 id="_business_customer"><a class="anchor" href="#_business_customer"></a>Business Customer</h3>
 <div class="paragraph">
-<p>You can set up your Auto Attendant in two different ways, either via the Restcomm Auto Attendant Console or via the API.</p>
-</div>
-<div class="paragraph">
-<p>Setting up a new Auto Attendant via Console:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Log in to your Restcomm Auto Attendant Console (<span class="non-sps-text non-sps-link" data-orig-text="“https://$DOMAIN/autoattendantconsole/”">“https://$DOMAIN/autoattendantconsole/”</span>) via your Restcomm cloud account</p>
-</li>
-<li>
-<p>Before creating Auto Attendant, you need to create an Enterprise as explained in <a href="auto-attendant-console.html#_add_enterprise">Create Enterprise</a> documentation</p>
-</li>
-<li>
-<p>Create a new Auto Attendant as explained in <a href="auto-attendant-console.html#_aa_system">Auto Attendant system</a> documentation</p>
-</li>
-</ul>
+<p>An enterprise or business customer that relies on a Communications Provider to deliver communications products, capabilities, or services to customers or end users.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_understanding_the_restcomm_auto_attendant_api_and_console"><a class="anchor" href="#_understanding_the_restcomm_auto_attendant_api_and_console"></a>Understanding the Restcomm Auto Attendant API and Console</h2>
+<h2 id="_features_and_benefits"><a class="anchor" href="#_features_and_benefits"></a>Features and Benefits</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>AA can be quickly configured and deployed for Business Customers. Advanced features give both parties enhanced control over the data, users, management, and configuration of the application.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bring Your Own Carrier (BYOC)</strong>: Bring your own carrier or network and number pool to ensure optimal performance for business use cases.</p>
+</li>
+<li>
+<p><strong>Whitelabel Feature</strong>: Whitelabel the AA application, saving weeks to months of time in developing and deploying new services.</p>
+</li>
+<li>
+<p><strong>Accessible Usage Records</strong>: Deliver easy access to usage and support records for increased visibility and control for the Business Customer.</p>
+</li>
+<li>
+<p><strong>User Management</strong>: Easily manage users with different roles and capabilities.</p>
+</li>
+<li>
+<p><strong>Intuitive Console</strong>: Manage different capabilities of AA like Business Customers, users, usage records, and more with an intuitive and user-friendly console.</p>
+</li>
+<li>
+<p><strong>Customizable Menus</strong>: Business Customers can define and set up different menus and announcements for specific business hours, closures, and special occasions. Business Customers can also customize the Ringback Tone (RBT) so the caller hears either an audio announcement or traditional ringback tones.</p>
+</li>
+<li>
+<p><strong>User Experience</strong>: Business Customers can easily create and color code different schedules for their organization based on a simple drag-and-drop tool that helps them to visualize the whole system at once.</p>
+</li>
+<li>
+<p><strong>Professional Presentation</strong>: Business Customers can project a professional image with a high-quality voice recording or by using text-to-speech (TTS) for their AA greeting.</p>
+</li>
+<li>
+<p><strong>Smart Routing</strong>: Business Customers can collect necessary inputs from the caller and then route the call to a contact center, instead of a one-size-fits-all approach.</p>
+</li>
+<li>
+<p><strong>Reduced Waiting Time</strong>: Callers who know the extension number of the person they want to call can dial the number at any time. AA then connects the caller directly to the requested extension.</p>
+</li>
+<li>
+<p><strong>API-Based Integration</strong>: Both the Communications Provider and Business Customers can easily integrate the AA system with an existing CRM or third-party systems.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_the_auto_attendant_api_and_console"><a class="anchor" href="#_understanding_the_auto_attendant_api_and_console"></a>Understanding the Auto Attendant API and Console</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="auto-attendant-console.html">Getting Started with the Auto Attendant Console</a></p>
