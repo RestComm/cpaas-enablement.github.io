@@ -2294,7 +2294,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_enterprise">Enterprise</a>
+              <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_business_customer_enterprise">Enterprise</a>
 
             </span>
                 </div>
@@ -2319,26 +2319,6 @@
             </span>
                 </div>
                               </li>
-              <li id="Announcement"
-                  class="nav-item"
-                  data-depth="3">
-                <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                    <span>
-              <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_announcement">Announcement</a>
-
-            </span>
-                </div>
-                              </li>
               <li id="Auto Attendant System"
                   class="nav-item"
                   data-depth="3">
@@ -2355,6 +2335,46 @@
             "></span>
                     <span>
               <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_auto_attendant_system">Auto Attendant System</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Phone Number"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_phone_number">Phone Number</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Announcement"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_announcement">Announcement</a>
 
             </span>
                 </div>
@@ -2399,7 +2419,7 @@
             </span>
                 </div>
                               </li>
-              <li id="Phone Number"
+              <li id="Usage Records"
                   class="nav-item"
                   data-depth="3">
                 <div class="nav-flex-container">
@@ -2414,12 +2434,12 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_phone_number">Phone Number</a>
+              <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_usage_records">Usage Records</a>
 
             </span>
                 </div>
                               </li>
-              <li id="HMAC Key"
+              <li id="Single Sign On"
                   class="nav-item"
                   data-depth="3">
                 <div class="nav-flex-container">
@@ -2434,7 +2454,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_hmac_key">HMAC Key</a>
+              <a class="nav-link nav-flex-item-text" href="../auto-attendant/auto-attendant-api.html#_single_sign_on">Single Sign On</a>
 
             </span>
                 </div>
@@ -4185,7 +4205,7 @@
         "dateUpdated": "2019-10-11T11:11:00+0000",
         "dateCreated": "2019-10-11T11:11:00+0000",
         "accountSid": "ACa91f3a070d55122d9ec0069b0be27758",
-        "accountEmail": "subhahu.reddy@telestax.com",
+        "accountEmail": "jane.doe@company.com",
         "uri": "/messageexchange/enterprise/search/EN263d95d2bafa4e4a9e6a5563851cd283",
         "name": "walmart",
         "mappingsCount": 0
@@ -4306,6 +4326,14 @@ Number provisioning is asynchronous process. The user can call the create mappin
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">domainSid</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. User has to first create Domain as explained in section 2.3 Create Domain and pass the Domain Sid here to setup custom domain. If not passed this is set to null which means “restcomm.com” domain will be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. A URL for the Message Exchange to send webhook requests to notify on create mapping status events. For more information check <a href="#_status_callback">Status Callback</a> below.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackMethod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET, POST. Default POST</p></td>
 </tr>
 </tbody>
 </table>
@@ -4475,7 +4503,7 @@ Number provisioning is asynchronous process. The user can call the create mappin
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code>{
-      "name" : "Amit Bhayani",
+      "name" : "Jane Doe",
      "jabberAddress" : "jane.doe@yourcompany.com",
      "externalAddress" : "157133169432",
      "enterpriseSid" : "EN38d48bc7dea7470090c8fc809a69a620"
@@ -4493,7 +4521,7 @@ Number provisioning is asynchronous process. The user can call the create mappin
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d ‘{
-      "name" : "Amit Bhayani",
+      "name" : "Jane Doe",
      "jabberAddress" : "jane.doe@yourcompany.com",
      "externalAddress" : "157133169432",
      "enterpriseSid" : "EN38d48bc7dea7470090c8fc809a69a620"
@@ -4511,13 +4539,14 @@ Number provisioning is asynchronous process. The user can call the create mappin
         "dateUpdated": "2019-10-11T11:16:02+0000",
         "dateCreated": "2019-10-11T11:16:02+0000",
         "accountSid": "ACa91f3a070d55122d9ec0069b0be27758",
-        "accountEmail": "subhahu.reddy@telestax.com",
+        "accountEmail": "jane.doe@company.com",
         "uri": "/messageexchange/mappings/search/XM04f7959a96c34814ba163a4f5c8c7fc1",
         "jabberAddress": "jane.doe@yourcompany.com",
         "externalAddress": "157133169432",
         "enterpriseSid": "EN38d48bc7dea7470090c8fc809a69a620",
-        "name": "Amit Bhayani",
-        "enterpriseName": "testing"
+        "name": "Jane Doe",
+        "enterpriseName": "Jane's Enterprise",
+        "smsEnableProvisionStatus": "PROCESSING"
     },
     "code": 200,
     "message": "OK"
@@ -4536,25 +4565,26 @@ Number provisioning is asynchronous process. The user can call the create mappin
         "jabberAddress": "jane.doe@yourcompany.com",
         "externalAddress": "157133169432",
         "enterpriseSid": "EN38d48bc7dea7470090c8fc809a69a620",
-        "name": "Amit Bhayani"
+        "name": "Jane Doe"
     }
 }</code></pre>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_example_of_specific_domain"><a class="anchor" href="#_example_of_specific_domain"></a>Example of Specific Domain</h4>
 <div class="paragraph">
-<p>Below is example with specific domain
-From the bash terminal you can run the command below:</p>
+<p>From the bash terminal you can run the command below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code>curl -X POST \
-  https://cloud.restcomm.com/messageexchange/mappings\
+  https://yourcompany.com/messageexchange/mappings\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{
-      "name" : "Amit Bhayani",
-      "jabberAddress": "amit.bhayaninew@telestax.com",
+      "name" : "Jane Doe",
+      "jabberAddress": "jane@company.com",
 "externalAddress": "1571331694312",
   "enterpriseSid": "EN38d48bc7dea7470090c8fc809a69a620",
    "domainSid": "DO50da2ec4fab8402d9188a9d6b1d5648f"
@@ -4572,15 +4602,16 @@ From the bash terminal you can run the command below:</p>
         "dateUpdated": "2019-10-11T11:18:24+0000",
         "dateCreated": "2019-10-11T11:18:24+0000",
         "accountSid": "ACa91f3a070d55122d9ec0069b0be27758",
-        "accountEmail": "subhahu.reddy@telestax.com",
+        "accountEmail": "jane@company.com",
         "uri": "/messageexchange/mappings/search/XMcab895c586eb4bd3926c2fa644319698",
-        "jabberAddress": "amit.bhayaninew@telestax.com",
+        "jabberAddress": "jane.doe@company.comm",
         "externalAddress": "1571331694312",
         "enterpriseSid": "EN38d48bc7dea7470090c8fc809a69a620",
-        "name": "Amit Bhayani",
+        "name": "Jane Doe",
         "enterpriseName": "testing",
         "domainSid": "DO50da2ec4fab8402d9188a9d6b1d5648f",
-        "domain": "mydomain.com.in"
+        "domain": "mydomain.com.in",
+        "smsEnableProvisionStatus": "PROCESSING"
     },
     "code": 200,
     "message": "OK"
@@ -4596,13 +4627,153 @@ From the bash terminal you can run the command below:</p>
     "errorCode": "465",
     "message": "jabberAddress not unique",
     "data": {
-        "jabberAddress": "amit.bhayaninew@telestax.com",
+        "jabberAddress": "jane.doe@company.com",
         "externalAddress": "1571331694312",
         "enterpriseSid": "EN38d48bc7dea7470090c8fc809a69a620",
-        "name": "Amit Bhayani",
+        "name": "Jane Doe",
         "domainSid": "DO50da2ec4fab8402d9188a9d6b1d5648f"
     }
 }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_of_statuscallback"><a class="anchor" href="#_example_of_statuscallback"></a>Example of statusCallback</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>curl -X POST https://yourcompany.com/messageexchange/mappings \
+--user  '{your_account_SID}:{your_account_token}' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/json' \
+-d '{ "name": "Jane Doe 14 Jan 2021 M1", "jabberAddress": "jane.doe2@yourcompany.com", "externalAddress": "13123488251", "enterpriseSid": "EN431f9fc8a79e48e99c6318dd20edde53", "statusCallback":"https://webhook.site/c32920ef-7373-4445-87b9-80abaf1dfc4e", "statusCallbackMethod":"POST" }'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>HTTP Response returned will contain <code>smsEnableProvisionStatus</code> with a <code>PROCESSING</code> status.</p>
+</div>
+<div class="paragraph">
+<p>The webhook <a href="https://webhook.site/c32920ef-7373-4445-87b9-80abaf1dfc4e"" class="bare">https://webhook.site/c32920ef-7373-4445-87b9-80abaf1dfc4e"</a> will be called with below payload</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+"sid": "XM8df5383132cf4fb1802ec4ece9775ea0",
+"dateUpdated": "2021-02-03T10:11:59+0000",
+"dateCreated": "2021-02-03T10:11:58+0000",
+"accountSid": "ACe48840e36727d2ff77a146bf04ec1410",
+"accountEmail": "sm-test-stg-bandwidth@stg-sm-us.restcomm.com",
+"uri": "/messageexchange/mappings/search/XM8df5383132cf4fb1802ec4ece9775ea0",
+"jabberAddress": "jane.doe2@yourcompany.com",
+"externalAddress": "13123488251",
+"enterpriseSid": "EN431f9fc8a79e48e99c6318dd20edde53",
+"name": "Jane Doe 14 Jan 2021 M1",
+"enterpriseName": "Default Enterprise",
+"smsEnableProvisionStatus": "FAILED",
+"smsEnableProvisionFailMessage": "SIP peer submitted is invalid."
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_status_callback"><a class="anchor" href="#_status_callback"></a>Status Callback</h3>
+<div class="paragraph">
+<p>The StatusCallback body parameter allows you to specify a URL where you can receive events in the form of HTTP POST or GET requests (webhooks) with updates on mapping status from the Message Exchange Platform. Those requests can contain the following body parameters:</p>
+</div>
+<div class="sect3">
+<h4 id="_statuscallbackmethod"><a class="anchor" href="#_statuscallbackmethod"></a>StatusCallbackMethod</h4>
+<div class="paragraph">
+<p>The StatusCallbackMethod attribute allows you to specify which HTTP method Message Exchange should use when requesting the URL in the StatusCallback attribute. The default is POST.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique MX mapping Id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Id under which this Mapping is created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of Enterprise under which this Mapping is created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Restcomm Account that created/updated this particular Enterprise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email associated with accountSid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Mapping was updated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Friendly name of this user</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">jabberAddress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Jabber Address id of this user</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">externalAddress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMS enabled number mapped to this WebEx id.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smsEnableProvisionStatus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status of create mapping as explained in <a href="create-operation.html#_lifecycle_of_number_mapping">Lifecycle of number mapping</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">smsEnableProvisionFailMessage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reason message if creation of a mapping <strong>FAILED</strong> or was <strong>SUCCESSFUL</strong> but the number was not provisioned in Restcomm for whatever reason.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI you can call to get only this specific mapping SDR</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For creating mapping smsEnableProvisionStatus can have either SUCCESS or FAILED value depending on the status of the mapping.</p>
+</div>
+<div class="paragraph">
+<p>For delete mapping smsEnableProvisionStatus can have either DELETED or FAILED value depending on the status of the mapping.</p>
+</div>
+<div class="paragraph">
+<p>Both create and delete mapping API endpoints should be called with <code>statusCallback</code> parameter if you expect to receive callback with the status of each operations.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -4815,7 +4986,7 @@ From the bash terminal you can run the command below:</p>
         "dateUpdated": "2019-10-11T11:25:16+0000",
         "dateCreated": "2019-10-11T11:25:16+0000",
         "accountSid": "ACa91f3a070d55122d9ec0069b0be27758",
-        "accountEmail": "subhahu.reddy@telestax.com",
+        "accountEmail": "jane.doe@company.com",
         "uri": "/messageexchange/domains/search/DOe334d1141af84ae6b7e44858d1745609",
         "name": "mycompany.com",
 
@@ -5028,7 +5199,7 @@ From the bash terminal you can run the command below:</p>
         "dateUpdated": "2019-10-11T11:02:54+0000",
         "dateCreated": "2019-10-11T11:02:54+0000",
         "accountSid": "ACa91f3a070d55122d9ec0069b0be27758",
-        "accountEmail": "subhahu.reddy@telestax.com",
+        "accountEmail": "jane.doe@company.com",
         "uri": "/messageexchange/whitelist/search/WLc63cf931d5dd4741b54b751a082e8a47",
         "ipAddress": "1.2.3.4"
     },
