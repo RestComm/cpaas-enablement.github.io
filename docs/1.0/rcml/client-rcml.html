@@ -4016,29 +4016,34 @@
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Attribute Name</th>
 <th class="tableblock halign-left valign-top">Allowed Values</th>
 <th class="tableblock halign-left valign-top">Default Value</th>
+<th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any url</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">call screening url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">positive integer in seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">60 seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">call screening timeout</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">method</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code>, <code>POST</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>POST</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">method for call screening url</p></td>
@@ -4047,18 +4052,16 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackEvent</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>initiated</code>, <code>ringing</code>, <code>answered</code>, <code>completed</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initiated,ringing,answered,completed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event triggers for status callback</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Event triggers for status callback</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any url</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statusCallback url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackMethod</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">statusCallbackMethod</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET</code>, <code>POST</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>POST</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">method for statusCallback url</p></td>
@@ -4069,6 +4072,13 @@
 <h4 id="_url"><a class="anchor" href="#_url"></a>url</h4>
 <div class="paragraph">
 <p>The 'url' attribute lets you specify a url for a RCML document that will run on the called party&#8217;s end, after they answer the call, but before the parties are connected. You can use this RCML to privately Play or Say information to the called party, or provide a chance to decline the phone call using &lt;Gather&gt; and &lt;Hangup&gt;. The caller will continue to hear ringing while the RCML document executes on the other end. RCML documents executed in this manner are not allowed to contain the &lt;Dial&gt; verb.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_timeout"><a class="anchor" href="#_timeout"></a>timeout</h4>
+<div class="paragraph">
+<p>The 'timeout' allows you to specify the limit in seconds that call screening waits for the called party to accept the call.
+Default value 60 seconds</p>
 </div>
 </div>
 <div class="sect3">
