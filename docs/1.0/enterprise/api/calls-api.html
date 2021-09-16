@@ -3463,7 +3463,7 @@ public class JavaSampleClass {
 <p><strong>HTTP POST</strong> to a Call</p>
 </div>
 <div class="paragraph">
-<p>To redirect or terminate a live call, you make an <strong>HTTP POST</strong> request to an in­-progress Call instance resource URI:</p>
+<p>To redirect or terminate a live call, you make an <strong>HTTP POST</strong> request to an in-progress Call instance resource URI:</p>
 </div>
 <div class="paragraph">
 <p><strong>/2012-04-24/Accounts/{AccountSid}/Calls/{CallSid}</strong></p>
@@ -3603,7 +3603,7 @@ public class JavaSampleClass {
 <div class="ulist">
 <ul>
 <li>
-<p>Incoming call -­ CallSid (1234567890)</p>
+<p>Incoming call - CallSid (1234567890)</p>
 </li>
 <li>
 <p>Applcation server: - Store CallSid and other parameters - Prepare and send RCML that connects the call to Bob (using Dial verb)</p>
@@ -3664,7 +3664,7 @@ public class JavaSampleClass {
       </div>
       <div id="Curl-93" class="sample-language-93">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls/CALL_SID.json  \
-   -d 'Url=http://mycompany.com/restcomm/demos/dial­alice.xml' \
+   -d 'Url=http://mycompany.com/restcomm/demos/dialalice.xml' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
@@ -3682,7 +3682,7 @@ request.({
       url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Calls/' + CALL_SID + '.json',
       auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
       form: {
-         'Url': 'http://mycompany.com/restcomm/demos/dial­alice.xml'
+         'Url': 'http://mycompany.com/restcomm/demos/dialalice.xml'
       }
    },
    function (error, response, body) {
@@ -3709,7 +3709,7 @@ headers = { 'Authorization' : 'Basic %s' %  userAndPass,
 
 # Update POST parameters accordingly
 params = urlencode({
-   'Url': 'http://mycompany.com/restcomm/demos/dial­alice.xml'
+   'Url': 'http://mycompany.com/restcomm/demos/dialalice.xml'
 })
 
 conn = HTTPSConnection('mycompany.restcomm.com')
@@ -3746,7 +3746,7 @@ public class JavaSampleClass {
       DataOutputStream os = new DataOutputStream(conn.getOutputStream());
 
       // Update POST parameters accordingly
-      os.writeBytes("Url=http://mycompany.com/restcomm/demos/dial­alice.xml");
+      os.writeBytes("Url=http://mycompany.com/restcomm/demos/dialalice.xml");
       os.close();
 
       // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
