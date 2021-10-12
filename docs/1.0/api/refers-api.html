@@ -1419,6 +1419,26 @@
                               </li>
   </ul>
               </li>
+              <li id="Hold"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="holds-api.html">Hold</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="Recordings"
                   class="nav-item"
                   data-depth="2">
@@ -1521,6 +1541,26 @@
                               </li>
   </ul>
               </li>
+              <li id="Resume"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="resumes-api.html">Resume</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="SIP Refer Support"
                   class="nav-item"
                   data-depth="2">
@@ -3861,6 +3901,46 @@
             </span>
                 </div>
                               </li>
+              <li id="Hold"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/hold-rcml.html">Hold</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Resume"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/resume-rcml.html">Resume</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="Hangup"
                   class="nav-item"
                   data-depth="2">
@@ -4006,7 +4086,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer records are generated when you are using the <a href="../rcml/refer-api.html"><strong>&lt;Refer&gt;</strong> verb</a>. Those records are hosted with Restcomm and are available for you to retrieve. The Refer records list resource represents a set of account&#8217;s Refer records.</p>
+<p>Refer records are generated when you are using the <a href="../rcml/refer-rcml.html"><strong>&lt;Refer&gt;</strong> verb</a>. Those records are hosted with Restcomm and are available for you to retrieve. The Refer records list resource represents a set of account&#8217;s Refer records.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -4051,6 +4131,10 @@ The Refers API endpoint supports JSON output only.
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">api_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API version in use during the recording.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies this record.</p></td>
 </tr>
@@ -4071,15 +4155,15 @@ The Refers API endpoint supports JSON output only.
 <td class="tableblock halign-left valign-top"><p class="tableblock">The unique id of the call during which transferring of the call was made.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer_from</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The phone number or identifier that originated the transfer of the call.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer_to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The phone number or identifier that will be the recipient of this transferred call.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer_call_status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">call_status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The status of the transferring procedure. This provides the application with the status of the new call (based on SIP NOTIFY messages) created in a response to the REFER. If the REFER fails or the endpoint does not send any NOTIFY requests, this parameter will be omitted.</p></td>
 </tr>
 <tr>
@@ -4089,10 +4173,6 @@ The Refers API endpoint supports JSON output only.
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">notify_sip_response_code</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This is the last SIP response code received on the referred leg, as determined by examining the SIP NOTIFY messages. E.g. If the SIP endpoint initiated a new call but received a SIP 404 response due to the target not being found, this parameter will be set to "404". If the REFER fails or the endpoint does not send any NOTIFY requests, this parameter will be omitted.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">api_version</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The API version in use during the recording.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
@@ -4129,17 +4209,17 @@ The Refers API endpoint supports JSON output only.
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-65 is-active" onclick="openLanguage('Curl', 65)">Curl</button>
-        <button class="sample-code-button scsIndex-65" onclick="openLanguage('Nodejs', 65)">Nodejs</button>
-        <button class="sample-code-button scsIndex-65" onclick="openLanguage('Python', 65)">Python</button>
-        <button class="sample-code-button scsIndex-65" onclick="openLanguage('Java', 65)">Java</button>
+        <button class="sample-code-button scsIndex-68 is-active" onclick="openLanguage('Curl', 68)">Curl</button>
+        <button class="sample-code-button scsIndex-68" onclick="openLanguage('Nodejs', 68)">Nodejs</button>
+        <button class="sample-code-button scsIndex-68" onclick="openLanguage('Python', 68)">Python</button>
+        <button class="sample-code-button scsIndex-68" onclick="openLanguage('Java', 68)">Java</button>
       </div>
-      <div id="Curl-65" class="sample-language-65">
+      <div id="Curl-68" class="sample-language-68">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACea59167c974743ecb8dbe4cc8bb85712/Refers/RFc377eb0e657e415383de087ab38797db  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-65" class="sample-language-65" style="display:none">
+      <div id="Nodejs-68" class="sample-language-68" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -4158,7 +4238,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-65" class="sample-language-65" style="display:none">
+      <div id="Python-68" class="sample-language-68" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -4178,7 +4258,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-65" class="sample-language-65" style="display:none">
+      <div id="Java-68" class="sample-language-68" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -4216,9 +4296,9 @@ public class JavaSampleClass {
   "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "org_sid": "ORfe81fe8a3d5f4d5391e901db0bf5755d",
   "call_sid": "IDbb44ef8c2ebf4d4599d0378a2a8a2ea8-CAd9e08ede8b604e739ba7d0bd477fdf49",
-  "refer_to": "sip:alice@company.com",
-  "refer_from": "sip:bob@company.com",
-  "refer_call_status": "in-progress",
+  "to": "sip:alice@company.com",
+  "from": "sip:bob@company.com",
+  "call_status": "in-progress",
   "refer_sip_response_code": 123,
   "notify_sip_response_code": 456
 }</code></pre>
@@ -4254,17 +4334,17 @@ public class JavaSampleClass {
 <p>Here&#8217;s how you can list your Refer records:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-66 is-active" onclick="openLanguage('Curl', 66)">Curl</button>
-        <button class="sample-code-button scsIndex-66" onclick="openLanguage('Nodejs', 66)">Nodejs</button>
-        <button class="sample-code-button scsIndex-66" onclick="openLanguage('Python', 66)">Python</button>
-        <button class="sample-code-button scsIndex-66" onclick="openLanguage('Java', 66)">Java</button>
+        <button class="sample-code-button scsIndex-69 is-active" onclick="openLanguage('Curl', 69)">Curl</button>
+        <button class="sample-code-button scsIndex-69" onclick="openLanguage('Nodejs', 69)">Nodejs</button>
+        <button class="sample-code-button scsIndex-69" onclick="openLanguage('Python', 69)">Python</button>
+        <button class="sample-code-button scsIndex-69" onclick="openLanguage('Java', 69)">Java</button>
       </div>
-      <div id="Curl-66" class="sample-language-66">
+      <div id="Curl-69" class="sample-language-69">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Refers  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-66" class="sample-language-66" style="display:none">
+      <div id="Nodejs-69" class="sample-language-69" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -4283,7 +4363,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-66" class="sample-language-66" style="display:none">
+      <div id="Python-69" class="sample-language-69" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -4303,7 +4383,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-66" class="sample-language-66" style="display:none">
+      <div id="Java-69" class="sample-language-69" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -4343,9 +4423,9 @@ public class JavaSampleClass {
           "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
           "org_sid": "ORfe81fe8a3d5f4d5391e901db0bf5755d",
           "call_sid": "IDbb44ef8c2ebf4d4599d0378a2a8a2ea8-CAd9e08ede8b604e739ba7d0bd477fdf49",
-          "refer_to": "sip:alice@company.com",
-          "refer_from": "sip:bob@company.com",
-          "refer_call_status": "in-progress",
+          "to": "sip:alice@company.com",
+          "from": "sip:bob@company.com",
+          "call_status": "in-progress",
           "refer_sip_response_code": 123,
           "notify_sip_response_code": 456
         },
@@ -4419,17 +4499,17 @@ Parameters are case-sensitive.
 <p>The example below will return Refer records that have been initiated from this CallSid.</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-67 is-active" onclick="openLanguage('Curl', 67)">Curl</button>
-        <button class="sample-code-button scsIndex-67" onclick="openLanguage('Nodejs', 67)">Nodejs</button>
-        <button class="sample-code-button scsIndex-67" onclick="openLanguage('Python', 67)">Python</button>
-        <button class="sample-code-button scsIndex-67" onclick="openLanguage('Java', 67)">Java</button>
+        <button class="sample-code-button scsIndex-70 is-active" onclick="openLanguage('Curl', 70)">Curl</button>
+        <button class="sample-code-button scsIndex-70" onclick="openLanguage('Nodejs', 70)">Nodejs</button>
+        <button class="sample-code-button scsIndex-70" onclick="openLanguage('Python', 70)">Python</button>
+        <button class="sample-code-button scsIndex-70" onclick="openLanguage('Java', 70)">Java</button>
       </div>
-      <div id="Curl-67" class="sample-language-67">
+      <div id="Curl-70" class="sample-language-70">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Refers?CallSid=IDbb44ef8c2ebf4d4599d0378a2a8a2ea8-CAd9e08ede8b604e739ba7d0bd477fdf49  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-67" class="sample-language-67" style="display:none">
+      <div id="Nodejs-70" class="sample-language-70" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -4448,7 +4528,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-67" class="sample-language-67" style="display:none">
+      <div id="Python-70" class="sample-language-70" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -4468,7 +4548,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-67" class="sample-language-67" style="display:none">
+      <div id="Java-70" class="sample-language-70" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -4508,9 +4588,9 @@ public class JavaSampleClass {
           "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
           "org_sid": "ORfe81fe8a3d5f4d5391e901db0bf5755d",
           "call_sid": "IDbb44ef8c2ebf4d4599d0378a2a8a2ea8-CAd9e08ede8b604e739ba7d0bd477fdf49",
-          "refer_to": "sip:alice@company.com",
-          "refer_from": "sip:bob@company.com",
-          "refer_call_status": "in-progress",
+          "to": "sip:alice@company.com",
+          "from": "sip:bob@company.com",
+          "call_status": "in-progress",
           "refer_sip_response_code": 123,
           "notify_sip_response_code": 456
         },

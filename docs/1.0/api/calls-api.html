@@ -1419,6 +1419,26 @@
                               </li>
   </ul>
               </li>
+              <li id="Hold"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="holds-api.html">Hold</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="Recordings"
                   class="nav-item"
                   data-depth="2">
@@ -1521,6 +1541,26 @@
                               </li>
   </ul>
               </li>
+              <li id="Resume"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="resumes-api.html">Resume</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="SIP Refer Support"
                   class="nav-item"
                   data-depth="2">
@@ -3861,6 +3901,46 @@
             </span>
                 </div>
                               </li>
+              <li id="Hold"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/hold-rcml.html">Hold</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Resume"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../rcml/resume-rcml.html">Resume</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="Hangup"
                   class="nav-item"
                   data-depth="2">
@@ -4808,15 +4888,69 @@ public class JavaSampleClass {
 <td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the above URL. Defaults to POST.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status (<strong>deprecated</strong>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Either <strong>canceled</strong> or completed. Specifying canceled will attempt to hangup calls that are queued or ringing but not affect calls already in progress. Specifying completed will attempt to hang up a call even if it&#8217;s already in progress.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mute</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Either <strong>true</strong> or <strong>flase</strong>. Setting value of this parameter to <strong>true</strong> will mute the call. Setting value of this parameter to <strong>false</strong> will unmute the call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mute (<strong>deprecated</strong>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Either <strong>true</strong> or <strong>false</strong>. Setting value of this parameter to <strong>true</strong> will mute the call. Setting value of this parameter to <strong>false</strong> will unmute the call.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">The Mute parameter is deprecated!</div>
+<div class="paragraph">
+<p>The mute feature in LCM has been marked as deprecated and will be discontinued in the future!</p>
+</div>
+<div class="paragraph">
+<p>As alternative, users are encouraged to perform LCM by setting the URL parameter to point to an RCML document that contains
+either the &lt;Hold&gt; or &lt;Resume&gt; tags for, respectively, muting or un-muting the call leg.</p>
+</div>
+<div class="paragraph">
+<p>Differences between Mute and Hold/Resume:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Hold/Unhold will send a SIP re-INVITE to the SIP Peer with a new SDP offer that sets the RTP connection to "sendonly" or "recvonly"</p>
+</li>
+<li>
+<p>Mute will "silently" update the RTP connection on <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> side. The remote SIP peer won&#8217;t know about it because no SIP re-INVITE is sent.</p>
+</li>
+<li>
+<p>Hold/Unhold generate a corresponding SDR record. Mute does not.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">The Status parameter is deprecated!</div>
+<div class="paragraph">
+<p>The Status parameter in LCM has been marked as deprecated and will be discontinued in the future!</p>
+</div>
+<div class="paragraph">
+<p>As alternative, users are encouraged to perform LCM by setting the URL parameter to point to an RCML document that contains
+a &lt;Hangup&gt; or &lt;Reject&gt; tags for, respectively, marking a call as completed or canceled.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_call_in_progress"><a class="anchor" href="#_call_in_progress"></a>Call in-Progress</h3>
@@ -4860,11 +4994,36 @@ public class JavaSampleClass {
 <td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP method <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> should use when requesting the above URL. Defaults to POST.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MoveConnectedCallLeg</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MoveConnectedCallLeg (<strong>deprecated</strong>, see ChildCallMode)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">If True, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will move both call legs to the new URL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ChildCallMode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It can take one of the three values below:</p>
+<p class="tableblock">* <strong>Hangup</strong>: <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will hang up the child call if the parent call is modified through Live Call Modification. This is the default behavior and equivalent to the current behavior of MoveConnectedLeg=False.</p>
+<p class="tableblock">* <strong>Move</strong>: <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will move the child call to used the same url that was used to modify the parent call. This is equivalent to the current behavior of MoveConnectedLeg=True.</p>
+<p class="tableblock">* <strong>StayConnected</strong>: All call legs will still continue to stay connected and process an <strong>RCML</strong> from an existing URL. A call leg with <code>CallSid</code> will start interpreting a new <strong>RCML</strong> from a newly provided URL in a parallel mode. When this new RCML that is running in parallel is over, this will not terminate the call leg unlike the existing RCML does. The call legs will be terminated either after a SIP BYE from a peer is sent, when the <strong>RCML</strong> from the existing URL is over, or when any RCML contains a "&lt;Hangup&gt;" verb.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">The MoveConnectedCallLeg parameter is deprecated!</div>
+<div class="paragraph">
+<p>The MoveConnectedCallLeg parameter in LCM has been marked as deprecated and will be discontinued in the future!</p>
+</div>
+<div class="paragraph">
+<p>Users shall use the new ChildCallMode parameter instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect2">
