@@ -2797,6 +2797,7 @@
 <li><a href="#_receiving_an_sms_message_in_microsoft_teams">Receiving an SMS/message in Microsoft teams</a></li>
 <li><a href="#_sending_an_sms_message_to_new_number_from_microsoft_teams">Sending an SMS/Message to New Number from  Microsoft Teams</a></li>
 <li><a href="#_replying_to_received_sms_message">Replying to Received SMS/Message</a></li>
+<li><a href="#_access_management_for_azure_resources">Access Management for Azure Resources</a></li>
 </ul>
 </li>
 </ul>
@@ -3067,32 +3068,40 @@ Once you add the client secret, the value is shown one time only. Be sure to cop
 <div class="ulist">
 <ul>
 <li>
-<p>From the available options, select the Bot Channels Registration.</p>
+<p>From the available options, select the Azure Bot.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../../_images/microsoft-teams/add-bot-3.png" alt="Bot channel Registration"></span></p>
+<p><span class="image"><img src="../../_images/microsoft-teams/add-azure-bot-1.png" alt="Bot channel Registration"></span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Click the Create button on the Bot Channels Registration page.</p>
+<p>Click the <code>Create</code> button on the Azure Bot page.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../../_images/microsoft-teams/add-bot-4.png" alt="Bot channel create"></span></p>
+<p><span class="image"><img src="../../_images/microsoft-teams/add-azure-bot-2.png" alt="Bot channel create"></span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The previous step will navigate you to the Bot Channel Registration form. Here you need to provide the requested information about your bot as shown below:</p>
+<p>The previous step will lead you to the Azure Bot form. Enter the requested information about your bot as shown below:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">NOTE</dt>
+<dd>
+<p>If the registration form does not open and you are prompted to create a free account then follow the steps outlined in the <a href="#_access_management_for_azure_resources">Access Management for Azure Resources section</a>.</p>
+</dd>
+</dl>
+</div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../../_images/microsoft-teams/add-bot-5.png" alt="Bot channel registration form"></span></p>
+<p><span class="image"><img src="../../_images/microsoft-teams/add-azure-bot-3.png" alt="Azure Bot registration form"></span></p>
 </div>
 <div class="ulist">
 <ul>
@@ -3106,12 +3115,15 @@ Once you add the client secret, the value is shown one time only. Be sure to cop
 <p>Resource group: you can create a new resource group or you can choose an existing one from the list.</p>
 </li>
 <li>
-<p>Location: Select "East US" from the drop down menu.</p>
+<p>New resource group Location: Select "East US" from the drop down menu.</p>
 </li>
 <li>
-<p>Pricing tier: Choose F0 from the drop down menu.</p>
+<p>Pricing tier: Click on “change plan” and select F0 Free as shown below:</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../../_images/microsoft-teams/add-azure-bot-4.png" alt="Plan"></span></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3129,30 +3141,24 @@ Additional link explaining the Azure Bot Service pricing: <a href="https://azure
 <div class="ulist">
 <ul>
 <li>
-<p>Messaging Endpoint: This is the Webhook url. Please enter the following URL <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/msteams/internal/message.</p>
-</li>
-<li>
-<p>Application Insights Location: Turn this as "Off"</p>
-</li>
-<li>
-<p>Microsoft App ID and Password: When you click on this option, it will give you two choices. Choose the Create new option.</p>
+<p>Microsoft App ID: Choose the “Use existing app registration”</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../../_images/microsoft-teams/add-bot-6.png" alt="Linking Application"></span></p>
+<p><span class="image"><img src="../../_images/microsoft-teams/add-bot-5.png" alt="Application Registration"></span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>In the Create new Microsoft App ID, you need to fill in the following details and press the Ok button as shown in the following screenshot.</p>
+<p>Under the ”Use existing app registration”, fill in the following details and press the <code>Ok</code> button as shown in the following screenshot.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Application ID: Explained in the previous sections</p>
+<p>Existing app id: Enter "Application ID" as explained in the previous section.</p>
 </li>
 <li>
-<p>Password: Explained in the previous sections</p>
+<p>Existing app password: Enter the "Client secret" as explained in the previous section.</p>
 </li>
 </ul>
 </div>
@@ -3160,23 +3166,29 @@ Additional link explaining the Azure Bot Service pricing: <a href="https://azure
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="../../_images/microsoft-teams/add-bot-7.png" alt="Application form details"></span></p>
+<p><span class="image"><img src="../../_images/microsoft-teams/add-azure-bot-6.png" alt="App and tenant details form"></span></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Click on the Create button and it should register the new Bot Channel Registration.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>After the Bot Channel Registration is created, you&#8217;ll need to enable the Teams channel. We need to follow these step in order to link the Microsoft Teams Application with our Bot.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Navigate to the Azure portal home at <a href="https://portal.azure.com/#home">Azure portal</a> and  under Azure services, click on Resource groups. The resource group page should list the resource that you created while creating your Bot Channel Registration. In the example shown above, the Resource group was named "messagetestbot". Click on this resource and it should list the Bot (named as messagetestbot) that was created in Section 5 above. Click on the bot that you just created. After this step your bot will appear under Recent resources in the Home Page as depicted below.</p>
+<p>Click on the <code>Review + Create</code> button. Once validation has passed you will be redirected to the following page:</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><span class="image"><img src="../../_images/microsoft-teams/add-azure-bot-7.png" alt="Bot creation Final page"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click on the <code>Create Button</code></p>
+</li>
+<li>
+<p>After the Bot Channel Registration is completed, you&#8217;ll need to enable the Teams channel. You will need to follow these step in order to link the Microsoft Teams Application with our Bot.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Navigate to the Azure portal <a href="https://portal.azure.com/#home">home page</a>. Under Azure services, click on <code>Resource groups</code>. The resource group page should list the resource you created while setting up your Azure Bot. In the example above, the Resource group was named "messagetestbot". Click on this resource. It should list the Bot created in the previous section. Click on the bot that you just created. After this step your bot will appear under Recent resources in the Home Page as depicted below.</p>
 </li>
 </ul>
 </div>
@@ -3227,6 +3239,29 @@ It will display the Terms of Service, to which you must agree to proceed.
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Once the Microsoft Teams channel is configured, you will need to add the “messaging endpoint”. To do that, click on the name of the Bot. You will be redirected to a new page. Click on the Configuration option from the left menu.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../../_images/microsoft-teams/messaging-endpoint-form.png" alt="Messaging endpoint update"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You will see a screen with a Configuration form. Enter the following URL in the “Messaging endpoint” field: <span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span>/msteams/internal/message</p>
+</li>
+<li>
+<p>Then click on Apply button.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../../_images/microsoft-teams/messaging-endpoint-form-2.png" alt="Messaging endpoint update 2"></span></p>
 </div>
 </div>
 </div>
@@ -3517,6 +3552,49 @@ For Uploading the Application to Microsoft Teams the user who is trying to uploa
 <h3 id="_replying_to_received_sms_message"><a class="anchor" href="#_replying_to_received_sms_message"></a>Replying to Received SMS/Message</h3>
 <div class="paragraph">
 <p>To reply to a received message, follow the steps <a href="microsoft-teams-setup-for-enterprise.html#_sending_a_message">here</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_access_management_for_azure_resources"><a class="anchor" href="#_access_management_for_azure_resources"></a>Access Management for Azure Resources</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Navigate to the Azure Active Directory by clicking on the menu in the top left corner of the screen.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../../_images/microsoft-teams/main-page.png" alt="Home" width="1000" height="800"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Choose the Properties option as shown below.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../../_images/microsoft-teams/AAD-properties.png" alt="Edit properties"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Under the “Allow management for Azure resources” toggle option select “YES”.</p>
+</li>
+<li>
+<p>Click Save.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../../_images/microsoft-teams/AAD-properties-2.png" alt="Edit properties"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Then try to create the BOT by following the step outlined in the <a href="#_create_a_bot">Create a Bot section</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
