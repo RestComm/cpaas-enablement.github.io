@@ -4385,7 +4385,7 @@ For example, Customer Number URL can return:&#160;<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">waitUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute takes a URL as an argument. The url points to a RCML document that will be executed on the queued caller&#8217;s end (Customer) when the caller is put to queue waiting for the next available enqueue (Agent). The waitUrl RCML just support Say, Play, Redirect verbs. &#160;<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute takes a URL as an argument. The url points to a RCML document that will be executed on the queued caller&#8217;s end (Agent) when the caller is put to queue waiting for the next available enqueue (Customer). The waitUrl RCML supports Say, Play, and Redirect verbs. &#160;<br>
 &#160;<br>
 If total duration of &lt;say&gt;, &lt;play&gt; together is less than &lt;dial&gt; timeout value, Call Queue will put the waitUrl response in loop and play till timeout occurs or call is connected. &#160;<br>
 &#160;<br>
@@ -4406,6 +4406,10 @@ Call Queue will pass the parameters explained in <a href="call-queue-api.html#_r
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">joinUrlMethod</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The method attribute takes the value 'GET' or 'POST'. This tells Call Queue whether to request the joinUrl above via HTTP GET or POST. This attribute is modeled after the HTML form method attribute. 'POST' is the default value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rejoin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When the Agent finishes a call with a Customer, and the Customer hangs up, if this attribute is true and there are no more Customers queued, the Agent will be enqueued again and will hear music while on hold till the next Customer joins. If this attribute is false, the Agent’s call will be dropped if there are no more Customers in a queue.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4509,7 +4513,7 @@ Thanks for holding line. You will now be connected to Agent.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">waitUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute takes a URL as an argument. The url points to a RCML document that will be executed while the caller (Agent) is put to queue waiting for the next caller (Customer) joining &lt;queue&gt;. The waitUrl RCML just support Say, Play, Redirect verbs. &#160;<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute takes a URL as an argument. The url points to a RCML document that will be executed while the caller (Customer) is put to queue waiting for the next caller (Agent) joining &lt;queue&gt;. The waitUrl RCML supports Say, Play, and Redirect verbs. &#160;<br>
 &#160;<br>
 Once the waitUrl RCML flow runs out of verbs to execute, Call Queue will start over, essentially looping hold music indefinitely. &#160;<br>
 &#160;<br>
@@ -4530,10 +4534,6 @@ Call Queue will pass the parameters explained in <a href="call-queue-api.html#_r
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">joinUrlMethod</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The method attribute takes the value 'GET' or 'POST'. This tells Call Queue whether to request the joinUrl above via HTTP GET or POST. This attribute is modeled after the HTML form method attribute. 'POST' is the default value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">rejoin</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">When Agent finishes call with Customer and Customer hangs up, if this attribute is true and there are no more Customers queued, Agent will be enqueued again and Agent hears onhold music till next Customer joins. If this attribute is false, Agent’s call will be dropped if there are no more Customers in queue.</p></td>
 </tr>
 </tbody>
 </table>
