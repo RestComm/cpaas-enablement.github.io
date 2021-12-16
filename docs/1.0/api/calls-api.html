@@ -4366,14 +4366,25 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SipHeader_Diversion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Values of Diversion header from SIP protocol or default values from the subscriber profile. This parameter can be present multiple times because of SIP Diversion header can be multiple. For more information about this field, please see [RFC 5806](<a href="https://datatracker.ietf.org/doc/html/rfc5806" class="bare">https://datatracker.ietf.org/doc/html/rfc5806</a>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Values of Diversion header from SIP protocol or default values from the subscriber profile. This parameter can be present multiple times because of SIP Diversion header can be multiple. For more information about this field, please check out <a href="https://datatracker.ietf.org/doc/html/rfc5806">RFC 5806</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SipHeader_History-Info</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The value of History header from SIP protocol or default value from the subscriber profile. For more information about this field, please see [RFC 4244](<a href="https://datatracker.ietf.org/doc/html/rfc4244" class="bare">https://datatracker.ietf.org/doc/html/rfc4244</a>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of History header from the SIP protocol or the default value from the subscriber profile. This parameter can be present multiple times because there could be multiple headers. For more information about this field, check out <a href="https://datatracker.ietf.org/doc/html/rfc4244">RFC 4244</a></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_statuscallback_get_example_of_multiple_diversion_header_values"><a class="anchor" href="#_statuscallback_get_example_of_multiple_diversion_header_values"></a>StatusCallback GET Example of Multiple Diversion Header Values</h3>
+<div class="paragraph">
+<p>The order of headers is important. The top most SIP headers will appear first in the URL query parameters.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>http://127.0.0.1:65444/1111?CallSid=ID000000000000003132372e302e302e31-CAc6e378e2e7164c21bef7b9508d89e86e&amp;InstanceId=ID000000000000003132372e302e302e31&amp;AccountSid=ACae6e420f425248d6a26948c17a9e2acf&amp;From=bob&amp;To=%2B1111&amp;CallStatus=ringing&amp;ApiVersion=2012-04-24&amp;Direction=inbound&amp;CallerName=null&amp;ForwardedFrom=null&amp;CallTimestamp=2021-12-15T10%3A29%3A28.539%2B01%3A00&amp;SipHeader_Diversion=%3Ctel%3A%2B19195551002%3E%3Breason%3Duser-busy%3Bscreen%3D%22yes%22%3Bprivacy%3D%22off%22&amp;SipHeader_Diversion=%3Ctel%3A%2B19195551001%3E%3Breason%3Dunconditional%3Bscreen%3D%22yes%22%3Bprivacy%3D%22full%22</code></pre>
+</div>
 </div>
 </div>
 </div>
