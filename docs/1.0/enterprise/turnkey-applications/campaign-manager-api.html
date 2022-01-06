@@ -2573,160 +2573,6 @@
             </span>
                 </div>
                               </li>
-              <li id="CampaignManager"
-                  class="nav-item"
-                  data-depth="2">
-                <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                    <span>
-              <a class="nav-link nav-flex-item-text" href="../api/campaign-manager-api.html">Campaign Manager</a>
-                        <button class="nav-toggle"></button>
-            </span>
-                </div>
-                  <ul class="nav-list">
-              <li id="CreateCampaign"
-                  class="nav-item"
-                  data-depth="3">
-                <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                    <span>
-              <a class="nav-link nav-flex-item-text" href="../api/campaign-manager-api.html#_create_campaign">Create Campaign</a>
-
-            </span>
-                </div>
-                              </li>
-              <li id="UpdateCampaign"
-                  class="nav-item"
-                  data-depth="3">
-                <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                    <span>
-              <a class="nav-link nav-flex-item-text" href="../api/campaign-manager-api.html#_update_campaign">Update Campaign</a>
-
-            </span>
-                </div>
-                              </li>
-              <li id="DeleteCampaign"
-                  class="nav-item"
-                  data-depth="3">
-                <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                    <span>
-              <a class="nav-link nav-flex-item-text" href="../api/campaign-manager-api.html#_delete_campaign">Delete Campaign</a>
-
-            </span>
-                </div>
-                              </li>
-              <li id="GetListofCampaigns"
-                  class="nav-item"
-                  data-depth="3">
-                <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                    <span>
-              <a class="nav-link nav-flex-item-text" href="../api/campaign-manager-api.html#_get_list_of_campaigns">Get List of Campaigns</a>
-
-            </span>
-                </div>
-                              </li>
-              <li id="GetSingleCampaign"
-                  class="nav-item"
-                  data-depth="3">
-                <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                    <span>
-              <a class="nav-link nav-flex-item-text" href="../api/campaign-manager-api.html#_get_single_campaign">Get Single Campaign</a>
-
-            </span>
-                </div>
-                              </li>
-              <li id="GetListofCredits"
-                  class="nav-item"
-                  data-depth="3">
-                <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                    <span>
-              <a class="nav-link nav-flex-item-text" href="../api/campaign-manager-api.html#_get_list_of_credits">Get List of Credits</a>
-
-            </span>
-                </div>
-                              </li>
-              <li id="GetSingleCredit"
-                  class="nav-item"
-                  data-depth="3">
-                <div class="nav-flex-container">
-            <span class="nav-flex-item-icon
-              
-              
-              
-              
-              
-              
-              
-            "></span>
-                    <span>
-              <a class="nav-link nav-flex-item-text" href="../api/campaign-manager-api.html#_get_single_credit">Get Single Credit</a>
-
-            </span>
-                </div>
-                              </li>
-  </ul>
-              </li>
   </ul>
               </li>
   </ul>
@@ -2764,7 +2610,9 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../../index.html">docs</a></li>
-    <li class="crumb"><a href="campaign-manager-api.html">Campaign Manager</a></li>
+    <li class="crumb"><a href="index.html">Enterprise:Turnkey Apps APIs</a></li>
+    <li class="crumb">turnkey-applications//campaign-manager-api.adoc</li>
+    <li class="crumb"><a href="#_do_not_disturb_dnd">Enterprise:Do Not Disturb (DND)</a></li>
   </ul>
 </nav>
 </div>
@@ -3383,6 +3231,14 @@ If startTime is not passed, Campaign is scheduled immediately</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. The destination address. Multipart File values can  be passed as new lines separated.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optOut</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The Name of the Opt-Out database. The only possible value is "Opt-Out".</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optInx</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The Name of the Opt-In database.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">channel</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional. "channel" specifies if the Campaign is of SMS or Voice Call. Only possible values it can take is<br>
 * sms<br>
@@ -3583,6 +3439,8 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
     "startTime":"2021-03-18T12:20:46+0530",
     "fromPrefix":"91",
     "toFile":"&lt;path to file having To numbers separated by new line&gt;"
+    "optOut": "Opt-Out",
+    "optIn": "ACME-opt-in"
     "body":"Happy New Year"
 }</pre>
 </div>
@@ -3600,6 +3458,8 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
   -F name="Test campaign TTS 18Mar1217" \
   -F body="Hello World 1" \
   -F toFile="@/Users/workspace/Solutions/SMSBlast/MXOrgTest2-Ent2-ToNumbers.csv" \
+  -F optOut="Opt-Out" \
+  -F optIn="ACME-opt-in" \
   -F fromPrefix="91"</pre>
 </div>
 </div>
@@ -3623,6 +3483,8 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
         "status": "initiating",
         "fromPrefix": "91",
         "body": "Hello World 1",
+        "optOut":"Opt-Out",
+        "optIn":"ACME-opt-in"
     },
     "code": 200,
     "message": "OK"
@@ -3640,6 +3502,8 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
     "toFile":"&lt;path to file having To numbers separated by new line&gt;"
     "announcementSid":"AN3f01da2b10d84f7f92f5b7aaced20a94”,
     "channel":"voice",
+    "optOut": "Opt-Out",
+    "optIn": "ACME-opt-in",
     "dialTimeout":"10"</pre>
 </div>
 </div>
@@ -3658,6 +3522,8 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
  -F toFile="@/Users/workspace/Solutions/SMSBlast/MXOrgTest2-Ent2-ToNumbers.csv" \
  -F toFile="@/Users/workspace/Solutions/SMSBlast/MXOrgTest2-Ent2-FromNumbers.csv" \
  -F announcementSid=”AN3f01da2b10d84f7f92f5b7aaced20a94” \
+ -F optOut="Opt-Out" \
+ -F optIn="ACME-opt-in" \
  -F channel=”voice” \
  -F dialTimeout=”10”</pre>
 </div>
@@ -3682,8 +3548,10 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
         "status": "initiating",
         "fromPrefix": "",
         "announcementSid": "AN3f01da2b10d84f7f92f5b7aaced20a94",
-         "channel": "voice",
-         "dialTimeout": "10",
+        "channel": "voice",
+        "dialTimeout": "10",
+        "optOut":"Opt-Out",
+        "optIn":"ACME-opt-in"
     },
     "code": 200,
     "message": "OK"
@@ -5910,7 +5778,7 @@ Get Announcement</p></td>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code>curl -X GET \
-  https://company.com/autoattendant/announcement/search/AAEb6eb071d21124dbab20b095c25f1274f \
+  https://company.com/campaignmanager/announcement/search/AAEb6eb071d21124dbab20b095c25f1274f \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \</code></pre>
@@ -5927,11 +5795,12 @@ Get Announcement</p></td>
         "dateUpdated": "2020-01-27T06:44:13+0000",
         "dateCreated": "2020-01-27T06:44:13+0000",
         "accountEmail": "jane.doe@company.com",
-        "uri": "/autoattendant/announcement/search/AN42b3d3e952ff47ecba9d487095a2bc4e",
+        "uri": "/campaignmanager/announcement/search/AN42b3d3e952ff47ecba9d487095a2bc4e",
         "name": "Welcome announcement",
         "description": "Announcement made during working hours",
-"fileUri": "/autoattendant/announcement/file/AN42b3d3e952ff47ecba9d487095a2bc4e_1580107453000.wav",
-        "enterpriseSid": "EN838bcdf35f9d421fad3ab516195b873b"
+        "fileUri": "/campaignmanager/announcement/file/AN42b3d3e952ff47ecba9d487095a2bc4e_1580107453000.wav",
+        "enterpriseSid": "EN838bcdf35f9d421fad3ab516195b873b",
+        "type": "play"
     },
     "code": 200,
     "message": "OK"
@@ -5950,6 +5819,1538 @@ Get Announcement</p></td>
         "sid": "AN42b3d3e952ff47ecba9d487095a2bc4"
     }
 }</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_do_not_disturb_dnd"><a class="anchor" href="#_do_not_disturb_dnd"></a>Do Not Disturb (DND)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The DND feature allows the Business Customers to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Define Opt-Out Database</p>
+</li>
+<li>
+<p>Define many explicit Opt-In Databases</p>
+</li>
+<li>
+<p>Allow applying Opt-Out and/or Opt-In database while setting up campaigns</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_create_opt_out_list"><a class="anchor" href="#_create_opt_out_list"></a>Create Opt-Out List</h3>
+<div class="paragraph">
+<p>This API is used to update the Opt-Out List for Campaign Manager.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_14"><a class="anchor" href="#_base_resource_uri_14"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_opt_out_resource_uri"><a class="anchor" href="#_add_opt_out_resource_uri"></a>Add Opt-Out Resource URI</h4>
+<div class="paragraph">
+<p><code>/campaignmanager/dnd/optout</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_14"><a class="anchor" href="#_supported_operations_14"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP POST: Add Opt-Out List</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_10"><a class="anchor" href="#_request_parameters_10"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Multipart File values can be passed separately as new lines.</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_13"><a class="anchor" href="#_response_body_13"></a>Response Body</h4>
+<div class="paragraph">
+<p>The Response Body will carry the Code, corresponding message and data of the Opt-Out if it was successfully created. The HTTP response will be 200 Created (OK).</p>
+</div>
+<div class="paragraph">
+<p>The response returned is the JSON body as shown in the example below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opt-Out data as explained in the table below.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing the error if such has occurred, or a success message, if successful.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters_6"><a class="anchor" href="#_data_parameters_6"></a>Data Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of the enterprise the Opt-Out belongs to.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opt-Out name. The default value assigned to the name will be "Opt-Out".</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_response_parameters_6"><a class="anchor" href="#_response_parameters_6"></a>Response Parameters</h5>
+<div class="paragraph">
+<p>Create Opt-Out API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Codes.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">490</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dnd File numbers is not valid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Passed Invalid Opt-Out file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Opt-Out</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_14"><a class="anchor" href="#_example_14"></a>Example</h4>
+<div class="sect4">
+<h5 id="_create_opt_out_database"><a class="anchor" href="#_create_opt_out_database"></a>Create Opt-Out Database</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "file":"&lt;path to file having the phone numbers separated by new line&gt;"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X POST \
+  https://company.com/campaignmanager/dnd/optout\
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -F file="@/Users/workspace/Solutions/OptOut/MXOrgTest2-Ent2-Numbers.csv" \</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the creation of the Opt-Out is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data":{
+        "name":"Opt-Out",
+        "enterpriseSid":"EN909628cbd8e9429899c0b474f2e96423"
+    },
+    "code":200,
+    "message":"OK"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delete_single_opt_out_value"><a class="anchor" href="#_delete_single_opt_out_value"></a>Delete Single Opt-Out Value</h3>
+<div class="paragraph">
+<p>Delete Single Opt-Out Value will delete an existing Number from the Opt-Out database.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_15"><a class="anchor" href="#_base_resource_uri_15"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delete_opt_out_value_resource_uri"><a class="anchor" href="#_delete_opt_out_value_resource_uri"></a>Delete Opt-Out Value Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/dnd/optout/{numberSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_15"><a class="anchor" href="#_supported_operations_15"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP DELETE: Delete Opt-Out Value</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_11"><a class="anchor" href="#_request_parameters_11"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numberSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique identifier of a Number.</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_14"><a class="anchor" href="#_response_body_14"></a>Response Body</h4>
+<div class="paragraph">
+<p>The response body will carry code, corresponding message and Number data if delete was successful.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number data as explained in the data parameter explained below.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing the error if such has occurred, or success message if successful.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters_7"><a class="anchor" href="#_data_parameters_7"></a>Data Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Sid of the enterprise the Opt-Out belongs to.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID to uniquely identify a single Opt-Out value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Opt-Out database.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value containing the PhoneNumber.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date on which this particular Opt-Out was created.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_response_parameters_7"><a class="anchor" href="#_response_parameters_7"></a>Response Parameters</h5>
+<div class="paragraph">
+<p>Delete Opt-Out API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code section.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">491</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OptOut Sid not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The OptOut SID does not exist in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete Opt-Out</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_15"><a class="anchor" href="#_example_15"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X DELETE \
+  https://company.com/campaignmanager/dnd/optout/OT38cbd6deddda44cebcaaf1e06e78ca3e \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If deleting the Opt-Out Number is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data":{
+        "sid":"OT38cbd6deddda44cebcaaf1e06e78ce3e",
+        "name":"Opt-Out","number":"918278362878",
+        "dateCreated":"2021-12-13T12:21:27+0000",
+        "enterpriseSid":"EN909628cbd8e9429899c0b474f2e96423"
+    },
+    "code":200,
+    "message":"OK"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If deleting of the Opt-Out fails, below is the response returned. Exact error code and message will depend on the error occurred.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "errorCode": "491",
+    "message": "OptOut Sid not found",
+    "data": "OT38cbd6deddda44cebcaaf1e06e78ce3e"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_list_of_opt_out_numbers"><a class="anchor" href="#_get_list_of_opt_out_numbers"></a>Get list of Opt-Out Numbers</h3>
+<div class="paragraph">
+<p>This endpoint is used to get a list of Opt-Out Numbers.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_16"><a class="anchor" href="#_base_resource_uri_16"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_opt_out_list_resource_uri"><a class="anchor" href="#_get_opt_out_list_resource_uri"></a>Get Opt-Out List Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/dnd/optout/search</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_16"><a class="anchor" href="#_supported_operations_16"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: Get Opt-Out Numbers list</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paging_4"><a class="anchor" href="#_paging_4"></a>Paging</h4>
+<div class="paragraph">
+<p>The following paging parameters are supported.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of the Opt-Out records to return, starting from 0.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the search API is called without <code>page</code> and <code>pageSize</code> parameters set, by default <code>pageSize</code> will be 10 and <code>page</code> will be 0 to avoid retrieving all data in a single API call.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering_4"><a class="anchor" href="#_filtering_4"></a>Filtering</h4>
+<div class="paragraph">
+<p>The following filtering parameters are supported:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show users that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phoneNumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show the Opt-Out value containing this phone Number.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show users that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_sorting_information_4"><a class="anchor" href="#_sorting_information_4"></a>Sorting Information</h4>
+<div class="paragraph">
+<p>You can use the <code>SortBy</code> GET query parameter to determine which attribute you want to sort by and in what order. Either 'asc' for ascending or 'desc' for descending sort ordering. Here is the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+</div>
+<div class="sect4">
+<h5 id="_sort_attributes_3"><a class="anchor" href="#_sort_attributes_3"></a>Sort Attributes</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by created date</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_body_15"><a class="anchor" href="#_response_body_15"></a>Response Body</h4>
+<div class="paragraph">
+<p>The response body will carry code, corresponding message and data of Opt-Out values if it was successfully fetched. The HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data of search as explained in table below</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occurred or success message</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters_8"><a class="anchor" href="#_data_parameters_8"></a>Data parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opt-Out data as explained in the data parameter of Delete Opt-Out.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total Number of records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_16"><a class="anchor" href="#_example_16"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X GET \
+  https://company.com/campaignmanager/dnd/optout/search?page=0&amp;pageSize=10&amp;sortBy=datecreated:desc
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data":{
+        "result":[
+            {
+                "sid":"OT5fd7e2a4efa14c2f90bd986f197d86fc",
+                "name":"Opt-Out",
+                "number":"6372837839",
+                "dateCreated":"2021-12-13T12:21:27+0000",
+                "enterpriseSid":"EN909628cbd8e9429899c0b474f2e96423"
+            }
+        ],
+        "pageSize":10,
+        "total":1,
+        "page":0,
+        "numPages":1,
+        "start":0,
+        "end":0,
+        "firstPageUri":"/campaignmanager/dnd/optout/search/?pageSize=10&amp;sortBy=datecreated:desc&amp;page=0",
+        "uri":"/campaignmanager/dnd/optout/search/?pageSize=10&amp;sortBy=datecreated:desc&amp;page=0"
+        },
+        "code":200,
+        "message":"OK"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_single_opt_out_number"><a class="anchor" href="#_get_single_opt_out_number"></a>Get Single Opt-Out Number</h3>
+<div class="paragraph">
+<p>Single Opt-Out search API allows users to retrieve specific number.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_17"><a class="anchor" href="#_base_resource_uri_17"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_single_opt_out_resource_uri"><a class="anchor" href="#_get_single_opt_out_resource_uri"></a>Get Single Opt-Out Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/dnd/optout/search/{numberSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_17"><a class="anchor" href="#_supported_operations_17"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: Specific Opt-Out Number</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_8"><a class="anchor" href="#_response_parameters_8"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Search Opt-Out API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">491</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OptOut Sid not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opt-Out sid is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get Announcement</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_17"><a class="anchor" href="#_example_17"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X GET \
+  https://company.com/campaignmanager/dnd/optout/search/OT5fd7e2a4efa14c2f90bd986f197d86fd \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data": {
+        "sid": "OT5fd7e2a4efa14c2f90bd986f197d86fd",
+        "name": "Opt-Out",
+        "number": "6372837839",
+        "dateCreated": "2021-12-13T12:21:27+0000",
+        "enterpriseSid": "EN909628cbd8e9429899c0b474f2e96424"
+    },
+    "code": 200,
+    "message": "OK"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In case of failure, the following response is returned.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "errorCode": "491",
+    "message": "OptOut Sid not found",
+    "data": "OT5fd7e2a4efa14c2f90bd986f197d86fd"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opt_in"><a class="anchor" href="#_opt_in"></a>Opt-In</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_create_opt_in_list"><a class="anchor" href="#_create_opt_in_list"></a>Create Opt-In List</h3>
+<div class="paragraph">
+<p>This API is used to Create the Opt-In List for Campaign Manager.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_18"><a class="anchor" href="#_base_resource_uri_18"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_add_opt_in_resource_uri"><a class="anchor" href="#_add_opt_in_resource_uri"></a>Add Opt-In Resource URI</h4>
+<div class="paragraph">
+<p><code>/campaignmanager/dnd/optin</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_18"><a class="anchor" href="#_supported_operations_18"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP POST: Add Opt-In List</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_12"><a class="anchor" href="#_request_parameters_12"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Multipart File values can be passed as new lines separated.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Name for the Opt-In Database. If not passed, default is "opt-in".</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_16"><a class="anchor" href="#_response_body_16"></a>Response Body</h4>
+<div class="paragraph">
+<p>The Response Body will carry the Code, corresponding message and data of the Opt-In if it was successfully created. HTTP response will be 200 Created (OK).</p>
+</div>
+<div class="paragraph">
+<p>The response returned is the JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opt-In data as explained in the table below.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters_9"><a class="anchor" href="#_data_parameters_9"></a>Data Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of the enterprise the Opt-In belongs to.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opt-In name.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_response_parameters_9"><a class="anchor" href="#_response_parameters_9"></a>Response Parameters</h5>
+<div class="paragraph">
+<p>Create Opt-In API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">490</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dnd File numbers is not valid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Passed Invalid Opt-In file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Opt-In</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_18"><a class="anchor" href="#_example_18"></a>Example</h4>
+<div class="sect4">
+<h5 id="_create_opt_out_database_2"><a class="anchor" href="#_create_opt_out_database_2"></a>Create Opt-Out Database</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "file":"&lt;path to file having the phone numbers separated by new line&gt;"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X POST \
+  https://company.com/campaignmanager/dnd/optin\
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -F name="test-Opt-In"\
+  -F file="@/Users/workspace/Solutions/OptIn/MXOrgTest2-Ent2-Numbers.csv" \</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If creation of Opt-In is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data":{
+        "name":"test-Opt-In",
+        "enterpriseSid":"EN909628cbd8e9429899c0b474f2e96423"
+    },
+    "code":200,
+    "message":"OK"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delete_opt_in_value"><a class="anchor" href="#_delete_opt_in_value"></a>Delete Opt-In Value</h3>
+<div class="paragraph">
+<p>Delete Single Opt-In Value will delete an existing Number from the Opt-In database.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_19"><a class="anchor" href="#_base_resource_uri_19"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delete_opt_in_value_resource_uri"><a class="anchor" href="#_delete_opt_in_value_resource_uri"></a>Delete Opt-In Value Resource URI</h4>
+<div class="paragraph">
+<p>/campaignmanager/dnd/optin/{numberSid}</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_19"><a class="anchor" href="#_supported_operations_19"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP DELETE: Delete Opt-In Value</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters_13"><a class="anchor" href="#_request_parameters_13"></a>Request Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numberSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID to uniquely identify a Number</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_17"><a class="anchor" href="#_response_body_17"></a>Response Body</h4>
+<div class="paragraph">
+<p>The response body will carry code, corresponding message and Number data if delete was successful.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number data as explained in the data parameter explained below.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if an error occurred or success message</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters_10"><a class="anchor" href="#_data_parameters_10"></a>Data Parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of the enterprise the Opt-In belongs to.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID to uniquely identify a single Opt-In value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Opt-In database</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value containing the PhoneNumber</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date on which this particular Opt-In was created</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_response_parameters_10"><a class="anchor" href="#_response_parameters_10"></a>Response Parameters</h5>
+<div class="paragraph">
+<p>Delete Opt-In API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">491</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OptIn Sid not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OptIn SID doesn’t exist in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete Opt-In</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_19"><a class="anchor" href="#_example_19"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X DELETE \
+  https://company.com/campaignmanager/dnd/optin/OT38cbd6deddda44cebcaaf1e06e78ca3e \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If deleting the Opt-In Number is successful, below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data":{
+        "sid":"OT38cbd6deddda44cebcaaf1e06e78ce3e",
+        "name":"test-Opt-In","number":"918278362878",
+        "dateCreated":"2021-12-13T12:21:27+0000",
+        "enterpriseSid":"EN909628cbd8e9429899c0b474f2e96423"
+    },
+    "code":200,
+    "message":"OK"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If deleting of the Opt-In value fails, below is the response returned. Exact error code and message will depend on error occurred</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "errorCode": "491",
+    "message": "OptIn Sid not found",
+    "data": "OT38cbd6deddda44cebcaaf1e06e78ce3e"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_list_of_opt_in_numbers"><a class="anchor" href="#_get_list_of_opt_in_numbers"></a>Get list of Opt-In Numbers</h3>
+<div class="paragraph">
+<p>This endpoint is used to get a list of Opt-In Numbers.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_20"><a class="anchor" href="#_base_resource_uri_20"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_opt_in_list_resource_uri"><a class="anchor" href="#_get_opt_in_list_resource_uri"></a>Get Opt-In List Resource URI</h4>
+<div class="paragraph">
+<p><code>/campaignmanager/dnd/optin/search</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_20"><a class="anchor" href="#_supported_operations_20"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: Get Opt-In Number&#8217;s list</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paging_5"><a class="anchor" href="#_paging_5"></a>Paging</h4>
+<div class="paragraph">
+<p>The following paging parameters are supported</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Opt-In records to return, starting from 0.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the search API is called without page and pageSize, by default pageSize will be 10 and page will be 0 to avoid retrieving all data in a single API call.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtering_5"><a class="anchor" href="#_filtering_5"></a>Filtering</h4>
+<div class="paragraph">
+<p>Following filtering parameters are supported:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Query Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show numbers that were created on this date/time or earlier, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-06T02:10:03) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-06). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">phoneNumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show the Opt-In value containing this phone Number.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional Parameter. Only show numbers which were created under this opt-in name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. Only show numbers that were created on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32) or, if you want to omit the time, YYYY-MM-DD (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_sorting_information_5"><a class="anchor" href="#_sorting_information_5"></a>Sorting Information</h4>
+<div class="paragraph">
+<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+</div>
+<div class="sect4">
+<h5 id="_sort_attributes_4"><a class="anchor" href="#_sort_attributes_4"></a>Sort Attributes</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by created date</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_body_18"><a class="anchor" href="#_response_body_18"></a>Response Body</h4>
+<div class="paragraph">
+<p>The response body will carry code, corresponding message and data of Opt-In values if it was successfully fetched. HTTP response will be 200 OK.</p>
+</div>
+<div class="paragraph">
+<p>The response returned is JSON body as shown in the example below. Each parameters are as explained below</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data of search as explained in table below</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect4">
+<h5 id="_data_parameters_11"><a class="anchor" href="#_data_parameters_11"></a>Data parameters</h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set of Opt-In data as explained in the data parameter of Delete Opt-In.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total Number of records</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Total number of pages</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Starting offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ending offset of page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_20"><a class="anchor" href="#_example_20"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X GET \
+  https://company.com/campaignmanager/dnd/optin/search?page=0&amp;pageSize=10&amp;sortBy=datecreated:desc
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data":{
+        "result":[
+            {
+                "sid":"OT5fd7e2a4efa14c2f90bd986f197d86fc",
+                "name":"test-Opt-in-1",
+                "number":"6372837839",
+                "dateCreated":"2021-12-13T12:21:27+0000",
+                "enterpriseSid":"EN909628cbd8e9429899c0b474f2e96423"
+            },
+            {
+                "sid":"OT4414858b74454884af8a607a67cb807a",
+                "name":"test-opt-in-2",
+                "number":"6372837839",
+                "dateCreated":"2021-12-20T03:44:33+0000",
+                "enterpriseSid":"EN909628cbd8e9429899c0b474f2e96423"
+            }
+        ],
+        "pageSize":10,
+        "total":2,
+        "page":0,
+        "numPages":1,
+        "start":0,
+        "end":0,
+        "firstPageUri":"/campaignmanager/dnd/optin/search/?pageSize=10&amp;sortBy=datecreated:desc&amp;page=0",
+        "uri":"/campaignmanager/dnd/optin/search/?pageSize=10&amp;sortBy=datecreated:desc&amp;page=0"
+        },
+        "code":200,
+        "message":"OK"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_single_opt_in_number"><a class="anchor" href="#_get_single_opt_in_number"></a>Get Single Opt-In Number</h3>
+<div class="paragraph">
+<p>Single Opt-In search API allows users to retrieve a specific number.</p>
+</div>
+<div class="sect3">
+<h4 id="_base_resource_uri_21"><a class="anchor" href="#_base_resource_uri_21"></a>Base Resource URI</h4>
+<div class="paragraph">
+<p><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN">https://$DOMAIN</span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_get_single_opt_in_resource_uri"><a class="anchor" href="#_get_single_opt_in_resource_uri"></a>Get Single Opt-In Resource URI</h4>
+<div class="paragraph">
+<p><code>/campaignmanager/dnd/optin/search/{numberSid}</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_supported_operations_21"><a class="anchor" href="#_supported_operations_21"></a>Supported Operations</h4>
+<div class="paragraph">
+<p>HTTP GET: Specific Opt-in Number</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_parameters_11"><a class="anchor" href="#_response_parameters_11"></a>Response Parameters</h4>
+<div class="paragraph">
+<p>Search Opt-in API will return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error Code</th>
+<th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">491</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OptIn Sid not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opt-In sid is not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get Opt-In</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_example_21"><a class="anchor" href="#_example_21"></a>Example</h4>
+<div class="paragraph">
+<p>From the bash terminal you can run the command below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>curl -X GET \
+  https://company.com/campaignmanager/dnd/optin/search/OT5fd7e2a4efa14c2f90bd986f197d86fd \
+--user  ' {your_account_SID}:{your_account_token}' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the response returned:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "data": {
+        "sid": "OT54523f57449d4be285cd93e84e3a66e4",
+        "name": "test-opt-in",
+        "number": "6372837839",
+        "dateCreated": "2021-12-20T03:34:23+0000",
+        "enterpriseSid": "EN909628cbd8e9429899c0b474f2e96422"
+    },
+    "code": 200,
+    "message": "OK"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In case of failure, the following response is returned.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>{
+    "errorCode": "491",
+    "message": "OptIn Sid not found",
+    "data": "OT54523f57449d4be285cd93e84e3a66e9"
+}</code></pre>
 </div>
 </div>
 </div>
