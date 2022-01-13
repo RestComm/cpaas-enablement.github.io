@@ -8,7 +8,7 @@
     <link rel="canonical" href="
       https://www.restcomm.com/docs/1.0/api/call-queueing-api.html
     ">
-    <meta name="description" content="Call Queuing allows callers to be placed in a Queue, hearing background music or announcement (text to speech) while waiting to get connected to called party.">
+    <meta name="description" content="Call Queuing allows callers to be placed in a Queue, hearing background music or announcement (text to speech) while waiting to get connected.">
     <meta name="keywords" content="call queue, restcomm call queuing api">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
@@ -844,7 +844,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="clients-api.html#_change_client_s_password">Change Client&#8217;s Password</a>
+              <a class="nav-link nav-flex-item-text" href="clients-api.html#_change_clients_password">Change Client&#8217;s Password</a>
 
             </span>
                 </div>
@@ -1250,7 +1250,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="calls-api.html#examples">Examples</a>
+              <a class="nav-link nav-flex-item-text" href="calls-api.html#_examples">Examples</a>
 
             </span>
                 </div>
@@ -1986,7 +1986,27 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_usage_record_one_time_passwords_api_reference">Usage Record One-Time Passwords</a>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_usage_record_one_time_passwords__api_reference">Usage Record One-Time Passwords</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Limit"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_limit">Limit</a>
 
             </span>
                 </div>
@@ -2252,7 +2272,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="#_create_queue_api">Create Queue</a>
+              <a class="nav-link nav-flex-item-text" href="#_create_queuing_api">Create Queue</a>
 
             </span>
                 </div>
@@ -3230,7 +3250,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="visual-designer-api.html#_get_a_list_of_application_templates_from_the_template_gallery">List Application Templates</a>
+              <a class="nav-link nav-flex-item-text" href="visual-designer-api.html#_list_application_templates_from_the_template_gallery">List Application Templates</a>
 
             </span>
                 </div>
@@ -3430,7 +3450,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="visual-designer-api.html#_play_an_application_file_resource">Play Application Media Files</a>
+              <a class="nav-link nav-flex-item-text" href="visual-designer-api.html#_play_an_application_media_file">Play Application Media Files</a>
 
             </span>
                 </div>
@@ -3590,7 +3610,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="visual-designer-api.html#_get_visual_designer_configuration">Get Visual Designer Configuration</a>
+              <a class="nav-link nav-flex-item-text" href="visual-designer-api.html#_get_visual_designer_configuration_details">Get Visual Designer Configuration</a>
 
             </span>
                 </div>
@@ -3652,7 +3672,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_restcomm_interacts_with_your_application">Interacting with Your Application</a>
+              <a class="nav-link nav-flex-item-text" href="../rcml/overview.html#_how_wlparamreplacetextmodespsparmtextapplication_nametextrestcommdefaulttextinfer_from_domain_interacts_with_your_application">Interacting with Your Application</a>
 
             </span>
                 </div>
@@ -4103,7 +4123,7 @@
 <p>In order to use Call Queuing, you need a valid Restcomm Cloud account.</p>
 </div>
 <div class="paragraph">
-<p>For the Call Queuing turnkey application to function correctly at least two numbers must be reserved in Restcomm Cloud (via Call Queuing API) and at least one unique Queue defined (via Call Queuing API), let’s call this “Support” Queue have to be defined. The first number will be used by Customers to call and get in “Support” Queue. Let&#8217;s set this number to +1 571 331 6666. The second number is called by Agents and starts accepting call’s queued in “Support” in FIFO order. Let&#8217;s have this number set to +1 571 331 9999. Users can create as many queues as long as they all have unique names.</p>
+<p>For the Call Queuing turnkey application to function correctly at least two numbers must be reserved in Restcomm Cloud (via Call Queuing API) and at least one unique Queue defined (via Call Queuing API), let’s call this “Support” Queue have to be defined.The first number will be used by Customers to call and get in “Support” Queue.Let&#8217;s set this number to +1 571 331 6666. The second number is called by Agents and starts accepting call’s queued in “Support” in FIFO order.Let&#8217;s have this number set to +1 571 331 9999. Users can create as many queues as long as they all have unique names.</p>
 </div>
 <div class="sect2">
 <h3 id="_create_queuing_api"><a class="anchor" href="#_create_queuing_api"></a>Create Queuing API</h3>
@@ -4363,10 +4383,10 @@ For example, Customer Number URL can return:&#160;<br>
 <div class="sect2">
 <h3 id="_queue_rcml"><a class="anchor" href="#_queue_rcml"></a>Queue RCML</h3>
 <div class="paragraph">
-<p>The &lt;dial&gt; verb’s &lt;queue&gt; noun specifies a queue to dial. When dialing a queue, the caller will be connected with the first enqueued call in the specified queue. If the queue is empty, dial will wait until the next person joins the queue or until the &lt;dial&gt; timeout duration is reached.</p>
+<p>The &lt;dial&gt; verb’s &lt;queue&gt; noun specifies a queue to dial.When dialing a queue, the caller will be connected with the first enqueued call in the specified queue.If the queue is empty, dial will wait until the next person joins the queue or until the &lt;dial&gt; timeout duration is reached.</p>
 </div>
 <div class="paragraph">
-<p>Note: As of today &lt;dial&gt; recording is not supported. This feature is on our roadmap.</p>
+<p>Note: As of today &lt;dial&gt; recording is not supported.This feature is on our roadmap.</p>
 </div>
 <div class="paragraph">
 <p>&lt;queue&gt; takes below attributes</p>
@@ -4391,7 +4411,7 @@ If total duration of &lt;say&gt;, &lt;play&gt; together is less than &lt;dial&gt
 &#160;<br>
 &lt;redirect&gt; verb can be used for calling RCML document again and Application can add some dynamic business logic that can change &lt;say&gt; in next loop. &#160;<br>
 &#160;<br>
-Call Queue will pass the parameters explained in <a href="call-queue-api.html#_request_parameters_2">Request Parameters</a> in its request to the value of the waitUrl attribute.</p></td>
+Call Queue will pass the parameters explained in <a href="call-queueing-api.html#_request_parameters_2">Request Parameters</a> in its request to the value of the waitUrl attribute.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">waitUrlMethod</p></td>
@@ -4401,7 +4421,7 @@ Call Queue will pass the parameters explained in <a href="call-queue-api.html#_r
 <td class="tableblock halign-left valign-top"><p class="tableblock">joinUrl</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Attribute takes a URL as an argument. The url points to a RCML document that will be executed on the queued caller&#8217;s end when the caller is about to be connected to next available enqueue. The joinUrl RCML supports Say, Play, Redirect verbs. &#160;<br>
 &#160;<br>
-Call Queue will pass the parameters explained in <a href="call-queue-api.html#_request_parameters_2">Request Parameters</a> in its request to the value of the joinUrl attribute.&#160;<br></p></td>
+Call Queue will pass the parameters explained in <a href="call-queueing-api.html#_request_parameters_2">Request Parameters</a> in its request to the value of the joinUrl attribute.&#160;<br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">joinUrlMethod</p></td>
@@ -4496,7 +4516,7 @@ Thanks for holding line. You will now be connected to Agent.
 <div class="sect2">
 <h3 id="_enqueue_rcml"><a class="anchor" href="#_enqueue_rcml"></a>Enqueue RCML</h3>
 <div class="paragraph">
-<p>The &lt;enqueue&gt; verb enqueues the current call in a call queue. Enqueued calls wait on hold until the call is dequeued by another caller via the &lt;dial&gt; verb for same Queue.
+<p>The &lt;enqueue&gt; verb enqueues the current call in a call queue.Enqueued calls wait on hold until the call is dequeued by another caller via the &lt;dial&gt; verb for same Queue.
 &lt;enqueue&gt; takes below attributes</p>
 </div>
 <div class="sect3">
@@ -4513,13 +4533,13 @@ Thanks for holding line. You will now be connected to Agent.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">waitUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute takes a URL as an argument. The url points to a RCML document that will be executed while the caller (Customer) is put to queue waiting for the next caller (Agent) joining &lt;queue&gt;. The waitUrl RCML supports Say, Play, and Redirect verbs. &#160;<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute takes a URL as an argument.The url points to a RCML document that will be executed while the caller (Customer) is put to queue waiting for the next caller (Agent) joining &lt;queue&gt;.The waitUrl RCML supports Say, Play, and Redirect verbs. &#160;<br>
 &#160;<br>
 Once the waitUrl RCML flow runs out of verbs to execute, Call Queue will start over, essentially looping hold music indefinitely. &#160;<br>
 &#160;<br>
 &lt;redirect&gt; verb can be used for calling RCML document again and Application can add some dynamic business logic that can change &lt;say&gt; in next loop. &#160;<br>
 &#160;<br>
-Call Queue will pass the parameters explained in <a href="call-queue-api.html#_request_parameters_3">Request Parameters</a> in its request to the value of the waitUrl attribute.</p></td>
+Call Queue will pass the parameters explained in <a href="call-queueing-api.html#_request_parameters_3">Request Parameters</a> in its request to the value of the waitUrl attribute.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">waitUrlMethod</p></td>
@@ -4529,7 +4549,7 @@ Call Queue will pass the parameters explained in <a href="call-queue-api.html#_r
 <td class="tableblock halign-left valign-top"><p class="tableblock">joinUrl</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Attribute takes a URL as an argument. The url points to a RCML document that will be executed on the caller&#8217;s end when the caller (Agent) is about to be connected to the next available queued customer.. The joinUrl RCML just support Say, Play, Redirect verbs. &#160;<br>
 &#160;<br>
-Call Queue will pass the parameters explained in <a href="call-queue-api.html#_request_parameters_3">Request Parameters</a> in its request to the value of the joinUrl attribute.</p></td>
+Call Queue will pass the parameters explained in <a href="call-queueing-api.html#_request_parameters_3">Request Parameters</a> in its request to the value of the joinUrl attribute.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">joinUrlMethod</p></td>
