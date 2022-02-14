@@ -2756,19 +2756,72 @@
 <h2 id="_csv_settings"><a class="anchor" href="#_csv_settings"></a>CSV Settings</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Depending on which billing system you use, you may need to change the default CSV separator and columns to be included. In that case, please <a href="https://www.telestax.com/contact/">contact our support team</a>.</p>
+<p>Depending on which billing system you use, you may need to change the default CSV separator and columns to be included. Any of the column names available in the CSV file can be included/excluded from the export.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_example"><a class="anchor" href="#_example"></a>Example</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>You can retrieve Calls SDRs by running the following query in your terminal.</p>
-</div>
 <div class="listingblock">
 <div class="content">
-<pre>sftp &lt;accountsid&gt;@ftp.cloud.restcomm.com:/calls/2021/01/01/calls-2021-01-01-00.gzip /&lt;some/local/folder</pre>
+<pre class="highlightjs highlight"><code>curl -X PATCH https://yourcompany.com/sps/private \
+  -H 'Content-Type: application/merge-patch+json' \
+  -u 'YourAccountSid:YourAuthToken' \
+  -d '{
+  "data": {
+    "sdr_export_settings": {
+      "sdr_types": {
+        "calls": {
+          "include": "date_created,date_updated,from,to"
+        },
+        "refers": {
+          "exclude": "sid,org_sid"
+        }
+      },
+      "enabled": true,
+      "separator": ","
+    }
+  }
+}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can retrieve Calls SDRs by running the following query in your terminal. Make sure you make a request to the Point of Presence your organization is associated with.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Point of Presence</th>
+<th class="tableblock halign-left valign-top">Domain Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>USA</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ftp.cloud.restcomm.com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Europe</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ftp.eu.restcomm.com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Japan</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ftp.jp.restcomm.com</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>India</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ftp.in.restcomm.com</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre>sftp &lt;accountsid&gt;@ftp.cloud.restcomm.com:/calls/2021/01/01/calls-2021-01-01-00.gzip /some/local/folder</pre>
 </div>
 </div>
 <div class="paragraph">
