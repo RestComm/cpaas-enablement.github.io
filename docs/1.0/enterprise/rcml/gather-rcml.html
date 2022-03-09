@@ -858,6 +858,63 @@
                               </li>
   </ul>
               </li>
+              <li id="GatherDTMF"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/gather-dtmf-api.html">Gather DTMF</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GatherSpeech"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/gather-speech-api.html">Gather Speech</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Play"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../api/play-api.html">Play</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="Hold"
                   class="nav-item"
                   data-depth="2">
@@ -1550,6 +1607,25 @@
             "></span>
                     <span>
               <a class="nav-link nav-flex-item-text" href="reject-rcml.html">Reject</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Refer"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="refer-rcml.html">Refer</a>
 
             </span>
                 </div>
@@ -2660,6 +2736,16 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">5 seconds</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">preTimeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">positive integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">postTimeout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">positive integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 seconds</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">finishOnKey</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">any digit, #, *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">#</p></td>
@@ -2699,7 +2785,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>action.</strong> The 'action' attribute takes an absolute or relative URL as a value. When the caller has finished entering digits <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> will make a GET or POST request to this URL including the parameters below. If no 'action' is provided, <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> will by default make a POST request to the current document&#8217;s URL.</p>
+<p><strong>timeout.</strong> The 'timeout' attribute is discontinued in favor of the new 'preTimeout', and 'postTiemout' attributes, whose values will take precedence is provided.</p>
+</li>
+<li>
+<p><strong>action.</strong> The 'action' attribute takes an absolute or relative URL as a value. When the caller has finished entering digits <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will make a GET or POST request to this URL including the parameters below. If you provide an 'action' URL, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will continue the current call after the Gather is completed, using the RCML received in your response to the 'action' URL request. Any RCML verbs occuring after a &lt;Gather&gt; which specifies an 'action' attribute are unreachable. If no 'action' is provided, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will by default make a POST request to the current document&#8217;s URL.</p>
 </li>
 </ul>
 </div>
@@ -2725,6 +2814,10 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SpeechResult</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The transcribed result of the speech.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In case of Speech mode, this is the duration the ASR engine took to recognize.</p></td>
 </tr>
 </tbody>
 </table>
