@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="Email - Restcomm Docs"></title>
+    <title data-custom-title="Says - Restcomm Docs"></title>
     <link rel="canonical" href="
-      /docs/api/email-api.html
+      /docs/api/say-api.html
     ">
     <meta name="generator" content="Antora 1.1.1">
     <link rel="icon" type="image/png" href=""/>
@@ -897,7 +897,7 @@
                 </div>
                               </li>
               <li id="Say"
-                  class="nav-item"
+                  class="nav-item is-current-page"
                   data-depth="2">
                 <div class="nav-flex-container">
             <span class="nav-flex-item-icon
@@ -1207,7 +1207,7 @@
   </ul>
               </li>
               <li id="Email"
-                  class="nav-item is-current-page"
+                  class="nav-item"
                   data-depth="2">
                 <div class="nav-flex-container">
             <span class="nav-flex-item-icon
@@ -2705,33 +2705,31 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../../index.html">docs</a></li>
-    <li class="crumb"><a href="sms-category.html">Enterprise:SMS</a></li>
-    <li class="crumb"><a href="email-api.html">Enterprise:Email</a></li>
+    <li class="crumb"><a href="voice-category.html">Enterprise:Voice</a></li>
+    <li class="crumb"><a href="say-api.html">Enterprise:Say</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>Email</h1>
-<div class="sect1">
-<h2 id="_email"><a class="anchor" href="#_email"></a>Email</h2>
+  <h1>Says</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Using the <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> API, you can send Emails through a simple request.</p>
+<p>Say records are generated when you are using the <a href="../rcml/say-rcml.html"><strong>&lt;Say&gt;</strong> verb</a>. Those records are hosted with <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> and are available for you to retrieve. The Say records list resource represents a set of an Account&#8217;s Say records.</p>
 </div>
-<div class="sect2">
-<h3 id="_email_resource_uri"><a class="anchor" href="#_email_resource_uri"></a>Email resource URI</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_says_resource_uri"><a class="anchor" href="#_says_resource_uri"></a>Says Resource URI</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p><strong>/2012-04-24/Accounts/{AccountSid}<strong>/Email/Messages</strong></strong></p>
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Says/{SaySid}</strong></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_send_a_new_email_and_get_email_details"><a class="anchor" href="#_send_a_new_email_and_get_email_details"></a>Send a new email and get email details</h3>
-<div class="paragraph">
-<p><strong>HTTP POST.</strong> Sends a new Email message and returns the representation of the Email message resource, including the properties above. Below you will find a list of required and optional parameters.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h3>
+<div class="sect1">
+<h2 id="_resource_properties"><a class="anchor" href="#_resource_properties"></a>Resource Properties</h2>
+<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -2739,44 +2737,86 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Property</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">From(Required)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Email address to use as sender address.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string that uniquely identifies this record.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To(Required)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The destination Email address.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date_created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date this record was created.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Body(Required)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The body of the Email message.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">account_sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique id of the Account that created this record.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Subject(Required)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The subject of the Email message.(Max. 160 chars.)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org_sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique id of the Organization to which the Account belongs to.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The value to be used in the Content-Type header of the email message. (eg text/html for HTML emails)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">call_sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unique id of the call during which Say (Text-to-Speech) was executed.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BCC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Blind Carbon Copy feature (Bcc).  (Hide addresses when sending an Email to various recipients)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">api_version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API version in use during the recording.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Carbon Copy (Cc). (The list of CCed recipients is visible to all other recipients of the message.)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The status of the Text-to-Speech. Possible values are: <code>completed</code> or <code>failed</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reason</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The error code and text returned by <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> in case of an error. This information is provided when the status is <code>failed</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">duration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The duration in seconds of the just-completed Say verb.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">character_count</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of characters used in the Say text.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">provider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Text-to-Speech provider used in the Say verb.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The language used in the Say verb.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">voice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The voice used in the Say verb.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">loop</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of repetitions set in the Say verb.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI of the Say record, relative to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm">https://$DOMAIN/restcomm</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="sect2">
-<h3 id="_examples"><a class="anchor" href="#_examples"></a>Examples</h3>
+</div>
+<div class="sect1">
+<h2 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>HTTP GET.</strong> Returns the representation of a Say resource, including the properties above.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_request"><a class="anchor" href="#_example_request"></a>Example Request</h2>
+<div class="sectionbody">
 <script>
       function openLanguage(language, index) {
         const sampleClasses = document.getElementsByClassName("sample-language-" + index);
@@ -2796,76 +2836,56 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-131 is-active" onclick="openLanguage('Curl', 131)">Curl</button>
-        <button class="sample-code-button scsIndex-131" onclick="openLanguage('Nodejs', 131)">Nodejs</button>
-        <button class="sample-code-button scsIndex-131" onclick="openLanguage('Python', 131)">Python</button>
-        <button class="sample-code-button scsIndex-131" onclick="openLanguage('Java', 131)">Java</button>
+        <button class="sample-code-button scsIndex-175 is-active" onclick="openLanguage('Curl', 175)">Curl</button>
+        <button class="sample-code-button scsIndex-175" onclick="openLanguage('Nodejs', 175)">Nodejs</button>
+        <button class="sample-code-button scsIndex-175" onclick="openLanguage('Python', 175)">Python</button>
+        <button class="sample-code-button scsIndex-175" onclick="openLanguage('Java', 175)">Java</button>
       </div>
-      <div id="Curl-131" class="sample-language-131">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
-   -d 'To=john.doe@yourcompany.com' \
-   -d 'From=jane.doe@yourcompany.com' \
-   -d 'Body=This is a test' \
-   -d 'Subject=Test Email' \
+      <div id="Curl-175" class="sample-language-175">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACea59167c974743ecb8dbe4cc8bb85712/Says/RFc377eb0e657e415383de087ab38797db  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-131" class="sample-language-131" style="display:none">
+      <div id="Nodejs-175" class="sample-language-175" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
 const ACCOUNT_SID = 'my_ACCOUNT_SID';
 const AUTH_TOKEN = 'my_AUTH_TOKEN';
 
-request.({
-      method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
-      form: {
-         'To': 'john.doe@yourcompany.com',
-         'From': 'jane.doe@yourcompany.com',
-         'Body': 'This is a test',
-         'Subject': 'Test Email'
-      }
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACea59167c974743ecb8dbe4cc8bb85712/Says/RFc377eb0e657e415383de087ab38797db',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
    },
    function (error, response, body) {
       // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
       ...
-});
+   }
+);
 </code></pre>
       </div>
-      <div id="Python-131" class="sample-language-131" style="display:none">
+      <div id="Python-175" class="sample-language-175" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
-from urllib.parse import urlencode
 
 # Provide your Account Sid and Auth Token from your Console Account page
 ACCOUNT_SID = 'my_ACCOUNT_SID'
 AUTH_TOKEN = 'my_AUTH_TOKEN'
 
 userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-    'Content-type': 'application/x-www-form-urlencoded',
-    'Accept': 'text/plain' }
-
-# Update POST parameters accordingly
-params = urlencode({
-   'To': 'john.doe@yourcompany.com',
-   'From': 'jane.doe@yourcompany.com',
-   'Body': 'This is a test',
-   'Subject': 'Test Email'
-})
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
 
 conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
-      params, headers=headers)
+conn.request("GET", '/restcomm/2012-04-24/Accounts/ACea59167c974743ecb8dbe4cc8bb85712/Says/RFc377eb0e657e415383de087ab38797db',
+      headers=headers)
 res = conn.getresponse()
 
 # Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
 ...
 </code></pre>
       </div>
-      <div id="Java-131" class="sample-language-131" style="display:none">
+      <div id="Java-175" class="sample-language-175" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -2881,19 +2901,10 @@ public class JavaSampleClass {
       String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
       String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
 
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Email/Messages");
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACea59167c974743ecb8dbe4cc8bb85712/Says/RFc377eb0e657e415383de087ab38797db");
       HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
       conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("POST");
-      conn.setDoOutput(true);
-      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-
-      // Update POST parameters accordingly
-      os.writeBytes("To=john.doe@yourcompany.com&" +
-        "From=jane.doe@yourcompany.com&" +
-        "Body=This is a test&" +
-        "Subject=Test Email");
-      os.close();
+      conn.setRequestMethod("GET");
 
       // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
       ...
@@ -2903,146 +2914,193 @@ public class JavaSampleClass {
       </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="_using_email"><a class="anchor" href="#_using_email"></a>Using Email</h2>
+<h2 id="_example_response"><a class="anchor" href="#_example_response"></a>Example Response</h2>
 <div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_example_post_response"><a class="anchor" href="#_example_post_response"></a>Example POST Response</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>JSON POST Response</p>
-</li>
-</ul>
-</div>
-      <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-132 is-active" onclick="openLanguage('Curl', 132)">Curl</button>
-        <button class="sample-code-button scsIndex-132" onclick="openLanguage('Nodejs', 132)">Nodejs</button>
-        <button class="sample-code-button scsIndex-132" onclick="openLanguage('Python', 132)">Python</button>
-        <button class="sample-code-button scsIndex-132" onclick="openLanguage('Java', 132)">Java</button>
-      </div>
-      <div id="Curl-132" class="sample-language-132">
-        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
-   -d 'To=john.doe@yourcompany.com' \
-   -d 'From=jane.doe@yourcompany.com' \
-   -d 'Body=This is a test ' \
-   -d 'Subject=Test Email' \
-   -u 'YourAccountSid:YourAuthToken'
-</code></pre>
-      </div>
-      <div id="Nodejs-132" class="sample-language-132" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
-
-// Provide your Account Sid and Auth Token from your Console Account page
-const ACCOUNT_SID = 'my_ACCOUNT_SID';
-const AUTH_TOKEN = 'my_AUTH_TOKEN';
-
-request.({
-      method: 'POST',
-      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
-      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN },
-      form: {
-         'To': 'john.doe@yourcompany.com',
-         'From': 'jane.doe@yourcompany.com',
-         'Body': 'This is a test ',
-         'Subject': 'Test Email'
-      }
-   },
-   function (error, response, body) {
-      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
-      ...
-});
-</code></pre>
-      </div>
-      <div id="Python-132" class="sample-language-132" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
-from base64 import b64encode
-from urllib.parse import urlencode
-
-# Provide your Account Sid and Auth Token from your Console Account page
-ACCOUNT_SID = 'my_ACCOUNT_SID'
-AUTH_TOKEN = 'my_AUTH_TOKEN'
-
-userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
-headers = { 'Authorization' : 'Basic %s' %  userAndPass,
-    'Content-type': 'application/x-www-form-urlencoded',
-    'Accept': 'text/plain' }
-
-# Update POST parameters accordingly
-params = urlencode({
-   'To': 'john.doe@yourcompany.com',
-   'From': 'jane.doe@yourcompany.com',
-   'Body': 'This is a test ',
-   'Subject': 'Test Email'
-})
-
-conn = HTTPSConnection('mycompany.restcomm.com')
-conn.request("POST", '/restcomm/2012-04-24/Accounts/' + ACCOUNT_SID + '/Email/Messages',
-      params, headers=headers)
-res = conn.getresponse()
-
-# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
-...
-</code></pre>
-      </div>
-      <div id="Java-132" class="sample-language-132" style="display:none">
-        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import java.io.*;
-import java.util.Base64;
-
-public class JavaSampleClass {
-   // Provide your Account Sid and Auth Token from your Console Account page
-   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
-   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
-
-
-   public static void main(String[] args) throws Exception {
-      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
-      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
-
-      URL url = new URL(("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/" + ACCOUNT_SID + "/Email/Messages");
-      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-      conn.setRequestProperty("Authorization", "Basic " + encoded);
-      conn.setRequestMethod("POST");
-      conn.setDoOutput(true);
-      DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-
-      // Update POST parameters accordingly
-      os.writeBytes("To=john.doe@yourcompany.com&" +
-        "From=jane.doe@yourcompany.com&" +
-        "Body=This is a test &" +
-        "Subject=Test Email");
-      os.close();
-
-      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
-      ...
-  }
-}
-</code></pre>
-      </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-  "date_sent": "2016-02-07T23:54:41.293Z",
-  "account_sid": "ACae6e420f425248d6a26948c17a9e2acf",
-  "from": "jane.doe@yourcompany.com",
-  "to": "john.doe@yourcompany.com",
-  "body": "This is a test",
-  "subject": "Test Email"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-decode:true hljs" data-lang="decode:true">{
+"sid":"SA2c0bd8c5536447eab7227b5e0adca447",
+"call_sid":"ID339a19657f0540559df11bbebdf132ab-CA25758b7f10b54c6cb23efa25917d24c3",
+"date_created":"Wed, 23 Jun 2021 01:18:18 +0000",
+"account_sid":"ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"org_sid":"OR87a155237d5241b6bbe11b05fe6f9836",
+"api_version":"2012-04-24","status":"completed",
+"reason":"",
+"duration":2,
+"character_count":25,
+"provider":
+"voicerss",
+"language":"en-us",
+"voice":"man",
+"loop":1,
+"uri":"2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Says/SA2c0bd8c5536447eab7227b5e0adca447"
+}</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_email_attributes"><a class="anchor" href="#_email_attributes"></a>Email Attributes</h2>
+<h2 id="_says_list_resource"><a class="anchor" href="#_says_list_resource"></a>Says List Resource</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_says_list_resource_uri"><a class="anchor" href="#_says_list_resource_uri"></a>Says List Resource URI</h3>
+<div class="paragraph">
+<p><strong>/2012-04-24/Accounts/{AccountSid}/Says</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h3>
+<div class="sect3">
+<h4 id="_http_get"><a class="anchor" href="#_http_get"></a>HTTP GET</h4>
+<div class="paragraph">
+<p>Returns the list representation of all the Say records resources for a given account, including the properties above.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_a_list_of_say_records"><a class="anchor" href="#_getting_a_list_of_say_records"></a>Getting a List of Say Records</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here is how you can list your Say records:</p>
+</div>
+      <div class="sample-code-bar">
+        <button class="sample-code-button scsIndex-176 is-active" onclick="openLanguage('Curl', 176)">Curl</button>
+        <button class="sample-code-button scsIndex-176" onclick="openLanguage('Nodejs', 176)">Nodejs</button>
+        <button class="sample-code-button scsIndex-176" onclick="openLanguage('Python', 176)">Python</button>
+        <button class="sample-code-button scsIndex-176" onclick="openLanguage('Java', 176)">Java</button>
+      </div>
+      <div id="Curl-176" class="sample-language-176">
+        <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Says  \
+   -u 'YourAccountSid:YourAuthToken'
+</code></pre>
+      </div>
+      <div id="Nodejs-176" class="sample-language-176" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
+
+// Provide your Account Sid and Auth Token from your Console Account page
+const ACCOUNT_SID = 'my_ACCOUNT_SID';
+const AUTH_TOKEN = 'my_AUTH_TOKEN';
+
+request({
+      method: 'GET',
+      url: 'https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Says',
+      auth: { 'user': ACCOUNT_SID, 'pass': AUTH_TOKEN }
+   },
+   function (error, response, body) {
+      // Add your business logic below; status can be found at 'response.statusCode' and response body at 'body'
+      ...
+   }
+);
+</code></pre>
+      </div>
+      <div id="Python-176" class="sample-language-176" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
+from base64 import b64encode
+
+# Provide your Account Sid and Auth Token from your Console Account page
+ACCOUNT_SID = 'my_ACCOUNT_SID'
+AUTH_TOKEN = 'my_AUTH_TOKEN'
+
+userAndPass = b64encode(bytes(ACCOUNT_SID + ':' + AUTH_TOKEN, 'utf-8')).decode("ascii")
+headers = { 'Authorization' : 'Basic %s' %  userAndPass }
+
+conn = HTTPSConnection('mycompany.restcomm.com')
+conn.request("GET", '/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Says',
+      headers=headers)
+res = conn.getresponse()
+
+# Add your business logic below; status can be found at 'res.status', reason at 'res.reason' and response body can be retrieved with res.read()
+...
+</code></pre>
+      </div>
+      <div id="Java-176" class="sample-language-176" style="display:none">
+        <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import java.io.*;
+import java.util.Base64;
+
+public class JavaSampleClass {
+   // Provide your Account Sid and Auth Token from your Console Account page
+   public static final String ACCOUNT_SID = "my_ACCOUNT_SID";
+   public static final String AUTH_TOKEN = "my_AUTH_TOKEN";
+
+
+   public static void main(String[] args) throws Exception {
+      String userAndPass = ACCOUNT_SID + ':' + AUTH_TOKEN;
+      String encoded = Base64.getEncoder().encodeToString(userAndPass.getBytes());
+
+      URL url = new URL("https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Says");
+      HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
+      conn.setRequestProperty("Authorization", "Basic " + encoded);
+      conn.setRequestMethod("GET");
+
+      // Add your business logic below; response code can be obtained from 'conn.getResponseCode()' and input stream from 'conn.getInputStream()'
+      ...
+  }
+}
+</code></pre>
+      </div>
+<div class="paragraph">
+<p>The response will be similar to the one below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_response_2"><a class="anchor" href="#_example_response_2"></a>Example Response</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-decode:true hljs" data-lang="decode:true">{"page":0,"num_pages":0,"page_size":50,"total":34,"start":"0","end":"34","uri":"/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Says","first_page_uri":"/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Says?Page=0&amp;PageSize=50","previous_page_uri":"null","next_page_uri":"null","last_page_uri":"/restcomm/2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Says?Page=0&amp;PageSize=50","says":
+    [
+        {
+            "sid":"SA2c0bd8c5536447eab7227b5e0adca447",
+            "call_sid":"ID339a19657f0540559df11bbebdf132ab-CA25758b7f10b54c6cb23efa25917d24c3",
+            "date_created":"Wed, 23 Jun 2021 01:18:18 +0000",
+            "account_sid":"ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "org_sid":"OR87a155237d5241b6bbe11b05fe6f9836",
+            "api_version":"2012-04-24","status":"completed",
+            "reason":"",
+            "duration":2,
+            "character_count":25,
+            "provider":
+            "voicerss",
+            "language":"en-us",
+            "voice":"man",
+            "loop":1,
+            "uri":"2012-04-24/Accounts/ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/Says/SA2c0bd8c5536447eab7227b5e0adca447"
+        },
+        ...
+
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_list_filter"><a class="anchor" href="#_list_filter"></a>List Filter</h3>
+<div class="sect3">
+<h4 id="_http_get_2"><a class="anchor" href="#_http_get_2"></a>HTTP GET</h4>
+<div class="paragraph">
+<p>The following GET query string parameters allow you to limit the list returned.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Parameters are case-sensitive.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a>Request Parameters</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -3050,37 +3108,26 @@ public class JavaSampleClass {
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Parameter</th>
 <th class="tableblock halign-left valign-top">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DateSent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The date that this Email Message was send.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AccountSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The unique id of the Account that sent this Email message.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">From</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Email address that initiated the message.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Email address of the recipient.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Body</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The text body of the email message.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Subject</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The subject of the email message.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only show say records that started on this date/time or later, given as an ISO-8601 date/time string, like YYYY-MM-DDTHH:MM:SS (for example 2018-10-05T22:45:32). If you want to omit the time, YYYY-MM-DD (for example 2018-10-05). If only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in the UTC timezone. A 400 response will be returned if the syntax is invalid.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_paging_information"><a class="anchor" href="#_paging_information"></a>Paging Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The request supports standard paging information. For more details, please visit the <a href="calls-api.html#_paging_information">Paging Information</a> documentation.</p>
+</div>
 </div>
 </div>
 </article>

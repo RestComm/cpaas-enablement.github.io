@@ -1479,6 +1479,26 @@
             </span>
                 </div>
                               </li>
+              <li id="Say"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="say-api.html">Say</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="Hold"
                   class="nav-item"
                   data-depth="2">
@@ -1534,7 +1554,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="refers-api.html">Refers</a>
+              <a class="nav-link nav-flex-item-text" href="refer-api.html">Refers</a>
                         <button class="nav-toggle"></button>
             </span>
                 </div>
@@ -1554,7 +1574,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="refers-api.html#_resource_properties">Resource Properties</a>
+              <a class="nav-link nav-flex-item-text" href="refer-api.html#_resource_properties">Resource Properties</a>
 
             </span>
                 </div>
@@ -1574,7 +1594,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="refers-api.html#_supported_operations">Supported Operations</a>
+              <a class="nav-link nav-flex-item-text" href="refer-api.html#_supported_operations">Supported Operations</a>
 
             </span>
                 </div>
@@ -1594,7 +1614,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="refers-api.html#_paging_information">Paging Information</a>
+              <a class="nav-link nav-flex-item-text" href="refer-api.html#_paging_information">Paging Information</a>
 
             </span>
                 </div>
@@ -4456,7 +4476,7 @@
 <div class="sect3">
 <h4 id="_status_callback_http_parameters"><a class="anchor" href="#_status_callback_http_parameters"></a>Status Callback HTTP Parameters</h4>
 <div class="paragraph">
-<p>The parameters <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers. The full list of parameters and descriptions of each are in the RCML Voice Request documentation <a href="../rcml/overview.html#_request_parameters">Request Parameters</a>.</p>
+<p>The parameters <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> passes to your application in its asynchronous request to the StatusCallback URL include all parameters passed in a synchronous request to retrieve RCML when <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> receives a call to one of your <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> numbers.The full list of parameters and descriptions of each are in the RCML Voice Request documentation <a href="../rcml/overview.html#_request_parameters">Request Parameters</a>.</p>
 </div>
 <div class="paragraph">
 <p>When the call progress events are fired, the Status Callback request also passes these additional parameters:</p>
@@ -4499,14 +4519,14 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SequenceNumber</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The order in which the events were fired, starting from <code>0</code>. Although events are fired in order, they are made as separate HTTP requests and there is no guarantee they will arrive in the same order.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The order in which the events were fired, starting from <code>0</code>.Although events are fired in order, they are made as separate HTTP requests and there is no guarantee they will arrive in the same order.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect4">
 <h5 id="_http_delete"><a class="anchor" href="#_http_delete"></a>HTTP DELETE</h5>
 <div class="paragraph">
-<p>Release this phone number from your account. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will no longer answer calls to this number, and you will stop being billed the monthly phone number fee. The phone number will eventually be recycled and potentially given to another customer, so use with care. If you make a mistake, contact us. We may be able to give you the number back. If successful, returns an HTTP 204 response with no body.</p>
+<p>Release this phone number from your account. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will no longer answer calls to this number, and you will stop being billed the monthly phone number fee.The phone number will eventually be recycled and potentially given to another customer, so use with care.If you make a mistake, contact us.We may be able to give you the number back.If successful, returns an HTTP 204 response with no body.</p>
 </div>
 </div>
 </div>
@@ -4524,7 +4544,7 @@
 <div class="sect4">
 <h5 id="_http_get_2"><a class="anchor" href="#_http_get_2"></a>HTTP GET</h5>
 <div class="paragraph">
-<p>Returns a list of IncomingPhoneNumber resource representations, each representing a phone number given to your account. The list includes paging information.</p>
+<p>Returns a list of IncomingPhoneNumber resource representations, each representing a phone number given to your account.The list includes paging information.</p>
 </div>
 <div class="sect5">
 <h6 id="_list_filters"><a class="anchor" href="#_list_filters"></a>List Filters</h6>
@@ -4831,7 +4851,7 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_local_incomingphonenumber_factory_resource"><a class="anchor" href="#_local_incomingphonenumber_factory_resource"></a>Local IncomingPhoneNumber Factory Resource</h3>
 <div class="paragraph">
-<p>POSTing to this resource allows you to request a new local phone number be added to your account. This subresource represents only Local phone numbers.</p>
+<p>POSTing to this resource allows you to request a new local phone number be added to your account.This subresource represents only Local phone numbers.</p>
 </div>
 <div class="sect3">
 <h4 id="_resource_uri_3"><a class="anchor" href="#_resource_uri_3"></a>Resource URI</h4>
@@ -4844,7 +4864,7 @@ public class JavaSampleClass {
 <div class="sect4">
 <h5 id="_http_get_3"><a class="anchor" href="#_http_get_3"></a>HTTP GET</h5>
 <div class="paragraph">
-<p>Returns a list of local &lt;IncomingPhoneNumber&gt; elements, each representing a local (not toll-free) phone number given to your account, under an &lt;IncomingPhoneNumbers&gt; list element that includes paging information. Works exactly the same as the IncomingPhoneNumber resource, but filters out toll-free numbers.</p>
+<p>Returns a list of local &lt;IncomingPhoneNumber&gt; elements, each representing a local (not toll-free) phone number given to your account, under an &lt;IncomingPhoneNumbers&gt; list element that includes paging information.Works exactly the same as the IncomingPhoneNumber resource, but filters out toll-free numbers.</p>
 </div>
 </div>
 <div class="sect4">
@@ -4898,7 +4918,7 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_toll_free_incomingphonenumber_factory_resource"><a class="anchor" href="#_toll_free_incomingphonenumber_factory_resource"></a>Toll-Free IncomingPhoneNumber Factory Resource</h3>
 <div class="paragraph">
-<p>This subresource represents only toll-free phone numbers. POSTing to this resource allows you to request a new toll-free phone number be added to your account.</p>
+<p>This subresource represents only toll-free phone numbers.POSTing to this resource allows you to request a new toll-free phone number be added to your account.</p>
 </div>
 <div class="sect3">
 <h4 id="_resource_uri_4"><a class="anchor" href="#_resource_uri_4"></a>Resource URI</h4>
@@ -4917,12 +4937,12 @@ public class JavaSampleClass {
 <div class="sect4">
 <h5 id="_http_post_3"><a class="anchor" href="#_http_post_3"></a>HTTP POST</h5>
 <div class="paragraph">
-<p>Adds a new phone number to your account. If a phone number is found for your request, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will add it to your account and bill you for the first month&#8217;s cost of the phone number. If <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> can&#8217;t find a phone number to match your request, you will receive an HTTP 400 with <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> error code. To find an available phone number to POST, use the subresources of the AvailablePhoneNumbers list resource.</p>
+<p>Adds a new phone number to your account.If a phone number is found for your request, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will add it to your account and bill you for the first month&#8217;s cost of the phone number.If <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> can&#8217;t find a phone number to match your request, you will receive an HTTP 400 with <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> error code.To find an available phone number to POST, use the subresources of the AvailablePhoneNumbers list resource.</p>
 </div>
 <div class="sect5">
 <h6 id="_required_parameters_3"><a class="anchor" href="#_required_parameters_3"></a>Required Parameters</h6>
 <div class="paragraph">
-<p>Your request <strong>must</strong> include PhoneNumber. We do not support AreaCode for this subresource:</p>
+<p>Your request <strong>must</strong> include PhoneNumber.We do not support AreaCode for this subresource:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4936,7 +4956,7 @@ public class JavaSampleClass {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PhoneNumber</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number you want to purchase. The number should be formatted starting with a '+' followed by the country code and the number in E.164 format e.g., '+15105555555'. <strong>You must include this to have your POST succeed.</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number you want to purchase.The number should be formatted starting with a '+' followed by the country code and the number in E.164 format e.g., '+15105555555'. <strong>You must include this to have your POST succeed.</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -4944,7 +4964,7 @@ public class JavaSampleClass {
 <div class="sect5">
 <h6 id="_optional_parameters_4"><a class="anchor" href="#_optional_parameters_4"></a>Optional Parameters</h6>
 <div class="paragraph">
-<p>The optional parameters for this request are exactly the same as POSTing directly to the IncomingPhoneNumbers/ resource. If successful, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will respond with a representation of the new phone number that was assigned to your account.</p>
+<p>The optional parameters for this request are exactly the same as POSTing directly to the IncomingPhoneNumbers/ resource.If successful, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will respond with a representation of the new phone number that was assigned to your account.</p>
 </div>
 </div>
 </div>
@@ -4965,7 +4985,7 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_mobile_incomingphonenumber_factory_resource"><a class="anchor" href="#_mobile_incomingphonenumber_factory_resource"></a>Mobile IncomingPhoneNumber Factory Resource</h3>
 <div class="paragraph">
-<p>POSTing to this resource allows you to request a new mobile phone number be added to your account. This subresource represents only mobile phone numbers, i.e. not toll free numbers or local numbers.</p>
+<p>POSTing to this resource allows you to request a new mobile phone number be added to your account.This subresource represents only mobile phone numbers, i.e. not toll free numbers or local numbers.</p>
 </div>
 <div class="sect3">
 <h4 id="_resource_uri_5"><a class="anchor" href="#_resource_uri_5"></a>Resource URI</h4>
@@ -4978,18 +4998,18 @@ public class JavaSampleClass {
 <div class="sect4">
 <h5 id="_http_get_5"><a class="anchor" href="#_http_get_5"></a>HTTP GET</h5>
 <div class="paragraph">
-<p>Returns a list of local &lt;IncomingPhoneNumber&gt; elements, each representing a mobile phone number given to your account, under an &lt;IncomingPhoneNumbers&gt; list element that includes paging information. Works exactly the same as the IncomingPhoneNumber resource, but filters out local and toll free numbers.</p>
+<p>Returns a list of local &lt;IncomingPhoneNumber&gt; elements, each representing a mobile phone number given to your account, under an &lt;IncomingPhoneNumbers&gt; list element that includes paging information.Works exactly the same as the IncomingPhoneNumber resource, but filters out local and toll free numbers.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_http_post_4"><a class="anchor" href="#_http_post_4"></a>HTTP POST</h5>
 <div class="paragraph">
-<p>Adds a new phone number to your account. If a phone number is found for your request, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will add it to your account and bill you for the first month&#8217;s cost of the phone number. If <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> can&#8217;t find a phone number to match your request, you will receive an HTTP 400 with <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> error code. To find an available phone number to POST, use the subresources of the AvailablePhoneNumbers list resource.</p>
+<p>Adds a new phone number to your account.If a phone number is found for your request, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will add it to your account and bill you for the first month&#8217;s cost of the phone number.If <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> can&#8217;t find a phone number to match your request, you will receive an HTTP 400 with <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> error code.To find an available phone number to POST, use the subresources of the AvailablePhoneNumbers list resource.</p>
 </div>
 <div class="sect5">
 <h6 id="_required_parameters_4"><a class="anchor" href="#_required_parameters_4"></a>Required Parameters</h6>
 <div class="paragraph">
-<p>Your request <strong>must</strong> include PhoneNumber. We do not support AreaCode for this subresource:</p>
+<p>Your request <strong>must</strong> include PhoneNumber.We do not support AreaCode for this subresource:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5003,7 +5023,7 @@ public class JavaSampleClass {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PhoneNumber</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number you want to purchase. The number should be formatted starting with a '+' followed by the country code and the number inhttp://en.wikipedia.org/wiki/E.164[E.164] format e.g., '+15105555555'. <strong>You must include this to have your POST succeed.</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The phone number you want to purchase.The number should be formatted starting with a '+' followed by the country code and the number inhttp://en.wikipedia.org/wiki/E.164[E.164] format e.g., '+15105555555'. <strong>You must include this to have your POST succeed.</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -5011,7 +5031,7 @@ public class JavaSampleClass {
 <div class="sect5">
 <h6 id="_optional_parameters_5"><a class="anchor" href="#_optional_parameters_5"></a>Optional Parameters</h6>
 <div class="paragraph">
-<p>The optional parameters for this request are exactly the same as POSTing directly to the IncomingPhoneNumbers/ resource. If successful, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will respond with a representation of the new phone number that was assigned to your account.</p>
+<p>The optional parameters for this request are exactly the same as POSTing directly to the IncomingPhoneNumbers/ resource.If successful, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will respond with a representation of the new phone number that was assigned to your account.</p>
 </div>
 </div>
 </div>
@@ -5513,7 +5533,7 @@ endif</pre>
 </div>
 <div class="paragraph">
 <p>As we can see, the perfect match against the incoming number will be attempted
-first. Then, if no matching is found the regular expressions associated to the
+first.Then, if no matching is found the regular expressions associated to the
 Organization will be evaluated.</p>
 </div>
 <div class="admonitionblock warning">
