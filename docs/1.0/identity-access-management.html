@@ -1,0 +1,4028 @@
+<!DOCTYPE html>
+<html lang="en" class="csp-persona">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
+    <title data-custom-title="Identity Access Management - Restcomm Docs"></title>
+    <link rel="canonical" href="
+      https://www.restcomm.com/docs/1.0/identity-access-management.html
+    ">
+    <meta name="generator" content="Antora 1.1.1">
+    <link rel="icon" type="image/png" href="../../_/img/favicon.png"/>
+    <link rel="stylesheet" href="../../_/css/site.css" title="antora-stylesheet">
+    <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
+    <!-- Not using it for now
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      </head>
+  <body class="article" >
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        -->
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="docs" data-version="1.0"  style="display: none;">
+  <aside class="navigation">
+    <div class="panels">
+  <div class="navigation-menu is-active" data-panel="menu">
+    <nav class="nav-menu">
+      <!-- Not applicable to our Enterprise docs
+    <h3 class="title"><a href="index.html">docs</a></h3>
+    -->
+        <ul class="nav-list">
+          <ul class="nav-list">
+              <li id="RESTAPI"
+                  class="nav-item"
+                  data-depth="1">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              icomoon3-font-reference-api
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/overview.html">REST API</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Overview"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/overview.html">Overview</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="APIEndpoint"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/overview.html#_api_endpoint">API Endpoint</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Authentication"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/overview.html#_authentication">Authentication</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Requests"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/overview.html#_requests">Requests</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Responses"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/overview.html#_responses">Responses</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Paging"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/overview.html#_paging">Paging</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ReasonCodesDictionary"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/reasoncodes.html">Reason Codes Dictionary</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="ManagementAPIs"
+                  class="nav-item"
+                  data-depth="1">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              icomoon3-font-reference-management
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/management-apis-overview.html">Management APIs</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Accounts"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/account-api.html">Accounts</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="IdentityAccessManagement<strong>EarlyAccess</strong>"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-overview.html">Identity Access Management <strong>Early Access</strong></a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="IdentityAccessManagementOverview"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-overview.html">Identity Access Management Overview</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="IdentityAccessManagementAPI"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html">Identity Access Management API</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="UserManagement"
+                  class="nav-item"
+                  data-depth="4">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_user_management">User Management</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="CreateaUser"
+                  class="nav-item"
+                  data-depth="5">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_create_a_user">Create a User</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="UpdateaUser"
+                  class="nav-item"
+                  data-depth="5">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_update_a_user">Update a User</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="RetrieveaUser"
+                  class="nav-item"
+                  data-depth="5">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_retrieve_user_information">Retrieve a User</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="DeleteaUser"
+                  class="nav-item"
+                  data-depth="5">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_delete_a_user">Delete a User</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="APIKeysManagement"
+                  class="nav-item"
+                  data-depth="4">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_api_keys_management">API Keys Management</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="CreateanAPIKey"
+                  class="nav-item"
+                  data-depth="5">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_create_an_api_key">Create an API Key</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="UpdateanAPIKey"
+                  class="nav-item"
+                  data-depth="5">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_update_an_api_key">Update an API Key</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="RetrieveanAPIKey"
+                  class="nav-item"
+                  data-depth="5">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_retrieve_an_api_key">Retrieve an API Key</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="DeleteanAPIKey"
+                  class="nav-item"
+                  data-depth="5">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/identity-access-management-api.html#_delete_an_api_key">Delete an API Key</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+  </ul>
+              </li>
+  </ul>
+              </li>
+              <li id="Applications"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/applications-api.html">Applications</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Clients"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/clients-api.html">Clients</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="CreateaClient"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/clients-api.html#_create_a_client">Create a Client</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="DeleteaClient"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/clients-api.html#_delete_a_client">Delete a Client</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ChangeClient&#8217;sPassword"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/clients-api.html#_change_clients_password">Change Client&#8217;s Password</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetaListofAvailableClients"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/clients-api.html#_get_list_of_available_clients">Get a List of Available Clients</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="IncomingPhoneNumbers"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html">Incoming Phone Numbers</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="IncomingPhoneNumberInstanceResource"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html#IncomingPhoneNumber_Instance_Resource">IncomingPhoneNumber Instance Resource</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="IncomingPhoneNumbersListResource"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html#IncomingPhoneNumber_List_Resource">IncomingPhoneNumbers List Resource</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="LocalIncomingPhoneNumberFactoryResource"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html#IncomingPhoneNumber_Local_IncomingPhoneNumber_Factory_Resource">Local IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Toll-FreeIncomingPhoneNumberFactoryResource"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html#IncomingPhoneNumber_Toll_Free_IncomingPhoneNumber_Factory_Resource">Toll-Free IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="MobileIncomingPhoneNumberFactoryResource"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html#IncomingPhoneNumber_Mobile_IncomingPhoneNumber_Factory_Resource">Mobile IncomingPhoneNumber Factory Resource</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Attachaphonenumbertoanapplication"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html#IncomingPhoneNumber_Attach_phone_number_to_an_app">Attach a phone number to an application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Deleteaphonenumber"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html#IncomingPhoneNumber_Delete_Number">Delete a phone number</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ListofPhoneNumbers"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html#IncomingPhoneNumber_List_Phone_Numbers">List of Phone Numbers</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="IncomingPhoneNumberRegexSupport"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/incoming-phone-numbers-api.html#IncomingPhoneNumber_Phone_Number_Regex_Support">Incoming Phone Number Regex Support</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="Notifications"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/notifications-api.html">Notifications</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="UsageRecords"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/usage-records-api.html">Usage Records</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="Voice"
+                  class="nav-item"
+                  data-depth="1">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              icomoon3-font-reference-voice
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/voice-category.html">Voice</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Calls"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/calls-api.html">Calls</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="CallListResourceURI"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/calls-api.html#_call_list_resource_uri">Call List Resource URI</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="MakingaCall"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/calls-api.html#_making_a_call_to_a_sip_account">Making a Call</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ModifyingLiveCalls"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/calls-api.html#_modifying_live_calls">Modifying Live Calls</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Examples"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/calls-api.html#_examples">Examples</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ListFilter"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/calls-api.html#_list_filter">List Filter</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="PagingInformation"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/calls-api.html#_paging_information">Paging Information</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="ConferenceManagement"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/conferences-api.html">Conference Management</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="SupportedOperations"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/conferences-api.html#_supported_operations">Supported Operations</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ConferenceListResourceURI"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/conferences-api.html#_conference_list_resource_uri">Conference List Resource URI</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="ConferenceParticipantsManagement"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/participants-api.html">Conference Participants Management</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="ParticipantsListResourceURI"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/participants-api.html#_participant_list_resource_uri">Participants List Resource URI</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="GatherDTMF"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/gather-dtmf-api.html">Gather DTMF</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GatherSpeech"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/gather-speech-api.html">Gather Speech</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Say"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/say-api.html">Say</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Play"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/play-api.html">Play</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Hold"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/holds-api.html">Hold</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Recordings"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/recordings-api.html">Recordings</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Refers"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/refer-api.html">Refers</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="ResourceProperties"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/refer-api.html#_resource_properties">Resource Properties</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="SupportedOperations"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/refer-api.html#_supported_operations">Supported Operations</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="PagingInformation"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/refer-api.html#_paging_information">Paging Information</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="Resume"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/resumes-api.html">Resume</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="SIPReferSupport"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/SIP-Refer-Support.html">SIP Refer Support</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="SMS"
+                  class="nav-item"
+                  data-depth="1">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              icomoon3-font-reference-sms
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/sms-category.html">SMS</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Messages"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/sms-api.html">Messages</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="SendSMS"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/sms-api.html#_send_sms">Send SMS</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetSMSList"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/sms-api.html#_get_sms_list">Get SMS List</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetsingleSMSInformation"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/sms-api.html#_get_single_sms_information">Get single SMS Information</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="SMSAttributes"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/sms-api.html#_sms_attributes">SMS Attributes</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="Email"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/email-api.html">Email</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="RCML"
+                  class="nav-item"
+                  data-depth="1">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              icomoon3-font-reference-rcml
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/overview.html">RCML</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Overview"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/overview.html">Overview</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="InteractingwithYourApplication"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/overview.html#_how_wlparamreplacetextmodespsparmtextapplication_nametextcpaasdefaulttextinfer_from_domain_interacts_with_your_application">Interacting with Your Application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="RCMLVerbs"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/overview.html#_the_rcml_verbs">RCML Verbs</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="Dial"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/dial-rcml.html">Dial</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Client"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/client-rcml.html">Client</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Conference"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/conference-rcml.html">Conference</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Number"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/number-rcml.html">Number</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="SIP"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/sip-rcml.html">SIP</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="Email"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/email-rcml.html">Email</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Gather"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/gather-rcml.html">Gather</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Say"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/say-rcml.html">Say</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Play"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/play-rcml.html">Play</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="SMS"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              icomoon3-font-reference-sms
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/sms-rcml.html">SMS</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Hold"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/hold-rcml.html">Hold</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Resume"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/resume-rcml.html">Resume</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Hangup"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/hangup-rcml.html">Hangup</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Pause"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/pause-rcml.html">Pause</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Redirect"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/redirect-rcml.html">Redirect</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Record"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/record-rcml.html">Record</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Reject"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/reject-rcml.html">Reject</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Refer"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/rcml/refer-rcml.html">Refer</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="VisualDesignerAPI"
+                  class="nav-item"
+                  data-depth="1">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              icomoon3-font-reference-api
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html">Visual Designer API</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="ListApplicationTemplates"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_list_application_templates_from_the_template_gallery">List Application Templates</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id=":ListaSpecificApplicationTemplate"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_get_a_specific_application_template_from_the_template_gallery">:List a Specific Application Template</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="CreateaVisualDesignerApplication"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_create_a_visual_designer_application">Create a Visual Designer Application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetApplicationDetails"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_get_application_details">Get Application Details</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="SaveApplicationChanges"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_save_application_changes">Save Application Changes</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="CreateApplicationParameters"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_create_application_parameters">Create Application Parameters</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ListApplicationParameters"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_get_application_parameters">List Application Parameters</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="DeleteApplicationParameters"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_delete_application_parameters">Delete Application Parameters</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="UploadApplicationMediaFiles"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_upload_application_media_files">Upload Application Media Files</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ListApplicationMediaFiles"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_get_a_list_of_application_media_files">List Application Media Files</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="PlayApplicationMediaFiles"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_play_an_application_media_file">Play Application Media Files</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="DeleteApplicationMediaFiles"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_delete_application_media_file">Delete Application Media Files</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetApplicationLogs"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_get_application_logs">Get Application Logs</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="DeleteApplicationLogs"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_delete_application_logs">Delete Application Logs</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetApplicationSettings"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_get_application_settings">Get Application Settings</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ModifyApplicationSettings"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_modify_application_settings">Modify Application Settings</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="RenameanApplication"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_rename_a_visual_designer_application">Rename an Application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="DeleteanApplication"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_delete_a_visual_designer_application">Delete an Application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetVisualDesignerConfiguration"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/visual-designer-api.html#_get_visual_designer_configuration_details">Get Visual Designer Configuration</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="TurnkeyAppsAPIs"
+                  class="nav-item"
+                  data-depth="1">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              icomoon3-font-reference-solutions
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/turnkey-applications/index.html">Turnkey Apps APIs</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Smart2FA"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html">Smart 2FA</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="SendingOne-TimePasswords"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_send">Sending One-Time Passwords</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="VerifyingOne-TimePasswords"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_verify">Verifying One-Time Passwords</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="CancelOne-TimePasswords"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_control">Cancel One-Time Passwords</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="SessionDetailRecord(SDR)"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_session_detail_record_sdr">Session Detail Record (SDR)</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetlistofOne-TimePasswords"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_get_list_of_one_time_passwords__api_reference">Get list of One-Time Passwords</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetaSingleOne-TimePassword"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_get_single_one_time_passwords__api_reference">Get a Single One-Time Password</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="UsageRecordOne-TimePasswords"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_usage_record_one_time_passwords__api_reference">Usage Record One-Time Passwords</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="CommonResponseErrorCode"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_common_response_error_code">Common Response Error Code</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Limit"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_limit">Limit</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="CreateLimit"
+                  class="nav-item"
+                  data-depth="4">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_create_limit">Create Limit</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="UpdateLimit"
+                  class="nav-item"
+                  data-depth="4">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_update_limit">Update Limit</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="DeleteLimit"
+                  class="nav-item"
+                  data-depth="4">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_delete_limit">Delete Limit</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="GetListofLimits"
+                  class="nav-item"
+                  data-depth="4">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/tutorials/Smart-2FA.html#_get_list_of_limits">Get List of Limits</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+  </ul>
+              </li>
+              <li id="CallQueuing"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/call-queueing-api.html">Call Queuing</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="AutoAttendant"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/auto-attendant-api.html">Auto Attendant</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Users"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/auto-attendant-api.html#_users">Users</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Announcement"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/auto-attendant-api.html#_announcement">Announcement</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="AutoAttendantSystem"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/auto-attendant-api.html#_auto_attendant_system">Auto Attendant System</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Menu"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/auto-attendant-api.html#_menu">Menu</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Schedule"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/auto-attendant-api.html#_schedule">Schedule</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="PhoneNumber"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/auto-attendant-api.html#_phone_number">Phone Number</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="UsageRecords"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/auto-attendant-api.html#_usage_records">Usage Records</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="ThirdPartyIntegration"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/auto-attendant-api.html#_third_party_integration">Third Party Integration</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="NumberMasking"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/number-masking-api.html">Number Masking</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Application"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/number-masking-api.html#_application">Application</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="MaskNumberPool"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/number-masking-api.html#_masked_numbers">Mask Number Pool</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Context"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/number-masking-api.html#_context">Context</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Participants"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/number-masking-api.html#_participants">Participants</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Interactions"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/number-masking-api.html#_interactions">Interactions</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="UsageRecords"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/number-masking-api.html#_usage_records">Usage Records</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+              <li id="TaskRouter"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="enterprise/api/task-router-api.html">Task Router</a>
+
+            </span>
+                </div>
+                              </li>
+  </ul>
+              </li>
+  </ul>
+          <ul class="nav-list">
+  </ul>
+  </ul>
+    </nav>
+  </div>
+<div class="navigation-explore" data-panel="explore" style="display: none;">
+  <div class="context">
+    <span class="title">docs</span>
+    <span class="version">1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">docs</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<!--
+
+-->
+<div class="toolbar" role="navigation" style="display: none;">
+  <button class="navigation-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="index.html">docs</a></li>
+    <li class="crumb"><a href="identity-access-management.html">Identity Access Management</a></li>
+  </ul>
+</nav>
+</div>
+<article class="doc fix-anchor-links-position">
+  <h1>Identity Access Management</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_accounts_and_user_roles">Accounts and User Roles</a>
+<ul class="sectlevel2">
+<li><a href="#_primary_accounts_sub_accounts">Primary Accounts &amp; Sub Accounts</a></li>
+<li><a href="#_user_roles">User Roles</a></li>
+<li><a href="#_user_permissions">User Permissions</a></li>
+</ul>
+</li>
+<li><a href="#_understanding_the_user_roles_and_permissions_for_communications_providers">Understanding the User Roles and Permissions for Communications Providers</a></li>
+<li><a href="#_understanding_the_user_roles_and_permissions_for_business_customers">Understanding the User Roles and Permissions for Business Customers</a></li>
+<li><a href="#_business_customers_turnkey_applications_access_control">Business Customers’ Turnkey Applications Access Control</a></li>
+<li><a href="#_api_definition">API Definition</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Before you get started, please make sure that your CPaaS organization has Identity Access Management (IAM) enabled. If IAM is not yet enabled for your organization, please contact your Account Manager to enable it. In case your organization is still using the legacy access management, please review the <a href="accounts.html">Enterprise Accounts documentation.</a></p>
+</div>
+<div class="paragraph">
+<p>If you would like your CPaaS organization, and your Business Customers to be migrated to Identity Access Management, please check out the <a href="identity-access-management-migration-guide.html">IAM Migration Guide</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Identity Access Management allows Communications Providers (CPs) and their Business Customers to create and manage users with specific roles and permissions to manage access to their CPaaS account’s resources.</p>
+</div>
+<div class="paragraph">
+<p>Communications Providers can create users with different roles under their Primary Account. In addition, they can set up Sub Accounts for their Business Customers. Each Business Customer Sub Account can create users and set their roles independently.</p>
+</div>
+<div class="paragraph">
+<p>To access assigned resources via the available CPaaS APIs, each user can create API Access Keys. Access keys are long-term credentials for an IAM user. Access keys consist of two parts: an access key ID and a secret access key.</p>
+</div>
+<div class="paragraph">
+<p>Like a username and password, users must use both the access key ID and secret access key together to authenticate API requests. Manage access keys as securely as would be done for username and password.</p>
+</div>
+<div class="paragraph">
+<p>When users create an access key pair, they need to save the access key ID and secret access key in a secure location. The secret access key is available only once, at the time of creation. If a secret access key is lost, it must be deleted and a new one should be created.</p>
+</div>
+<div class="paragraph">
+<p>Users can create, modify and delete their access keys and have a maximum of two access keys at any given time. This allows users to rotate the active keys according to security best practices.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/iam-accounts-hierarchy.png" alt="IAM Accounts Hierarchy">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_accounts_and_user_roles"><a class="anchor" href="#_accounts_and_user_roles"></a>Accounts and User Roles</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_primary_accounts_sub_accounts"><a class="anchor" href="#_primary_accounts_sub_accounts"></a>Primary Accounts &amp; Sub Accounts</h3>
+<div class="paragraph">
+<p>Primary Account Administrator (CP) users can create Sub Accounts for their Business Customers under the same CPaaS organization. They can also create and manage users on behalf of the Business Customer’s sub account and enable or disable their access to Platform and Turnkey Applications resources.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_user_roles"><a class="anchor" href="#_user_roles"></a>User Roles</h3>
+<div class="paragraph">
+<p>A user role represents a set of permissions the user has to various Platform and Turnkey Applications resources.</p>
+</div>
+<div class="paragraph">
+<p>A Communications Provider’s users can have any of the following roles:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Administrator</p>
+</li>
+<li>
+<p>Developer</p>
+</li>
+<li>
+<p>ProvisioningAgent</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A Business Customer&#8217;s users can have any of the roles below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Administrator</p>
+</li>
+<li>
+<p>Developer</p>
+</li>
+<li>
+<p>Turnkey Applications Administrator</p>
+</li>
+<li>
+<p>Turnkey Applications Developer</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_user_permissions"><a class="anchor" href="#_user_permissions"></a>User Permissions</h3>
+<div class="paragraph">
+<p>The user permissions represent the level of user access to various Platform and Turnkey Applications resources.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_the_user_roles_and_permissions_for_communications_providers"><a class="anchor" href="#_understanding_the_user_roles_and_permissions_for_communications_providers"></a>Understanding the User Roles and Permissions for Communications Providers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The diagram below outlines the relationship between the Communications Provider’s CPaaS Primary Account and the users created under it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/IAM_for_CPs.png" alt="IAM for CPs">
+</div>
+</div>
+<div class="paragraph">
+<p>The following table specifies the Communications Provider user permissions to the Platform and Turnkey Applications resources based on their role.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"><p class="tableblock"><span class="White"><strong>Capability Availability at that Account Hierarchy Level</strong></span></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"><p class="tableblock"><span class="White"><strong>Administrator</strong></span></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"><p class="tableblock"><span class="White"><strong>Developer</strong></span></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"><p class="tableblock"><span class="White"><strong>ProvisioningAgent</strong></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="5" style="background-color: #ecf6f6;"><p class="tableblock"><span class="White"><strong><a href="identity-access-management.html#platform-resources-for-communications-providers">Platform Resources</a></strong></span> <a id="platform-resources-for-communications-providers"></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account Settings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API Credentials</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Audit API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Access Control Management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User Management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Role Access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Communications Provider Administrator<br>
+- Communications Provider Developer<br>
+- Communications Provider Provisioning Agent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whitelabeling Settings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BYOC Settings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Enterprise Accounts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Turnkey Applications Enablement Management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Applications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Numbers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage SIP/WebRTC Clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Programmable SMS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Programmable Voice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Call Logs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMS Logs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMS Logs Content</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings Content</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notifications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OutgoingCallerIDs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Visual Designer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="5" style="background-color: #ecf6f6;"><p class="tableblock"><span class="White"><strong><a href="identity-access-management.html#turnkey-applications-for-communications-providers">Turnkey Applications</a></strong></span> <a id="turnkey-applications-for-communications-providers"></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="5"><p class="tableblock"><strong>Message Exchange</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MX-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MX-Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MX-Search and Usage record all endpoints all levels</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MX Traffic Routing Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="5"><p class="tableblock"><strong>Auto Attendant</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA-System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA-Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA-Enterprise And User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA-Search and Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="5"><p class="tableblock"><strong>Number Masking</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NM-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NM-Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NM-Enterprise And User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="5"><p class="tableblock"><strong>Task Router</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TR-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TR-Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TR-Enterprise And User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TR-Search and Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="5"><p class="tableblock"><strong>Message Exchange for Cisco Webex</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WEBEX-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WEBEX-Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WEBEX-Enterprise And User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Webex Traffic Routing Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="5"><p class="tableblock"><strong>Smart 2FA</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2FA-Traffic<br>
+send/verify/cancel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2FA-Limit Provisioning<br>
+2FA-WorkFlow Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2FA-Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="5"><p class="tableblock"><strong>Campaign Manager</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign Manager-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaigns</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_the_user_roles_and_permissions_for_business_customers"><a class="anchor" href="#_understanding_the_user_roles_and_permissions_for_business_customers"></a>Understanding the User Roles and Permissions for Business Customers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The diagram below outlines the relationship between the Business Customer’s CPaaS Sub Account and the users created under it.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Be aware that only users with an <code>Administrator</code> role are allowed to create other users under the same sub account.</p>
+</div>
+<div class="paragraph">
+<p>Only users with an <code>Administrator</code> role can have full access to the Platform and Turnkey Applications resources.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/IAM_for_BCs.png" alt="IAM for BCs">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_business_customers_turnkey_applications_access_control"><a class="anchor" href="#_business_customers_turnkey_applications_access_control"></a>Business Customers’ Turnkey Applications Access Control</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Communications Providers can manage access to Turnkey Applications for their Business Customers through a  Management profile that can be associated with their Sub Accounts under their CPaaS organization.</p>
+</div>
+<div class="paragraph">
+<p>As depicted in the following diagram, Communications Providers can set up Profiles featuring access to different combinations of Turnkey Applications. The Profiles can then be assigned to specified Business Customers.</p>
+</div>
+<div class="paragraph">
+<p>You can find out more information on how to set this up at the Profiles API documentation.</p>
+</div>
+<div class="paragraph">
+<p><a href="api/profile-api.html">Profiles API documentation.</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/FAC.png" alt="Turnkey FAC">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As of today, Communications Providers can enable or disable access for their Business Customers to each one of the Turnkey Applications through the <a href="api/profile-api.html">Profiles API </a>. In the future the Identity Access Management API and web UI will allow CPs to choose from a broader set of permissions targeting the various platform functionalities.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following table specifies the Business Customer user permissions to the Platform and Turnkey Applications resources based on their role.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"><p class="tableblock"><strong>Capability Availability at that Account Hierarchy Level</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"><p class="tableblock"><strong>Administrator</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"><p class="tableblock"><strong>Developer</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"><p class="tableblock"><strong>Turnkey Applications Administrator</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #ecf6f6;"><p class="tableblock"><strong>Turnkey Applications Developer</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="6" style="background-color: #ecf6f6;"><p class="tableblock"><strong><a href="identity-access-management.html#platform-resources-for-business-customers">Platform Resources</a></strong> <a id="platform-resources-for-business-customers"></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account Settings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API Credentials</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Audit API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Access Control Management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User Management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Role Access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Business Customer Administrator<br>
+- Business Customer Developer<br>
+- Business Customer Turnkey Applications Administrator <br>
+- Business Customer Turnkey Applications Developer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Business Customer Turnkey Applications Administrator<br>
+- Business Customer Turnkey Applications Developer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whitelabeling Settings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BYOC Settings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Enterprise Accounts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communications Partner Organization/Account Management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Turnkey Applications Enablement Management</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Applications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage Numbers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Manage SIP/WebRTC Clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Programmable SMS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Programmable Voice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Call Logs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMS Logs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMS Logs Content</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recordings Content</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notifications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OutgoingCallerIDs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Visual Designer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="6" style="background-color: #ecf6f6;"><p class="tableblock"><strong><a href="identity-access-management.html#turnkey-applications-for-business-customers">Turnkey Applications</a></strong> <a id="turnkey-applications-for-business-customers"></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="6"><p class="tableblock"><strong>Auto Attendant</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA-System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA-Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AA-Enterprise And User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="6"><p class="tableblock"><strong>Number Masking</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NM-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NM-Usage records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NM-Enterprise And User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="6"><p class="tableblock"><strong>Task Router</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TR-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TR-Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TR-Enterprise And User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="6"><p class="tableblock"><strong>Smart 2FA</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2FA-Traffic<br>
+send/verify/cancel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2FA-Limit Provisioning<br>
+2FA-WorkFlow Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2FA-Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="6"><p class="tableblock"><strong>Campaign Manager</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaign Manager-Provisioning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Campaigns</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read/write</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Usage Records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">read only</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no access</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_definition"><a class="anchor" href="#_api_definition"></a>API Definition</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="api/identity-access-management-api.html">Getting Started with the Identity Access Management API</a></p>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column-container">
+      <div class="footer-column">
+          <h5 class="footer-column-title">Contact Us</h5>
+          <p>+1 (650) 263 6146</p>
+          <p><a href="https://go.telestax.com/sales-inquiries">SALES</a></p>
+          <p><a href="https://go.telestax.com/support-inquiries">SUPPORT</a></p>
+          <p><a href="https://go.telestax.com/general-inquiries">GENERAL</a></p>
+          <h5 class="footer-column-title">Follow Us</h5>
+          <p>
+            <span><a href="https://twitter.com/restcomm"><i class="fab fa-twitter"></i></a></span>
+            <span><a href="https://www.linkedin.com/company/telestax"><i class="fab fa-linkedin-in"></i></a></span>
+            <span><a href="https://www.facebook.com/Telestax/"><i class="fab fa-facebook-f"></i></a></span>
+            <span><a href="https://www.youtube.com/channel/UCrZ-J48d3AdwGdL01XuZKZQ"><i class="fab fa-youtube"></i></a></span>
+          </p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Turnkey Applications</h5>
+        <p><a class="footer-usecase-item" href="/docs/1.0/turnkey-applications/smart-2fa-overview.html">SMART 2FA</a></p>
+          <p><a class="footer-usecase-item" href="/docs/1.0/solutions/message-exchange-overview.html">MESSAGE EXCHANGE</a></p>
+          <p><a class="footer-usecase-item" href="/docs/1.0/solutions/cisco-webex-overview.html">CISCO WEBEX</a></p>
+          <p><a class="footer-usecase-item" href="/docs/1.0/api/call-queue-api.html">CALL QUEUE</a></p>
+      </div>
+      <div class="footer-column">
+        <h5 class="footer-column-title">Learn</h5>
+        <p><a href="https://www.telestax.com/blog/">BLOG</a></p>
+
+          <p><a id="terms-link" href="https://www.telestax.com/legal/">TERMS AND CONDITIONS</a></p>
+      </div>
+      <div class="footer-column">
+    <h5 class="footer-column-title">Additional Links</h5>
+        <p><a class="sps-text sps-link" data-parm-text="company_name" data-parm-link="company_link" href="https://www.telestax.com/about/" data-default-text="About Us" data-default-link="#">ABOUT</a></p>
+       <p><a href="https://www.telestax.com/faqs/">FAQ'S</a></p>
+       <p><a href="https://www.telestax.com/privacy-statement/">PRIVACY POLICY</a></p>
+       <p><a href="https://www.telestax.com/contact/">CONTACT</a></p>
+      </div>
+    </div>
+    <!---->
+    <!--<div class="footer-bottom-container">-->
+      <!--<div class="footer-logo">-->
+        <!--<a class="footer-logo-link" href="https://telestax.com"></a>-->
+      <!--</div>-->
+      <!--<div class="footer-copyright">-->
+        <!--<p class="footer-copyright-paragraph">COPYRIGHT © 2020, TELESTAX INC., ALL RIGHTS RESERVED.</p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!---->
+  </div>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script src="../../_/js/vendor/highlight.js"></script>
+<!--
+<script>hljs.initHighlighting()</script>
+-->
+<!-- UserBack Tool -->
+<script>
+    Userback = window.Userback || {};
+    Userback.access_token = '5061|10149|r9Ure7pw7zJFVyflkflhPEQJvrsbdWcpYS5Vz3safDjZZg7ukX';
+    (function(id) {
+        var s = document.createElement('script');
+        s.async = 1;s.src = 'https://static.userback.io/widget/v1.js';
+        var parent_node = document.head || document.body;parent_node.appendChild(s);
+    })('userback-sdk');
+</script>
+
+  </body>
+</html>
