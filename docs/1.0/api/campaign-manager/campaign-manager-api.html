@@ -5859,7 +5859,7 @@ https://yourdomain.com/campaignmanager/enterprises/ENb6eb071d21124dbab20b095c25f
     "name":"Jane Doe",
     "credit":0,
     "configuration": "{\"campaignManager\":{\"throttle\": {\"smsPerSecond\":\"10\", \"callsPerSecond\":\"25\", \"concurrentCalls\":\"5\"}}}",
-    "status":"ACTIVE",
+    "status":"CLOSED",
     "enterpriseAdminSid":"RCS7e9130b1534e45ca96c5a840fd47e645",
     "enterpriseAdminEmail":"jane.doe@company.com"
     },
@@ -6665,7 +6665,7 @@ Business Customer, Delete Business Customer, Get Business Customer</p></td>
          "name":"John",
          "emailId":"jane@company.com",
          "status":"ACTIVE",
-         "role":"BC_Turnkey_Administrator",
+         "role":"BC/TurnkeyAdministrator",
          "enterpriseSid":"EN801e792d86504368a9385314e8c5c4d6",
          "uri":"/campaignmanager/user/search/ AAEb6eb071d21124dbab20b095c25f1274f"
       }
@@ -6823,7 +6823,7 @@ Get User</p></td>
       "name":"John",
       "emailId":"james@company.com",
       "status":"ACTIVE",
-      "role":"BC_Turnkey_Adminstrator",
+      "role":"BC/TurnkeyAdministrator",
       "enterpriseSid":"EN801e792d86504368a9385314e8c5c4d6",
       "uri":"/campaignmanager/user/search/ AAEb6eb071d21124dbab20b095c25f1274f"
    },
@@ -7764,20 +7764,26 @@ Make sure you are using the proper account SID and token when managing campaigns
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
     "data": {
-        "sid": "EC0261a2e790a5459baffbad446401e3d0",
-        "dateUpdated": "2022-01-20T04:43:02+0000",
-        "dateCreated": "2022-01-20T04:43:02+0000",
-        "accountSid": "AC6f252df6a8b94dea37a62092ae202e4a",
-        "accountEmail": "jane.doe@company.com",
-        "uri": "/campaignmanager/campaigns/search/EC0261a2e790a5459baffbad446401e3d0",
-        "name": "ACME Campaign",
-        "startTime": "2022-01-21T04:43:04+0000",
-        "enterpriseSid": "EN0a30aaedf0094dc8acb72f5de160cf7e",
+        "sid": "ECede2bddaf94f4ea980bd11191cb3010c",
+        "dateUpdated": "2022-07-19T05:25:30+0000",
+        "dateCreated": "2022-07-19T05:25:30+0000",
+        "accountSid": "AC2109c80a92526a0bbe7f652e8c825291",
+        "accountEmail": "test1@subaccount.com",
+        "uri": "/campaignmanager/campaigns/search/ECede2bddaf94f4ea980bd11191cb3010c",
+        "name": "\"Campaign Voice with Audio Announcement id\"",
+        "startTime": "2022-08-30T09:30:00+0000",
+        "enterpriseSid": "EN035ff543f1644f918713aabfa4463bc0",
         "total": 1,
         "status": "canceled",
-        "fromPrefix": "",
-        "channel": "sms",
-        "dialTimeout": 30
+        "rcmlUrl": "https://company.com/campaignmanager/internal/rcml?Announcement=ANfa16baaf414e4bcc85cc61104c491a6f&amp;Enterprise=EN035ff543f1644f918713aabfa4463bc0&amp;Organization=ORafbe225ad37541eba518a74248f0ac4c",
+        "body": "Checking Voice",
+        "channel": "voice",
+        "announcementSid": "ANfa16baaf414e4bcc85cc61104c491a6f",
+        "announcementName": "Announcement with Audio2 ",
+        "fromListName": "Zip4",
+        "fromListSid": "NG4ac9cfeb1dfd4b45baef22c534080671",
+        "toListName": "My Number1",
+        "toListSid": "NG203a101b805842c6bf4bdaa0070d862f"
     },
     "code": 200,
     "message": "OK"
@@ -8868,9 +8874,6 @@ Delete Campaign, List Single Campaign</p></td>
 </li>
 <li>
 <p>Phone numbers must contain maximum 15 characters.</p>
-</li>
-<li>
-<p>When all extra spaces and symbols are trimmed, an extra check is performed to remove duplicate phone numbers.</p>
 </li>
 </ul>
 </div>
@@ -10055,11 +10058,9 @@ If the creation was successful, you will need to call the Upload Announcement AP
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
-    "errorCode": "467",
+    "errorCode": "4051",
     "message": "Enterprise not found",
-    "data": {
-        "sid": "EN838bcdf35f9d421fad3ab516195b873"
-    }
+    "data": "Enterprise not found EN0a30aaedf0094dc8acb72f5de160cf7e123"
 }</code></pre>
 </div>
 </div>
@@ -10230,7 +10231,7 @@ error occurred while uploading file to s3</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory parameter missing. fileUri need to be passed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory parameter file is missing.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory parameter fileUri was not passed</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -10442,7 +10443,7 @@ Language for Text to speech as explained in &lt;say&gt; verb of Core Engine</p><
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory parameter missing. xxx needs to be passed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory parameter language is missing.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Any Mandatory parameters not passed</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Announcement</p></td>
 </tr>
