@@ -3801,6 +3801,46 @@
             </span>
                 </div>
                               </li>
+              <li id="Pause Campaign"
+                  class="nav-item"
+                  data-depth="4">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_pause_campaign">Pause Campaign</a>
+
+            </span>
+                </div>
+                              </li>
+              <li id="Resume Campaign"
+                  class="nav-item"
+                  data-depth="4">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_resume_campaign">Resume Campaign</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="Get List of Campaigns"
                   class="nav-item"
                   data-depth="4">
@@ -3841,6 +3881,26 @@
             </span>
                 </div>
                               </li>
+              <li id="Download Campaign Report"
+                  class="nav-item"
+                  data-depth="4">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_download_campaign_report">Download Campaign Report</a>
+
+            </span>
+                </div>
+                              </li>
               <li id="Estimate Campaign&#8217;s Volume"
                   class="nav-item"
                   data-depth="4">
@@ -3857,11 +3917,55 @@
             "></span>
                     <span>
               <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_estimate_the_volume_of_the_campaign">Estimate Campaign&#8217;s Volume</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Text Encoding"
+                  class="nav-item"
+                  data-depth="5">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_text_encoding">Text Encoding</a>
 
             </span>
                 </div>
                               </li>
-              <li id="Create Campaign&#8217;s Volume"
+  </ul>
+              </li>
+  </ul>
+              </li>
+              <li id="Volume"
+                  class="nav-item"
+                  data-depth="3">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_volume">Volume</a>
+                        <button class="nav-toggle"></button>
+            </span>
+                </div>
+                  <ul class="nav-list">
+              <li id="Create Volume"
                   class="nav-item"
                   data-depth="4">
                 <div class="nav-flex-container">
@@ -3876,12 +3980,12 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_create_volume_of_a_campaign">Create Campaign&#8217;s Volume</a>
+              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_create_volume">Create Volume</a>
 
             </span>
                 </div>
                               </li>
-              <li id="Get Campaign&#8217;s Volume"
+              <li id="Get Volume"
                   class="nav-item"
                   data-depth="4">
                 <div class="nav-flex-container">
@@ -3896,12 +4000,12 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_search_volume_of_a_campaign">Get Campaign&#8217;s Volume</a>
+              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_search_volume">Get Volume</a>
 
             </span>
                 </div>
                               </li>
-              <li id="Get a Single Campaign&#8217;s Volume"
+              <li id="Get a Single Volume"
                   class="nav-item"
                   data-depth="4">
                 <div class="nav-flex-container">
@@ -3916,7 +4020,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_search_single_volume_of_a_campaign">Get a Single Campaign&#8217;s Volume</a>
+              <a class="nav-link nav-flex-item-text" href="campaign-manager/campaign-manager-api.html#_search_single_volume_transaction">Get a Single Volume</a>
 
             </span>
                 </div>
@@ -5160,8 +5264,8 @@ Channel providers support different capabilities. If a capability is not support
 channel. This parameter contains
 a <a href="messages-api.html#_supported_omnichannel_uris">channel
 URI</a>, relative to the channel in the following format
-"&lt;channelName&gt;:&lt;pstnNumber&gt;". E.g. "sms:+15553XXXXXX" means the e164
-number +15553XXXXXX on the SMS channel.</p></td>
+"&lt;channelName&gt;:&lt;alphanumeric/pstnNumber&gt;". E.g. <code>sms:+15553XXXXXX</code>, means the e164
+number <code>+15553XXXXXX</code> on the SMS channel. Alphanumeric numbers are limited to 11 characters. Accepted characters include both upper and lower case ASCII letters, the digits from 0 to 9, and space: [A-Za-z0-9 ].</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to</p></td>
@@ -5671,17 +5775,17 @@ You will need to use a URL encoded format when specifying the phone number prefi
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-146 is-active" onclick="openLanguage('Curl', 146)">Curl</button>
-        <button class="sample-code-button scsIndex-146" onclick="openLanguage('Nodejs', 146)">Nodejs</button>
-        <button class="sample-code-button scsIndex-146" onclick="openLanguage('Python', 146)">Python</button>
-        <button class="sample-code-button scsIndex-146" onclick="openLanguage('Java', 146)">Java</button>
+        <button class="sample-code-button scsIndex-57 is-active" onclick="openLanguage('Curl', 57)">Curl</button>
+        <button class="sample-code-button scsIndex-57" onclick="openLanguage('Nodejs', 57)">Nodejs</button>
+        <button class="sample-code-button scsIndex-57" onclick="openLanguage('Python', 57)">Python</button>
+        <button class="sample-code-button scsIndex-57" onclick="openLanguage('Java', 57)">Java</button>
       </div>
-      <div id="Curl-146" class="sample-language-146">
+      <div id="Curl-57" class="sample-language-57">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Messages?To=mms:%2B1%25  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-146" class="sample-language-146" style="display:none">
+      <div id="Nodejs-57" class="sample-language-57" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -5700,7 +5804,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-146" class="sample-language-146" style="display:none">
+      <div id="Python-57" class="sample-language-57" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -5720,7 +5824,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-146" class="sample-language-146" style="display:none">
+      <div id="Java-57" class="sample-language-57" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -5900,17 +6004,17 @@ public class JavaSampleClass {
 <div class="sect3">
 <h4 id="_example_request_3"><a class="anchor" href="#_example_request_3"></a>Example Request</h4>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-147 is-active" onclick="openLanguage('Curl', 147)">Curl</button>
-        <button class="sample-code-button scsIndex-147" onclick="openLanguage('Nodejs', 147)">Nodejs</button>
-        <button class="sample-code-button scsIndex-147" onclick="openLanguage('Python', 147)">Python</button>
-        <button class="sample-code-button scsIndex-147" onclick="openLanguage('Java', 147)">Java</button>
+        <button class="sample-code-button scsIndex-58 is-active" onclick="openLanguage('Curl', 58)">Curl</button>
+        <button class="sample-code-button scsIndex-58" onclick="openLanguage('Nodejs', 58)">Nodejs</button>
+        <button class="sample-code-button scsIndex-58" onclick="openLanguage('Python', 58)">Python</button>
+        <button class="sample-code-button scsIndex-58" onclick="openLanguage('Java', 58)">Java</button>
       </div>
-      <div id="Curl-147" class="sample-language-147">
+      <div id="Curl-58" class="sample-language-58">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Messages?From=sms:+19876XXXXXX&To=sms:+13216XXXXXX&StartTime=2018-05-30&EndTime=2018-06-09&Page=0&PageSize=10&SortBy=DateCreated:asc  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-147" class="sample-language-147" style="display:none">
+      <div id="Nodejs-58" class="sample-language-58" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -5929,7 +6033,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-147" class="sample-language-147" style="display:none">
+      <div id="Python-58" class="sample-language-58" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -5949,7 +6053,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-147" class="sample-language-147" style="display:none">
+      <div id="Java-58" class="sample-language-58" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -6027,17 +6131,17 @@ public class JavaSampleClass {
 <div class="sect2">
 <h3 id="_example_request_4"><a class="anchor" href="#_example_request_4"></a>Example Request</h3>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-148 is-active" onclick="openLanguage('Curl', 148)">Curl</button>
-        <button class="sample-code-button scsIndex-148" onclick="openLanguage('Nodejs', 148)">Nodejs</button>
-        <button class="sample-code-button scsIndex-148" onclick="openLanguage('Python', 148)">Python</button>
-        <button class="sample-code-button scsIndex-148" onclick="openLanguage('Java', 148)">Java</button>
+        <button class="sample-code-button scsIndex-59 is-active" onclick="openLanguage('Curl', 59)">Curl</button>
+        <button class="sample-code-button scsIndex-59" onclick="openLanguage('Nodejs', 59)">Nodejs</button>
+        <button class="sample-code-button scsIndex-59" onclick="openLanguage('Python', 59)">Python</button>
+        <button class="sample-code-button scsIndex-59" onclick="openLanguage('Java', 59)">Java</button>
       </div>
-      <div id="Curl-148" class="sample-language-148">
+      <div id="Curl-59" class="sample-language-59">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Messages/MESSAGE_SID  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-148" class="sample-language-148" style="display:none">
+      <div id="Nodejs-59" class="sample-language-59" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -6058,7 +6162,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-148" class="sample-language-148" style="display:none">
+      <div id="Python-59" class="sample-language-59" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -6080,7 +6184,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-148" class="sample-language-148" style="display:none">
+      <div id="Java-59" class="sample-language-59" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
