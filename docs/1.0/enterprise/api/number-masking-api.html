@@ -2994,7 +2994,7 @@
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Number Masking exposes API to obfuscate called/calling parties.Both voice calls and messages (SMS) are supported</p>
+<p>Number Masking exposes API to obfuscate called/calling parties. Both voice calls and messages (SMS) are supported</p>
 </div>
 <div class="paragraph">
 <p>Number Masking allows users to create and manage:</p>
@@ -3049,13 +3049,13 @@
 <div class="sect3">
 <h4 id="_create_application_resource_uri"><a class="anchor" href="#_create_application_resource_uri"></a>Create Application Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/applications</p>
+<p><code>/numbermasking/applications</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations"><a class="anchor" href="#_supported_operations"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP POST: Create Application</p>
+<p><strong>HTTP POST:</strong> Create Application</p>
 </div>
 </div>
 <div class="sect3">
@@ -3189,7 +3189,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Application was updated</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Absolute URL of Application</p></td>
 </tr>
 </tbody>
@@ -3199,29 +3199,26 @@
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Error Code</th>
 <th class="tableblock halign-left valign-top">HTTP Status</th>
+<th class="tableblock halign-left valign-top">Error Message</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Category</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Error Message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Category</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">461</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Application name not unique</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Application name is already used for given Business Customer</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Application, Update Application</p></td>
 </tr>
@@ -3233,9 +3230,9 @@
 <h4 id="_example"><a class="anchor" href="#_example"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-“enterpriseSid”: “ EN838bcdf35f9d421fad3ab516195b873b”,
- "name" : "MyTestApplication"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+"enterpriseSid": "EN838bcdf35f9d421fad3ab516195b873b",
+ "name": "MyTestApplication"
 }</code></pre>
 </div>
 </div>
@@ -3244,14 +3241,14 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X POST \
-  https://yourdomain/numbermasking/applications  \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-"name" : "MyTestApplication"
-}’</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST \
+     'https://yourcompany.com/numbermasking/applications' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \
+     -d '{
+        "name": "MyTestApplication"
+     }'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3259,21 +3256,20 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-"code":200,
-"message":"OK",
-“data”:
-{
-        “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
-        “enterpriseSid”: “ EN838bcdf35f9d421fad3ab516195b873b”,
-        “name”:”MyTestApplication”,
-        “ttl”:”0”,
-        “accountEmail”:”jane.doe@yourcompany.com”,
-        "dateCreated":"2019-07-22 09:53:51",
-        "dateUpdated":"2019-07-22 09:53:51",
-          "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f "
-    }
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "code": 200,
+  "message": "OK",
+  "data": {
+    "sid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "enterpriseSid": "EN838bcdf35f9d421fad3ab516195b873b",
+    "name": "MyTestApplication",
+    "ttl": "0",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f"
+  }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3281,14 +3277,14 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "errorCode": "461",
-    "message": "Application name not unique",
-    "data": {
-        "name": "App4",
-        "enterpriseSid": "EN995ef31d1ae64ef48f45685cb67dca1f"
-    }
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "errorCode": "461",
+  "message": "Application name not unique",
+  "data": {
+    "name": "App4",
+    "enterpriseSid": "EN995ef31d1ae64ef48f45685cb67dca1f"
+  }
+}</code></pre>
 </div>
 </div>
 </div>
@@ -3296,10 +3292,10 @@
 <div class="sect2">
 <h3 id="_out_of_context_callback"><a class="anchor" href="#_out_of_context_callback"></a>Out of Context Callback</h3>
 <div class="paragraph">
-<p>It often happens that Masked Number receives calls that are not from Participants in an Open Context or valid Participants but from Closed Context, in that case if your Application has defined outOfContextCallbackUrl, Application will make a URL request with payload.</p>
+<p>A Masked Number can often receive calls that are not from Participants in an Open Context, or are from valid Participants but from Closed Context. In that case if your Application has <code>outOfContextCallbackUrl</code> defined, then a URL request with a payload will be made.</p>
 </div>
 <div class="paragraph">
-<p>Your business logic can respond from either of below two responses.</p>
+<p>Your business logic can respond with either of below two responses.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3317,7 +3313,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>&lt;Response&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;Response&gt;
     &lt;Say&gt;Welcome to Acme. The party you are calling is not present any more.&lt;/Say&gt;
 &lt;/Response&gt;</code></pre>
 </div>
@@ -3337,23 +3333,19 @@ For more information about RCML please check out <a href="../rcml/overview.html"
 <div class="ulist">
 <ul>
 <li>
-<p>Valid Auto-create Context JSON, with the Content-Type response header set to “application/json”</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For example see below payload to be sent.</p>
+<p>Valid Auto-create Context JSON, with the Content-Type response header set to <code>application/json</code></p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
+<div class="paragraph">
+<p><strong>Example Payload</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "participantIdentifier": "1xxxxxxxxxx",
-    "name": "Cantext-timestamp-1594897729787",
-    "ttl": "600"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "participantIdentifier": "1xxxxxxxxxx",
+  "name": "Cantext-timestamp-1594897729787",
+  "ttl": "600"
 }</code></pre>
 </div>
 </div>
@@ -3380,8 +3372,8 @@ For more information about RCML please check out <a href="../rcml/overview.html"
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Context Mode. Possible values are:<br></p>
-<p class="tableblock">- message      <br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Context Mode. Possible values are:<br>
+- message      <br>
 - voice         <br>
 - voiceandmessage   <br></p></td>
 </tr>
@@ -3636,13 +3628,13 @@ For more information about RCML please check out <a href="../rcml/overview.html"
 <div class="sect3">
 <h4 id="_get_list_of_applications_resource_uri"><a class="anchor" href="#_get_list_of_applications_resource_uri"></a>Get List of Applications Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/applications/search</p>
+<p><code>/numbermasking/applications/search</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_2"><a class="anchor" href="#_supported_operations_2"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: List Applications</p>
+<p><strong>HTTP GET:</strong> List Applications</p>
 </div>
 </div>
 <div class="sect3">
@@ -3720,7 +3712,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect3">
 <h4 id="_sorting_information"><a class="anchor" href="#_sorting_information"></a>Sorting Information</h4>
 <div class="paragraph">
-<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+<p>You can use the sortBy GET query parameter to determine which attribute you want to sort by and in which direction. Direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: <code>sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;</code>. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
 </div>
 <div class="sect4">
 <h5 id="_sort_attributes"><a class="anchor" href="#_sort_attributes"></a>Sort Attributes</h5>
@@ -3743,10 +3735,6 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sort by the date when the Business Customer was created.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by status of Application.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3806,7 +3794,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
@@ -3814,7 +3802,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
@@ -3851,11 +3839,11 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X GET \
-  https://yourdomain/numbermasking/applications/search?pageSize=2&amp;page=0 \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/applications/search?pageSize=2&amp;page=0' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3863,43 +3851,42 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "data": {
-        "result": [
-{
-        “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
-        “name”:”MyTestApplication”,
-        “ttl”:”0”,
-        “accountEmail”:”jane.doe@yourcompany.com”,
-        "dateCreated":"2019-07-22 09:53:51",
-        "dateUpdated":"2019-07-22 09:53:51",
-        “enterpriseSid”: “ EN838bcdf35f9d421fad3ab516195b873b”,
-          "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f "
-    },
-{
-        “sid":"NMAb6eb071d21124dbab20b095c25f1274e",
-        “name”:”DeliveryApplication”,
-        “ttl”:”0”,
-        “accountEmail”:”jane.doe@yourcompany.com”,
-        "dateCreated":"2019-07-23 09:53:51",
-        "dateUpdated":"2019-07-23 09:53:51",
-         “enterpriseSid”: “ EN838bcdf35f9d421fad3ab516195b873b”,
-          "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274e "
-    }
-
-        ],
-        "pageSize": 2,
-        "total": 3,
-        "page": 0,
-        "numPages": 2,
-        "start": 0,
-        "end": 1,
-        "firstPageUri": "/messageexchange/enterprise/search/?pageSize=2&amp;page=0",
-        "nextPageUri": "/messageexchange/enterprise/search/?pageSize=2&amp;page=1",
-        "uri": "/messageexchange/enterprise/search/?pageSize=2&amp;page=0"
-    },
-    "code": 200,
-    "message": "OK"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "result": [
+      {
+        "sid": "NMAb6eb071d21124dbab20b095c25f1274f",
+        "name": "MyTestApplication",
+        "ttl": "0",
+        "accountEmail": "jane.doe@yourcompany.com",
+        "dateCreated": "2019-07-22 09:53:51",
+        "dateUpdated": "2019-07-22 09:53:51",
+        "enterpriseSid": "EN838bcdf35f9d421fad3ab516195b873b",
+        "uri": "/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f"
+      },
+      {
+        "sid": "NMAb6eb071d21124dbab20b095c25f1274e",
+        "name": "DeliveryApplication",
+        "ttl": "0",
+        "accountEmail": "jane.doe@yourcompany.com",
+        "dateCreated": "2019-07-23 09:53:51",
+        "dateUpdated": "2019-07-23 09:53:51",
+        "enterpriseSid": "EN838bcdf35f9d421fad3ab516195b873b",
+        "uri": "/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274e"
+      }
+    ],
+    "pageSize": 2,
+    "total": 3,
+    "page": 0,
+    "numPages": 2,
+    "start": 0,
+    "end": 1,
+    "firstPageUri": "/messageexchange/enterprise/search/?pageSize=2&amp;page=0",
+    "nextPageUri": "/messageexchange/enterprise/search/?pageSize=2&amp;page=1",
+    "uri": "/messageexchange/enterprise/search/?pageSize=2&amp;page=0"
+  },
+  "code": 200,
+  "message": "OK"
 }</code></pre>
 </div>
 </div>
@@ -3919,13 +3906,13 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect3">
 <h4 id="_get_single_application_resource_uri"><a class="anchor" href="#_get_single_application_resource_uri"></a>Get Single Application Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/applications/search/{ApplicationSid}</p>
+<p><code>/numbermasking/applications/search/{applicationSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_3"><a class="anchor" href="#_supported_operations_3"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: Specific Application</p>
+<p><strong>HTTP GET:</strong> Specific Application</p>
 </div>
 </div>
 <div class="sect3">
@@ -3968,11 +3955,11 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X GET \
-  https://yourdomain/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3980,19 +3967,19 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "data": {
-        “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
-        “name”:”MyTestApplication”,
-        “ttl”:”0”,
-        “accountEmail”:”jane.doe@yourcompany.com”,
-        "dateCreated":"2019-07-22 09:53:51",
-        "dateUpdated":"2019-07-22 09:53:51",
-        “enterpriseSid”: “ EN838bcdf35f9d421fad3ab516195b873b”,
-          "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f "
-    },
-    "code": 200,
-    "message": "OK"
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">{
+  "data": {
+    "sid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "name": "MyTestApplication",
+    "ttl": "0",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "enterpriseSid": "EN838bcdf35f9d421fad3ab516195b873b",
+    "uri": "/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f"
+  },
+  "code": 200,
+  "message": "OK"
 }</code></pre>
 </div>
 </div>
@@ -4012,13 +3999,13 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect3">
 <h4 id="_update_application_resource_uri"><a class="anchor" href="#_update_application_resource_uri"></a>Update Application Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/applications/{ApplicationSid}</p>
+<p><code>/numbermasking/applications/{applicationSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_4"><a class="anchor" href="#_supported_operations_4"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP PUT: Update Application</p>
+<p><strong>HTTP PUT:</strong> Update Application</p>
 </div>
 </div>
 <div class="sect3">
@@ -4123,21 +4110,14 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <td class="tableblock halign-left valign-top"><p class="tableblock">Application is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Context, Add Number, Update Application, Search Application, Delete Application</p></td>
 </tr>
+</tbody>
+<tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">461</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Application name not unique</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Application name is already used for given Business Customer</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Application, Update Application</p></td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">462</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Application status not Open</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Application cannot be modified or deleted as its status is not Open</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update Application, Delete Application</p></td>
 </tr>
 </tfoot>
 </table>
@@ -4146,8 +4126,8 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <h4 id="_example_4"><a class="anchor" href="#_example_4"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-"ttl" : "600"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "ttl" : "600"
 }</code></pre>
 </div>
 </div>
@@ -4156,14 +4136,14 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X PUT  \
-https://yourdomain/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274f \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "ttl" : "600"
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X PUT  \
+     'https://yourcompany.com/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274f' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \
+     -d '{
+        "ttl" : "600"
+     }'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4171,34 +4151,33 @@ https://yourdomain/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-        “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
-        “name”:”MyTestApplication”,
-        “status”:”open”,
-        “ttl”:”600”,
-        “numberSelectionBehavior”:”avoid-sticky”,
-        “accountEmail”:”jane.doe@yourcompany.com”,
-        "dateCreated":"2019-07-22 09:53:51",
-        "dateUpdated":"2019-07-22 09:53:51",
-          "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f "
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "name": "MyTestApplication",
+    "ttl": "600",
+    "numberSelectionBehavior": "avoid-sticky",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If update of Application fails, corresponding error code and message is returned along with HTTP Error Response</p>
+<p>If the update of an Application fails, a corresponding error code and message is returned along with HTTP Error Response.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "errorCode": "461",
-    "message": "Application name not unique",
-    "data": {
-        "name": "MyTestApplication"
-    }
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "errorCode": "461",
+  "message": "Application name not unique",
+  "data": {
+    "name": "MyTestApplication"
+  }
 }</code></pre>
 </div>
 </div>
@@ -4218,13 +4197,13 @@ https://yourdomain/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274
 <div class="sect3">
 <h4 id="_delete_application_resource_uri"><a class="anchor" href="#_delete_application_resource_uri"></a>Delete Application Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/applications/{ApplicationSid}</p>
+<p><code>/numbermasking/applications/{applicationSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_5"><a class="anchor" href="#_supported_operations_5"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP DELETE: Delete Application</p>
+<p><strong>HTTP DELETE:</strong> Delete Application</p>
 </div>
 </div>
 <div class="sect3">
@@ -4307,22 +4286,13 @@ https://yourdomain/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274
 <th class="tableblock halign-left valign-top">Category</th>
 </tr>
 </thead>
-<tbody>
+<tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">460</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Application not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Application is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Context, Add Number, Update Application, Search Application, Delete Application</p></td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">462</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Application status not Open</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Application cannot be modified or deleted as its status is not Open</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update Application, Delete Application</p></td>
 </tr>
 </tfoot>
 </table>
@@ -4334,33 +4304,33 @@ https://yourdomain/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X DELETE \
-https://yourdomain/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274f \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X DELETE \
+     'https://yourcompany.com/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274f' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If delete of Application  is successful, below is the response returned:</p>
+<p>If delete of Application is successful, below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-        “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
-        “name”:”MyTestApplication”,
-        “status”:”deleted”,
-        “ttl”:”600”,
-        “numberSelectionBehavior”:”avoid-sticky”,
-        “accountEmail”:”jane.doe@yourcompany.com”,
-        "dateCreated":"2019-07-22 09:53:51",
-        "dateUpdated":"2019-08-22 09:53:51",
-          "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f "
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "APPb6eb071d21124dbab20b095c25f1274f",
+    "dateUpdated": "2022-06-13T14:57:13+0000",
+    "dateCreated": "2022-06-13T08:21:27+0000",
+    "accountSid": "AC771490cad8887b86327b7a185e2c4df5",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "uri": "/numbermasking/applications/search/APPb6eb071d21124dbab20b095c25f1274f",
+    "name": "MyTestApplication",
+    "ttl": "600",
+    "enterpriseSid": "EN56aeaff5a63b473f96f1911ae68abb53"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4368,22 +4338,20 @@ https://yourdomain/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-  "code":462,
-  "message":"Application status not open",
-   “data”:
-{
-        “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
-        “name”:”MyTestApplication”,
-        “status”:”deleted”,
-        “ttl”:”600”,
-        “numberSelectionBehavior”:”avoid-sticky”,
-        “accountEmail”:”jane.doe@yourcompany.com”,
-        "dateCreated":"2019-07-22 09:53:51",
-        "dateUpdated":"2019-08-22 09:53:51",
-          "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f "
-}
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "code": 460,
+  "message": "Application not found",
+  "data": {
+    "sid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "name": "MyTestApplication",
+    "ttl": "600",
+    "numberSelectionBehavior": "avoid-sticky",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-08-22 09:53:51",
+    "uri": "/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f"
+  }
+}</code></pre>
 </div>
 </div>
 </div>
@@ -4410,13 +4378,13 @@ https://yourdomain/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274
 <div class="sect3">
 <h4 id="_get_list_of_available_phone_numbers_resource_uri"><a class="anchor" href="#_get_list_of_available_phone_numbers_resource_uri"></a>Get List of Available Phone Numbers Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/phonenumbers/search</p>
+<p><code>/numbermasking/phonenumbers/search</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_6"><a class="anchor" href="#_supported_operations_6"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: List Phone Numbers</p>
+<p><strong>HTTP GET:</strong> List Phone Numbers</p>
 </div>
 </div>
 <div class="sect3">
@@ -4438,7 +4406,7 @@ https://yourdomain/numbermasking/applications/NMAb6eb071d21124dbab20b095c25f1274
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Contexts records to return, starting from 0.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Phone Numbers records to return, starting from 0.</p></td>
 </tr>
 </tbody>
 <tfoot>
@@ -4498,7 +4466,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <div class="sect3">
 <h4 id="_sorting_information_2"><a class="anchor" href="#_sorting_information_2"></a>Sorting Information</h4>
 <div class="paragraph">
-<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+<p>You can use the sortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
 </div>
 <div class="sect4">
 <h5 id="_sorting_attributes"><a class="anchor" href="#_sorting_attributes"></a>Sorting Attributes</h5>
@@ -4584,7 +4552,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
@@ -4592,7 +4560,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
@@ -4666,11 +4634,11 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/phonenumbers/search?pageSize=2&amp;page=0' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4678,51 +4646,48 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-        "result": [
-{
-"sid":"PN0b4201c6c87749f29367e6cf000686cb",
-"friendlyName":"Test Number",
-"phoneNumber":"12013507693",
-"capabilities": {
-      "voice_capable": true,
-      "sms_capable": false,
-      "mms_capable": false,
-      "fax_capable": false
-    },
-“applicationSid”:”xxx”
-"url":/numbermasking/phonenumbers/search/PN0b4201c6c87749f29367e6cf000686cb"
-},
-{
-{
-"sid":"PN0b4201c6c87749f29367e6cf000686ce",
-"friendlyName":"Masked Number 2",
-"phoneNumber":"12012444945",
-"capabilities": {
-      "voice_capable": true,
-      "sms_capable": false,
-      "mms_capable": false,
-      "fax_capable": false
-    },
-"url":/numbermasking/phonenumbers/search/PN0b4201c6c87749f29367e6cf000686ce"
-}
-    }
-
-        ],
-        "pageSize": 2,
-        "total": 3,
-        "page": 0,
-        "numPages": 2,
-        "start": 0,
-        "end": 1,
-        "firstPageUri": "/numbermasking/phonenumbers/search/?pageSize=2&amp;page=0",
-        "nextPageUri": "/numbermasking/phonenumbers/search/?pageSize=2&amp;page=1",
-        "uri": "/numbermasking/phonenumbers/search/?pageSize=2&amp;page=0"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "result": [
+      {
+        "sid": "PN0b4201c6c87749f29367e6cf000686cb",
+        "friendlyName": "Test Number",
+        "phoneNumber": "12013507693",
+        "capabilities": {
+          "voice_capable": true,
+          "sms_capable": false,
+          "mms_capable": false,
+          "fax_capable": false
+        },
+        "applicationSid": "xxx",
+        "uri": "/numbermasking/phonenumbers/search/PN0b4201c6c87749f29367e6cf000686cb"
+      },
+      {
+        "sid": "PN0b4201c6c87749f29367e6cf000686ce",
+        "friendlyName": "Masked Number 2",
+        "phoneNumber": "12012444945",
+        "capabilities": {
+          "voice_capable": true,
+          "sms_capable": false,
+          "mms_capable": false,
+          "fax_capable": false
+        },
+        "uri": "/numbermasking/phonenumbers/search/PN0b4201c6c87749f29367e6cf000686ce"
+      }
+    ],
+    "pageSize": 2,
+    "total": 3,
+    "page": 0,
+    "numPages": 2,
+    "start": 0,
+    "end": 1,
+    "firstPageUri": "/numbermasking/phonenumbers/search/?pageSize=2&amp;page=0",
+    "nextPageUri": "/numbermasking/phonenumbers/search/?pageSize=2&amp;page=1",
+    "uri": "/numbermasking/phonenumbers/search/?pageSize=2&amp;page=0"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -4741,13 +4706,13 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 <div class="sect3">
 <h4 id="_get_single_available_phone_number_resource_uri"><a class="anchor" href="#_get_single_available_phone_number_resource_uri"></a>Get Single Available Phone Number Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/phonenumbers/search/{phoneNumberSid}</p>
+<p><code>/numbermasking/phonenumbers/search/{phoneNumberSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_7"><a class="anchor" href="#_supported_operations_7"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: Specific Phone Number</p>
+<p><strong>HTTP GET:</strong> Specific Phone Number</p>
 </div>
 </div>
 <div class="sect3">
@@ -4790,11 +4755,11 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-  https://yourdomain/numbermasking/phonenumbers/search/PN0b4201c6c87749f29367e6cf000686cb \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/phonenumbers/search/PN0b4201c6c87749f29367e6cf000686cb' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4802,22 +4767,22 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-"sid":"PN0b4201c6c87749f29367e6cf000686cb",
-"friendlyName":"Test Number",
-"phoneNumber":"12013507693",
-"capabilities": {
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "PN0b4201c6c87749f29367e6cf000686cb",
+    "friendlyName": "Test Number",
+    "phoneNumber": "12013507693",
+    "capabilities": {
       "voice_capable": true,
       "sms_capable": false,
       "mms_capable": false,
       "fax_capable": false
     },
-"url":/numbermasking/phonenumbers/search/PN0b4201c6c87749f29367e6cf000686cb"
-},
-    "code": 200,
-    "message": "OK"
-}</pre>
+    "uri": "/numbermasking/phonenumbers/search/PN0b4201c6c87749f29367e6cf000686cb"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -4836,7 +4801,7 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 <div class="sect2">
 <h3 id="_add_phone_number_to_application"><a class="anchor" href="#_add_phone_number_to_application"></a>Add Phone Number to Application</h3>
 <div class="paragraph">
-<p>This endpoint will be used to add a phone number to a masked number pool for an application.If executed successfully the API returns the masked number SID that can be used to lookup details of the number or remove it from the masked pool.</p>
+<p>This endpoint will be used to add a phone number to a masked number pool for an application. If executed successfully the API returns the masked number SID that can be used to lookup details of the number or remove it from the masked pool.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_8"><a class="anchor" href="#_base_resource_uri_8"></a>Base Resource URI</h4>
@@ -4847,13 +4812,13 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 <div class="sect3">
 <h4 id="_create_masked_phone_number_resource_uri"><a class="anchor" href="#_create_masked_phone_number_resource_uri"></a>Create Masked Phone Number Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/maskednumbers</p>
+<p><code>/numbermasking/maskednumbers</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_8"><a class="anchor" href="#_supported_operations_8"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP POST: Add phone number to number masked pool of an application</p>
+<p><strong>HTTP POST:</strong> Add phone number to number masked pool of an application</p>
 </div>
 </div>
 <div class="sect3">
@@ -4874,7 +4839,7 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">applicationSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. SID of Application that this Phone Number should be added to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. SID of Application that this Phone Number should be added to.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
@@ -4953,7 +4918,7 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">phoneNumberSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Incoming Phone number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Incoming Phone number.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">applicationSid</p></td>
@@ -4965,7 +4930,7 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">phoneNumber</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The incoming phone number. e.g., +16175551212 (E.164 format)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The incoming phone number. e.g., +16175551212 (E.164 format).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">capabilities</p></td>
@@ -4977,25 +4942,25 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inUse</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of open Context assigned to the number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of open Context assigned to the number.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Account that added this particular Phone Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Account that added this particular Phone Number.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Context  was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Context  was created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Context  was updated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Context  was updated.</p></td>
 </tr>
 </tbody>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Absolute URL of Context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Absolute URL of Masked Number.</p></td>
 </tr>
 </tfoot>
 </table>
@@ -5031,7 +4996,7 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 <td class="tableblock halign-left valign-top"><p class="tableblock">470</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Phone Number already in use</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number is already assigned to a Application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number is already assigned to an Application</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Phone Number</p></td>
 </tr>
 </tbody>
@@ -5039,7 +5004,7 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">471</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone Number not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phone number not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sid of the phone number passed to be added in masked pool of an application is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Phone Number</p></td>
 </tr>
@@ -5051,10 +5016,10 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 <h4 id="_example_8"><a class="anchor" href="#_example_8"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
-<pre>{
-	"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
- 	"sid":"PN67b2dddf3636497ca3d62a7719c696ed"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+  "sid": "PN67b2dddf3636497ca3d62a7719c696ed"
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5062,15 +5027,15 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X POST \
-  https://yourdomain/numbermasking/maskednumbers\
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-	“applicationSid”:”NMAb6eb071d21124dbab20b095c25f1274f”,
- 	"sid" : "PN67b2dddf3636497ca3d62a7719c696ed"
-}’</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST \
+     'https://yourcompany.com/numbermasking/maskednumbers' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \
+     -d '{
+	    "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+ 	    "sid": "PN67b2dddf3636497ca3d62a7719c696ed"
+     }'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5078,30 +5043,23 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-"code":200,
-"message":"OK",
-“data”:
-{
-"sid":"NMMb6eb071d21124dbab20b095c25f8944a",
-“phoneNumberSid”:”PN67b2dddf3636497ca3d62a7719c696ed”,
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"friendlyName":"Masked Number",
-"phoneNumber":"12013507693",
-"capabilities": {
-      "voice_capable": true,
-      "sms_capable": false,
-      "mms_capable": false,
-      "fax_capable": false
-    },
-"isReserved":"false",
-“inUse”:”0”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/maskednumbers//search/NMMb6eb071d21124dbab20b095c25f8944a"
-    }
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "code": 200,
+  "message": "OK",
+  "data": {
+    "sid": "PHMb6eb071d21124dbab20b095c25f8944a",
+    "phoneNumberSid": "PN67b2dddf3636497ca3d62a7719c696ed",
+    "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+    "phoneNumber": "12013507693",
+    "isReserved": "false",
+    "inUse": 0,
+    "accountEmail": "jane.doe@yourcompany.com",
+    "accountSid":"AC85789a8353757d7d69c881155c91baee",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/maskednumbers/search/PHMb6eb071d21124dbab20b095c25f8944a"
+  }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5109,13 +5067,15 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "errorCode": "460",
-    "message": "Application not found",
-    "data": {
-        "sid": "APP8ef9180b42924d96a62178768901c677aa"
-    }
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "errorCode": "470",
+  "message": "Phone Number already in use",
+  "data": {
+    applicationSid: "APPd77b6e1379684d048d6ee04844fed49c",
+    phoneNumber: "66396337999999",
+    inUse: 0
+  }
+}</code></pre>
 </div>
 </div>
 </div>
@@ -5132,15 +5092,15 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_list_of_contexts_resource_uri"><a class="anchor" href="#_get_list_of_contexts_resource_uri"></a>Get List of Contexts Resource URI</h4>
+<h4 id="_get_list_of_masked_numbers_resource_uri"><a class="anchor" href="#_get_list_of_masked_numbers_resource_uri"></a>Get List of Masked Numbers Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/maskednumbers/search</p>
+<p><code>/numbermasking/maskednumbers/search</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_9"><a class="anchor" href="#_supported_operations_9"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: List Masked Numbers</p>
+<p><strong>HTTP GET:</strong> List Masked Numbers</p>
 </div>
 </div>
 <div class="sect3">
@@ -5162,7 +5122,7 @@ https://yourdomain/numbermasking/phonenumbers/search?pageSize=2&amp;page=0   \
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Contexts records to return, starting from 0.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of Masked Numbers records to return, starting from 0.</p></td>
 </tr>
 </tbody>
 <tfoot>
@@ -5204,7 +5164,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">applicationSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Only show masked numbers that belong to a given application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Only show masked numbers that belong to a given application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
@@ -5238,7 +5198,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect3">
 <h4 id="_sorting_information_3"><a class="anchor" href="#_sorting_information_3"></a>Sorting Information</h4>
 <div class="paragraph">
-<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+<p>You can use the sortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
 </div>
 <div class="sect4">
 <h5 id="_sort_attributes_2"><a class="anchor" href="#_sort_attributes_2"></a>Sort Attributes</h5>
@@ -5260,7 +5220,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date when Context was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by date when Masked Number was created</p></td>
 </tr>
 </tbody>
 <tfoot>
@@ -5275,7 +5235,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect3">
 <h4 id="_response_parameters_7"><a class="anchor" href="#_response_parameters_7"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Search Phone Number API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section.</p>
+<p>Search Masked Number API will return an error code, and a corresponding HTTP error as mentioned in the Common Response Error Codes section.</p>
 </div>
 <div class="paragraph">
 <p>The response returned is the JSON body as shown in the example below. Each  parameters are as explained below</p>
@@ -5324,11 +5284,11 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">result</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Applications data as explained in Data Parameter of Add Phone numbers to Application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Masked Numbers data as explained in Data Parameter of Add Phone numbers to Application</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
@@ -5336,7 +5296,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
@@ -5352,7 +5312,11 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">firstPageUri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in First page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in first page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">previousPageUri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique URI that you can call to get records in previous page</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">nextPageUri</p></td>
@@ -5375,11 +5339,11 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/maskednumbers/search?pageSize=2&amp;page=0' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5387,46 +5351,48 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-        "result": [
-            {
-                "sid": "PH1d0c934f9bed411484d36a63067e345d",
-                "dateUpdated": "2020-05-11T10:37:23+0000",
-                "dateCreated": "2020-05-05T06:09:11+0000",
-                "accountEmail": "entpuser2@testent2.com",
-                "uri": "/numbermasking/maskednumbers/search/PH1d0c934f9bed411484d36a63067e345d",
-                "applicationSid": "APP56dd5e389aa64e90846be68645288b6b",
-                "phoneNumberSid": "PNbaa25148dc0d469f8050847439ba77fb",
-                "phoneNumber": "19713316943",
-                "isReserved": false,
-                "inUse": true
-            },
-            {
-                "sid": "PHccf45a3855274b01acf8172d62630881",
-                "dateUpdated": "2020-05-11T07:39:42+0000",
-                "dateCreated": "2020-05-05T06:00:54+0000",
-                "accountEmail": "entpuser2@testent2.com",
-                "uri": "/numbermasking/maskednumbers/search/PHccf45a3855274b01acf8172d62630881",
-                "applicationSid": "APP56dd5e389aa64e90846be68645288b6b",
-                "phoneNumberSid": "PN197e742df4d54efea2e70d82cdd435cd",
-                "phoneNumber": "15713316943",
-                "isReserved": false,
-                "inUse": false
-            }
-        ],
-        "pageSize": 2,
-        "total": 5,
-        "page": 0,
-        "numPages": 3,
-        "start": 0,
-        "end": 1,
-        "firstPageUri": "/numbermasking/maskednumbers/search/?enterpriseSid=ENf625475702d44d29a8d605f28aaf7d3e&amp;pageSize=2&amp;page=0",
-        "uri": "/numbermasking/maskednumbers/search/?enterpriseSid=ENf625475702d44d29a8d605f28aaf7d3e&amp;pageSize=2&amp;page=1"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "result": [
+      {
+        "sid": "PH1d0c934f9bed411484d36a63067e345d",
+        "dateUpdated": "2020-05-11T10:37:23+0000",
+        "dateCreated": "2020-05-05T06:09:11+0000",
+        "accountEmail": "entpuser2@testent2.com",
+        "accountSid":"AC85789a8353757d7d69c881155c91baee",
+        "uri": "/numbermasking/maskednumbers/search/PH1d0c934f9bed411484d36a63067e345d",
+        "applicationSid": "APP56dd5e389aa64e90846be68645288b6b",
+        "phoneNumberSid": "PNbaa25148dc0d469f8050847439ba77fb",
+        "phoneNumber": "19713316943",
+        "isReserved": false,
+        "inUse": 1
+      },
+      {
+        "sid": "PHccf45a3855274b01acf8172d62630881",
+        "dateUpdated": "2020-05-11T07:39:42+0000",
+        "dateCreated": "2020-05-05T06:00:54+0000",
+        "accountEmail": "entpuser2@testent2.com",
+        "accountSid":"AC85789a8353757d7d69c881155c91baee",
+        "uri": "/numbermasking/maskednumbers/search/PHccf45a3855274b01acf8172d62630881",
+        "applicationSid": "APP56dd5e389aa64e90846be68645288b6b",
+        "phoneNumberSid": "PN197e742df4d54efea2e70d82cdd435cd",
+        "phoneNumber": "15713316943",
+        "isReserved": false,
+        "inUse": 0
+      }
+    ],
+    "pageSize": 2,
+    "total": 5,
+    "page": 0,
+    "numPages": 3,
+    "start": 0,
+    "end": 1,
+    "firstPageUri": "/numbermasking/maskednumbers/search/?enterpriseSid=ENf625475702d44d29a8d605f28aaf7d3e&amp;pageSize=2&amp;page=0",
+    "uri": "/numbermasking/maskednumbers/search/?enterpriseSid=ENf625475702d44d29a8d605f28aaf7d3e&amp;pageSize=2&amp;page=1"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -5443,21 +5409,21 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_single_application_resource_uri_2"><a class="anchor" href="#_get_single_application_resource_uri_2"></a>Get Single Application Resource URI</h4>
+<h4 id="_get_single_masked_number_resource_uri"><a class="anchor" href="#_get_single_masked_number_resource_uri"></a>Get Single Masked Number Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/maskednumbers/search/{MaskNumberSid}</p>
+<p><code>/numbermasking/maskednumbers/search/{maskNumberSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_10"><a class="anchor" href="#_supported_operations_10"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: Specific Masked Number</p>
+<p><strong>HTTP GET:</strong> Specific Masked Number</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_response_parameters_8"><a class="anchor" href="#_response_parameters_8"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Search Context API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section.</p>
+<p>Search Masked Number API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -5478,10 +5444,10 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">471</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">472</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone Number not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of Phone Number passed to be added in masked pool of an application is not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Masked number Sid passed was not found in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sid of Masked Number passed to be found in masked pool of an application is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Phone Number, Search Phone Number</p></td>
 </tr>
 </tfoot>
@@ -5494,11 +5460,11 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-  https://yourdomain/numbermasking/maskednumbers/search/NMMb6eb071d21124dbab20b095c25f8944a \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/maskednumbers/search/PHMb6eb071d21124dbab20b095c25f8944a' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5506,22 +5472,23 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-"sid":"NMMb6eb071d21124dbab20b095c25f8944a",
-“phoneNumberSid”:”PN67b2dddf3636497ca3d62a7719c696ed”,
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"phoneNumber":"12013507693",
-"isReserved":"false",
-“inUse”:”true”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/maskednumbers/search/NMMb6eb071d21124dbab20b095c25f8944a"
-},
-    "code": 200,
-    "message": "OK"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "PHfb6eb071d21124dbab20b095c25f8944a",
+    "phoneNumberSid": "PN67b2dddf3636497ca3d62a7719c696ed",
+    "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+    "phoneNumber": "12013507693",
+    "isReserved": "false",
+    "inUse": 1,
+    "accountEmail": "jane.doe@company.com",
+    "accountSid":"AC85789a8353757d7d69c881155c91baee",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/maskednumbers/search/PHfb6eb071d21124dbab20b095c25f8944a"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -5540,13 +5507,13 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 <div class="sect3">
 <h4 id="_update_masked_number_resource_uri"><a class="anchor" href="#_update_masked_number_resource_uri"></a>Update Masked Number Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/maskednumbers/{maskNumberSid}</p>
+<p><code>/numbermasking/maskednumbers/{maskNumberSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_11"><a class="anchor" href="#_supported_operations_11"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP PUT: Update Masked Number</p>
+<p><strong>HTTP PUT:</strong> Update Masked Number</p>
 </div>
 </div>
 <div class="sect3">
@@ -5567,14 +5534,14 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">maskNumberSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Masked Number SID that was generated by calling create Add Phone Number to an application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Masked Number SID that was generated by calling create Add Phone Number to an application.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tbody>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">isReserved</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. If true, only show Masked Numbers that are marked reserved. If false, only show Masked Numbers that are not marked reserved.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. If true, the updated Masked Number should not be assigned to a participant using Applications Masked Number Pool logic.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
 </tr>
 </tfoot>
@@ -5583,7 +5550,7 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 <div class="sect3">
 <h4 id="_response_body_5"><a class="anchor" href="#_response_body_5"></a>Response Body</h4>
 <div class="paragraph">
-<p>The response body will contain code, corresponding message and data of mmsked number if successfully updated. HTTP response will be 200 OK.</p>
+<p>The response body will contain code, corresponding message and data of masked number if successfully updated. HTTP response will be 200 OK.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -5617,7 +5584,7 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 <div class="sect3">
 <h4 id="_response_parameters_9"><a class="anchor" href="#_response_parameters_9"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Update Context API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section. In addition, below are the error codes it can return.</p>
+<p>Update Masked Number API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section. In addition, below are the error codes it can return.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -5638,10 +5605,10 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">471</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">472</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone Number not found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Sid of a phone number passed to be added in the masked pool of an application is not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Masked number Sid passed was not found in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Sid of a Masked Number passed to be updated in the masked pool of an application is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Phone Number, Search Phone Number</p></td>
 </tr>
 </tfoot>
@@ -5651,9 +5618,9 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 <h4 id="_example_11"><a class="anchor" href="#_example_11"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
-<pre>{
-"isReserved" : "true"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "isReserved" : true
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5661,52 +5628,53 @@ https://yourdomain/numbermasking/maskednumbers//search?pageSize=2&amp;page=0   \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X PUT  \
-https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f8944a \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "isReserved" : "true"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X PUT \
+     'https://yourcompany.com/numbermasking/maskednumbers/PHdb6eb071d21124dbab20b095c25f8944a' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \
+     -d '{
+        "isReserved" : true
+     }'</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If update of Masked Number  is successful, below is the response returned:</p>
+<p>If update of Masked Number is successful, below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-"sid":"NMMb6eb071d21124dbab20b095c25f8944a",
-“phoneNumberSid”:”PN67b2dddf3636497ca3d62a7719c696ed”,
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"phoneNumber":"12013507693",
-"isReserved":"true",
-“inUse”:”0”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/maskednumbers/search/NMMb6eb071d21124dbab20b095c25f8944a"
-},
-    "code": 200,
-    "message": "OK"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "PHdb6eb071d21124dbab20b095c25f8944a",
+    "phoneNumberSid": "PN67b2dddf3636497ca3d62a7719c696ed",
+    "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+    "phoneNumber": "12013507693",
+    "isReserved": true,
+    "inUse": 0,
+    "accountEmail": "jane.doe@yourcompany.com",
+    "accountSid":"AC85789a8353757d7d69c881155c91baee",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/maskednumbers/search/PHdb6eb071d21124dbab20b095c25f8944a"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If update of Context fails, corresponding error code and message is returned along with HTTP Error Response</p>
+<p>If update of Masked Number fails, corresponding error code and message is returned along with HTTP Error Response.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "errorCode": "471",
-    "message": "Phone Number not found",
-    "data": {
-"sid":"NMMb6eb071d21124dbab20b095c25f8944a",
-"isReserved" : "true"
-    }
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "errorCode": "472",
+  "message": "Masked number Sid passed was not found in the system",
+  "data": {
+    "sid": "PHd18e4d5dff2d4d40bda8200000000000",
+    "inUse": 0
+  }
+}</code></pre>
 </div>
 </div>
 </div>
@@ -5723,15 +5691,15 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 </div>
 </div>
 <div class="sect3">
-<h4 id="_delete_application_resource_uri_2"><a class="anchor" href="#_delete_application_resource_uri_2"></a>Delete Application Resource URI</h4>
+<h4 id="_delete_masked_number_resource_uri"><a class="anchor" href="#_delete_masked_number_resource_uri"></a>Delete Masked Number Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/maskednumbers/{maskNumberSid}</p>
+<p><code>/numbermasking/maskednumbers/{maskNumberSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_12"><a class="anchor" href="#_supported_operations_12"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP DELETE: Remove Masked Number</p>
+<p><strong>HTTP DELETE:</strong> Remove Masked Number</p>
 </div>
 </div>
 <div class="sect3">
@@ -5752,7 +5720,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">maskNumberSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Masked Number SID that was generated by calling create Add Phone Number to Application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. Masked Number SID that was generated by calling create Add Phone Number to Application.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tfoot>
@@ -5761,25 +5729,35 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 <div class="sect3">
 <h4 id="_response_body_6"><a class="anchor" href="#_response_body_6"></a>Response Body</h4>
 <div class="paragraph">
-<p>Response Body will carry Code, corresponding message and data of Context if it was successfully removed ,HTTP response will be 200 OK.</p>
+<p>Response Body will carry Code, corresponding message and data of Masked Number if it was successfully removed, HTTP response will be 200 OK.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Code</th>
 <th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">code</th>
-<th class="tableblock halign-left valign-top">Sub-error code for response</th>
-<th class="tableblock halign-left valign-top">message</th>
 </tr>
 </thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub-error code for response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Message describing error if error occured or success message</p></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Masked Number data as explained in the table Data Parameter of Add Phone Number to Application section.</p></td>
+</tr>
+</tfoot>
 </table>
 </div>
 <div class="sect3">
@@ -5806,9 +5784,9 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">471</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">472</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phone Number not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Masked number Sid passed was not found in the system</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The Sid of a phone number passed to be added in the masked pool of an application is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Phone Number, Search Phone Number, Remove Phone Number</p></td>
 </tr>
@@ -5831,11 +5809,11 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X DELETE \
-https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f8944a \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X DELETE \
+     'https://yourcompany.com/numbermasking/maskednumbers/PHdb6eb071d21124dbab20b095c25f8944a' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5843,22 +5821,23 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-"sid":"NMMb6eb071d21124dbab20b095c25f8944a",
-“phoneNumberSid”:”PN67b2dddf3636497ca3d62a7719c696ed”,
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"phoneNumber":"12013507693",
-"isReserved":"false",
-“inUse”:”0”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/maskednumbers/search/NMMb6eb071d21124dbab20b095c25f8944a"
-},
-    "code": 200,
-    "message": "OK"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "PHab6eb071d21124dbab20b095c25f8944a",
+    "phoneNumberSid": "PN67b2dddf3636497ca3d62a7719c696ed",
+    "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+    "phoneNumber": "12013507693",
+    "isReserved": false,
+    "inUse": 0,
+    "accountEmail": "jane.doe@yourcompany.com",
+    accountSid: "AC37112b209069e37c0cf4d296a76308c9",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/maskednumbers/search/PHdb6eb071d21124dbab20b095c25f8944a"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5866,14 +5845,14 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-  "code":471,
-  "message":"Phone Number not found",
-   “data”:
-{
-        “sid":"NMAb6eb071d21124dbab20b095c25f1274f"
-}
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "errorCode": "472",
+  "message": "Masked number Sid passed was not found in the system",
+  "data": {
+    "sid": "PHd18e4d5dff2d4d40bda8200000000000",
+    "inUse": 0
+  }
+}</code></pre>
 </div>
 </div>
 </div>
@@ -5884,21 +5863,21 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 <h2 id="_context"><a class="anchor" href="#_context"></a>Context</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A Context is a single instance of two individuals communicating.It belongs to an Application and maps two Participants.A Context can be set for example between Taxi Driver and Customer and it can be active till a predefined period of time or can be deactivated upon request via API call.</p>
+<p>A Context is a single instance of two individuals communicating. It belongs to an Application and maps two Participants. A Context can be set for example between Taxi Driver and Customer and it can be active till a predefined period of time or can be deactivated upon request via API call.</p>
 </div>
 <div class="sect2">
 <h3 id="_context_state"><a class="anchor" href="#_context_state"></a>Context State</h3>
 <div class="paragraph">
-<p>Context can be in below states at any given point in time.</p>
+<p>Context can be in below states at any given point of time.</p>
 </div>
 <div class="paragraph">
-<p><strong>Open</strong>: Context is Open which means it has yet not passed expiry date or ttl. But there are no active communications in this Context</p>
+<p><strong>OPEN</strong>: The Context has not yet passed the expiry date or ttl, and there are no active communications in it.</p>
 </div>
 <div class="paragraph">
-<p><strong>In-Progress</strong>: There are active communications going on in this Context. This is more meaningful for Voice where Context can remain In-Progress till the call is on-going between participants.</p>
+<p><strong>IN_PROGRESS</strong>: The Context has active communications going in it. This is more meaningful for Voice where Context can remain In-Progress till the call is ongoing between participants.</p>
 </div>
 <div class="paragraph">
-<p><strong>Closed</strong>: Context has either passed expiryDate or ttl. No more Communication is possible in this state.</p>
+<p><strong>CLOSED</strong>: The Context has either been actively closed or passed the expiry date or ttl. No more communication is possible in this state.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5915,13 +5894,13 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 <div class="sect3">
 <h4 id="_create_context_resource_uri"><a class="anchor" href="#_create_context_resource_uri"></a>Create Context Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/contexts</p>
+<p><code>/numbermasking/contexts</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_13"><a class="anchor" href="#_supported_operations_13"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP POST: Create Context</p>
+<p><strong>HTTP POST:</strong> Create Context</p>
 </div>
 </div>
 <div class="sect3">
@@ -5942,7 +5921,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">applicationSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. SID of Application that this Context belongs to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. SID of Application that this Context belongs to.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
@@ -5952,7 +5931,7 @@ https://yourdomain/numbermasking/maskednumbers/NMMb6eb071d21124dbab20b095c25f894
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateExpiry</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The ISO 8601 date when Context should expire. If this value is present it overrides ttl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The ISO 8601 date when Context should expire. If this value is present, it overrides the ttl.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
 </tr>
 <tr>
@@ -6006,7 +5985,7 @@ The default value is voice.</p></td>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Context data as explained in the below.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Context data as explained below</p></td>
 </tr>
 </tfoot>
 </table>
@@ -6027,15 +6006,15 @@ The default value is voice.</p></td>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Context Sid. This can be later used to delete or update Context or add Participants</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique Context Sid. This can be later used to delete or update Context or add Participants.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">applicationSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Application SID to which Context belongs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Application SID to which Context belongs.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique name of Context. Name should be unique within an Application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique name of Context. Name should be unique within an Application.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateExpiry</p></td>
@@ -6051,7 +6030,7 @@ The default value is voice.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status of this Context as explained in Context State. When Context is newly created, by default it&#8217;s in Open State.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status of this Context as explained in Context State. When Context is newly created, by default it is in an Open state.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateLastInteraction</p></td>
@@ -6063,21 +6042,21 @@ The default value is voice.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unique <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Account that created this particular Context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Account that created this particular Context.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Context  was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Context was created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Context  was updated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp when this Context was updated.</p></td>
 </tr>
 </tbody>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Absolute URL of Context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Absolute URL of Context.</p></td>
 </tr>
 </tfoot>
 </table>
@@ -6103,8 +6082,8 @@ The default value is voice.</p></td>
 </thead>
 <tfoot>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">491</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">460</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Application not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Application is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Context, Add Number, Update Application, Search Application, Delete Application</p></td>
@@ -6116,10 +6095,10 @@ The default value is voice.</p></td>
 <h4 id="_example_13"><a class="anchor" href="#_example_13"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
-<pre>{
-	“applicationSid”:”NMAb6eb071d21124dbab20b095c25f1274f”,
- 	"name" : "TestSession1"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+  "name": "TestSession1"
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6127,39 +6106,40 @@ The default value is voice.</p></td>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X POST \
-  https://yourdomain/numbermasking/contexts  \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-	“applicationSid”:”NMAb6eb071d21124dbab20b095c25f1274f”,
- 	"name" : "TestSession1"
-}’</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST \
+     'https://yourcompany.com/numbermasking/contexts' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \
+     -d '{
+	    "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+ 	    "name": "TestSession1"
+     }'</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If creation of Context  is successful, below is the response returned:</p>
+<p>If creation of Context is successful, below is the response returned:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-"code":200,
-"message":"OK",
-“data”:
-{
-"sid":"NMCb6eb071d21124dbab20b095c25f8932x",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"name":"TestSession1",
-"ttl":"600",
-"mode":"voice",
-"status":"open",
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x"
-    }
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "code": 200,
+  "message": "OK",
+  "data": {
+    "sid": "CTXb6eb071d21124dbab20b095c25f8932x",
+    "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+    "name": "TestSession1",
+    "mode": "voice",
+    "status": "OPEN",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "accountSid": "AC47d4d4e6878497bfb134508c88f2d7d4",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "dateExpiry": "2019-08-22 08:30:34",
+    "dateLastInteraction": "2019-07-22 10:53:51",
+    "uri": "/numbermasking/contexts/search/CTXb6eb071d21124dbab20b095c25f8932x"
+  }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6167,13 +6147,11 @@ The default value is voice.</p></td>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "errorCode": "460",
-    "message": "Application not found",
-    "data": {
-        "sid": "APP0088803a42d24a64bba89669a02e991aaa"
-    }
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "errorCode": "460",
+  "message": "Application not found",
+  "data": "APP0088803a42d24a64bba89669a02e991aaa"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -6181,7 +6159,7 @@ The default value is voice.</p></td>
 <div class="sect2">
 <h3 id="_get_list_of_contexts"><a class="anchor" href="#_get_list_of_contexts"></a>Get list of Contexts</h3>
 <div class="paragraph">
-<p>List Contexts API allows users to list all the Contexts created under that Application.</p>
+<p>List Contexts API allows users to list all the Contexts created under a given Enterprise.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_14"><a class="anchor" href="#_base_resource_uri_14"></a>Base Resource URI</h4>
@@ -6190,15 +6168,15 @@ The default value is voice.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_list_of_contexts_resource_uri_2"><a class="anchor" href="#_get_list_of_contexts_resource_uri_2"></a>Get List of Contexts Resource URI</h4>
+<h4 id="_get_list_of_contexts_resource_uri"><a class="anchor" href="#_get_list_of_contexts_resource_uri"></a>Get List of Contexts Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/contexts/search</p>
+<p><code>/numbermasking/contexts/search</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_14"><a class="anchor" href="#_supported_operations_14"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: List Contexts</p>
+<p><strong>HTTP GET:</strong> List Contexts</p>
 </div>
 </div>
 <div class="sect3">
@@ -6292,7 +6270,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect3">
 <h4 id="_sorting_information_4"><a class="anchor" href="#_sorting_information_4"></a>Sorting Information</h4>
 <div class="paragraph">
-<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+<p>You can use the sortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
 </div>
 <div class="sect4">
 <h5 id="_sort_attributes_3"><a class="anchor" href="#_sort_attributes_3"></a>Sort Attributes</h5>
@@ -6382,7 +6360,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
@@ -6390,7 +6368,7 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
@@ -6429,11 +6407,11 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-  https://yourdomain/numbermasking/contexts/search?pageSize=2&amp;page=0  \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/contexts/search?pageSize=2&amp;page=0' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6441,49 +6419,52 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-        "result": [
-{
-"sid":"NMCb6eb071d21124dbab20b095c25f8932x",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"name":"TestSession1",
-"ttl":"600",
-"mode":"voice",
-"status":"open",
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x"
-},
-{
-       	"sid":"NMCb6eb071d21124dbab20b095c25f1234q",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"name":"TestSession2",
-"ttl":"3600",
-"mode":"voice",
-"status":"open",
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"dateLastInteraction":"2019-07-22 10:53:51",
-"url":/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f1234q"
-    }
-
-        ],
-        "pageSize": 2,
-        "total": 3,
-        "page": 0,
-        "numPages": 2,
-        "start": 0,
-        "end": 1,
-        "firstPageUri": "/numbermasking/contexts/search/?pageSize=2&amp;page=0",
-        "nextPageUri": "/numbermasking/contexts/search/?pageSize=2&amp;page=1",
-        "uri": "/numbermasking/contexts/search/?pageSize=2&amp;page=0"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "result": [
+      {
+        "sid": "CTXb6eb071d21124dbab20b095c25f8932x",
+        "accountSid": "ACcd56013ac307ac13cfdb98cc95ff8060",
+        "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+        "name": "TestSession1",
+        "ttl": "600",
+        "mode": "voice",
+        "status": "OPEN",
+        "accountEmail": "jane.doe@yourcompany.com",
+        "dateCreated": "2019-07-22 09:53:51",
+        "dateExpiry": "2019-07-23 09:53:51",
+        "dateUpdated": "2019-07-22 09:53:51",
+        "uri": "/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x"
+      },
+      {
+        "sid": "CTXb6eb071d21124dbab20b095c25f1234q",
+        "accountSid": "ACcd56013ac307ac13cfdb98cc95ff8060",
+        "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+        "name": "TestSession2",
+        "ttl": "3600",
+        "mode": "voice",
+        "status": "OPEN",
+        "accountEmail": "jane.doe@yourcompany.com",
+        "dateCreated": "2019-07-22 09:53:51",
+        "dateExpiry": "2019-07-23 09:53:51",
+        "dateUpdated": "2019-07-22 09:53:51",
+        "dateLastInteraction": "2019-07-22 10:53:51",
+        "uri": "/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f1234q"
+      }
+    ],
+    "pageSize": 2,
+    "total": 3,
+    "page": 0,
+    "numPages": 2,
+    "start": 0,
+    "end": 1,
+    "firstPageUri": "/numbermasking/contexts/search/?pageSize=2&amp;page=0",
+    "nextPageUri": "/numbermasking/contexts/search/?pageSize=2&amp;page=1",
+    "uri": "/numbermasking/contexts/search/?pageSize=2&amp;page=0"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -6500,15 +6481,15 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_single_application_resource_uri_3"><a class="anchor" href="#_get_single_application_resource_uri_3"></a>Get Single Application Resource URI</h4>
+<h4 id="_get_single_context_resource_uri"><a class="anchor" href="#_get_single_context_resource_uri"></a>Get Single Context Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/contexts/search/{ContextSid}</p>
+<p><code>/numbermasking/contexts/search/{contextSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_15"><a class="anchor" href="#_supported_operations_15"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: Specific Context</p>
+<p><strong>HTTP GET:</strong> Specific Context</p>
 </div>
 </div>
 <div class="sect3">
@@ -6551,11 +6532,11 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X GET \
-  https://yourdomain/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6563,21 +6544,23 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "data": {
-"sid":"NMCb6eb071d21124dbab20b095c25f8932x",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"name":"TestSession1",
-"ttl":"600",
-"mode":"voice",
-"status":"open",
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"uri":/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x”
-    },
-    "code": 200,
-    "message": "OK"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "CTXb6eb071d21124dbab20b095c25f8932x",
+    "accountSid": "ACcd56013ac307ac13cfdb98cc95ff8060",
+    "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "name": "TestSession1",
+    "ttl": "600",
+    "mode": "voice",
+    "status": "OPEN",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateExpiry": "2019-07-23 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x"
+  },
+  "code": 200,
+  "message": "OK"
 }</code></pre>
 </div>
 </div>
@@ -6597,13 +6580,13 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <div class="sect3">
 <h4 id="_update_context_resource_uri"><a class="anchor" href="#_update_context_resource_uri"></a>Update Context Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/contexts/{ContextSid}</p>
+<p><code>/numbermasking/context/{contextSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_16"><a class="anchor" href="#_supported_operations_16"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP PUT: Update Context</p>
+<p><strong>HTTP PUT:</strong> Update Context</p>
 </div>
 </div>
 <div class="sect3">
@@ -6628,16 +6611,34 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. CUnique name of Context within an Application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ttl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Default time to live for a Context. TTL (time to live) is measured in seconds after Contexts last create or interaction.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Change status of Context. Context can be changed from: Closed to Open, Open to Closed, In_progress to Closed. However once Closed, via update API it can only be changed to Open. In_progress state can be only set by Application business logic when the call is in progress.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
-</tbody>
-<tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateExpiry</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Optional. If state of Context is Closed and expiry date is in future, state will be changed to Open and expiry date will be updated. Rest all request parameters are optional and are the same as explained in Request Parameters of Create Context section except applicationSid cannot be changed.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The Mode of the Session. Can be:<br>
+- message<br>
+- voice<br>
+- voiceandmessage<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
 </tfoot>
 </table>
@@ -6713,14 +6714,21 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <td class="tableblock halign-left valign-top"><p class="tableblock">Context name is already used for given Application</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create Context, Update Context</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">487</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A participant with the same participant phone number and masked phone number already exists in the system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participant with the same participant phone number and masked phone already exists on another Context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Context, Update Context</p></td>
+</tr>
 </tbody>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">467</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">489</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Context status Closed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Context cannot be modified or deleted as its status Closed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update Context, Delete Context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Context expiration time must be in the future</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Context expiration time must be in the future</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Context, Update Context</p></td>
 </tr>
 </tfoot>
 </table>
@@ -6729,8 +6737,8 @@ If search API is called without page and pageSize, by default pageSize will be 1
 <h4 id="_example_16"><a class="anchor" href="#_example_16"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-"ttl" : "3600"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "ttl" : "3600"
 }</code></pre>
 </div>
 </div>
@@ -6739,14 +6747,14 @@ If search API is called without page and pageSize, by default pageSize will be 1
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X PUT  \
-https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "ttl" : "3600"
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X PUT \
+     'https://yourcompany.com/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \
+     -d '{
+        "ttl" : "3600"
+     }'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6754,21 +6762,21 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "data": {
-"sid":"NMCb6eb071d21124dbab20b095c25f8932x",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"name":"TestSession1",
-"ttl":"3600",
-"mode":"voice",
-"status":"open",
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x”
-    },
-    "code": 200,
-    "message": "OK"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "NMCb6eb071d21124dbab20b095c25f8932x",
+    "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "name": "TestSession1",
+    "ttl": "3600",
+    "mode": "voice",
+    "status": "OPEN",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x"
+  },
+  "code": 200,
+  "message": "OK"
 }</code></pre>
 </div>
 </div>
@@ -6777,12 +6785,12 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "errorCode": "466",
-    "message": "Context name not unique",
-    "data": {
-        "name": "TestSession1"
-    }
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "errorCode": "466",
+  "message": "Context name not unique",
+  "data": {
+    "name": "TestSession1"
+  }
 }</code></pre>
 </div>
 </div>
@@ -6800,15 +6808,15 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 </div>
 </div>
 <div class="sect3">
-<h4 id="_delete_application_resource_uri_3"><a class="anchor" href="#_delete_application_resource_uri_3"></a>Delete Application Resource URI</h4>
+<h4 id="_delete_context_resource_uri"><a class="anchor" href="#_delete_context_resource_uri"></a>Delete Context Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/contexts/{ContextSid}</p>
+<p><code>/numbermasking/contexts/{contextSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_17"><a class="anchor" href="#_supported_operations_17"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP DELETE: Delete Context</p>
+<p><strong>HTTP DELETE:</strong> Delete Context</p>
 </div>
 </div>
 <div class="sect3">
@@ -6828,7 +6836,7 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ContextSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">contextSid</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Context SID that was generated by calling create Context API Create Context</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
@@ -6873,7 +6881,7 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 <div class="sect2">
 <h3 id="_response_parameters_14"><a class="anchor" href="#_response_parameters_14"></a>Response Parameters</h3>
 <div class="paragraph">
-<p>Delete Application API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section.In addition, below are the error codes it can return.</p>
+<p>Delete Context API will return an error code, and a corresponding HTTP error as mentioned in the Common Response Error Codes section. In addition, below are the error codes it can return.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -6892,22 +6900,13 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 <th class="tableblock halign-left valign-top">Category</th>
 </tr>
 </thead>
-<tbody>
+<tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">465</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Context not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Context is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Search Context, Update Context, Delete Context</p></td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">467</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Context status Closed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Context cannot be modified or deleted as its status Closed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update Context, Delete Context</p></td>
 </tr>
 </tfoot>
 </table>
@@ -6918,11 +6917,11 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X DELETE \
-https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X DELETE \
+     'https://yourcompany.com/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6930,21 +6929,23 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "data": {
-"sid":"NMCb6eb071d21124dbab20b095c25f8932x",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-"name":"TestSession1",
-"ttl":"600",
-"mode":"voice",
-"status":"closed",
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 11:53:51",
-"url":/numbermasking/contexts/search/NMCb6eb071d21124dbab20b095c25f8932x"
-    },
-    "code": 200,
-    "message": "OK"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "CTXb6eb071d21124dbab20b095c25f8932x",
+    "dateUpdated": "2022-06-13T15:49:20+0000",
+    "dateCreated": "2022-06-13T15:49:07+0000",
+    "accountSid": "AC3cb7543d961092eca203768a188f1d69",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "uri": "/numbermasking/contexts/search/CTXb6eb071d21124dbab20b095c25f8932x",
+    "name": "TestSession1",
+    "dateExpiry": "2022-06-14T01:49:07",
+    "mode": "voice",
+    "status": "OPEN",
+    "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+    "dateLastInteraction": "2022-06-13T15:49:07+0000"
+  },
+  "code": 200,
+  "message": "OK"
 }</code></pre>
 </div>
 </div>
@@ -6953,21 +6954,20 @@ https://yourdomain/numbermasking/contexts/NMCb6eb071d21124dbab20b095c25f8932x \
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-  "code":467,
-  "message":"Context status closed",
-   “data”:
-{
-        “sid":"NMAb6eb071d21124dbab20b095c25f1274f",
-        “name”:”MyTestApplication”,
-        “status”:”closed”,
-        “ttl”:”600”,
-        “numberSelectionBehavior”:”avoid-sticky”,
-        “accountEmail”:”jane.doe@yourcompany.com”,
-        "dateCreated":"2019-07-22 09:53:51",
-        "dateUpdated":"2019-08-22 11:53:51",
-          "uri":/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f "
-}
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "code": 465,
+  "message": "Context not found",
+  "data": {
+    "sid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "name": "MyTestApplication",
+    "status": "CLOSED",
+    "ttl": "600",
+    "numberSelectionBehavior": "avoid-sticky",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-08-22 11:53:51",
+    "uri": "/numbermasking/applications/search/NMAb6eb071d21124dbab20b095c25f1274f"
+  }
 }</code></pre>
 </div>
 </div>
@@ -7014,15 +7014,15 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 </div>
 <div class="sect3">
-<h4 id="_create_context_resource_uri_2"><a class="anchor" href="#_create_context_resource_uri_2"></a>Create Context Resource URI</h4>
+<h4 id="_create_participant_resource_uri"><a class="anchor" href="#_create_participant_resource_uri"></a>Create Participant Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/participants</p>
+<p><code>/numbermasking/participants</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_18"><a class="anchor" href="#_supported_operations_18"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP POST: Add Participant</p>
+<p><strong>HTTP POST:</strong> Add Participant</p>
 </div>
 </div>
 <div class="sect3">
@@ -7209,11 +7209,11 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Phone Number, Search Phone Number, Remove Phone Number, Add Participant to Context</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">480</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">472</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Participant has already been added to Context</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Participant is already added in this Context</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add Participant to Context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Random masked number was not found!</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Masked number was not provided on add Participant request and no random Masked number was found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add Phone Number, Search Phone Number, Remove Phone Number, Add Participant to Context</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">481</p></td>
@@ -7222,13 +7222,27 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 <td class="tableblock halign-left valign-top"><p class="tableblock">If Add participant is called while context already have 2 of them. Max allowed is 2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Participant to Context</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">484</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can not add participants to a closed context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Context cannot be modified or deleted as its status Closed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add Participant to Context</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">487</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A participant with the same phone number already exists in the same context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participant is already added in this Context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add Participant to Context</p></td>
+</tr>
 </tbody>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">467</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">487</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Context is closed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Context cannot be modified or deleted as its status Closed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A participant with the same participant phone number and masked phone number already exists in the system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participant is already added in another Context</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Participant to Context</p></td>
 </tr>
 </tfoot>
@@ -7239,9 +7253,9 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 <h4 id="_example_18"><a class="anchor" href="#_example_18"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-	“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
- 	"participantPhoneNumber" : "15713316943"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+  "participantPhoneNumber": "15713316943"
 }</code></pre>
 </div>
 </div>
@@ -7250,15 +7264,15 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X POST \
-  https://yourdomain/numbermasking/participants  \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -d '{
-	“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
- 	"participantPhoneNumber" : "15713316943"
-}’</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST \
+     'https://yourcompany.com/numbermasking/participants' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \
+     -d '{
+	    "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+ 	    "participantPhoneNumber": "15713316943"
+     }'</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7266,23 +7280,22 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-"code":200,
-"message":"OK",
-“data”:
-{
-"sid":"NMPb6eb071d21124dbab20b095c25f1111d",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
-“participantPhoneNumber”:”15713316943”,
-“friendlyName”:”Amit Mobile”,
-“maskPhoneNumber”:”12013507693”,
-“maskPhoneNumberSid”:”NMMb6eb071d21124dbab20b095c25f8944a”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d"
-    }
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "code": 200,
+  "message": "OK",
+  "data": {
+    "sid": "NMPb6eb071d21124dbab20b095c25f1111d",
+    "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+    "participantPhoneNumber": "15713316943",
+    "friendlyName": "Amit Mobile",
+    "maskPhoneNumber": "12013507693",
+    "maskPhoneNumberSid": "NMMb6eb071d21124dbab20b095c25f8944a",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d"
+  }
 }</code></pre>
 </div>
 </div>
@@ -7291,12 +7304,12 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "errorCode": "465",
-    "message": "Context not found",
-    "data": {
-        "sid": "CTXd6ecc4d93e804024a8c211b76391df97a"
-    }
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "errorCode": "465",
+  "message": "Context not found",
+  "data": {
+    "sid": "CTXd6ecc4d93e804024a8c211b76391df97a"
+  }
 }</code></pre>
 </div>
 </div>
@@ -7305,7 +7318,7 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 <div class="sect2">
 <h3 id="_get_list_of_participants"><a class="anchor" href="#_get_list_of_participants"></a>Get list of Participants</h3>
 <div class="paragraph">
-<p>List Participants API allows users to list all the Participants added under that Context. As of today max 2 Participants can be added under a Context</p>
+<p>List Participants API allows users to list all the Participants added under that Enterprise. As of today max 2 Participants can be added under a Context.</p>
 </div>
 <div class="sect3">
 <h4 id="_base_resource_uri_19"><a class="anchor" href="#_base_resource_uri_19"></a>Base Resource URI</h4>
@@ -7314,15 +7327,15 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_list_of_contexts_resource_uri_3"><a class="anchor" href="#_get_list_of_contexts_resource_uri_3"></a>Get List of Contexts Resource URI</h4>
+<h4 id="_get_list_of_participants_resource_uri"><a class="anchor" href="#_get_list_of_participants_resource_uri"></a>Get List of Participants Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/participants/search</p>
+<p><code>/numbermasking/participants/search</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_19"><a class="anchor" href="#_supported_operations_19"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: List Participants</p>
+<p><strong>HTTP GET:</strong> List Participants</p>
 </div>
 </div>
 <div class="sect3">
@@ -7426,7 +7439,7 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 <div class="sect3">
 <h4 id="_sorting_information_5"><a class="anchor" href="#_sorting_information_5"></a>Sorting Information</h4>
 <div class="paragraph">
-<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+<p>You can use the sortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
 </div>
 <div class="sect4">
 <h5 id="_sort_attributes_4"><a class="anchor" href="#_sort_attributes_4"></a>Sort Attributes</h5>
@@ -7516,7 +7529,7 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
@@ -7524,7 +7537,7 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
@@ -7563,11 +7576,11 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-  https://yourdomain/numbermasking/participants/search?pageSize=2&amp;page=0  \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/participants/search?pageSize=2&amp;page=0' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7575,49 +7588,49 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-        "result": [
-{
-"sid":"NMPb6eb071d21124dbab20b095c25f1111d",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
-“participantPhoneNumber”:”15713316943”,
-“friendlyName”:”Amit Mobile”,
-“maskPhoneNumber”:”12013507693”,
-“maskPhoneNumberSid”:”NMMb6eb071d21124dbab20b095c25f8944a”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d"
-},
-{
-       	"sid":"NMPb6eb071d21124dbab20b095c25f2222e",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
-“participantPhoneNumber”:”15713316944”,
-“friendlyName”:”Amit Mobile2”,
-“maskPhoneNumber”:”12012444945”,
-“maskPhoneNumberSid”:”NMMb6eb071d21124dbab20b095c25f8955b”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f2222e"
-    }
-        ],
-        "pageSize": 2,
-        "total": 3,
-        "page": 0,
-        "numPages": 2,
-        "start": 0,
-        "end": 1,
-        "firstPageUri": "/numbermasking/participants/search/?pageSize=2&amp;page=0",
-        "nextPageUri": "/numbermasking/participants/search/?pageSize=2&amp;page=1",
-        "uri": "/numbermasking/contexts/participants/?pageSize=2&amp;page=0"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "result": [
+      {
+        "sid": "NMPb6eb071d21124dbab20b095c25f1111d",
+        "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+        "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+        "participantPhoneNumber": "15713316943",
+        "friendlyName": "Amit Mobile",
+        "maskPhoneNumber": "12013507693",
+        "maskPhoneNumberSid": "NMMb6eb071d21124dbab20b095c25f8944a",
+        "accountEmail": "jane.doe@yourcompany.com",
+        "dateCreated": "2019-07-22 09:53:51",
+        "dateUpdated": "2019-07-22 09:53:51",
+        "uri": "/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d"
+      },
+      {
+        "sid": "NMPb6eb071d21124dbab20b095c25f2222e",
+        "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+        "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+        "participantPhoneNumber": "15713316944",
+        "friendlyName": "Amit Mobile2",
+        "maskPhoneNumber": "12012444945",
+        "maskPhoneNumberSid": "NMMb6eb071d21124dbab20b095c25f8955b",
+        "accountEmail": "jane.doe@yourcompany.com",
+        "dateCreated": "2019-07-22 09:53:51",
+        "dateUpdated": "2019-07-22 09:53:51",
+        "uri": "/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f2222e"
+      }
+    ],
+    "pageSize": 2,
+    "total": 3,
+    "page": 0,
+    "numPages": 2,
+    "start": 0,
+    "end": 1,
+    "firstPageUri": "/numbermasking/participants/search/?pageSize=2&amp;page=0",
+    "nextPageUri": "/numbermasking/participants/search/?pageSize=2&amp;page=1",
+    "uri": "/numbermasking/contexts/participants/?pageSize=2&amp;page=0"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -7634,21 +7647,21 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_single_application_resource_uri_4"><a class="anchor" href="#_get_single_application_resource_uri_4"></a>Get Single Application Resource URI</h4>
+<h4 id="_get_single_participant_resource_uri"><a class="anchor" href="#_get_single_participant_resource_uri"></a>Get Single Participant Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/participants/search/{ParticipantSid}</p>
+<p><code>/numbermasking/participants/search/{participantSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_20"><a class="anchor" href="#_supported_operations_20"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: Specific Participant</p>
+<p><strong>HTTP GET:</strong> Specific Participant</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_response_parameters_16"><a class="anchor" href="#_response_parameters_16"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Search Context API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section.</p>
+<p>Search Participant API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -7670,7 +7683,7 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">482</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Participant not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sid of Participant passed is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Search Single Participant</p></td>
@@ -7685,11 +7698,11 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X GET \
-  https://yourdomain/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7697,22 +7710,22 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "data": {
-"sid":"NMPb6eb071d21124dbab20b095c25f1111d",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
-“participantPhoneNumber”:”15713316943”,
-“friendlyName”:”Amit Mobile”,
-“maskPhoneNumber”:”12013507693”,
-“maskPhoneNumberSid”:”NMMb6eb071d21124dbab20b095c25f8944a”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d"
-    },
-    "code": 200,
-    "message": "OK"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "NMPb6eb071d21124dbab20b095c25f1111d",
+    "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+    "participantPhoneNumber": "15713316943",
+    "friendlyName": "Amit Mobile",
+    "maskPhoneNumber": "12013507693",
+    "maskPhoneNumberSid": "NMMb6eb071d21124dbab20b095c25f8944a",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "uri": "/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d"
+  },
+  "code": 200,
+  "message": "OK"
 }</code></pre>
 </div>
 </div>
@@ -7730,15 +7743,15 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 </div>
 <div class="sect3">
-<h4 id="_delete_application_resource_uri_4"><a class="anchor" href="#_delete_application_resource_uri_4"></a>Delete Application Resource URI</h4>
+<h4 id="_delete_participant_resource_uri"><a class="anchor" href="#_delete_participant_resource_uri"></a>Delete Participant Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/contexts/{ContextSid}</p>
+<p><code>/numbermasking/participants/{participantSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_21"><a class="anchor" href="#_supported_operations_21"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP DELETE: Remove Context</p>
+<p><strong>HTTP DELETE:</strong> Remove Participant</p>
 </div>
 </div>
 <div class="sect3">
@@ -7758,7 +7771,7 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ParticipantSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">participantSid</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Participant SID that was generated by calling Add Participant API</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 </tr>
@@ -7802,7 +7815,7 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 <div class="sect3">
 <h4 id="_response_parameters_17"><a class="anchor" href="#_response_parameters_17"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Remove Application API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section. In addition, below are the error codes it can return.</p>
+<p>Remove Participant API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section. In addition, below are the error codes it can return.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -7821,22 +7834,13 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 <th class="tableblock halign-left valign-top">Category</th>
 </tr>
 </thead>
-<tbody>
+<tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">482</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Participant not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sid of Participant passed is not found</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Search Single Participant</p></td>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">483</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Participant already removed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Trying to remove Participant from Context which was already removed</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Remove Participant</p></td>
 </tr>
 </tfoot>
 </table>
@@ -7848,11 +7852,11 @@ The Masked Phone Number specified must already be added to the Masked Number poo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X DELETE \
-https://yourdomain/numbermasking/participants/NMPb6eb071d21124dbab20b095c25f1111d \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X DELETE \
+     'https://yourcompany.com/numbermasking/participants/NMPb6eb071d21124dbab20b095c25f1111d' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7860,22 +7864,23 @@ https://yourdomain/numbermasking/participants/NMPb6eb071d21124dbab20b095c25f1111
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-    "data": {
-"sid":"NMPb6eb071d21124dbab20b095c25f1111d",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
-“participantPhoneNumber”:”15713316943”,
-“friendlyName”:”Amit Mobile”,
-“maskPhoneNumber”:”12013507693”,
-“maskPhoneNumberSid”:”NMMb6eb071d21124dbab20b095c25f8944a”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d"
-    },
-    "code": 200,
-    "message": "OK"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "PTb6eb071d21124dbab20b095c25f1111d",
+    "dateUpdated": "2022-06-12T06:28:16+0000",
+    "dateCreated": "2022-06-12T06:28:16+0000",
+    "accountSid": "ACcec457624bcb789e490d0b00e66d67ca",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "uri": "/numbermasking/applications/search/PTb6eb071d21124dbab20b095c25f1111d",
+    "contextSid": "CTXb6eb071d21124dbab20b095c25f8932x",
+    "participantPhoneNumber": "15713316943",
+    "applicationSid": "APPb6eb071d21124dbab20b095c25f1274f",
+    "friendlyName": "Amit Mobile",
+    "maskPhoneNumberSid": "PNb6eb071d21124dbab20b095c25f8944a",
+    "maskPhoneNumber": "12013507693"
+  },
+  "code": 200,
+  "message": "OK"
 }</code></pre>
 </div>
 </div>
@@ -7884,25 +7889,24 @@ https://yourdomain/numbermasking/participants/NMPb6eb071d21124dbab20b095c25f1111
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-  "code":482,
-  "message":"Participant already removed",
-   “data”:
-{
-  "sid":"NMPb6eb071d21124dbab20b095c25f1111d",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
-“participantPhoneNumber”:”15713316943”,
-“friendlyName”:”Amit Mobile”,
-“maskPhoneNumber”:”12013507693”,
-“maskPhoneNumberSid”:”NMMb6eb071d21124dbab20b095c25f8944a”,
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-“dateRemoved”:”2019-07-22 11:53:51",
-"url":/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d"
-}
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "code": 482,
+  "message": "Participant already removed",
+  "data": {
+    "sid": "NMPb6eb071d21124dbab20b095c25f1111d",
+    "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+    "participantPhoneNumber": "15713316943",
+    "friendlyName": "Amit Mobile",
+    "maskPhoneNumber": "12013507693",
+    "maskPhoneNumberSid": "NMMb6eb071d21124dbab20b095c25f8944a",
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated": "2019-07-22 09:53:51",
+    "dateUpdated": "2019-07-22 09:53:51",
+    "dateRemoved": "2019-07-22 11:53:51",
+    "uri": "/numbermasking/participants/search/NMPb6eb071d21124dbab20b095c25f1111d"
+  }
+}</code></pre>
 </div>
 </div>
 </div>
@@ -7930,15 +7934,15 @@ https://yourdomain/numbermasking/participants/NMPb6eb071d21124dbab20b095c25f1111
 </div>
 </div>
 <div class="sect3">
-<h4 id="_get_list_of_contexts_resource_uri_4"><a class="anchor" href="#_get_list_of_contexts_resource_uri_4"></a>Get List of Contexts Resource URI</h4>
+<h4 id="_get_list_of_interactions_resource_uri"><a class="anchor" href="#_get_list_of_interactions_resource_uri"></a>Get List of Interactions Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/interactions/search</p>
+<p><code>/numbermasking/interactions/search</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_22"><a class="anchor" href="#_supported_operations_22"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: List Interactions</p>
+<p><strong>HTTP GET:</strong> List Interactions</p>
 </div>
 </div>
 <div class="sect3">
@@ -8040,7 +8044,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 <div class="sect3">
 <h4 id="_sorting_information_6"><a class="anchor" href="#_sorting_information_6"></a>Sorting Information</h4>
 <div class="paragraph">
-<p>You can use the SortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: SortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
+<p>You can use the sortBy GET query parameter to determine which attribute you want to sort by and in which direction; direction can either be 'asc' for ascending and 'desc' for descending sort ordering. Here’s the overall format: sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction parameter is provided, then the listing of calls is sorted by the attribute in ascending order. Below you can find the possible attributes you can sort by:</p>
 </div>
 <div class="sect4">
 <h5 id="_sort_attributes_5"><a class="anchor" href="#_sort_attributes_5"></a>Sort Attributes</h5>
@@ -8120,7 +8124,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pageSize</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of records returned per page</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">total</p></td>
@@ -8128,7 +8132,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Which page of records to return</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">numPages</p></td>
@@ -8227,7 +8231,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Type of the Interaction. Can be: Message, Voice. As of today only Voice is supported.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Type of the Interaction. Can be: MESSAGE, VOICE. As of today only Voice is supported.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
@@ -8248,7 +8252,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </tbody>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Absolute URL of Interaction</p></td>
 </tr>
 </tfoot>
@@ -8262,11 +8266,11 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-  https://yourdomain.com/numbermasking/interactions/search?pageSize=2&amp;page=0  \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/interactions/search?pageSize=2&amp;page=0' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8274,69 +8278,69 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-    "data": {
-        "result": [
-{
-"sid":"NMIb6eb071d21124dbab20b095c25f0007k",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
-“inboundParticipantSid”:"NMPb6eb071d21124dbab20b095c25f1111d",
-“inboundTargetSid”:"ID308543a39dfd49b7a7231df9622763d8-CAf397453213fc43208e4d238e79809e99",
-“inboundParticipantPhoneNumber”:"15713316943",
-“inboundMaskPhoneNumber”:"12013507693",
-“inboundChannelStatus”:”completed”,
-“outboundParticipantSid”:"NMPb6eb071d21124dbab20b095c25f2222e",
-“outboundTargetSid”:"ID1f2a2222772f4195948d040a2ccc648c-CA019d4b96e188484caec75b8b906ceb51",
-“outboundParticipantPhoneNumber”:"15713316944",
-“outboundMaskPhoneNumber”:"12012444945",
-“outboundChannelStatus”:”completed”,
-type:"voice",
-"data": {
-    "duration": "28"
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "result": [
+      {
+        "sid": "NMIb6eb071d21124dbab20b095c25f0007k",
+        "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+        "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+        "inboundParticipantSid": "NMPb6eb071d21124dbab20b095c25f1111d",
+        "inboundTargetSid": "ID308543a39dfd49b7a7231df9622763d8-CAf397453213fc43208e4d238e79809e99",
+        "inboundParticipantPhoneNumber": "15713316943",
+        "inboundMaskPhoneNumber": "12013507693",
+        "inboundChannelStatus": "completed",
+        "outboundParticipantSid": "NMPb6eb071d21124dbab20b095c25f2222e",
+        "outboundTargetSid": "ID1f2a2222772f4195948d040a2ccc648c-CA019d4b96e188484caec75b8b906ceb51",
+        "outboundParticipantPhoneNumber": "15713316944",
+        "outboundMaskPhoneNumber": "12012444945",
+        "outboundChannelStatus": "completed",
+        "type": "VOICE",
+        "data": {
+          "duration": "28"
+        },
+        "accountEmail": "jane.doe@yourcompany.com",
+        "dateCreated": "2019-07-22 09:53:51",
+        "dateUpdated": "2019-07-22 09:53:51",
+        "uri": "/numbermasking/interactions/search/NMIb6eb071d21124dbab20b095c25f0007k"
+      },
+      {
+        "sid": "NMIb6eb071d21124dbab20b095c25f0008p",
+        "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+        "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+        "inboundParticipantSid": "NMPb6eb071d21124dbab20b095c25f1111d",
+        "inboundTargetSid": "ID308543a39dfd49b7a7231df9622763d8-CAf397453213fc43208e4d238e79809e97",
+        "inboundParticipantPhoneNumber": "15713316943",
+        "inboundMaskPhoneNumber": "12013507693",
+        "inboundChannelStatus": "completed",
+        "outboundParticipantSid": "NMPb6eb071d21124dbab20b095c25f2222e",
+        "outboundTargetSid": "ID1f2a2222772f4195948d040a2ccc648c-CA019d4b96e188484caec75b8b906ceb52",
+        "outboundParticipantPhoneNumber": "15713316944",
+        "outboundMaskPhoneNumber": "12012444945",
+        "outboundChannelStatus": "completed",
+        "type": "VOICE",
+        "data": {
+          "duration": "294"
+        },
+        "accountEmail": "jane.doe@yourcompany.com",
+        "dateCreated": "2019-07-22 11:53:51",
+        "dateUpdated": "2019-07-22 11:53:51",
+        "uri": "/numbermasking/interactions/search/NMIb6eb071d21124dbab20b095c25f0008p"
+      }
+    ],
+    "pageSize": 2,
+    "total": 3,
+    "page": 0,
+    "numPages": 2,
+    "start": 0,
+    "end": 1,
+    "firstPageUri": "/numbermasking/interactions/search/?pageSize=2&amp;page=0",
+    "nextPageUri": "/numbermasking/interactions/search/?pageSize=2&amp;page=1",
+    "uri": "/numbermasking/interactions/participants/?pageSize=2&amp;page=0"
   },
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/interactions/search/NMIb6eb071d21124dbab20b095c25f0007k"
-},
-{
-"sid":"NMIb6eb071d21124dbab20b095c25f0008p",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
-“inboundParticipantSid”:"NMPb6eb071d21124dbab20b095c25f1111d",
-“inboundTargetSid”:"ID308543a39dfd49b7a7231df9622763d8-CAf397453213fc43208e4d238e79809e97",
-“inboundParticipantPhoneNumber”:"15713316943",
-“inboundMaskPhoneNumber”:"12013507693",
-“inboundChannelStatus”:”completed”,
-“outboundParticipantSid”:"NMPb6eb071d21124dbab20b095c25f2222e",
-“outboundTargetSid”:"ID1f2a2222772f4195948d040a2ccc648c-CA019d4b96e188484caec75b8b906ceb52",
-“outboundParticipantPhoneNumber”:"15713316944",
-“outboundMaskPhoneNumber”:"12012444945",
-“outboundChannelStatus”:”completed”,
-type:"voice",
-"data": {
-    "duration": "294"
-  },
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 11:53:51",
-"dateUpdated":"2019-07-22 11:53:51",
-"url":/numbermasking/interactions/search/NMIb6eb071d21124dbab20b095c25f0008p"
-}
-        ],
-        "pageSize": 2,
-        "total": 3,
-        "page": 0,
-        "numPages": 2,
-        "start": 0,
-        "end": 1,
-        "firstPageUri": "/numbermasking/interactions/search/?pageSize=2&amp;page=0",
-        "nextPageUri": "/numbermasking/interactions/search/?pageSize=2&amp;page=1",
-        "uri": "/numbermasking/interactions/participants/?pageSize=2&amp;page=0"
-    },
-    "code": 200,
-    "message": "OK"
-}</pre>
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -8355,19 +8359,19 @@ type:"voice",
 <div class="sect3">
 <h4 id="_get_single_interaction_resource_uri"><a class="anchor" href="#_get_single_interaction_resource_uri"></a>Get Single Interaction Resource URI</h4>
 <div class="paragraph">
-<p>/numbermasking/interactions/search/{InteractionSid}</p>
+<p><code>/numbermasking/interactions/search/{interactionSid}</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_supported_operations_23"><a class="anchor" href="#_supported_operations_23"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET: Specific Interaction</p>
+<p><strong>HTTP GET:</strong> Specific Interaction</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_response_parameters_19"><a class="anchor" href="#_response_parameters_19"></a>Response Parameters</h4>
 <div class="paragraph">
-<p>Search Context API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section.</p>
+<p>Search Interaction API will return an error code and a corresponding HTTP error as mentioned in the Common Response Error Codes section.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -8404,11 +8408,11 @@ type:"voice",
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-  https://yourdomain.com/numbermasking/interactions/search/NMIb6eb071d21124dbab20b095c25f0007k \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/interactions/search/NMIb6eb071d21124dbab20b095c25f0007k' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8416,33 +8420,33 @@ type:"voice",
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "data": {
+    "sid": "NMIb6eb071d21124dbab20b095c25f0007k",
+    "applicationSid": "NMAb6eb071d21124dbab20b095c25f1274f",
+    "contextSid": "NMCb6eb071d21124dbab20b095c25f8932x",
+    "inboundParticipantSid": "NMPb6eb071d21124dbab20b095c25f1111d",
+    "inboundTargetSid": "ID308543a39dfd49b7a7231df9622763d8-CAf397453213fc43208e4d238e79809e99",
+    "inboundParticipantPhoneNumber": "15713316943",
+    "inboundMaskPhoneNumber": "12013507693",
+    "inboundChannelStatus": "completed",
+    "outboundParticipantSid": "NMPb6eb071d21124dbab20b095c25f2222e",
+    "outboundTargetSid": "ID1f2a2222772f4195948d040a2ccc648c-CA019d4b96e188484caec75b8b906ceb51",
+    "outboundParticipantPhoneNumber": "15713316944",
+    "outboundMaskPhoneNumber": "12012444945",
+    "outboundChannelStatus": "completed",
+    "type": "VOICE",
     "data": {
-"sid":"NMIb6eb071d21124dbab20b095c25f0007k",
-"applicationSid":"NMAb6eb071d21124dbab20b095c25f1274f",
-“contextSid”:”NMCb6eb071d21124dbab20b095c25f8932x”,
-“inboundParticipantSid”:"NMPb6eb071d21124dbab20b095c25f1111d",
-“inboundTargetSid”:"ID308543a39dfd49b7a7231df9622763d8-CAf397453213fc43208e4d238e79809e99",
-“inboundParticipantPhoneNumber”:"15713316943",
-“inboundMaskPhoneNumber”:"12013507693",
-“inboundChannelStatus”:”completed”,
-“outboundParticipantSid”:"NMPb6eb071d21124dbab20b095c25f2222e",
-“outboundTargetSid”:"ID1f2a2222772f4195948d040a2ccc648c-CA019d4b96e188484caec75b8b906ceb51",
-“outboundParticipantPhoneNumber”:"15713316944",
-“outboundMaskPhoneNumber”:"12012444945",
-“outboundChannelStatus”:”completed”,
-type:"voice",
-"data": {
-    "duration": "28"
-  },
-“accountEmail”:”jane.doe@yourcompany.com”,
-"dateCreated":"2019-07-22 09:53:51",
-"dateUpdated":"2019-07-22 09:53:51",
-"url":/numbermasking/interactions/search/NMIb6eb071d21124dbab20b095c25f0007k"
+      "duration": "28"
     },
-    "code": 200,
-    "message": "OK"
-}</pre>
+    "accountEmail": "jane.doe@yourcompany.com",
+    "dateCreated":"2019-07-22 09:53:51",
+    "dateUpdated":"2019-07-22 09:53:51",
+    "uri": "/numbermasking/interactions/search/NMIb6eb071d21124dbab20b095c25f0007k"
+  },
+  "code": 200,
+  "message": "OK"
+}</code></pre>
 </div>
 </div>
 </div>
@@ -8465,7 +8469,7 @@ type:"voice",
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Usage Records data is collected every 15 minutes.So there is possibility that once Context/Interaction is completed, it may take maximum 15 minutes to be reflected in the Usage Records.
+Usage Records data is collected every 15 minutes. So there is possibility that once Context/Interaction is completed, it may take maximum 15 minutes to be reflected in the Usage Records.
 </td>
 </tr>
 </table>
@@ -8487,7 +8491,7 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 <div class="sect3">
 <h4 id="_supported_operations_24"><a class="anchor" href="#_supported_operations_24"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET and POST: List usage records for Number Masking</p>
+<p><strong>HTTP GET:</strong> List usage records for Number Masking</p>
 </div>
 </div>
 <div class="sect3">
@@ -8547,10 +8551,11 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \ https://yourdomain.com/numbermasking/contexts/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23 \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/contexts/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8558,21 +8563,21 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-   "usageRecords":[
-      {
-         "category":"voice",
-         "description":"Total Contexts created",
-         "startDate":"2019-07-01",
-         "endDate":"2019-07-23",
-         "count":"2123",
-         "countUnit":"Contexts",
-         "usage":"2123",
-         "usageCount":"”Contexts”",
-         "uri":"/numbermasking/contexts/usage/record?startDate=2019-07-01&amp;endDate=2019-07-23"
-      }
-   ]
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "usageRecords": [
+    {
+      "category": "voice",
+      "description": "Total Contexts created",
+      "startDate": "2019-07-01",
+      "endDate": "2019-07-23",
+      "count": "2123",
+      "countUnit": "Contexts",
+      "usage": "2123",
+      "usageCount": "Contexts",
+      "uri": "/numbermasking/contexts/usage/record?startDate=2019-07-01&amp;endDate=2019-07-23"
+    }
+  ]
+}</code></pre>
 </div>
 </div>
 </div>
@@ -8583,7 +8588,7 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 <p>The main UsageRecords list resource supports a variety of convenience subresources. In general these take the form:</p>
 </div>
 <div class="paragraph">
-<p><code>/numbermasking/contexts/usage/records/{Subresource}</code></p>
+<p><code>/numbermasking/contexts/usage/records/{subResource}</code></p>
 </div>
 <div class="paragraph">
 <p>Supported subresources are:</p>
@@ -8642,11 +8647,11 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-  https://yourdomain.com/numbermasking/contexts/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-23 \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/contexts/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-23' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8654,32 +8659,32 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-   "usageRecords":[
-      {
-         "category":"voice",
-         "description":"Total Contexts created",
-         "startDate":"2019-07-21",
-         "endDate":"2019-07-21",
-         "count":"101",
-         "countUnit":"Contexts",
-         "usage":"101",
-         "usageUnit":"”Contexts”",
-         "uri":"/numbermasking/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-21"
-      },
-      {
-         "category":"voice",
-         "description":"Total Contexts created",
-         "startDate":"2019-07-22",
-         "endDate":"2019-07-22",
-         "count":"134",
-         "countUnit":"Contexts",
-         "usage":"134",
-         "usageUnit":"Contexts",
-         "uri":"/numbermasking/usage/records/daily?startDate=2019-07-22&amp;endDate=2019-07-23"
-      }
-   ]
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "usageRecords": [
+    {
+      "category": "voice",
+      "description": "Total Contexts created",
+      "startDate": "2019-07-21",
+      "endDate": "2019-07-21",
+      "count": "101",
+      "countUnit": "Contexts",
+      "usage": "101",
+      "usageUnit": "Contexts",
+      "uri": "/numbermasking/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-21"
+    },
+    {
+      "category": "voice",
+      "description": "Total Contexts created",
+      "startDate": "2019-07-22",
+      "endDate": "2019-07-22",
+      "count": "134",
+      "countUnit": "Contexts",
+      "usage": "134",
+      "usageUnit": "Contexts",
+      "uri": "/numbermasking/usage/records/daily?startDate=2019-07-22&amp;endDate=2019-07-23"
+    }
+  ]
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8705,7 +8710,7 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 <div class="sect3">
 <h4 id="_supported_operations_25"><a class="anchor" href="#_supported_operations_25"></a>Supported Operations</h4>
 <div class="paragraph">
-<p>HTTP GET and POST: List usage records for Interactions</p>
+<p><strong>HTTP GET:</strong> List usage records for Interactions</p>
 </div>
 </div>
 <div class="sect3">
@@ -8760,10 +8765,11 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X GET \ https://yourdomain.com/numbermasking/interactions/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23?category=voice\
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/interactions/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23?category=voice' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8771,22 +8777,22 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-   "usageRecords":[
-      {
-         "category":"voice",
-         "description":"Total Voice mins and Counts",
-         "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startDate":"2019-07-01",
-         "endDate":"2019-07-23",
-         "count":"2123",
-         "countUnit":"calls",
-         "usage":"1777369.00000",
-         "usageUnit":"minutes",
-         "uri":"/numbermasking/interactions/usage/record?startDate=2019-07-01&amp;endDate=2019-07-23"
-      }
-   ]
-}</pre>
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "usageRecords": [
+    {
+      "category": "voice",
+      "description": "Total Voice mins and Counts",
+      "enterpriseSid": "ACae6e420f425248d6a26948c17a9e2acf",
+      "startDate": "2019-07-01",
+      "endDate": "2019-07-23",
+      "count": "2123",
+      "countUnit": "calls",
+      "usage": "1777369.00000",
+      "usageUnit": "minutes",
+      "uri": "/numbermasking/interactions/usage/record?startDate=2019-07-01&amp;endDate=2019-07-23"
+    }
+  ]
+}</code></pre>
 </div>
 </div>
 </div>
@@ -8797,10 +8803,11 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \ https://yourdomain.com/numbermasking/interactions/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23?category=message\
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/interactions/usage/records?startDate=2019-07-01&amp;endDate=2019-07-23?category=message' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8808,21 +8815,21 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-   "usageRecords":[
-      {
-         "category":"message",
-         "description":"Total Message Counts",
-         "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startDate":"2019-07-01",
-         "endDate":"2019-07-23",
-         "count":"2123",
-         "countUnit":"messages",
-         "usage":"2534.00000",
-         "usageUnit":"messages",
-         "uri":"/numbermasking/interactions/usage/record?startDate=2019-07-01&amp;endDate=2019-07-23"
-      }
-   ]
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "usageRecords": [
+    {
+      "category": "message",
+      "description": "Total Message Counts",
+      "enterpriseSid": "ACae6e420f425248d6a26948c17a9e2acf",
+      "startDate": "2019-07-01",
+      "endDate": "2019-07-23",
+      "count": "2123",
+      "countUnit": "messages",
+      "usage": "2534.00000",
+      "usageUnit": "messages",
+      "uri": "/numbermasking/interactions/usage/record?startDate=2019-07-01&amp;endDate=2019-07-23"
+    }
+  ]
 }</code></pre>
 </div>
 </div>
@@ -8834,7 +8841,7 @@ Usage Records data is collected every 15 minutes.So there is possibility that on
 <p>The main Usage Records list resource supports a variety of convenience subresources. In general these take the form:</p>
 </div>
 <div class="paragraph">
-<p>/numbermasking/interactions/usage/records/{Subresource}</p>
+<p><code>/numbermasking/interactions/usage/records/{Subresource}</code></p>
 </div>
 <div class="paragraph">
 <p>Supported subresources are:</p>
@@ -8902,11 +8909,11 @@ The filters mentioned in <a href="number-masking-api.html#_filtering_2">Phone Nu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET \
-  https://yourdomain.com/numbermasking/interactions/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-23 \
---user  ' {your_account_SID}:{your_account_token}' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
+     'https://yourcompany.com/numbermasking/interactions/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-23' \
+     --user '{your_account_SID}:{your_account_token}' \
+     -H 'Cache-Control: no-cache' \
+     -H 'Content-Type: application/json' \</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8914,33 +8921,33 @@ The filters mentioned in <a href="number-masking-api.html#_filtering_2">Phone Nu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
-   "usageRecords":[
-      {
-         "category":"voice",
-         "description":"Total Voice mins and Counts",
-         "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startDate":"2019-07-21",
-         "endDate":"2019-07-21",
-         "count":"101",
-         "countUnit":"calls",
-         "usage":"177.00000",
-         "usageUnit":"minutes",
-         "uri":"/numbermasking/interactions/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-21"
-      },
-      {
-         "category":"voice",
-         "description":"Total Voice mins and Counts",
-         "enterpriseSid":"ACae6e420f425248d6a26948c17a9e2acf",
-         "startDate":"2019-07-22",
-         "endDate":"2019-07-22",
-         "count":"134",
-         "countUnit":"calls",
-         "usage":"197.00000",
-         "usageUnit":"minutes",
-         "uri":"/numbermasking/interactions/usage/records/daily?startDate=2019-07-22&amp;endDate=2019-07-23"
-      }
-   ]
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+  "usageRecords": [
+    {
+      "category": "voice",
+      "description": "Total Voice mins and Counts",
+      "enterpriseSid": "ACae6e420f425248d6a26948c17a9e2acf",
+      "startDate": "2019-07-21",
+      "endDate": "2019-07-21",
+      "count": "101",
+      "countUnit": "calls",
+      "usage": "177.00000",
+      "usageUnit": "minutes",
+      "uri": "/numbermasking/interactions/usage/records/daily?startDate=2019-07-21&amp;endDate=2019-07-21"
+    },
+    {
+      "category": "voice",
+      "description": "Total Voice mins and Counts",
+      "enterpriseSid": "ACae6e420f425248d6a26948c17a9e2acf",
+      "startDate": "2019-07-22",
+      "endDate": "2019-07-22",
+      "count": "134",
+      "countUnit": "calls",
+      "usage": "197.00000",
+      "usageUnit": "minutes",
+      "uri": "/numbermasking/interactions/usage/records/daily?startDate=2019-07-22&amp;endDate=2019-07-23"
+    }
+  ]
 }</code></pre>
 </div>
 </div>
@@ -8951,7 +8958,7 @@ The filters mentioned in <a href="number-masking-api.html#_filtering_2">Phone Nu
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you don’t pass “startDate”and “endDate” parameters, 30 records will be shown.
+If you don’t pass “startDate” and “endDate” parameters, 30 records will be shown.
 </td>
 </tr>
 </table>
