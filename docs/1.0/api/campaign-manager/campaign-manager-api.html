@@ -5593,10 +5593,26 @@ https://yourdomain.com/campaignmanager/enterprises \
 <td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. SID to uniquely identify the Business Customer that will be updated.</p></td>
 </tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_body_parameters"><a class="anchor" href="#_body_parameters"></a>Body Parameters</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Parameter</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Name of the Business Customer. Names must be unique
-within a given Communications Provider’s organisation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. Name of the Business Customer. Names must be unique within a given Communications Provider’s organisation.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">configuration</p></td>
@@ -5604,8 +5620,7 @@ within a given Communications Provider’s organisation.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status of the Business Customer. Can be updated either to
-ACTIVE or INACTIVE.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status of the Business Customer. Can be updated either to <code>ACTIVE</code> or <code>INACTIVE</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6034,6 +6049,14 @@ only a date is provided the time is assumed to be at midnight of the
 given date. Note that the given date/time is inclusive and is assumed to
 be in UTC timezone.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organizationSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. By default, filtering happens by organizationSid.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sortBy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. By default, sorting happens in <code>dateUpdated:desc</code> order.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -6042,7 +6065,7 @@ be in UTC timezone.</p></td>
 <div class="paragraph">
 <p>You can use the sortBy GET query parameter to determine which attribute
 you want to sort by and in which direction; direction can either be
-'asc' for ascending and 'desc' for descending sort ordering. Here’s the
+<code>asc</code> for ascending and <code>desc</code> for descending sort ordering. Here’s the
 overall format: sortBy=&lt;sorting attribute&gt;:&lt;direction&gt;. If no direction
 parameter is provided, then the listing of calls is sorted by the
 attribute in ascending order. You can sort by the attributes listed
@@ -6067,6 +6090,10 @@ below:</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sort by created date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort by status</p></td>
 </tr>
 </tbody>
 </table>
@@ -7039,7 +7066,11 @@ If startTime is not passed, Campaign is scheduled immediately</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">fromListSid (string)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. The sid of a <code>from</code> numbers group (if using country prefix).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The sid of a <code>from</code> numbers group. This parameter is needed if the Enterprise is configured to use From Numbers provisioned via the From Numbers list. If this field is used <code>fromListSid</code> or <code>fromNumberSid</code> must be set as its value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fromNumberSid (string)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional. The sid of a <code>from</code> numbers group. This parameter is needed if the Enterprise is configured to use From Numbers provisioned by the Communications Provider. If this field is used <code>fromListSid</code> or <code>fromNumberSid</code> must be set as its value.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">toListSid (string)</p></td>
@@ -8546,7 +8577,7 @@ Delete Campaign, List Single Campaign</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_body_parameters"><a class="anchor" href="#_body_parameters"></a>Body Parameters</h4>
+<h4 id="_body_parameters_2"><a class="anchor" href="#_body_parameters_2"></a>Body Parameters</h4>
 <div class="paragraph">
 <p>The following body parameters are available:</p>
 </div>
@@ -8791,7 +8822,7 @@ timezone.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_body_parameters_2"><a class="anchor" href="#_body_parameters_2"></a>Body Parameters</h4>
+<h4 id="_body_parameters_3"><a class="anchor" href="#_body_parameters_3"></a>Body Parameters</h4>
 <div class="paragraph">
 <p>The following body parameters are available:</p>
 </div>
