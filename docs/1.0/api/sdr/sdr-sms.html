@@ -5142,9 +5142,9 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Field</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top"><strong>Field</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Type</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -5176,12 +5176,22 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date_created</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The date when the record was created.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: Thu, 01 Jan 2022 00:20:00 +0000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: `Thu, 01 Jan 2022 00:20:00 +0000)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date_created_ms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The datetime in milliseconds when the record was created.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00.123 +0000</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date_updated</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The date when the record was last modified.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: Thu, 01 Jan 2022 00:20:00 +0000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00 +0000</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date_updated_ms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The datetime in milliseconds when the record was last modified.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00.123 +0000</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">from</p></td>
@@ -5300,9 +5310,9 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>account_sid,price,media_list_size,error_message,date_sent,uri,sip_status_code,from,to,date_updated,body,sip_status_reason,date_created,status,error_code,num_segments,direction,price_unit,org_sid,api_version,sid,reason.message,reason.code,reason.protocol,headers.x-amz-request-id,"headers.X-RestComm-AccountSid","headers.X-RestComm-ApiVersion","headers.X-RestComm-ApplicationUrl","headers.X-RestComm-OrganizationSid","headers.X-RestComm-CallSid",headers.x-amz-id-2
-"ACab03aae495eb4ca69737aa0d0da73d7f",0.0,0,,,"/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/SMS/Messages/SMf83ca76cbbb94fcb9077c848c683b05d",0,900013,900003,"Wed, 27 Apr 2022 19:46:01 +0000","SmppInboundMessage1 a616cffc-c1e9-40aa-9199-79b0ed8b9c24",,"Wed, 27 Apr 2022 19:46:01 +0000",received,0,1,inbound,USD,"OR55e4cbe945a14edca5bd157b9ee97bcc",2012-04-24,"SMf83ca76cbbb94fcb9077c848c683b05d",,0,,,,,,,,
-"ACab03aae495eb4ca69737aa0d0da73d7f",0.0,0,,,"/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/SMS/Messages/SM2f3f219fe0d2485d9b9963a3eb7bf46e",200,"TestApp-SmppInboundMessage","client:smpp-inbound-client","Wed, 27 Apr 2022 19:02:04 +0000","SmppInboundMessage 0001",OK,"Wed, 27 Apr 2022 19:02:04 +0000",delivered,0,1,outbound-call,USD,"OR55e4cbe945a14edca5bd157b9ee97bcc",2012-04-24,"SM2f3f219fe0d2485d9b9963a3eb7bf46e",,0,,FA17RW8Y3ZC30W7D,"ACab03aae495eb4ca69737aa0d0da73d7f",2012-04-24,"https://s3.amazonaws.com/synthetic-monitoring/apps/smpp_inbound_message.xml","OR55e4cbe945a14edca5bd157b9ee97bcc","SM68bb2b7b807c4b35a05dddeaf9722222","63Co+ib86aiSUz8WTZpiOw7YelX6RYfjU/rhV6IWkiOxOKW4ZbnyfSSoiVRZmvUINliRMFWsGDk="</code></pre>
+<pre class="highlightjs highlight"><code>account_sid,price,media_list_size,error_message,date_sent,uri,sip_status_code,from,to,date_updated,date_updated_ms,body,sip_status_reason,date_created,date_created_ms,status,error_code,num_segments,direction,price_unit,org_sid,api_version,sid,reason.message,reason.code,reason.protocol,headers.x-amz-request-id,headers.X-RestComm-AccountSid,headers.X-RestComm-ApiVersion,headers.X-RestComm-ApplicationUrl,headers.X-RestComm-OrganizationSid,headers.X-RestComm-CallSid,headers.x-amz-id-2
+ACab03aae495eb4ca69737aa0d0da73d7f,0.0,0,,,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/SMS/Messages/SMf83ca76cbbb94fcb9077c848c683b05d,0,900013,900003,"Wed, 27 Apr 2022 19:46:01 +0000","Wed, 27 Apr 2022 19:46:01.123 +0000",SmppInboundMessage1 a616cffc-c1e9-40aa-9199-79b0ed8b9c24,,"Wed, 27 Apr 2022 19:46:01 +0000","Wed, 27 Apr 2022 19:46:01.123 +0000",received,0,1,inbound,USD,OR55e4cbe945a14edca5bd157b9ee97bcc,2012-04-24,SMf83ca76cbbb94fcb9077c848c683b05d,,0,,,,,,,,
+ACab03aae495eb4ca69737aa0d0da73d7f,0.0,0,,,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/SMS/Messages/SM2f3f219fe0d2485d9b9963a3eb7bf46e,200,TestApp-SmppInboundMessage,client:smpp-inbound-client,"Wed, 27 Apr 2022 19:02:04 +0000","Wed, 27 Apr 2022 19:02:04.123 +0000",SmppInboundMessage 0001,OK,"Wed, 27 Apr 2022 19:02:04 +0000","Wed, 27 Apr 2022 19:02:04.123 +0000",delivered,0,1,outbound-call,USD,OR55e4cbe945a14edca5bd157b9ee97bcc,2012-04-24,SM2f3f219fe0d2485d9b9963a3eb7bf46e,,0,,FA17RW8Y3ZC30W7D,ACab03aae495eb4ca69737aa0d0da73d7f,2012-04-24,https://s3.amazonaws.com/synthetic-monitoring/apps/smpp_inbound_message.xml,OR55e4cbe945a14edca5bd157b9ee97bcc,SM68bb2b7b807c4b35a05dddeaf9722222,63Co+ib86aiSUz8WTZpiOw7YelX6RYfjU/rhV6IWkiOxOKW4ZbnyfSSoiVRZmvUINliRMFWsGDk=</code></pre>
 </div>
 </div>
 </div>

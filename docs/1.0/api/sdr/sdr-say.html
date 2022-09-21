@@ -5142,9 +5142,9 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Field</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top"><strong>Field</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Type</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -5180,13 +5180,18 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">api_version</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The API version  that generated the record</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The API version that generated the record</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date_created</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The date when the record was created</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: Thu, 01 Jan 2022 00:20:00 +0000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00 +0000</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date_created_ms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The datetime in milliseconds when the record was created</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00.123 +0000</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">provider</p></td>
@@ -5245,12 +5250,12 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>account_sid,character_count,voice,uri,loop,date_created,provider,status,call_sid,org_sid,duration,api_version,sid,reason,language
-"AC48c2153641dc1a52f6cb5ceac8939c6b",51,man,"/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SA4acf0def52624475a92a387383ebbc9e",1,"Tue, 26 Apr 2022 00:02:32 +0000",acapela,completed,"ID00000000000031302e302e302e313334-CAa5d45c92ae68411a987937c83829b5ae","OR17454f9b4ea545359f5f2ab21e3cab3b",7,2012-04-24,"SA4acf0def52624475a92a387383ebbc9e",,en-gb
-"AC48c2153641dc1a52f6cb5ceac8939c6b",51,man,"/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SA647004f31b7445359c51f7194ab1c954",1,"Tue, 26 Apr 2022 00:06:48 +0000",voicerss,completed,"ID00000000000031302e302e302e313334-CAe694ce440cd54c15b991ea99f247f7ff","OR17454f9b4ea545359f5f2ab21e3cab3b",6,2012-04-24,"SA647004f31b7445359c51f7194ab1c954",,en
-"AC48c2153641dc1a52f6cb5ceac8939c6b",51,man,"/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SAc5f7f2bc57264e198fe803fd0a5326e4",1,"Tue, 26 Apr 2022 00:44:18 +0000",awspolly,completed,"ID00000000000031302e302e302e313334-CA781b611f982e43f885e8a35fc4ee394e","OR17454f9b4ea545359f5f2ab21e3cab3b",9,2012-04-24,"SAc5f7f2bc57264e198fe803fd0a5326e4",,en-US
-"AC48c2153641dc1a52f6cb5ceac8939c6b",51,man,"/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SAd395901911194b3981257bccf75169d0",1,"Tue, 26 Apr 2022 00:22:40 +0000",google,completed,"ID00000000000031302e302e302e313334-CA4be1a70745ef4e13be8f5bc495865516","OR17454f9b4ea545359f5f2ab21e3cab3b",9,2012-04-24,"SAd395901911194b3981257bccf75169d0",,en-US-Wavenet-A
-"AC48c2153641dc1a52f6cb5ceac8939c6b",51,woman,"/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SA363e91328f9740b1a3dba8813d2d224e",1,"Tue, 26 Apr 2022 00:44:39 +0000",unknown,failed,"ID00000000000031302e302e302e313334-CA9e3e55b50eb74d21af394ed36486afe7","OR17454f9b4ea545359f5f2ab21e3cab3b",9,2012-04-24,"SA363e91328f9740b1a3dba8813d2d224e","CPAAS ;cause=2302 ;text=""Say: Unknown Provider""",en-US</code></pre>
+<pre class="highlightjs highlight"><code>account_sid,character_count,voice,uri,loop,date_created,date_created_ms,provider,status,call_sid,org_sid,duration,api_version,sid,reason,language
+AC48c2153641dc1a52f6cb5ceac8939c6b,51,man,/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SA4acf0def52624475a92a387383ebbc9e,1,"Tue, 26 Apr 2022 00:02:32 +0000","Tue, 26 Apr 2022 00:02:32.123 +0000",acapela,completed,ID00000000000031302e302e302e313334-CAa5d45c92ae68411a987937c83829b5ae,OR17454f9b4ea545359f5f2ab21e3cab3b,7,2012-04-24,SA4acf0def52624475a92a387383ebbc9e,,en-gb
+AC48c2153641dc1a52f6cb5ceac8939c6b,51,man,/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SA647004f31b7445359c51f7194ab1c954,1,"Tue, 26 Apr 2022 00:06:48 +0000","Tue, 26 Apr 2022 00:06:48.123 +0000",voicerss,completed,ID00000000000031302e302e302e313334-CAe694ce440cd54c15b991ea99f247f7ff,OR17454f9b4ea545359f5f2ab21e3cab3b,6,2012-04-24,SA647004f31b7445359c51f7194ab1c954,,en
+AC48c2153641dc1a52f6cb5ceac8939c6b,51,man,/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SAc5f7f2bc57264e198fe803fd0a5326e4,1,"Tue, 26 Apr 2022 00:44:18 +0000","Tue, 26 Apr 2022 00:44:18.123 +0000",awspolly,completed,ID00000000000031302e302e302e313334-CA781b611f982e43f885e8a35fc4ee394e,OR17454f9b4ea545359f5f2ab21e3cab3b,9,2012-04-24,SAc5f7f2bc57264e198fe803fd0a5326e4,,en-US
+AC48c2153641dc1a52f6cb5ceac8939c6b,51,man,/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SAd395901911194b3981257bccf75169d0,1,"Tue, 26 Apr 2022 00:22:40 +0000","Tue, 26 Apr 2022 00:22:40.123 +0000",google,completed,ID00000000000031302e302e302e313334-CA4be1a70745ef4e13be8f5bc495865516,OR17454f9b4ea545359f5f2ab21e3cab3b,9,2012-04-24,SAd395901911194b3981257bccf75169d0,,en-US-Wavenet-A
+AC48c2153641dc1a52f6cb5ceac8939c6b,51,woman,/2012-04-24/Accounts/AC48c2153641dc1a52f6cb5ceac8939c6b/Says/SA363e91328f9740b1a3dba8813d2d224e,1,"Tue, 26 Apr 2022 00:44:39 +0000","Tue, 26 Apr 2022 00:44:39.123 +0000",unknown,failed,ID00000000000031302e302e302e313334-CA9e3e55b50eb74d21af394ed36486afe7,OR17454f9b4ea545359f5f2ab21e3cab3b,9,2012-04-24,SA363e91328f9740b1a3dba8813d2d224e,"CPAAS ;cause=2302 ;text=""Say: Unknown Provider""",en-US</code></pre>
 </div>
 </div>
 </div>

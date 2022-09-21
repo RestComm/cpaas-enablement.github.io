@@ -5142,9 +5142,9 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Field</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top"><strong>Field</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Type</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -5186,12 +5186,22 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date_created</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The date when the record was created.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: Thu, 01 Jan 2022 00:20:00 +0000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00 +0000</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date_created_ms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The datetime in milliseconds when the record was created.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00.123 +0000</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date_updated</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The date when the record was last updated.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: Thu, 01 Jan 2022 00:20:00 +0000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00 +0000</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date_updated_ms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The datetime in milliseconds when the record was last updated.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00.123 +0000</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">file_uri</p></td>
@@ -5220,11 +5230,11 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>account_sid,file_uri,uri,date_updated,date_created,call_sid,org_sid,api_version,duration,sid
-"ACab03aae495eb4ca69737aa0d0da73d7f","https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REcc5d2ddfa4f5425db7abbdd38fa5f23c.wav","/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REcc5d2ddfa4f5425db7abbdd38fa5f23c","Tue, 26 Apr 2022 00:38:08 +0000","Tue, 26 Apr 2022 00:38:08 +0000","ID00000000000031302e302e302e313334-CA594b63e15cd540b08f5fb39fa355b5f9","OR55e4cbe945a14edca5bd157b9ee97bcc",2012-04-24,9.9399995803833,"REcc5d2ddfa4f5425db7abbdd38fa5f23c"
-"ACab03aae495eb4ca69737aa0d0da73d7f","https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REa0583ead4e2a47f9a711772e359aaa39.wav","/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REa0583ead4e2a47f9a711772e359aaa39","Tue, 26 Apr 2022 00:58:11 +0000","Tue, 26 Apr 2022 00:58:11 +0000","ID00000000000031302e302e302e313334-CAcc0dc87a71f944fcb03a0ac03aa38925","OR55e4cbe945a14edca5bd157b9ee97bcc",2012-04-24,9.9399995803833,"REa0583ead4e2a47f9a711772e359aaa39"
-"ACab03aae495eb4ca69737aa0d0da73d7f","https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/RE5a9e4a2de01440c3a83d2ffc4c7eb40b.wav","/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/RE5a9e4a2de01440c3a83d2ffc4c7eb40b","Tue, 26 Apr 2022 00:22:09 +0000","Tue, 26 Apr 2022 00:22:09 +0000","ID00000000000031302e302e302e313334-CA224974bc28ff467eb93976ffd086f1a1","OR55e4cbe945a14edca5bd157b9ee97bcc",2012-04-24,9.960000038146973,"RE5a9e4a2de01440c3a83d2ffc4c7eb40b"
-"ACab03aae495eb4ca69737aa0d0da73d7f","https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REaa725437d76f473685572f1d39395c11.wav","/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REaa725437d76f473685572f1d39395c11","Tue, 26 Apr 2022 00:02:12 +0000","Tue, 26 Apr 2022 00:02:12 +0000","ID00000000000031302e302e302e313334-CA78af191dc4d841dfb872c32decfbb0e1","OR55e4cbe945a14edca5bd157b9ee97bcc",2012-04-24,10.0,"REaa725437d76f473685572f1d39395c11"</code></pre>
+<pre class="highlightjs highlight"><code>account_sid,file_uri,uri,date_updated,date_updated_ms,date_created,date_created_ms,call_sid,org_sid,api_version,duration,sid
+ACab03aae495eb4ca69737aa0d0da73d7f,https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REcc5d2ddfa4f5425db7abbdd38fa5f23c.wav,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REcc5d2ddfa4f5425db7abbdd38fa5f23c,"Tue, 26 Apr 2022 00:38:08 +0000","Tue, 26 Apr 2022 00:38:08.123 +0000","Tue, 26 Apr 2022 00:38:08 +0000","Tue, 26 Apr 2022 00:38:08.123 +0000",ID00000000000031302e302e302e313334-CA594b63e15cd540b08f5fb39fa355b5f9,OR55e4cbe945a14edca5bd157b9ee97bcc,2012-04-24,9.9399995803833,REcc5d2ddfa4f5425db7abbdd38fa5f23c
+ACab03aae495eb4ca69737aa0d0da73d7f,https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REa0583ead4e2a47f9a711772e359aaa39.wav,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REa0583ead4e2a47f9a711772e359aaa39,"Tue, 26 Apr 2022 00:58:11 +0000","Tue, 26 Apr 2022 00:58:11.123 +0000","Tue, 26 Apr 2022 00:58:11 +0000","Tue, 26 Apr 2022 00:58:11.123 +0000",ID00000000000031302e302e302e313334-CAcc0dc87a71f944fcb03a0ac03aa38925,OR55e4cbe945a14edca5bd157b9ee97bcc,2012-04-24,9.9399995803833,REa0583ead4e2a47f9a711772e359aaa39
+ACab03aae495eb4ca69737aa0d0da73d7f,https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/RE5a9e4a2de01440c3a83d2ffc4c7eb40b.wav,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/RE5a9e4a2de01440c3a83d2ffc4c7eb40b,"Tue, 26 Apr 2022 00:22:09 +0000","Tue, 26 Apr 2022 00:22:09.123 +0000","Tue, 26 Apr 2022 00:22:09 +0000","Tue, 26 Apr 2022 00:22:09.123 +0000",ID00000000000031302e302e302e313334-CA224974bc28ff467eb93976ffd086f1a1,OR55e4cbe945a14edca5bd157b9ee97bcc,2012-04-24,9.960000038146973,RE5a9e4a2de01440c3a83d2ffc4c7eb40b
+ACab03aae495eb4ca69737aa0d0da73d7f,https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REaa725437d76f473685572f1d39395c11.wav,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REaa725437d76f473685572f1d39395c11,"Tue, 26 Apr 2022 00:02:12 +0000","Tue, 26 Apr 2022 00:02:12.123 +0000","Tue, 26 Apr 2022 00:02:12 +0000","Tue, 26 Apr 2022 00:02:12.123 +0000",ID00000000000031302e302e302e313334-CA78af191dc4d841dfb872c32decfbb0e1,OR55e4cbe945a14edca5bd157b9ee97bcc,2012-04-24,10.0,REaa725437d76f473685572f1d39395c11</code></pre>
 </div>
 </div>
 </div>

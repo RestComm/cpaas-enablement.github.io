@@ -5142,9 +5142,9 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Field</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top"><strong>Field</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Type</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -5186,7 +5186,12 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date_created</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The date when the record was created.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: Thu, 01 Jan 2022 00:20:00 +0000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00 +0000</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date_created_ms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The datetime in milliseconds when the record was created.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00.123 +0000</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">play_uri</p></td>
@@ -5230,9 +5235,9 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>account_sid,play_uri,loop,uri,date_created,status,call_sid,org_sid,duration,api_version,sid,reason
-"ACab03aae495eb4ca69737aa0d0da73d7f","https://mydomain.com/files/audio/welcome.wav",1,"/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Plays/PL6a63eaed1a194610b65227f8f04d2df5","Tue, 26 Apr 2022 00:20:00 +0000",completed,"ID00000000000031302e302e302e313334-CAb376a2186c6a42618753f8ad29b4dda1","OR55e4cbe945a14edca5bd157b9ee97bcc",3,2012-04-24,"PL6a63eaed1a194610b65227f8f04d2df5",
-"ACab03aae495eb4ca69737aa0d0da73d7f","https://mydomain.com/files/audio/corrupted.wav",1,"/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Plays/PL5dbcdb48666645b5ab49b4f14a9dd4ea","Tue, 26 Apr 2022 00:20:02 +0000",failed,"ID00000000000031302e302e302e313334-CAca54237c88ca457397d82a7adb519752","OR55e4cbe945a14edca5bd157b9ee97bcc",3,2012-04-24,"PL5dbcdb48666645b5ab49b4f14a9dd4ea","CPAAS ;cause=2500 ;text=""Play: Unexpected Error"""</code></pre>
+<pre class="highlightjs highlight"><code>account_sid,play_uri,loop,uri,date_created,date_created_ms,status,call_sid,org_sid,duration,api_version,sid,reason
+ACab03aae495eb4ca69737aa0d0da73d7f,https://mydomain.com/files/audio/welcome.wav,1,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Plays/PL6a63eaed1a194610b65227f8f04d2df5,"Tue, 26 Apr 2022 00:20:00 +0000","Tue, 26 Apr 2022 00:20:00.123 +0000",completed,ID00000000000031302e302e302e313334-CAb376a2186c6a42618753f8ad29b4dda1,OR55e4cbe945a14edca5bd157b9ee97bcc,3,2012-04-24,PL6a63eaed1a194610b65227f8f04d2df5,
+ACab03aae495eb4ca69737aa0d0da73d7f,https://mydomain.com/files/audio/corrupted.wav,1,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Plays/PL5dbcdb48666645b5ab49b4f14a9dd4ea,"Tue, 26 Apr 2022 00:20:02 +0000","Tue, 26 Apr 2022 00:20:00.123 +0000",failed,ID00000000000031302e302e302e313334-CAca54237c88ca457397d82a7adb519752,OR55e4cbe945a14edca5bd157b9ee97bcc,3,2012-04-24,PL5dbcdb48666645b5ab49b4f14a9dd4ea,"CPAAS ;cause=2500 ;text=""Play: Unexpected Error"""</code></pre>
 </div>
 </div>
 </div>

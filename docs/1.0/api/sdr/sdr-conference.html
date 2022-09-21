@@ -5142,9 +5142,9 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Field</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top"><strong>Field</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Type</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -5181,12 +5181,22 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date_created</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The date when the record was created.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: Thu, 01 Jan 2022 00:20:00 +0000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00 +0000</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date_created_ms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The datetime in milliseconds when the record was created.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00.123 +0000</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date_updated</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The date when the record was last modified.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: Thu, 01 Jan 2022 00:20:00 +0000)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00 +0000</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date_updated_ms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The datetime in milliseconds when the record was last modified.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">timestamp (format: <code>Thu, 01 Jan 2022 00:20:00.123 +0000</code>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">friendly_name</p></td>
@@ -5220,10 +5230,10 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>account_sid,friendly_name,"subresource_uris.participants",uri,date_updated,date_created,status,org_sid,api_version,sid
-"AC46c2053631dc1a52f6bb5ceac8939c6a","my-conference-1","/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CF7a959d5e464d4c58ab7faf801dd50377/Participants","/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CF7a959d5e464d4c58ab7faf801dd50377","Wed, 27 Apr 2022 00:18:05 +0000","Wed, 27 Apr 2022 00:17:59 +0000",COMPLETED,"OR17454f9b4ea545359f5f2ab21e3cab3b",2012-04-24,"CF7a959d5e464d4c58ab7faf801dd50377"
-"AC46c2053631dc1a52f6bb5ceac8939c6a","my-conference-2","/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CFea34133833b34aefbe1ea079b4c88b89/Participants","/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CFea34133833b34aefbe1ea079b4c88b89","Wed, 27 Apr 2022 00:38:04 +0000","Wed, 27 Apr 2022 00:37:58 +0000",COMPLETED,"OR17454f9b4ea545359f5f2ab21e3cab3b",2012-04-24,"CFea34133833b34aefbe1ea079b4c88b89"
-"AC46c2053631dc1a52f6bb5ceac8939c6a","my-conference-3","/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CF31d39239ffd64930b5bf6e94af8adf98/Participants","/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CF31d39239ffd64930b5bf6e94af8adf98","Wed, 27 Apr 2022 00:00:04 +0000","Tue, 26 Apr 2022 23:59:59 +0000",FAILED,"OR17454f9b4ea545359f5f2ab21e3cab3b",2012-04-24,"CF31d39239ffd64930b5bf6e94af8adf98"</code></pre>
+<pre class="highlightjs highlight"><code>account_sid,friendly_name,subresource_uris.participants,uri,date_updated,date_updated_ms,date_created,date_created_ms,status,org_sid,api_version,sid
+AC46c2053631dc1a52f6bb5ceac8939c6a,my-conference-1,/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CF7a959d5e464d4c58ab7faf801dd50377/Participants,/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CF7a959d5e464d4c58ab7faf801dd50377,"Wed, 27 Apr 2022 00:18:05 +0000","Wed, 27 Apr 2022 00:18:05.123 +0000","Wed, 27 Apr 2022 00:17:59 +0000","Wed, 27 Apr 2022 00:17:59.123 +0000",COMPLETED,OR17454f9b4ea545359f5f2ab21e3cab3b,2012-04-24,CF7a959d5e464d4c58ab7faf801dd50377
+AC46c2053631dc1a52f6bb5ceac8939c6a,my-conference-2,/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CFea34133833b34aefbe1ea079b4c88b89/Participants,/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CFea34133833b34aefbe1ea079b4c88b89,"Wed, 27 Apr 2022 00:38:04 +0000","Wed, 27 Apr 2022 00:38:04.123 +0000","Wed, 27 Apr 2022 00:37:58 +0000","Wed, 27 Apr 2022 00:37:58.123 +0000",COMPLETED,OR17454f9b4ea545359f5f2ab21e3cab3b,2012-04-24,CFea34133833b34aefbe1ea079b4c88b89
+AC46c2053631dc1a52f6bb5ceac8939c6a,my-conference-3,/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CF31d39239ffd64930b5bf6e94af8adf98/Participants,/2012-04-24/Accounts/AC46c2053631dc1a52f6bb5ceac8939c6a/Conferences/CF31d39239ffd64930b5bf6e94af8adf98,"Wed, 27 Apr 2022 00:00:04 +0000","Wed, 27 Apr 2022 00:00:04.123 +0000","Tue, 26 Apr 2022 23:59:59 +0000","Tue, 26 Apr 2022 23:59:59.123 +0000",FAILED,OR17454f9b4ea545359f5f2ab21e3cab3b,2012-04-24,CF31d39239ffd64930b5bf6e94af8adf98</code></pre>
 </div>
 </div>
 </div>
