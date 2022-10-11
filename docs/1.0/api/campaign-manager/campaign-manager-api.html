@@ -2330,7 +2330,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="#api/sms-api.html#_sms_specific_error_codes">Error Codes</a>
+              <a class="nav-link nav-flex-item-text" href="../sms-api.html#_sms_specific_error_codes">Error Codes</a>
 
             </span>
                 </div>
@@ -7557,8 +7557,9 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
     "name" : "Camp4-18Mar-1222",
     "startTime":"2021-03-18T12:20:46+0530",
-    "fromPrefix":"91",
-    "toListSid":"&lt;The sid of a `to` numbers group&gt;",
+    "fromNumberSid":"&lt;The sid of a `to` numbers group&gt;",
+    "toListSid":"&lt;The sid of a `from` numbers group&gt;",
+    "channel" : "sms" ,
     "body":"Happy New Year"
 }</code></pre>
 </div>
@@ -7576,7 +7577,8 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
   -F name="My very first TTS campaign" \
   -F body="Hello World!" \
   -F toListSid="The sid of a `to` numbers group" \
-  -F fromPrefix="91"</code></pre>
+  -F "channel" : "sms" \
+  -F fromNumberSid="The sid of a `from` numbers group"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7591,13 +7593,24 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
         "dateCreated": "2021-03-18T06:50:43+0000",
         "accountSid": "ACd29f41f95a13ff47279f8f71ccbbb4fe",
         "accountEmail": "jane.doe@company.com",
+        "body": "Hello World!",
+        "channel": "sms",
         "uri": "/campaignmanager/campaigns/search/ECd96d3e5e57b7445e8db19b5e77146ca8",
         "name": "Camp4-18Mar-1222",
         "startTime": "2021-03-18T06:52:46+0000",
         "enterpriseSid": "EN38347f3735b04741a0c9be689901e6b4",
         "total": 4,
         "status": "initiating",
-        "fromPrefix": "91"
+        "fromNumber": "9723333333",
+        "fromNumberName": "From List",
+        "fromNumberSid": "FG74c3f91b27c84cb28a0c43a97a2d4e0e",
+        "optOutDrop": 0,
+        "pendingSMSOrCall": 1,
+        "sentToRecipient": 0,
+        "toListName": "To List",
+        "toListSid": "NG5c48853c5b55466c892d9ff6fbbbe4fd",
+        "totalToNumbers": 1,
+        "usedCredits": 0
     },
     "code": 200,
     "message": "OK"
@@ -7657,8 +7670,20 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
         "status": "initiating",
         "fromPrefix": "",
         "announcementSid": "AN3f01da2b10d84f7f92f5b7aaced20a94",
-         "channel": "voice",
-         "dialTimeout": "10"
+        "announcementName": "Hello World",
+        "rcmlUrl": "https://company.com/campaignmanager/internal/rcml?Announcement=AN3f01da2b10d84f7f92f5b7aaced20a94&amp;Enterprise=EN38347f3735b04741a0c9be689901e6b4&amp;EnterpriseName=My very first TTS campaign%20Corp&amp;Organization=ORafbe225ad37541eba518a74248f0ac4c&amp;Campaign=ECb62bbb1d7fec4533ad2ddfb8210eda0d",
+        "channel": "voice",
+        "dialTimeout": "10",
+        "fromNumber": "9723333333",
+        "fromNumberName": "From List",
+        "fromNumberSid": "FG74c3f91b27c84cb28a0c43a97a2d4e0e",
+        "optOutDrop": 0,
+        "pendingSMSOrCall": 1,
+        "sentToRecipient": 0,
+        "toListName": "To List",
+        "toListSid": "NG5c48853c5b55466c892d9ff6fbbbe4fd",
+        "totalToNumbers": 1,
+        "usedCredits": 0
     },
     "code": 200,
     "message": "OK"
@@ -7843,7 +7868,7 @@ Make sure you are using the proper account SID and token when managing campaigns
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
-"status" : "cancelled"
+"status" : "canceled"
 }</code></pre>
 </div>
 </div>
@@ -7858,7 +7883,7 @@ Make sure you are using the proper account SID and token when managing campaigns
   -H 'Cache-Control: no-cache' \
   -H 'Content-Type: application/json' \
   -d '{
-        "status" : "cancelled"
+        "status" : "canceled"
 }'</code></pre>
 </div>
 </div>
@@ -7880,10 +7905,18 @@ Make sure you are using the proper account SID and token when managing campaigns
   "enterpriseSid" :"ENb6eb071d21124dbab20b095c25f1274f",
   "total":"4",
   "status":"canceled",
-  "fromPrefix":"91",
-  "to":"919960639903,919960639904,919960639905,919960639906",
+  "fromNumber": "9723333333",
+  "fromNumberName": "From List",
+  "fromNumberSid": "FG74c3f91b27c84cb28a0c43a97a2d4e0e",
   "body":"Hello World. This is 2nd Jan 2020!",
-  "uri":"/campaignmanager/enterprise/campaign/search/CPb6eb071d21124dbab20b095c25f1274f"
+  "uri":"/campaignmanager/enterprise/campaign/search/CPb6eb071d21124dbab20b095c25f1274f",
+  "optOutDrop": 0,
+  "pendingSMSOrCall": 1,
+  "sentToRecipient": 0,
+  "toListName":"To List",
+  "toListSid":"NG5c48853c5b55466c892d9ff6fbbbe4fd",
+  "totalToNumbers": 1,
+  "usedCredits": 0
 }
 }</code></pre>
 </div>
@@ -7894,9 +7927,9 @@ Make sure you are using the proper account SID and token when managing campaigns
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
-  "errorCode": "486",
-  "message": "Enterprise Campaign not found",
-  "data": "ECac11499029904fd0a3cfb1780b9dd371xxx"
+  "errorCode": "483",
+  "message": "Campaign status is invalid",
+  "data": "cancelled"
 }</code></pre>
 </div>
 </div>
@@ -8074,7 +8107,11 @@ Make sure you are using the proper account SID and token when managing campaigns
         "fromListName": "Zip4",
         "fromListSid": "NG4ac9cfeb1dfd4b45baef22c534080671",
         "toListName": "My Number1",
-        "toListSid": "NG203a101b805842c6bf4bdaa0070d862f"
+        "toListSid": "NG203a101b805842c6bf4bdaa0070d862f",
+        "totalToNumbers": 1,
+        "sentToRecipient": 0,
+        "pendingSMSOrCall": 1,
+        "optOutDrop": 0
     },
     "code": 200,
     "message": "OK"
@@ -8338,7 +8375,6 @@ The SMS Body.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sortBy</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">"name:desc","name:asc",<br>
 "status:asc","status:desc",<br>
-"fileType:asc","fileType:desc",<br>
 "groupType:asc","groupType:desc",<br>
 "startTime:asc","startTime:desc",<br>
 "dateUpdated:asc","dateUpdated:desc",<br>
@@ -8583,9 +8619,19 @@ Parameters are as explained below.</p>
                 "enterpriseSid": "EN197e3342e96b432ba4dc1bb3d2d84e40",
                 "total": 1,
                 "status": "completed",
-                "fromPrefix": "",
                 "channel": "sms",
-                "dialTimeout": 30
+                "dialTimeout": 30,
+                "fromNumber": "9723333333",
+                "fromNumberName": "From List",
+                "fromNumberSid": "FG74c3f91b27c84cb28a0c43a97a2d4e0e",
+                "body":"Hello World!",
+                "optOutDrop": 0,
+                "pendingSMSOrCall": 0,
+                "sentToRecipient": 1,
+                "toListName":"To List",
+                "toListSid":"NG5c48853c5b55466c892d9ff6fbbbe4fd",
+                "totalToNumbers": 1,
+                "usedCredits": 1
             }
         ],
         "pageSize": 10,
@@ -8750,8 +8796,18 @@ Delete Campaign, List Single Campaign</p></td>
     "startTime": "2020-01-01T22:45:32+0000",
     "enterpriseSid": "ENfda064f487ff4309b8b306d25adc0a86",
     "total": 1,
-    "status": "cancelled",
-    "fromPrefix": "+91"
+    "status": "completed",
+    "fromNumber": "9723333333",
+    "fromNumberName": "From List",
+    "fromNumberSid": "FG74c3f91b27c84cb28a0c43a97a2d4e0e",
+    "body":"Hello World!",
+    "optOutDrop": 0,
+    "pendingSMSOrCall": 0,
+    "sentToRecipient": 1,
+    "toListName":"To List",
+    "toListSid":"NG5c48853c5b55466c892d9ff6fbbbe4fd",
+    "totalToNumbers": 1,
+    "usedCredits": 1
     },
 "code": 200,
 "message": "OK"
@@ -9163,8 +9219,8 @@ timezone.</p></td>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">numbersFile</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">File containing the list of numbers (.txt or .csv). Note that the file size can&#8217;t exceed 10 MB. If larger file is used, it should be zipped prior to upload.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. File containing the list of numbers (.txt or .csv). Note that the file size can&#8217;t exceed 10 MB. If larger file is used, it should be zipped prior to upload.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
@@ -9216,6 +9272,154 @@ timezone.</p></td>
 </tr>
 </tfoot>
 </table>
+<div class="sect4">
+<h5 id="_data_parameters_4"><a class="anchor" href="#_data_parameters_4"></a>Data Parameters</h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Data Parameter</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unique sid identity for Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when Number Group List was created given as an ISO-8601 date/time string, like <code>YYYY-MM-DDTHH:MM:SS</code> (for example 2018-10-05T22:45:32) or, if you want to omit the time, <code>YYYY-MM-DD</code> (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note: that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when Number Group List was updated given as an ISO-8601 date/time string, like <code>YYYY-MM-DDTHH:MM:SS</code> (for example 2018-10-05T22:45:32) or, if you want to omit the time, <code>YYYY-MM-DD</code> (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enterpriseSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Business Customer sid to which the Number Group List belongs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountEmail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account which created the Number Group List.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accountSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account sid which created the Number Group List.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of the item.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fileName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the file containing the list of numbers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description of the item.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">groupType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of list.</p></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The status of the Number Group List.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="paragraph">
+<p>The Create Number Group List API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition, seen below are the Errors that it can return.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Error Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>HTTP Status</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Error Message</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Category</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">503</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers file is mandatory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers file is missing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">527</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory Parameter <code>name</code> is missing, or is blank.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of Number Group List is empty or missing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4051</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not exist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create , GET Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">536</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">From lists are not supported by the enterprise.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Enterprise should support the use of From lists,</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">499</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers List name already exists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Number list name should be unique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update  Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">524</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid zip file. No file entry or invalid zip format,</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The zip file is corrupted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update  Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">525</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid zip file. Content should not be inside directory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The zip file is corrupted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update  Number Group List</p></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">526</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid zip file. Entry name is empty.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The zip file is corrupted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create, Update  Number Group List</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_response_example"><a class="anchor" href="#_response_example"></a>Response Example</h4>
@@ -9238,7 +9442,9 @@ timezone.</p></td>
      "enterpriseSid": "ENaadc0b91cbfa4e94a058126a983cc5f7",
      "status": "ready",
      "groupType": "to_list",
-     "fileType": "csv",
+     "fileName": "mylist100.csv",
+     "columnHeaders": "",
+     "exampleRow": "",
      "lineCount": 1
     }
   },
@@ -9375,7 +9581,60 @@ timezone.</p></td>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Response data object as described below.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Response data object as explained in the data parameter of create Number Group List</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="paragraph">
+<p>The Delete Number Group List API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition, seen below are the Errors that it can return.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Error Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>HTTP Status</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Error Message</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Category</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">506</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers List can not be deleted while in validation process.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">During validation status of list it can not be deleted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">502</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers group is in use by campaign.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In case the group is being used by future campaign, or in use now it can not be deleted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">496</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers List not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers List not exist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete, GET  Number Group List</p></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Server internal Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In case an error occurred during deletion of the file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete  Number Group List</p></td>
 </tr>
 </tfoot>
 </table>
@@ -9387,7 +9646,21 @@ timezone.</p></td>
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
   "code": 200,
   "message": "ok",
-  "data" : ""
+   "data": {
+     "sid": "NG8eeb901bf85b41e0b20d8edce0f644be",
+     "dateUpdated": "2022-02-27T16:57:04+0200",
+     "dateCreated": "2022-02-27T16:57:04+0200",
+     "accountSid": "ACa16b5fe430c826ad859fd6d85349ab73",
+     "accountEmail": "mail@gmail.com",
+     "uri": "/campaignmanager/numbersGroup/search/NG8eeb901bf85b41e0b20d8edce0f644be",
+     "name": "Jane",
+     "description": "Doe",
+     "enterpriseSid": "ENaadc0b91cbfa4e94a058126a983cc5f7",
+     "status": "ready",
+     "groupType": "to_list",
+     "fileName": "mylist100.csv",
+     "lineCount": 1
+  }
 }</code></pre>
 </div>
 </div>
@@ -9412,7 +9685,7 @@ timezone.</p></td>
 <h3 id="_example_request_6"><a class="anchor" href="#_example_request_6"></a>Example Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --location --request GET 'http://yourdomain.com/campaignmanager/numbersGroup/search?name=test&amp;fileType=csv' \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --location --request GET 'http://yourdomain.com/campaignmanager/numbersGroup/search?name=test' \
 --header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \</code></pre>
 </div>
 </div>
@@ -9438,20 +9711,12 @@ timezone.</p></td>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">listType</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type of list to get ToNumbers/FromNumbers</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Name or part of name</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">One of the values from Status Enum (validating, invalid, uploading, ready, failed)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">fileType</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">txt/csv</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
@@ -9490,6 +9755,36 @@ timezone.</p></td>
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>The Get Number Group List API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition, seen below are the errors that it can return.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Error Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>HTTP Status</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Error Message</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Category</strong></th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4051</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise not exist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create, GET Number Group List</p></td>
+</tr>
+</tfoot>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_response_body_14"><a class="anchor" href="#_response_body_14"></a>Response Body</h3>
@@ -9520,7 +9815,7 @@ timezone.</p></td>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of "NumbersGroup" items as described below.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of "NumbersGroup" items  as explained in the data parameter of create Number Group List</p></td>
 </tr>
 </tfoot>
 </table>
@@ -9544,7 +9839,7 @@ timezone.</p></td>
        "enterpriseSid": "ENaadc0b91cbfa4e94a058126a983cc5f7",
        "status": "ready",
        "groupType": "to_list",
-       "fileType": "csv",
+       "fileName": "mylist100.csv",
        "lineCount": 1
 },
 {
@@ -9559,7 +9854,7 @@ timezone.</p></td>
        "enterpriseSid": "ENaadc0b91cbfa4e94a058126a983cc5f7",
        "status": "ready",
        "groupType": "to_list",
-       "fileType": "csv",
+       "fileName": "mylist100.csv",
        "lineCount": 1
 },
 ],
@@ -9645,7 +9940,37 @@ timezone.</p></td>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Single numbers group item.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single numbers group item as explained in the data parameter of create Number Group List.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="paragraph">
+<p>The Get Number Group List API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition, seen below are the Errors that it can return.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Error Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>HTTP Status</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Error Message</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Category</strong></th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">496</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers List not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers List not exist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete , GET  Number Group List</p></td>
 </tr>
 </tfoot>
 </table>
@@ -9667,7 +9992,7 @@ timezone.</p></td>
       "enterpriseSid": "ENaadc0b91cbfa4e94a058126a983cc5f7",
       "status": "ready",
       "groupType": "to_list",
-      "fileType": "csv",
+      "fileName": "mylist100.csv",
       "lineCount": 100
    },
    "code": 200,
@@ -9720,21 +10045,11 @@ If the numbers group file is completed the user cannot replace it. Invalid and f
 </thead>
 <tfoot>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">listSid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">numbersGroupSid</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory. The Sid of the list to fetch.</p></td>
 </tr>
 </tfoot>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_request_example"><a class="anchor" href="#_request_example"></a>Request Example</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --location --request PUT 'http://yourdomain.com/campaignmanager/numbersGroup/NG5b4f5d57f4a14e15b119b8286587ed5f?description=somedescription&amp;name=newName' \
---header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \
---form 'file=@"/C:/Users/user/Downloads/test.txt"'</code></pre>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_response_body_16"><a class="anchor" href="#_response_body_16"></a>Response Body</h3>
@@ -9765,10 +10080,66 @@ If the numbers group file is completed the user cannot replace it. Invalid and f
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A single numbers group item.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A single numbers group item as explained in the data parameter of create Number Group List.</p></td>
 </tr>
 </tfoot>
 </table>
+<div class="paragraph">
+<p>The Update Number Group List API can also return Error Code and corresponding HTTP Error as mentioned in Common Response Error Code. In addition, seen below are the Errors that it can return.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Error Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>HTTP Status</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Error Message</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Category</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">496</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers List not found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numbers List not exist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete , GET  Number Group List</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replace File Only For Invalid Groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replace of file allowed only for Invalid groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update  Number Group List</p></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">501</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">409</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update numbers group missing parameters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Once of mandatory parameters is missing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update  Number Group List</p></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_request_example"><a class="anchor" href="#_request_example"></a>Request Example</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --PUT 'http://yourdomain.com/campaignmanager/numbersGroup/NG5b4f5d57f4a14e15b119b8286587ed5f?description=somedescription&amp;name=newName' \
+--header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \
+--form 'file=@"/C:/Users/user/Downloads/test.txt"'</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_response_example_5"><a class="anchor" href="#_response_example_5"></a>Response Example</h3>
@@ -9787,7 +10158,7 @@ If the numbers group file is completed the user cannot replace it. Invalid and f
       "enterpriseSid": "ENaadc0b91cbfa4e94a058126a983cc5f7",
       "status": "ready",
       "groupType": "to_list",
-      "fileType": "csv",
+      "fileName": "mylist100.csv",
       "lineCount": 100
    },
    "code": 200,
@@ -9838,6 +10209,16 @@ If the numbers group file is completed the user cannot replace it. Invalid and f
 <h3 id="_response_body_17"><a class="anchor" href="#_response_body_17"></a>Response Body</h3>
 <div class="paragraph">
 <p>The Response Body return the content of the blob (application/octet-stream).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_example_6"><a class="anchor" href="#_response_example_6"></a>Response Example</h3>
+<div class="listingblock">
+<div class="content">
+<pre>number
+9721230000000
+9721230000001</pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -9950,6 +10331,16 @@ If the numbers group file is completed the user cannot replace it. Invalid and f
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --location --request GET 'http://yourdomain.com/campaignmanager/numbersGroup/preview/NG5b4f5d57f4a14e15b119b8286587ed5f?rowsCount=25' \
 
  --header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_example_7"><a class="anchor" href="#_response_example_7"></a>Response Example</h3>
+<div class="listingblock">
+<div class="content">
+<pre>code: 200
+data: "number\n9721230000000\n9721230000001\n9721230000002\n"
+message: "OK"</pre>
 </div>
 </div>
 </div>
@@ -10208,7 +10599,7 @@ Language for Text to speech as explained in &lt;say&gt; verb of Core Engine</p><
 </tfoot>
 </table>
 <div class="sect4">
-<h5 id="_data_parameters_4"><a class="anchor" href="#_data_parameters_4"></a>Data Parameters</h5>
+<h5 id="_data_parameters_5"><a class="anchor" href="#_data_parameters_5"></a>Data Parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -10572,7 +10963,7 @@ Please visit <a href="https://$DOMAIN/docs/rcml/play-rcml.html#_supported_audio_
 </tfoot>
 </table>
 <div class="sect4">
-<h5 id="_data_parameters_5"><a class="anchor" href="#_data_parameters_5"></a>Data Parameters</h5>
+<h5 id="_data_parameters_6"><a class="anchor" href="#_data_parameters_6"></a>Data Parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -11334,7 +11725,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </tfoot>
 </table>
 <div class="sect4">
-<h5 id="_data_parameters_6"><a class="anchor" href="#_data_parameters_6"></a>Data Parameters</h5>
+<h5 id="_data_parameters_7"><a class="anchor" href="#_data_parameters_7"></a>Data Parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">

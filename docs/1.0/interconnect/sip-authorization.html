@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="SMS for Microsoft Teams Overview - Restcomm Docs"></title>
+    <title data-custom-title="SIP Authorization - Restcomm Docs"></title>
     <link rel="canonical" href="
-      https://www.restcomm.com/docs/1.0/turnkey-applications/microsoft-teams-overview.html
+      https://www.restcomm.com/docs/1.0/interconnect/sip-authorization.html
     ">
+    <meta name="description" content="CPaaS SIP Authorization.">
+    <meta name="keywords" content="SIP, JWT.">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
@@ -2372,7 +2374,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="smart-2fa.html">Turnkey Apps APIs</a>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html">Turnkey Apps APIs</a>
                         <button class="nav-toggle"></button>
             </span>
                 </div>
@@ -2494,7 +2496,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="smart-2fa.html">Smart 2FA</a>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html">Smart 2FA</a>
                         <button class="nav-toggle"></button>
             </span>
                 </div>
@@ -2514,7 +2516,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="smart-2fa.html#_send">Sending One-Time Passwords</a>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_send">Sending One-Time Passwords</a>
 
             </span>
                 </div>
@@ -2534,7 +2536,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="smart-2fa.html#_verify">Verifying One-Time Passwords</a>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_verify">Verifying One-Time Passwords</a>
 
             </span>
                 </div>
@@ -2554,7 +2556,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="smart-2fa.html#_control">Cancel One-Time Passwords</a>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_control">Cancel One-Time Passwords</a>
 
             </span>
                 </div>
@@ -2574,7 +2576,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="smart-2fa.html#_session_detail_record_sdr">Session Detail Record (SDR)</a>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_session_detail_record_sdr">Session Detail Record (SDR)</a>
 
             </span>
                 </div>
@@ -2594,7 +2596,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="smart-2fa.html#_usage_record_one_time_passwords__api_reference">Usage Record One-Time Passwords</a>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_usage_record_one_time_passwords__api_reference">Usage Record One-Time Passwords</a>
 
             </span>
                 </div>
@@ -2614,7 +2616,7 @@
               
             "></span>
                     <span>
-              <a class="nav-link nav-flex-item-text" href="smart-2fa.html#_limit">Limit</a>
+              <a class="nav-link nav-flex-item-text" href="../turnkey-applications/smart-2fa.html#_limit">Limit</a>
 
             </span>
                 </div>
@@ -5394,159 +5396,106 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../index.html">docs</a></li>
-    <li class="crumb"><a href="microsoft-teams-overview.html">SMS for Microsoft Teams Overview</a></li>
+    <li class="crumb"><a href="sip-authorization.html">SIP Authorization</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>SMS for Microsoft Teams Overview</h1>
+  <h1>SIP Authorization</h1>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">Introduction</a></li>
-<li><a href="#_prerequisite">Prerequisite</a></li>
-<li><a href="#_terminology">Terminology</a></li>
-<li><a href="#_setting_up_the_first_mapping">Setting Up the First Mapping</a>
-<ul class="sectlevel2">
-<li><a href="#_setting_up_a_new_mapping_via_the_message_exchange_console">Setting up a new mapping via the Message Exchange Console</a></li>
-</ul>
-</li>
-<li><a href="#_understanding_the_message_exchange_for_microsoft_teams_console_and_api">Understanding the Message Exchange for Microsoft Teams Console and API</a></li>
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_digest_authentication">Digest Authentication</a></li>
+<li><a href="#_bearer_authentication">Bearer Authentication</a></li>
 </ul>
 </div>
 <div class="sect1">
-<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Telestax Message Exchange for Microsoft Teams helps Communications Providers enable their Business Customers to send and receive SMS using Microsoft Teams and to manage and monitor usage. Business Customers can send two-way SMS from within the application.</p>
+<p>When the CPaaS platform receives a request from the SIP protocol client that carries either an Authorization, or
+a Proxy-Authorization header field, the server processes Authentication procedure to verify and identify the remote client.</p>
 </div>
 <div class="paragraph">
-<p>To enable Business Customers on Microsoft Teams, below steps need to be followed.<br></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Request Access Tokens from the Business Customer Microsoft Teams Admin as explained in the documentation <a href="https://cloud.restcomm.com/docs/turnkey-applications/microsoft-teams/microsoft-teams-setup-for-enterprise.html">here</a><br></p>
-</li>
-<li>
-<p>Create a Business Customer account and set up tokens received from the previous step</p>
-</li>
-<li>
-<p>Create a mapping (via the API or the user interface of the Console) within the Business Customer account</p>
-</li>
-<li>
-<p>Start sending messages</p>
-</li>
-</ul>
+<p>The CPaaS platform supports the following authorization algorithms:
+- <a href="#_digest_authentication">Digest</a>
+- <a href="#_bearer_authentication">Bearer</a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_prerequisite"><a class="anchor" href="#_prerequisite"></a>Prerequisite</h2>
+<h2 id="_digest_authentication"><a class="anchor" href="#_digest_authentication"></a>Digest Authentication</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order to complete the aforementioned steps, you will need:</p>
+<p>The Digest authentication is a simple challenge/response method based on the HTTP protocol. As per <a href="https://www.rfc-editor.org/rfc/rfc2069">RFC 2069</a>, it employs a MD5 hash algorithm
+to encode the username, realm, password, digest URI, and server generated nonce ("number used once") as follows:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Microsoft Teams to be set up for your Business Customers.</p>
-</li>
-<li>
-<p>Must have followed the steps mentioned in the document <a href="../enterprise/turnkey-applications/microsoft-teams/microsoft-teams-setup-for-enterprise.html">here</a></p>
-</li>
-<li>
-<p>Working knowledge of cURL and a way to make HTTP API calls (either using cURL or Postman. We recommend Postman if you are not familiar with cURL) Or you can directly use the UI Console exposed by <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span>.</p>
-</li>
-<li>
-<p>An understanding of the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> API for Microsoft Teams or Console and how to add mappings.</p>
-</li>
-<li>
-<p>An activated <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud account.</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre>H1 = MD5 (username : realm : password)
+
+H2 = MD5 (method : digestURI)
+
+Response = MD5 (H1 : nonce : H2)</pre>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You need to reach out to your Technical Account Manager to make sure your account has been correctly set up for Microsoft Teams SMS enablement.
-</td>
-</tr>
-</table>
+</div>
+<div class="paragraph">
+<p><a href="https://www.rfc-editor.org/rfc/rfc2617">RFC 2617</a> added a client generated nonce and quality of protection (QoP) to improve security as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Response = MD5(H1 : nonce : nonceCount : nonceClient : QoP : H2)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can find more detailed information about Digest Authentication in <a href="https://datatracker.ietf.org/doc/html/rfc3261">RFC3261</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_terminology"><a class="anchor" href="#_terminology"></a>Terminology</h2>
+<h2 id="_bearer_authentication"><a class="anchor" href="#_bearer_authentication"></a>Bearer Authentication</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As part of this documentation, the following terms will be used to describe specific individuals, concepts, and organizations.</p>
+<p>Bearer Authentication is authentication based on <a href="https://datatracker.ietf.org/doc/html/rfc7519">RFC7519</a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Communications Provider</strong>: Communications Provider generally refers to any Telestax Partner providing communications products, applications, capabilities, or services. The term can refer to operators, carriers, providers, suppliers, or any other entity that delivers communications capabilities to enterprise or business customers.</p>
+<p>JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.
+The claims in a JWT are encoded as a JSON object that is used as the payload of a JSON Web Signature (JWS) structure or
+as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or integrity
+protected with a Message Authentication Code (MAC) and/or encrypted.</p>
 </div>
 <div class="paragraph">
-<p><strong>Business Customer</strong>: An enterprise or business customer that relies on a Communications Provider to deliver communications products, capabilities, or services to customers or end users.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_setting_up_the_first_mapping"><a class="anchor" href="#_setting_up_the_first_mapping"></a>Setting Up the First Mapping</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You must have a valid, working <a href="https://www.restcomm.com/sign-up/"><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> account</a> in order to complete this step. If you do not have one, you can <a href="https://www.restcomm.com/contact/">contact us</a>.
-</td>
-</tr>
-</table>
+<p>The CPaaS platform uses Amazon Cognito as a Authentication Server, which provides authentication, authorization, and user
+management. Amazon Cognito Service is available in multiple AWS Regions worldwide. In each Region, Amazon Cognito is distributed
+across multiple Availability Zones. These Availability Zones are physically isolated from each other, but are united
+by private, low-latency, high-throughput, and highly redundant network connections. These Availability Zones enable AWS
+to provide services, including Amazon Cognito, with very high levels of availability and redundancy, while also
+minimizing latency.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of Microsoft Teams mapping is to associate a phone phone number with an existing Microsoft Teams ID. For example, imagine you have a user with the Microsoft Teams ID of <a href="mailto:mac@myserver.com">mac@myserver.com</a> and the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> number is +1-919-555-1212.</p>
+<p>The following Diagram shows a typical JWT authentication flow:</p>
 </div>
-<div class="paragraph">
-<p>With the proper mapping all inbound SMS messages to the phone number (+1-919-555-1212) will be sent via Message Exchange, the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> service for Microsoft Teams, to the application and Team of <a href="mailto:mac@myserver.com">mac@myserver.com</a>. Additionally, any time Joe sends an outbound SMS from his Microsoft Teams account, it will be sent from a mapped phone number.</p>
-</div>
-<div class="paragraph">
-<p>You can set up your mapping in two different ways, either via the <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Message Exchange UI Console for Microsoft Teams or via the API.</p>
-</div>
-<div class="sect2">
-<h3 id="_setting_up_a_new_mapping_via_the_message_exchange_console"><a class="anchor" href="#_setting_up_a_new_mapping_via_the_message_exchange_console"></a>Setting up a new mapping via the Message Exchange Console</h3>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Log in to you <a href="https://cloud.restcomm.com/msteamsconsole/"><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Message Exchange Console</a> via your <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Cloud account.  You will need to link the console URL once it is deployed.</p>
+<p>A User requests JWT from Authentication Server based on Account Sid and Token</p>
 </li>
 <li>
-<p>Create a new mapping as explained in Section <a href="microsoft-teams-console.html#_add_mapping">Add Mappings</a> in Docs: Message Exchange for Microsoft Teams Console.</p>
+<p>The Authentication Server verifies the Account Sid and Token. As a successful result, the Authentication Server returns a valid JWT token.</p>
 </li>
 <li>
-<p>Before creating a mapping, you need to create an Enterprise. This is a very important step as the Microsoft Teams Bot has one-to-one mapping with the Enterprise.</p>
+<p>The User initiates an incoming SIP call and includes <code>Authorization</code> header into the SIP INVITE message.</p>
 </li>
 <li>
-<p>Add Bot Details(for each Enterprise) as explained in section <a href="microsoft-teams-console.html#_manage_bot_details_for_business_customer">Manage Bot details</a> in Docs: Message Exchange for Microsoft Teams Console</p>
+<p>The CPaaS platform validates the JWT and continues processing the call.</p>
 </li>
-</ul>
+</ol>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/interconnect/JWT_authetication_flow.png" alt="JWT Authentication Flow">
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_understanding_the_message_exchange_for_microsoft_teams_console_and_api"><a class="anchor" href="#_understanding_the_message_exchange_for_microsoft_teams_console_and_api"></a>Understanding the Message Exchange for Microsoft Teams Console and API</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="microsoft-teams-console.html">Message Exchange for Microsoft Teams Console Getting Started Guide</a></p>
-</div>
-<div class="paragraph">
-<p><a href="../api/microsoft-teams/microsoft-teams-api.html">Message Exchange for Microsoft Teams API Getting Started Guide</a></p>
 </div>
 </div>
 </div>
