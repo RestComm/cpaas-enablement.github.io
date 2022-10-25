@@ -1397,6 +1397,26 @@
             </span>
                 </div>
                               </li>
+              <li id="Trace Records"
+                  class="nav-item"
+                  data-depth="2">
+                <div class="nav-flex-container">
+            <span class="nav-flex-item-icon
+              
+              
+              
+              
+              
+              
+              
+              
+            "></span>
+                    <span>
+              <a class="nav-link nav-flex-item-text" href="../traces-api.html">Trace Records</a>
+
+            </span>
+                </div>
+                              </li>
   </ul>
               </li>
               <li id="Voice APIs"
@@ -5558,7 +5578,7 @@ throttling available at a given point of time.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>\{\"campaignManager\":\{\"throttle\": \{\"smsPerSecond\":\"10\",
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">\{\"campaignManager\":\{\"throttle\": \{\"smsPerSecond\":\"10\",
 \"callsPerSecond\":\"25\", \"concurrentCalls\":\"5\"}}}</code></pre>
 </div>
 </div>
@@ -6331,7 +6351,7 @@ be in UTC timezone.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">organizationSid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. By default, filtering happens by organizationSid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional parameter. By default, filtering happens by <code>organizationSid</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sortBy</p></td>
@@ -7622,13 +7642,15 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
 <h5 id="_voice_campaign_example"><a class="anchor" href="#_voice_campaign_example"></a>Voice Campaign Example</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>    "name":"My very first TTS campaign",
+<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
+    "name":"My very first TTS campaign",
     "startTime":"2021-03-18T12:35:46+0530",
     "fromListSid":"The sid of a `from` numbers group",
-    "toListSid":"The sid of a `to` numbers group"
-    "announcementSid":"AN3f01da2b10d84f7f92f5b7aaced20a94”,
+    "toListSid":"The sid of a `to` numbers group",
+    "announcementSid":"AN3f01da2b10d84f7f92f5b7aaced20a94",
     "channel":"voice",
-    "dialTimeout":"10"</code></pre>
+    "dialTimeout":"10"
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7718,7 +7740,7 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
 <div class="sect2">
 <h3 id="_update_campaign"><a class="anchor" href="#_update_campaign"></a>Update Campaign</h3>
 <div class="paragraph">
-<p>This endpoint is used to update existing campaigns.Communications Providers can use this endpoint to update campaigns on a behalf of their Business Customers.Only campaigns with a status of <code>Scheduled</code> or <code>In Progress</code> can be updated.If the status of the campaign changes to any other, updating is no longer possible.</p>
+<p>This endpoint is used to update existing campaigns. Communications Providers can use this endpoint to update campaigns on a behalf of their Business Customers. Only campaigns with a status of <code>Scheduled</code> or <code>In Progress</code> can be updated. If the status of the campaign changes to any other, updating is no longer possible.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -9296,7 +9318,7 @@ timezone.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateCreated</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Date when Number Group List was created given as an ISO-8601 date/time string, like <code>YYYY-MM-DDTHH:MM:SS</code> (for example 2018-10-05T22:45:32) or, if you want to omit the time, <code>YYYY-MM-DD</code> (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note: that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when the Number Group List was created given as an ISO-8601 date/time string, like <code>YYYY-MM-DDTHH:MM:SS</code> (for example 2018-10-05T22:45:32) or, if you want to omit the time, <code>YYYY-MM-DD</code> (for example 2018-10-05). When only a date is provided the time is assumed to be at midnight of the given date. Note that the given date/time is inclusive and is assumed to be in UTC timezone.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dateUpdated</p></td>
@@ -9451,6 +9473,23 @@ timezone.</p></td>
   "code": 200,
   "message": "OK"
 }</code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_example_request_6"><a class="anchor" href="#_example_request_6"></a>Example Request</h5>
+<div class="paragraph">
+<p>To Create Numbers Group, run the command below from your bash terminal.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST 'https://yourdomain.com/campaignmanager/numbersGroup' \
+ -H 'Content-Type:multipart/form-data' \
+ -H 'Authorization:Basic YourAPIKeyValue:YourAPIKeySecret' \
+
+ --form file=@"C:/CPaaS_Docs_and_Files/mylistNew.csv"
+ --form name="NewList"
+ --form groupType="to_list"</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -9659,6 +9698,8 @@ timezone.</p></td>
      "status": "ready",
      "groupType": "to_list",
      "fileName": "mylist100.csv",
+     "columnHeaders": "number",
+     "exampleRow": "9721234567895",
      "lineCount": 1
   }
 }</code></pre>
@@ -9668,7 +9709,17 @@ timezone.</p></td>
 <div class="sect2">
 <h3 id="_validations"><a class="anchor" href="#_validations"></a>Validations</h3>
 <div class="paragraph">
-<p>In case the group is being used by future campaign the call will fail.</p>
+<p>In case the group is being used by a future Campaign the call will fail.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_request_7"><a class="anchor" href="#_example_request_7"></a>Example Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X DELETE 'https://yourdomain.com/campaignmanager/numbersGroup/NG1b47a8a1c26a4fab8925f1c8ac628ef7' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization:Basic YourAPIKeyValue:YourAPIKeySecret'</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -9679,15 +9730,6 @@ timezone.</p></td>
 <h3 id="_resource_uri_2"><a class="anchor" href="#_resource_uri_2"></a>Resource URI</h3>
 <div class="paragraph">
 <p><strong><code>/campaignmanager/numbersGroup</code></strong></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_example_request_6"><a class="anchor" href="#_example_request_6"></a>Example Request</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --location --request GET 'http://yourdomain.com/campaignmanager/numbersGroup/search?name=test' \
---header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -9840,6 +9882,8 @@ timezone.</p></td>
        "status": "ready",
        "groupType": "to_list",
        "fileName": "mylist100.csv",
+       "columnHeaders": "number",
+       "exampleRow": "9721234567895",
        "lineCount": 1
 },
 {
@@ -9855,6 +9899,8 @@ timezone.</p></td>
        "status": "ready",
        "groupType": "to_list",
        "fileName": "mylist100.csv",
+       "columnHeaders": "number",
+       "exampleRow": "9721234567895",
        "lineCount": 1
 },
 ],
@@ -9873,6 +9919,15 @@ timezone.</p></td>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_example_request_8"><a class="anchor" href="#_example_request_8"></a>Example Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET 'http://yourdomain.com/campaignmanager/numbersGroup/search?name=test' \
+-H 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -9881,7 +9936,7 @@ timezone.</p></td>
 <div class="sect2">
 <h3 id="_resource_uri_3"><a class="anchor" href="#_resource_uri_3"></a>Resource URI</h3>
 <div class="paragraph">
-<p><strong><code>/campaignmanager/numbersGroup//search/{numbersGroupSid}</code></strong></p>
+<p><strong><code>/campaignmanager/numbersGroup/search/{numbersGroupSid}</code></strong></p>
 </div>
 </div>
 <div class="sect2">
@@ -9993,11 +10048,22 @@ timezone.</p></td>
       "status": "ready",
       "groupType": "to_list",
       "fileName": "mylist100.csv",
+      "columnHeaders": "number",
+      "exampleRow": "9721234567895",
       "lineCount": 100
    },
    "code": 200,
    "message": "OK"
 }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_request_9"><a class="anchor" href="#_example_request_9"></a>Example Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET 'http://yourdomain.com/campaignmanager/numbersGroup/search/NG5b4f5d57f4a14e15b119b8286587ed5f?name=test' \
+-H 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \</code></pre>
 </div>
 </div>
 </div>
@@ -10132,16 +10198,6 @@ If the numbers group file is completed the user cannot replace it. Invalid and f
 </table>
 </div>
 <div class="sect2">
-<h3 id="_request_example"><a class="anchor" href="#_request_example"></a>Request Example</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --PUT 'http://yourdomain.com/campaignmanager/numbersGroup/NG5b4f5d57f4a14e15b119b8286587ed5f?description=somedescription&amp;name=newName' \
---header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \
---form 'file=@"/C:/Users/user/Downloads/test.txt"'</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_response_example_5"><a class="anchor" href="#_response_example_5"></a>Response Example</h3>
 <div class="listingblock">
 <div class="content">
@@ -10159,11 +10215,23 @@ If the numbers group file is completed the user cannot replace it. Invalid and f
       "status": "ready",
       "groupType": "to_list",
       "fileName": "mylist100.csv",
+      "columnHeaders": "number",
+      "exampleRow": "9721234567895",
       "lineCount": 100
    },
    "code": 200,
    "message": "OK"
 }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_request_example"><a class="anchor" href="#_request_example"></a>Request Example</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --PUT 'http://yourdomain.com/campaignmanager/numbersGroup/NG5b4f5d57f4a14e15b119b8286587ed5f?description=somedescription&amp;name=newName' \
+-H 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \
+--form 'file=@"/C:/Users/user/Downloads/test.txt"'</code></pre>
 </div>
 </div>
 </div>
@@ -10222,12 +10290,12 @@ If the numbers group file is completed the user cannot replace it. Invalid and f
 </div>
 </div>
 <div class="sect2">
-<h3 id="_example_request_7"><a class="anchor" href="#_example_request_7"></a>Example Request</h3>
+<h3 id="_example_request_10"><a class="anchor" href="#_example_request_10"></a>Example Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --location --request GET 'http://yourdomain.com/campaignmanager/numbersGroup/download/NG8e3a7567cb494c8ebf1366b4396ccec3' \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET 'http://yourdomain.com/campaignmanager/numbersGroup/download/NG8e3a7567cb494c8ebf1366b4396ccec3' \
 
---header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \</code></pre>
+-H 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \</code></pre>
 </div>
 </div>
 </div>
@@ -10325,22 +10393,22 @@ If the numbers group file is completed the user cannot replace it. Invalid and f
 </table>
 </div>
 <div class="sect2">
-<h3 id="_example_request_8"><a class="anchor" href="#_example_request_8"></a>Example Request</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --location --request GET 'http://yourdomain.com/campaignmanager/numbersGroup/preview/NG5b4f5d57f4a14e15b119b8286587ed5f?rowsCount=25' \
-
- --header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_response_example_7"><a class="anchor" href="#_response_example_7"></a>Response Example</h3>
 <div class="listingblock">
 <div class="content">
 <pre>code: 200
 data: "number\n9721230000000\n9721230000001\n9721230000002\n"
 message: "OK"</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_request_11"><a class="anchor" href="#_example_request_11"></a>Example Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET 'http://yourdomain.com/campaignmanager/numbersGroup/preview/NG5b4f5d57f4a14e15b119b8286587ed5f?rowsCount=25' \
+
+ -H 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \</code></pre>
 </div>
 </div>
 </div>
@@ -10465,6 +10533,17 @@ message: "OK"</pre>
   "code": 200,
   "message": "OK"
 }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_request_12"><a class="anchor" href="#_example_request_12"></a>Example Request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST 'http://yourdomain.com/campaignmanager/numbersGroup/listGroups' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \
+  -d '["to_list","from_list"]'</code></pre>
 </div>
 </div>
 </div>
@@ -11050,9 +11129,9 @@ error occurred while uploading file to s3</p></td>
 <h4 id="_example_14"><a class="anchor" href="#_example_14"></a>Example</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl --location --request POST 'https://yourdomain.com/campaignmanager/internal/file/announcement/ANd28fddd7f6184a67aacb2dd6c3c00e28' \
---header 'Content-Type: multipart/form-data' \
---header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST 'https://yourdomain.com/campaignmanager/internal/file/announcement/ANd28fddd7f6184a67aacb2dd6c3c00e28' \
+-H 'Content-Type: multipart/form-data' \
+-H 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \
 --form 'file=@/Users/adityad/Documents/ANd28fddd7f6184a67aacb2dd6c3c00e28.wav'</code></pre>
 </div>
 </div>
@@ -11344,7 +11423,7 @@ Language for Text to speech as explained in &lt;say&gt; verb of Core Engine</p><
 </div>
 </div>
 <div class="sect3">
-<h4 id="_example_request_9"><a class="anchor" href="#_example_request_9"></a>Example Request</h4>
+<h4 id="_example_request_13"><a class="anchor" href="#_example_request_13"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X 'GET' \
@@ -11506,7 +11585,7 @@ Get Announcement</p></td>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X DELETE \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X DELETE \
   https://yourdomain.com/campaignmanager/announcement/AN9701e246abfe4b839bcfad37c228ab67 \
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'accept: */*'</code></pre>
@@ -11791,7 +11870,7 @@ If the search API is called without page and pageSize, by default pageSize will 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X GET \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
   https://yourdomain.com/campaignmanager/announcement/search?sortBy=name:asc&amp;page=0&amp;pageSize=2\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'accept: */*'</code></pre>
@@ -11933,7 +12012,7 @@ Get Announcement</p></td>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl -X GET \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET \
   https://yourdomain.com/campaignmanager/announcement/search/AN42b3d3e952ff47ecba9d487095a2bc4e\
 --user  ' {your_account_SID}:{your_account_token}' \
   -H 'accept: */*'</code></pre>
