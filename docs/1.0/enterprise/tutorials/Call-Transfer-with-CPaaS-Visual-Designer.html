@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- In order to avoid flashing of wrong brand we keep the title empty at first and then fill it dynamically -->
-    <title data-custom-title="Tutorials - Restcomm Docs"></title>
+    <title data-custom-title="Call Transfer with Visual Designer - Restcomm Docs"></title>
     <link rel="canonical" href="
-      /docs/tutorials/index.html
+      /docs/tutorials/Call-Transfer-with-CPaaS-Visual-Designer.html
     ">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="icon" type="image/png" href=""/>
@@ -3268,97 +3268,360 @@
 <nav class="crumbs" aria-label="breadcrumbs">
   <ul>
     <li class="crumb"><a href="../../index.html">docs</a></li>
-    <li class="crumb"><a href="index.html">Tutorials</a></li>
+    <li class="crumb"><a href="Call-Transfer-with-CPaaS-Visual-Designer.html">Call Transfer with Visual Designer</a></li>
   </ul>
 </nav>
 </div>
 <article class="doc fix-anchor-links-position">
-  <h1>Tutorials</h1>
-<div class="paragraph">
-<p>Explore our step by step developer tutorials and start<br>
-building your communications turnkey applications with <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span>.</p>
+  <h1>Call Transfer with Visual Designer</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_prerequisites">Prerequisites</a></li>
+<li><a href="#_setting_up_your_attended_ivr_visual_designer_template">Setting up Your Attended IVR Visual Designer Template</a>
+<ul class="sectlevel2">
+<li><a href="#_setting_up_the_application_parameters">Setting Up the Application Parameters</a></li>
+<li><a href="#_adding_a_department_to_the_call_transfer_application_flow">Adding A Department to the Call Transfer Application Flow</a></li>
+</ul>
+</li>
+<li><a href="#_understanding_the_application_modules_and_workflow">Understanding the Application Modules and Workflow</a>
+<ul class="sectlevel2">
+<li><a href="#_implicit_call_transfer">Implicit Call Transfer</a></li>
+<li><a href="#_general_error">General Error</a></li>
+</ul>
+</li>
+</ul>
 </div>
-<div class="api-callout-container" id="tutorials-list">
-<div class="api-callout-item">
-    <div class="api-callout-title api-callout-title-usecase">
-      <div class="api-callout-header-container">
-        <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-        <a class="api-callout-link" href="getting-started-with-visual-designer-applications.html">Getting Started with Visual Designer Applications</a>
-      </div>
-    </div>
-    <p class="api-callout-text">Learn how to create and test a communications application using Visual Designer and a registered  phone or SIP number.</p>
-   <!--  <p class="api-callout-text api-callout-footer-simple"><a class="api-callout-link-usecase" href="Create-a-Voicemail-to-Email-app-with-zero-coding.html">Read more</a></p> -->
-  </div>
-  <div class="api-callout-item">
-    <div class="api-callout-title api-callout-title-usecase">
-      <div class="api-callout-header-container">
-        <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-        <a class="api-callout-link" href="Call-Transfer-with-CPaaS-Visual-Designer.html">Call Transfer with CPaaS Visual Designer</a>
-      </div>
-    </div>
-    <p class="api-callout-text">Transfer incoming calls to your Sales or Support department in an attended or unattended manner using SIP Refer functionality.</p>
-  <!--  <p class="api-callout-text api-callout-footer-simple"><a class="api-callout-link-usecase" href="Create-a-Voicemail-to-Email-app-with-zero-coding.html">Read more</a></p> -->
-  </div>
-  <div class="api-callout-item">
-    <div class="api-callout-title api-callout-title-usecase">
-      <div class="api-callout-header-container">
-        <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-        <a class="api-callout-link" href="Create-a-Voicemail-to-Email-app-with-zero-coding.html">Voicemail to Email app</a>
-      </div>
-    </div>
-    <p class="api-callout-text">Never miss a call from your users. Allow your business to be reached 24/7 and enable employees to check their voice messages from their inbox with a simple voicemail to email application.</p>
-   <!--  <p class="api-callout-text api-callout-footer-simple"><a class="api-callout-link-usecase" href="Create-a-Voicemail-to-Email-app-with-zero-coding.html">Read more</a></p> -->
-  </div>
-  <div class="api-callout-item" id="NumberMasking">
-    <div class="api-callout-title api-callout-title-usecase">
-      <div class="api-callout-header-container">
-        <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-        <a class="api-callout-link" href="Phone-number-masking.html">Phone Number Masking</a>
-      </div>
-    </div>
-    <p class="api-callout-text">Value the privacy of your users and keep their phone numbers private by connecting them anonymously through a <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> phone number.</p>
-  <!--   <p class="api-callout-text api-callout-footer-simple"><a class="api-callout-link-usecase" href="Phone-number-masking.html">Read more</a></p> -->
-  </div>
-  <div class="api-callout-item" id="ivr-with-restcomm">
-    <div class="api-callout-title api-callout-title-usecase">
-      <div class="api-callout-header-container">
-        <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-        <a class="api-callout-link" href="IVR-with-Restcomm-Visual-Designer.html">IVR with <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Visual Designer</a>
-      </div>
-    </div>
-    <p class="api-callout-text">Build an interactive voice response (IVR) application for your business. Serve your customer needs faster while reducing operation costs.</p>
-  <!--  <p class="api-callout-text api-callout-footer-simple"><a class="api-callout-link-usecase" href="IVR-with-Restcomm-Visual-Designer.html">Read more</a></p> -->
-  </div>
-  <div class="api-callout-item" id="sms-to-sip">
-    <div class="api-callout-title api-callout-title-usecase">
-      <div class="api-callout-header-container">
-        <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-        <a class="api-callout-link" href="Send-an-SMS-to-a-SIP-Phone.html">Send an SMS to a SIP Phone</a>
-      </div>
-    </div>
-    <p class="api-callout-text">Learn how to send text messages from <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> Visual Designer to a Jitsi SIP phone. </p>
-  <!-- <p class="api-callout-text api-callout-footer-simple"><a class="api-callout-link-usecase" href="Send-an-SMS-to-a-SIP-Phone.html">Read more</a></p> -->
-  </div>
-  <div class="api-callout-item"  id="restcomm-webrtc-demo">
-    <div class="api-callout-title api-callout-title-usecase">
-      <div class="api-callout-header-container">
-        <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-        <a class="api-callout-link" href="How-to-use-the-Restcomm-WebRTC-Demo.html"><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> WebRTC Demo</a>
-      </div>
-    </div>
-    <p class="api-callout-text">Find out how you can use the new <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> WebRTC Demo to take advantage of <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>’s telephony features.</p>
-   <!--  <p class="api-callout-text api-callout-footer-simple"><a class="api-callout-link-usecase" href="How-to-use-the-Restcomm-WebRTC-Demo.html">Read more</a></p> -->
-  </div>
-  <div class="api-callout-item" id="restcomm-voice-callbacks">
-    <div class="api-callout-title api-callout-title-usecase">
-      <div class="api-callout-header-container">
-        <div class="api-callout-box-icon api-callout-box-icon-usecase"></div>
-        <a class="api-callout-link" href="Voice_Callbacks.html"><span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> Voice Callbacks</a>
-      </div>
-    </div>
-    <p class="api-callout-text">Find out how you can use the <span class="sps-text non-sps-link" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span>  voice callbacks and actions.</p>
-   <!-- <p class="api-callout-text api-callout-footer-simple"><a class="api-callout-link-usecase" href="Voice_Callbacks.html">Read more</a></p> -->
-  </div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tutorial will help you create your own Call Transfer Visual Designer application. It is assumed that you have an active CPaaS account. In case you do not, please contact your Communications Provider to request that.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before you start, you need to make you have the following prerequisites.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>API Key/Account Sid credentials to make REST API calls</p>
+</li>
+<li>
+<p>Two registered SIP clients to use for Attended Refer scenario</p>
+</li>
+<li>
+<p>A registered SIP address to use for Unattended Refer scenario</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_up_your_attended_ivr_visual_designer_template"><a class="anchor" href="#_setting_up_your_attended_ivr_visual_designer_template"></a>Setting up Your Attended IVR Visual Designer Template</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Follow the steps below to setup your Attended IVR Visual Designer application template.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Log into your CPaaS account</p>
+</li>
+<li>
+<p>Navigate to Applications &#8594; Your Applications</p>
+</li>
+<li>
+<p>Click on the + Add New App button</p>
+</li>
+<li>
+<p>Choose to Create a Visual Designer Application</p>
+</li>
+<li>
+<p>Select the Call Transfer template from the Template Gallery</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/call-transfer-vd-application/template-gallery.png" alt="template gallery">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Give a name to your application, the click Create.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/call-transfer-vd-application/create-call-transfer-vd-application.png" alt="create call transfer vd application">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setting_up_the_application_parameters"><a class="anchor" href="#_setting_up_the_application_parameters"></a>Setting Up the Application Parameters</h3>
+<div class="paragraph">
+<p>Once the creation of the application is successful, you will be taken to the Visual Designer setup screen, where you can set your application parameters. Fill out the parameters fields and click Save.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/call-transfer-vd-application/application-parameters.png" alt="Call Transfer Application Parameters">
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Parameter Name</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accountSID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enter the Account SID to be used in REST API requests.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>apiUsername</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enter your username for accessing the REST API.</p>
+<p class="tableblock">For non IAM (Identity Access Management) Migrated organizations, this will be the same as the Account SID, Otherwise, this will be the API Key value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>apiPassword</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enter your password for accessing the REST API.</p>
+<p class="tableblock">For non IAM Migrated organizations the value is the Auth token, Otherwise, this will be the API Key secret.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>apiDomain</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enter your CPaaS organization domain to access the API. E.g. <code><a href="https://yourcompany.com" class="bare">https://yourcompany.com</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>applicationSID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This Application SID to be used in REST API requests.</p>
+<p class="tableblock">The newly created application has an Application ID associated with it. To copy that, navigate to your application inside the Visual Designer editor. Then copy the Application ID value from within the URL that loaded in your web browser. The URL pattern is as follows, where <code>AP6b0423b3d923453daf8694a321a1a8bc</code> is the Application ID.</p>
+<p class="tableblock"><code><a href="https://yourcompany.com/visual-designer/#/designer/`AP6b0423b3d923453daf8694a321a1a8bc" class="bare">https://yourcompany.com/visual-designer/#/designer/`AP6b0423b3d923453daf8694a321a1a8bc</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>salesClientAttended</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Client to forward calls for attended call transfer.</p>
+<p class="tableblock">The Sales department Sip client that has been registered as part of the prerequisites.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>supportClientAttended</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Client to forward calls for attended call transfer.</p>
+<p class="tableblock">The Support department Sip client that has been registered as part of the prerequisites.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>customerCareSipUnattended</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sip address to forward calls for unattended call transfer.</p>
+<p class="tableblock">The customer care department Sip Address that has been registered as part of the prerequisites.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_adding_a_department_to_the_call_transfer_application_flow"><a class="anchor" href="#_adding_a_department_to_the_call_transfer_application_flow"></a>Adding A Department to the Call Transfer Application Flow</h3>
+<div class="paragraph">
+<p>Follow the steps below to add another Department to the Call Transfer application flow.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Navigate to the Main IVR module and click on the <code>Add mapping</code> button.</p>
+</li>
+<li>
+<p>Select new Digit (4) and select Attended Transfer as target.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/call-transfer-vd-application/extra-department-option.png" alt="extra department option">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In Attended Transfer, add another <code>Control</code> verb, and configure it to handle the new Department,
+Condition should be set to <code>$Digit</code> with value 4. The Action should be assigned <code>selectedDepartment</code> to the SIP client that is registered for the new department.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Do not forget to add the text to the Say verb for the new IVR option.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/call-transfer-vd-application/control-verb.png" alt="control verb">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Save the application and give it a try.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_the_application_modules_and_workflow"><a class="anchor" href="#_understanding_the_application_modules_and_workflow"></a>Understanding the Application Modules and Workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Call Transfer template has nine modules that represent both the attended and unattended refer scenarios. Let’s have a look into each module.</p>
+</div>
+<div class="paragraph">
+<p><strong>01 - Main IVR</strong>
+Simple IVR Collect step to prompt the caller to press a department digit, and transfer the caller to a relevant flow module.</p>
+</div>
+<div class="paragraph">
+<p><strong>02.a - Unattended Transfer</strong>
+Module with single step that performs call transfer to a specified SIP address.</p>
+</div>
+<div class="paragraph">
+<p><strong>02.b - Attended Transfer</strong>
+Module that acts as a starting point for Attended flow dynamically, based on a user digit selection and the combination of <a href="../visual-designer/Visual-Designer-Usage-Guide.html#_control_verb">Control verb</a>.</p>
+</div>
+<div class="paragraph">
+<p>For every newly aded department, you need to add another Control verb that will populate the global variable <code>selectedDepartment</code> variable with the corresponding department client.</p>
+</div>
+<div class="paragraph">
+<p>In the case of this template, the department client is exposed as a template parameter. Thus, we can add more departments to this module.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In order to add more departments, the Control step must be duplicated and:
+* a new <code>$digit</code> value for evaluation in the "condition" section must be set
+* <code>selectedDepartment</code> variable must be set to new client department in the "Action" section of the Control verb. Don&#8217;t forget to add Digit mapping for the new Digit at "Main IVR" module.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>At the end of the module, there is a usage of <code>Hold</code> verb which will let the application proceed to the <code>Dial Attended Client</code> module.</p>
+</div>
+<div class="paragraph">
+<p><strong>03 - Dial Attended Client</strong></p>
+</div>
+<div class="paragraph">
+<p>Here we use the global variable <code>selectedDepartment</code> (populated in the last module), in the Dial verb with the combination of a <code>Client Noun</code>. This is how the dynamic and reuse of module is done.</p>
+</div>
+<div class="paragraph">
+<p>Once the Dial to client occurs, the <code>Before Connect</code> module Collect Attended Client", will be processed for the attended department call.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>Before Connect</code> property is hidden by default. In order to reveal it, please click the Dial noun cogwheel.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>04 - Collect Attended Client</strong></p>
+</div>
+<div class="paragraph">
+<p>This module contains a simple Accept/Reject the transfer call via Collect digit verb.</p>
+</div>
+<div class="paragraph">
+<p>This is what will be presented to the attended department call.</p>
+</div>
+<div class="paragraph">
+<p>If 1 is press, the application proceeds to <code>Attended Client Accepts</code> module, if 2 is pressed, <code>Attended Client Rejects</code> module is executed.</p>
+</div>
+<div class="paragraph">
+<p><strong>05.b - Attended Client Rejects </strong></p>
+</div>
+<div class="paragraph">
+<p>Simple <code>Hung Up</code> step to terminate the transfer.</p>
+</div>
+<div class="paragraph">
+<p><strong>05.b - Attended Client Accepts</strong></p>
+</div>
+<div class="paragraph">
+<p>In this module, we perform the actual merge between the original call, and the attended department which accepted the call.
+We perform Live call modification REST API request via an External Service verb.</p>
+</div>
+<div class="paragraph">
+<p>The REST request structure is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>https://$apiDomain/restcomm/2012-04-24/Accounts/$accountSID/Calls/$ParentCallSid.json</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first two parameters (apiDomain, accountSID) are defined in the template parameters list. The last one (ParentCallSid) is autopopulated internally via Visual Designer logic.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Do not change or populate this variable yourself.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The API Request required two more query parameters:</p>
+</div>
+<div class="paragraph">
+<p><strong>ChildCallMode</strong> = StayConnected
+All call legs will continue to stay connected and process an RCML from an existing URL.+
+<strong>Url</strong>  - that will serve an empty refer RCML response, in our case we serve the RCML by providing full URI to another module, "Implicit Call Transfer".</p>
+</div>
+<div class="paragraph">
+<p>The URI is constructed of 3 parameters:</p>
+</div>
+<div class="paragraph">
+<p><code><a href="https://$apiDomain/visual-designer/services/apps/$applicationSID/controller?target=$lcmEmptyReferModuleID" class="bare">https://$apiDomain/visual-designer/services/apps/$applicationSID/controller?target=$lcmEmptyReferModuleID</a></code></p>
+</div>
+<div class="paragraph">
+<p>The first two parameters (apiDomain, applicationSID) are defined in template parameters list. The last one (lcmEmptyReferModuleID), is assigned one step before the External Service via a Control step.</p>
+</div>
+<div class="paragraph">
+<p>The template assumes that the module Ids will not change during application modification, but if so, the module ID that represents the empty refer RCML should be assigned to <code>lcmEmptyReferModuleID</code>.</p>
+</div>
+<div class="paragraph">
+<p>The module ID could be obtained by hovering over the module tab name.</p>
+</div>
+<div class="sect2">
+<h3 id="_implicit_call_transfer"><a class="anchor" href="#_implicit_call_transfer"></a>Implicit Call Transfer</h3>
+<div class="paragraph">
+<p>This module is for the External Service usage. It outputs the empty call transfer RCML that the API call for live call modification needs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_general_error"><a class="anchor" href="#_general_error"></a>General Error</h3>
+<div class="paragraph">
+<p>Just a simple generic module for handling errors across the application.</p>
+</div>
+</div>
+</div>
 </div>
 </article>
   </main>

@@ -6524,7 +6524,8 @@ below:</p>
       "configuration": "{\"campaignManager\":{\"throttle\": {\"smsPerSecond\":\"10\", \"callsPerSecond\":\"25\", \"concurrentCalls\":\"5\"}}}",
       "status":"ACTIVE",
       "enterpriseAdminSid":"RCS7e9130b1534e45ca96c5a840fd47e645",
-      "enterpriseAdminEmail":"jane.doe@company.com"
+      "enterpriseAdminEmail":"jane.doe@company.com",
+      "useFromLists": "false"
       }
     ],
     "pageSize":10,
@@ -6694,7 +6695,8 @@ Business Customer, Delete Business Customer, Get Business Customer</p></td>
       "configuration": "{\"campaignManager\":{\"throttle\": {\"smsPerSecond\":\"10\", \"callsPerSecond\":\"25\", \"concurrentCalls\":\"5\"}}}",
       "status":"ACTIVE",
       "enterpriseAdminSid":"RCS7e9130b1534e45ca96c5a840fd47e645",
-      "enterpriseAdminEmail":"jane.doe@company.com"
+      "enterpriseAdminEmail":"jane.doe@company.com",
+      "useFromLists": "false"
    },
    "code":200,
    "message":"OK"
@@ -7574,14 +7576,13 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
 <h5 id="_sms_campaign_example"><a class="anchor" href="#_sms_campaign_example"></a>SMS Campaign Example</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
-    "name" : "Camp4-18Mar-1222",
-    "startTime":"2021-03-18T12:20:46+0530",
-    "fromNumberSid":"&lt;The sid of a `to` numbers group&gt;",
-    "toListSid":"&lt;The sid of a `from` numbers group&gt;",
-    "channel" : "sms" ,
-    "body":"Happy New Year"
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-http request hljs" data-lang="http request">https://yourdomain.com/campaignmanager/campaigns
+?name=Camp4-18Mar-1222
+&amp;toListSid=&lt;The sid of a `from` numbers group&gt;
+&amp;channel=sms
+&amp;fromNumberSid=&lt;The sid of a `to` numbers group&gt;
+&amp;startTime=2021-03-18T21%3A00%3A00.000Z
+&amp;body=Happy New Year</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7642,15 +7643,14 @@ This parameter is needed only if the channel is voice. For Voice either of rcmlU
 <h5 id="_voice_campaign_example"><a class="anchor" href="#_voice_campaign_example"></a>Voice Campaign Example</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-json5 hljs" data-lang="json5">{
-    "name":"My very first TTS campaign",
-    "startTime":"2021-03-18T12:35:46+0530",
-    "fromListSid":"The sid of a `from` numbers group",
-    "toListSid":"The sid of a `to` numbers group",
-    "announcementSid":"AN3f01da2b10d84f7f92f5b7aaced20a94",
-    "channel":"voice",
-    "dialTimeout":"10"
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-http request hljs" data-lang="http request">https://yourdomain.com/campaignmanager/campaigns
+?name=My very first TTS campaign
+&amp;toListSid=&lt;The sid of a `from` numbers group&gt;
+&amp;announcementSid=AN3f01da2b10d84f7f92f5b7aaced20a94
+&amp;channel=voice
+&amp;fromNumberSid=&lt;The sid of a `to` numbers group&gt;
+&amp;startTime=2021-03-18T21%3A00%3A00.000Z
+&amp;dialTimeout=10</code></pre>
 </div>
 </div>
 <div class="paragraph">
