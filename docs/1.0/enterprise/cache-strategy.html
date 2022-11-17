@@ -3264,10 +3264,10 @@
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform implements a cache strategy for external media resources used for Play and Say verbs, in order to optimize external services access that might incur for those resources such as network traffic, service fees etc.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform implements a cache strategy for external media resources used for Play and Say verbs, in order to optimize external services access that might incur for those resources such as network traffic, service fees etc.</p>
 </div>
 <div class="paragraph">
-<p>With the provided cache strategy, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform will fetch external resources, cache them and reuse them as needed for subsequent invocations.</p>
+<p>With the provided cache strategy, <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform will fetch external resources, cache them and reuse them as needed for subsequent invocations.</p>
 </div>
 </div>
 </div>
@@ -3275,20 +3275,20 @@
 <h2 id="_cache_strategy_explained"><a class="anchor" href="#_cache_strategy_explained"></a>Cache Strategy explained</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform executes Play and Say verbs, for the most of the times, a third party service will be accessed to fetch the media resource (audio WAVE file) to execute, for example:</p>
+<p>When <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform executes Play and Say verbs, for the most of the times, a third party service will be accessed to fetch the media resource (audio WAVE file) to execute, for example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>A Play verb points to a URL for the media resource. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform will use the provided URL to fetch the media resource (audio WAVE file).</p>
+<p>A Play verb points to a URL for the media resource. <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform will use the provided URL to fetch the media resource (audio WAVE file).</p>
 </li>
 <li>
-<p>A Say verb configured to use a specific third party Text-To-Speech service provider with certain voice attributes and the text to be transformed to an audio WAVE file. <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform will use the Say verb attributes to fetch the media resource (audio WAVE file).</p>
+<p>A Say verb configured to use a specific third party Text-To-Speech service provider with certain voice attributes and the text to be transformed to an audio WAVE file. <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform will use the Say verb attributes to fetch the media resource (audio WAVE file).</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Given that contents of a Play and Say verbs are mostly static for a CPaaS application, for example most of the announcements in an IVR tree will remain the same for all calls, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> will cache the resulted media resource (audio WAVE file) after the first execution of the verb in order to optimize the consumption of external resources and services.</p>
+<p>Given that contents of a Play and Say verbs are mostly static for a CPaaS application, for example most of the announcements in an IVR tree will remain the same for all calls, <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> will cache the resulted media resource (audio WAVE file) after the first execution of the verb in order to optimize the consumption of external resources and services.</p>
 </div>
 <div class="paragraph">
 <p>The cache flow for Play and Say verbs looks like this:</p>
@@ -3296,24 +3296,24 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform parse Play or Say verb attributes, Play verb contains URL to the media resource and Say verb contains the Voice attributes and Text attributes.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform parse Play or Say verb attributes, Play verb contains URL to the media resource and Say verb contains the Voice attributes and Text attributes.</p>
 </li>
 <li>
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform will generate HASH key based on verb content, HASH key will be either the Play verb URL to media resource or the Say verb Voice attributes and Text.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform will generate HASH key based on verb content, HASH key will be either the Play verb URL to media resource or the Say verb Voice attributes and Text.</p>
 </li>
 <li>
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform will download external media resource for Play verb, or execute third party API to generate and download media resource for Say verb.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform will download external media resource for Play verb, or execute third party API to generate and download media resource for Say verb.</p>
 </li>
 <li>
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform will cache downloaded media resource using the generated HASH as key.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform will cache downloaded media resource using the generated HASH as key.</p>
 </li>
 <li>
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform will execute Play or Say verb</p>
+<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform will execute Play or Say verb</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>For subsequent invocations of Play or Say verb with the same content, <span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform will generate a HASH key that matches the key of the already cached resource and will re-use this resource, thus will skip steps 3 and 4 which means it will skip access to external service.</p>
+<p>For subsequent invocations of Play or Say verb with the same content, <span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform will generate a HASH key that matches the key of the already cached resource and will re-use this resource, thus will skip steps 3 and 4 which means it will skip access to external service.</p>
 </div>
 </div>
 </div>
@@ -3321,7 +3321,7 @@
 <h2 id="_cache_eviction_policy"><a class="anchor" href="#_cache_eviction_policy"></a>Cache eviction policy</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="sps-text non-sps-link" data-orig-text="Restcomm" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">Restcomm</span> CPaaS platform cache strategy also implements a cache eviction policy by which media resources will be removed.</p>
+<p><span class="sps-text non-sps-link" data-orig-text="CPaaS" data-parm-text="application_name" data-default-text="$INFER_FROM_DOMAIN">CPaaS</span> CPaaS platform cache strategy also implements a cache eviction policy by which media resources will be removed.</p>
 </div>
 <div class="paragraph">
 <p>The cache eviction policy will be triggered once every day and will cleanup the oldest 1000 media resources.</p>
