@@ -8,7 +8,7 @@
     <link rel="canonical" href="
       https://www.restcomm.com/docs/1.0/api/sdr/sdr-call.html
     ">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.0">
     <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
@@ -17,7 +17,54 @@
           rel="stylesheet">
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      </head>
+    <header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" id="Reference" href="/docs/1.0/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" id="TurnkeyApplications" href="/docs/1.0/visual-designer/index.html">Visual Designer</a>
+        <a class="navbar-enterprise-item" id="Tutorials" href="/docs/1.0/tutorials/index.html">Tutorials</a>
+
+
+    </div>
+  </nav>
+</header>
+  </head>
   <body class="article" >
 <header class="header">
   <nav class="navbar">
@@ -33,8 +80,8 @@
       <div class="navbar-end">
         <!-- TODO: Bring back when we integrate with searching facilities
         <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
         <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
         <div class="navbar-item">
           <span>
             <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
@@ -5394,7 +5441,7 @@
     <li class="component is-current">
       <span class="title">docs</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="../../index.html">1.0</a>
         </li>
       </ul>
@@ -5652,7 +5699,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>instance_id,account_sid,forwarded_from,price,ring_duration,subresource_uris.notifications,subresource_uris.recordings,phone_number_sid,uri,sip_status_code,from,to,conference_sid,parent_call_sid,date_updated,date_updated_ms,start_time,start_time_ms,sip_status_reason,end_time,end_time_ms,date_created,date_created_ms,caller_name,status,direction,price_unit,org_sid,custom_headers.X-Parent-CallID,custom_headers.X-Sip-Balancer-InitialRemotePort,custom_headers.X-Parent-CallSid,custom_headers.X-Sip-Balancer-InitialRemoteAddr,custom_headers.IMDN,custom_headers.MSISDN,custom_headers.X-IMDN,duration,answered_by,api_version,sid,reason.message,reason.code,reason.protocol
+<pre class="highlightjs highlight"><code class="language-none hljs">instance_id,account_sid,forwarded_from,price,ring_duration,subresource_uris.notifications,subresource_uris.recordings,phone_number_sid,uri,sip_status_code,from,to,conference_sid,parent_call_sid,date_updated,date_updated_ms,start_time,start_time_ms,sip_status_reason,end_time,end_time_ms,date_created,date_created_ms,caller_name,status,direction,price_unit,org_sid,custom_headers.X-Parent-CallID,custom_headers.X-Sip-Balancer-InitialRemotePort,custom_headers.X-Parent-CallSid,custom_headers.X-Sip-Balancer-InitialRemoteAddr,custom_headers.IMDN,custom_headers.MSISDN,custom_headers.X-IMDN,duration,answered_by,api_version,sid,reason.message,reason.code,reason.protocol
 ID00000000000031302e322e33362e3731,ACab03aae495eb4ca69737aa0d0da73d7f,,0.0,0,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Notifications.json?CallSid=ID00000000000031302e322e33362e3731-CAe473524f544e44039a7caeaa70298eff,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings.json?CallSid=ID00000000000031302e322e33362e3731-CAe473524f544e44039a7caeaa70298eff,,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Calls/ID00000000000031302e322e33362e3731-CAe473524f544e44039a7caeaa70298eff,200,alice,bob,,ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,"Fri, 22 Apr 2022 08:59:40 +0000","Fri, 22 Apr 2022 08:59:40.123 +0000",2022-04-22T08:59:37.000Z,"Fri, 22 Apr 2022 08:59:40.123 +0000",OK,2022-04-22T08:59:40.000Z,"Fri, 22 Apr 2022 08:59:40.123 +0000","Fri, 22 Apr 2022 08:59:36 +0000","Fri, 22 Apr 2022 08:59:36.123 +0000",alice,completed,outbound-api,USD,OR55e4cbe945a14edca5bd157b9ee97bcc,cab3a72681f44cb9d55865fb179e8bd7@172.31.37.111,39853,ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,127.0.0.1,0012345678,0012345678,0012345678,4,bob,2012-04-24,ID00000000000031302e322e33362e3731-CAe473524f544e44039a7caeaa70298eff,,0,
 ID00000000000031302e322e33362e3731,ACab03aae495eb4ca69737aa0d0da73d7f,,0.0,0,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Notifications.json?CallSid=ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings.json?CallSid=ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,ACab03aae495eb4ca69737aa0d0da73d7f,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Calls/ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,200,alice,bob,,,"Fri, 22 Apr 2022 08:59:40 +0000","Fri, 22 Apr 2022 08:59:40.123 +0000",2022-04-22T08:59:36.000Z,"Fri, 22 Apr 2022 08:59:40.123 +0000",OK,2022-04-22T08:59:40.000Z,"Fri, 22 Apr 2022 08:59:40.123 +0000","Fri, 22 Apr 2022 08:59:36 +0000","Fri, 22 Apr 2022 08:59:36.123 +0000",Unknown,completed,inbound,USD,OR55e4cbe945a14edca5bd157b9ee97bcc,cab3a72681f44cb9d55865fb179e8bd7@172.31.37.111,39853,ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,127.0.0.1,0012345678,0012345678,0012345678,4,bob,2012-04-24,ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,,0,
 ID00000000000031302e322e33362e3731,ACab03aae495eb4ca69737aa0d0da73d7f,,0.0,0,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Notifications.json?CallSid=ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings.json?CallSid=ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,ACab03aae495eb4ca69737aa0d0da73d7f,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Calls/ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,200,alice,bob,,,"Fri, 22 Apr 2022 08:59:40 +0000","Fri, 22 Apr 2022 08:59:40.123 +0000",2022-04-22T08:59:36.000Z,"Fri, 22 Apr 2022 08:59:40.123 +0000",OK,2022-04-22T08:59:40.000Z,"Fri, 22 Apr 2022 08:59:40.123 +0000","Fri, 22 Apr 2022 08:59:36 +0000","Fri, 22 Apr 2022 08:59:36.123 +0000",Unknown,failed,inbound,USD,OR55e4cbe945a14edca5bd157b9ee97bcc,cab3a72681f44cb9d55865fb179e8bd7@172.31.37.111,39853,ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,127.0.0.1,0012345678,0012345678,0012345678,4,bob,2012-04-24,ID00000000000031302e322e33362e3731-CA6434d29cb6fd49d08e17d035e2814c8e,CPAAS,1000,CPaaS Internal Error
@@ -5715,7 +5762,7 @@ ID00000000000031302e322e33362e3731,ACab03aae495eb4ca69737aa0d0da73d7f,,0.0,0,/20
   </div>
 </footer>
 <script src="../../../../_/js/site.js"></script>
-<script src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/highlight.bundle.js"></script>
 <!--
 <script>hljs.initHighlighting()</script>
 -->

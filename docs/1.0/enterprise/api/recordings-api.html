@@ -8,7 +8,7 @@
     <link rel="canonical" href="
       /docs/api/recordings-api.html
     ">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.0">
     <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
@@ -17,7 +17,42 @@
           rel="stylesheet">
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      </head>
+    <header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" id="Reference" href="/docs/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" id="TurnkeyApplications" href="/docs/turnkey-applications/index.html">Turnkey Applications</a>
+        <a class="navbar-enterprise-item" id="Tutorials" href="/docs/tutorials/index.html">Tutorials</a>
+        <a class="navbar-enterprise-item" id="VisualDesigner" href="/docs/visual-designer/index.html">Visual Designer</a>
+
+
+    </div>
+  </nav>
+</header>
+  </head>
   <body class="article" style="display: none">
 <header class="header">
   <nav class="navbar">
@@ -3248,7 +3283,7 @@
     <li class="component is-current">
       <span class="title">docs</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="../../index.html">1.0</a>
         </li>
       </ul>
@@ -3349,11 +3384,11 @@ Although Recording Sids in Recording URLs are essentially long random strings th
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Uri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/">https://$DOMAIN/restcomm/2012-04-24/</span></code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URI for this account, relative to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/">\https://$DOMAIN/restcomm/2012-04-24/</span></code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FileUri</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The File URI for this recording, relative to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/">https://$DOMAIN/restcomm/2012-04-24/</span></code>. It can be used to access the WAV file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The File URI for this recording, relative to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/">\https://$DOMAIN/restcomm/2012-04-24/</span></code>. It can be used to access the WAV file</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S3Uri</p></td>
@@ -3468,17 +3503,17 @@ Unlike the Recording instance resource described above, the list of recordings I
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-73 is-active" onclick="openLanguage('Curl', 73)">Curl</button>
-        <button class="sample-code-button scsIndex-73" onclick="openLanguage('Nodejs', 73)">Nodejs</button>
-        <button class="sample-code-button scsIndex-73" onclick="openLanguage('Python', 73)">Python</button>
-        <button class="sample-code-button scsIndex-73" onclick="openLanguage('Java', 73)">Java</button>
+        <button class="sample-code-button scsIndex-172 is-active" onclick="openLanguage('Curl', 172)">Curl</button>
+        <button class="sample-code-button scsIndex-172" onclick="openLanguage('Nodejs', 172)">Nodejs</button>
+        <button class="sample-code-button scsIndex-172" onclick="openLanguage('Python', 172)">Python</button>
+        <button class="sample-code-button scsIndex-172" onclick="openLanguage('Java', 172)">Java</button>
       </div>
-      <div id="Curl-73" class="sample-language-73">
+      <div id="Curl-172" class="sample-language-172">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Recordings.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-73" class="sample-language-73" style="display:none">
+      <div id="Nodejs-172" class="sample-language-172" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3497,7 +3532,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-73" class="sample-language-73" style="display:none">
+      <div id="Python-172" class="sample-language-172" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3517,7 +3552,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-73" class="sample-language-73" style="display:none">
+      <div id="Java-172" class="sample-language-172" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3560,7 +3595,7 @@ public class JavaSampleClass {
             "duration":"14.70275",
             "api_version":"2012-04-24",
             "uri":"/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Recordings/RE50675909d9c94acda36f0e119b6cb431.json",
-            "file_uri":"<span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav">https://$DOMAIN/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav</span>"
+            "file_uri":"<span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav">\https://$DOMAIN/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav</span>"
         },
         ...
     ]
@@ -3584,7 +3619,7 @@ public class JavaSampleClass {
 </div>
 <div class="paragraph">
 <p>The <strong>&lt;Uri&gt;</strong> holds the http URI that can be used for playback or to download the recorded message.
-Here is how to access the file using http <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/recordings/REb4c03af76cdc4a27aad0d9d759e119bc.wav">https://$DOMAIN/restcomm/recordings/REb4c03af76cdc4a27aad0d9d759e119bc.wav</span>`</code></p>
+Here is how to access the file using http <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/recordings/REb4c03af76cdc4a27aad0d9d759e119bc.wav">\https://$DOMAIN/restcomm/recordings/REb4c03af76cdc4a27aad0d9d759e119bc.wav</span>`</code></p>
 </div>
 </div>
 </div>
@@ -3629,17 +3664,17 @@ Here is how to access the file using http <code><span class="non-sps-text non-sp
 <p>The example below will only return Recordings that has been started from this CallSid</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-74 is-active" onclick="openLanguage('Curl', 74)">Curl</button>
-        <button class="sample-code-button scsIndex-74" onclick="openLanguage('Nodejs', 74)">Nodejs</button>
-        <button class="sample-code-button scsIndex-74" onclick="openLanguage('Python', 74)">Python</button>
-        <button class="sample-code-button scsIndex-74" onclick="openLanguage('Java', 74)">Java</button>
+        <button class="sample-code-button scsIndex-173 is-active" onclick="openLanguage('Curl', 173)">Curl</button>
+        <button class="sample-code-button scsIndex-173" onclick="openLanguage('Nodejs', 173)">Nodejs</button>
+        <button class="sample-code-button scsIndex-173" onclick="openLanguage('Python', 173)">Python</button>
+        <button class="sample-code-button scsIndex-173" onclick="openLanguage('Java', 173)">Java</button>
       </div>
-      <div id="Curl-74" class="sample-language-74">
+      <div id="Curl-173" class="sample-language-173">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Recordings.json?CallSid=CAfe9ce46f104f5beeb10c83a5dad2be66  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-74" class="sample-language-74" style="display:none">
+      <div id="Nodejs-173" class="sample-language-173" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3658,7 +3693,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-74" class="sample-language-74" style="display:none">
+      <div id="Python-173" class="sample-language-173" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3678,7 +3713,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-74" class="sample-language-74" style="display:none">
+      <div id="Java-173" class="sample-language-173" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3721,7 +3756,7 @@ public class JavaSampleClass {
             "duration":"14.70275",
             "api_version":"2012-04-24",
             "uri":"/2012-04-24/Accounts/ACae6e420f425248d6a26948c17a9e2acf/Recordings/RE50675909d9c94acda36f0e119b6cb431.json",
-            "file_uri":"<span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav">https://$DOMAIN/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav</span>"
+            "file_uri":"<span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav">\https://$DOMAIN/restcomm/recordings/RE50675909d9c94acda36f0e119b6cb431.wav</span>"
         },
         ...
     ]
@@ -3784,17 +3819,17 @@ public class JavaSampleClass {
 <p>The command below will return a single item from the list of recordings using the PageSize parameter</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-75 is-active" onclick="openLanguage('Curl', 75)">Curl</button>
-        <button class="sample-code-button scsIndex-75" onclick="openLanguage('Nodejs', 75)">Nodejs</button>
-        <button class="sample-code-button scsIndex-75" onclick="openLanguage('Python', 75)">Python</button>
-        <button class="sample-code-button scsIndex-75" onclick="openLanguage('Java', 75)">Java</button>
+        <button class="sample-code-button scsIndex-174 is-active" onclick="openLanguage('Curl', 174)">Curl</button>
+        <button class="sample-code-button scsIndex-174" onclick="openLanguage('Nodejs', 174)">Nodejs</button>
+        <button class="sample-code-button scsIndex-174" onclick="openLanguage('Python', 174)">Python</button>
+        <button class="sample-code-button scsIndex-174" onclick="openLanguage('Java', 174)">Java</button>
       </div>
-      <div id="Curl-75" class="sample-language-75">
+      <div id="Curl-174" class="sample-language-174">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Recordings.json?PageSize=1  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-75" class="sample-language-75" style="display:none">
+      <div id="Nodejs-174" class="sample-language-174" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3813,7 +3848,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-75" class="sample-language-75" style="display:none">
+      <div id="Python-174" class="sample-language-174" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3833,7 +3868,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-75" class="sample-language-75" style="display:none">
+      <div id="Java-174" class="sample-language-174" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3896,17 +3931,17 @@ public class JavaSampleClass {
 <p>The command below, using Limit parameter will return a list of 500 records in total</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-76 is-active" onclick="openLanguage('Curl', 76)">Curl</button>
-        <button class="sample-code-button scsIndex-76" onclick="openLanguage('Nodejs', 76)">Nodejs</button>
-        <button class="sample-code-button scsIndex-76" onclick="openLanguage('Python', 76)">Python</button>
-        <button class="sample-code-button scsIndex-76" onclick="openLanguage('Java', 76)">Java</button>
+        <button class="sample-code-button scsIndex-175 is-active" onclick="openLanguage('Curl', 175)">Curl</button>
+        <button class="sample-code-button scsIndex-175" onclick="openLanguage('Nodejs', 175)">Nodejs</button>
+        <button class="sample-code-button scsIndex-175" onclick="openLanguage('Python', 175)">Python</button>
+        <button class="sample-code-button scsIndex-175" onclick="openLanguage('Java', 175)">Java</button>
       </div>
-      <div id="Curl-76" class="sample-language-76">
+      <div id="Curl-175" class="sample-language-175">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Recordings.json?PageSize=1&Limit=500  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-76" class="sample-language-76" style="display:none">
+      <div id="Nodejs-175" class="sample-language-175" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3925,7 +3960,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-76" class="sample-language-76" style="display:none">
+      <div id="Python-175" class="sample-language-175" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -3945,7 +3980,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-76" class="sample-language-76" style="display:none">
+      <div id="Java-175" class="sample-language-175" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3977,7 +4012,7 @@ public class JavaSampleClass {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "page": 0,
     "num_pages": 0,
     "page_size": 1,
@@ -4093,17 +4128,17 @@ public class JavaSampleClass {
 <p>The command below will return recordings sorted by the creation date in ascending order using SortBy parameter:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-77 is-active" onclick="openLanguage('Curl', 77)">Curl</button>
-        <button class="sample-code-button scsIndex-77" onclick="openLanguage('Nodejs', 77)">Nodejs</button>
-        <button class="sample-code-button scsIndex-77" onclick="openLanguage('Python', 77)">Python</button>
-        <button class="sample-code-button scsIndex-77" onclick="openLanguage('Java', 77)">Java</button>
+        <button class="sample-code-button scsIndex-176 is-active" onclick="openLanguage('Curl', 176)">Curl</button>
+        <button class="sample-code-button scsIndex-176" onclick="openLanguage('Nodejs', 176)">Nodejs</button>
+        <button class="sample-code-button scsIndex-176" onclick="openLanguage('Python', 176)">Python</button>
+        <button class="sample-code-button scsIndex-176" onclick="openLanguage('Java', 176)">Java</button>
       </div>
-      <div id="Curl-77" class="sample-language-77">
+      <div id="Curl-176" class="sample-language-176">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/ACCOUNT_SID/Recordings.json?SortBy=DateCreated:asc'  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-77" class="sample-language-77" style="display:none">
+      <div id="Nodejs-176" class="sample-language-176" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -4122,7 +4157,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-77" class="sample-language-77" style="display:none">
+      <div id="Python-176" class="sample-language-176" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -4142,7 +4177,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-77" class="sample-language-77" style="display:none">
+      <div id="Java-176" class="sample-language-176" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -4243,17 +4278,17 @@ public class JavaSampleClass {
 <p>From the bash terminal, you can run the command below:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-78 is-active" onclick="openLanguage('Curl', 78)">Curl</button>
-        <button class="sample-code-button scsIndex-78" onclick="openLanguage('Nodejs', 78)">Nodejs</button>
-        <button class="sample-code-button scsIndex-78" onclick="openLanguage('Python', 78)">Python</button>
-        <button class="sample-code-button scsIndex-78" onclick="openLanguage('Java', 78)">Java</button>
+        <button class="sample-code-button scsIndex-177 is-active" onclick="openLanguage('Curl', 177)">Curl</button>
+        <button class="sample-code-button scsIndex-177" onclick="openLanguage('Nodejs', 177)">Nodejs</button>
+        <button class="sample-code-button scsIndex-177" onclick="openLanguage('Python', 177)">Python</button>
+        <button class="sample-code-button scsIndex-177" onclick="openLanguage('Java', 177)">Java</button>
       </div>
-      <div id="Curl-78" class="sample-language-78">
+      <div id="Curl-177" class="sample-language-177">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X DELETE https://mycompany.restcomm.com/restcomm/2012-04-24/"Accounts/ACCOUNT_SID/Recordings/RECORDING_SID'  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-78" class="sample-language-78" style="display:none">
+      <div id="Nodejs-177" class="sample-language-177" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -4274,7 +4309,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-78" class="sample-language-78" style="display:none">
+      <div id="Python-177" class="sample-language-177" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -4296,7 +4331,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-78" class="sample-language-78" style="display:none">
+      <div id="Java-177" class="sample-language-177" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -4367,7 +4402,7 @@ public class JavaSampleClass {
   </div>
 </footer>
 <script src="../../../../_/js/site.js"></script>
-<script src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/highlight.bundle.js"></script>
 <!--
 <script>hljs.initHighlighting()</script>
 -->

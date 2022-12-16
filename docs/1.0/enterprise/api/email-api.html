@@ -8,7 +8,7 @@
     <link rel="canonical" href="
       /docs/api/email-api.html
     ">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.0">
     <link rel="icon" type="image/png" href=""/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
@@ -17,7 +17,42 @@
           rel="stylesheet">
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      </head>
+    <header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" id="Reference" href="/docs/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" id="TurnkeyApplications" href="/docs/turnkey-applications/index.html">Turnkey Applications</a>
+        <a class="navbar-enterprise-item" id="Tutorials" href="/docs/tutorials/index.html">Tutorials</a>
+        <a class="navbar-enterprise-item" id="VisualDesigner" href="/docs/visual-designer/index.html">Visual Designer</a>
+
+
+    </div>
+  </nav>
+</header>
+  </head>
   <body class="article" style="display: none">
 <header class="header">
   <nav class="navbar">
@@ -3248,7 +3283,7 @@
     <li class="component is-current">
       <span class="title">docs</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="../../index.html">1.0</a>
         </li>
       </ul>
@@ -3358,12 +3393,12 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-36 is-active" onclick="openLanguage('Curl', 36)">Curl</button>
-        <button class="sample-code-button scsIndex-36" onclick="openLanguage('Nodejs', 36)">Nodejs</button>
-        <button class="sample-code-button scsIndex-36" onclick="openLanguage('Python', 36)">Python</button>
-        <button class="sample-code-button scsIndex-36" onclick="openLanguage('Java', 36)">Java</button>
+        <button class="sample-code-button scsIndex-135 is-active" onclick="openLanguage('Curl', 135)">Curl</button>
+        <button class="sample-code-button scsIndex-135" onclick="openLanguage('Nodejs', 135)">Nodejs</button>
+        <button class="sample-code-button scsIndex-135" onclick="openLanguage('Python', 135)">Python</button>
+        <button class="sample-code-button scsIndex-135" onclick="openLanguage('Java', 135)">Java</button>
       </div>
-      <div id="Curl-36" class="sample-language-36">
+      <div id="Curl-135" class="sample-language-135">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
    -d 'To=john.doe@yourcompany.com' \
    -d 'From=jane.doe@yourcompany.com' \
@@ -3372,7 +3407,7 @@
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-36" class="sample-language-36" style="display:none">
+      <div id="Nodejs-135" class="sample-language-135" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3396,7 +3431,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-36" class="sample-language-36" style="display:none">
+      <div id="Python-135" class="sample-language-135" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -3427,7 +3462,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-36" class="sample-language-36" style="display:none">
+      <div id="Java-135" class="sample-language-135" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3483,12 +3518,12 @@ public class JavaSampleClass {
 </ul>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-37 is-active" onclick="openLanguage('Curl', 37)">Curl</button>
-        <button class="sample-code-button scsIndex-37" onclick="openLanguage('Nodejs', 37)">Nodejs</button>
-        <button class="sample-code-button scsIndex-37" onclick="openLanguage('Python', 37)">Python</button>
-        <button class="sample-code-button scsIndex-37" onclick="openLanguage('Java', 37)">Java</button>
+        <button class="sample-code-button scsIndex-136 is-active" onclick="openLanguage('Curl', 136)">Curl</button>
+        <button class="sample-code-button scsIndex-136" onclick="openLanguage('Nodejs', 136)">Nodejs</button>
+        <button class="sample-code-button scsIndex-136" onclick="openLanguage('Python', 136)">Python</button>
+        <button class="sample-code-button scsIndex-136" onclick="openLanguage('Java', 136)">Java</button>
       </div>
-      <div id="Curl-37" class="sample-language-37">
+      <div id="Curl-136" class="sample-language-136">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Email/Messages  \
    -d 'To=john.doe@yourcompany.com' \
    -d 'From=jane.doe@yourcompany.com' \
@@ -3497,7 +3532,7 @@ public class JavaSampleClass {
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-37" class="sample-language-37" style="display:none">
+      <div id="Nodejs-136" class="sample-language-136" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -3521,7 +3556,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-37" class="sample-language-37" style="display:none">
+      <div id="Python-136" class="sample-language-136" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -3552,7 +3587,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-37" class="sample-language-37" style="display:none">
+      <div id="Java-136" class="sample-language-136" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -3685,7 +3720,7 @@ public class JavaSampleClass {
   </div>
 </footer>
 <script src="../../../../_/js/site.js"></script>
-<script src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/highlight.bundle.js"></script>
 <!--
 <script>hljs.initHighlighting()</script>
 -->

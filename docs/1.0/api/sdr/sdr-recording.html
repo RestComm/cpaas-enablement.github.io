@@ -8,7 +8,7 @@
     <link rel="canonical" href="
       https://www.restcomm.com/docs/1.0/api/sdr/sdr-recording.html
     ">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.0">
     <link rel="icon" type="image/png" href="../../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
@@ -17,7 +17,54 @@
           rel="stylesheet">
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      </head>
+    <header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" id="Reference" href="/docs/1.0/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" id="TurnkeyApplications" href="/docs/1.0/visual-designer/index.html">Visual Designer</a>
+        <a class="navbar-enterprise-item" id="Tutorials" href="/docs/1.0/tutorials/index.html">Tutorials</a>
+
+
+    </div>
+  </nav>
+</header>
+  </head>
   <body class="article" >
 <header class="header">
   <nav class="navbar">
@@ -33,8 +80,8 @@
       <div class="navbar-end">
         <!-- TODO: Bring back when we integrate with searching facilities
         <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
         <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
         <div class="navbar-item">
           <span>
             <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
@@ -5394,7 +5441,7 @@
     <li class="component is-current">
       <span class="title">docs</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="../../index.html">1.0</a>
         </li>
       </ul>
@@ -5530,7 +5577,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>account_sid,file_uri,uri,date_updated,date_updated_ms,date_created,date_created_ms,call_sid,org_sid,api_version,duration,sid
+<pre class="highlightjs highlight"><code class="language-none hljs">account_sid,file_uri,uri,date_updated,date_updated_ms,date_created,date_created_ms,call_sid,org_sid,api_version,duration,sid
 ACab03aae495eb4ca69737aa0d0da73d7f,https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REcc5d2ddfa4f5425db7abbdd38fa5f23c.wav,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REcc5d2ddfa4f5425db7abbdd38fa5f23c,"Tue, 26 Apr 2022 00:38:08 +0000","Tue, 26 Apr 2022 00:38:08.123 +0000","Tue, 26 Apr 2022 00:38:08 +0000","Tue, 26 Apr 2022 00:38:08.123 +0000",ID00000000000031302e302e302e313334-CA594b63e15cd540b08f5fb39fa355b5f9,OR55e4cbe945a14edca5bd157b9ee97bcc,2012-04-24,9.9399995803833,REcc5d2ddfa4f5425db7abbdd38fa5f23c
 ACab03aae495eb4ca69737aa0d0da73d7f,https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REa0583ead4e2a47f9a711772e359aaa39.wav,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/REa0583ead4e2a47f9a711772e359aaa39,"Tue, 26 Apr 2022 00:58:11 +0000","Tue, 26 Apr 2022 00:58:11.123 +0000","Tue, 26 Apr 2022 00:58:11 +0000","Tue, 26 Apr 2022 00:58:11.123 +0000",ID00000000000031302e302e302e313334-CAcc0dc87a71f944fcb03a0ac03aa38925,OR55e4cbe945a14edca5bd157b9ee97bcc,2012-04-24,9.9399995803833,REa0583ead4e2a47f9a711772e359aaa39
 ACab03aae495eb4ca69737aa0d0da73d7f,https://my.cpaas.com/api/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/RE5a9e4a2de01440c3a83d2ffc4c7eb40b.wav,/2012-04-24/Accounts/ACab03aae495eb4ca69737aa0d0da73d7f/Recordings/RE5a9e4a2de01440c3a83d2ffc4c7eb40b,"Tue, 26 Apr 2022 00:22:09 +0000","Tue, 26 Apr 2022 00:22:09.123 +0000","Tue, 26 Apr 2022 00:22:09 +0000","Tue, 26 Apr 2022 00:22:09.123 +0000",ID00000000000031302e302e302e313334-CA224974bc28ff467eb93976ffd086f1a1,OR55e4cbe945a14edca5bd157b9ee97bcc,2012-04-24,9.960000038146973,RE5a9e4a2de01440c3a83d2ffc4c7eb40b
@@ -5593,7 +5640,7 @@ ACab03aae495eb4ca69737aa0d0da73d7f,https://my.cpaas.com/api/2012-04-24/Accounts/
   </div>
 </footer>
 <script src="../../../../_/js/site.js"></script>
-<script src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/highlight.bundle.js"></script>
 <!--
 <script>hljs.initHighlighting()</script>
 -->

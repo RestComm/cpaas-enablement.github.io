@@ -10,7 +10,7 @@
     ">
     <meta name="description" content="Restcomm’s Management APIs help CSPs stay at the top of their business by providing all the tools they need to monitor and manage their enterprise customer accounts, applications, phone numbers, notifications and usage statistics.">
     <meta name="keywords" content="restcomm management, restcomm management apis">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.0">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
@@ -19,7 +19,54 @@
           rel="stylesheet">
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      </head>
+    <header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" id="Reference" href="/docs/1.0/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" id="TurnkeyApplications" href="/docs/1.0/visual-designer/index.html">Visual Designer</a>
+        <a class="navbar-enterprise-item" id="Tutorials" href="/docs/1.0/tutorials/index.html">Tutorials</a>
+
+
+    </div>
+  </nav>
+</header>
+  </head>
   <body class="article" >
 <header class="header">
   <nav class="navbar">
@@ -35,8 +82,8 @@
       <div class="navbar-end">
         <!-- TODO: Bring back when we integrate with searching facilities
         <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
         <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
         <div class="navbar-item">
           <span>
             <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
@@ -5396,7 +5443,7 @@
     <li class="component is-current">
       <span class="title">docs</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="../index.html">1.0</a>
         </li>
       </ul>
@@ -5458,7 +5505,7 @@
 <h2 id="_api_endpoint"><a class="anchor" href="#_api_endpoint"></a>API Endpoint</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The base for all the API URLs is: <strong><code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24">https://$DOMAIN/restcomm/2012-04-24</span></code></strong></p>
+<p>The base for all the API URLs is: <strong><code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24">\https://$DOMAIN/restcomm/2012-04-24</span></code></strong></p>
 </div>
 </div>
 </div>
@@ -5507,17 +5554,17 @@
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-148 is-active" onclick="openLanguage('Curl', 148)">Curl</button>
-        <button class="sample-code-button scsIndex-148" onclick="openLanguage('Nodejs', 148)">Nodejs</button>
-        <button class="sample-code-button scsIndex-148" onclick="openLanguage('Python', 148)">Python</button>
-        <button class="sample-code-button scsIndex-148" onclick="openLanguage('Java', 148)">Java</button>
+        <button class="sample-code-button scsIndex-56 is-active" onclick="openLanguage('Curl', 56)">Curl</button>
+        <button class="sample-code-button scsIndex-56" onclick="openLanguage('Nodejs', 56)">Nodejs</button>
+        <button class="sample-code-button scsIndex-56" onclick="openLanguage('Python', 56)">Python</button>
+        <button class="sample-code-button scsIndex-56" onclick="openLanguage('Java', 56)">Java</button>
       </div>
-      <div id="Curl-148" class="sample-language-148">
+      <div id="Curl-56" class="sample-language-56">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID.json?PageSize=1  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-148" class="sample-language-148" style="display:none">
+      <div id="Nodejs-56" class="sample-language-56" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -5536,7 +5583,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-148" class="sample-language-148" style="display:none">
+      <div id="Python-56" class="sample-language-56" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -5556,7 +5603,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-148" class="sample-language-148" style="display:none">
+      <div id="Java-56" class="sample-language-56" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -5597,7 +5644,7 @@ public class JavaSampleClass {
 <h2 id="_responses"><a class="anchor" href="#_responses"></a>Responses</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Restcomm can return its API responses either in .json or .xml format depending on the suffix of the URL the request was made on. For example, a request sent to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json">https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json</span></code> will yield a .json response, while a request sent to <code>wlparam:replace[text="https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.xml</code> will yield an .xml response.</p>
+<p>Restcomm can return its API responses either in .json or .xml format depending on the suffix of the URL the request was made on. For example, a request sent to <code><span class="non-sps-text non-sps-link" data-orig-text="https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json">\https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.json</span></code> will yield a .json response, while a request sent to <code>wlparam:replace[text="https://$DOMAIN/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Calls.xml</code> will yield an .xml response.</p>
 </div>
 </div>
 </div>
@@ -5633,17 +5680,17 @@ public class JavaSampleClass {
 <p>For example, the following request will return the first page of results with a size of 10 items:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-149 is-active" onclick="openLanguage('Curl', 149)">Curl</button>
-        <button class="sample-code-button scsIndex-149" onclick="openLanguage('Nodejs', 149)">Nodejs</button>
-        <button class="sample-code-button scsIndex-149" onclick="openLanguage('Python', 149)">Python</button>
-        <button class="sample-code-button scsIndex-149" onclick="openLanguage('Java', 149)">Java</button>
+        <button class="sample-code-button scsIndex-57 is-active" onclick="openLanguage('Curl', 57)">Curl</button>
+        <button class="sample-code-button scsIndex-57" onclick="openLanguage('Nodejs', 57)">Nodejs</button>
+        <button class="sample-code-button scsIndex-57" onclick="openLanguage('Python', 57)">Python</button>
+        <button class="sample-code-button scsIndex-57" onclick="openLanguage('Java', 57)">Java</button>
       </div>
-      <div id="Curl-149" class="sample-language-149">
+      <div id="Curl-57" class="sample-language-57">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/SMS/Messages.json?Page=0&PageSize=10  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-149" class="sample-language-149" style="display:none">
+      <div id="Nodejs-57" class="sample-language-57" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -5662,7 +5709,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-149" class="sample-language-149" style="display:none">
+      <div id="Python-57" class="sample-language-57" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -5682,7 +5729,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-149" class="sample-language-149" style="display:none">
+      <div id="Java-57" class="sample-language-57" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -5792,7 +5839,7 @@ public class JavaSampleClass {
   </div>
 </footer>
 <script src="../../../_/js/site.js"></script>
-<script src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/highlight.bundle.js"></script>
 <!--
 <script>hljs.initHighlighting()</script>
 -->

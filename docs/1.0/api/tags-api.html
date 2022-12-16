@@ -10,7 +10,7 @@
     ">
     <meta name="description" content="Restcomm&#x27;s Account API supports billing tags to be passed in the network messages and protocols while persisted in the CDRs for billing reconciliation.">
     <meta name="keywords" content="tags api, billing tags api">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.0">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
@@ -19,7 +19,54 @@
           rel="stylesheet">
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      </head>
+    <header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" id="Reference" href="/docs/1.0/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" id="TurnkeyApplications" href="/docs/1.0/visual-designer/index.html">Visual Designer</a>
+        <a class="navbar-enterprise-item" id="Tutorials" href="/docs/1.0/tutorials/index.html">Tutorials</a>
+
+
+    </div>
+  </nav>
+</header>
+  </head>
   <body class="article" >
 <header class="header">
   <nav class="navbar">
@@ -35,8 +82,8 @@
       <div class="navbar-end">
         <!-- TODO: Bring back when we integrate with searching facilities
         <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
         <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
         <div class="navbar-item">
           <span>
             <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
@@ -5396,7 +5443,7 @@
     <li class="component is-current">
       <span class="title">docs</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="../index.html">1.0</a>
         </li>
       </ul>
@@ -5513,12 +5560,12 @@ Tags can only be created by the CSP Administrator.
       }
       </script>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-183 is-active" onclick="openLanguage('Curl', 183)">Curl</button>
-        <button class="sample-code-button scsIndex-183" onclick="openLanguage('Nodejs', 183)">Nodejs</button>
-        <button class="sample-code-button scsIndex-183" onclick="openLanguage('Python', 183)">Python</button>
-        <button class="sample-code-button scsIndex-183" onclick="openLanguage('Java', 183)">Java</button>
+        <button class="sample-code-button scsIndex-91 is-active" onclick="openLanguage('Curl', 91)">Curl</button>
+        <button class="sample-code-button scsIndex-91" onclick="openLanguage('Nodejs', 91)">Nodejs</button>
+        <button class="sample-code-button scsIndex-91" onclick="openLanguage('Python', 91)">Python</button>
+        <button class="sample-code-button scsIndex-91" onclick="openLanguage('Java', 91)">Java</button>
       </div>
-      <div id="Curl-183" class="sample-language-183">
+      <div id="Curl-91" class="sample-language-91">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X POST https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Tags.json  \
    -d 'Name=msisdn' \
    -d 'Value=+30XXXXXXXXX' \
@@ -5526,7 +5573,7 @@ Tags can only be created by the CSP Administrator.
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-183" class="sample-language-183" style="display:none">
+      <div id="Nodejs-91" class="sample-language-91" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -5549,7 +5596,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-183" class="sample-language-183" style="display:none">
+      <div id="Python-91" class="sample-language-91" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -5579,7 +5626,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-183" class="sample-language-183" style="display:none">
+      <div id="Java-91" class="sample-language-91" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -5619,7 +5666,7 @@ public class JavaSampleClass {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "sid": "TGf0a2ca58c89b41bc829a319371a7a959",
     "name": "msisdn",
     "value": "+30XXXXXXXXX",
@@ -5688,18 +5735,18 @@ Tags can only be updated by the CSP Administrator.
 <p>Update Tag with Sid <code>TG9e21ed2cb5e548a6bcafbae1e14c238e</code> and set Value to <code>123456789</code>:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-184 is-active" onclick="openLanguage('Curl', 184)">Curl</button>
-        <button class="sample-code-button scsIndex-184" onclick="openLanguage('Nodejs', 184)">Nodejs</button>
-        <button class="sample-code-button scsIndex-184" onclick="openLanguage('Python', 184)">Python</button>
-        <button class="sample-code-button scsIndex-184" onclick="openLanguage('Java', 184)">Java</button>
+        <button class="sample-code-button scsIndex-92 is-active" onclick="openLanguage('Curl', 92)">Curl</button>
+        <button class="sample-code-button scsIndex-92" onclick="openLanguage('Nodejs', 92)">Nodejs</button>
+        <button class="sample-code-button scsIndex-92" onclick="openLanguage('Python', 92)">Python</button>
+        <button class="sample-code-button scsIndex-92" onclick="openLanguage('Java', 92)">Java</button>
       </div>
-      <div id="Curl-184" class="sample-language-184">
+      <div id="Curl-92" class="sample-language-92">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X PUT https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Tags/TAG_SID.json  \
    -d 'Value=123456789' \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-184" class="sample-language-184" style="display:none">
+      <div id="Nodejs-92" class="sample-language-92" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -5722,7 +5769,7 @@ request.({
 });
 </code></pre>
       </div>
-      <div id="Python-184" class="sample-language-184" style="display:none">
+      <div id="Python-92" class="sample-language-92" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 from urllib.parse import urlencode
@@ -5752,7 +5799,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-184" class="sample-language-184" style="display:none">
+      <div id="Java-92" class="sample-language-92" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -5791,7 +5838,7 @@ public class JavaSampleClass {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "sid": "TG9e21ed2cb5e548a6bcafbae1e14c238e",
     "name": "msisdn",
     "value": "123456789",
@@ -5858,17 +5905,17 @@ Tags can only be queried by the CSP Administrator.
 <p>Query all tags assigned to <code>accountSid</code> of Type <code>Billing</code>.</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-185 is-active" onclick="openLanguage('Curl', 185)">Curl</button>
-        <button class="sample-code-button scsIndex-185" onclick="openLanguage('Nodejs', 185)">Nodejs</button>
-        <button class="sample-code-button scsIndex-185" onclick="openLanguage('Python', 185)">Python</button>
-        <button class="sample-code-button scsIndex-185" onclick="openLanguage('Java', 185)">Java</button>
+        <button class="sample-code-button scsIndex-93 is-active" onclick="openLanguage('Curl', 93)">Curl</button>
+        <button class="sample-code-button scsIndex-93" onclick="openLanguage('Nodejs', 93)">Nodejs</button>
+        <button class="sample-code-button scsIndex-93" onclick="openLanguage('Python', 93)">Python</button>
+        <button class="sample-code-button scsIndex-93" onclick="openLanguage('Java', 93)">Java</button>
       </div>
-      <div id="Curl-185" class="sample-language-185">
+      <div id="Curl-93" class="sample-language-93">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Tags.json?Type=Billing  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-185" class="sample-language-185" style="display:none">
+      <div id="Nodejs-93" class="sample-language-93" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -5887,7 +5934,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-185" class="sample-language-185" style="display:none">
+      <div id="Python-93" class="sample-language-93" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -5907,7 +5954,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-185" class="sample-language-185" style="display:none">
+      <div id="Java-93" class="sample-language-93" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -5939,7 +5986,7 @@ public class JavaSampleClass {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "tags": [
         {
             "sid": "TGfd1ac838aff64ddca73d3f90e51fe6a2",
@@ -5995,17 +6042,17 @@ Tags can only be queried by CSP Administrators
 <p>Retrieve the information of the Tags with Sid TGf0a2ca58c89b41bc829a319371a7a959:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-186 is-active" onclick="openLanguage('Curl', 186)">Curl</button>
-        <button class="sample-code-button scsIndex-186" onclick="openLanguage('Nodejs', 186)">Nodejs</button>
-        <button class="sample-code-button scsIndex-186" onclick="openLanguage('Python', 186)">Python</button>
-        <button class="sample-code-button scsIndex-186" onclick="openLanguage('Java', 186)">Java</button>
+        <button class="sample-code-button scsIndex-94 is-active" onclick="openLanguage('Curl', 94)">Curl</button>
+        <button class="sample-code-button scsIndex-94" onclick="openLanguage('Nodejs', 94)">Nodejs</button>
+        <button class="sample-code-button scsIndex-94" onclick="openLanguage('Python', 94)">Python</button>
+        <button class="sample-code-button scsIndex-94" onclick="openLanguage('Java', 94)">Java</button>
       </div>
-      <div id="Curl-186" class="sample-language-186">
+      <div id="Curl-94" class="sample-language-94">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X GET https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Tags/TAG_SID.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-186" class="sample-language-186" style="display:none">
+      <div id="Nodejs-94" class="sample-language-94" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -6026,7 +6073,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-186" class="sample-language-186" style="display:none">
+      <div id="Python-94" class="sample-language-94" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -6048,7 +6095,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-186" class="sample-language-186" style="display:none">
+      <div id="Java-94" class="sample-language-94" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -6081,7 +6128,7 @@ public class JavaSampleClass {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "sid": "TGf0a2ca58c89b41bc829a319371a7a959",
     "name": "msisdn",
     "value": "+30XXXXXXXXX",
@@ -6124,17 +6171,17 @@ Tags can only be deleted by the CSP Administrator.
 <p>Delete tag with Sid <code>TGf0a2ca58c89b41bc829a319371a7a959</code>:</p>
 </div>
       <div class="sample-code-bar">
-        <button class="sample-code-button scsIndex-187 is-active" onclick="openLanguage('Curl', 187)">Curl</button>
-        <button class="sample-code-button scsIndex-187" onclick="openLanguage('Nodejs', 187)">Nodejs</button>
-        <button class="sample-code-button scsIndex-187" onclick="openLanguage('Python', 187)">Python</button>
-        <button class="sample-code-button scsIndex-187" onclick="openLanguage('Java', 187)">Java</button>
+        <button class="sample-code-button scsIndex-95 is-active" onclick="openLanguage('Curl', 95)">Curl</button>
+        <button class="sample-code-button scsIndex-95" onclick="openLanguage('Nodejs', 95)">Nodejs</button>
+        <button class="sample-code-button scsIndex-95" onclick="openLanguage('Python', 95)">Python</button>
+        <button class="sample-code-button scsIndex-95" onclick="openLanguage('Java', 95)">Java</button>
       </div>
-      <div id="Curl-187" class="sample-language-187">
+      <div id="Curl-95" class="sample-language-95">
         <pre class="highlightjs highlight"><code class="language-console hljs samplecode-container" data-lang="console">curl -X DELETE https://mycompany.restcomm.com/restcomm/2012-04-24/Accounts/ACCOUNT_SID/Tags/TAG_SID.json  \
    -u 'YourAccountSid:YourAuthToken'
 </code></pre>
       </div>
-      <div id="Nodejs-187" class="sample-language-187" style="display:none">
+      <div id="Nodejs-95" class="sample-language-95" style="display:none">
         <pre class="highlightjs highlight"><code class="language-javascript hljs samplecode-container" data-lang="javascript">const request = require('request');
 
 // Provide your Account Sid and Auth Token from your Console Account page
@@ -6155,7 +6202,7 @@ request({
 );
 </code></pre>
       </div>
-      <div id="Python-187" class="sample-language-187" style="display:none">
+      <div id="Python-95" class="sample-language-95" style="display:none">
         <pre class="highlightjs highlight"><code class="language-python hljs samplecode-container" data-lang="python">from http.client import HTTPSConnection
 from base64 import b64encode
 
@@ -6177,7 +6224,7 @@ res = conn.getresponse()
 ...
 </code></pre>
       </div>
-      <div id="Java-187" class="sample-language-187" style="display:none">
+      <div id="Java-95" class="sample-language-95" style="display:none">
         <pre class="highlightjs highlight"><code class="language-java hljs samplecode-container" data-lang="java">import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
@@ -6291,7 +6338,7 @@ Subscriber Profiles can only be modified by the CSP Administrators that.
 <h3 id="_example_request"><a class="anchor" href="#_example_request"></a>Example Request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "multiProvider": {
         "outbound-sms": [
             {
@@ -6458,7 +6505,7 @@ For more information about SMPP specification, please visit <a href="https://smp
   </div>
 </footer>
 <script src="../../../_/js/site.js"></script>
-<script src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/highlight.bundle.js"></script>
 <!--
 <script>hljs.initHighlighting()</script>
 -->

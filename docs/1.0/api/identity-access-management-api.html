@@ -8,7 +8,7 @@
     <link rel="canonical" href="
       https://www.restcomm.com/docs/1.0/api/identity-access-management-api.html
     ">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.0">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
     <link rel="stylesheet" href="../../../_/css/site.css" title="antora-stylesheet">
     <!-- Right now for demo purposes I'm using google icons, but once we finalize design might be different -->
@@ -17,7 +17,54 @@
           rel="stylesheet">
     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      </head>
+    <header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <!-- TODO: we could simplify to this after reverse proxy changes are rolled out, but we need to make sure that
+           it won't break if we change playbook configuration
+      <a class="navbar-item header-logo-link" href="/docs">
+      -->
+      <a class="navbar-item header-logo-link" href="/docs/">
+      </a>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <!-- TODO: Bring back when we integrate with searching facilities
+        <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
+        <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
+        <div class="navbar-item">
+          <span>
+            <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- TODO: need to improve the variable used to decide displaying this nav -->
+  <nav class="navbar-enterprise">
+    <div class="navbar-enterprise-button-container">
+      <button class="navigation-toggle icon-custom-font-right">
+      </button>
+      <!--
+      <span class="icon-custom-font-x"><span class="icon-custom-font-back-hamburger"><span class="icon-custom-font-left"><span class="icon-custom-font-right">
+      -->
+      <button class="navbar-enterprise-burger icon-custom-font-back-hamburger">
+      </button>
+    </div>
+    <div class="navbar-enterprise-container">
+
+
+
+        <a class="navbar-enterprise-item" id="Reference" href="/docs/1.0/api/overview.html">Reference</a>
+        <a class="navbar-enterprise-item" id="TurnkeyApplications" href="/docs/1.0/visual-designer/index.html">Visual Designer</a>
+        <a class="navbar-enterprise-item" id="Tutorials" href="/docs/1.0/tutorials/index.html">Tutorials</a>
+
+
+    </div>
+  </nav>
+</header>
+  </head>
   <body class="article" >
 <header class="header">
   <nav class="navbar">
@@ -33,8 +80,8 @@
       <div class="navbar-end">
         <!-- TODO: Bring back when we integrate with searching facilities
         <a class="navbar-item" href="#"><i class="material-icons">search</i></a>
-        -->
         <a class="navbar-item" href="https://cloud.restcomm.com/#/login">Sign in</a>
+        -->
         <div class="navbar-item">
           <span>
             <a id="signup" class="button" href="https://cloud.restcomm.com/#/signup">Sign up</a>
@@ -5394,7 +5441,7 @@
     <li class="component is-current">
       <span class="title">docs</span>
       <ul class="versions">
-        <li class="version is-current is-latest">
+        <li class="version is-current">
           <a href="../index.html">1.0</a>
         </li>
       </ul>
@@ -5570,7 +5617,7 @@
 </table>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request POST 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f'  \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request POST 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f'  \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -5584,7 +5631,7 @@
 <h4 id="_example_response"><a class="anchor" href="#_example_response"></a>Example Response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
 "sid": "USaff6a6dec30047d58d0f08edf5f46f0f",
 "name": "Jane Doe",
 "email": "jane.doe@company.com",
@@ -5652,7 +5699,7 @@
 <h4 id="_example_request"><a class="anchor" href="#_example_request"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request PUT 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f' \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request PUT 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f' \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -5664,7 +5711,7 @@
 <h4 id="_example_response_2"><a class="anchor" href="#_example_response_2"></a>Example Response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
 "sid": "USaff6a6dec30047d58d0f08edf5f46f0f",
 "name": "Jane Doe",
 "email": "jane.doe@company.com",
@@ -5695,7 +5742,7 @@
 <h4 id="_example_request_2"><a class="anchor" href="#_example_request_2"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request GET 'https://yourcompany.com/api/2012-04-24/Accounts/AC9deec0905f5c5aa8f9e40ca03b54e071/Users' \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request GET 'https://yourcompany.com/api/2012-04-24/Accounts/AC9deec0905f5c5aa8f9e40ca03b54e071/Users' \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret'</code></pre>
 </div>
@@ -5705,7 +5752,7 @@
 <h4 id="_example_response_3"><a class="anchor" href="#_example_response_3"></a>Example Response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "page": 0,
     "num_pages": 1,
     "page_size": 50,
@@ -5763,7 +5810,7 @@
 <h4 id="_example_request_3"><a class="anchor" href="#_example_request_3"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request GET 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USb0b76d2f398348cfa9b18022f81d26d3' \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request GET 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USb0b76d2f398348cfa9b18022f81d26d3' \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret'</code></pre>
 </div>
@@ -5773,7 +5820,7 @@
 <h4 id="_example_response_4"><a class="anchor" href="#_example_response_4"></a>Example Response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "sid": "USaff6a6dec30047d58d0f08edf5f46f0f",
     "name": "Jane Doe",
     "email": "jane.doe@company.com",
@@ -5804,7 +5851,7 @@
 <h4 id="_example_request_4"><a class="anchor" href="#_example_request_4"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request DELETE 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/US7a3bb92e6a5543d9b2fab8e8e278ccce' \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request DELETE 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/US7a3bb92e6a5543d9b2fab8e8e278ccce' \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourAPIKeyValue:YourAPIKeySecret'</code></pre>
 </div>
@@ -5901,7 +5948,7 @@ Accounts and Users that have been migrated from the legacy to the new Identity A
 <h4 id="_example_request_5"><a class="anchor" href="#_example_request_5"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request POST 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f/APIKeys' \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request POST 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f/APIKeys' \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourUsername:YourPassword'</code></pre>
 </div>
@@ -5923,7 +5970,7 @@ The first API Key creation requires basic authorization utilizing the user’s e
 <h4 id="_example_response_5"><a class="anchor" href="#_example_response_5"></a>Example Response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
 "sid": "AK2f8f4d0d36324c1a84a58bffdd4897ef",
 "value": "AK2f8f4d0d36324c1a84a58bffdd4897ef",
 "user_sid": "USaff6a6dec30047d58d0f08edf5f46f0f",
@@ -5952,7 +5999,7 @@ The first API Key creation requires basic authorization utilizing the user’s e
 <h4 id="_example_request_6"><a class="anchor" href="#_example_request_6"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request PUT 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f/APIKeys/AK2f8f4d0d36324c1a84a58bffdd4897ef' \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request PUT 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f/APIKeys/AK2f8f4d0d36324c1a84a58bffdd4897ef' \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourUsername:YourPassword' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -5976,7 +6023,7 @@ This request requires basic authorization utilizing the user’s email address a
 <h4 id="_example_response_6"><a class="anchor" href="#_example_response_6"></a>Example Response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "sid": "AK2f8f4d0d36324c1a84a58bffdd4897ef",
     "value": "AK2f8f4d0d36324c1a84a58bffdd4897ef",
     "user_sid": "USaff6a6dec30047d58d0f08edf5f46f0f",
@@ -6004,7 +6051,7 @@ This request requires basic authorization utilizing the user’s email address a
 <h4 id="_example_request_7"><a class="anchor" href="#_example_request_7"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request GET 'https://yourcompany.com/api/2012-04-24/Accounts/ACbf4e39a26964a12972da1d31c3b07f7a/Users/USbd2e168c5cca4ea6857bba36e187ff09/APIKeys' \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request GET 'https://yourcompany.com/api/2012-04-24/Accounts/ACbf4e39a26964a12972da1d31c3b07f7a/Users/USbd2e168c5cca4ea6857bba36e187ff09/APIKeys' \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourUsername:YourPassword'</code></pre>
 </div>
@@ -6026,7 +6073,7 @@ This request requires basic authorization utilizing the user’s email address a
 <h4 id="_example_response_7"><a class="anchor" href="#_example_response_7"></a>Example Response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "api_keys": [
         {
             "sid": "AK5bed0521de024bf588e010d79aca33dc",
@@ -6067,7 +6114,7 @@ This request requires basic authorization utilizing the user’s email address a
 <h4 id="_example_request_8"><a class="anchor" href="#_example_request_8"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request GET 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f/APIKeys/AK2f8f4d0d36324c1a84a58bffdd4897ef' \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request GET 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f/APIKeys/AK2f8f4d0d36324c1a84a58bffdd4897ef' \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourUsername:YourPassword'</code></pre>
 </div>
@@ -6089,7 +6136,7 @@ This request requires basic authorization utilizing the user’s email address a
 <h4 id="_example_response_8"><a class="anchor" href="#_example_response_8"></a>Example Response</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
     "sid": "AK2f8f4d0d36324c1a84a58bffdd4897ef",
     "value": "AK2f8f4d0d36324c1a84a58bffdd4897ef",
     "user_sid": "USaff6a6dec30047d58d0f08edf5f46f0f",
@@ -6117,7 +6164,7 @@ This request requires basic authorization utilizing the user’s email address a
 <h4 id="_example_request_9"><a class="anchor" href="#_example_request_9"></a>Example Request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>curl --location --request DELETE 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f/APIKeys/AK763360e88c0048a594f6bde046804698' \
+<pre class="highlightjs highlight"><code class="language-none hljs">curl --location --request DELETE 'https://yourcompany.com/api/2012-04-24/Accounts/AC25b6ea2f04ca57c75e6e0e6aef9b69c9/Users/USaff6a6dec30047d58d0f08edf5f46f0f/APIKeys/AK763360e88c0048a594f6bde046804698' \
 --header 'Accept: application/json' \
 --header 'Authorization: Basic YourUsername:YourPassword'</code></pre>
 </div>
@@ -6180,7 +6227,7 @@ This request requires basic authorization utilizing the user’s email address a
   </div>
 </footer>
 <script src="../../../_/js/site.js"></script>
-<script src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/highlight.bundle.js"></script>
 <!--
 <script>hljs.initHighlighting()</script>
 -->
