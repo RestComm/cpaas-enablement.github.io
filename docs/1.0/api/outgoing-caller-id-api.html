@@ -8,7 +8,7 @@
     <link rel="canonical" href="
       https://www.restcomm.com/docs/1.0/api/outgoing-caller-id-api.html
     ">
-    <meta name="description" content="An OutgoingCallerId instance resource represents either a single or a set of verified numbers that may be used as a caller ID when making calls or sending SMS.">
+    <meta name="description" content="OutgoingCallerId represents either a single or set of verified numbers that may be used as a caller ID when making calls or sending SMS">
     <meta name="keywords" content="outgoing caller ID, outgoing caller ID api">
     <meta name="generator" content="Antora 3.1.0">
     <link rel="icon" type="image/png" href="../../../_/img/favicon.png"/>
@@ -5534,12 +5534,12 @@ be used as a caller ID when making outgoing calls or sending SMS via the REST AP
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET 'https://{organization}.restcomm.com/restcomm/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds/{IncomingPhoneNumberSid}.json' -u {AccountSid}:{AccountToken}</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET 'https://{organization}.restcomm.com/api/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds/{IncomingPhoneNumberSid}.json' -u {AccountSid}:{AccountToken}</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
   "sid": "PNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "date_created": "Fri, 21 Aug 2009 00:11:24 +0000",
@@ -5581,14 +5581,14 @@ be used as a caller ID when making outgoing calls or sending SMS via the REST AP
 </table>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X PUT https://{Organization}.restcomm.com/restcomm/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds/{PhoneNumberSid}.json \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X PUT https://{Organization}.restcomm.com/api/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds/{PhoneNumberSid}.json \
 --data-urlencode "FriendlyName=John Doe" \
 -u {AccountSid}:{AccountToken}</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
   "sid": "PNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "date_created": "Fri, 21 Aug 2009 00:11:24 +0000",
@@ -5610,7 +5610,7 @@ be used as a caller ID when making outgoing calls or sending SMS via the REST AP
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X DELETE 'https://{organization}.restcomm.com/restcomm/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds/{IncomingPhoneNumberSid}.json' -u {AccountSid}:{AccountToken}</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X DELETE 'https://{organization}.restcomm.com/api/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds/{IncomingPhoneNumberSid}.json' -u {AccountSid}:{AccountToken}</code></pre>
 </div>
 </div>
 </div>
@@ -5633,12 +5633,12 @@ be used as a caller ID when making outgoing calls or sending SMS via the REST AP
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET 'https://{Organization}.restcomm.com/restcomm/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds.json?PageSize=20' -u {AccountSid}:{AccountToken}</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X GET 'https://{Organization}.restcomm.com/api/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds.json?PageSize=20' -u {AccountSid}:{AccountToken}</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
   "end": 0,
   "first_page_uri": "/2012-04-24/Accounts/ACXXXXXX/OutgoingCallerIds.json?Page=0&amp;PageSize=50",
   "last_page_uri": "/2012-04-24/Accounts/ACXXXXXXX/OutgoingCallerIds.json?Page=0&amp;PageSize=50",
@@ -5698,7 +5698,7 @@ be used as a caller ID when making outgoing calls or sending SMS via the REST AP
 </table>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST https://{Organization}.restcomm.com/restcomm/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds.json \
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -X POST https://{Organization}.restcomm.com/api/2012-04-24/Accounts/{AccountSid}/OutgoingCallerIds.json \
 --data-urlencode "FriendlyName=My Home Phone Number" \
 --data-urlencode "PhoneNumber=^\+14158675310" \
 -u {AccountSid}:{AccountToken}</code></pre>
@@ -5706,7 +5706,7 @@ be used as a caller ID when making outgoing calls or sending SMS via the REST AP
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+<pre class="highlightjs highlight"><code class="language-none hljs">{
   "sid": "PNXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "date_created": "Fri, 21 Aug 2009 00:11:24 +0000",

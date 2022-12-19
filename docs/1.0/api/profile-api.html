@@ -5716,7 +5716,7 @@ You can check which are the effective Profiles for a given account and organizat
 <h2 id="_create_profile"><a class="anchor" href="#_create_profile"></a>Create Profile</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code><strong>POST /restcomm/2012-04-24/Profiles</strong></code></p>
+<p><code><strong>POST /api/2012-04-24/Profiles</strong></code></p>
 </div>
 <div class="paragraph">
 <p>Creates a new Subscriber or Management Profile and returns the representation.The body of the request is expected to contain a JSON document compliant to the Profile schema.</p>
@@ -6176,7 +6176,7 @@ When a Sub Account is created by default, that account has access to all the Tur
 <h2 id="_update_profile"><a class="anchor" href="#_update_profile"></a>Update Profile</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>PUT /restcomm/2012-04-24/Profiles/{profileSid}</p>
+<p>PUT /api/2012-04-24/Profiles/{profileSid}</p>
 </div>
 <div class="paragraph">
 <p>Modifies a Subscriber or Management Profile resource and returns the representation.The body of the request is expected to contain a JSON document compliant to the Profile schema.Similar to creating a Profile, during Profile modification you need to pass Content-Type HTTP header and specify <code>application/json</code> content type.</p>
@@ -6318,7 +6318,7 @@ Subscriber and Management Profiles can only be linked by the CP Administrator.Su
 <div class="listingblock">
 <div class="content">
 <pre>curl -X PUT -u ‘user:pass’ \
- https://yourorganization.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123 \
+ https://yourorganization.com/api/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123 \
  -H 'Content-Type: application/json' \
  -d '{
    "multiProvider": {
@@ -6343,7 +6343,7 @@ Subscriber and Management Profiles can only be linked by the CP Administrator.Su
 <div class="listingblock">
 <div class="content">
 <pre>curl -X PUT -u ‘user:pass’ \
- https://yourorganization.com/restcomm/2012-04-24/Profiles/PRd956d32af34847dbb952273f61070c9e \
+ https://yourorganization.com/api/2012-04-24/Profiles/PRd956d32af34847dbb952273f61070c9e \
  -H 'Content-Type: application/json' \
  -d '{
  "featureEnablement": {
@@ -6365,9 +6365,9 @@ Subscriber and Management Profiles can only be linked by the CP Administrator.Su
 <div class="listingblock">
 <div class="content">
 <pre>curl -X PUT -u 'accountSid:authToken' \
-  https://yourorganization.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123 \
+  https://yourorganization.com/api/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123 \
   -H "X-Provisioning-Operation:LINK" \
-  -H "Link:&lt;https://yourorganization.com/restcomm/2012-04-24/Accounts/ACae6e420f4252XXXXXXXXXXXXXXXXXXXX&gt;;rel=related"</pre>
+  -H "Link:&lt;https://yourorganization.com/api/2012-04-24/Accounts/ACae6e420f4252XXXXXXXXXXXXXXXXXXXX&gt;;rel=related"</pre>
 </div>
 </div>
 </div>
@@ -6375,10 +6375,10 @@ Subscriber and Management Profiles can only be linked by the CP Administrator.Su
 <h4 id="_2_unlink_a_profile_from_an_account"><a class="anchor" href="#_2_unlink_a_profile_from_an_account"></a>2. Unlink a Profile from an Account</h4>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X PUT  https://yourorganization.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123 \
+<pre>curl -X PUT  https://yourorganization.com/api/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123 \
   -u ‘user:pass’ \
   -H " X-Provisioning-Operation:UNLINK " \
-  -H "Link:&lt;https://yourorganization.com/restcomm/2012-04-24/Accounts/ACae6e420f4252XXXXXXXXXXXXXXXXXXXX&gt;;rel=related"</pre>
+  -H "Link:&lt;https://yourorganization.com/api/2012-04-24/Accounts/ACae6e420f4252XXXXXXXXXXXXXXXXXXXX&gt;;rel=related"</pre>
 </div>
 </div>
 </div>
@@ -6386,10 +6386,10 @@ Subscriber and Management Profiles can only be linked by the CP Administrator.Su
 <h4 id="_link_a_profile_to_an_organization"><a class="anchor" href="#_link_a_profile_to_an_organization"></a>Link a Profile to an Organization</h4>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X PUT https://yourorganization.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123  \
+<pre>curl -X PUT https://yourorganization.com/api/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123  \
   -u ‘user:pass’ \
   -H "X-Provisioning-Operation:LINK" \
-  -H "Link:&lt;https://yourorganization.com/restcomm/2012-04-24/Organizations/ORafbe225ad37541eba518a74248f0ac4c&gt;;rel=related"</pre>
+  -H "Link:&lt;https://yourorganization.com/api/2012-04-24/Organizations/ORafbe225ad37541eba518a74248f0ac4c&gt;;rel=related"</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -6409,10 +6409,10 @@ To run this command you will first need to retrieve the Organization ID by query
 <h4 id="_unlink_a_profile_from_an_organization"><a class="anchor" href="#_unlink_a_profile_from_an_organization"></a>Unlink a Profile from an Organization</h4>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X PUT https://yourorganization.com/restcomm/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123 \
+<pre>curl -X PUT https://yourorganization.com/api/2012-04-24/Profiles/PRae6e420f425248d6a26948c17a9e2123 \
   -u ‘user:pass’ \
   -H "X-HTTP-Method-Override:UNLINK" \
-  -H  "Link:&lt;https://yourorganization.com/restcomm/2012-04-24/Organizations/ORafbe225ad37541eba518a74248f0ac4c&gt;;rel=related"</pre>
+  -H  "Link:&lt;https://yourorganization.com/api/2012-04-24/Organizations/ORafbe225ad37541eba518a74248f0ac4c&gt;;rel=related"</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -6435,7 +6435,7 @@ To run this command you will first need to retrieve the Organization ID by query
 <h2 id="_get_profiles_list"><a class="anchor" href="#_get_profiles_list"></a>Get Profiles List</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code><strong>GET /restcomm/2012-04-24/Profiles</strong></code></p>
+<p><code><strong>GET /api/2012-04-24/Profiles</strong></code></p>
 </div>
 <div class="paragraph">
 <p>Returns a list of Profiles subject to provided filtering and paging query parameters.</p>
@@ -6584,7 +6584,7 @@ To run this command you will first need to retrieve the Organization ID by query
 <h4 id="_get_first_page_of_10_subscriber_profiles_including_the_document"><a class="anchor" href="#_get_first_page_of_10_subscriber_profiles_including_the_document"></a>Get first page of 10 Subscriber Profiles, including the document</h4>
 <div class="listingblock">
 <div class="content">
-<pre>curl -X GET  https://yourorganization.com/restcomm/2012-04-24/Profiles?Page=0&amp;PageSize=10&amp;Type=Subscriber&amp;include-doc \
+<pre>curl -X GET  https://yourorganization.com/api/2012-04-24/Profiles?Page=0&amp;PageSize=10&amp;Type=Subscriber&amp;include-doc \
  -u ‘user:pass’ \</pre>
 </div>
 </div>
